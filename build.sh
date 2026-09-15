@@ -28,6 +28,9 @@ echo ""
 echo "== Building smoke test =="
 $CXX $FLAGS tests/smoke_test.cpp -o tests/smoke_test.exe
 
+echo "== Building differential test (cross-implementation resolve() agreement) =="
+$CXX $FLAGS tests/differential_test.cpp -o tests/differential_test.exe
+
 echo "== Building CLI demo (budget_sym_demo) =="
 $CXX $FLAGS src/demo_main.cpp -o budget_sym_demo.exe
 
@@ -61,6 +64,10 @@ $CXX $FLAGS src/algorithm_benchmark_main.cpp -o algorithm_benchmark.exe
 echo ""
 echo "== Running smoke test =="
 ./tests/smoke_test.exe
+
+echo ""
+echo "== Running differential test =="
+./tests/differential_test.exe
 
 echo ""
 echo "== Running benchmark (writes results/benchmark_results.csv) =="

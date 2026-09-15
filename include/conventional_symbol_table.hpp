@@ -49,17 +49,37 @@ public:
         meta.scopeId = static_cast<int>(scopeMaps_.size()) - 1;
         meta.typeId = typeId;
         meta.representation = Representation::INLINE_REP; // conventional = always "inline", no adaptivity
-        scopeMaps_.back()[name] = meta;
+        // Same-scope redeclaration replaces the binding in place. It must not
+        // be charged again: std::unordered_map::operator[] reuses the existing
+        // node, so no new string copy exists. (Earlier versions charged
+        // entryCost() on every insert, which inflated this baseline's modeled
+        // memory by one full string per duplicate occurrence -- e.g. 80 MB
+        // modeled vs 1.8 MB measured on the FreeRTOS token stream.)
+        auto& scope = scopeMaps_.back();
+        auto existing = scope.find(name);
+        if (existing != scope.end()) {
+            existing->second = meta;
+            return id;
+        }
+        scope.emplace(name, meta);
         tracker_.add(entryCost(name));
         return id;
     }
 
-    bool lookup(const std::string& name) const {
+    // Declaration ordinal (the value insert() returned) of the innermost live
+    // binding of `name`, or -1. All symbol tables in this project number
+    // declarations identically (0, 1, 2, ... per insert() call), so resolve()
+    // results are directly comparable across implementations -- this is what
+    // tests/differential_test.cpp checks.
+    int resolve(const std::string& name) const {
         for (auto it = scopeMaps_.rbegin(); it != scopeMaps_.rend(); ++it) {
-            if (it->find(name) != it->end()) return true;
+            auto f = it->find(name);
+            if (f != it->end()) return f->second.id;
         }
-        return false;
+        return -1;
     }
+
+    bool lookup(const std::string& name) const { return resolve(name) >= 0; }
 
     void recordAccess(const std::string& name) {
         for (auto it = scopeMaps_.rbegin(); it != scopeMaps_.rend(); ++it) {

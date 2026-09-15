@@ -66,26 +66,45 @@ public:
     }
 
     int insert(const std::string& name, int typeId = 0) {
-        int termIdx = internTrie(name);
         int id = nextId_++;
         SymbolMeta meta;
         meta.id = id;
         meta.scopeId = static_cast<int>(scopeMaps_.size()) - 1;
         meta.typeId = typeId;
         meta.representation = Representation::COMPRESSED_REP; // trie is a compression strategy, same label family
-        scopeMaps_.back()[termIdx] = meta;
+        // walkOrCreatePath() below walks the trie exactly ONCE regardless of
+        // which case this turns out to be (brand-new name, shadow of an
+        // outer scope's binding, or a true same-scope redeclaration) --
+        // earlier versions called findTerminal() (a full walk) and then,
+        // on the non-redeclare paths, internTrie() (a second full walk of
+        // the same characters), doubling per-insert cost project-wide.
+        int termIdx = walkOrCreatePath(name);
+        // Same-scope redeclaration replaces the binding in place: no extra
+        // terminal reference and no extra charge (earlier versions leaked a
+        // refcount here, so the terminal mark could never be reclaimed).
+        auto f = scopeMaps_.back().find(termIdx);
+        if (f != scopeMaps_.back().end()) {
+            f->second = meta;
+            return id;
+        }
+        markTerminal(termIdx);
+        scopeMaps_.back().emplace(termIdx, meta);
         tracker_.add(kIndexEntryOverhead);
         return id;
     }
 
-    bool lookup(const std::string& name) const {
+    // See ConventionalSymbolTable::resolve().
+    int resolve(const std::string& name) const {
         int termIdx = findTerminal(name);
-        if (termIdx < 0) return false; // never inserted at all -> definitely absent
+        if (termIdx < 0) return -1; // never inserted at all -> definitely absent
         for (auto it = scopeMaps_.rbegin(); it != scopeMaps_.rend(); ++it) {
-            if (it->find(termIdx) != it->end()) return true;
+            auto f = it->find(termIdx);
+            if (f != it->end()) return f->second.id;
         }
-        return false;
+        return -1;
     }
+
+    bool lookup(const std::string& name) const { return resolve(name) >= 0; }
 
     void recordAccess(const std::string& name) {
         int termIdx = findTerminal(name);
@@ -118,12 +137,15 @@ private:
     };
 
     // Walks/creates the path for `name`, charging kNewNodeOverhead for every
-    // node actually created (i.e. NOT reusing an existing branch) and
-    // kTerminalMarkOverhead the first time the terminal node is marked --
-    // this is the trie's actual compression mechanism: a name whose full
-    // prefix already exists character-for-character pays only the terminal
-    // mark, regardless of when or in what order that prefix was laid down.
-    int internTrie(const std::string& name) {
+    // node actually created (i.e. NOT reusing an existing branch) -- this is
+    // the trie's actual compression mechanism: a name whose full prefix
+    // already exists character-for-character pays nothing here, regardless
+    // of when or in what order that prefix was laid down. Does NOT touch the
+    // terminal flag or refcount: insert() decides separately (via
+    // markTerminal() below) whether this call represents a genuinely new
+    // scope binding or a same-scope redeclaration, so this walk can be
+    // shared by both cases instead of happening twice.
+    int walkOrCreatePath(const std::string& name) {
         int cur = 0; // root
         for (char c : name) {
             auto& children = nodes_[cur].children;
@@ -141,12 +163,20 @@ private:
             tracker_.add(kNewNodeOverhead);
             cur = newIdx;
         }
-        if (!nodes_[cur].terminal) {
-            nodes_[cur].terminal = true;
+        return cur;
+    }
+
+    // Marks node `idx` terminal (charging kTerminalMarkOverhead the first
+    // time only) and bumps its refcount. Called from insert() exactly once
+    // per genuinely new scope binding -- not for a same-scope redeclaration,
+    // which reuses the existing terminal/refcount untouched.
+    void markTerminal(int idx) {
+        TrieNode& n = nodes_[idx];
+        if (!n.terminal) {
+            n.terminal = true;
             tracker_.add(kTerminalMarkOverhead);
         }
-        nodes_[cur].refCount++;
-        return cur;
+        n.refCount++;
     }
 
     int findTerminal(const std::string& name) const {

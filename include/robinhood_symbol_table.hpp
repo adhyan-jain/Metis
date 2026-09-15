@@ -70,7 +70,9 @@ public:
         meta.scopeId = static_cast<int>(scopes_.size()) - 1;
         meta.typeId = typeId;
         meta.representation = Representation::INLINE_REP; // raw storage, no adaptivity -- same framing as Conventional
-        scopes_.back().insert(name, meta);
+        // insert() returns false for a same-scope redeclaration (binding
+        // overwritten in place, no new slot) -- not charged again.
+        if (!scopes_.back().insert(name, meta)) return id;
         // Tracked-memory charge uses the exact same per-entry formula as
         // ConventionalSymbolTable::entryCost -- deliberately, so the headline
         // "tracked memory" / compression_ratio numbers stay comparable across
@@ -96,12 +98,16 @@ public:
         return total;
     }
 
-    bool lookup(const std::string& name) const {
+    // See ConventionalSymbolTable::resolve().
+    int resolve(const std::string& name) const {
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
-            if (it->find(name) != nullptr) return true;
+            const SymbolMeta* m = it->find(name);
+            if (m != nullptr) return m->id;
         }
-        return false;
+        return -1;
     }
+
+    bool lookup(const std::string& name) const { return resolve(name) >= 0; }
 
     void recordAccess(const std::string& name) {
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
@@ -155,7 +161,9 @@ private:
             return static_cast<long long>(empty * sizeof(Slot));
         }
 
-        void insert(std::string key, SymbolMeta meta) {
+        // Returns true if a new slot was filled, false if an existing key's
+        // meta was overwritten.
+        bool insert(std::string key, SymbolMeta meta) {
             if (static_cast<double>(count + 1) / static_cast<double>(slots.size()) > kMaxLoadFactor) {
                 grow();
             }
@@ -167,11 +175,11 @@ private:
                 if (!s.occupied) {
                     s = Slot{h, std::move(key), meta, dist, true};
                     count++;
-                    return;
+                    return true;
                 }
                 if (s.hash == h && s.key == key) {
                     s.meta = meta; // re-declaration in the same scope: overwrite, matches Conventional's operator[] semantics
-                    return;
+                    return false;
                 }
                 if (s.probeDistance < dist) {
                     // Robin Hood swap: the incoming element is "poorer" (has

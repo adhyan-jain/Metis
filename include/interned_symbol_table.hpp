@@ -44,25 +44,42 @@ public:
 
     int insert(const std::string& name, int typeId = 0) {
         int id = nextId_++;
-        int poolIdx = internName(name);
         SymbolMeta meta;
         meta.id = id;
         meta.scopeId = static_cast<int>(scopeMaps_.size()) - 1;
         meta.typeId = typeId;
         meta.representation = Representation::INTERNED_REP;
-        scopeMaps_.back()[poolIdx] = meta;
+        // Same-scope redeclaration replaces the binding in place: no second
+        // scope-map slot exists, so no extra charge and no extra pool
+        // reference. (Earlier versions bumped the refcount and charged
+        // kIndexEntryOverhead on every insert but released only once on
+        // scope exit -- a refcount leak plus double-charging.)
+        auto p = poolLookup_.find(name);
+        if (p != poolLookup_.end()) {
+            auto existing = scopeMaps_.back().find(p->second);
+            if (existing != scopeMaps_.back().end()) {
+                existing->second = meta;
+                return id;
+            }
+        }
+        int poolIdx = internName(name);
+        scopeMaps_.back().emplace(poolIdx, meta);
         tracker_.add(kIndexEntryOverhead);
         return id;
     }
 
-    bool lookup(const std::string& name) const {
+    // See ConventionalSymbolTable::resolve().
+    int resolve(const std::string& name) const {
         auto p = poolLookup_.find(name);
-        if (p == poolLookup_.end()) return false; // never interned -> definitely not present
+        if (p == poolLookup_.end()) return -1; // never interned -> definitely not present
         for (auto it = scopeMaps_.rbegin(); it != scopeMaps_.rend(); ++it) {
-            if (it->find(p->second) != it->end()) return true;
+            auto f = it->find(p->second);
+            if (f != it->end()) return f->second.id;
         }
-        return false;
+        return -1;
     }
+
+    bool lookup(const std::string& name) const { return resolve(name) >= 0; }
 
     void recordAccess(const std::string& name) {
         auto p = poolLookup_.find(name);

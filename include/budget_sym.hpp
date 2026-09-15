@@ -106,20 +106,42 @@ public:
         long long cost = materialize(e, name, rep);
         tracker_.add(cost);
 
-        entries_.push_back(e);
         uint64_t h = HashFn::hash(name);
+        // Same-scope redeclaration must replace the existing live binding,
+        // not add a second one alongside it -- otherwise this scope's
+        // hashIndex holds two live entries for one name (an internal
+        // shadow-of-self), lookup()'s equal_range() walk finds whichever one
+        // the multimap happens to iterate first (undefined which), and the
+        // discarded entry's cost is never reclaimed. This mirrors
+        // ConventionalSymbolTable/InternedSymbolTable's operator[] overwrite
+        // semantics: this scope's *previous* binding for `name` (if live) is
+        // tombstoned and its cost reclaimed before the new entry is charged.
+        {
+            auto range = scopes_.back().hashIndex.equal_range(h);
+            for (auto it = range.first; it != range.second; ++it) {
+                Entry& old = entries_[it->second];
+                if (!old.tombstoned && reconstructName(old) == name) {
+                    releaseEntry(old);
+                    old.tombstoned = true;
+                    break; // at most one live same-scope binding can exist per name
+                }
+            }
+        }
+
+        entries_.push_back(e);
         // Correctness fix: a new declaration sharing this hash -- most often
-        // the exact same name shadowing an outer-scope symbol -- must not
-        // leave a stale (hash, name) -> old-id mapping in the lookup cache.
-        // Without this, lookup()'s cache fast path resolves shadowed names to
-        // the WRONG (outer, stale) entry: it checks (hash, name) equality,
-        // both of which are identical for a shadowing redeclaration, and has
-        // no scope-awareness at all. Confirmed empirically before this fix --
-        // a nested-scope shadow of "x" caused the OUTER "x" to receive
-        // accessCount increments and even get incorrectly promoted while the
-        // inner "x" was the live, correct match. exitScope()'s own
-        // invalidate() call does not cover this case: it only fires when a
-        // scope closes, not when a new declaration opens one.
+        // the exact same name shadowing an outer-scope symbol, or the
+        // same-scope redeclaration just tombstoned above -- must not leave a
+        // stale (hash, name) -> old-id mapping in the lookup cache. Without
+        // this, lookup()'s cache fast path resolves to the WRONG (stale)
+        // entry: it checks (hash, name) equality, both of which are
+        // identical here, and has no scope-awareness at all. Confirmed
+        // empirically before this fix -- a nested-scope shadow of "x" caused
+        // the OUTER "x" to receive accessCount increments and even get
+        // incorrectly promoted while the inner "x" was the live, correct
+        // match. exitScope()'s own invalidate() call does not cover this
+        // case: it only fires when a scope closes, not when a new
+        // declaration opens one.
         lookupCache_.invalidate(h);
         scopes_.back().hashIndex.insert(std::make_pair(h, id));
 
@@ -143,41 +165,13 @@ public:
     // isolating the lookup cache's latency effect (Section VIII-E).
     void setLookupCacheEnabled(bool e) { lookupCache_.setEnabled(e); }
 
-    bool lookup(const std::string& name) {
-        uint64_t h = HashFn::hash(name);
-
-        // Fast path: a 64-entry LRU cache of recently-looked-up symbols, keyed
-        // by hash+name. A hit skips the hash-bucket walk and the
-        // reconstruct-and-compare step entirely -- see include/lookup_cache.hpp.
-        void* cachedPtr = nullptr;
-        if (lookupCache_.get(h, name, cachedPtr)) {
-            int id = idFromCachePtr(cachedPtr);
-            Entry& e = entries_[id];
-            if (!e.tombstoned) {
-                e.meta.accessCount++;
-                maybePromote(e, name);
-                return true;
-            }
-            // Stale cache entry (scope reclaimed the symbol without going
-            // through exitScope()'s invalidate() path -- should not normally
-            // happen, but fail safe by falling through to the real lookup).
-        }
-
-        for (auto sIt = scopes_.rbegin(); sIt != scopes_.rend(); ++sIt) {
-            auto range = sIt->hashIndex.equal_range(h);
-            for (auto it = range.first; it != range.second; ++it) {
-                Entry& e = entries_[it->second];
-                if (e.tombstoned) continue;
-                if (reconstructName(e) == name) {
-                    e.meta.accessCount++;
-                    maybePromote(e, name);
-                    lookupCache_.put(h, name, cachePtrFromId(it->second));
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    // resolve() is the single implementation of the cache-check + hash-bucket
+    // walk + promote + cache-populate path; lookup() below is a thin wrapper.
+    // (Previously these were two independently maintained copies of the same
+    // logic -- a code-review finding: a future change to one, e.g. a
+    // promotion-policy tweak or another cache-invalidation fix, could
+    // silently diverge from the other.)
+    bool lookup(const std::string& name) { return resolve(name) >= 0; }
 
     void recordAccess(const std::string& name) { lookup(name); } // lookup already counts + promotes
 
@@ -191,6 +185,40 @@ public:
             }
         }
         return Representation::INLINE_REP;
+    }
+
+    // Declaration ordinal of the innermost live binding of `name`, or -1.
+    // See ConventionalSymbolTable::resolve() -- ids are comparable across
+    // implementations because every insert() call numbers declarations
+    // identically (0, 1, 2, ...) regardless of the table type.
+    int resolve(const std::string& name) {
+        uint64_t h = HashFn::hash(name);
+
+        void* cachedPtr = nullptr;
+        if (lookupCache_.get(h, name, cachedPtr)) {
+            int id = idFromCachePtr(cachedPtr);
+            Entry& e = entries_[id];
+            if (!e.tombstoned) {
+                e.meta.accessCount++;
+                maybePromote(e, name);
+                return e.meta.id;
+            }
+        }
+
+        for (auto sIt = scopes_.rbegin(); sIt != scopes_.rend(); ++sIt) {
+            auto range = sIt->hashIndex.equal_range(h);
+            for (auto it = range.first; it != range.second; ++it) {
+                Entry& e = entries_[it->second];
+                if (e.tombstoned) continue;
+                if (reconstructName(e) == name) {
+                    e.meta.accessCount++;
+                    maybePromote(e, name);
+                    lookupCache_.put(h, name, cachePtrFromId(it->second));
+                    return e.meta.id;
+                }
+            }
+        }
+        return -1;
     }
 
     size_t size() const {
