@@ -1601,8 +1601,13 @@ Update this section after every completed phase.
     effect sizes. Validated H1 (V2 vs V1 memory, p < 1e-40, Cohen's d in [-749.3, -27.2]),
     H3 (scope reclamation effect, p < 1e-35), and H4-H6. Outputs: results/multiseed_v2_raw.csv,
     results/statistical_summary.csv, and results/statistical_methodology.md.
- ML oracle
- ML comparison
+[x] ML oracle -- Constructed latency-constrained memory oracle over empirical Pareto grid
+    results (results/pareto_results.csv) across 4 latency constraints (1.10x, 1.25x, 1.50x, 2.00x).
+[x] ML comparison -- Evaluated Static Baseline, Hand-Designed Heuristic, Ridge Classifier,
+    Decision Tree, and ExtraTrees models in scripts/train_ml_oracle.py using Leave-One-Workload-Out
+    (LOWO) CV on synthetic workloads and held-out real-world corpora (FreeRTOS, Arduino, Zephyr).
+    Measured memory footprint, cold lookup p50 latency, constraint violation rate, regret vs oracle,
+    model size, and inference latency. Outputs: results/ml_comparison.csv and results/ml_validation.md.
  Related work
  Adversarial review
  Adversarial fixes

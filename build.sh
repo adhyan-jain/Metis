@@ -188,6 +188,14 @@ $CXX $FLAGS src/statistical_validation_main.cpp -o statistical_validation.exe
 python scripts/statistical_validation.py || python3 scripts/statistical_validation.py
 
 echo ""
+echo "== Running Latency-Constrained ML Policy Evaluation (CLAUDE_RESEARCH.md Section 16) =="
+if [ -f venv/bin/activate ]; then
+    (source venv/bin/activate && python scripts/train_ml_oracle.py)
+else
+    python3 scripts/train_ml_oracle.py
+fi
+
+echo ""
 echo "== Generating figures (requires python + matplotlib + pandas is NOT required, csv module only) =="
 python scripts/plot_results.py || python3 scripts/plot_results.py
 
