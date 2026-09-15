@@ -1577,8 +1577,13 @@ Update this section after every completed phase.
 [x] Dataset characterization -- Generated results/corpus_characterization.csv
     reporting 15 characterization metrics (files, decls, uses, unique_symbols,
     redeclarations, shadowing, max/avg scope depth, mean_len, prefix_similarity,
-    repeat_rate, entropy, access_skew, churn). Documented in results/corpus_methodology.md.
- Pareto optimization
+[x] Pareto optimization -- Implementation in src/pareto_main.cpp, plotting in
+    scripts/plot_pareto.py, and methodology documentation in results/pareto_methodology.md.
+    Evaluated 1,700 SymTabV2 policy configurations across all 12 taxonomy datasets
+    (Categories A, B, C) under predetermined latency bounds (L=1.10x, 1.25x, 1.50x, 2.00x).
+    Generates results/pareto_results.csv (20,400 evaluation rows) and results/pareto_frontier.csv
+    (48 constrained optimal rows), with figures in figures/pareto_memory_vs_latency.png and
+    figures/pareto_frontier_by_workload.png.
  Parameter study
  Ablation
  Statistical validation

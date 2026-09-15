@@ -79,6 +79,9 @@ $CXX $FLAGS src/v2_benchmark_main.cpp -o v2_benchmark.exe
 echo "== Building semantic corpus event benchmark (CLAUDE_RESEARCH.md Section 10) =="
 $CXX $FLAGS src/corpus_event_bench_main.cpp -o corpus_event_bench.exe
 
+echo "== Building Pareto optimization benchmark (CLAUDE_RESEARCH.md Section 12) =="
+$CXX $FLAGS src/pareto_main.cpp -o pareto.exe
+
 echo ""
 echo "== Running smoke test =="
 ./tests/smoke_test.exe
@@ -166,6 +169,10 @@ echo "== Running algorithm comparison benchmark (writes results/algorithm_compar
 echo ""
 echo "== Running V2 research-grade benchmark (writes results/v2_latency_memory.csv) =="
 ./v2_benchmark.exe
+
+echo ""
+echo "== Running Pareto optimization benchmark (writes results/pareto_results.csv, results/pareto_frontier.csv) =="
+./pareto.exe
 
 echo ""
 echo "== Generating figures (requires python + matplotlib + pandas is NOT required, csv module only) =="
