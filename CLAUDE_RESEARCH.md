@@ -1500,8 +1500,20 @@ Update this section after every completed phase.
     docs/hot_cold_design.md (hot/cold thresholds, promotion/demotion
     behavior, scope interaction, memory/lookup transition costs), with 4
     correctness tests, all passing clean under -fsanitize=address,undefined.
- ECC review
- ECC fixes
+[x] ECC review -- results/ecc_review.md: 11 findings (1 CRITICAL, 3 HIGH,
+    4 MEDIUM, 3 LOW). No code modified during the review itself, per
+    protocol. CRITICAL (C1: stale wasPromoted/lastAccessEpoch on slot
+    reuse misfires demotion) blocks enabling coldIdleEpochs>0 in any
+    benchmark until fixed; does not invalidate any currently-committed
+    result (demotion isn't enabled anywhere yet). HIGH findings H1
+    (ScopeIndex memory never tracked) and H2 (block_compression_sweep's
+    own instrumentation double-counts reconstructions) DO affect already-
+    committed results/memory_audit_v2.csv and
+    results/block_compression_sweep.csv respectively -- see review section
+    4 for exact required fixes.
+[ ] ECC fixes -- next phase: apply C1/H1/H2/H3 (+M1-M4 where cheap) fixes
+    identified by the review, then rerun the affected experiments
+    (memory_audit_v2, block_compression_sweep) and the full test suite.
  Benchmark infrastructure
  Corpus event extraction
  Corpus validation
