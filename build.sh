@@ -182,6 +182,12 @@ echo "== Running systematic parameter study (writes results/parameter_sweep.csv)
 ./parameter_study.exe
 
 echo ""
+echo "== Building and Running statistical validation (CLAUDE_RESEARCH.md Section 15) =="
+$CXX $FLAGS src/statistical_validation_main.cpp -o statistical_validation.exe
+./statistical_validation.exe
+python scripts/statistical_validation.py || python3 scripts/statistical_validation.py
+
+echo ""
 echo "== Generating figures (requires python + matplotlib + pandas is NOT required, csv module only) =="
 python scripts/plot_results.py || python3 scripts/plot_results.py
 

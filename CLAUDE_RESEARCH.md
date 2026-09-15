@@ -1594,7 +1594,13 @@ Update this section after every completed phase.
     V2-NoFingerprints, V2-NoHotColdPromotion, V2-NoAdaptiveRepresentation, V2-NoScopeReclamation)
     across 10 workloads in Categories A, B, C. Validated clean under -fsanitize=address,undefined.
     Output written to results/ablation.csv (90 evaluation rows).
- Statistical validation
+[x] Statistical validation -- Multiseed C++ runner in src/statistical_validation_main.cpp
+    and Python statistical engine in scripts/statistical_validation.py. Evaluated N=30
+    independent random seeds (1000..1729) across 8 synthetic families for 7 implementations
+    (1,680 total trace evaluations). Computed 95% Student's t CIs, paired t-tests, and Cohen's d
+    effect sizes. Validated H1 (V2 vs V1 memory, p < 1e-40, Cohen's d in [-749.3, -27.2]),
+    H3 (scope reclamation effect, p < 1e-35), and H4-H6. Outputs: results/multiseed_v2_raw.csv,
+    results/statistical_summary.csv, and results/statistical_methodology.md.
  ML oracle
  ML comparison
  Related work
