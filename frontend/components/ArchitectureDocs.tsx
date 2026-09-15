@@ -7,21 +7,21 @@ const representations = [
   {
     name: "INLINE",
     tone: "teal" as const,
-    desc: "Short identifiers stored directly on the entry under low memory pressure.",
+    desc: "Short identifiers stored directly on the entry record under low memory pressure.",
     overhead: "~28 bytes fixed overhead + string length",
     useCase: "Loop counters (i, idx, count), short temporary variables.",
   },
   {
     name: "INTERNED",
     tone: "indigo" as const,
-    desc: "Exact-repeat identifiers, or the balanced default, reference a single shared string-pool entry.",
-    overhead: "~28 bytes index overhead + shared pool entry (paid once per unique string)",
-    useCase: "Repeated identifiers, and anything that doesn't clearly favor INLINE or COMPRESSED.",
+    desc: "Exact-repeat identifiers or default fallback entries reference a shared string dictionary pool.",
+    overhead: "~28 bytes index overhead + shared pool entry (paid once per unique name)",
+    useCase: "Repeated identifiers and global scope declarations.",
   },
   {
     name: "COMPRESSED",
     tone: "amber" as const,
-    desc: "Prefix-similar identifiers (e.g. sensorReading1, sensorReading2) store a front-coding delta relative to the previous COMPRESSED entry.",
+    desc: "Prefix-similar identifiers store front-coding delta relative to block head, accelerated by 1-byte hash fingerprints.",
     overhead: "~29 bytes link overhead + 1 byte shared-prefix length + suffix characters",
     useCase: "Runs of related, long, prefix-similar declarations (HAL/peripheral driver style naming).",
   },
@@ -37,10 +37,9 @@ export function ArchitectureDocs() {
   return (
     <div className="space-y-8">
       <div className="panel p-6 rounded-2xl space-y-2">
-        <h2 className="text-lg font-bold text-slate-900">System Architecture</h2>
+        <h2 className="text-lg font-bold text-slate-900">SymTab V2 System Architecture</h2>
         <p className="text-xs text-slate-500 max-w-3xl leading-relaxed">
-          BUDGET-SYM targets memory-bounded embedded compilation environments where symbol-table
-          RAM footprint must stay strictly bounded. Click any component below to read what it does.
+          SymTab V2 targets memory-bounded embedded compilation environments where symbol table RAM footprint must stay strictly controlled while preserving low lookup latency.
         </p>
       </div>
 
@@ -66,18 +65,18 @@ export function ArchitectureDocs() {
           Policy Decision Logic — decide()
         </h3>
         <p className="text-xs text-slate-500">
-          Exact branch order from <code className="bg-slate-100 px-1 rounded">include/budget_sym.hpp</code>, checked top to bottom; the first matching rule wins.
+          Exact decision branch order from <code className="bg-slate-100 px-1 rounded">include/budget_sym.hpp</code>, checked top to bottom; the first matching rule wins.
         </p>
 
         <div className="panel-soft p-4 rounded-xl font-mono text-xs text-slate-700 space-y-2 leading-relaxed overflow-x-auto">
-          <div className="text-slate-400">{"// 0. Ablation escape hatch"}</div>
+          <div className="text-slate-400">{"// 0. Ablation override check"}</div>
           <div>IF disableAdaptiveSelection: <span className="pl-2 text-indigo-700">RETURN fixedRepresentation</span></div>
 
-          <div className="text-slate-400 pt-2">{"// 1. Exact repeat"}</div>
-          <div>IF this exact identifier was already inserted before:</div>
-          <div className="pl-4 text-indigo-700">⇒ INTERNED (share the existing pool entry)</div>
+          <div className="text-slate-400 pt-2">{"// 1. Exact repeat pool check"}</div>
+          <div>IF identifier already exists in string pool:</div>
+          <div className="pl-4 text-indigo-700">⇒ INTERNED (reference existing pool entry)</div>
 
-          <div className="text-slate-400 pt-2">{"// 2. Memory pressure override"}</div>
+          <div className="text-slate-400 pt-2">{"// 2. High memory pressure override"}</div>
           <div>ELSE IF pressure ≥ HIGH_PRESSURE (85%) AND len(name) ≥ COMPRESS_MIN_LEN AND NOT hot:</div>
           <div className="pl-4 text-amber-700">⇒ COMPRESSED</div>
 
@@ -85,7 +84,7 @@ export function ArchitectureDocs() {
           <div>ELSE IF len(name) ≥ COMPRESS_MIN_LEN AND sharedPrefix(prev, name) ≥ MIN_SHARED AND NOT hot:</div>
           <div className="pl-4 text-amber-700">⇒ COMPRESSED</div>
 
-          <div className="text-slate-400 pt-2">{"// 4. Cheap path for short identifiers under low pressure"}</div>
+          <div className="text-slate-400 pt-2">{"// 4. Short identifier low-pressure optimization"}</div>
           <div>ELSE IF len(name) &lt; INLINE_MAX_LEN AND pressure &lt; LOW_PRESSURE (50%):</div>
           <div className="pl-4 text-teal-700">⇒ INLINE</div>
 
@@ -95,9 +94,7 @@ export function ArchitectureDocs() {
         </div>
 
         <p className="text-[11px] text-slate-400">
-          &quot;hot&quot; means accessFreqHint ≥ hotAccessThreshold at insert time. Independently, any
-          COMPRESSED entry can be <strong>promoted</strong> to INTERNED later, once its real runtime
-          access count crosses hotAccessThreshold — see <code className="bg-slate-100 px-1 rounded">maybePromote()</code>.
+          Entries in COMPRESSED state can be promoted to INTERNED dynamically if runtime access frequency exceeds <code className="bg-slate-100 px-1 rounded">hotAccessThreshold</code>.
         </p>
       </div>
     </div>

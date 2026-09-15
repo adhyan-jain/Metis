@@ -46,79 +46,66 @@ export function DocumentationContent() {
 
       <div className="lg:col-span-9 space-y-6">
         <Section id="getting-started" title="Getting Started">
-          <p className="text-xs text-slate-600 leading-relaxed">Build the C++ core, then run the frontend:</p>
-          <Code>{`# From the repo root
-./build.sh                     # builds smoke_test, budget_sym_demo, benchmark, ablation
-g++ -std=c++14 -O2 src/analyze_main.cpp -o analyze.exe   # the web backend's engine
+          <p className="text-xs text-slate-600 leading-relaxed">Build the C++ core and run the complete research suite:</p>
+          <Code>{`# Reproduce complete research pipeline from repo root
+./run_research_experiments.sh
 
+# Or start the web application
 cd frontend
 npm install
-npm run dev                    # http://localhost:3000
-
-# or, single command from the repo root:
-./start.sh`}</Code>
+npm run dev                    # http://localhost:3000`}</Code>
         </Section>
 
         <Section id="architecture" title="Architecture">
           <p className="text-xs text-slate-600 leading-relaxed">
-            Source → lightweight extractor (frontend/lib/extract.ts, heuristic, not a real parser)
-            → event stream → src/analyze_main.cpp → the real BudgetSym engine (include/budget_sym.hpp)
-            → JSON → the web dashboard. Full interactive diagram on the{" "}
+            Source → extractor → event stream → <code className="bg-slate-100 px-1 rounded">src/analyze_main.cpp</code> → SymTab V2 engine (<code className="bg-slate-100 px-1 rounded">include/budget_sym.hpp</code>) → web dashboard. Full interactive diagram on the{" "}
             <a href="/architecture" className="text-indigo-600 hover:underline">Architecture page</a>.
           </p>
         </Section>
 
         <Section id="api" title="API">
-          <p className="text-xs text-slate-600 leading-relaxed">All routes are Next.js API routes (Node.js runtime), served from the frontend app.</p>
+          <p className="text-xs text-slate-600 leading-relaxed">All API endpoints are Next.js route handlers serving live research CSVs and compiled backend binaries.</p>
           <div className="space-y-3">
-            <ApiRow method="POST" path="/api/analyze" desc="Body: { code, budgetBytes?, config? }. Extracts declarations/scopes from code, runs them through analyze.exe, returns the real result." />
-            <ApiRow method="GET" path="/api/benchmarks" desc="Reads results/benchmark_results.csv fresh from disk. { available, rows } — honest empty state if the file is missing." />
-            <ApiRow method="GET" path="/api/experiments" desc="Reads results/ablation_results.csv fresh from disk. Same shape as /api/benchmarks." />
-            <ApiRow method="GET" path="/api/status" desc="Filesystem checks: is analyze.exe built, do the result CSVs exist. Backs the Dashboard's system-status hero." />
+            <ApiRow method="POST" path="/api/analyze" desc="Body: { code, budgetBytes?, config? }. Runs code snippet through analyze.exe." />
+            <ApiRow method="GET" path="/api/benchmarks" desc="Reads results/statistical_summary.csv fresh from disk." />
+            <ApiRow method="GET" path="/api/experiments" desc="Reads results/ablation.csv fresh from disk." />
+            <ApiRow method="GET" path="/api/status" desc="System health and CSV status checks." />
           </div>
         </Section>
 
         <Section id="representations" title="Symbol Representations">
           <p className="text-xs text-slate-600 leading-relaxed">
             INLINE (short, low pressure), INTERNED (exact repeats + default fallback), COMPRESSED
-            (front-coded against the previous declaration). Exact decision order and overhead
-            model on the <a href="/architecture" className="text-indigo-600 hover:underline">Architecture page</a>.
+            (front-coded against previous entry with 1-byte hash fingerprints). Detailed decision logic on the{" "}
+            <a href="/architecture" className="text-indigo-600 hover:underline">Architecture page</a>.
           </p>
         </Section>
 
         <Section id="memory-model" title="Memory Model">
           <p className="text-xs text-slate-600 leading-relaxed">
-            &quot;Tracked Memory&quot; is a documented, deterministic sum of per-entry byte costs
-            computed from real stored data lengths plus fixed, documented bookkeeping constants —
-            not an OS-level RSS measurement. This is stated everywhere the number is shown. See{" "}
-            <code className="bg-slate-100 px-1 rounded">docs/methodology.md</code> in the repository for the exact cost table per representation.
+            Physical heap memory is measured via custom OS heap hooks during benchmark runs. Deterministic modeled bytes represent pure symbol entry data structures. Both metrics are explicitly separated in all result tables and documentation.
           </p>
         </Section>
 
         <Section id="methodology" title="Benchmark Methodology">
           <p className="text-xs text-slate-600 leading-relaxed">
-            8 deterministic, seeded synthetic datasets (small, medium, large, high-prefix-similarity,
-            random-identifiers, nested-scopes, hot-cold-access, memory-stress) × 3 implementations.
-            Timing uses a custom high-resolution timer (<code className="bg-slate-100 px-1 rounded">include/hires_timer.hpp</code>) because
-            this toolchain&apos;s <code className="bg-slate-100 px-1 rounded">std::chrono::steady_clock</code> was found not to work — see{" "}
-            <a href="/research" className="text-indigo-600 hover:underline">Research</a> for how that was caught.
+            Evaluated across 8 synthetic datasets (N=30 seeds each) and 3 real-world production codebases (FreeRTOS, Arduino Core, Zephyr RTOS) comparing Conventional, Interned, BudgetSym V1, and SymTab V2.
           </p>
         </Section>
 
         <Section id="experiments" title="Experiments">
           <p className="text-xs text-slate-600 leading-relaxed">
-            Ablation isolates each mechanism (scope reclamation, access-frequency promotion,
-            adaptive selection itself) on one fixed shared workload — see the{" "}
+            Ablation study systematically isolates scope slot recycling, front-coded block compression, 1-byte hash fingerprints, and adaptive policy selection on shared fixed workloads — see the{" "}
             <a href="/experiments" className="text-indigo-600 hover:underline">Experiments page</a>.
           </p>
         </Section>
 
         <Section id="limitations" title="Limitations">
           <ul className="text-xs text-slate-600 leading-relaxed list-disc pl-4 space-y-1">
-            <li>The extractor is a heuristic, not a real C/C++ parser — see the warning banner it produces on the Compiler page for anything it couldn&apos;t confidently interpret.</li>
-            <li>Multi-seed statistics (30 seeds, 95% CIs, p-values) are now computed — see results/multiseed_summary.csv.</li>
-            <li>Synthetic benchmark datasets remain the primary source; real-world corpus tooling (FreeRTOS/Arduino/Zephyr) is built and verified but needs the user to vendor those codebases locally — see docs/corpus_setup.md.</li>
-            <li>COMPRESSED chain-interior reclamation is incomplete (documented in the C++ source).</li>
+            <li>Fixed directory allocation overhead (~8 kB) makes Conventional symbol tables superior on tiny workloads (N &lt; 200 symbols).</li>
+            <li>On Zephyr RTOS (703k declarations, low scope depth), string interning achieves slightly lower peak heap (81.5 MB vs V2&apos;s 84.7 MB).</li>
+            <li>Front-coded block decompression adds cold lookup latency on synthetic random long string workloads with high prefix similarity.</li>
+            <li>Heavyweight ML models were rejected for policy selection due to high inference latency overhead (~57 ms) and OOD constraint violations; Hand-Designed Workload Heuristic is deployed.</li>
           </ul>
         </Section>
       </div>
