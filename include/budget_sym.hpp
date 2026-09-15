@@ -117,12 +117,30 @@ public:
         // semantics: this scope's *previous* binding for `name` (if live) is
         // tombstoned and its cost reclaimed before the new entry is charged.
         {
-            auto range = scopes_.back().hashIndex.equal_range(h);
+            auto& idx = scopes_.back().hashIndex;
+            auto range = idx.equal_range(h);
             for (auto it = range.first; it != range.second; ++it) {
                 Entry& old = entries_[it->second];
                 if (!old.tombstoned && reconstructName(old) == name) {
                     releaseEntry(old);
                     old.tombstoned = true;
+                    // Actually ERASE the multimap node here, not just mark
+                    // tombstoned=true. exitScope() can afford to leave
+                    // tombstoned nodes in place because the whole scope's
+                    // hashIndex is destroyed a moment later anyway -- but a
+                    // same-scope redeclaration happens while this scope stays
+                    // open and this exact code path runs again on every
+                    // future redeclaration of the same name. Leaving the node
+                    // in place made a name redeclared k times in one scope
+                    // (e.g. a loop counter reused across many statements, or
+                    // a token appearing thousands of times in a flattened
+                    // corpus stream) accumulate k dead nodes in this bucket,
+                    // so equal_range() on a hot name became O(k) instead of
+                    // O(1) -- confirmed as a real, severe slowdown on the
+                    // Zephyr corpus benchmark (3.7M tokens; some tokens like
+                    // "the"/"define" repeat tens of thousands of times in one
+                    // scope) before this fix.
+                    idx.erase(it);
                     break; // at most one live same-scope binding can exist per name
                 }
             }

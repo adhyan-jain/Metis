@@ -1,3 +1,3 @@
 label,inlineMaxLen,compressMinLen,lowPressureThreshold,highPressureThreshold,hotAccessThreshold,prefixSimilarityMinShared,mean_compression_ratio
-hand_picked,12,10,0.5,0.85,3,4,1.58684
-grid_search_optimal,16,6,0.5,0.7,2,4,1.70255
+hand_picked,12,10,0.5,0.85,3,4,1.70694
+grid_search_optimal,16,6,0.5,0.7,2,4,1.86557
