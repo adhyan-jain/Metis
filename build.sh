@@ -31,6 +31,9 @@ $CXX $FLAGS tests/smoke_test.cpp -o tests/smoke_test.exe
 echo "== Building differential test (cross-implementation resolve() agreement) =="
 $CXX $FLAGS tests/differential_test.cpp -o tests/differential_test.exe
 
+echo "== Building SymTabV2 compressed-tier test =="
+$CXX $FLAGS tests/symtab_v2_compressed_test.cpp -o tests/symtab_v2_compressed_test.exe
+
 echo "== Building CLI demo (budget_sym_demo) =="
 $CXX $FLAGS src/demo_main.cpp -o budget_sym_demo.exe
 
@@ -71,6 +74,10 @@ echo "== Running smoke test =="
 echo ""
 echo "== Running differential test =="
 ./tests/differential_test.exe
+
+echo ""
+echo "== Running SymTabV2 compressed-tier test =="
+./tests/symtab_v2_compressed_test.exe
 
 echo ""
 echo "== Running benchmark (writes results/benchmark_results.csv) =="

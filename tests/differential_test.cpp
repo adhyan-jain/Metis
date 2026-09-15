@@ -56,9 +56,17 @@ static std::vector<Event> genTrace(std::mt19937& rng, int n) {
     // Small alphabet (a handful of short names) so redeclarations, shadowing
     // and hash/prefix collisions all actually get exercised, not just avoided
     // by a huge random string space.
-    static const char* names[] = {"i", "j", "x", "y", "tmp", "count", "index", "value"};
+    static const char* names[] = {
+        "i", "j", "x", "y", "tmp", "count", "index", "value",
+        // Long, prefix-similar names -- specifically chosen to exercise the
+        // COMPRESSED tier (V1 BudgetSym's front-coded chain and V2
+        // SymTabV2's block compression both gate on name length; the
+        // original 8-name alphabet above never reached either).
+        "temperatureSensorCalibrationAlpha", "temperatureSensorCalibrationBeta",
+        "temperatureSensorCalibrationGamma", "networkInterfaceBufferPoolBase"
+    };
     std::uniform_int_distribution<int> opDist(0, 9);
-    std::uniform_int_distribution<int> nameDist(0, 7);
+    std::uniform_int_distribution<int> nameDist(0, 11);
     std::vector<Event> trace;
     int depth = 0;
     for (int k = 0; k < n; k++) {
@@ -146,15 +154,18 @@ static void test_differential_fuzz() {
         runTrace(v2table, trace, "SymTabV2");
         // Byte-accounting check the id-only runTrace() above cannot catch
         // (review MEDIUM finding: a double-reclaim or refcount bug wouldn't
-        // perturb resolve() ids at all). genTrace()'s 8-name alphabet is
-        // always < inlineMaxLen (default 12), so every live SymTabV2 entry
-        // is INLINE_REP and costs exactly kSlotOverhead -- tracked bytes
-        // must equal live count times that constant exactly, not just be
-        // non-negative.
-        long long expected = static_cast<long long>(v2table.size()) * budgetsym::v2::SymTabV2<>::kSlotOverhead;
-        if (v2table.tracker().current() != expected) {
+        // perturb resolve() ids at all). Every live entry pays AT LEAST
+        // kSlotOverhead (the per-slot structural cost, charged uniformly
+        // regardless of representation) -- since the alphabet now includes
+        // both short (INLINE) and long (INTERNED/COMPRESSED, which add
+        // pool-string/block-member bytes on top) names, this can only be a
+        // floor, not an exact equality anymore. Still meaningfully catches
+        // an under-charge (tracker dropping below the structural floor) or
+        // an accounting sign error (negative).
+        long long floor = static_cast<long long>(v2table.size()) * budgetsym::v2::SymTabV2<>::kSlotOverhead;
+        if (v2table.tracker().current() < floor) {
             std::cerr << "MISMATCH[SymTabV2] tracker=" << v2table.tracker().current()
-                      << " expected=" << expected << " (size=" << v2table.size() << ")\n";
+                      << " below structural floor=" << floor << " (size=" << v2table.size() << ")\n";
             failures++;
         }
     }

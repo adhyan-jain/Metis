@@ -447,9 +447,25 @@ private:
     // only bumps the refcount and costs nothing extra. Bug this fixes: an
     // earlier version left this uncharged entirely, silently making every
     // INTERNED_REP entry look cheaper than it actually is.
+    //
+    // Second bug, found and fixed via a symtab_v2.hpp repro (same pattern
+    // exists here): pool_[idx] is never physically erased when the last
+    // reference drops (releasePoolRef() only reclaims its bytes from the
+    // tracker; the slot itself stays allocated -- "indices must stay stable
+    // while other refs may exist"). So if this exact name is interned AGAIN
+    // later (refcount 0 -> 1), reusing the existing pool slot must re-charge
+    // those bytes, or the tracker silently under-counts relative to what's
+    // actually still allocated.
     int internName(const std::string& name) {
         auto it = poolLookup_.find(name);
-        if (it != poolLookup_.end()) { poolRefCount_[it->second]++; return it->second; }
+        if (it != poolLookup_.end()) {
+            int idx = it->second;
+            if (poolRefCount_[idx] == 0) {
+                tracker_.add(static_cast<long long>(sizeof(std::string) + pool_[idx].size() + 1));
+            }
+            poolRefCount_[idx]++;
+            return idx;
+        }
         int idx = static_cast<int>(pool_.size());
         pool_.push_back(name);
         poolRefCount_.push_back(1);

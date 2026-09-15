@@ -18,3 +18,4 @@ corpora/
 .DS_Store
 Thumbs.db
 tests/differential_test.exe
+tests/symtab_v2_compressed_test.exe
