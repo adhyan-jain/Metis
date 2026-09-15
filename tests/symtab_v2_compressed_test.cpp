@@ -137,10 +137,48 @@ static void test_partial_block_redeclare_preserves_survivors() {
     if (failures == 0) std::cout << "test_partial_block_redeclare_preserves_survivors: passed\n";
 }
 
+// Forced hash-collision test for P0-2 (fingerprint completion): a constant
+// hash function makes EVERY string collide on both ScopeIndex's 32-bit
+// fingerprint AND BlockMember's 8-bit fp8 (both derived from the same
+// HashFn::hash() output -- see symtab_v2.hpp's fingerprint()/fingerprint8()),
+// so both cheap rejection checks are maximally defeated for every candidate.
+// Correctness must still hold: the final decode-and-compare in nameEquals()
+// is the only real arbiter, and fp8 is a rejection-only fast path that must
+// never cause a false negative (reject a real match) or a false positive
+// (accept a wrong match) -- only skip or not skip the expensive decode.
+struct ConstantHash {
+    static uint64_t hash(const std::string&) { return 0xABCDEFABCDEFULL; }
+};
+
+static void test_forced_hash_collision_still_resolves_correctly() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10; // force these into the COMPRESSED tier, where fp8 lives
+    SymTabV2<ConstantHash> t(1 << 20, cfg);
+
+    std::vector<std::string> names = {
+        "temperatureSensorCalibrationAlpha", "networkInterfaceBufferPoolBeta",
+        "compilerSymbolTableEntryGamma", "userAuthenticationTokenDelta",
+        "moduleConfigParameterEpsilon"
+    };
+    std::vector<int> ids;
+    for (auto& n : names) ids.push_back(t.insert(n));
+
+    // Every one of these collides on BOTH fingerprints (same constant hash),
+    // yet each must still resolve to its OWN id, not a colliding neighbor's,
+    // and an absent name sharing the same fingerprints must still report -1.
+    for (size_t i = 0; i < names.size(); i++) {
+        CHECK(t.resolve(names[i]) == ids[i]);
+    }
+    CHECK(t.resolve("thisNameWasNeverInserted12345") == -1);
+
+    if (failures == 0) std::cout << "test_forced_hash_collision_still_resolves_correctly: passed\n";
+}
+
 int main() {
     test_round_trip_and_no_false_positives();
     test_whole_block_reclaim_to_zero();
     test_partial_block_redeclare_preserves_survivors();
+    test_forced_hash_collision_still_resolves_correctly();
 
     if (failures == 0) {
         std::cout << "ALL SYMTAB_V2 COMPRESSED-TIER TESTS PASSED\n";

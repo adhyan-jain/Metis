@@ -216,6 +216,17 @@ private:
 struct BlockMember {
     uint8_t sharedPrefixLen = 0; // shared with the previous member in this block; 0 for an anchor
     bool isAnchor = false;
+    // P0-2: an 8-bit fingerprint of the FULL name this member represents,
+    // derived from different hash bits than ScopeIndex's own 32-bit
+    // fingerprint (see fingerprint8() below) so the two checks are not
+    // fully redundant. Checked in nameEquals() BEFORE reconstructMember()
+    // is called, so a same-ScopeIndex-fingerprint, different-name candidate
+    // can often be rejected without walking/decoding this block member at
+    // all. With ~268K unique names (Zephyr-scale), the 32-bit ScopeIndex
+    // fingerprint alone has an expected ~8.4 real collisions (birthday
+    // bound: n^2/(2*2^32)); this second, independent 8-bit check catches
+    // the ones that would otherwise force a full decode to reject.
+    uint8_t fp8 = 0;
     std::string suffix; // full string if isAnchor, else the non-shared remainder
 };
 
@@ -230,7 +241,9 @@ struct CompressedRef {
     uint16_t slotInBlock = 0;
 };
 
-static const long long kCompressedMemberOverhead = 2; // sharedPrefixLen byte + isAnchor flag (packed estimate)
+// sharedPrefixLen byte + isAnchor flag (packed estimate) + fp8 byte (P0-2,
+// the intra-block fingerprint -- charged, not hidden, per its own byte cost).
+static const long long kCompressedMemberOverhead = 3;
 
 } // namespace v2
 } // namespace budgetsym
@@ -546,6 +559,17 @@ private:
         return static_cast<uint32_t>(h ^ (h >> 32));
     }
 
+    // P0-2: a SECOND, independent fingerprint for compressed block members,
+    // deliberately built from different bits of the same 64-bit hash than
+    // fingerprint() above uses (bits 16-23 here vs the full low/high-32-bit
+    // XOR there), so a hash collision in one is not automatically a
+    // collision in the other -- two genuinely independent cheap rejection
+    // checks rather than one check computed twice.
+    uint8_t fingerprint8(const std::string& name) const {
+        uint64_t h = HashFn::hash(name);
+        return static_cast<uint8_t>((h >> 16) & 0xFF);
+    }
+
     bool nameEquals(uint32_t slotId, const std::string& name) const {
         const PackedEntry& e = entries_[slotId];
         // Length check first, for EVERY representation -- a free rejection
@@ -560,8 +584,20 @@ private:
                 return std::memcmp(e.inlineBytes, name.data(), name.size()) == 0;
             case Rep::INTERNED_REP:
                 return pool_[poolIndexOf_[slotId]] == name;
-            case Rep::COMPRESSED_REP:
-                return reconstructMember(compressedRefOf_[slotId]) == name;
+            case Rep::COMPRESSED_REP: {
+                // P0-2: reject on the block member's own 8-bit fingerprint
+                // BEFORE paying for reconstructMember()'s decode -- see
+                // BlockMember::fp8's comment for why this is checked in
+                // addition to (not instead of) ScopeIndex's 32-bit
+                // fingerprint. Exact correctness is unaffected either way:
+                // this is a rejection-only fast path, and any candidate that
+                // passes both cheap checks still gets the full decode-and-
+                // compare below as the final arbiter.
+                const CompressedRef& ref = compressedRefOf_[slotId];
+                const BlockMember& m = blocks_[ref.blockIndex].members[ref.slotInBlock];
+                if (m.fp8 != fingerprint8(name)) return false;
+                return reconstructMember(ref) == name;
+            }
         }
         return false;
     }
@@ -574,6 +610,7 @@ private:
         Block& b = blocks_[openBlock_];
         uint16_t slot = static_cast<uint16_t>(b.members.size());
         BlockMember m;
+        m.fp8 = fingerprint8(name);
         size_t anchorEvery = cfg_.anchorInterval == 0 ? 1 : cfg_.anchorInterval;
         if (slot % anchorEvery == 0) {
             m.isAnchor = true;
