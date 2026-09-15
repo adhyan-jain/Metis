@@ -261,6 +261,108 @@ static void test_promotion_on_hot_access() {
     if (failures == 0) std::cout << "test_promotion_on_hot_access: passed\n";
 }
 
+// P0-4: cold demotion. A promoted (COMPRESSED->INTERNED) entry that goes
+// idle for cfg.coldIdleEpochs resolve()-epochs must be demoted back to
+// COMPRESSED by an explicit runMaintenance() call -- never automatically,
+// and never before the idle threshold is reached.
+static void test_demotion_on_idle_after_maintenance() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.blockSize = 5;
+    cfg.anchorInterval = 3;
+    cfg.hotAccessThreshold = 2;
+    cfg.coldIdleEpochs = 5;
+
+    SymTabV2<> t(1 << 20, cfg);
+    std::vector<std::string> names;
+    static const char* prefixes[] = {"temperatureSensorCalibration", "networkInterfaceBufferPool"};
+    for (int p = 0; p < 2; p++) for (int i = 0; i < 5; i++) names.push_back(std::string(prefixes[p]) + std::to_string(i));
+    std::vector<int> ids;
+    for (auto& n : names) ids.push_back(t.insert(n));
+
+    const std::string& hot = names[2];
+    for (size_t i = 0; i < cfg.hotAccessThreshold; i++) t.resolve(hot);
+    CHECK(t.representationOf(hot) == Rep::INTERNED_REP);
+    CHECK(t.promotions() == 1);
+
+    // Not yet idle long enough: maintenance must not demote it.
+    CHECK(t.runMaintenance() == 0);
+    CHECK(t.representationOf(hot) == Rep::INTERNED_REP);
+
+    // Advance the epoch clock past coldIdleEpochs via unrelated lookups
+    // (each resolve() call -- hit or miss -- advances SymTabV2::epoch_;
+    // deliberately using a miss here so `hot`'s own lastAccessEpoch is not
+    // refreshed by these calls).
+    for (size_t i = 0; i < cfg.coldIdleEpochs; i++) t.resolve("someNameThatWasNeverDeclared");
+
+    CHECK(t.runMaintenance() == 1);
+    CHECK(t.demotions() == 1);
+    CHECK(t.representationOf(hot) == Rep::COMPRESSED_REP);
+    // Declaration id and correctness must survive the round trip.
+    CHECK(t.resolve(hot) == ids[2]);
+    // Neighbors and the rest of the table must be untouched by the sweep.
+    for (size_t i = 0; i < names.size(); i++) {
+        if (i == 2) continue;
+        CHECK(t.resolve(names[i]) == ids[i]);
+    }
+    // A second maintenance sweep right away (epoch barely advanced by the
+    // resolve() calls just above) must not re-demote or double-count.
+    size_t demotionsBefore = t.demotions();
+    t.runMaintenance();
+    CHECK(t.demotions() == demotionsBefore);
+
+    if (failures == 0) std::cout << "test_demotion_on_idle_after_maintenance: passed\n";
+}
+
+// P0-4: demotion is opt-in. cfg.coldIdleEpochs == 0 (the default) must keep
+// promotion strictly one-directional, matching pre-P0-4 SymTabV2 behavior.
+static void test_demotion_disabled_by_default() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.hotAccessThreshold = 2;
+    // cfg.coldIdleEpochs left at its default (0).
+
+    SymTabV2<> t(1 << 20, cfg);
+    int id = t.insert("temperatureSensorCalibration");
+    for (size_t i = 0; i < cfg.hotAccessThreshold; i++) t.resolve("temperatureSensorCalibration");
+    CHECK(t.representationOf("temperatureSensorCalibration") == Rep::INTERNED_REP);
+
+    for (int i = 0; i < 10000; i++) t.resolve("someUnrelatedAbsentName");
+    CHECK(t.runMaintenance() == 0); // disabled: must be an unconditional no-op
+    CHECK(t.representationOf("temperatureSensorCalibration") == Rep::INTERNED_REP);
+    CHECK(t.resolve("temperatureSensorCalibration") == id);
+
+    if (failures == 0) std::cout << "test_demotion_disabled_by_default: passed\n";
+}
+
+// P0-4: an entry decide() natively routed to INTERNED (never went through
+// COMPRESSED at all -- e.g. an exact repeat, per decide()'s repeat rule)
+// must NEVER be demoted, even when idle past coldIdleEpochs. Demotion is
+// gated on PackedEntry::wasPromoted specifically to protect this case.
+static void test_naturally_interned_entry_never_demoted() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.coldIdleEpochs = 3;
+
+    SymTabV2<> t(1 << 20, cfg);
+    // First occurrence goes COMPRESSED (len >= compressMinLen, never seen before).
+    int first = t.insert("networkInterfaceBufferPool");
+    CHECK(t.representationOf("networkInterfaceBufferPool") == Rep::COMPRESSED_REP);
+    t.enterScope();
+    // Exact repeat in a nested scope: decide()'s repeat rule routes this
+    // occurrence to INTERNED directly -- NOT via maybePromote().
+    int second = t.insert("networkInterfaceBufferPool");
+    CHECK(second != first);
+    CHECK(t.representationOf("networkInterfaceBufferPool") == Rep::INTERNED_REP);
+
+    for (int i = 0; i < 100; i++) t.resolve("someUnrelatedAbsentName");
+    CHECK(t.runMaintenance() == 0); // must find nothing eligible: wasPromoted is false
+    CHECK(t.representationOf("networkInterfaceBufferPool") == Rep::INTERNED_REP);
+    CHECK(t.resolve("networkInterfaceBufferPool") == second);
+
+    if (failures == 0) std::cout << "test_naturally_interned_entry_never_demoted: passed\n";
+}
+
 int main() {
     test_round_trip_and_no_false_positives();
     test_whole_block_reclaim_to_zero();
@@ -268,6 +370,9 @@ int main() {
     test_forced_hash_collision_still_resolves_correctly();
     test_shadowing_nested_scope_and_absent_symbol();
     test_promotion_on_hot_access();
+    test_demotion_on_idle_after_maintenance();
+    test_demotion_disabled_by_default();
+    test_naturally_interned_entry_never_demoted();
 
     if (failures == 0) {
         std::cout << "ALL SYMTAB_V2 COMPRESSED-TIER TESTS PASSED\n";

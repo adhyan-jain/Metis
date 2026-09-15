@@ -177,14 +177,18 @@ explicit, named shadowing regression test targeting `SymTabV2` specifically
 (the named `test_resolve_respects_shadowing()` test targets V1's
 `BudgetSym`) -- flagged as a gap, see §10.
 
-Representation transitions are one-directional in the current code:
-COMPRESSED -> INTERNED via `maybePromote()`, gated on `accessCount >=
-hotAccessThreshold`, using only past-observed access counts (no
-future/oracle information -- see the "ONLINE vs ORACLE" comment on
-`maybePromote()`). There is no INTERNED -> COMPRESSED demotion path and no
-INLINE participation in promotion (INLINE never becomes anything else, by
-construction: `decide()` only offers INLINE for names below `inlineMaxLen`,
-and length never changes for a given name).
+Representation transitions: COMPRESSED -> INTERNED via `maybePromote()`,
+gated on `accessCount >= hotAccessThreshold`, using only past-observed
+access counts (no future/oracle information -- see the "ONLINE vs ORACLE"
+comment on `maybePromote()`). As of P0.4, an explicit, opt-in
+INTERNED -> COMPRESSED demotion path also exists (`demote()`, driven by
+`runMaintenance()`, gated on `PolicyConfigV2::coldIdleEpochs` and
+`PackedEntry::wasPromoted` so a `decide()`-native INTERNED entry is never
+force-demoted) -- see `docs/hot_cold_design.md` for the full design and
+`tests/symtab_v2_compressed_test.cpp` for its correctness tests. INLINE does
+not participate in either transition (INLINE never becomes anything else,
+by construction: `decide()` only offers INLINE for names below
+`inlineMaxLen`, and length never changes for a given name).
 
 ## 8. Memory accounting
 
@@ -233,19 +237,41 @@ with `e` as a reference parameter, and nothing inside `materialize()` calls
    the fp8/reconstruction path), passing clean under ASan+UBSan.
 2. ~~**No explicit "absent symbol" / "nested scope" named tests**~~ FIXED by
    the same test added in item 1.
-3. **Block compression measurement (P0.3) is not yet done**: no results file
-   measures block size / anchor interval / reconstruction-operation count /
-   reconstruction depth / memory / lookup latency as a parameter sweep.
-   `memory_audit_v2.csv` gives memory only, at one fixed configuration.
-4. **Hot/cold tiering (P0.4) has no design doc** (`docs/hot_cold_design.md`
-   required by CLAUDE_RESEARCH.md §7 P0.4, does not yet exist) and no
-   explicit demotion policy (there is none implemented -- promotion is
-   one-directional, which is itself a valid design choice but must be
-   stated explicitly, not left implicit).
-5. **No latency measurement exists yet for SymTabV2 at all** -- `resolve()`
-   timing (cold vs hot, p50/p95/p99) has not been benchmarked. This blocks
-   any Pareto/latency-constrained claim later in the pipeline.
+3. ~~**Block compression measurement (P0.3) is not yet done**~~ FIXED:
+   `src/block_compression_sweep_main.cpp` sweeps `blockSize` in
+   `{4,8,16,32,64,128}` x `anchorInterval` in `{2,4,8,16,32}` (anchor <=
+   block) over two datasets (`high-prefix-similarity`, `random-long`),
+   measuring modeled memory, reconstruction count/steps/mean-depth (new
+   `SymTabV2::reconstructionCount()`/`reconstructionStepsTotal()` counters),
+   and cold/hot lookup latency percentiles (p50/p95/p99/mean). Output:
+   `results/block_compression_sweep.csv` (48 rows). Findings, both
+   directions honestly reported: on `high-prefix-similarity`, larger
+   `anchorInterval` measurably reduces memory (630995 -> 581558 bytes at
+   n=4000, block=32) at the cost of measurably higher reconstruction depth
+   and lookup latency (p50 0.094us -> 0.512us); on `random-long` (no shared
+   prefixes), the same sweep shows front-coding barely reduces memory at all
+   (704738 -> 704700 bytes) while still paying the same latency cost as
+   `anchorInterval` grows -- i.e. block compression's benefit is
+   prefix-similarity-dependent, exactly as the mechanism predicts, and this
+   is now measured rather than assumed. `blockSize` alone (holding
+   `anchorInterval` fixed) has no measurable effect on reconstruction depth
+   or latency, confirming the design's decoupling of reclaim granularity
+   from reconstruction-depth bound (see `docs/v2_architecture.md` section 6).
+4. ~~**Hot/cold tiering (P0.4) has no design doc**~~ FIXED:
+   `docs/hot_cold_design.md` documents the hot threshold (promotion,
+   pre-existing), the cold threshold (demotion, newly implemented --
+   `PolicyConfigV2::coldIdleEpochs`, `SymTabV2::runMaintenance()`/`demote()`),
+   scope interaction, and memory/lookup transition costs, with four
+   correctness tests in `tests/symtab_v2_compressed_test.cpp`.
+5. **No latency measurement exists for the INLINE/INTERNED tiers, or for
+   SymTabV2 end-to-end across a realistic mixed-representation workload** --
+   the P0.3 sweep above isolates the COMPRESSED tier specifically (by
+   design, to isolate its own parameters). A full latency-constrained
+   Pareto claim (CLAUDE_RESEARCH.md §12) still requires benchmarking
+   SymTabV2 end-to-end (INLINE+INTERNED+COMPRESSED+promotion+demotion mixed,
+   as a real workload would exercise it) against the other tables, which is
+   a later phase (Benchmark infrastructure / Pareto optimization), not part
+   of P0.3's block-compression-specific measurement.
 
-These gaps are the input to the next phases (P0.2 completion tests, P0.3
-block-compression parameter measurement, P0.4 design doc) -- not yet fixed
-in this pass, per CLAUDE_RESEARCH.md §28 ("Implement ONLY that phase").
+Phases P0.1-P0.4 are now complete (implementation + validation). Next:
+ECC review (CLAUDE_RESEARCH.md §8).

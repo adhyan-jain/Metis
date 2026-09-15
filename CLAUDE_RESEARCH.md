@@ -1478,19 +1478,28 @@ Update this section after every completed phase.
 
 [x] Repository/current-state audit
 [x] P0.1 V2 architecture audit
-[ ] P0.2 fingerprint lookup -- implementation complete (nameEquals/fp8 in
-    symtab_v2.hpp), full required test scenario list now covered
+[x] P0.2 fingerprint lookup -- implementation (nameEquals/fp8 in
+    symtab_v2.hpp) plus the full required test scenario list
     (ordinary/absent/collision/fingerprint-collision/shadowing/redeclaration/
-    nested-scope/scope-exit/promotion), but not yet exercised under stress
-    tests at corpus scale -- see docs/v2_architecture.md section 10.
-[ ] P0.3 block compression validation -- implementation complete, correctness
-    tested, but the required PARAMETER MEASUREMENT (block size, anchor
-    interval, reconstruction ops/depth, memory, lookup latency) has not been
-    run -- see docs/v2_architecture.md section 10 item 3.
-[ ] P0.4 hot/cold tiering -- implementation complete (maybePromote in
-    symtab_v2.hpp), but docs/hot_cold_design.md (required deliverable) does
-    not yet exist and demotion policy is not explicitly documented -- see
-    docs/v2_architecture.md section 10 item 4.
+    nested-scope/scope-exit/promotion), all passing clean under
+    -fsanitize=address,undefined. Corpus-scale stress testing happens as
+    part of the later "Benchmark infrastructure"/"Complete research
+    benchmark suite" phases (CLAUDE_RESEARCH.md section 25/26), not gated
+    here.
+[x] P0.3 block compression validation -- implementation, correctness tests,
+    AND the required parameter measurement: results/block_compression_sweep.csv
+    (48 rows: blockSize x {4,8,16,32,64,128}, anchorInterval x {2,4,8,16,32},
+    over high-prefix-similarity and random-long datasets), measuring modeled
+    memory, reconstruction count/steps/mean-depth, and cold/hot lookup
+    latency (p50/p95/p99/mean). See docs/v2_architecture.md section 10 item 3
+    for the findings summary (memory/latency tradeoff confirmed, and shown
+    to be prefix-similarity-dependent -- both directions reported honestly).
+[x] P0.4 hot/cold tiering -- promotion (pre-existing) AND a new, explicit,
+    opt-in demotion policy (PolicyConfigV2::coldIdleEpochs,
+    SymTabV2::runMaintenance()/demote()), documented in
+    docs/hot_cold_design.md (hot/cold thresholds, promotion/demotion
+    behavior, scope interaction, memory/lookup transition costs), with 4
+    correctness tests, all passing clean under -fsanitize=address,undefined.
  ECC review
  ECC fixes
  Benchmark infrastructure

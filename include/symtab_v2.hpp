@@ -75,9 +75,23 @@ struct PackedEntry {
     uint32_t scopeId = 0;
     uint32_t typeId = 0;
     uint32_t accessCount = 0;
+    // P0-4: last resolve()-epoch (see SymTabV2::epoch_) this slot was hit on.
+    // Only meaningful for demotion eligibility (see maybeDemote()); a slot
+    // can only become demotion-eligible via wasPromoted=true, and promotion
+    // itself only happens from inside resolve(), which always sets
+    // lastAccessEpoch in that same call -- so a promoted-but-unstamped epoch
+    // cannot occur.
+    uint32_t lastAccessEpoch = 0;
     uint16_t nameLen = 0;
     Rep representation = Rep::INLINE_REP;
     bool live = false;
+    // P0-4: true iff this slot's CURRENT representation is INTERNED because
+    // maybePromote() promoted it from COMPRESSED (not because decide() chose
+    // INTERNED at insert time). Demotion eligibility is gated on this flag
+    // so a name decide() legitimately routed to INTERNED (below
+    // inlineMaxLen/compressMinLen, or an exact repeat) is never force-
+    // demoted into COMPRESSED against the policy that put it there.
+    bool wasPromoted = false;
     char inlineBytes[kInlineCap]; // valid iff representation == INLINE_REP
 };
 
@@ -282,6 +296,17 @@ struct PolicyConfigV2 {
     // future-access oracle (see maybePromote()'s comment for the oracle/
     // online distinction).
     size_t hotAccessThreshold = 3;
+    // P0-4: an INTERNED entry that WAS PROMOTED from COMPRESSED (never a
+    // decide()-native INTERNED entry -- see PackedEntry::wasPromoted) is
+    // eligible for demotion back to COMPRESSED once this many resolve()
+    // epochs (SymTabV2::epoch_, incremented once per resolve() call --
+    // online, observed-operation count, not wall-clock time) have passed
+    // since its last hit. Demotion is NOT automatic on every resolve(); it
+    // only runs when runMaintenance() is explicitly invoked (see that
+    // method's comment for why an O(live-slot) scan is not folded into the
+    // O(1) hot path). coldIdleEpochs == 0 disables demotion entirely
+    // (matches V1/pre-P0-4 SymTabV2 behavior: promotion is one-directional).
+    size_t coldIdleEpochs = 0;
 };
 
 // sizeof(PackedEntry): the REAL struct size (not a hand-picked guess like
@@ -406,16 +431,43 @@ public:
     // access-observation signal the future hot/cold tiering policy will read
     // from) -- intentional, matches the same design choice in budget_sym.hpp.
     int resolve(const std::string& name) {
+        epoch_++; // P0-4: one online "tick" per lookup operation -- see PolicyConfigV2::coldIdleEpochs
         uint32_t fp = fingerprint(name);
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
             uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); });
             if (slotId != UINT32_MAX) {
                 entries_[slotId].accessCount++;
+                entries_[slotId].lastAccessEpoch = epoch_;
                 maybePromote(slotId, name);
                 return declIdOf_[slotId];
             }
         }
         return -1;
+    }
+
+    // P0-4: explicit, externally-triggered cold-demotion sweep (INTERNED,
+    // previously-promoted entries idle for >= cfg_.coldIdleEpochs resolve()
+    // calls are demoted back to COMPRESSED). NOT invoked automatically from
+    // resolve()/insert(): it is an O(live-slot) scan, and running it on
+    // every O(1) lookup would silently turn every resolve() call into an
+    // O(n) operation -- exactly the kind of hidden cost CLAUDE_RESEARCH.md's
+    // benchmark-artifact concerns are about. A real compiler (or this
+    // benchmark harness) calls it at natural checkpoints -- e.g. once per N
+    // declarations, or once per translation unit -- matching how a real
+    // system would schedule non-critical-path maintenance work. Returns the
+    // number of entries demoted in this call. A no-op if
+    // cfg_.coldIdleEpochs == 0 (demotion disabled).
+    size_t runMaintenance() {
+        if (cfg_.coldIdleEpochs == 0) return 0;
+        size_t demoted = 0;
+        for (uint32_t slotId = 0; slotId < entries_.size(); slotId++) {
+            PackedEntry& e = entries_[slotId];
+            if (!e.live || !e.wasPromoted || e.representation != Rep::INTERNED_REP) continue;
+            if (epoch_ - e.lastAccessEpoch < cfg_.coldIdleEpochs) continue;
+            demote(slotId, e);
+            demoted++;
+        }
+        return demoted;
     }
 
     bool lookup(const std::string& name) { return resolve(name) >= 0; }
@@ -431,6 +483,18 @@ public:
     // (see maybePromote()). Surfaced for benchmark/ablation tooling, same
     // role as V1's BudgetSym::promotions().
     size_t promotions() const { return promotions_; }
+
+    // P0-4: number of COMPRESSED->INTERNED->COMPRESSED demotions performed
+    // so far by runMaintenance(). Always 0 if cfg_.coldIdleEpochs == 0.
+    size_t demotions() const { return demotions_; }
+
+    // P0-3: total number of COMPRESSED-member reconstructions actually
+    // performed (nameEquals() reaching past the length+fp8 cheap-rejection
+    // checks), and the total front-coding steps walked across all of them.
+    // reconstructionStepsTotal()/reconstructionCount() (when count > 0) is
+    // the mean reconstruction depth -- see reconstructMember()'s comment.
+    size_t reconstructionCount() const { return reconstructions_; }
+    size_t reconstructionStepsTotal() const { return reconstructionSteps_; }
 
     // Current representation of the innermost live binding of `name`, or
     // Rep::INLINE_REP if absent (matches V1's representationOf() default-
@@ -666,9 +730,27 @@ private:
     // steps to the nearest anchor within this block, then decodes forward --
     // never a chain of unbounded depth the way V1's prevIndex-linked
     // COMPRESSED chain could be.
+    //
+    // P0-3 parameter-study instrumentation: counts every call (a real decode
+    // was actually paid for -- nameEquals() only reaches this after the free
+    // length check and the fp8 cheap-rejection check both already passed) and
+    // the number of front-coding steps walked forward from the nearest
+    // anchor (0 for an anchor itself; up to anchorInterval-1 otherwise) --
+    // exactly the "reconstruction operations" / "reconstruction depth"
+    // metrics CLAUDE_RESEARCH.md's P0.3 block-compression measurement
+    // requires. Mutable because this is a read-path counter on an otherwise
+    // logically-const query (matches accessCount's mutation-through-const-
+    // resolve() precedent elsewhere in this class).
     std::string reconstructMember(CompressedRef ref) const {
         const Block& b = blocks_[ref.blockIndex];
-        return decodeFrom(b, ref.slotInBlock, b.members[ref.slotInBlock]);
+        const BlockMember& m = b.members[ref.slotInBlock];
+        reconstructions_++;
+        if (!m.isAnchor) {
+            uint16_t start = ref.slotInBlock;
+            while (!b.members[start].isAnchor) start--;
+            reconstructionSteps_ += static_cast<size_t>(ref.slotInBlock - start);
+        }
+        return decodeFrom(b, ref.slotInBlock, m);
     }
 
     // Decodes member `slot` of block `b`, given its own record `m` (caller
@@ -737,6 +819,7 @@ private:
         CompressedRef oldRef = compressedRefOf_[slotId];
         releaseBlockMember(oldRef); // may or may not physically reclaim yet -- see releaseBlockMember()'s comment
         e.representation = Rep::INTERNED_REP;
+        e.wasPromoted = true; // P0-4: marks this INTERNED slot demotion-eligible, see runMaintenance()
         poolIndexOf_[slotId] = internName(name);
         // kSlotOverhead itself was already charged at insert time and is
         // charged identically for every representation (see costOf()), so
@@ -744,6 +827,30 @@ private:
         // cost changes (block-member bytes, now possibly reclaimed, for
         // pool-string bytes, now charged via internName() above).
         promotions_++;
+    }
+
+    // P0-4: the inverse of maybePromote() -- demotes an idle, previously-
+    // promoted INTERNED entry back to COMPRESSED. Only called from
+    // runMaintenance() (never from the resolve()/insert() hot path -- see
+    // that method's comment). Correctness argument mirrors maybePromote()'s:
+    // fingerprint()/fingerprint8() depend only on the NAME, so the
+    // ScopeIndex mapping and slotId/declId are untouched by a representation
+    // change; the only state that moves is where the string's bytes live.
+    void demote(uint32_t slotId, PackedEntry& e) {
+        // Reconstruct the name from the pool BEFORE releasing the pool ref
+        // (releasePoolRef may erase the last reference's bytes once
+        // refcount hits 0 -- see releasePoolRef()'s comment on why the slot
+        // itself is not compacted; the string content stays valid until
+        // this function's own copy below regardless, but capturing it first
+        // keeps the ordering obviously correct rather than relying on that).
+        std::string name = pool_[poolIndexOf_[slotId]];
+        releasePoolRef(poolIndexOf_[slotId]);
+        poolIndexOf_[slotId] = UINT32_MAX;
+        e.representation = Rep::COMPRESSED_REP;
+        e.wasPromoted = false; // freshly re-materialized as COMPRESSED, no longer promotion-derived
+        e.accessCount = 0;     // P0-4: reset the hot/cold counter so a demoted entry must re-earn promotion
+        compressedRefOf_[slotId] = insertCompressed(name);
+        demotions_++;
     }
 
     uint32_t allocBlock() {
@@ -775,10 +882,18 @@ private:
     std::vector<Block> blocks_;
     std::vector<uint32_t> blockFreeList_;
     uint32_t openBlock_ = UINT32_MAX;
+    // P0-3 parameter-study counters -- see reconstructMember()'s comment.
+    mutable size_t reconstructions_ = 0;
+    mutable size_t reconstructionSteps_ = 0;
 
     std::vector<Scope> scopes_;
     int nextDeclId_ = 0;
     size_t promotions_ = 0;
+    size_t demotions_ = 0;
+    // P0-4: online lookup-operation clock, incremented once per resolve()
+    // call. Never set from, or influenced by, any future-looking information
+    // -- see PolicyConfigV2::coldIdleEpochs and maybeDemote()'s comment.
+    uint32_t epoch_ = 0;
 
     MemoryTracker tracker_;
     PolicyConfigV2 cfg_;

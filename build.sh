@@ -61,6 +61,9 @@ $CXX $FLAGS src/memory_audit_main.cpp -o memory_audit.exe
 echo "== Building V2 memory audit (SymTabV2 vs Conventional/Interned/RobinHood) =="
 $CXX $FLAGS src/memory_audit_v2_main.cpp -o memory_audit_v2.exe
 
+echo "== Building V2 block-compression parameter sweep (P0.3) =="
+$CXX $FLAGS src/block_compression_sweep_main.cpp -o block_compression_sweep.exe
+
 echo "== Building cache benchmark (docs/caching.md) =="
 $CXX $FLAGS src/cache_benchmark_main.cpp -o cache_benchmark.exe
 
@@ -133,6 +136,10 @@ done
 echo ""
 echo "== Running V2 memory audit (writes results/memory_audit_v2.csv) =="
 ./memory_audit_v2.exe $AUDIT_ARGS
+
+echo ""
+echo "== Running V2 block-compression parameter sweep (writes results/block_compression_sweep.csv) =="
+./block_compression_sweep.exe
 
 echo ""
 echo "== Running cache benchmark (writes results/cache_benchmark_results.csv) =="
