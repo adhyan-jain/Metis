@@ -13,6 +13,26 @@
 
 ---
 
+## AGENT HANDOFF RULE
+
+This repository may be worked on by multiple coding agents.
+
+Never assume that a previous implementation is wrong merely because it was
+written by another agent.
+
+Before changing an existing component:
+
+1. Inspect its implementation.
+2. Inspect its tests.
+3. Inspect relevant benchmark results.
+4. Inspect git history.
+5. Determine whether the proposed change addresses a documented problem.
+6. Preserve experimentally validated behavior unless there is evidence that
+   it is incorrect.
+
+The progress tracker and committed repository state are authoritative for
+what has actually been completed.
+
 # 0. PRIMARY OBJECTIVE
 
 BUDGET-SYM is an adaptive, memory-efficient compiler symbol table.
@@ -1534,9 +1554,16 @@ Update this section after every completed phase.
     change any test outcome. L1-L3 left as-is (no code risk). Full test
     suite (smoke/differential/V2 compressed-tier, 15 tests total) passes
     clean under -fsanitize=address,undefined after every fix.
-[ ] Benchmark infrastructure -- NOT STARTED (not attempted this turn, per
-    explicit instruction). V2 is now unconditionally ready for it per
-    results/ecc_review.md's POST-FIX UPDATE (section 5).
+[x] Benchmark infrastructure -- Implementation in src/v2_benchmark_main.cpp
+    and methodology documentation in results/benchmark_methodology.md. Unified
+    research-grade benchmark framework comparing Conventional, Interned, BudgetSym V1,
+    and SymTabV2 on identical semantic event traces across 12 datasets (Categories A, B, C).
+    Measures both Modeled Memory and Measured Heap Memory (operator new accounting via
+    heap_counter.hpp), per-operation latency distributions (cold, hot, absent lookups,
+    insertion, scope exit at p50/p95/p99/mean/stddev with warmup, per-call timing, DCE
+    protection), and V2 internal counters (promotions, demotions, reconstructions, depth,
+    and representation distribution). Validated clean under -fsanitize=address,undefined.
+    Output written to results/v2_latency_memory.csv (48 rows, 41 columns).
  Corpus event extraction
  Corpus validation
  Dataset characterization

@@ -73,6 +73,9 @@ $CXX $FLAGS src/cache_benchmark_main.cpp -o cache_benchmark.exe
 echo "== Building algorithm comparison benchmark (docs/algorithm_comparison.md) =="
 $CXX $FLAGS src/algorithm_benchmark_main.cpp -o algorithm_benchmark.exe
 
+echo "== Building V2 research-grade benchmark (CLAUDE_RESEARCH.md Section 9) =="
+$CXX $FLAGS src/v2_benchmark_main.cpp -o v2_benchmark.exe
+
 echo ""
 echo "== Running smoke test =="
 ./tests/smoke_test.exe
@@ -155,6 +158,10 @@ echo "== Running cache benchmark (writes results/cache_benchmark_results.csv) ==
 echo ""
 echo "== Running algorithm comparison benchmark (writes results/algorithm_comparison.csv) =="
 ./algorithm_benchmark.exe
+
+echo ""
+echo "== Running V2 research-grade benchmark (writes results/v2_latency_memory.csv) =="
+./v2_benchmark.exe
 
 echo ""
 echo "== Generating figures (requires python + matplotlib + pandas is NOT required, csv module only) =="
