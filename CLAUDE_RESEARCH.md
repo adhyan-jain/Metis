@@ -1623,8 +1623,10 @@ Update this section after every completed phase.
     and comprehensive documentation in docs/reproducibility.md. Executes 11-step end-to-end pipeline
     (compilation, tests, trace extraction, core bench, Pareto sweep, parameter study, ablation,
     multiseed statistics N=30, ML policy evaluation, figure rendering) from clean state. Fully verified cleanly.
-  Final figures
-  Final tables
+[x] Final figures -- Rendered publication-quality figures in figures/ (pareto_memory_vs_latency.png,
+    pareto_frontier_by_workload.png, memory_usage.png, ablation_memory.png, etc.).
+[x] Final tables -- Generated complete CSV data tables in results/ (statistical_summary.csv, corpus_benchmark.csv,
+    corpus_characterization.csv, pareto_results.csv, pareto_frontier.csv, parameter_sweep.csv, ablation.csv, ml_comparison.csv).
 [x] FINAL_RESULTS.md -- Authoritative evidence-first research synthesis package in results/FINAL_RESULTS.md.
     Contains research question, hypotheses H1-H6, V1 vs V2, dataset taxonomy, baselines, physical heap memory,
     cold/hot latency, Pareto frontier, parameter study, ablation, statistical validation N=30, policy audit,
@@ -1633,8 +1635,8 @@ Update this section after every completed phase.
     Audited PRD, README, methodology docs, final results, adversarial review, related work positioning,
     raw CSV result files, figure scripts, and code comments. Verified headline quantitative claims, scrubbed ungrounded
     superlative language, and confirmed 100% internal consistency.
- Complete test suite
- Complete research benchmark suite
+[x] Complete test suite -- All unit, differential fuzz, and compressed-tier tests pass clean under ASan/UBSan.
+[x] Complete research benchmark suite -- Full 11-step end-to-end pipeline verified via run_research_experiments.sh.
 30. FINAL INSTRUCTION TO CLAUDE
 
 This document is the persistent specification.
