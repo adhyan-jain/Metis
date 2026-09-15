@@ -312,7 +312,15 @@ static void test_exit_scope_does_not_free_slot_reused_by_inner_scope() {
 
     t.exitScope();                 // scope 1 exits
     CHECK(t.resolve("a") == -1);
-    CHECK(t.tracker().current() == 0); // nothing should be left charged
+    // ECC review H1 fix: ScopeIndex's own backing storage is now charged to
+    // the tracker (previously never tracked at all -- see
+    // results/ecc_review.md finding H1). The outermost/global scope (index
+    // 0) is never exited by this test, so its ScopeIndex allocation stays
+    // legitimately charged -- current() must equal EXACTLY that scope's
+    // byteFootprint(), not zero, once every symbol and every non-global
+    // scope has been released.
+    budgetsym::v2::SymTabV2<> fresh(1 << 20); // untouched: isolates the global scope's own baseline cost
+    CHECK(t.tracker().current() == fresh.tracker().current());
 }
 
 // Regression test for the shadowing-lookup-cache bug (fixed upstream) staying

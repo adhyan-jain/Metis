@@ -1,0 +1,5 @@
+workload,demotion_enabled,cold_idle_epochs,hot_access_threshold,declarations,unique_names,promotions,demotions,modeled_memory_bytes,final_lookup_p50_us,final_lookup_p95_us,final_lookup_p99_us,final_lookup_mean_us,reconstruction_count,reconstruction_steps_total,mean_reconstruction_depth,count_inline,count_interned,count_compressed
+hot-then-cold,0,0,3,3000,3000,600,0,604769,0.154,0.296,0.357,0.166659,2400,8400,3.5,0,600,2400
+hot-then-cold,1,40,3,3000,3000,600,600,574768,0.196,0.296,0.316,0.190755,3000,10500,3.5,0,0,3000
+sustained-hot,0,0,3,3000,3000,600,0,604769,0.155,0.293,0.316,0.167275,2400,8400,3.5,0,600,2400
+sustained-hot,1,40,3,3000,3000,9000,8960,576796,0.193,0.295,0.313,0.188687,2960,10360,3.5,0,40,2960

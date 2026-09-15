@@ -7,6 +7,15 @@ Required deliverable per `CLAUDE_RESEARCH.md` §8. Adversarial code review of
 review** — findings only. Reviewed against commit `0c416ca` (HEAD at review
 time).
 
+> **UPDATE (ECC fixes pass, post-review commit)**: every CRITICAL and HIGH
+> finding below, plus all four MEDIUM findings, has since been fixed. Each
+> finding is now annotated `STATUS: FIXED` (or `STATUS: LEFT AS-IS`) with
+> what changed and how it was verified. The findings themselves are left
+> otherwise unedited below, as the original record of what the review found
+> — see each `STATUS` block for the resolution. This file remains the
+> historical review record; `docs/v2_architecture.md` §10 and
+> `docs/hot_cold_design.md` §9 carry the corrected, current numbers.
+
 Methodology: read every line of the reviewed files (not a diff skim),
 traced every state transition by hand (not "tests pass so it's fine"),
 grepped for every call site of anything whose correctness looked
@@ -89,6 +98,20 @@ before pushing to `freeSlots_`.
 current P0.3/P0.4 evidence is not itself invalidated, only blocked from
 safe extension).
 
+**STATUS: FIXED.** `insert()` (`include/symtab_v2.hpp`) now explicitly
+resets `wasPromoted`, `lastAccessEpoch`, `poolIndexOf_[slotId]`, and
+`compressedRefOf_[slotId]` for every reused slot. New regression test:
+`tests/symtab_v2_compressed_test.cpp::test_slot_reuse_does_not_inherit_promotion_state`
+-- forces the exact promote -> release -> free-list reuse ->
+natively-INTERNED-insert -> `runMaintenance()` sequence described above.
+Verified rigorously, not just "tests pass": the test was run against a
+scratch copy of the header with the fix's two reset lines removed, and it
+failed exactly as predicted (`demoted == 0` failed, `t.demotions() == 0`
+failed, `representationOf(...) == INTERNED_REP` failed) before passing
+clean against the real, fixed code, including under
+`-fsanitize=address,undefined`. `coldIdleEpochs > 0` is now safe to use;
+see H3's STATUS below for the dedicated on/off experiment this unblocked.
+
 ---
 
 ## HIGH
@@ -141,6 +164,21 @@ amount in `exitScope()`.
 `modeled_bytes_after_insert` column for every dataset needs regenerating
 once fixed, since the omission affects every row, not just `nested-scopes`
 (it's just most visible there).
+
+**STATUS: FIXED.** The constructor and `enterScope()` now charge
+`s.index.byteFootprint()` immediately on scope creation; `insert()` charges
+the exact growth delta whenever a scope's `ScopeIndex::insert()` call
+triggers a doubling; `exitScope()` reclaims the scope's full footprint
+before popping it. `results/memory_audit_v2.csv` was regenerated: every
+`SymTabV2` row's `modeled_bytes_after_insert` increased (previously-
+uncharged index memory now included); `nested-scopes`' `measured_over_
+modeled_insert` ratio improved from 1.65 to 1.35, the largest correction of
+any dataset, confirming this was the real, non-trivial gap the review
+identified. Verified via diff that every non-`SymTabV2` row
+(Conventional/Interned/RobinHood) is byte-for-byte unchanged, and the
+automated accounting-invariant check (`memory_audit_v2_main.cpp`'s
+cycle-2-vs-cycle-3 repeatability check) still passes for all four tables
+post-fix.
 
 ### H2 — `block_compression_sweep_main.cpp`'s own sanity checks corrupt the reconstruction-count metric it exists to measure
 
@@ -208,6 +246,25 @@ regenerated. `mean_reconstruction_depth` and all latency columns do not
 need to change (see above) but should be re-verified after the fix as a
 matter of hygiene, not because they're expected to move.
 
+**STATUS: FIXED.** `block_compression_sweep_main.cpp` now snapshots
+`reconstructionCount()`/`reconstructionStepsTotal()` immediately before and
+after each timed pass and reports the DELTA, not a cumulative total --
+cold-pass and hot-pass reconstruction work are now separate,
+delta-isolated CSV columns (`cold_reconstruction_count`/
+`cold_reconstruction_steps_total`/`cold_mean_reconstruction_depth` and the
+`hot_` equivalents), immune to any sanity check run before or between the
+snapshot points. Also fixed `representationOf()`'s doc comment in
+`include/symtab_v2.hpp` to state precisely that it DOES perform a real
+reconstruction (and thus DOES perturb the reconstruction counters) for a
+COMPRESSED candidate, even though it correctly avoids perturbing
+`accessCount`/promotion. Sweep regenerated: `cold_reconstruction_count` is
+now `4000` for every n=4000 row (previously `8000`); `mean_reconstruction_
+depth` is unchanged (as predicted, since it's a ratio of two equally-
+scaled quantities). Memory figures also shifted in this regeneration, but
+that shift is due to the H1 fix (ScopeIndex accounting), not this fix --
+see H1's STATUS and `docs/v2_architecture.md` §10 item 3's "SUPERSEDED
+VALUES NOTICE" for the full before/after comparison.
+
 ### H3 — Demotion has zero ablation/comparison evidence that it is net beneficial, and its own re-materialization strategy works against decide()'s documented empirical finding
 
 **File/location**: `include/symtab_v2.hpp`, `demote()` (lines 839-854);
@@ -271,9 +328,24 @@ currently claims a demotion benefit) -- but this blocks ever making such a
 claim without first running the comparison, and blocks turning on
 `coldIdleEpochs > 0` in any future benchmark until C1 is fixed first.
 
----
-
-## MEDIUM
+**STATUS: FIXED (experiment run; result is a documented negative/mixed
+finding, not a forced positive).** New `src/demotion_experiment_main.cpp`
+runs demotion ON vs OFF on two workloads (`hot-then-cold`, designed to
+favor demotion, and `sustained-hot`, designed to stress it per `decide()`'s
+own documented concern), with real scope churn interleaved to exercise the
+C1 fix at experiment scale. Result (`results/demotion_experiment.csv`,
+full writeup in `docs/hot_cold_design.md` §9): `hot-then-cold` gets a real
+but modest ~5% memory reduction at a ~13-20% mean-latency cost;
+`sustained-hot` gets essentially the same ~5% memory reduction but at the
+cost of 15x more promotion/demotion churn (9000 vs 600 promotions) than
+demotion-off, from a previously-undocumented failure mode: `coldIdleEpochs`
+is measured against a *global* resolve()-call clock shared by every name in
+the table, so a workload with heavy overall lookup traffic can make even a
+genuinely "hot" (repeatedly-accessed) entry look idle relative to the
+current epoch, causing continuous demote/re-promote thrashing. Per
+CLAUDE_RESEARCH.md's rule 13, this is reported as a genuine, current
+limitation -- `coldIdleEpochs` stays `0` (disabled) by default, and no
+benchmark tool in this repository enables it.
 
 ### M1 — `fingerprint()` and `fingerprint8()` are correlated bit-slices of the same hash, not independent checks, and this is never validated
 
@@ -334,6 +406,14 @@ justification and possibly the observed rejection-rate numbers in a future
 "fingerprint rejections" counter, which doesn't currently exist as a
 reported metric anywhere).
 
+**STATUS: FIXED (documentation correction).** `fingerprint8()`'s comment in
+`include/symtab_v2.hpp` now states precisely what independence property
+actually holds (fingerprint-level, not hash-level) and why correctness is
+unaffected either way (the full decode-and-compare always remains the final
+arbiter). No code behavior changed -- this was a comment-accuracy fix, not
+a functional one, consistent with the finding being about a claim, not a
+bug.
+
 ### M2 — `demote()`/`maybePromote()` leave a stale `compressedRefOf_` trail (currently harmless, latent footgun)
 
 **File/location**: `include/symtab_v2.hpp`, `maybePromote()` (lines
@@ -366,6 +446,13 @@ other.
 with what `demote()` already does for `poolIndexOf_`.
 
 **Requires rerunning experiments**: No.
+
+**STATUS: FIXED.** `maybePromote()` now resets `compressedRefOf_[slotId]`
+immediately after `releaseBlockMember()`, symmetric with `demote()`'s
+existing `poolIndexOf_` reset. Covered incidentally by the existing
+promotion/demotion test suite (all still pass under ASan+UBSan); no new
+test needed since this was a latent-only footgun with no currently-reachable
+observable effect (see the finding's own evidence).
 
 ### M3 — `runMaintenance()`'s documented complexity ("O(live-slot)") is actually O(peak-concurrent-slot-count), and this cost is never measured
 
@@ -404,6 +491,13 @@ current (inaccurate) comment.
 this being cheap, but any future one that schedules `runMaintenance()`
 periodically must account for the corrected complexity.
 
+**STATUS: FIXED (documentation correction).** The complexity claim in both
+`include/symtab_v2.hpp`'s comment and `docs/hot_cold_design.md` §3 is
+corrected to "O(peak-concurrent-slot-count)". `results/demotion_experiment.csv`'s
+experiment (added for H3) exercises `runMaintenance()` repeatedly under
+real churn but does not isolate its own wall-clock cost as a separate
+metric -- that remains a follow-up for a future phase, as originally noted.
+
 ### M4 — `CompressedRef::slotInBlock` (uint16_t) silently truncates if `blockSize` exceeds 65535, with no guard
 
 **File/location**: `include/symtab_v2.hpp`, `insertCompressed()` line 705:
@@ -432,6 +526,10 @@ constructor, or widen `slotInBlock` to `uint32_t` (small memory cost per
 **Requires rerunning experiments**: No (not currently triggered by any
 committed configuration).
 
+**STATUS: FIXED.** The `SymTabV2` constructor now `assert`s
+`cfg_.blockSize <= 65535`. No committed configuration was ever near this
+limit (max swept value is 128), so no experiment output changes.
+
 ---
 
 ## LOW
@@ -455,6 +553,10 @@ eventual `results/FINAL_RESULTS.md` limitations section.
 
 **Requires rerunning experiments**: No.
 
+**STATUS: LEFT AS-IS.** No code fix was ever recommended for this finding;
+it is a scope-decision note for future results writeups, unchanged by this
+pass.
+
 ### L2 — `accessCount` (uint32_t) has no overflow guard for extremely long-lived hot entries
 
 **File/location**: `include/symtab_v2.hpp`, `PackedEntry::accessCount`
@@ -472,6 +574,11 @@ it's reachable at any realistic scale tested or planned in this project.
 **Recommended fix**: none required at current scale.
 
 **Requires rerunning experiments**: No.
+
+**STATUS: LEFT AS-IS.** Not reachable at any scale exercised by this
+project's datasets (confirmed: even `demotion_experiment.csv`'s sustained-hot
+workload, which drives roughly 9000 promotions, is many orders of magnitude
+below `2^32`).
 
 ### L3 — `pool_[idx]`'s real (heap-allocated, for names above SSO length) string buffer is not physically freed when its refcount drops to 0, only its tracked byte count
 
@@ -497,6 +604,10 @@ not an additional defect.
 listed for completeness of the memory-accounting review.
 
 **Requires rerunning experiments**: No.
+
+**STATUS: LEFT AS-IS.** Already-documented, accepted trade-off; this
+finding's own text already confirms (by inspection, not assumption) that
+the P0.4 demotion path does not compound it.
 
 ---
 
@@ -594,3 +705,34 @@ project will build later claims on, since both are cheap, well-understood
 fixes and re-deriving numbers is far cheaper now than after downstream
 phases (Pareto, ablation, parameter study) have already consumed the
 uncorrected CSVs.
+
+---
+
+## POST-FIX UPDATE
+
+All 8 items in section 4's fix list have been applied, in a dedicated
+"ECC fixes" pass (see `docs/v2_architecture.md` §10 items 6-10 and
+`docs/hot_cold_design.md` §9 for the full writeup of each fix and its
+verification). Updated status:
+
+- **Section 1 (totals)**: unchanged as a historical record -- 1 CRITICAL,
+  3 HIGH, 4 MEDIUM, 3 LOW were found. All CRITICAL/HIGH/MEDIUM are now
+  `STATUS: FIXED`; all LOW are `STATUS: LEFT AS-IS` (none needed a code
+  change).
+- **Section 2 (blockers)**: no longer blocking. C1 is fixed and covered by
+  a regression test verified (via a deliberately-reverted scratch copy) to
+  actually catch the bug. H1 and H2 are fixed and their affected results
+  files (`results/memory_audit_v2.csv`, `results/block_compression_sweep.csv`)
+  regenerated. H3's required experiment (`results/demotion_experiment.csv`)
+  is done and reports an honest, mixed/negative result -- demotion remains
+  disabled by default.
+- **Section 3 (invalidated results)**: the previously-invalidated columns
+  in `results/memory_audit_v2.csv` and `results/block_compression_sweep.csv`
+  have been regenerated with the fixes applied; the old values are preserved
+  in this document's history (see `docs/v2_architecture.md` §10 item 3's
+  "SUPERSEDED VALUES NOTICE" for the explicit before/after) rather than
+  silently overwritten with no record.
+- **Section 5 (verdict)**: **V2 is now unconditionally safe to proceed to
+  the benchmark-infrastructure phase.** Demotion remains off by default
+  (`coldIdleEpochs = 0`) as a documented DESIGN decision backed by the H3
+  experiment's result, not as an unresolved safety gate.

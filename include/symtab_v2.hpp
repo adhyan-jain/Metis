@@ -320,11 +320,28 @@ class SymTabV2 {
 public:
     explicit SymTabV2(size_t budgetBytes, PolicyConfigV2 cfg = PolicyConfigV2())
         : tracker_(budgetBytes), cfg_(cfg) {
+        // ECC review M4 fix: CompressedRef::slotInBlock is a uint16_t (see
+        // its definition) -- insertCompressed() truncates b.members.size()
+        // into it silently. A blockSize above 65535 would alias two
+        // different members onto the same slotInBlock, corrupting
+        // addressing. Not reachable by any configuration used anywhere in
+        // this repository today, but nothing previously stopped a future
+        // caller from doing it silently -- fail loudly instead.
+        assert(cfg_.blockSize <= 65535 && "SymTabV2: blockSize must fit in CompressedRef::slotInBlock (uint16_t)");
         scopes_.emplace_back();
+        // ECC review H1 fix: charge the initial (global) scope's ScopeIndex
+        // allocation -- see the identical comment on enterScope() below.
+        tracker_.add(scopes_.back().index.byteFootprint());
     }
 
     int enterScope() {
         scopes_.emplace_back();
+        // ECC review H1 fix: ScopeIndex's constructor allocates a real,
+        // fixed-size backing vector (default 16 slots) the moment a Scope is
+        // default-constructed -- charge it immediately so every open scope's
+        // index memory is represented in tracker_.current(), not just the
+        // per-insert growth deltas charged in insert() below.
+        tracker_.add(scopes_.back().index.byteFootprint());
         return static_cast<int>(scopes_.size()) - 1;
     }
 
@@ -376,6 +393,13 @@ public:
             rep.bytesReclaimed += freed;
             rep.symbolsReleased++;
         }
+        // ECC review H1 fix: reclaim exactly what this scope's ScopeIndex
+        // was charged (its current byteFootprint(), which already reflects
+        // every growth doubling charged incrementally in insert() above) --
+        // symmetric with the charge in enterScope()/the constructor.
+        long long indexFootprint = s.index.byteFootprint();
+        tracker_.reclaim(indexFootprint);
+        rep.bytesReclaimed += indexFootprint;
         scopes_.pop_back();
         return rep;
     }
@@ -398,13 +422,40 @@ public:
         Rep rep = decide(name);
         uint32_t slotId = allocSlot();
         PackedEntry& e = entries_[slotId];
+        // ECC review C1 fix: a reused (free-listed) slotId's PackedEntry may
+        // carry state left over from a PREVIOUS, entirely unrelated
+        // occupant -- allocSlot() intentionally does not zero the struct
+        // (that would defeat the point of O(1) slot reuse), so EVERY field
+        // that could influence behavior for the NEW occupant must be reset
+        // here explicitly, not just the ones a given representation happens
+        // to write via materialize(). Before this fix, wasPromoted and
+        // lastAccessEpoch were left stale, which let a decide()-native
+        // INTERNED entry that recycled a promoted-then-released slot get
+        // misclassified as demotion-eligible from the instant it was
+        // created (see results/ecc_review.md finding C1, and
+        // test_slot_reuse_does_not_inherit_promotion_state below).
         e.scopeId = static_cast<uint32_t>(scopes_.size()) - 1;
         e.typeId = static_cast<uint32_t>(typeId);
         e.accessCount = 0;
+        e.lastAccessEpoch = 0; // C1: stale value from a prior occupant must not leak into demotion eligibility
         assert(name.size() <= UINT16_MAX && "SymTabV2: identifier too long for uint16_t nameLen");
         e.nameLen = static_cast<uint16_t>(name.size());
         e.representation = rep;
         e.live = true;
+        e.wasPromoted = false; // C1: only maybePromote() may ever set this true, never a stale carry-over
+        // C1 audit ("any other stale per-entry fields"): the parallel
+        // representation-specific arrays (poolIndexOf_/compressedRefOf_)
+        // are indexed by the same slotId and can likewise hold a prior
+        // occupant's reference. materialize() below only overwrites the ONE
+        // array matching the NEW representation, so the other one is reset
+        // to its sentinel/default here -- otherwise a slot that changes
+        // representation across reuse (e.g. was COMPRESSED, now INLINE)
+        // would carry a stale, potentially-since-reclaimed-and-reused
+        // CompressedRef/pool index that no live code path reads today (see
+        // ecc_review.md M2) but that a future reader must not be able to
+        // observe as "valid-looking" garbage.
+        poolIndexOf_[slotId] = UINT32_MAX;
+        compressedRefOf_[slotId] = CompressedRef{};
 
         if (rep != Rep::INLINE_REP) {
             auto insertResult = everSeenRep_.insert(name);
@@ -416,7 +467,19 @@ public:
         long long cost = materialize(slotId, e, name, rep);
         tracker_.add(cost);
 
+        // ECC review H1 fix: ScopeIndex allocates real, growable backing
+        // storage (ScopeIndex::byteFootprint()) that was previously never
+        // charged to tracker_ at all (see results/ecc_review.md finding
+        // H1) -- charge exactly the DELTA this insert()'s index growth (if
+        // any) actually costs, so a scope that never grows its index pays
+        // nothing extra here (its initial allocation is already charged
+        // once, at scope-creation time -- see enterScope()/the constructor)
+        // and a scope that doubles its index pays exactly that doubling,
+        // no more, no less.
+        long long footprintBefore = s.index.byteFootprint();
         s.index.insert(fp, slotId);
+        long long footprintAfter = s.index.byteFootprint();
+        if (footprintAfter != footprintBefore) tracker_.add(footprintAfter - footprintBefore);
         s.liveSlots.push_back(slotId);
 
         int declId = nextDeclId_++;
@@ -448,15 +511,28 @@ public:
     // P0-4: explicit, externally-triggered cold-demotion sweep (INTERNED,
     // previously-promoted entries idle for >= cfg_.coldIdleEpochs resolve()
     // calls are demoted back to COMPRESSED). NOT invoked automatically from
-    // resolve()/insert(): it is an O(live-slot) scan, and running it on
-    // every O(1) lookup would silently turn every resolve() call into an
-    // O(n) operation -- exactly the kind of hidden cost CLAUDE_RESEARCH.md's
-    // benchmark-artifact concerns are about. A real compiler (or this
-    // benchmark harness) calls it at natural checkpoints -- e.g. once per N
+    // resolve()/insert(): it is an O(peak-concurrent-slot-count) scan (see
+    // ECC review M3 correction below), and running it on every O(1) lookup
+    // would silently turn every resolve() call into an O(n) operation --
+    // exactly the kind of hidden cost CLAUDE_RESEARCH.md's benchmark-
+    // artifact concerns are about. A real compiler (or this benchmark
+    // harness) calls it at natural checkpoints -- e.g. once per N
     // declarations, or once per translation unit -- matching how a real
     // system would schedule non-critical-path maintenance work. Returns the
     // number of entries demoted in this call. A no-op if
     // cfg_.coldIdleEpochs == 0 (demotion disabled).
+    //
+    // ECC review M3 correction: this was previously described as an
+    // "O(live-slot)" scan. That is inaccurate -- the loop below walks every
+    // index in entries_ (live or dead, filtered internally), so its true
+    // cost is O(entries_.size()) == O(peakSlotCount()), the historical
+    // high-water mark of CONCURRENTLY live slots (see peakSlotCount()'s doc
+    // comment), not the number of slots live at the moment this is called.
+    // For a workload with a high peak but a low current live count (e.g.
+    // right after a large batch of scopes exits), this scan costs far more
+    // than "O(live-slot)" would suggest. Not yet benchmarked directly (see
+    // results/demotion_experiment.csv for demotion's end-to-end effect,
+    // which does NOT isolate runMaintenance()'s own wall-clock cost).
     size_t runMaintenance() {
         if (cfg_.coldIdleEpochs == 0) return 0;
         size_t demoted = 0;
@@ -499,8 +575,21 @@ public:
     // Current representation of the innermost live binding of `name`, or
     // Rep::INLINE_REP if absent (matches V1's representationOf() default-
     // on-absence behavior). Does NOT count as an access (no accessCount
-    // bump, no promotion side effect) -- a pure introspection query, used by
-    // tests and analysis tooling to observe promotion without perturbing it.
+    // bump, no promotion side effect) -- used by tests and analysis tooling
+    // to observe promotion without perturbing the hot/cold policy state.
+    //
+    // ECC review H2 correction: the "without perturbing it" claim above is
+    // narrower than it may read -- this call IS a real lookup for indexing
+    // purposes (ScopeIndex::find() + nameEquals()), and for a COMPRESSED
+    // candidate, nameEquals() DOES perform a genuine reconstructMember()
+    // decode, which DOES increment reconstructionCount()/
+    // reconstructionStepsTotal() (see reconstructMember()'s comment) exactly
+    // as any other lookup of that name would. Only accessCount/promotion are
+    // guaranteed untouched. A caller measuring reconstruction work must NOT
+    // call representationOf() (or lookup()/resolve()) on a name inside the
+    // region being measured unless that call is meant to count -- see
+    // src/block_compression_sweep_main.cpp's fix for exactly this mistake
+    // (results/ecc_review.md finding H2).
     Rep representationOf(const std::string& name) const {
         uint32_t fp = fingerprint(name);
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
@@ -653,12 +742,31 @@ private:
         return static_cast<uint32_t>(h ^ (h >> 32));
     }
 
-    // P0-2: a SECOND, independent fingerprint for compressed block members,
-    // deliberately built from different bits of the same 64-bit hash than
-    // fingerprint() above uses (bits 16-23 here vs the full low/high-32-bit
-    // XOR there), so a hash collision in one is not automatically a
-    // collision in the other -- two genuinely independent cheap rejection
-    // checks rather than one check computed twice.
+    // P0-2: a SECOND fingerprint for compressed block members, built from
+    // different bits of the same 64-bit hash than fingerprint() above uses
+    // (bits 16-23 here vs the full low/high-32-bit XOR there).
+    //
+    // ECC review M1 correction: this is NOT a statistically independent
+    // check in the strict sense -- both values are deterministic functions
+    // of the SAME 64-bit HashFn::hash(name) output, so a genuine 64-bit
+    // hash collision (h1 == h2 for two different names) collides both
+    // fingerprint() and fingerprint8() together, always. What this bit-slice
+    // choice actually buys is narrower: a FINGERPRINT-level collision
+    // (fingerprint(a) == fingerprint(b) despite hash(a) != hash(b), i.e. the
+    // 64-bit hashes differ but their low32^high32 XOR happens to coincide)
+    // does not imply fingerprint8(a) == fingerprint8(b), since fp8's source
+    // bits are folded into fp's XOR differently than they'd need to be to
+    // force agreement. That is still a real, useful rejection-rate
+    // improvement (see BlockMember::fp8's collision-count comment) but it is
+    // a weaker property than "independent checks" -- the true rejection
+    // rate for this specific hash function (FnvHash by default, whose
+    // avalanche is not uniform across bit positions) is asserted here, not
+    // measured. Regardless of how correlated the two checks turn out to be,
+    // CORRECTNESS never depends on their independence: nameEquals()'s
+    // COMPRESSED branch always falls through to a full decode-and-compare
+    // as the final arbiter (see below), so fp8 can only ever cause a safe
+    // early-reject (both checks already agree a real fingerprint collision
+    // exists before fp8 is even consulted), never a false accept.
     uint8_t fingerprint8(const std::string& name) const {
         uint64_t h = HashFn::hash(name);
         return static_cast<uint8_t>((h >> 16) & 0xFF);
@@ -818,6 +926,7 @@ private:
         if (e.accessCount < cfg_.hotAccessThreshold) return;
         CompressedRef oldRef = compressedRefOf_[slotId];
         releaseBlockMember(oldRef); // may or may not physically reclaim yet -- see releaseBlockMember()'s comment
+        compressedRefOf_[slotId] = CompressedRef{}; // ECC review M2 fix: don't leave a released, dangling ref behind
         e.representation = Rep::INTERNED_REP;
         e.wasPromoted = true; // P0-4: marks this INTERNED slot demotion-eligible, see runMaintenance()
         poolIndexOf_[slotId] = internName(name);

@@ -363,6 +363,67 @@ static void test_naturally_interned_entry_never_demoted() {
     if (failures == 0) std::cout << "test_naturally_interned_entry_never_demoted: passed\n";
 }
 
+// ECC review C1 regression test (results/ecc_review.md finding C1):
+// allocSlot()/insert() previously did not reset PackedEntry::wasPromoted or
+// lastAccessEpoch when a freed slot was reused, so a decide()-native
+// INTERNED entry that happened to recycle a slot PREVIOUSLY held by a
+// promoted-then-released entry inherited stale demotion-eligibility state
+// and could be wrongly demoted -- without ever itself being resolve()'d,
+// let alone promoted. This test forces exactly that slot-reuse sequence:
+//   promotion -> release (scope exit) -> free-list slot reuse
+//   -> insertion of a natively-INTERNED symbol -> maintenance sweep
+// and asserts the new symbol is untouched by demotion.
+static void test_slot_reuse_does_not_inherit_promotion_state() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.hotAccessThreshold = 2;
+    cfg.coldIdleEpochs = 2; // deliberately small: easy for a stale epoch to appear "idle enough"
+
+    SymTabV2<> t(1 << 20, cfg);
+    // Seed the repeat-detection registry so a LATER occurrence of this name
+    // decide()-natively routes to INTERNED (never touches COMPRESSED, never
+    // goes through maybePromote()). Stays alive in the GLOBAL scope for the
+    // whole test -- deliberately NOT released, so its slot (0) is never in
+    // play for the reuse this test targets.
+    t.insert("networkInterfaceBufferPool"); // slot 0, global scope, COMPRESSED
+
+    t.enterScope(); // scope 1
+    int hotId = t.insert("temperatureSensorCalibration"); // slot 1, COMPRESSED
+    for (size_t i = 0; i < cfg.hotAccessThreshold; i++) t.resolve("temperatureSensorCalibration");
+    CHECK(t.representationOf("temperatureSensorCalibration") == Rep::INTERNED_REP); // promoted
+    CHECK(t.promotions() == 1);
+    t.exitScope(); // releases slot 1 (the promoted entry) -> freeSlots_ = [1], LIFO
+
+    // A DIFFERENT scope (not scope 1's, and not scope 0's -- scope 0 already
+    // holds a live binding of this exact name, which would make the next
+    // insert() a same-scope REDECLARATION of slot 0 instead of a fresh
+    // allocSlot() call, missing the free-list reuse path entirely). Scope
+    // 2's own index has no entry for this name, so insert() takes the
+    // fresh-allocation path, and freeSlots_'s only entry (slot 1, the
+    // promoted-then-released one) is exactly what gets reused.
+    t.enterScope(); // scope 2
+    // "networkInterfaceBufferPool" is a REPEAT of the seed above (globally,
+    // via everSeenRep_), so decide() routes it natively to INTERNED -- this
+    // occurrence never goes through maybePromote() at all.
+    int y = t.insert("networkInterfaceBufferPool");
+    CHECK(y != hotId);
+    CHECK(t.representationOf("networkInterfaceBufferPool") == Rep::INTERNED_REP);
+
+    // Advance the epoch clock well past coldIdleEpochs via unrelated
+    // lookups. Pre-fix, the reused slot's STALE lastAccessEpoch (left over
+    // from "temperatureSensorCalibration"'s promotion) combined with its
+    // STALE wasPromoted=true would make this immediately demotion-eligible.
+    for (int i = 0; i < 50; i++) t.resolve("someUnrelatedAbsentName");
+
+    size_t demoted = t.runMaintenance();
+    CHECK(demoted == 0); // the new symbol must NOT be swept up as demotion-eligible
+    CHECK(t.demotions() == 0);
+    CHECK(t.representationOf("networkInterfaceBufferPool") == Rep::INTERNED_REP); // untouched
+    CHECK(t.resolve("networkInterfaceBufferPool") == y); // correctness preserved
+
+    if (failures == 0) std::cout << "test_slot_reuse_does_not_inherit_promotion_state: passed\n";
+}
+
 int main() {
     test_round_trip_and_no_false_positives();
     test_whole_block_reclaim_to_zero();
@@ -373,6 +434,7 @@ int main() {
     test_demotion_on_idle_after_maintenance();
     test_demotion_disabled_by_default();
     test_naturally_interned_entry_never_demoted();
+    test_slot_reuse_does_not_inherit_promotion_state();
 
     if (failures == 0) {
         std::cout << "ALL SYMTAB_V2 COMPRESSED-TIER TESTS PASSED\n";

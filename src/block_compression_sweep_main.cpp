@@ -25,7 +25,19 @@
 //    / reconstructionStepsTotal(), added to symtab_v2.hpp for this purpose:
 //    counts actual reconstructMember() calls (i.e. lookups that got past the
 //    free length check and the cheap 8-bit fp8 rejection and had to pay for
-//    a real decode) and the front-coding steps walked per call.
+//    a real decode) and the front-coding steps walked per call. These are
+//    CUMULATIVE counters on the table (not reset between passes), so every
+//    reported count/steps value here is a DELTA (after-snapshot minus
+//    before-snapshot) across exactly the pass it's attributed to -- cold and
+//    hot reconstruction work are captured and reported SEPARATELY (see
+//    cold_reconstruction_count/steps and hot_reconstruction_count/steps in
+//    the CSV). ECC review finding H2 (results/ecc_review.md): an earlier
+//    version of this tool read the counters as a raw cumulative total after
+//    an untimed pre-pass representationOf() sanity check had already
+//    performed a full extra pass of real reconstructions, silently doubling
+//    the reported count. Delta-based snapshots make the reported numbers
+//    correct regardless of what else (sanity checks included) touches the
+//    table before or between the snapshot points.
 //  - Lookup latency is measured as COLD (first resolve() of each name after
 //    the full dataset is inserted, in dataset order, single pass -- every
 //    resolve() in this pass is a genuine compressed-block decode, since
@@ -62,8 +74,14 @@ struct SweepRow {
     size_t blockSize = 0, anchorInterval = 0;
     size_t declarations = 0, uniqueNames = 0;
     long long modeledMemoryBytes = 0;
-    size_t reconstructionCount = 0, reconstructionStepsTotal = 0;
-    double meanReconstructionDepth = 0.0;
+    // ECC review H2 fix: reconstruction count/steps are now DELTAS captured
+    // separately across the cold pass and the hot pass (see file header) --
+    // no longer a single post-hoc cumulative read that could be
+    // contaminated by anything (sanity checks included) that ran earlier.
+    size_t coldReconstructionCount = 0, coldReconstructionStepsTotal = 0;
+    double coldMeanReconstructionDepth = 0.0;
+    size_t hotReconstructionCount = 0, hotReconstructionStepsTotal = 0;
+    double hotMeanReconstructionDepth = 0.0;
     double coldLookupP50Us = 0.0, coldLookupP95Us = 0.0, coldLookupP99Us = 0.0, coldLookupMeanUs = 0.0;
     double hotLookupP50Us = 0.0, hotLookupP95Us = 0.0, hotLookupP99Us = 0.0, hotLookupMeanUs = 0.0;
     double insertUsMean = 0.0;
@@ -111,18 +129,27 @@ static SweepRow runOne(HiResTimer& timer, const std::string& dsName, const std::
     auto tIns1 = timer.now();
     r.insertUsMean = names.empty() ? 0.0 : timer.microsecondsBetween(tIns0, tIns1) / static_cast<double>(names.size());
 
-    bool anyMisrouted = false;
-    for (auto& n : names) {
-        if (t.representationOf(n) != budgetsym::v2::Rep::COMPRESSED_REP) anyMisrouted = true;
-    }
-    if (anyMisrouted) {
+    // ECC review H2 fix: a single-name sanity check (not the whole
+    // population -- see file header) run here would itself perform a real
+    // reconstruction for a COMPRESSED candidate (representationOf() is not
+    // reconstruction-free, see symtab_v2.hpp's corrected doc comment on
+    // representationOf()). That is harmless for the metrics below because
+    // every reconstruction count/step reported from here on is a DELTA
+    // captured strictly AFTER this point, not a cumulative total -- so
+    // nothing before the first snapshot can leak into a reported number.
+    if (!names.empty() && t.representationOf(names[0]) != budgetsym::v2::Rep::COMPRESSED_REP) {
         std::cerr << "WARNING: " << dsName << " (block=" << blockSize << ", anchor=" << anchorInterval
-                  << ") has a name that did not route to COMPRESSED as expected\n";
+                  << ") did not route to COMPRESSED as expected\n";
     }
 
     r.modeledMemoryBytes = t.tracker().current();
 
-    // COLD pass: first-ever resolve() of each name, single pass, dataset order.
+    // COLD pass: first-ever resolve() of each name, single pass, dataset
+    // order. Reconstruction counters are snapshotted immediately before and
+    // after this exact loop, so the reported cold_reconstruction_* values
+    // are precisely the work this loop performed -- nothing more.
+    size_t reconBeforeCold = t.reconstructionCount();
+    size_t stepsBeforeCold = t.reconstructionStepsTotal();
     std::vector<double> coldSamples;
     coldSamples.reserve(names.size());
     volatile bool sink = false;
@@ -136,15 +163,19 @@ static SweepRow runOne(HiResTimer& timer, const std::string& dsName, const std::
     (void)sink;
     size_t reconAfterCold = t.reconstructionCount();
     size_t stepsAfterCold = t.reconstructionStepsTotal();
-    r.reconstructionCount = reconAfterCold;
-    r.reconstructionStepsTotal = stepsAfterCold;
-    r.meanReconstructionDepth = reconAfterCold > 0
-        ? static_cast<double>(stepsAfterCold) / static_cast<double>(reconAfterCold) : 0.0;
+    r.coldReconstructionCount = reconAfterCold - reconBeforeCold;
+    r.coldReconstructionStepsTotal = stepsAfterCold - stepsBeforeCold;
+    r.coldMeanReconstructionDepth = r.coldReconstructionCount > 0
+        ? static_cast<double>(r.coldReconstructionStepsTotal) / static_cast<double>(r.coldReconstructionCount) : 0.0;
     summarize(coldSamples, r.coldLookupP50Us, r.coldLookupP95Us, r.coldLookupP99Us, r.coldLookupMeanUs);
 
     // HOT pass: repeated resolve() of the same names. Promotion is disabled
     // (hotAccessThreshold unreachable), so this is a genuine second round of
     // real COMPRESSED-tier decodes, not a cache hit -- see file header.
+    // Reconstruction counters are snapshotted again, delta-isolated from the
+    // cold pass exactly like the cold pass was isolated from insertion.
+    size_t reconBeforeHot = reconAfterCold;
+    size_t stepsBeforeHot = stepsAfterCold;
     std::vector<double> hotSamples;
     hotSamples.reserve(names.size());
     for (auto& n : names) {
@@ -154,11 +185,19 @@ static SweepRow runOne(HiResTimer& timer, const std::string& dsName, const std::
         sink = sink || (id >= 0);
         hotSamples.push_back(timer.microsecondsBetween(a, b));
     }
+    size_t reconAfterHot = t.reconstructionCount();
+    size_t stepsAfterHot = t.reconstructionStepsTotal();
+    r.hotReconstructionCount = reconAfterHot - reconBeforeHot;
+    r.hotReconstructionStepsTotal = stepsAfterHot - stepsBeforeHot;
+    r.hotMeanReconstructionDepth = r.hotReconstructionCount > 0
+        ? static_cast<double>(r.hotReconstructionStepsTotal) / static_cast<double>(r.hotReconstructionCount) : 0.0;
     summarize(hotSamples, r.hotLookupP50Us, r.hotLookupP95Us, r.hotLookupP99Us, r.hotLookupMeanUs);
 
-    // Sanity: representation must still be COMPRESSED for all of them
-    // (hotAccessThreshold is unreachable), so the hot pass measured the same
-    // representation as the cold pass, not a blend.
+    // Post-hot sanity check: representation must still be COMPRESSED for all
+    // of them (hotAccessThreshold is unreachable), so the hot pass measured
+    // the same representation as the cold pass, not a blend. Runs after
+    // every metric for this configuration has already been captured, so its
+    // own reconstruction cost cannot contaminate anything reported above.
     for (auto& n : names) {
         if (t.representationOf(n) != budgetsym::v2::Rep::COMPRESSED_REP) {
             std::cerr << "WARNING: " << dsName << " promotion fired unexpectedly during hot pass\n";
@@ -170,19 +209,24 @@ static SweepRow runOne(HiResTimer& timer, const std::string& dsName, const std::
 }
 
 static void writeHeader(std::ofstream& out) {
+    // ECC review H2 fix: cold and hot reconstruction count/steps/depth are
+    // now separate, delta-isolated columns (see SweepRow's comment) instead
+    // of one ambiguous, cumulative-and-contaminated set of columns.
     out << "dataset,block_size,anchor_interval,declarations,unique_names,modeled_memory_bytes,"
-           "reconstruction_count,reconstruction_steps_total,mean_reconstruction_depth,"
+           "cold_reconstruction_count,cold_reconstruction_steps_total,cold_mean_reconstruction_depth,"
+           "hot_reconstruction_count,hot_reconstruction_steps_total,hot_mean_reconstruction_depth,"
            "cold_lookup_p50_us,cold_lookup_p95_us,cold_lookup_p99_us,cold_lookup_mean_us,"
            "hot_lookup_p50_us,hot_lookup_p95_us,hot_lookup_p99_us,hot_lookup_mean_us,insert_us_mean\n";
 }
 
 static void writeRow(std::ofstream& out, const SweepRow& r) {
     out << r.dataset << "," << r.blockSize << "," << r.anchorInterval << "," << r.declarations << ","
-        << r.uniqueNames << "," << r.modeledMemoryBytes << "," << r.reconstructionCount << ","
-        << r.reconstructionStepsTotal << "," << r.meanReconstructionDepth << "," << r.coldLookupP50Us << ","
-        << r.coldLookupP95Us << "," << r.coldLookupP99Us << "," << r.coldLookupMeanUs << "," << r.hotLookupP50Us
-        << "," << r.hotLookupP95Us << "," << r.hotLookupP99Us << "," << r.hotLookupMeanUs << "," << r.insertUsMean
-        << "\n";
+        << r.uniqueNames << "," << r.modeledMemoryBytes << "," << r.coldReconstructionCount << ","
+        << r.coldReconstructionStepsTotal << "," << r.coldMeanReconstructionDepth << ","
+        << r.hotReconstructionCount << "," << r.hotReconstructionStepsTotal << "," << r.hotMeanReconstructionDepth
+        << "," << r.coldLookupP50Us << "," << r.coldLookupP95Us << "," << r.coldLookupP99Us << ","
+        << r.coldLookupMeanUs << "," << r.hotLookupP50Us << "," << r.hotLookupP95Us << "," << r.hotLookupP99Us
+        << "," << r.hotLookupMeanUs << "," << r.insertUsMean << "\n";
 }
 
 int main() {

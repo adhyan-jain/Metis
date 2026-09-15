@@ -1511,10 +1511,32 @@ Update this section after every completed phase.
     committed results/memory_audit_v2.csv and
     results/block_compression_sweep.csv respectively -- see review section
     4 for exact required fixes.
-[ ] ECC fixes -- next phase: apply C1/H1/H2/H3 (+M1-M4 where cheap) fixes
-    identified by the review, then rerun the affected experiments
-    (memory_audit_v2, block_compression_sweep) and the full test suite.
- Benchmark infrastructure
+[x] ECC fixes -- all CRITICAL/HIGH/MEDIUM findings fixed (results/ecc_review.md
+    now carries a STATUS on every finding). C1: insert() resets
+    wasPromoted/lastAccessEpoch/poolIndexOf_/compressedRefOf_ on slot reuse;
+    new regression test (test_slot_reuse_does_not_inherit_promotion_state)
+    verified to fail without the fix and pass with it. H1: ScopeIndex
+    byteFootprint() now charged to tracker_ at scope create/grow/exit;
+    results/memory_audit_v2.csv regenerated (nested-scopes measured/modeled
+    ratio improved 1.65->1.35; non-SymTabV2 rows byte-identical, confirmed
+    via diff). H2: block_compression_sweep_main.cpp now uses delta-snapshot
+    reconstruction counting instead of a cumulative post-hoc read;
+    results/block_compression_sweep.csv regenerated (cold_reconstruction_count
+    corrected 8000->4000 per row; memory figures also shifted, but that's
+    the H1 fix, not H2). H3: new results/demotion_experiment.csv (dedicated
+    ON/OFF comparison, two workloads) -- HONEST NEGATIVE/MIXED RESULT:
+    modest ~5% memory win at ~13-20% latency cost on the favorable workload,
+    and severe promotion/demotion thrashing (15x more promotions) on a
+    sustained-hot workload due to the global (not per-name) epoch clock.
+    coldIdleEpochs stays 0 (disabled) by default -- a documented design
+    decision, not an unresolved gap. M1-M4: comment corrections + one
+    assert + one symmetric state reset, all cheap and verified not to
+    change any test outcome. L1-L3 left as-is (no code risk). Full test
+    suite (smoke/differential/V2 compressed-tier, 15 tests total) passes
+    clean under -fsanitize=address,undefined after every fix.
+[ ] Benchmark infrastructure -- NOT STARTED (not attempted this turn, per
+    explicit instruction). V2 is now unconditionally ready for it per
+    results/ecc_review.md's POST-FIX UPDATE (section 5).
  Corpus event extraction
  Corpus validation
  Dataset characterization

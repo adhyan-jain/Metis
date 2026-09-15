@@ -215,6 +215,24 @@ column) but never conflated -- this matches CLAUDE_RESEARCH.md §9.1's
 requirement to keep ACTUAL MEASURED MEMORY and MODELED/COMPONENT ACCOUNTING
 visibly distinct.
 
+**ECC review H1 fix (previously a gap)**: `ScopeIndex`'s own backing
+storage (`ScopeIndex::byteFootprint()`) was defined but never charged to
+`tracker_` at all -- `results/ecc_review.md` finding H1. Fixed: the
+constructor and `enterScope()` now charge each scope's initial index
+allocation, `insert()` charges the exact delta whenever a scope's index
+grows (doubling), and `exitScope()` reclaims the scope's full footprint
+before popping it. `results/memory_audit_v2.csv` was regenerated after this
+fix -- every `SymTabV2` row's `modeled_bytes_after_insert` increased (the
+previously-uncharged index memory is now included), most visibly on
+`nested-scopes` (many small scopes): `measured_over_modeled_insert` dropped
+from 1.65 to 1.35, the largest correction of any dataset, confirming this
+was a real, non-trivial omission for scope-heavy workloads. The
+`measured_heap_bytes_*` columns are unaffected (they were never wrong --
+they come from the independent allocator hook, not `tracker_`), and every
+non-`SymTabV2` row (Conventional/Interned/RobinHood) is byte-for-byte
+identical to the pre-fix CSV (confirmed via diff), since only `SymTabV2`'s
+accounting changed.
+
 ## 9. Pointer / reference validity
 
 No raw pointers cross a mutating call boundary in the public API. All
@@ -244,19 +262,32 @@ with `e` as a reference parameter, and nothing inside `materialize()` calls
    measuring modeled memory, reconstruction count/steps/mean-depth (new
    `SymTabV2::reconstructionCount()`/`reconstructionStepsTotal()` counters),
    and cold/hot lookup latency percentiles (p50/p95/p99/mean). Output:
-   `results/block_compression_sweep.csv` (48 rows). Findings, both
-   directions honestly reported: on `high-prefix-similarity`, larger
-   `anchorInterval` measurably reduces memory (630995 -> 581558 bytes at
-   n=4000, block=32) at the cost of measurably higher reconstruction depth
-   and lookup latency (p50 0.094us -> 0.512us); on `random-long` (no shared
-   prefixes), the same sweep shows front-coding barely reduces memory at all
-   (704738 -> 704700 bytes) while still paying the same latency cost as
-   `anchorInterval` grows -- i.e. block compression's benefit is
-   prefix-similarity-dependent, exactly as the mechanism predicts, and this
-   is now measured rather than assumed. `blockSize` alone (holding
-   `anchorInterval` fixed) has no measurable effect on reconstruction depth
-   or latency, confirming the design's decoupling of reclaim granularity
-   from reconstruction-depth bound (see `docs/v2_architecture.md` section 6).
+   `results/block_compression_sweep.csv` (48 rows).
+   **SUPERSEDED VALUES NOTICE**: this item originally cited
+   `high-prefix-similarity` memory `630995 -> 581558` bytes and `random-long`
+   `704738 -> 704700` bytes, with `reconstruction_count=8000` for n=4000.
+   Those specific numbers are **superseded**, not silently replaced -- they
+   were correct as measurements of what the tool computed at the time, but
+   the tool itself had two bugs the ECC review found (`results/ecc_review.md`
+   H1: `SymTabV2`'s `ScopeIndex` memory was uncharged, shifting every memory
+   number upward once fixed; H2: the sweep's own pre-pass sanity check
+   double-counted reconstructions, inflating `reconstruction_count` 2x).
+   Current, corrected values (block=4/anchor=2 vs block=32/anchor=32,
+   n=4000): `high-prefix-similarity` memory `762067 -> 712630` bytes (still
+   a real, measurable reduction from a larger anchor interval, just at a
+   different absolute baseline now that index memory is correctly included);
+   `random-long` memory `835810 -> 835770` bytes (still negligible, same
+   qualitative finding: front-coding barely helps without shared prefixes);
+   `cold_reconstruction_count` is now correctly `4000` (not `8000`) for
+   every n=4000 row, and `cold_mean_reconstruction_depth` (unaffected by
+   either bug, since it's a ratio of two equally-inflated/deflated
+   quantities) is unchanged: `0.5 -> 15.5` across the same anchor range. The
+   qualitative conclusion is unchanged and was never dependent on the bugs:
+   larger `anchorInterval` trades memory for reconstruction depth/latency,
+   the size of that trade is prefix-similarity-dependent, and `blockSize`
+   alone (holding `anchorInterval` fixed) has no measurable effect on
+   reconstruction depth or latency, confirming the design's decoupling of
+   reclaim granularity from the reconstruction-depth bound (section 6).
 4. ~~**Hot/cold tiering (P0.4) has no design doc**~~ FIXED:
    `docs/hot_cold_design.md` documents the hot threshold (promotion,
    pre-existing), the cold threshold (demotion, newly implemented --
@@ -271,7 +302,41 @@ with `e` as a reference parameter, and nothing inside `materialize()` calls
    SymTabV2 end-to-end (INLINE+INTERNED+COMPRESSED+promotion+demotion mixed,
    as a real workload would exercise it) against the other tables, which is
    a later phase (Benchmark infrastructure / Pareto optimization), not part
-   of P0.3's block-compression-specific measurement.
+   of P0.3's block-compression-specific measurement. This item survives
+   unchanged through the ECC-fixes pass below (see item 6).
 
-Phases P0.1-P0.4 are now complete (implementation + validation). Next:
-ECC review (CLAUDE_RESEARCH.md §8).
+Phases P0.1-P0.4 were completed in this pass, then subjected to an
+adversarial ECC review (`results/ecc_review.md`, section 8): 1 CRITICAL,
+3 HIGH, 4 MEDIUM, 3 LOW findings. All CRITICAL/HIGH findings, plus the
+cheap and directly-relevant MEDIUM findings, are now fixed:
+
+6. ~~**C1 (CRITICAL): stale `wasPromoted`/`lastAccessEpoch` on slot
+   reuse**~~ FIXED: `insert()` now explicitly resets `wasPromoted`,
+   `lastAccessEpoch`, `poolIndexOf_[slotId]`, and `compressedRefOf_[slotId]`
+   for every reused slot, not just the fields a given representation's
+   `materialize()` happens to write. Regression test:
+   `tests/symtab_v2_compressed_test.cpp::test_slot_reuse_does_not_inherit_promotion_state`,
+   which forces exactly the promote -> release -> free-list reuse ->
+   natively-INTERNED-insert -> `runMaintenance()` sequence the review
+   identified, and was verified (by temporarily reverting the fix in a
+   scratch copy) to actually fail without the fix and pass with it.
+7. ~~**H1 (HIGH): `ScopeIndex` memory never tracked**~~ FIXED -- see the
+   "ECC review H1 fix" note in section 8 above.
+8. ~~**H2 (HIGH): sweep tool double-counts reconstructions**~~ FIXED -- see
+   item 3's "SUPERSEDED VALUES NOTICE" above.
+9. ~~**H3 (HIGH): demotion had no ablation evidence**~~ FIXED:
+   `src/demotion_experiment_main.cpp` runs a dedicated demotion ON/OFF
+   comparison (`results/demotion_experiment.csv`) -- see
+   `docs/hot_cold_design.md` section 9 for the honest, mixed result
+   (modest memory savings, non-trivial latency cost, and a genuine
+   promotion/demotion thrashing failure mode on a sustained-hot workload).
+10. **M1-M4** (fingerprint independence overstatement, stale
+    `compressedRefOf_` after promotion, `runMaintenance()` complexity
+    mischaracterization, unguarded `blockSize` truncation) all fixed with
+    corrected comments, a symmetric reset in `maybePromote()`, and an
+    `assert` -- see `results/ecc_review.md` section 4 for the itemized list.
+    L1-L3 were left as-is (documentation-only findings, no code risk).
+
+Next: benchmark infrastructure (CLAUDE_RESEARCH.md's execution order,
+section 6), with demotion's default (`coldIdleEpochs = 0`) kept off pending
+the outcome documented in `docs/hot_cold_design.md`.
