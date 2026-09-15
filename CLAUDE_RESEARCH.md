@@ -1619,7 +1619,10 @@ Update this section after every completed phase.
 [x] Adversarial fixes -- Fixed CRITICAL/HIGH issues (ISSUE-01: bounded claims to workloads N > 200, documenting
     fixed directory allocation overhead of ~8 KB; ISSUE-02 & ISSUE-03: rejected ML complexity in favor of
     Hand-Designed Heuristic and clarified negative regret latency-violation artifacts).
- Reproducibility
+[x] Reproducibility -- Single entry point pipeline script in run_research_experiments.sh
+    and comprehensive documentation in docs/reproducibility.md. Executes 11-step end-to-end pipeline
+    (compilation, tests, trace extraction, core bench, Pareto sweep, parameter study, ablation,
+    multiseed statistics N=30, ML policy evaluation, figure rendering) from clean state. Fully verified cleanly.
  Final figures
  Final tables
  FINAL_RESULTS.md
