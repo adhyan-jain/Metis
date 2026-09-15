@@ -1613,8 +1613,12 @@ Update this section after every completed phase.
     interned pools, tries, front-coded dictionaries, succinct hash tables, learned indexes, embedded systems).
     Includes complete bibliographic citations (DOIs), comparative taxonomy matrix, defensible novelty synthesis,
     and explicit limitations audit.
- Adversarial review
- Adversarial fixes
+[x] Adversarial review -- Hostile systems/compiler peer-review audit report in results/adversarial_review.md.
+    Evaluated research validity, baseline fairness, ML complexity, dataset limits, and novelty claims.
+    Classified all paper claims into Directly Demonstrated, Partially Demonstrated, Unsupported, or Contradicted.
+[x] Adversarial fixes -- Fixed CRITICAL/HIGH issues (ISSUE-01: bounded claims to workloads N > 200, documenting
+    fixed directory allocation overhead of ~8 KB; ISSUE-02 & ISSUE-03: rejected ML complexity in favor of
+    Hand-Designed Heuristic and clarified negative regret latency-violation artifacts).
  Reproducibility
  Final figures
  Final tables
