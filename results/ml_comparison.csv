@@ -1,41 +1,57 @@
 latency_constraint,model_name,dataset_type,mean_memory_kb,mean_cold_latency_us,constraint_violation_rate,mean_regret_kb,exact_config_accuracy,model_size_bytes,inference_latency_us
-1.10x,Static Baseline,Synthetic (LOWO),603.72,0.3278,100.0%,383.47,0.0%,64,246.76
-1.10x,Static Baseline,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,246.76
-1.10x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,77.8%,262.84,11.1%,64,536.29
-1.10x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,536.29
-1.10x,Ridge Classifier,Synthetic (LOWO),222.01,0.0723,22.2%,1.76,44.4%,2048,9141.18
-1.10x,Ridge Classifier,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,2048,9141.18
-1.10x,Decision Tree,Synthetic (LOWO),222.01,0.0723,22.2%,1.76,44.4%,2048,2158.92
-1.10x,Decision Tree,Real-World (Held-Out),1070.61,0.0930,0.0%,33.96,0.0%,2048,2158.92
-1.10x,ExtraTrees,Synthetic (LOWO),222.20,0.0712,22.2%,1.94,44.4%,2048,42596.95
-1.10x,ExtraTrees,Real-World (Held-Out),1070.61,0.0930,0.0%,33.96,0.0%,2048,42596.95
-1.25x,Static Baseline,Synthetic (LOWO),603.72,0.3278,100.0%,314.47,0.0%,64,148.41
-1.25x,Static Baseline,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,148.41
-1.25x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,77.8%,193.84,0.0%,64,345.11
-1.25x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,345.11
-1.25x,Ridge Classifier,Synthetic (LOWO),256.22,0.0766,44.4%,-33.04,22.2%,2048,2596.29
-1.25x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2596.29
-1.25x,Decision Tree,Synthetic (LOWO),557.91,0.1363,55.6%,268.66,0.0%,2048,1929.90
-1.25x,Decision Tree,Real-World (Held-Out),1443.29,0.0853,0.0%,406.64,0.0%,2048,1929.90
-1.25x,ExtraTrees,Synthetic (LOWO),336.56,0.1180,55.6%,47.31,11.1%,2048,42508.46
-1.25x,ExtraTrees,Real-World (Held-Out),1088.14,0.0960,0.0%,51.49,0.0%,2048,42508.46
-1.50x,Static Baseline,Synthetic (LOWO),603.72,0.3278,88.9%,274.90,0.0%,64,128.45
-1.50x,Static Baseline,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,128.45
-1.50x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,66.7%,154.27,0.0%,64,235.03
-1.50x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,235.03
-1.50x,Ridge Classifier,Synthetic (LOWO),392.13,0.0903,33.3%,63.31,0.0%,2048,2712.78
-1.50x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2712.78
-1.50x,Decision Tree,Synthetic (LOWO),514.18,0.1444,44.4%,185.36,0.0%,2048,1341.66
-1.50x,Decision Tree,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,1341.66
-1.50x,ExtraTrees,Synthetic (LOWO),405.83,0.0914,33.3%,77.01,0.0%,2048,43047.40
-1.50x,ExtraTrees,Real-World (Held-Out),1090.00,0.0970,0.0%,53.35,0.0%,2048,43047.40
-2.00x,Static Baseline,Synthetic (LOWO),603.72,0.3278,88.9%,234.34,0.0%,64,195.73
-2.00x,Static Baseline,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,195.73
-2.00x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,66.7%,113.72,0.0%,64,290.72
-2.00x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,290.72
-2.00x,Ridge Classifier,Synthetic (LOWO),379.15,0.1517,22.2%,9.77,0.0%,2048,2813.37
-2.00x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2813.37
-2.00x,Decision Tree,Synthetic (LOWO),556.84,0.1661,33.3%,187.47,0.0%,2048,1344.41
-2.00x,Decision Tree,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,1344.41
-2.00x,ExtraTrees,Synthetic (LOWO),337.23,0.1587,33.3%,-32.14,0.0%,2048,39361.21
-2.00x,ExtraTrees,Real-World (Held-Out),1090.00,0.0970,0.0%,53.35,0.0%,2048,39361.21
+1.10x,Conventional Baseline,Synthetic (LOWO),215.21,0.0667,0.0%,-5.05,66.7%,64,2.85
+1.10x,Conventional Baseline,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,64,2.85
+1.10x,Interned Baseline,Synthetic (LOWO),502.20,0.0861,100.0%,281.95,66.7%,64,2.13
+1.10x,Interned Baseline,Real-World (Held-Out),1109.84,0.1150,33.3%,73.18,0.0%,64,2.13
+1.10x,Static Default V2,Synthetic (LOWO),603.72,0.3278,100.0%,383.47,0.0%,64,136.47
+1.10x,Static Default V2,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,136.47
+1.10x,Hand Heuristic,Synthetic (LOWO),422.41,0.2533,66.7%,202.16,22.2%,64,203.89
+1.10x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,203.89
+1.10x,Ridge Classifier,Synthetic (LOWO),222.01,0.0723,22.2%,1.76,44.4%,2048,8535.15
+1.10x,Ridge Classifier,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,2048,8535.15
+1.10x,Decision Tree,Synthetic (LOWO),222.01,0.0723,22.2%,1.76,44.4%,2048,1294.59
+1.10x,Decision Tree,Real-World (Held-Out),1070.61,0.0930,0.0%,33.96,0.0%,2048,1294.59
+1.10x,ExtraTrees,Synthetic (LOWO),222.20,0.0712,22.2%,1.94,44.4%,2048,40266.97
+1.10x,ExtraTrees,Real-World (Held-Out),1070.61,0.0930,0.0%,33.96,0.0%,2048,40266.97
+1.25x,Conventional Baseline,Synthetic (LOWO),215.21,0.0667,0.0%,-74.05,22.2%,64,1.99
+1.25x,Conventional Baseline,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,64,1.99
+1.25x,Interned Baseline,Synthetic (LOWO),502.20,0.0861,44.4%,212.95,22.2%,64,1.62
+1.25x,Interned Baseline,Real-World (Held-Out),1109.84,0.1150,0.0%,73.18,0.0%,64,1.62
+1.25x,Static Default V2,Synthetic (LOWO),603.72,0.3278,100.0%,314.47,0.0%,64,139.45
+1.25x,Static Default V2,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,139.45
+1.25x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,77.8%,193.84,0.0%,64,227.38
+1.25x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,227.38
+1.25x,Ridge Classifier,Synthetic (LOWO),256.22,0.0766,44.4%,-33.04,22.2%,2048,2584.99
+1.25x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2584.99
+1.25x,Decision Tree,Synthetic (LOWO),557.91,0.1363,55.6%,268.66,0.0%,2048,1231.34
+1.25x,Decision Tree,Real-World (Held-Out),1443.29,0.0853,0.0%,406.64,0.0%,2048,1231.34
+1.25x,ExtraTrees,Synthetic (LOWO),336.56,0.1180,55.6%,47.31,11.1%,2048,43222.30
+1.25x,ExtraTrees,Real-World (Held-Out),1088.14,0.0960,0.0%,51.49,0.0%,2048,43222.30
+1.50x,Conventional Baseline,Synthetic (LOWO),215.21,0.0667,0.0%,-113.61,11.1%,64,2.17
+1.50x,Conventional Baseline,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,64,2.17
+1.50x,Interned Baseline,Synthetic (LOWO),502.20,0.0861,22.2%,173.38,11.1%,64,1.38
+1.50x,Interned Baseline,Real-World (Held-Out),1109.84,0.1150,0.0%,73.18,0.0%,64,1.38
+1.50x,Static Default V2,Synthetic (LOWO),603.72,0.3278,88.9%,274.90,0.0%,64,132.31
+1.50x,Static Default V2,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,132.31
+1.50x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,66.7%,154.27,0.0%,64,239.31
+1.50x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,239.31
+1.50x,Ridge Classifier,Synthetic (LOWO),392.13,0.0903,33.3%,63.31,0.0%,2048,2643.09
+1.50x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2643.09
+1.50x,Decision Tree,Synthetic (LOWO),514.18,0.1444,44.4%,185.36,0.0%,2048,1459.81
+1.50x,Decision Tree,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,1459.81
+1.50x,ExtraTrees,Synthetic (LOWO),405.83,0.0914,33.3%,77.01,0.0%,2048,40616.93
+1.50x,ExtraTrees,Real-World (Held-Out),1090.00,0.0970,0.0%,53.35,0.0%,2048,40616.93
+2.00x,Conventional Baseline,Synthetic (LOWO),215.21,0.0667,0.0%,-154.17,0.0%,64,1.93
+2.00x,Conventional Baseline,Real-World (Held-Out),766.56,0.1137,0.0%,-270.09,0.0%,64,1.93
+2.00x,Interned Baseline,Synthetic (LOWO),502.20,0.0861,11.1%,132.82,0.0%,64,1.38
+2.00x,Interned Baseline,Real-World (Held-Out),1109.84,0.1150,0.0%,73.18,0.0%,64,1.38
+2.00x,Static Default V2,Synthetic (LOWO),603.72,0.3278,88.9%,234.34,0.0%,64,147.41
+2.00x,Static Default V2,Real-World (Held-Out),1341.53,0.0957,0.0%,304.88,0.0%,64,147.41
+2.00x,Hand Heuristic,Synthetic (LOWO),483.10,0.3122,66.7%,113.72,0.0%,64,342.88
+2.00x,Hand Heuristic,Real-World (Held-Out),1190.30,0.0880,0.0%,153.64,0.0%,64,342.88
+2.00x,Ridge Classifier,Synthetic (LOWO),379.15,0.1517,22.2%,9.77,0.0%,2048,2543.58
+2.00x,Ridge Classifier,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,2543.58
+2.00x,Decision Tree,Synthetic (LOWO),556.84,0.1661,33.3%,187.47,0.0%,2048,1367.40
+2.00x,Decision Tree,Real-World (Held-Out),1083.47,0.0937,0.0%,46.82,0.0%,2048,1367.40
+2.00x,ExtraTrees,Synthetic (LOWO),337.23,0.1587,33.3%,-32.14,0.0%,2048,41378.47
+2.00x,ExtraTrees,Real-World (Held-Out),1090.00,0.0970,0.0%,53.35,0.0%,2048,41378.47
