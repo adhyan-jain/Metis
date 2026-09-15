@@ -174,6 +174,51 @@ static void test_forced_hash_collision_still_resolves_correctly() {
     if (failures == 0) std::cout << "test_forced_hash_collision_still_resolves_correctly: passed\n";
 }
 
+// P0.1 architecture audit gap (docs/v2_architecture.md, section 10, item 1):
+// SymTabV2 had no NAMED shadowing/nested-scope/absent-symbol regression test
+// of its own -- only transitive coverage via the differential fuzz harness.
+// This targets SymTabV2 directly, on names long enough to hit the COMPRESSED
+// tier (the representation whose fingerprint-assisted lookup path this file
+// is otherwise dedicated to validating), so shadowing is checked against the
+// same fp8/reconstruction code path, not just the INLINE/short-name fast path
+// a shorter test name would hit.
+static void test_shadowing_nested_scope_and_absent_symbol() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.blockSize = 5;
+    cfg.anchorInterval = 3;
+
+    SymTabV2<> t(1 << 20, cfg);
+    int outer = t.insert("temperatureSensorCalibration");
+    CHECK(t.resolve("temperatureSensorCalibration") == outer);
+    CHECK(t.representationOf("temperatureSensorCalibration") == Rep::COMPRESSED_REP);
+
+    // Absent symbol before any shadowing is introduced.
+    CHECK(t.resolve("networkInterfaceBufferPool") == -1);
+
+    t.enterScope();
+    // Nested scope, no shadowing yet: outer binding must still resolve.
+    CHECK(t.resolve("temperatureSensorCalibration") == outer);
+
+    int inner = t.insert("temperatureSensorCalibration"); // shadows outer
+    CHECK(inner != outer);
+    CHECK(t.resolve("temperatureSensorCalibration") == inner); // inner wins
+    CHECK(t.resolve("temperatureSensorCalibration") == inner); // repeated resolve stays correct (no stale state)
+
+    // A second, deeper nested scope: the shadowed outer binding must remain
+    // invisible while inner is live.
+    t.enterScope();
+    CHECK(t.resolve("temperatureSensorCalibration") == inner);
+    CHECK(t.resolve("thisNameWasNeverDeclaredAnywhere") == -1); // absent symbol, nested
+    t.exitScope();
+
+    t.exitScope(); // inner scope exits; shadow is removed
+    CHECK(t.resolve("temperatureSensorCalibration") == outer); // outer binding visible again
+    CHECK(t.resolve("thisNameWasNeverDeclaredAnywhere") == -1);
+
+    if (failures == 0) std::cout << "test_shadowing_nested_scope_and_absent_symbol: passed\n";
+}
+
 // P0-3 (V2 research-rewrite plan): hot/cold promotion. A COMPRESSED entry
 // resolved past cfg.hotAccessThreshold must be promoted to INTERNED in
 // place, without disturbing its own declaration id, its neighbors in the
@@ -221,6 +266,7 @@ int main() {
     test_whole_block_reclaim_to_zero();
     test_partial_block_redeclare_preserves_survivors();
     test_forced_hash_collision_still_resolves_correctly();
+    test_shadowing_nested_scope_and_absent_symbol();
     test_promotion_on_hot_access();
 
     if (failures == 0) {
