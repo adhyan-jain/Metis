@@ -102,7 +102,7 @@ echo "== Running benchmark (writes results/benchmark_results.csv) =="
 ./benchmark.exe
 
 echo ""
-echo "== Running ablation (writes results/ablation_results.csv) =="
+echo "== Running ablation (writes results/ablation.csv) =="
 ./ablation.exe
 
 # Grid search sweeps 15,000 configs and takes several minutes; skip on quick

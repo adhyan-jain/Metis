@@ -137,13 +137,13 @@ public:
     // the actual name via the arena/pool, since two different names can
     // share a fingerprint). Returns UINT32_MAX if absent.
     template <typename Eq>
-    uint32_t find(uint32_t fp, Eq eq) const {
+    uint32_t find(uint32_t fp, Eq eq, bool disableFp = false) const {
         size_t pos = fp & mask_;
         uint32_t dist = 0;
         for (;;) {
             const Slot& s = slots_[pos];
             if (!s.occupied || dist > s.dist) return UINT32_MAX;
-            if (s.fp == fp && eq(s.slotId)) return s.slotId;
+            if ((disableFp || s.fp == fp) && eq(s.slotId)) return s.slotId;
             pos = (pos + 1) & mask_;
             dist++;
         }
@@ -307,6 +307,9 @@ struct PolicyConfigV2 {
     // O(1) hot path). coldIdleEpochs == 0 disables demotion entirely
     // (matches V1/pre-P0-4 SymTabV2 behavior: promotion is one-directional).
     size_t coldIdleEpochs = 0;
+    // Ablation study toggles (Section 14)
+    bool disableFingerprints = false;
+    bool disableScopeReclamation = false;
 };
 
 // sizeof(PackedEntry): the REAL struct size (not a hand-picked guess like
@@ -354,6 +357,12 @@ public:
     ScopeExitReport exitScope() {
         ScopeExitReport rep;
         if (scopes_.size() <= 1) return rep;
+        if (cfg_.disableScopeReclamation) {
+            long long footprint = scopes_.back().index.byteFootprint();
+            tracker_.reclaim(footprint);
+            scopes_.pop_back();
+            return rep;
+        }
         uint32_t exitingScopeId = static_cast<uint32_t>(scopes_.size()) - 1;
         Scope& s = scopes_.back();
         for (uint32_t slotId : s.liveSlots) {
@@ -497,7 +506,7 @@ public:
         epoch_++; // P0-4: one online "tick" per lookup operation -- see PolicyConfigV2::coldIdleEpochs
         uint32_t fp = fingerprint(name);
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
-            uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); });
+            uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); }, cfg_.disableFingerprints);
             if (slotId != UINT32_MAX) {
                 entries_[slotId].accessCount++;
                 entries_[slotId].lastAccessEpoch = epoch_;

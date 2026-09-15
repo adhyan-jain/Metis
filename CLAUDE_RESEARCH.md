@@ -1588,8 +1588,12 @@ Update this section after every completed phase.
     Evaluated 576 policy configuration sweeps across training and held-out
     evaluation workloads (Sweep 1: Block Size x Anchor Interval, Sweep 2:
     Representation Thresholds, Sweep 3: Hot/Cold Tiering Policy). Validated clean
-    under -fsanitize=address,undefined. Output written to results/parameter_sweep.csv.
- Ablation
+[x] Ablation -- Implementation in src/ablation_main.cpp and methodology
+    documentation in results/ablation_methodology.md. Evaluated 9 research-specified
+    ablation variants (Conventional, Interned, BudgetSymV1, FullV2, V2-NoBlockCompression,
+    V2-NoFingerprints, V2-NoHotColdPromotion, V2-NoAdaptiveRepresentation, V2-NoScopeReclamation)
+    across 10 workloads in Categories A, B, C. Validated clean under -fsanitize=address,undefined.
+    Output written to results/ablation.csv (90 evaluation rows).
  Statistical validation
  ML oracle
  ML comparison
