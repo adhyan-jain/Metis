@@ -55,6 +55,9 @@ $CXX $FLAGS src/corpus_bench_main.cpp -o corpus_bench.exe
 echo "== Building memory audit (measured heap vs modeled bytes) =="
 $CXX $FLAGS src/memory_audit_main.cpp -o memory_audit.exe
 
+echo "== Building V2 memory audit (SymTabV2 vs Conventional/Interned/RobinHood) =="
+$CXX $FLAGS src/memory_audit_v2_main.cpp -o memory_audit_v2.exe
+
 echo "== Building cache benchmark (docs/caching.md) =="
 $CXX $FLAGS src/cache_benchmark_main.cpp -o cache_benchmark.exe
 
@@ -119,6 +122,10 @@ for corpus in freertos arduino-core zephyr; do
     if [ -f "results/corpus_ids_${corpus}.txt" ]; then AUDIT_ARGS="$AUDIT_ARGS results/corpus_ids_${corpus}.txt $corpus"; fi
 done
 ./memory_audit.exe $AUDIT_ARGS
+
+echo ""
+echo "== Running V2 memory audit (writes results/memory_audit_v2.csv) =="
+./memory_audit_v2.exe $AUDIT_ARGS
 
 echo ""
 echo "== Running cache benchmark (writes results/cache_benchmark_results.csv) =="

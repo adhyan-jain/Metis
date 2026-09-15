@@ -20,6 +20,7 @@
 #include "../include/budget_sym.hpp"
 #include "../include/robinhood_symbol_table.hpp"
 #include "../include/trie_symbol_table.hpp"
+#include "../include/symtab_v2.hpp"
 
 using namespace budgetsym;
 
@@ -140,6 +141,22 @@ static void test_differential_fuzz() {
 
         TrieSymbolTable trie(1 << 20);
         runTrace(trie, trace, "Trie");
+
+        budgetsym::v2::SymTabV2<> v2table(1 << 20);
+        runTrace(v2table, trace, "SymTabV2");
+        // Byte-accounting check the id-only runTrace() above cannot catch
+        // (review MEDIUM finding: a double-reclaim or refcount bug wouldn't
+        // perturb resolve() ids at all). genTrace()'s 8-name alphabet is
+        // always < inlineMaxLen (default 12), so every live SymTabV2 entry
+        // is INLINE_REP and costs exactly kSlotOverhead -- tracked bytes
+        // must equal live count times that constant exactly, not just be
+        // non-negative.
+        long long expected = static_cast<long long>(v2table.size()) * budgetsym::v2::SymTabV2<>::kSlotOverhead;
+        if (v2table.tracker().current() != expected) {
+            std::cerr << "MISMATCH[SymTabV2] tracker=" << v2table.tracker().current()
+                      << " expected=" << expected << " (size=" << v2table.size() << ")\n";
+            failures++;
+        }
     }
     if (failures == 0) std::cout << "test_differential_fuzz: " << kTraces << " traces, all implementations agree with reference\n";
 }
@@ -245,7 +262,46 @@ static void test_same_scope_redeclaration_no_double_charge() {
     TrieSymbolTable trie(1 << 20);
     checkSameScopeRedeclare(trie, "Trie");
 
+    budgetsym::v2::SymTabV2<> v2table(1 << 20);
+    checkSameScopeRedeclare(v2table, "SymTabV2");
+
     if (failures == 0) std::cout << "test_same_scope_redeclaration_no_double_charge: all tables agree (ids, resolve(), size(), AND tracked bytes)\n";
+}
+
+// Defense-in-depth regression test for SymTabV2's exitScope(), reviewed by
+// ecc:cpp-reviewer: exitScope() checks BOTH e.live and e.scopeId (not just
+// e.live) before freeing a slot in its liveSlots_ list, guarding against a
+// slot being freed out from under a DIFFERENT scope that has since reused it.
+//
+// Honesty note (corrected after review): with SymTabV2's CURRENT insert()
+// ordering this hazard cannot actually be forced through the public API --
+// the review built a probe confirming that a redeclaration's releaseSlot()
+// is always immediately followed, in the same insert() call with no
+// intervening allocSlot(), by the allocSlot() that reclaims that exact slot,
+// so freeSlots_ (a LIFO stack) never exposes a freed slot to a DIFFERENT
+// scope's insert() in between. So this test currently exercises the
+// e.scopeId check as a no-op (it never actually triggers) rather than
+// reproducing a live bug -- kept anyway as a cheap regression guard, since
+// the guard itself is one line and the invariant it depends on (immediate
+// same-call reuse) would be easy to break by a future refactor (e.g. the
+// upcoming block-compression tier batching releases before allocating).
+static void test_exit_scope_does_not_free_slot_reused_by_inner_scope() {
+    budgetsym::v2::SymTabV2<> t(1 << 20);
+    t.enterScope();               // scope 1
+    t.insert("a");                // allocates slot X
+    int a2 = t.insert("a");       // redeclare: frees slot X, allocates a new slot for "a"
+
+    t.enterScope();                // scope 2
+    int b = t.insert("b");        // allocSlot() reuses the freed slot X here
+    CHECK(t.resolve("b") == b);
+
+    t.exitScope();                 // scope 2 exits, legitimately frees slot X (b)
+    CHECK(t.resolve("b") == -1);
+    CHECK(t.resolve("a") == a2);  // scope 1's "a" must still be live and correct
+
+    t.exitScope();                 // scope 1 exits
+    CHECK(t.resolve("a") == -1);
+    CHECK(t.tracker().current() == 0); // nothing should be left charged
 }
 
 // Regression test for the shadowing-lookup-cache bug (fixed upstream) staying
@@ -269,6 +325,7 @@ static void test_resolve_respects_shadowing() {
 int main() {
     test_same_scope_redeclaration_no_double_charge();
     test_resolve_respects_shadowing();
+    test_exit_scope_does_not_free_slot_reused_by_inner_scope();
     test_differential_fuzz();
 
     if (failures == 0) {
