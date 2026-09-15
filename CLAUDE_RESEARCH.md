@@ -1608,7 +1608,11 @@ Update this section after every completed phase.
     (LOWO) CV on synthetic workloads and held-out real-world corpora (FreeRTOS, Arduino, Zephyr).
     Measured memory footprint, cold lookup p50 latency, constraint violation rate, regret vs oracle,
     model size, and inference latency. Outputs: results/ml_comparison.csv and results/ml_validation.md.
- Related work
+[x] Related work -- Comprehensive literature review and positioning document in
+    docs/related_work_positioning.md. Evaluated 10 foundational works across 8 domains (compiler symbol tables,
+    interned pools, tries, front-coded dictionaries, succinct hash tables, learned indexes, embedded systems).
+    Includes complete bibliographic citations (DOIs), comparative taxonomy matrix, defensible novelty synthesis,
+    and explicit limitations audit.
  Adversarial review
  Adversarial fixes
  Reproducibility
