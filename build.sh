@@ -76,6 +76,9 @@ $CXX $FLAGS src/algorithm_benchmark_main.cpp -o algorithm_benchmark.exe
 echo "== Building V2 research-grade benchmark (CLAUDE_RESEARCH.md Section 9) =="
 $CXX $FLAGS src/v2_benchmark_main.cpp -o v2_benchmark.exe
 
+echo "== Building semantic corpus event benchmark (CLAUDE_RESEARCH.md Section 10) =="
+$CXX $FLAGS src/corpus_event_bench_main.cpp -o corpus_event_bench.exe
+
 echo ""
 echo "== Running smoke test =="
 ./tests/smoke_test.exe
@@ -116,18 +119,19 @@ echo "== Computing multiseed statistics (writes results/multiseed_summary.csv) =
 python scripts/multiseed_stats.py || python3 scripts/multiseed_stats.py
 
 echo ""
-echo "== Real-world corpus evaluation (Review-2) =="
+echo "== Real-world corpus evaluation (CLAUDE_RESEARCH.md Section 10) =="
 CORPORA_FOUND=0
 for corpus in freertos arduino-core zephyr; do
     if [ -d "corpora/$corpus" ]; then
         CORPORA_FOUND=1
-        echo "  -- extracting + benchmarking $corpus --"
-        (python scripts/extract_identifiers.py "corpora/$corpus" "results/corpus_ids_${corpus}.txt" || \
-         python3 scripts/extract_identifiers.py "corpora/$corpus" "results/corpus_ids_${corpus}.txt")
-        ./corpus_bench.exe "results/corpus_ids_${corpus}.txt" "$corpus"
     fi
 done
-if [ "$CORPORA_FOUND" = "0" ]; then
+if [ "$CORPORA_FOUND" = "1" ]; then
+    echo "  -- extracting semantic event traces & computing characterization metrics --"
+    (python scripts/extract_corpus_events.py || python3 scripts/extract_corpus_events.py)
+    echo "  -- running semantic corpus event benchmark --"
+    ./corpus_event_bench.exe
+else
     echo "  no corpora vendored under corpora/ -- skipping real-world eval, see docs/corpus_setup.md"
 fi
 

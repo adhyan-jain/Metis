@@ -1564,9 +1564,20 @@ Update this section after every completed phase.
     protection), and V2 internal counters (promotions, demotions, reconstructions, depth,
     and representation distribution). Validated clean under -fsanitize=address,undefined.
     Output written to results/v2_latency_memory.csv (48 rows, 41 columns).
- Corpus event extraction
- Corpus validation
- Dataset characterization
+[x] Corpus event extraction -- Implementation in scripts/extract_corpus_events.py.
+    Extracts semantic compiler events (DECLARE, USE, ENTER_SCOPE, EXIT_SCOPE)
+    from FreeRTOS, Arduino, and Zephyr source trees. Filters comments, literals,
+    keywords, preprocessor noise. Preserves lexical scope stack depth.
+[x] Corpus validation -- Validated via hand-written C fixture
+    tests/fixtures/sample_corpus_fixture.c and automated test runner
+    tests/test_corpus_parser.py (verifying global/local decls, nested blocks,
+    params, shadowing, redeclarations, repeated use, scope exit). Replayed through
+    C++ harness src/corpus_event_bench_main.cpp (results/corpus_benchmark.csv)
+    passing clean under -fsanitize=address,undefined.
+[x] Dataset characterization -- Generated results/corpus_characterization.csv
+    reporting 15 characterization metrics (files, decls, uses, unique_symbols,
+    redeclarations, shadowing, max/avg scope depth, mean_len, prefix_similarity,
+    repeat_rate, entropy, access_skew, churn). Documented in results/corpus_methodology.md.
  Pareto optimization
  Parameter study
  Ablation
