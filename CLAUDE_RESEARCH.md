@@ -1623,10 +1623,13 @@ Update this section after every completed phase.
     and comprehensive documentation in docs/reproducibility.md. Executes 11-step end-to-end pipeline
     (compilation, tests, trace extraction, core bench, Pareto sweep, parameter study, ablation,
     multiseed statistics N=30, ML policy evaluation, figure rendering) from clean state. Fully verified cleanly.
- Final figures
- Final tables
- FINAL_RESULTS.md
- FINAL_CLAIMS_AUDIT.md
+  Final figures
+  Final tables
+[x] FINAL_RESULTS.md -- Authoritative evidence-first research synthesis package in results/FINAL_RESULTS.md.
+    Contains research question, hypotheses H1-H6, V1 vs V2, dataset taxonomy, baselines, physical heap memory,
+    cold/hot latency, Pareto frontier, parameter study, ablation, statistical validation N=30, policy audit,
+    major failure cases, supported/unsupported claims table, and final defensive conclusions.
+  FINAL_CLAIMS_AUDIT.md
  Complete test suite
  Complete research benchmark suite
 30. FINAL INSTRUCTION TO CLAUDE
