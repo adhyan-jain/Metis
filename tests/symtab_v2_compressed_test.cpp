@@ -174,11 +174,54 @@ static void test_forced_hash_collision_still_resolves_correctly() {
     if (failures == 0) std::cout << "test_forced_hash_collision_still_resolves_correctly: passed\n";
 }
 
+// P0-3 (V2 research-rewrite plan): hot/cold promotion. A COMPRESSED entry
+// resolved past cfg.hotAccessThreshold must be promoted to INTERNED in
+// place, without disturbing its own declaration id, its neighbors in the
+// same block, or any name that never crossed the threshold.
+static void test_promotion_on_hot_access() {
+    PolicyConfigV2 cfg;
+    cfg.compressMinLen = 10;
+    cfg.blockSize = 5;
+    cfg.anchorInterval = 3;
+    cfg.hotAccessThreshold = 3;
+
+    SymTabV2<> t(1 << 20, cfg);
+    std::vector<std::string> names;
+    static const char* prefixes[] = {"temperatureSensorCalibration", "networkInterfaceBufferPool"};
+    for (int p = 0; p < 2; p++) for (int i = 0; i < 5; i++) names.push_back(std::string(prefixes[p]) + std::to_string(i));
+
+    std::vector<int> ids;
+    for (auto& n : names) ids.push_back(t.insert(n));
+    for (auto& n : names) CHECK(t.representationOf(n) == Rep::COMPRESSED_REP);
+    CHECK(t.promotions() == 0);
+
+    // Resolve only names[2] enough times to cross the threshold. Its own
+    // block neighbors (names[0],[1],[3],[4], all still COMPRESSED) and every
+    // other name (a second, separate block) must be undisturbed.
+    const std::string& hot = names[2];
+    for (size_t i = 0; i < cfg.hotAccessThreshold; i++) {
+        int r = t.resolve(hot);
+        CHECK(r == ids[2]); // declaration id must never change across promotion
+    }
+    CHECK(t.representationOf(hot) == Rep::INTERNED_REP);
+    CHECK(t.promotions() == 1);
+
+    for (size_t i = 0; i < names.size(); i++) {
+        if (i == 2) continue;
+        CHECK(t.representationOf(names[i]) == Rep::COMPRESSED_REP); // untouched
+        CHECK(t.resolve(names[i]) == ids[i]); // still round-trips correctly
+    }
+    CHECK(t.resolve(hot) == ids[2]); // still resolves correctly as INTERNED too
+
+    if (failures == 0) std::cout << "test_promotion_on_hot_access: passed\n";
+}
+
 int main() {
     test_round_trip_and_no_false_positives();
     test_whole_block_reclaim_to_zero();
     test_partial_block_redeclare_preserves_survivors();
     test_forced_hash_collision_still_resolves_correctly();
+    test_promotion_on_hot_access();
 
     if (failures == 0) {
         std::cout << "ALL SYMTAB_V2 COMPRESSED-TIER TESTS PASSED\n";

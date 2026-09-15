@@ -272,6 +272,16 @@ struct PolicyConfigV2 {
     // steps) from the reclaim granularity (blockSize), unlike V1's single
     // reanchorInterval knob which conflated both. Must be >= 1.
     size_t anchorInterval = 8;
+    // P0-3 (V2 research-rewrite plan): a COMPRESSED entry whose accessCount
+    // (incremented on every resolve() hit -- see resolve() below) reaches
+    // this threshold is promoted to INTERNED in place, trading its
+    // compression saving for O(1)-ish lookup (no block decode). Matches
+    // V1's identical mechanism and default (budget_sym.hpp's
+    // hotAccessThreshold). accessCount is ONLY ever incremented by past
+    // resolve() calls -- this is legitimate online information, never a
+    // future-access oracle (see maybePromote()'s comment for the oracle/
+    // online distinction).
+    size_t hotAccessThreshold = 3;
 };
 
 // sizeof(PackedEntry): the REAL struct size (not a hand-picked guess like
@@ -401,6 +411,7 @@ public:
             uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); });
             if (slotId != UINT32_MAX) {
                 entries_[slotId].accessCount++;
+                maybePromote(slotId, name);
                 return declIdOf_[slotId];
             }
         }
@@ -414,6 +425,25 @@ public:
         size_t n = 0;
         for (auto& e : entries_) if (e.live) n++;
         return n;
+    }
+
+    // Number of COMPRESSED->INTERNED promotions that have happened so far
+    // (see maybePromote()). Surfaced for benchmark/ablation tooling, same
+    // role as V1's BudgetSym::promotions().
+    size_t promotions() const { return promotions_; }
+
+    // Current representation of the innermost live binding of `name`, or
+    // Rep::INLINE_REP if absent (matches V1's representationOf() default-
+    // on-absence behavior). Does NOT count as an access (no accessCount
+    // bump, no promotion side effect) -- a pure introspection query, used by
+    // tests and analysis tooling to observe promotion without perturbing it.
+    Rep representationOf(const std::string& name) const {
+        uint32_t fp = fingerprint(name);
+        for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
+            uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); });
+            if (slotId != UINT32_MAX) return entries_[slotId].representation;
+        }
+        return Rep::INLINE_REP;
     }
 
     const MemoryTracker& tracker() const { return tracker_; }
@@ -676,6 +706,46 @@ private:
         }
     }
 
+    // P0-3 (V2 research-rewrite plan): promotes a COMPRESSED entry to
+    // INTERNED once its accessCount crosses cfg_.hotAccessThreshold,
+    // trading its compression saving for O(1)-ish lookup (no block decode
+    // on future hits). Mirrors V1's BudgetSym::maybePromote() exactly in
+    // spirit, adapted to V2's slot/index model.
+    //
+    // ONLINE vs ORACLE (explicit, not implied): accessCount is incremented
+    // ONLY by past resolve() calls (see resolve() above) -- this function
+    // never looks at, or is given, any information about FUTURE accesses.
+    // It is therefore legitimate online information, safe to use in a
+    // production/runtime policy. A separate, explicitly-labeled oracle
+    // experiment (pre-scanning a trace for true future access counts and
+    // passing that in via accessFreqHint at insert time) is a DIFFERENT,
+    // opt-in code path -- not this one -- and any such experiment's output
+    // must be labeled info_source=oracle, never blended with this function's
+    // online promotions.
+    //
+    // Correctness: does NOT touch the ScopeIndex -- fingerprint() and
+    // fingerprint8() are computed purely from the NAME string, independent
+    // of representation, so the index's (fp -> slotId) mapping and the
+    // block-member fp8 rejection path both stay valid across a promotion
+    // with no re-insertion needed. declIdOf_[slotId] and the slot id itself
+    // are also untouched, so resolve()'s return value is unaffected by
+    // promotion happening mid-call.
+    void maybePromote(uint32_t slotId, const std::string& name) {
+        PackedEntry& e = entries_[slotId];
+        if (e.representation != Rep::COMPRESSED_REP) return;
+        if (e.accessCount < cfg_.hotAccessThreshold) return;
+        CompressedRef oldRef = compressedRefOf_[slotId];
+        releaseBlockMember(oldRef); // may or may not physically reclaim yet -- see releaseBlockMember()'s comment
+        e.representation = Rep::INTERNED_REP;
+        poolIndexOf_[slotId] = internName(name);
+        // kSlotOverhead itself was already charged at insert time and is
+        // charged identically for every representation (see costOf()), so
+        // it is not touched here -- only the representation-specific extra
+        // cost changes (block-member bytes, now possibly reclaimed, for
+        // pool-string bytes, now charged via internName() above).
+        promotions_++;
+    }
+
     uint32_t allocBlock() {
         if (!blockFreeList_.empty()) {
             uint32_t id = blockFreeList_.back();
@@ -708,6 +778,7 @@ private:
 
     std::vector<Scope> scopes_;
     int nextDeclId_ = 0;
+    size_t promotions_ = 0;
 
     MemoryTracker tracker_;
     PolicyConfigV2 cfg_;
