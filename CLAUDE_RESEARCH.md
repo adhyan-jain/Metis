@@ -1583,8 +1583,12 @@ Update this section after every completed phase.
     (Categories A, B, C) under predetermined latency bounds (L=1.10x, 1.25x, 1.50x, 2.00x).
     Generates results/pareto_results.csv (20,400 evaluation rows) and results/pareto_frontier.csv
     (48 constrained optimal rows), with figures in figures/pareto_memory_vs_latency.png and
-    figures/pareto_frontier_by_workload.png.
- Parameter study
+[x] Parameter study -- Implementation in src/parameter_study_main.cpp and
+    methodology documentation in results/parameter_study_methodology.md.
+    Evaluated 576 policy configuration sweeps across training and held-out
+    evaluation workloads (Sweep 1: Block Size x Anchor Interval, Sweep 2:
+    Representation Thresholds, Sweep 3: Hot/Cold Tiering Policy). Validated clean
+    under -fsanitize=address,undefined. Output written to results/parameter_sweep.csv.
  Ablation
  Statistical validation
  ML oracle
