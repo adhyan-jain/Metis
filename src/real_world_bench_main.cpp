@@ -27,9 +27,11 @@
 
 #include "../include/budget_sym.hpp"
 #include "../include/conventional_symbol_table.hpp"
+#include "../include/conventional_heap_string_symbol_table.hpp"
 #include "../include/hires_timer.hpp"
 #include "../include/interned_symbol_table.hpp"
 #include "../include/symtab_v2.hpp"
+#include "../include/symtab_v3.hpp"
 
 using namespace budgetsym;
 using namespace budgetsym::v2;
@@ -321,6 +323,83 @@ static CorpusBenchRow runV2(HiResTimer& timer, const std::string& corpusName,
     return r;
 }
 
+static CorpusBenchRow runV3(HiResTimer& timer, const std::string& corpusName,
+                             const std::vector<Event>& events) {
+    heap::Scope hs;
+    budgetsym::v3::SymTabV3<> t(0);
+
+    std::vector<double> insSamples;
+    std::vector<double> lookupSamples;
+    std::unordered_set<std::string> uniqueSymbols;
+    size_t decls = 0, uses = 0;
+
+    for (auto& ev : events) {
+        if (ev.kind == Event::ENTER_SCOPE) {
+            t.enterScope();
+        } else if (ev.kind == Event::EXIT_SCOPE) {
+            t.exitScope();
+        } else if (ev.kind == Event::DECLARE) {
+            decls++;
+            uniqueSymbols.insert(ev.symbol);
+            auto a = timer.now();
+            volatile int id = t.insert(ev.symbol);
+            auto b = timer.now();
+            (void)id;
+            insSamples.push_back(timer.microsecondsBetween(a, b));
+        } else if (ev.kind == Event::USE) {
+            uses++;
+            uniqueSymbols.insert(ev.symbol);
+            auto a = timer.now();
+            volatile int id = t.resolve(ev.symbol);
+            auto b = timer.now();
+            (void)id;
+            lookupSamples.push_back(timer.microsecondsBetween(a, b));
+            t.recordAccess(ev.symbol);
+        }
+    }
+
+    CorpusBenchRow r;
+    r.corpus = corpusName;
+    r.impl = "SymTabV3";
+    r.declarations = decls;
+    r.uses = uses;
+    r.uniqueNames = uniqueSymbols.size();
+
+    r.measuredFinalHeapBytes = hs.bytes();
+    r.measuredPeakHeapBytes  = hs.peakBytes();
+    r.modeledFinalBytes = t.tracker().current();
+    r.modeledPeakBytes  = t.tracker().peak();
+    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+
+    r.insertP50Us  = pctile(insSamples, 0.50);
+    r.insertP95Us  = pctile(insSamples, 0.95);
+    r.insertP99Us  = pctile(insSamples, 0.99);
+    r.insertMeanUs = vmean(insSamples);
+
+    r.lookupP50Us  = pctile(lookupSamples, 0.50);
+    r.lookupP95Us  = pctile(lookupSamples, 0.95);
+    r.lookupP99Us  = pctile(lookupSamples, 0.99);
+    r.lookupMeanUs = vmean(lookupSamples);
+
+    r.promotions = t.promotions();
+    r.demotions  = t.demotions();
+    r.reconCount = t.reconstructionCount();
+    r.reconSteps = t.reconstructionStepsTotal();
+    r.reconDepth = r.reconCount > 0
+        ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
+
+    for (auto& sym : uniqueSymbols) {
+        switch (t.representationOf(sym)) {
+            case budgetsym::v3::Rep::INLINE_REP:     r.countInline++;    break;
+            case budgetsym::v3::Rep::INTERNED_REP:   r.countInterned++;  break;
+            case budgetsym::v3::Rep::COMPRESSED_REP: r.countCompressed++; break;
+        }
+    }
+
+    return r;
+}
+
 static void writeHeader(std::ofstream& out) {
     out << "corpus,implementation,declarations,uses,unique_names,"
            "modeled_peak_bytes,modeled_final_bytes,"
@@ -354,7 +433,7 @@ int main() {
     }
     writeHeader(out);
 
-    std::vector<std::string> corpora = {"FreeRTOS", "Arduino", "Zephyr", "CPython", "Lua", "ESP-IDF"};
+    std::vector<std::string> corpora = {"FreeRTOS", "Arduino", "Zephyr", "CPython", "Lua", "ESP-IDF", "protobuf-generated-cpp", "Clang", "Qt6", "Eigen"};
 
     std::cout << "=== Running Representative Real-World Corpus Benchmark ===\n";
 
@@ -379,12 +458,19 @@ int main() {
         writeRow(out, intRow);
         std::cout << "  Interned    : heap=" << intRow.measuredFinalHeapBytes << "B, lookup_p50=" << intRow.lookupP50Us << "us\n";
 
+        auto heapStrRow = runTable<ConventionalHeapStringSymbolTable>(timer, corpus, "Conventional-HeapString", events);
+        writeRow(out, heapStrRow);
+        std::cout << "  Conv-HeapStr: heap=" << heapStrRow.measuredFinalHeapBytes << "B, lookup_p50=" << heapStrRow.lookupP50Us << "us\n";
+
         auto v1Row = runV1(timer, corpus, events);
         writeRow(out, v1Row);
         std::cout << "  BudgetSymV1 : heap=" << v1Row.measuredFinalHeapBytes << "B, lookup_p50=" << v1Row.lookupP50Us << "us\n";
 
         auto v2Row = runV2(timer, corpus, events);
         writeRow(out, v2Row);
+
+        auto v3Row = runV3(timer, corpus, events);
+        writeRow(out, v3Row);
         std::cout << "  SymTabV2    : heap=" << v2Row.measuredFinalHeapBytes << "B, lookup_p50=" << v2Row.lookupP50Us << "us\n";
     }
 
