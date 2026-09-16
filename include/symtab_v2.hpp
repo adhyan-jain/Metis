@@ -628,7 +628,7 @@ public:
     // never-charged seen_ set -- charged here so it is not hidden.
     static const long long kSetNodeOverhead = 32;
 
-private:
+protected:
     struct Scope {
         ScopeIndex<HashFn> index;
         std::vector<uint32_t> liveSlots;
