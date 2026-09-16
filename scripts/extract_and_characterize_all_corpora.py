@@ -93,22 +93,41 @@ def strip_preprocessor_else_branches(text):
     out_lines = []
     stack = []  # True while inside an "else" branch to be dropped at this nesting level
     directive_re = re.compile(r'^\s*#\s*(if|ifdef|ifndef|else|elif|endif)\b')
-    for line in text.split("\n"):
-        m = directive_re.match(line)
-        if m:
-            kw = m.group(1)
-            if kw in ("if", "ifdef", "ifndef"):
-                stack.append(False)
-            elif kw in ("else", "elif") and stack:
-                stack[-1] = True
-            elif kw == "endif" and stack:
-                stack.pop()
-            out_lines.append("")
-            continue
+
+    raw_lines = text.split("\n")
+    i = 0
+    while i < len(raw_lines):
+        line = raw_lines[i]
+        if line.lstrip().startswith("#"):
+            # Merge backslash-continued directive lines (e.g. the common
+            # "#if defined(FOO) && \" / "    defined(BAR)" idiom) into one
+            # logical line before matching, so the continuation line is
+            # recognized as part of the directive instead of leaking through
+            # as ordinary code (which would inject spurious identifier
+            # tokens from the continuation text). All physical lines in the
+            # group are blanked together if it is a directive.
+            j = i
+            while raw_lines[j].endswith("\\") and j + 1 < len(raw_lines):
+                j += 1
+            full = " ".join(raw_lines[i:j + 1])
+            m = directive_re.match(full)
+            if m:
+                kw = m.group(1)
+                if kw in ("if", "ifdef", "ifndef"):
+                    stack.append(False)
+                elif kw in ("else", "elif") and stack:
+                    stack[-1] = True
+                elif kw == "endif" and stack:
+                    stack.pop()
+                for _ in range(i, j + 1):
+                    out_lines.append("")
+                i = j + 1
+                continue
         if any(stack):
             out_lines.append("")
         else:
             out_lines.append(line)
+        i += 1
     return "\n".join(out_lines)
 
 
