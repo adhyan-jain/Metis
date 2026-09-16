@@ -27,19 +27,28 @@ struct HeapString {
         std::memcpy(data.get(), s.data(), s.size());
         data[s.size()] = '\0';
     }
-    HeapString(const HeapString& other) : data(new char[other.len + 1]), len(other.len) {
-        std::memcpy(data.get(), other.data.get(), other.len + 1);
+    HeapString(const HeapString& other) : data(other.data ? new char[other.len + 1] : nullptr), len(other.len) {
+        if (data) std::memcpy(data.get(), other.data.get(), other.len + 1);
     }
     HeapString& operator=(const HeapString& other) {
         if (this != &other) {
-            data.reset(new char[other.len + 1]);
+            data.reset(other.data ? new char[other.len + 1] : nullptr);
             len = other.len;
-            std::memcpy(data.get(), other.data.get(), other.len + 1);
+            if (data) std::memcpy(data.get(), other.data.get(), other.len + 1);
         }
         return *this;
     }
-    HeapString(HeapString&&) = default;
-    HeapString& operator=(HeapString&&) = default;
+    HeapString(HeapString&& other) noexcept : data(std::move(other.data)), len(other.len) {
+        other.len = 0;
+    }
+    HeapString& operator=(HeapString&& other) noexcept {
+        if (this != &other) {
+            data = std::move(other.data);
+            len = other.len;
+            other.len = 0;
+        }
+        return *this;
+    }
 
     bool operator==(const HeapString& o) const {
         return len == o.len && std::memcmp(data.get(), o.data.get(), len) == 0;
