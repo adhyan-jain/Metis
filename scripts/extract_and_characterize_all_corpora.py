@@ -76,6 +76,71 @@ TOKEN_RE = re.compile(r"""
 """, re.VERBOSE | re.MULTILINE | re.DOTALL)
 
 
+def strip_preprocessor_else_branches(text):
+    """Drop #else..#endif alternate-branch code, keeping only the #if/#ifdef
+    branch. Without this, generated code with idioms like
+        #ifdef X
+          if (a) {
+        #else
+          if (b) {
+        #endif
+            body();
+          }
+    causes the brace-counting scope tracker to see two '{' opens but only
+    one matching '}', since both branches are tokenized additively. That
+    imbalance compounds across files when a single parser instance is
+    reused for a whole corpus."""
+    out_lines = []
+    stack = []  # True while inside an "else" branch to be dropped at this nesting level
+    directive_re = re.compile(r'^\s*#\s*(if|ifdef|ifndef|else|elif|endif)\b')
+    for line in text.split("\n"):
+        m = directive_re.match(line)
+        if m:
+            kw = m.group(1)
+            if kw in ("if", "ifdef", "ifndef"):
+                stack.append(False)
+            elif kw in ("else", "elif") and stack:
+                stack[-1] = True
+            elif kw == "endif" and stack:
+                stack.pop()
+            out_lines.append("")
+            continue
+        if any(stack):
+            out_lines.append("")
+        else:
+            out_lines.append(line)
+    return "\n".join(out_lines)
+
+
+def merge_qualified_identifiers(tokens):
+    """Collapse IDENT '::' IDENT chains (a::b::c) into one identifier token
+    so mean length / prefix-similarity reflect the real qualified name
+    instead of its shortest segment. Namespaced generated code (protobuf,
+    gRPC) makes this matter a lot; hand-written code rarely uses '::'."""
+    merged = []
+    i = 0
+    n = len(tokens)
+    while i < n:
+        kind, val = tokens[i]
+        if kind == TOK_IDENT:
+            parts = [val]
+            j = i + 1
+            while (j + 1 < n and tokens[j] == (TOK_PUNCT, ":") and tokens[j + 1] == (TOK_PUNCT, ":")):
+                j += 2
+                if j < n and tokens[j][0] == TOK_IDENT:
+                    parts.append(tokens[j][1])
+                    j += 1
+                else:
+                    break
+            if len(parts) > 1:
+                merged.append((TOK_IDENT, "::".join(parts)))
+                i = j
+                continue
+        merged.append((kind, val))
+        i += 1
+    return merged
+
+
 def strip_comments_and_strings(text):
     def repl(m):
         s = m.group(0)
@@ -199,6 +264,7 @@ class CorpusParser:
                         self.emit_declare(macro_name)
 
         clean_text = strip_comments_and_strings(raw_text)
+        clean_text = strip_preprocessor_else_branches(clean_text)
 
         tokens = []
         for match in TOKEN_RE.finditer(clean_text):
@@ -209,8 +275,10 @@ class CorpusParser:
                 tokens.append((TOK_KEYWORD, tok))
             elif re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', tok):
                 tokens.append((TOK_IDENT, tok))
-            elif tok in "{}" or tok in "();,*&[]=":
+            elif tok in "{}" or tok in "();,*&[]=:":
                 tokens.append((TOK_PUNCT, tok))
+
+        tokens = merge_qualified_identifiers(tokens)
 
         i = 0
         n = len(tokens)
@@ -377,6 +445,11 @@ def main():
         ("corpora/protobuf-c", "protobuf-c", "Serialization / Generated Code Runtime", "Protocol buffers C runtime library and code generator interface."),
         ("corpora/esp-idf", "ESP-IDF", "Embedded IoT SDK", "Espressif ESP32 hardware abstraction and FreeRTOS wrapper SDK."),
         ("corpora/curl", "curl", "Network Protocol Transfer Library", "Multiprotocol file transfer library and CLI tool in C."),
+        ("corpora/protobuf-generated-cpp-sample", "protobuf-generated-cpp", "Schema-Generated RPC/Serialization Code", "protoc --cpp_out generated C++ from a systematic 1-in-12 sample (611 of 7,325) of real-world googleapis.com .proto schemas; full corpus (1.8GB/14,650 files) caused OOM in the pure-Python extractor on this machine, so a deterministic, non-cherry-picked subsample was used. Long namespaced/qualified identifiers by construction."),
+        ("/usr/include/llvm", "LLVM", "Compiler Infrastructure / Template-Heavy C++", "System-installed llvm-libs dev headers (unmodified upstream distribution package), full directory, no file selection."),
+        ("/usr/include/clang", "Clang", "Compiler Frontend / AST-Heavy C++", "System-installed clang dev headers (unmodified upstream distribution package), full directory, no file selection."),
+        ("/usr/include/qt6", "Qt6", "GUI Framework / Meta-Object System C++", "System-installed qt6-base dev headers (unmodified upstream distribution package), full directory, no file selection."),
+        ("corpora/eigen", "Eigen", "Template-Metaprogramming Linear Algebra C++", "Shallow git clone of the official Eigen repository (gitlab.com/libeigen/eigen), full directory, no file selection."),
     ]
 
     print("==========================================================================")
