@@ -309,6 +309,140 @@ The demonstrated, measured contribution of this analysis is:
    (across hand-written embedded/systems/interpreter code and generated
    RPC/schema code) satisfy.
 
+---
+
+## F. Targeted screening of mature open-source C/C++ projects
+
+Per a follow-up directive, screened famous, mature projects whose source
+characteristics plausibly favor interning/compression, using local
+system-installed dev packages (unmodified upstream distribution, no file
+selection) rather than fabricated or cherry-picked files: **LLVM**,
+**Clang** (both `/usr/include`, real Arch Linux dev packages), and a
+shallow clone of **Eigen** (header-only, gitlab.com/libeigen/eigen) and
+**Qt6** (`/usr/include/qt6`). Boost, GCC, Chromium, KDE Frameworks,
+TensorFlow, and OpenCV were **not attempted** this pass — their dev
+headers are not installed locally and fresh full clones (multi-GB to
+tens-of-GB) are infeasible on this machine/session; this is reported
+explicitly rather than silently omitted.
+
+Full screening table (all 20 characterized corpora, same fixed tokenizer,
+uniform methodology, no per-repository adjustment):
+
+| Corpus | Decls | Unique | Reuse | Mean len | p50 | p90 | p99 | frac≤15B | frac>22B | Dup ratio | Access-skew Gini |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **protobuf-generated-cpp** | 1,933,674 | 260,027 | 0.933 | **18.31** | 11 | **43** | **84** | 0.595 | **0.291** | 0.843 | **0.910** |
+| FreeRTOS | 72,376 | 10,386 | 0.947 | 14.20 | 13 | 26 | 37 | 0.610 | 0.174 | 0.940 | 0.793 |
+| mbedTLS | 20,810 | 5,668 | 0.929 | 11.60 | 8 | 28 | 41 | 0.709 | 0.161 | 0.876 | 0.751 |
+| cJSON | 6,315 | 2,352 | 0.895 | 11.44 | 8 | 25 | 44 | 0.727 | 0.138 | 0.794 | 0.747 |
+| Clang | 134,909 | 47,378 | 0.845 | 11.17 | 10 | 21 | 35 | 0.764 | 0.080 | 0.760 | 0.761 |
+| ESP-IDF | 795,847 | 231,075 | 0.879 | 12.33 | 10 | 25 | 39 | 0.681 | 0.145 | 0.791 | 0.747 |
+| Qt6 | 453,972 | 132,713 | 0.870 | 10.21 | 8 | 20 | **45** | 0.802 | 0.075 | 0.739 | 0.818 |
+| protobuf-c | 3,355 | 1,423 | 0.863 | 10.04 | 7 | 23 | 36 | 0.774 | 0.110 | 0.768 | 0.713 |
+| LLVM | 267,475 | 98,482 | 0.841 | 9.86 | 8 | 19 | 33 | 0.817 | 0.060 | 0.724 | 0.776 |
+| Zephyr | 703,727 | 228,739 | 0.897 | 9.93 | 7 | 21 | 34 | 0.785 | 0.084 | 0.804 | 0.807 |
+| Arduino | 31,846 | 11,000 | 0.866 | 8.69 | 7 | 18 | 28 | 0.855 | 0.042 | 0.805 | 0.718 |
+| QEMU | 959,486 | 299,886 | 0.915 | 8.23 | 6 | 18 | 29 | 0.850 | 0.045 | 0.839 | 0.826 |
+| CPython | 336,691 | 68,829 | 0.952 | 8.44 | 6 | 19 | 33 | 0.849 | 0.062 | 0.902 | 0.864 |
+| curl | 84,508 | 22,222 | 0.938 | 8.03 | 6 | 16 | 26 | 0.879 | 0.027 | 0.890 | 0.803 |
+| Eigen | 204,719 | 41,790 | 0.951 | 8.07 | 6 | 17 | 30 | 0.867 | 0.035 | **0.911** | 0.853 |
+| Redis | 125,220 | 34,058 | 0.939 | 7.78 | 6 | 17 | 29 | 0.873 | 0.041 | 0.886 | 0.795 |
+| Nginx | 56,383 | 12,464 | 0.965 | 7.70 | 4 | 19 | 32 | 0.852 | 0.064 | 0.919 | 0.858 |
+| SQLite | 133,618 | 28,832 | 0.952 | 6.76 | 5 | 15 | 25 | 0.909 | 0.018 | 0.907 | 0.819 |
+| FFmpeg | 700,171 | 141,486 | 0.956 | 6.93 | 5 | 15 | 28 | 0.901 | 0.027 | 0.903 | 0.864 |
+| Lua | 13,042 | 4,038 | 0.923 | 5.24 | 4 | 11 | 17 | 0.979 | 0.0001 | 0.871 | 0.751 |
+
+### Ranking by theoretical favorability
+
+- **A. Conventional-favoring** (short, low `frac>22B`, low mean length):
+  Lua, SQLite, FFmpeg, Nginx, Redis — all mean length <8B, virtually
+  entirely inside SSO range.
+- **B. Interned-favoring** (high dup ratio + high reuse, moderate length so
+  pool amortization pays off): **Eigen** (dup 0.911, reuse 0.951), Nginx
+  (0.919), CPython (0.902), FFmpeg (0.903), SQLite (0.907) — Eigen is the
+  standout among the newly screened projects specifically for interning.
+- **C. Compression-favoring** (long identifiers + high prefix similarity in
+  *sequence order*, not just static-universe order): none of the new
+  candidates exceed protobuf-generated-cpp on this axis; among the new
+  ones LLVM has the highest prefix similarity (0.112, still far under
+  0.35) and Qt6 has the longest tail (p99=45B).
+- **D. Adaptive-favoring** (best combination across multiple axes):
+  protobuf-generated-cpp remains the strongest candidate in the entire
+  20-corpus set (highest mean/p90/p99 length, highest `frac>22B`, highest
+  access-skew Gini) — no newly screened mature project surpasses it on any
+  axis relevant to V2's adaptive routing.
+
+Chosen 3 most promising **new** naturally-occurring workloads for the
+three-way (extended to five-way, see below) physical benchmark: **Clang**
+(highest `frac>22B` and mean length among new candidates), **Qt6**
+(longest p99 tail), **Eigen** (highest duplicate-payload ratio). LLVM was
+screened but not separately benchmarked — it is dominated by Clang on
+every length-related axis and by Eigen on the dup-ratio axis, so it adds
+no new information the ranking doesn't already predict.
+
+### Five-way benchmark result (Conventional / Conventional-HeapString / Interned / V2 / [V3 where run])
+
+| Corpus | Conventional | **Conv-HeapString** | Interned | SymTabV2 | V2<Conv? | V2<Interned? | Conv p95 | V2 p95 | Gate (≤1.25×)? |
+|---|---|---|---|---|---|---|---|---|---|
+| Clang | 9,461,800 | 9,590,136 | 16,554,520 | 10,556,136 | No | **Yes** | 0.343 | 0.699 | No |
+| Qt6 | 31,647,680 | 31,510,288 | 53,263,536 | 38,648,832 | No | **Yes** | 0.354 | 0.377 | **Yes** |
+| Eigen | 18,124,976 | 18,175,344 | 23,422,448 | 19,953,792 | No | **Yes** | 0.281 | 0.248 | **Yes** |
+| protobuf-generated-cpp | 65,432,936 | 65,831,872 | 117,524,936 | 70,536,496 | No | **Yes** | 0.128 | 0.496 | No |
+
+**Primary success condition (V2 < Conventional on some naturally occurring
+workload) is not met on any of these 4, nor on any of the 16 previously
+tested corpora — 20/20 real corpora tested to date, V2 never beats
+Conventional on physical heap.** Secondary condition (V2 < Interned) is
+met on **all 20/20** corpora tested, without exception — this is now a
+very strong, consistent finding, not a marginal one.
+
+### Conventional-HeapString: does SSO explain the gap?
+
+Across all four newly tested corpora, **Conventional-HeapString tracks
+Conventional within 0.4-2.2%** (e.g. Qt6: 31.65M vs 31.51M; Eigen: 18.12M
+vs 18.18M) rather than being dramatically worse. This directly answers
+"is Conventional's win just SSO?" — **no, not primarily.** Forcing every
+identifier onto a heap-allocated buffer barely moves Conventional's
+memory footprint, because these corpora's mean identifier length (8-18B)
+sits mostly *at or just above* the 15B SSO boundary already, so most
+identifiers were already borderline candidates for a small allocation
+either way, and libstdc++'s allocator handles small fixed-size heap
+allocations (16-24B buckets) about as efficiently as SSO's inline buffer
+in aggregate. **Conventional's real advantage is structural, not an SSO
+artifact**: a single `std::unordered_map<std::string,T>` node is
+Conventional's *only* per-symbol data structure, while V2 (even V3)
+maintains 2-3 structures (`entries_`, `liveSeenRep_`, and for interned
+symbols `poolLookup_`+`pool_`) for the same symbol — consistent with and
+reinforcing the §B decomposition above.
+
+### On Interned's consistent loss to Conventional
+
+`InternedSymbolTable` loses to Conventional on all 20/20 corpora, often by
+50-80%. This is not evidence that string interning is a useless
+technique in general — it is evidence about the *break-even point* for
+*this* interning design (a global pool keyed by `std::unordered_map`,
+paying one pool-map node + one local-reference-map node per unique
+string) applied to workloads with **reuse_ratio 0.84-0.98 but mean length
+5-18B**. Classic interning wins when (a) the same string is referenced
+*many* times per unique value (amortizing one pool allocation over many
+references) **and** (b) each string is long enough that avoiding N
+duplicate heap copies saves more than one pool-map node costs. Condition
+(a) holds broadly here (reuse ratios are high across the board — that is
+simply how identifiers work: declared once, used many times). Condition
+(b) fails: at mean lengths of 5-18B, Conventional's hash map *already*
+stores each unique string exactly once too (a `std::unordered_map` never
+duplicates a key), so interning's only remaining advantage is avoiding
+per-*use-site* string copies, which none of these implementations
+actually construct (`resolve()`/`lookup()` take `const std::string&`, not
+by value) — meaning **interning is solving a problem (duplicate storage
+of the same string) that a plain hash map has already solved for free**,
+while paying an *extra* pool/lookup layer on top. This is a break-even
+condition worth stating precisely: interning-over-a-hash-map only wins
+over a bare hash map when there are genuinely *multiple, independently
+allocated copies* of the same string that a hash map's own deduplication
+wouldn't already collapse (e.g., interning strings arriving in already-
+duplicated form from multiple independent sources, not identifiers being
+looked up against a single symbol table).
+
 **What this analysis does not yet establish** (left for the next stage,
 explicitly per this goal's "do not write the final paper claim yet"):
 whether a *more aggressive* structural change — e.g. eliminating
