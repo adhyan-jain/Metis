@@ -1,0 +1,16 @@
+repository,category,files,loc,events,declarations,uses,unique_identifiers,redeclarations,shadowing,max_scope_depth,avg_scope_depth,mean_identifier_length,prefix_similarity,repeat_rate,entropy,access_skew_gini,scope_churn,extraction_limitations
+FreeRTOS,Embedded RTOS,655,349140,227222,72376,123602,10386,39209,4084,10,1.58,14.202,0.1643,0.6307,10.6726,0.7931,0.0688,Heuristic C parser; macro definitions extracted; inline assembly ignored.
+Arduino,Embedded Hardware Abstraction,332,144620,94232,31846,50273,11000,6985,1166,11,1.446,8.691,0.1362,0.6122,11.3061,0.7182,0.0641,C++ headers and AVR C sources; template metaprogramming simplified.
+Zephyr,Scalable RTOS / Microkernel,4298,1700855,2605813,703727,1523992,228739,50928,42035,21,10.503,9.932,0.0994,0.6841,12.6882,0.807,0.0726,Large driver and kernel tree; Kconfig generated macros included.
+CPython,Compiler / Interpreter C Core,1126,1048996,1716669,336691,1091338,68829,29950,27049,11,2.14,8.444,0.1567,0.7642,10.8085,0.8644,0.084,"Python VM, object model, and AST parser C source tree."
+Lua,Lightweight Embedded Interpreter,68,34250,59295,13042,39109,4038,2119,1297,8,1.416,5.244,0.0728,0.7499,9.2627,0.7505,0.0601,Compact single-pass C interpreter engine and VM opcode handling.
+SQLite,Embedded Relational Database Engine,357,443833,704928,133618,466974,28832,14937,13876,13,2.444,6.76,0.0879,0.7775,11.2599,0.8189,0.074,Amalgamated and core modular database execution engine C code.
+FFmpeg,Multimedia Codec / DSP Engine,4701,1852094,3725989,700171,2487848,141486,123333,87435,11,1.804,6.928,0.1159,0.7804,12.21,0.8639,0.0721,"Large C codec, filter, and DSP library with heavy prefix conventions."
+QEMU,Large System Emulator,6981,2476276,4122773,959486,2573238,299886,139050,67972,11,1.385,8.233,0.1067,0.7284,13.5224,0.8263,0.0715,Virtualization and hardware peripheral emulation C codebase.
+mbedTLS,Embedded Security / Crypto Library,131,87381,94224,20810,58436,5668,3166,1328,8,1.535,11.602,0.1042,0.7374,9.6426,0.7507,0.0795,Cryptographic primitives and TLS protocol state machines in C.
+Redis,In-Memory Data Store,796,377927,641800,125220,436193,34058,24341,14575,9,1.537,7.776,0.1165,0.777,11.7047,0.7953,0.0625,Event-driven C server with custom data structures and RESP protocol.
+Nginx,Event-Driven Web Server,412,256429,424153,56383,301302,12464,7155,3067,10,3.464,7.702,0.0776,0.8424,9.7853,0.8582,0.0784,Asynchronous HTTP/mail proxy server core in ANSI C.
+cJSON,Compact Data Format / JSON Library,99,22518,27559,6315,15989,2352,1057,388,6,1.128,11.443,0.1161,0.7169,9.1008,0.7471,0.0953,Single-file lightweight C JSON parser and formatter library.
+protobuf-c,Serialization / Generated Code Runtime,27,9055,11892,3355,7043,1423,282,112,7,1.525,10.035,0.0831,0.6773,8.6104,0.7131,0.0628,Protocol buffers C runtime library and code generator interface.
+ESP-IDF,Embedded IoT SDK,5870,2079310,2229361,795847,1115502,231075,186667,48940,11,1.638,12.332,0.1829,0.5836,14.5527,0.7473,0.0711,Espressif ESP32 hardware abstraction and FreeRTOS wrapper SDK.
+curl,Network Protocol Transfer Library,1036,295948,409262,84508,273179,22222,10491,7720,15,3.207,8.027,0.0952,0.7637,11.0674,0.8033,0.063,Multiprotocol file transfer library and CLI tool in C.
