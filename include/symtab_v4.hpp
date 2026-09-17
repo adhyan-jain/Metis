@@ -1,56 +1,42 @@
 #pragma once
-// BUDGET-SYM V3 -- representation-aware metadata layout.
+// BUDGET-SYM V4 -- representation-conditional metadata layout.
 //
-// V2's fixed per-slot cost (44B PackedEntry) is sized for its LARGEST
-// payload variant (20-byte inline buffer) and charged to every symbol
-// regardless of representation, and V2 additionally maintains a
-// std::string-keyed liveSeenRep_ map purely for repeat/refcount tracking
-// that duplicates the name a second (or third, for interned symbols) time
-// in a live unordered_map<std::string,uint32_t> node.
+// See docs/v4_design_note.md for the full derivation. Summary: V3's
+// PackedEntry (32B) charges every symbol, regardless of representation, for
+// accessCount(2B) + lastAccessEpoch(4B) -- fields that are only ever read by
+// the COMPRESSED->INTERNED promotion check and the INTERNED demotion check.
+// INLINE entries (the majority representation in every real corpus tested)
+// never promote or demote and never read either field.
 //
-// V3 keeps V2's algorithm (three representations, scope-lifetime
-// reclamation, front-coded compression blocks) unchanged and applies two
-// structural cuts, each independently verifiable from the struct layout:
+// V4 keeps V3's algorithm and policy unchanged (same three representations,
+// same scope-lifetime reclamation, same front-coded compression blocks,
+// same fingerprint-based index) and applies exactly one structural change:
+// accessCount/lastAccessEpoch move out of the fixed per-symbol struct
+// (CoreEntry, 24B) into a sparse side map (HotMeta, keyed by slotId),
+// populated only for entries that are COMPRESSED or were promoted from
+// COMPRESSED to INTERNED. Entries that never enter the hot/cold machinery
+// (INLINE, and INTERNED entries chosen directly at insert time) never
+// allocate a HotMeta row.
 //
-// 1. PackedEntryV3 tightens scopeId/accessCount to uint16_t (max observed
-//    scope depth across all 16 corpora is 15; access counts wrapping past
-//    65535 is a documented, accepted approximation) and shrinks the inline
-//    cap from 20B to 12B (matching PolicyConfigV2's own default
-//    inlineMaxLen, i.e. no symbol that would ever be routed to
-//    Rep::INLINE_REP needs more than 12 bytes of inline storage). This
-//    drops sizeof(PackedEntryV3) from 44B to 32B -- every symbol, in every
-//    representation, pays this smaller floor.
-//
-// 2. liveSeenRep_ is keyed on a 64-bit FnvHash fingerprint instead of a
-//    copy of the name. This removes the second (interned symbols: third)
-//    physical copy of the string payload and shrinks the map node from
-//    sizeof(std::string)+cap+1+68 down to sizeof(uint64_t)+68. This is an
-//    approximation: two different live symbol names that collide on the
-//    64-bit fingerprint would be treated as the same entry for
-//    repeat/refcount purposes. At realistic corpus sizes (10^5-10^6 live
-//    unique symbols) the birthday-bound collision probability is
-//    astronomically small (~n^2/2^65), but it is a real, disclosed
-//    correctness relaxation, not a free lunch.
-//
-// Nothing else changes: same representation-decision policy, same
-// interning pool, same front-coded block compression, same scope-exit
-// physical reclamation. This isolates "does representation-aware/tighter
-// fixed metadata move the Pareto frontier" from "did we change the
-// algorithm."
+// This is NOT free: a HotMeta row costs sizeof(HotMeta) + kMapNodeOverhead
+// (~76B) charged honestly via the tracker, and COMPRESSED/promoted-INTERNED
+// entries pay one extra hash-map probe on every resolve(). The bet is that
+// the majority-INLINE population's 8B/symbol savings outweighs the minority
+// COMPRESSED-track population's added cost and latency -- this must be
+// measured per-corpus, not assumed (see docs/v4_evaluation.md).
 
 #include <cassert>
 #include <cstdint>
 #include <cstring>
 #include <string>
 #include <unordered_map>
-#include <unordered_set>
 #include <vector>
 #include "common.hpp"
 #include "memory_tracker.hpp"
 #include "hash_functions.hpp"
 
 namespace budgetsym {
-namespace v3 {
+namespace v4 {
 
 static const size_t kInlineCap = 12;
 
@@ -61,16 +47,14 @@ struct CompressedRef {
     uint16_t slotInBlock = 0;
 };
 
-// ---- representation-aware packed entry: 32B vs V2's 44B --------------------
-struct PackedEntry {
+// ---- representation-conditional core entry: 24B, no hot/cold fields -------
+struct CoreEntry {
     int32_t declId = -1;
     uint16_t scopeId = 0;
-    uint16_t accessCount = 0;
-    uint32_t lastAccessEpoch = 0;
     uint16_t nameLen = 0;
     uint8_t typeId = 0;
     Rep representation = Rep::INLINE_REP;
-    uint8_t flags = 0;  // bit0 = live, bit1 = wasPromoted
+    uint8_t flags = 0;  // bit0 = live, bit1 = wasPromoted, bit2 = hasHotMeta
 
     union Payload {
         char inlineBytes[kInlineCap];
@@ -84,9 +68,111 @@ struct PackedEntry {
     void setLive(bool v) { if (v) flags |= 0x1; else flags &= ~0x1; }
     bool wasPromoted() const { return flags & 0x2; }
     void setWasPromoted(bool v) { if (v) flags |= 0x2; else flags &= ~0x2; }
+    bool hasHotMeta() const { return flags & 0x4; }
+    void setHasHotMeta(bool v) { if (v) flags |= 0x4; else flags &= ~0x4; }
 };
 
-// ---- per-scope open-addressing index over slot ids (unchanged from V2) ----
+// ---- sparse hot/cold metadata, only for COMPRESSED-track entries ----------
+struct HotMeta {
+    uint16_t accessCount = 0;
+    uint32_t lastAccessEpoch = 0;
+};
+
+// Contiguous open-addressing table keyed by slotId, storing HotMeta inline.
+// A first V4 iteration used std::unordered_map<uint32_t,HotMeta> here; under
+// the real allocator (heap_counter.hpp), that cost ~34B/entry MORE than V3's
+// approach on average across 20 real corpora (per-node malloc + bucket-array
+// churn from promotion/demotion traffic dominated the 8B/symbol core-struct
+// saving). This table reuses ScopeIndex's Robin Hood open-addressing scheme
+// (one contiguous, doubling vector<Slot> -- no per-entry heap allocation) to
+// isolate the architectural question (does representation-conditional
+// metadata help?) from that implementation artifact (was unordered_map the
+// wrong vehicle for a small, high-churn sparse population?).
+class HotMetaTable {
+public:
+    explicit HotMetaTable(size_t initialCapacity = 16) : slots_(initialCapacity), mask_(initialCapacity - 1) {
+        assert(initialCapacity > 0 && (initialCapacity & (initialCapacity - 1)) == 0);
+    }
+
+    HotMeta& getOrInsert(uint32_t key) {
+        HotMeta* existing = find(key);
+        if (existing) return *existing;
+        if (static_cast<double>(count_ + 1) / static_cast<double>(slots_.size()) > kMaxLoad) grow();
+        Slot incoming{key, HotMeta{}, 0, true};
+        size_t pos = mixHash(key) & mask_;
+        for (;;) {
+            Slot& s = slots_[pos];
+            if (!s.occupied) { s = incoming; count_++; return slots_[pos].meta; }
+            if (s.dist < incoming.dist) std::swap(s, incoming);
+            incoming.dist++;
+            pos = (pos + 1) & mask_;
+        }
+    }
+
+    HotMeta* find(uint32_t key) {
+        size_t pos = mixHash(key) & mask_;
+        uint32_t dist = 0;
+        for (;;) {
+            Slot& s = slots_[pos];
+            if (!s.occupied || dist > s.dist) return nullptr;
+            if (s.key == key) return &s.meta;
+            pos = (pos + 1) & mask_;
+            dist++;
+        }
+    }
+
+    void erase(uint32_t key) {
+        size_t pos = mixHash(key) & mask_;
+        uint32_t dist = 0;
+        for (;;) {
+            Slot& s = slots_[pos];
+            if (!s.occupied || dist > s.dist) return;
+            if (s.key == key) {
+                size_t nextPos = (pos + 1) & mask_;
+                while (slots_[nextPos].occupied && slots_[nextPos].dist > 0) {
+                    slots_[pos] = slots_[nextPos];
+                    slots_[pos].dist--;
+                    pos = nextPos;
+                    nextPos = (pos + 1) & mask_;
+                }
+                slots_[pos] = Slot();
+                count_--;
+                return;
+            }
+            pos = (pos + 1) & mask_;
+            dist++;
+        }
+    }
+
+    long long byteFootprint() const { return static_cast<long long>(slots_.size() * sizeof(Slot)); }
+
+private:
+    static constexpr double kMaxLoad = 0.70;
+    struct Slot {
+        uint32_t key = 0;
+        HotMeta meta{};
+        uint32_t dist = 0;
+        bool occupied = false;
+    };
+    std::vector<Slot> slots_;
+    size_t mask_;
+    size_t count_ = 0;
+
+    static uint32_t mixHash(uint32_t k) {
+        k ^= k >> 16; k *= 0x85ebca6bu; k ^= k >> 13; k *= 0xc2b2ae35u; k ^= k >> 16;
+        return k;
+    }
+
+    void grow() {
+        std::vector<Slot> old = std::move(slots_);
+        slots_.assign(old.size() * 2, Slot());
+        mask_ = slots_.size() - 1;
+        count_ = 0;
+        for (auto& s : old) if (s.occupied) getOrInsert(s.key) = s.meta;
+    }
+};
+
+// ---- per-scope open-addressing index over slot ids (unchanged from V3) ----
 template <typename HashFn>
 class ScopeIndex {
 public:
@@ -168,7 +254,7 @@ private:
     }
 };
 
-// ---- block-based front-coded compression (unchanged from V2) --------------
+// ---- block-based front-coded compression (unchanged from V3) --------------
 struct BlockMember {
     std::string suffix;
     uint8_t sharedPrefixLen = 0;
@@ -184,7 +270,7 @@ struct Block {
     long long trackedBytes = 0;
 };
 
-struct PolicyConfigV3 {
+struct PolicyConfigV4 {
     size_t inlineMaxLen = 12;
     size_t compressMinLen = 14;
     size_t blockSize = 32;
@@ -195,20 +281,20 @@ struct PolicyConfigV3 {
     bool disableScopeReclamation = false;
 };
 
-// ---- main scope-aware adaptive symbol table (representation-aware V3) -----
+// ---- main scope-aware adaptive symbol table (representation-conditional) --
 template <typename HashFn = FnvHash>
-class SymTabV3 {
+class SymTabV4 {
 public:
-    explicit SymTabV3(size_t budgetBytes, PolicyConfigV3 cfg = PolicyConfigV3())
+    explicit SymTabV4(size_t budgetBytes, PolicyConfigV4 cfg = PolicyConfigV4())
         : tracker_(budgetBytes), cfg_(cfg) {
-        assert(cfg_.blockSize <= 65535 && "SymTabV3: blockSize must fit in CompressedRef::slotInBlock (uint16_t)");
-        assert(cfg_.inlineMaxLen <= kInlineCap && "SymTabV3: inlineMaxLen must fit in the 12B inline buffer");
+        assert(cfg_.blockSize <= 65535 && "SymTabV4: blockSize must fit in CompressedRef::slotInBlock (uint16_t)");
+        assert(cfg_.inlineMaxLen <= kInlineCap && "SymTabV4: inlineMaxLen must fit in the 12B inline buffer");
         scopes_.emplace_back();
         tracker_.add(scopes_.back().index.byteFootprint());
     }
 
     int enterScope() {
-        assert(scopes_.size() < UINT16_MAX && "SymTabV3: scope nesting exceeds uint16_t scopeId range");
+        assert(scopes_.size() < UINT16_MAX && "SymTabV4: scope nesting exceeds uint16_t scopeId range");
         scopes_.emplace_back();
         tracker_.add(scopes_.back().index.byteFootprint());
         return static_cast<int>(scopes_.size()) - 1;
@@ -228,9 +314,9 @@ public:
         uint32_t exitingScopeId = static_cast<uint32_t>(scopes_.size()) - 1;
         Scope& s = scopes_.back();
         for (uint32_t slotId : s.liveSlots) {
-            PackedEntry& e = entries_[slotId];
+            CoreEntry& e = entries_[slotId];
             if (!e.live() || e.scopeId != exitingScopeId) continue;
-            long long freed = costOf(e);
+            long long freed = costOf(slotId, e);
             releaseSlot(slotId, e);
             rep.bytesReclaimed += freed;
             rep.symbolsReleased++;
@@ -255,7 +341,7 @@ public:
 
         uint32_t existing = s.index.find(fp, [&](uint32_t id) { return nameEquals(id, name); });
         if (existing != UINT32_MAX) {
-            PackedEntry& old = entries_[existing];
+            CoreEntry& old = entries_[existing];
             s.index.erase(fp, existing);
             releaseSlot(existing, old);
         }
@@ -273,21 +359,20 @@ public:
 
         Rep rep = decide(name, isRepeat);
         uint32_t slotId = allocSlot();
-        PackedEntry& e = entries_[slotId];
+        CoreEntry& e = entries_[slotId];
 
         int declId = nextDeclId_++;
         e.declId = declId;
         e.scopeId = static_cast<uint16_t>(scopes_.size() - 1);
         e.typeId = static_cast<uint8_t>(typeId);
-        e.accessCount = 0;
-        e.lastAccessEpoch = 0;
-        assert(name.size() <= UINT16_MAX && "SymTabV3: identifier too long for uint16_t nameLen");
+        assert(name.size() <= UINT16_MAX && "SymTabV4: identifier too long for uint16_t nameLen");
         e.nameLen = static_cast<uint16_t>(name.size());
         e.representation = rep;
         e.setLive(true);
         e.setWasPromoted(false);
+        e.setHasHotMeta(false);
 
-        long long cost = materialize(e, name, rep);
+        long long cost = materialize(slotId, e, name, rep);
         tracker_.add(cost);
 
         long long footprintBefore = s.index.byteFootprint();
@@ -305,10 +390,16 @@ public:
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
             uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); }, cfg_.disableFingerprints);
             if (slotId != UINT32_MAX) {
-                if (entries_[slotId].accessCount < UINT16_MAX) entries_[slotId].accessCount++;
-                entries_[slotId].lastAccessEpoch = epoch_;
+                CoreEntry& e = entries_[slotId];
+                if (e.hasHotMeta()) {
+                    HotMeta* hm = hotMeta_.find(slotId);
+                    if (hm) {
+                        if (hm->accessCount < UINT16_MAX) hm->accessCount++;
+                        hm->lastAccessEpoch = epoch_;
+                    }
+                }
                 maybePromote(slotId, name);
-                return entries_[slotId].declId;
+                return e.declId;
             }
         }
         return -1;
@@ -318,9 +409,12 @@ public:
         if (cfg_.coldIdleEpochs == 0) return 0;
         size_t demoted = 0;
         for (uint32_t slotId = 0; slotId < entries_.size(); slotId++) {
-            PackedEntry& e = entries_[slotId];
+            CoreEntry& e = entries_[slotId];
             if (!e.live() || !e.wasPromoted() || e.representation != Rep::INTERNED_REP) continue;
-            if (epoch_ - e.lastAccessEpoch < cfg_.coldIdleEpochs) continue;
+            if (!e.hasHotMeta()) continue;  // defensive: should always be true here
+            HotMeta* hm = hotMeta_.find(slotId);
+            if (!hm) continue;  // defensive
+            if (epoch_ - hm->lastAccessEpoch < cfg_.coldIdleEpochs) continue;
             demote(slotId, e);
             demoted++;
         }
@@ -355,7 +449,8 @@ public:
     size_t peakSlotCount() const { return entries_.size(); }
     int declarationCount() const { return nextDeclId_; }
 
-    static const long long kSlotOverhead = static_cast<long long>(sizeof(PackedEntry));
+    static const long long kSlotOverhead = static_cast<long long>(sizeof(CoreEntry));
+    static const long long kHotMetaOverhead = static_cast<long long>(sizeof(HotMeta));
     static const long long kPoolNodeOverhead = 68;
     static const long long kMapNodeOverhead = 68;
 
@@ -375,8 +470,29 @@ protected:
         return static_cast<uint32_t>(entries_.size()) - 1;
     }
 
-    void releaseSlot(uint32_t slotId, PackedEntry& e) {
-        long long freed = costOf(e);
+    // grantHotMeta / revokeHotMeta: (de)allocate a HotMeta row for slotId.
+    // hotMeta_ is a single contiguous open-addressing table (like ScopeIndex),
+    // not one heap node per entry, so the honest tracked cost is the table's
+    // *byteFootprint() delta* (which only grows on doubling, not per insert),
+    // not a flat per-entry constant -- mirrors how ScopeIndex growth is
+    // charged in insert()/enterScope() elsewhere in this file.
+    void grantHotMeta(uint32_t slotId, CoreEntry& e) {
+        if (e.hasHotMeta()) return;
+        long long before = hotMeta_.byteFootprint();
+        hotMeta_.getOrInsert(slotId);
+        long long after = hotMeta_.byteFootprint();
+        if (after != before) tracker_.add(after - before);
+        e.setHasHotMeta(true);
+    }
+
+    void revokeHotMeta(uint32_t slotId, CoreEntry& e) {
+        if (!e.hasHotMeta()) return;
+        hotMeta_.erase(slotId);  // table never shrinks (matches ScopeIndex), so no reclaim here
+        e.setHasHotMeta(false);
+    }
+
+    void releaseSlot(uint32_t slotId, CoreEntry& e) {
+        long long freed = costOf(slotId, e);
         tracker_.reclaim(freed);
 
         uint64_t liveKey = fingerprint64(nameOf(slotId));
@@ -396,19 +512,23 @@ protected:
             releaseBlockMember(e.payload.compressedRef);
             e.payload.compressedRef = CompressedRef{};
         }
+        revokeHotMeta(slotId, e);
         e.setLive(false);
         freeSlots_.push_back(slotId);
     }
 
-    long long costOf(const PackedEntry&) const { return kSlotOverhead; }
+    // costOf: core struct cost only. HotMeta cost is tracked separately via
+    // grantHotMeta/revokeHotMeta so it is never double-counted or hidden.
+    long long costOf(uint32_t /*slotId*/, const CoreEntry&) const { return kSlotOverhead; }
 
-    long long materialize(PackedEntry& e, const std::string& name, Rep rep) {
+    long long materialize(uint32_t slotId, CoreEntry& e, const std::string& name, Rep rep) {
         if (rep == Rep::INLINE_REP) {
             std::memcpy(e.payload.inlineBytes, name.data(), name.size());
             return kSlotOverhead;
         }
         if (rep == Rep::COMPRESSED_REP) {
             e.payload.compressedRef = insertCompressed(name);
+            grantHotMeta(slotId, e);
             return kSlotOverhead;
         }
         uint32_t idx = internName(name);
@@ -481,7 +601,7 @@ protected:
     }
 
     std::string nameOf(uint32_t slotId) const {
-        const PackedEntry& e = entries_[slotId];
+        const CoreEntry& e = entries_[slotId];
         if (e.representation == Rep::INLINE_REP) {
             return std::string(e.payload.inlineBytes, e.nameLen);
         }
@@ -494,28 +614,8 @@ protected:
         return "";
     }
 
-    static void decodeToBuffer(const Block& b, uint16_t slot, size_t anchorInterval, char* outBuf, size_t& outLen) {
-        const BlockMember& m = b.members[slot];
-        if (m.isAnchor) {
-            std::memcpy(outBuf, m.suffix.data(), m.suffix.size());
-            outLen = m.suffix.size();
-            return;
-        }
-        size_t anchorEvery = anchorInterval == 0 ? 1 : anchorInterval;
-        uint16_t start = static_cast<uint16_t>(slot - (slot % anchorEvery));
-        const std::string& anchorStr = b.members[start].suffix;
-        std::memcpy(outBuf, anchorStr.data(), anchorStr.size());
-        outLen = anchorStr.size();
-        for (uint16_t i = start + 1; i <= slot; i++) {
-            const BlockMember& mi = b.members[i];
-            size_t prefixLen = mi.sharedPrefixLen < outLen ? mi.sharedPrefixLen : outLen;
-            std::memcpy(outBuf + prefixLen, mi.suffix.data(), mi.suffix.size());
-            outLen = prefixLen + mi.suffix.size();
-        }
-    }
-
     bool nameEquals(uint32_t slotId, const std::string& name) const {
-        const PackedEntry& e = entries_[slotId];
+        const CoreEntry& e = entries_[slotId];
         if (e.nameLen != name.size()) return false;
         switch (e.representation) {
             case Rep::INLINE_REP:
@@ -526,26 +626,7 @@ protected:
                 const CompressedRef& ref = e.payload.compressedRef;
                 const BlockMember& m = blocks_[ref.blockIndex].members[ref.slotInBlock];
                 if (m.fp8 != fingerprint8(name)) return false;
-
-                reconstructions_++;
-                const Block& b = blocks_[ref.blockIndex];
-                size_t anchorEvery = cfg_.anchorInterval == 0 ? 1 : cfg_.anchorInterval;
-                uint16_t start = static_cast<uint16_t>(ref.slotInBlock - (ref.slotInBlock % anchorEvery));
-                reconstructionSteps_ += static_cast<size_t>(ref.slotInBlock - start);
-
-                char stackBuf[512];
-                if (e.nameLen < sizeof(stackBuf)) {
-                    size_t decodedLen = 0;
-                    decodeToBuffer(b, ref.slotInBlock, cfg_.anchorInterval, stackBuf, decodedLen);
-                    if (decodedLen != name.size()) return false;
-                    return std::memcmp(stackBuf, name.data(), name.size()) == 0;
-                } else {
-                    std::vector<char> heapBuf(e.nameLen + 1);
-                    size_t decodedLen = 0;
-                    decodeToBuffer(b, ref.slotInBlock, cfg_.anchorInterval, heapBuf.data(), decodedLen);
-                    if (decodedLen != name.size()) return false;
-                    return std::memcmp(heapBuf.data(), name.data(), name.size()) == 0;
-                }
+                return reconstructMember(ref) == name;
             }
         }
         return false;
@@ -565,7 +646,7 @@ protected:
             m.suffix = name;
         } else {
             const BlockMember& prev = b.members[slot - 1];
-            std::string prevFull = decodeFrom(b, slot - 1, prev, cfg_.anchorInterval);
+            std::string prevFull = decodeFrom(b, slot - 1, prev);
             size_t shared = commonPrefixLen(prevFull, name);
             if (shared > 255) shared = 255;
             m.isAnchor = false;
@@ -584,30 +665,24 @@ protected:
         const Block& b = blocks_[ref.blockIndex];
         const BlockMember& m = b.members[ref.slotInBlock];
         reconstructions_++;
-        size_t anchorEvery = cfg_.anchorInterval == 0 ? 1 : cfg_.anchorInterval;
-        uint16_t start = static_cast<uint16_t>(ref.slotInBlock - (ref.slotInBlock % anchorEvery));
-        reconstructionSteps_ += static_cast<size_t>(ref.slotInBlock - start);
-
-        if (m.isAnchor) return m.suffix;
-
-        char stackBuf[512];
-        size_t decodedLen = 0;
-        decodeToBuffer(b, ref.slotInBlock, cfg_.anchorInterval, stackBuf, decodedLen);
-        if (decodedLen < sizeof(stackBuf)) {
-            return std::string(stackBuf, decodedLen);
-        } else {
-            std::vector<char> heapBuf(decodedLen + 1);
-            decodeToBuffer(b, ref.slotInBlock, cfg_.anchorInterval, heapBuf.data(), decodedLen);
-            return std::string(heapBuf.data(), decodedLen);
+        if (!m.isAnchor) {
+            uint16_t start = ref.slotInBlock;
+            while (!b.members[start].isAnchor) start--;
+            reconstructionSteps_ += static_cast<size_t>(ref.slotInBlock - start);
         }
+        return decodeFrom(b, ref.slotInBlock, m);
     }
 
-    static std::string decodeFrom(const Block& b, uint16_t slot, const BlockMember& m, size_t anchorInterval = 8) {
+    static std::string decodeFrom(const Block& b, uint16_t slot, const BlockMember& m) {
         if (m.isAnchor) return m.suffix;
-        char stackBuf[512];
-        size_t decodedLen = 0;
-        decodeToBuffer(b, slot, anchorInterval, stackBuf, decodedLen);
-        return std::string(stackBuf, decodedLen);
+        uint16_t start = slot;
+        while (!b.members[start].isAnchor) start--;
+        std::string cur = b.members[start].suffix;
+        for (uint16_t i = start + 1; i <= slot; i++) {
+            const BlockMember& mi = b.members[i];
+            cur = cur.substr(0, mi.sharedPrefixLen) + mi.suffix;
+        }
+        return cur;
     }
 
     void releaseBlockMember(CompressedRef ref) {
@@ -625,23 +700,29 @@ protected:
     }
 
     void maybePromote(uint32_t slotId, const std::string& name) {
-        PackedEntry& e = entries_[slotId];
+        CoreEntry& e = entries_[slotId];
         if (e.representation != Rep::COMPRESSED_REP) return;
-        if (e.accessCount < cfg_.hotAccessThreshold) return;
+        if (!e.hasHotMeta()) return;  // defensive: COMPRESSED entries always have one
+        HotMeta* hm = hotMeta_.find(slotId);
+        if (!hm || hm->accessCount < cfg_.hotAccessThreshold) return;
         CompressedRef oldRef = e.payload.compressedRef;
         releaseBlockMember(oldRef);
         e.representation = Rep::INTERNED_REP;
         e.setWasPromoted(true);
         e.payload.poolIndex = internName(name);
+        // HotMeta row is kept (not revoked): runMaintenance() needs
+        // lastAccessEpoch to decide demotion eligibility for promoted entries.
         promotions_++;
     }
 
-    void demote(uint32_t slotId, PackedEntry& e) {
+    void demote(uint32_t slotId, CoreEntry& e) {
         std::string name = pool_[e.payload.poolIndex];
         releasePoolRef(e.payload.poolIndex);
         e.representation = Rep::COMPRESSED_REP;
         e.setWasPromoted(false);
-        e.accessCount = 0;
+        HotMeta* hm = hotMeta_.find(slotId);  // must already exist -- entry was COMPRESSED or promoted-INTERNED
+        assert(hm && "SymTabV4: demote() called on entry without a HotMeta row");
+        if (hm) hm->accessCount = 0;
         e.payload.compressedRef = insertCompressed(name);
         demotions_++;
     }
@@ -656,8 +737,10 @@ protected:
         return static_cast<uint32_t>(blocks_.size()) - 1;
     }
 
-    std::vector<PackedEntry> entries_;
+    std::vector<CoreEntry> entries_;
     std::vector<uint32_t> freeSlots_;
+
+    HotMetaTable hotMeta_;
 
     std::unordered_map<uint64_t, uint32_t> liveSeenRep_;
 
@@ -679,8 +762,8 @@ protected:
     uint32_t epoch_ = 0;
 
     MemoryTracker tracker_;
-    PolicyConfigV3 cfg_;
+    PolicyConfigV4 cfg_;
 };
 
-} // namespace v3
+} // namespace v4
 } // namespace budgetsym

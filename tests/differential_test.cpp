@@ -21,6 +21,8 @@
 #include "../include/robinhood_symbol_table.hpp"
 #include "../include/trie_symbol_table.hpp"
 #include "../include/symtab_v2.hpp"
+#include "../include/symtab_v3.hpp"
+#include "../include/symtab_v4.hpp"
 
 using namespace budgetsym;
 
@@ -152,6 +154,12 @@ static void test_differential_fuzz() {
 
         budgetsym::v2::SymTabV2<> v2table(1 << 20);
         runTrace(v2table, trace, "SymTabV2");
+
+        budgetsym::v3::SymTabV3<> v3table(1 << 20);
+        runTrace(v3table, trace, "SymTabV3");
+
+        budgetsym::v4::SymTabV4<> v4table(1 << 20);
+        runTrace(v4table, trace, "SymTabV4");
         // Byte-accounting check the id-only runTrace() above cannot catch
         // (review MEDIUM finding: a double-reclaim or refcount bug wouldn't
         // perturb resolve() ids at all). Every live entry pays AT LEAST
@@ -275,6 +283,12 @@ static void test_same_scope_redeclaration_no_double_charge() {
 
     budgetsym::v2::SymTabV2<> v2table(1 << 20);
     checkSameScopeRedeclare(v2table, "SymTabV2");
+
+    budgetsym::v3::SymTabV3<> v3table(1 << 20);
+    checkSameScopeRedeclare(v3table, "SymTabV3");
+
+    budgetsym::v4::SymTabV4<> v4table(1 << 20);
+    checkSameScopeRedeclare(v4table, "SymTabV4");
 
     if (failures == 0) std::cout << "test_same_scope_redeclaration_no_double_charge: all tables agree (ids, resolve(), size(), AND tracked bytes)\n";
 }
