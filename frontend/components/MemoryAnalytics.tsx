@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { benchmarkRows as fallbackRows, corpusRows, BenchmarkRow } from "../lib/benchmark-data";
+import { benchmarkRows as fallbackRows, corpusRows, paretoRows as fallbackParetoRows, BenchmarkRow, ParetoRow } from "../lib/benchmark-data";
+import { StackedBarChart, StackedBarGroup } from "./charts/StackedBarChart";
+import { MemoryDiagnosis } from "./MemoryDiagnosis";
 
 export function MemoryAnalytics() {
   const [rows, setRows] = useState<BenchmarkRow[]>(fallbackRows);
   const [source, setSource] = useState<"live" | "fallback">("fallback");
+  const [paretoRows, setParetoRows] = useState<ParetoRow[]>(fallbackParetoRows);
 
   useEffect(() => {
     fetch("/api/benchmarks")
@@ -17,7 +20,29 @@ export function MemoryAnalytics() {
         }
       })
       .catch(() => {});
+    fetch("/api/pareto")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.available && Array.isArray(data.rows) && data.rows.length > 0) {
+          setParetoRows(data.rows);
+        }
+      })
+      .catch(() => {});
   }, []);
+
+  const representationGroups: StackedBarGroup[] = Array.from(
+    new Set(paretoRows.filter((r) => r.category === "A" && r.implementation === "SymTabV2").map((r) => r.workload))
+  ).map((workload) => {
+    const r = paretoRows.find((r) => r.workload === workload && r.category === "A" && r.implementation === "SymTabV2")!;
+    return {
+      label: workload,
+      segments: [
+        { key: "inline", label: "Inline", value: r.count_inline, color: "#0d9488" },
+        { key: "interned", label: "Interned", value: r.count_interned, color: "#4f46e5" },
+        { key: "compressed", label: "Compressed", value: r.count_compressed, color: "#c2410c" },
+      ],
+    };
+  });
 
   const smallConv = rowFor2(rows, "small", "Conventional");
   const smallV2 = rowFor2(rows, "small", "SymTabV2");
@@ -146,6 +171,21 @@ export function MemoryAnalytics() {
           </p>
         </div>
       </div>
+
+      {/* V2 Representation Distribution */}
+      <div className="panel p-6 rounded-2xl space-y-4">
+        <div>
+          <h3 className="font-mono text-base font-semibold text-slate-900">
+            SymTab V2 Representation Distribution
+          </h3>
+          <p className="text-xs text-slate-500 mt-1">
+            Share of symbols selected as INLINE, INTERNED, or COMPRESSED per real-world corpus — illustrates the adaptive policy in action.
+          </p>
+        </div>
+        <StackedBarChart groups={representationGroups} />
+      </div>
+
+      <MemoryDiagnosis />
     </div>
   );
 }

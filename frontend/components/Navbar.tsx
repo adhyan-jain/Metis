@@ -11,6 +11,8 @@ const NAV_ITEMS = [
   { href: "/scopes", label: "Scopes" },
   { href: "/memory", label: "Memory" },
   { href: "/benchmarks", label: "Benchmarks" },
+  { href: "/pareto", label: "Pareto" },
+  { href: "/workload", label: "Workload" },
   { href: "/algorithms", label: "Algorithms" },
   { href: "/experiments", label: "Experiments" },
   { href: "/architecture", label: "Architecture" },

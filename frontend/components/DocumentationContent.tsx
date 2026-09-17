@@ -104,6 +104,7 @@ npm run dev                    # http://localhost:3000`}</Code>
           <ul className="text-xs text-slate-600 leading-relaxed list-disc pl-4 space-y-1">
             <li>Fixed directory allocation overhead (~8 kB) makes Conventional symbol tables superior on tiny workloads (N &lt; 200 symbols).</li>
             <li>On Zephyr RTOS (703k declarations, low scope depth), string interning achieves slightly lower peak heap (81.5 MB vs V2&apos;s 84.7 MB).</li>
+            <li>Across real-world C/C++ corpora (FreeRTOS, Arduino, Lua, CPython, ESP-IDF, Zephyr), SymTab V2 measures 1.87x-6.52x more physical heap than Conventional, primarily due to persistent lookup registries (<code>everSeenRep_</code>, <code>poolLookup_</code>) that are never pruned on scope exit — see the Memory page&apos;s diagnosis section and docs/v2_real_world_memory_diagnosis.md. This is under active architectural redesign.</li>
             <li>Front-coded block decompression adds cold lookup latency on synthetic random long string workloads with high prefix similarity.</li>
             <li>Heavyweight ML models were rejected for policy selection due to high inference latency overhead (~57 ms) and OOD constraint violations; Hand-Designed Workload Heuristic is deployed.</li>
           </ul>

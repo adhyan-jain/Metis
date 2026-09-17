@@ -1,5 +1,0 @@
-variant,symbols,memory_bytes,memory_per_symbol,promotions,insert_us,lookup_us,bytes_reclaimed_total
-BudgetSym-Full,800,33581,41.9763,4,0.807833,0.84,15115
-BudgetSym-NoScope,1200,48696,40.58,4,0.709333,1.176,0
-BudgetSym-NoAccessFrequency,800,33430,41.7875,0,0.669583,0.744,15115
-BudgetSym-NoAdaptiveSelection,800,50642,63.3025,0,0.81275,0.412,25227

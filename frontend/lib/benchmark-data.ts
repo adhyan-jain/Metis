@@ -157,6 +157,87 @@ export const mlComparisonRows: MlComparisonRow[] = [
   { latency_constraint: "2.00x", model_name: "Hand Heuristic", dataset_type: "Real-World (Held-Out)", mean_memory_kb: 1190.18, mean_cold_latency_us: 0.0913, constraint_violation_rate: 0.0, mean_regret_kb: 153.70, exact_config_accuracy: 0.0, model_size_bytes: 64, inference_latency_us: 294.17 },
 ];
 
+export interface ParetoRow {
+  workload: string;
+  category: string;
+  implementation: "Conventional" | "Interned" | "BudgetSymV1" | "SymTabV2" | string;
+  config_id: number;
+  declarations: number;
+  uses: number;
+  unique_names: number;
+  measured_peak_heap_bytes: number;
+  measured_final_heap_bytes: number;
+  cold_lookup_p50_us: number;
+  cold_lookup_p95_us: number;
+  cold_lookup_p99_us: number;
+  count_inline: number;
+  count_interned: number;
+  count_compressed: number;
+  memory_ratio_vs_conv: number;
+  cold_latency_ratio_vs_conv: number;
+}
+
+export interface ParetoFrontierRow {
+  workload: string;
+  category: string;
+  latency_constraint: number;
+  satisfied: number;
+  optimal_impl: string;
+  optimal_config_id: number;
+  conv_cold_lookup_p50_us: number;
+  conv_measured_final_heap_bytes: number;
+  actual_cold_lookup_p50_us: number;
+  actual_measured_final_heap_bytes: number;
+  latency_ratio_vs_conv: number;
+  memory_ratio_vs_conv: number;
+  memory_savings_pct_vs_conv: number;
+}
+
+export interface CorpusCharacterizationRow {
+  corpus: string;
+  files: number;
+  declarations: number;
+  uses: number;
+  unique_symbols: number;
+  redeclarations: number;
+  shadowing: number;
+  max_scope_depth: number;
+  avg_scope_depth: number;
+  mean_identifier_length: number;
+  prefix_similarity: number;
+  repeat_rate: number;
+  entropy: number;
+  access_skew: number;
+  churn: number;
+}
+
+// Small representative fallback slice from results/pareto_results.csv --
+// real-world corpora (category "A"), each implementation's config_id=0/1
+// baseline row (Conventional/Interned/BudgetSymV1 have no parameter sweep;
+// SymTabV2's config_id=1 is its default-parameter run). Not the full
+// 1,700-config sweep -- see /api/pareto for the live Pareto-filtered set.
+export const paretoRows: ParetoRow[] = [
+  { workload: "FreeRTOS", category: "A", implementation: "Conventional", config_id: 0, declarations: 8506, uses: 12033, unique_names: 2641, measured_peak_heap_bytes: 893488, measured_final_heap_bytes: 827944, cold_lookup_p50_us: 0.14, cold_lookup_p95_us: 0.315, cold_lookup_p99_us: 0.422, count_inline: 0, count_interned: 0, count_compressed: 0, memory_ratio_vs_conv: 1, cold_latency_ratio_vs_conv: 1 },
+  { workload: "FreeRTOS", category: "A", implementation: "Interned", config_id: 0, declarations: 8506, uses: 12033, unique_names: 2641, measured_peak_heap_bytes: 1218672, measured_final_heap_bytes: 1153128, cold_lookup_p50_us: 0.127, cold_lookup_p95_us: 0.235, cold_lookup_p99_us: 0.308, count_inline: 0, count_interned: 0, count_compressed: 0, memory_ratio_vs_conv: 1.39276, cold_latency_ratio_vs_conv: 0.907143 },
+  { workload: "FreeRTOS", category: "A", implementation: "BudgetSymV1", config_id: 0, declarations: 8506, uses: 12033, unique_names: 2641, measured_peak_heap_bytes: 3321616, measured_final_heap_bytes: 2732280, cold_lookup_p50_us: 0.118, cold_lookup_p95_us: 0.624, cold_lookup_p99_us: 0.996, count_inline: 0, count_interned: 0, count_compressed: 0, memory_ratio_vs_conv: 3.30008, cold_latency_ratio_vs_conv: 0.842857 },
+  { workload: "FreeRTOS", category: "A", implementation: "SymTabV2", config_id: 1, declarations: 8506, uses: 12033, unique_names: 2641, measured_peak_heap_bytes: 1562464, measured_final_heap_bytes: 1505304, cold_lookup_p50_us: 0.126, cold_lookup_p95_us: 0.639, cold_lookup_p99_us: 1.175, count_inline: 546, count_interned: 1696, count_compressed: 399, memory_ratio_vs_conv: 1.81812, cold_latency_ratio_vs_conv: 0.9 },
+];
+
+// Small representative fallback slice from results/pareto_frontier.csv
+// (1.25x latency constraint row per synthetic workload).
+export const paretoFrontierRows: ParetoFrontierRow[] = [
+  { workload: "small", category: "B", latency_constraint: 1.25, satisfied: 1, optimal_impl: "Conventional", optimal_config_id: 0, conv_cold_lookup_p50_us: 0.06, conv_measured_final_heap_bytes: 8976, actual_cold_lookup_p50_us: 0.06, actual_measured_final_heap_bytes: 8976, latency_ratio_vs_conv: 1, memory_ratio_vs_conv: 1, memory_savings_pct_vs_conv: 0 },
+  { workload: "large", category: "B", latency_constraint: 1.25, satisfied: 1, optimal_impl: "Conventional", optimal_config_id: 0, conv_cold_lookup_p50_us: 0.081, conv_measured_final_heap_bytes: 487984, actual_cold_lookup_p50_us: 0.081, actual_measured_final_heap_bytes: 487984, latency_ratio_vs_conv: 1, memory_ratio_vs_conv: 1, memory_savings_pct_vs_conv: 0 },
+];
+
+// Authoritative real-world workload characterization from
+// results/corpus_characterization.csv.
+export const corpusCharacterizationRows: CorpusCharacterizationRow[] = [
+  { corpus: "FreeRTOS", files: 655, declarations: 72376, uses: 123602, unique_symbols: 10386, redeclarations: 39209, shadowing: 4084, max_scope_depth: 10, avg_scope_depth: 1.58, mean_identifier_length: 14.202, prefix_similarity: 0.1643, repeat_rate: 0.6307, entropy: 10.6726, access_skew: 0.7931, churn: 0.0688 },
+  { corpus: "Arduino", files: 332, declarations: 31846, uses: 50273, unique_symbols: 11000, redeclarations: 6985, shadowing: 1166, max_scope_depth: 11, avg_scope_depth: 1.446, mean_identifier_length: 8.691, prefix_similarity: 0.1362, repeat_rate: 0.6122, entropy: 11.3061, access_skew: 0.7182, churn: 0.0641 },
+  { corpus: "Zephyr", files: 4298, declarations: 703727, uses: 1523992, unique_symbols: 228739, redeclarations: 50928, shadowing: 42035, max_scope_depth: 21, avg_scope_depth: 10.503, mean_identifier_length: 9.932, prefix_similarity: 0.0994, repeat_rate: 0.6841, entropy: 12.6882, access_skew: 0.807, churn: 0.0726 },
+];
+
 export const DATASETS = Array.from(new Set(benchmarkRows.map((r) => r.dataset)));
 export const IMPLEMENTATIONS = ["Conventional", "Interned", "BudgetSymV1", "SymTabV2"] as const;
 

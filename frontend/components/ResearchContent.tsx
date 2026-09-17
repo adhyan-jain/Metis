@@ -21,7 +21,7 @@ const SECTIONS = [
   },
   {
     title: "Empirical Results Summary",
-    body: "On the large synthetic workload (N=20,000 symbols), SymTab V2 achieves 360.7 kB mean heap memory, delivering 69.89% heap savings vs BudgetSym V1 (1,197.7 kB) and 52.89% savings vs Interned (765.6 kB). On Zephyr RTOS (703k declarations), SymTab V2 manages peak heap memory at 84.7 MB while maintaining cold p50 lookup latency at 0.098 µs.",
+    body: "On the large synthetic workload (N=20,000 symbols), SymTab V2 achieves 360.7 kB mean heap memory, delivering 69.89% heap savings vs BudgetSym V1 (1,197.7 kB) and 52.89% savings vs Interned (765.6 kB). This synthetic-workload result does not generalize to real-world corpora: on real-world C/C++ codebases, SymTab V2 measures 1.87x-6.52x MORE physical heap than Conventional (see the Memory Diagnosis section on the Memory page). On Zephyr RTOS (703k declarations), SymTab V2 manages peak heap memory at 84.7 MB while maintaining cold p50 lookup latency at 0.098 µs.",
   },
   {
     title: "Policy Selection & ML Evaluation",
@@ -40,7 +40,7 @@ const SECTIONS = [
 const FACULTY_QA = [
   {
     q: "Does SymTab V2 universally outperform Conventional or Interned symbol tables?",
-    a: "No. Claim boundaries are strictly grounded: Conventional is superior on tiny workloads (N < 200) due to V2's fixed ~8 kB directory overhead. On Zephyr RTOS, Interned achieves slightly lower heap (81.5 MB vs V2's 84.7 MB) because Zephyr contains a high ratio of global declarations with low scope nesting depth. V2 excels on large workloads with active scope nesting and prefix-similar identifier runs.",
+    a: "No. Claim boundaries are strictly grounded: Conventional is superior on tiny workloads (N < 200) due to V2's fixed ~8 kB directory overhead. On Zephyr RTOS, Interned achieves slightly lower heap (81.5 MB vs V2's 84.7 MB) because Zephyr contains a high ratio of global declarations with low scope nesting depth. More significantly, across real-world C/C++ corpora (FreeRTOS, Arduino, Lua, CPython, ESP-IDF, Zephyr), SymTab V2 measures 1.87x-6.52x MORE physical heap than Conventional -- the opposite of its synthetic-workload result -- because V2's everSeenRep_ and poolLookup_ registries are never pruned on scope exit while Conventional deallocates scope maps immediately (see docs/v2_real_world_memory_diagnosis.md and the Memory page's diagnosis section). V2's synthetic-workload advantage is real but does not currently transfer to production codebases; the memory tradeoff exists and is under active architectural redesign.",
   },
   {
     q: "How does 1-byte hash fingerprinting accelerate lookups?",

@@ -34,6 +34,9 @@ export function resultsCsvPath(name:
   | "ablation_results.csv"
   | "cache_benchmark_results.csv"
   | "algorithm_comparison.csv"
+  | "pareto_results.csv"
+  | "pareto_frontier.csv"
+  | "corpus_characterization.csv"
 ): string | null {
   const root = repoRoot();
   return firstExisting([
