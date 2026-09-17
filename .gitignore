@@ -19,3 +19,7 @@ corpora/
 Thumbs.db
 tests/differential_test.exe
 tests/symtab_v2_compressed_test.exe
+
+# Oversized corpus traces (exceed GitHub 100MB limit) - regenerate via scripts/extract_corpus_events.py
+data/corpus_events_protobuf-generated-cpp.txt
+results/corpus_events_protobuf-generated-cpp.txt
