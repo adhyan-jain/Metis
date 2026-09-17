@@ -513,7 +513,7 @@ int main() {
 
     std::vector<std::string> corpora = {"FreeRTOS", "Arduino", "Zephyr", "CPython", "Lua", "ESP-IDF", "protobuf-generated-cpp", "Clang", "Qt6", "Eigen",
                                          "cJSON", "curl", "FFmpeg", "LLVM", "mbedTLS", "Nginx", "protobuf-c", "QEMU", "Redis", "SQLite",
-                                         "nanopb"};
+                                         "nanopb", "TinyUSB", "LVGL", "OpenThread", "MbedTLS2", "CMSIS"};
 
     std::cout << "=== Running Representative Real-World Corpus Benchmark ===\n";
 

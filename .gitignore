@@ -15,10 +15,31 @@ corpora/
 
 # Editor/OS
 .vscode/
+.idea/
+.claude/
 .DS_Store
 Thumbs.db
+*.swp
+*~
 tests/differential_test.exe
 tests/symtab_v2_compressed_test.exe
+
+# Backup files
+*.bak
+*.bak_*
+*.bak.*
+*.bak*
+
+# LaTeX intermediate build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
 
 # Oversized corpus traces (exceed GitHub 100MB limit) - regenerate via scripts/extract_corpus_events.py
 data/corpus_events_protobuf-generated-cpp.txt

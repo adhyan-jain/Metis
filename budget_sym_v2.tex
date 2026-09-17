@@ -1,5 +1,6 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{cite}
@@ -8,8 +9,7 @@
 
 \begin{document}
 
-\title{The Memory-Constrained Compressed Symbol Table\\for Embedded Compilers\\
-\large BUDGET-SYM: An Adaptive Scope-Aware Symbol Representation Framework}
+\title{Evaluating the Memory/Latency Boundary of Adaptive Symbol-Table Name Representations in Embedded Workloads}
 
 \author{
 \IEEEauthorblockN{Shubhi Singh}
@@ -28,1133 +28,263 @@
 \maketitle
 
 \begin{abstract}
-Symbol tables are a core compiler data structure, but their memory footprint
-can become significant in resource-constrained embedded compilation
-environments, where conventional string-heavy storage competes with a
-compiler's limited memory budget. This paper documents BUDGET-SYM, a
-prototype adaptive, scope-aware symbol-table architecture that selects a
-per-symbol representation---INLINE, INTERNED, or COMPRESSED---using memory
-pressure, scope/lifetime information, and access frequency, including
-post-insertion promotion of frequently accessed (``hot'') symbols. The
-prototype is implemented in header-only C++14 and evaluated against two real
-baselines across eight benchmark identifier workloads and a four-variant
-ablation study. Using a documented, deterministic tracked-memory accounting
-model (explicitly not OS resident-set size), the prototype reduces tracked
-memory by 1.24$\times$--2.59$\times$ relative to the conventional baseline.
-The ablation study indicates that scope-based reclamation is the dominant
-contributor to memory savings. Review-2 extensions reported here include:
-(1) a systematic grid-search sweep of all six policy thresholds producing
-data-driven replacements for the original hand-picked constants; (2)
-evaluation against real-world embedded C identifier corpora extracted from
-FreeRTOS, the Arduino core library, and the Zephyr RTOS; and (3) multi-seed
-statistical benchmarking with 95\% confidence intervals establishing
-statistical significance. Review-2 (latency/ML extension) added two further
-mechanisms: a 64-entry LRU lookup cache that measurably reduces BudgetSym's
-own lookup latency on hot-path access patterns, and a workload-adaptive ML
-threshold predictor (Ridge regression trained offline on 300 synthetic
-workloads over a 5-feature online profile) that reconfigures the policy
-thresholds after a 100-symbol profiling window with no additional runtime
-dependency. This revision (Review-3) reports a correctness fix -- the
-lookup cache did not account for scope shadowing, so a symbol shadowing an
-outer-scope declaration of the same name could resolve to the wrong, stale
-entry, confirmed empirically and fixed with a permanent regression test --
-and a five-way comparison of alternative index hash functions and storage
-structures (two additional hash functions, a Robin Hood open-addressing
-baseline, and a shared-trie baseline) directly answering Review-2's own
-proposed future work on reducing cold-lookup cost structurally. No
-algorithm in that comparison wins both memory and lookup latency on any of
-the eight datasets: Robin Hood wins lookup latency universally by forgoing
-compression, and BudgetSym wins compression universally by paying the
-reconstruction cost Robin Hood avoids. Lookup latency overhead remains an
-honestly reported cost of the design, now examined from two independent
-angles (caching and structural alternatives) rather than eliminated.
+Symbol tables are a core compiler data structure whose physical memory footprint and lookup latency directly govern execution efficiency under severe resource constraints. Modern 64-bit systems rely on \texttt{std::unordered\_map} with Short String Optimization (SSO), storing small identifiers ($\le 15$~bytes) without secondary heap allocations. In this paper, we investigate the fundamental memory and latency trade-offs of adaptive symbol-table representations in embedded compiler and runtime environments. We formulate the primary research question: \emph{Under what workload conditions can adaptive symbol-table name representations overcome the structural memory efficiency of an embedded conventional hash-table baseline while satisfying a latency constraint?}
+
+We present \texttt{SymTabV3}, an adaptive scope-aware symbol table that dynamically assigns symbols to \textsc{Inline}, \textsc{Interned}, or front-coded \textsc{Compressed} representations with zero-allocation stack buffer decoding. We derive a closed-form analytical break-even model: for identifiers longer than the SSO threshold ($L > 15$\,B), adaptive storage beats Conventional hash tables when the live duplication ratio satisfies $k > k_{\text{breakeven}} = (2L + 86)/(L + 13)$. We evaluate our model using physical allocator heap tracking (\texttt{malloc\_usable\_size}) across four real embedded workloads (\textsc{FreeRTOS}, \textsc{Arduino}, \textsc{Zephyr}, \textsc{ESP-IDF}), 20 host software corpora, and controlled synthetic experiments (Workloads A--F).
+
+On the large \textsc{Zephyr} workload (2.6M events, 228,739 unique symbols), \texttt{SymTabV3} reduced physically measured final heap by 20.2\% (13.52\,MB) relative to the embedded conventional baseline (53.39\,MB vs 66.91\,MB final heap; 57.89\,MB vs 76.37\,MB peak heap). This reduction was achieved with sub-microsecond median lookup latency ($p_{50} = 0.066\,\mu\text{s}$), while the $p_{95}$ latency increased from $0.125\,\mu\text{s}$ to $0.228\,\mu\text{s}$ ($1.824\times$). Thus, the architecture demonstrates a measurable RAM advantage in the large-scale embedded regime, but does not satisfy the $1.25\times$ $p_{95}$ latency constraint due to measured reconstruction/copy overhead. Additionally, we evaluate \texttt{SymTabV4} as a disclosed negative result, showing that side-table container overheads ($T_{\text{table}}$) erode core scalar field savings across real identifier mixes.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Symbol Table, Embedded Compilers, Memory-Constrained Computing, Compiler Data
-Structures, String Interning, Adaptive Data Structures, Symbol Compression,
-Policy Threshold Optimization, Real-World Workload Evaluation, Lookup
-Caching, Machine-Learned Configuration
+Symbol Table, Compiler Memory Management, Embedded Systems, Short String Optimization, String Interning, Front Coding, Data Structure Break-Even Boundary, Empirical Evaluation.
 \end{IEEEkeywords}
 
 \section{Introduction}
-A compiler repeatedly creates, resolves, and updates symbolic bindings while
-translating a program. A symbol table stores the name of each identifier
-together with attributes such as type, scope, declaration information, and
-storage-related metadata. Classical compiler-construction guidance treats
-memory space and lookup/insertion time as competing design criteria for
-symbol tables \cite{aho}. This tension is amplified when compilation targets
-or toolchains operate under tight memory constraints, as is common for
-embedded systems \cite{gcc-msp430}.
+Compilers and language interpreters repeatedly create, resolve, and reclaim symbolic bindings during lexical, syntactic, and semantic analysis \cite{aho}. A symbol table maps identifier names to binding metadata across nested lexical scopes. In resource-constrained embedded systems---such as microcontroller toolchains, real-time operating systems (RTOS), and on-device interpreters---available RAM is severely limited.
 
-A conventional hash table (e.g., \texttt{unordered\_map<string, Symbol>})
-incurs overhead from buckets, allocator metadata, and one full string copy
-per symbol. Alternative representations exploit different forms of
-redundancy: string interning stores one copy of each distinct identifier
-\cite{rust-interning}; prefix-based storage exploits shared prefixes between
-identifiers \cite{liu-lab2}. Each technique individually addresses only part
-of the problem: interning helps only on exact repeats, and most identifiers
-in a translation unit are declared once; a uniformly applied compression
-scheme does not ask whether a specific identifier's lookup cost is worth
-paying right now.
+In desktop and server host compilers (e.g., LLVM \cite{lattner2004llvm}), standard C++ string implementations rely on Short String Optimization (SSO) \cite{meyers2001effective, sutter2004exceptional}. Identifiers up to 15 bytes are stored directly inside the 24-byte string structure, avoiding heap allocations. Consequently, conventional hash maps (\texttt{std::unordered\_map<std::string, SymbolMeta>}) pay zero secondary heap string allocation cost for short names.
 
-This motivates an adaptive approach. BUDGET-SYM is a prototype that selects
-a representation per symbol based on memory pressure, scope/lifetime,
-exact-repeat status, and prefix similarity, and subsequently promotes
-symbols to a faster representation if they turn out to be accessed
-frequently. Review-1 established the prototype and baseline evaluation.
-Review-2 addressed the three most significant limitations identified in
-Review-1: hand-picked thresholds, synthetic-only workloads, and absence of
-statistical significance testing, and added the lookup cache and ML
-threshold predictor along the lookup-overhead axis Review-1 had left
-unresolved. This revision (Review-3) reports a correctness fix found while
-reviewing that cache (a scope-shadowing bug, confirmed empirically and
-fixed with a permanent regression test) and directly answers Review-2's
-own Future Work proposal to reduce cold-lookup cost structurally, by
-implementing and measuring two alternative storage structures (Robin Hood
-open addressing, a shared trie) and two additional index hash functions
-against the same benchmark suite.
+In embedded environments, however, secondary heap overheads and container metadata can consume a significant fraction of total memory. While string interning \cite{gosling2014java, vanrossum2009python} and front-coded block compression \cite{witten1999managing, brisaboa2011compressed} reduce string redundancy, their physical RAM savings and tail-latency costs under realistic scope lifecycles have lacked rigorous physical allocator measurement.
 
-The main contributions of this work are:
+In this work, we formulate and address the following central research question:
+\begin{quote}
+\emph{Under what workload conditions can adaptive symbol-table name representations overcome the structural memory efficiency of an embedded conventional hash-table baseline while satisfying a latency constraint?}
+\end{quote}
+
+We make the following main contributions:
 \begin{enumerate}
-\item A working prototype BUDGET-SYM, implemented in header-only C++14
-  [Review-1].
-\item A unified representation-selection policy spanning INLINE, INTERNED,
-  and COMPRESSED representations [Review-1].
-\item Scope/lifetime-aware symbol reclamation [Review-1].
-\item A deterministic tracked-memory accounting model distinct from OS
-  resident memory [Review-1].
-\item Access-driven post-insertion promotion of frequently looked-up
-  (``hot'') symbols [Review-1].
-\item A four-variant ablation study isolating mechanism contributions
-  [Review-1].
-\item Systematic grid-search sweep of all six policy thresholds, replacing
-  hand-picked constants with data-driven optima [Review-2].
-\item Multi-seed statistical benchmarking with 95\% confidence intervals
-  [Review-2].
-\item Evaluation against real embedded C identifier corpora from FreeRTOS,
-  Arduino core, and Zephyr RTOS [Review-2].
-\item A 64-entry, hash-keyed LRU lookup cache that memoizes recently-resolved
-  symbols, directly reducing the reconstruct-and-compare cost that dominates
-  BUDGET-SYM's lookup latency [Review-2].
-\item Per-entry memoized COMPRESSED-chain reconstruction, eliminating
-  redundant chain walks on repeated lookups of the same compressed symbol
-  [Review-2].
-\item An online WorkloadProfiler (5 features, 100-symbol sampling window)
-  feeding a Ridge-regression ThresholdPredictor trained offline on 300
-  synthetic workloads, reconfiguring policy thresholds mid-compilation with
-  no runtime ML dependency [Review-2].
-\item A correctness fix for a scope-shadowing bug in the Review-2 lookup
-  cache, found by review, confirmed empirically, fixed, and covered by a
-  permanent regression test [\textbf{new}].
-\item Two additional index hash functions (MurmurHash3, DJB2) as swappable
-  BUDGET-SYM backends, and two new structural baselines (Robin Hood open
-  addressing, a shared trie), benchmarked against the same eight datasets
-  [\textbf{new}].
+    \item \textbf{Adaptive Architecture (\texttt{SymTabV3})}: We present a C++ symbol table architecture featuring scope-lifetime slot recycling, 3-tier representation routing (\textsc{Inline}, \textsc{Interned}, \textsc{Compressed}), 1-byte hash fingerprints, and zero-allocation stack buffer decoding.
+    \item \textbf{Analytical Cost \& Break-Even Model}: We derive closed-form memory equations proving that for $L \le 15$\,B no positive break-even live duplication ratio $k$ exists, whereas for $L > 15$\,B, interning breaks even when $k > (2L + 86)/(L + 13)$.
+    \item \textbf{Embedded Memory Advantage}: On the large \textsc{Zephyr} RTOS workload, \texttt{SymTabV3} achieves a 20.2\% (13.52\,MB) physical final heap reduction (and 24.2\% peak heap reduction) over an optimized embedded conventional baseline.
+    \item \textbf{Quantified Memory/Latency Trade-off}: We demonstrate sub-microsecond median lookups ($p_{50} = 0.066\,\mu\text{s}$) on \textsc{Zephyr}, while reporting that $p_{95}$ tail latency increases to $0.228\,\mu\text{s}$ (vs $0.125\,\mu\text{s}$ for the embedded conventional baseline), failing the $1.25\times$ $p_{95}$ gate due to measured reconstruction/copy overhead.
+    \item \textbf{Disclosed Negative Architectural Result (\texttt{SymTabV4})}: We present \texttt{SymTabV4} (representation-conditional metadata) as a disclosed negative result, showing that sparse side-table allocation floors ($T_{\text{table}}$) outweigh core struct savings across real representation mixes.
+    \item \textbf{Controlled Synthetic \& 20-Corpus Host Validation}: We confirm theoretical predictions via synthetic microbenchmarks A--F ($k \ge 3.33$ at $L=32$\,B) and 20 host software corpora.
 \end{enumerate}
 
-\section{Background}
-\subsection{Compiler Symbol Tables}
-A symbol table binds each identifier encountered during compilation to
-attributes required for semantic analysis and code generation, such as type,
-scope, and storage information \cite{aho}. Design choices directly affect
-both memory footprint and the speed of name resolution.
+\section{Background and Motivation}
 
-\subsection{Symbol Storage in Resource-Constrained Environments}
-Embedded toolchains routinely expose memory-related compilation options and
-operate under tighter memory budgets than desktop-scale compilation
-\cite{gcc-msp430}. This provides a concrete setting in which symbol-table
-overhead becomes a first-class engineering concern.
+\subsection{Conventional Symbol Tables and SSO}
+A conventional symbol table uses a hash map from string keys to symbol attributes. In 64-bit systems, a \texttt{std::string} instance occupies 32 bytes (or 24 bytes under libc++), consisting of a pointer, length, and capacity/inline buffer. When identifier length $L \le 15$ bytes, characters reside inside the inline buffer (SSO). For $L > 15$ bytes, \texttt{std::string} allocates a heap buffer of size $L + 1$ bytes plus allocator header overhead $H \approx 16$\,B.
+
+In host standard libraries, \texttt{std::unordered\_map} node allocations incur node overhead ($S_{\text{node}} \approx 32$\,B). For short names ($L \le 15$\,B), Conventional pays only metadata and node footprint:
+\begin{equation}
+M_{\text{conv\_host}}(k, L) \approx k \cdot (S_{\text{meta}} + S_{\text{node}}) \quad \text{for } L \le 15\text{\,B}
+\end{equation}
+
+For embedded targets, we construct \texttt{EmbeddedConventional}, a compact baseline combining 16-byte fixed entries, a contiguous byte arena, and an open-addressing slot index.
 
 \subsection{String Interning}
-String pools separate identifier text from symbol records so that identical
-names are stored once and referenced by a compact handle
-\cite{jones-notes,rust-interning}. The benefit is proportional to the
-exact-duplication rate of identifiers in the workload.
+String interning maintains a global pool of unique string instances. Each symbol record stores a 4-byte pool index. However, interning incurs two fixed costs: 1) a global pool vector; 2) a lookup map (\texttt{poolLookup\_}) paying node overhead $S_{\text{pool\_node}} \approx 68$\,B per unique name.
 
-\subsection{Prefix-Based / Compressed String Representations}
-Tries and compressed tries (radix trees) exploit shared prefixes between
-strings, trading pointer/traversal overhead for reduced storage on long,
-sparse identifier sets \cite{liu-lab2}.
-
-\subsection{Scope and Symbol Lifetime}
-Lexical scoping means many symbols have a short, well-defined lifetime.
-Scope-aware management can reclaim memory eagerly at scope exit rather than
-holding every declared identifier for the duration of compilation.
-
-\subsection{Memory--Latency Trade-offs}
-Reducing memory per symbol typically increases the cost of reconstructing or
-locating that symbol's data at lookup time. A central question for any
-adaptive scheme is whether it can move the memory--latency trade-off curve
-outward rather than simply sliding along it. This revision's lookup cache and
-memoized reconstruction are a direct response to that question: rather than
-changing the representation trade-off itself, they amortize the
-reconstruction cost across repeated accesses to the same symbol.
-
-\section{Literature Review and Related Work}
-This review is based on established compiler-construction references and
-documented industrial practice. Aho et al. \cite{aho} describe symbol-table
-design as a trade-off between memory space, insertion/search time, and
-scoping complexity, and describe the common design of a hash table paired
-with a separate string pool. Course-level material \cite{liu-lab2,
-jones-notes} documents this same baseline design. Interning is used in
-production compilers: the Rust compiler represents symbols using compact
-interned identifiers \cite{rust-interning}. Embedded toolchain documentation
-\cite{gcc-msp430} confirms that memory-constrained compilation targets are a
-current engineering concern.
-
-\textbf{Research Gap.} The literature establishes the individual building
-blocks in isolation. The narrower open question adopted here is whether a
-compiler-specific, runtime/use-aware signal set---memory pressure,
-scope/lifetime, exact-repeat status, prefix similarity, and access
-frequency---can drive a unified per-symbol representation policy under an
-explicit memory budget, while controlling lookup overhead, and whether that
-control can be extended to a small, hash-keyed lookup cache and a
-lightweight, offline-trained threshold predictor without adding a runtime ML
-dependency. A fuller database-indexed prior-art search (IEEE Xplore, ACM DL,
-arXiv) remains a planned step before any patentability claim.
-
-\section{Problem Formulation}
-Given a set of symbols $S$, a memory budget $B$, and a set of representation
-choices $R = \{\text{INLINE}, \text{INTERNED}, \text{COMPRESSED}\}$, the
-problem is to select a representation $r_i \in R$ for each symbol $s_i \in
-S$ such that the total tracked memory does not exceed $B$, while minimizing
-a combined cost:
+The memory for $k$ live occurrences of a unique name of length $L$ under interning is:
 \begin{equation}
-C = \alpha M + \beta L + \gamma T
+C_{\text{pool}}(L) \approx 2L + 86
 \end{equation}
-where $M$ is memory cost, $L$ is lookup latency, $T$ is transition/re-encoding
-overhead, and $\alpha, \beta, \gamma$ are configurable policy weights. The
-current prototype uses a heuristic instantiation of Eq.~(1). Review-2
-contributed a data-driven method for selecting the scalar thresholds that
-control when each branch of the heuristic fires. This revision addresses the
-$L$ term directly (via the lookup cache) and extends the threshold-selection
-method from a one-time offline sweep to a per-workload, online-triggered
-prediction.
+\begin{equation}
+M_{\text{int}}(k, L) \approx k \cdot C_{\text{idx}} + C_{\text{pool}}(L)
+\end{equation}
+where $C_{\text{idx}} \approx 28$\,B is the index slot overhead.
 
-\section{Proposed BUDGET-SYM Architecture}
-The overall pipeline is: source identifiers are extracted and passed to a
-central controller, which consults six subsystems before an Adaptive
-Representation Policy commits each symbol to INLINE, INTERNED, or
-COMPRESSED storage behind a compact index. Fig.~1 (see
-\texttt{docs/architecture.md} in the accompanying repository) traces this
-data flow. Each subsystem is described below as one paragraph.
+\section{Related Work}
 
-\textbf{1) Memory Monitor.} Tracks budget, current tracked-memory usage, and
-derived pressure (\texttt{MemoryTracker}, \texttt{include/memory\_tracker.hpp}).
-Pressure is a deterministic ratio of current to budget, clamped to $[0,1]$,
-and is the sole memory-side signal \texttt{decide()} consults.
+\subsection{Compiler Symbol Tables}
+Scope management and binding resolution have been studied since early structured language compilers \cite{aho, hanson1980fast, reiss1983practical}. Traditional scope stacks push a hash map on scope entry and pop it on exit. LLVM's \texttt{IdentifierTable} \cite{lattner2004llvm} utilizes a global string map backed by a bump-pointer allocator (\texttt{BumpPtrAllocator}), prioritizing allocation throughput but allowing memory to grow monotonically until compilation completes.
 
-\textbf{2) Scope/Lifetime Analyzer.} Maintains the scope stack
-(\texttt{enterScope()}/\texttt{exitScope()}) and drives reclamation:
-on scope exit, every symbol declared in that scope is tombstoned and, where
-physically possible, its bytes are reclaimed from the tracker immediately.
-This is the mechanism the Review-1 ablation study identified as the dominant
-contributor to memory savings.
+\subsection{String Compression and Dictionary Search}
+String interning is standard in runtimes such as Java HotSpot \cite{gosling2014java} and CPython \cite{vanrossum2009python}. For text indexing, front-coded block compression \cite{witten1999managing, brisaboa2011compressed, martinez2016practical} stores lexicographically shared prefixes relative to periodic anchor strings. Succinct data structures \cite{ferragina2000opportunistic, grossi2005compressed} and minimal perfect hash functions (e.g., CHD \cite{botelho2009simple}) achieve optimal static byte density but cannot handle dynamic lexical scope entry and exit.
 
-\textbf{3) Access Profiler.} Tracks a per-symbol \texttt{accessCount},
-incremented on every successful \texttt{lookup()}. This is the signal that
-drives post-insertion promotion from COMPRESSED to INTERNED once a symbol
-crosses \texttt{hotAccessThreshold}.
+\subsection{Cache-Conscious Hash Tables}
+Open-addressing structures such as Robin Hood hashing \cite{celis1986robin}, Cuckoo hashing \cite{pagh2001cuckoo}, HAT-trie \cite{askitis2007hat}, and burst tries \cite{heinz2002burst} optimize L1/L2 cache locality. \texttt{SymTabV3} complements these by integrating scope-lifetime slot recycling, 3-tier representation routing, 1-byte hash fingerprints, and zero-allocation stack buffer decoding.
 
-\textbf{4) WorkloadProfiler + ThresholdPredictor (new).} An online,
-constant-memory accumulator (\texttt{include/workload\_profiler.hpp})
-observes the first 100 inserted identifiers and extracts five features: mean
-name length, prefix-similarity coefficient, repeat rate, scope-depth
-variance, and character-entropy. Once the window fills, these features are
-passed to \texttt{ThresholdPredictor::predict()}
-(\texttt{include/predicted\_thresholds.hpp}), a set of six hardcoded
-Ridge-regression models trained offline (Section VIII-F), and the resulting
-\texttt{PolicyConfig} replaces the running configuration for the remainder
-of the compilation. No machine-learning library is linked into the compiler
-itself; the predictor is six clamped linear expressions.
+\section{Adaptive Symbol-Table Architecture}
 
-\textbf{5) LRU Lookup Cache (new).} A 64-entry, hash-and-name-keyed LRU cache
-(\texttt{include/lookup\_cache.hpp}) sits in front of the normal
-hash-bucket-then-reconstruct lookup path. A hit returns the cached entry
-pointer directly, skipping both the bucket walk and, for COMPRESSED
-symbols, the chain-reconstruction cost entirely. Entries are invalidated by
-hash on scope exit, so a cache hit can never resurrect a reclaimed symbol.
-
-\textbf{6) Adaptive Representation Policy (\texttt{decide()}).} Consumes
-identifier length, exact-repeat status, prefix similarity to the previously
-inserted identifier, current memory pressure, and the insert-time access-
-frequency hint to choose INLINE, INTERNED, or COMPRESSED for each new
-symbol, as described in Section VI.
-
-\section{Adaptive Representation Policy}
-Representation decisions are influenced by identifier length, exact-repeat
-status, prefix similarity to already-stored identifiers, current memory
-pressure, scope depth, and post-insertion measured access frequency.
+\subsection{\texttt{SymTabV3} Core Design}
+\texttt{SymTabV3} organizes entries into a scope-managed slot arena. Each slot pays a 32-byte \texttt{PackedEntry} containing scope ID, access counters, representation tags, and a 12-byte payload union:
 \begin{itemize}
-\item \textbf{INLINE} --- used when a small/cheap identifier does not
-  justify the bookkeeping cost of interning or compression.
-\item \textbf{INTERNED} --- used when exact identifier reuse makes shared,
-  reference-counted storage beneficial.
-\item \textbf{COMPRESSED} --- used when a long or prefix-similar identifier
-  offers sufficient savings under front-coded/prefix-shared storage.
+    \item \textsc{Inline}: Identifiers $\le 12$ bytes are stored inside the slot union (\texttt{inlineBytes[12]}), requiring zero secondary allocations.
+    \item \textsc{Interned}: Duplicate or hot symbols store a 4-byte index into a global pool.
+    \item \textsc{Compressed}: Long, cold symbols are front-coded in blocks of size $B=32$ with anchor interval $A=8$.
 \end{itemize}
-Post-insertion promotion moves a symbol from COMPRESSED to INTERNED once its
-measured access count crosses the hot-access threshold, trading its memory
-saving for faster lookup.
 
-\section{Memory Accounting Model}
-Memory is reported using a documented, deterministic tracked-memory model,
-computed as the sum of string payload, symbol metadata, index storage,
-representation-specific storage, and fixed metadata constants, consistent
-across all three implementations. This is explicitly not a measurement of
-full operating-system resident-set size (RSS); it is a controlled accounting
-model chosen so that all three implementations are compared on a
-like-for-like basis. This limitation is stated plainly rather than left
-implicit. The lookup cache and per-entry memoization added in this revision
-do not change this model: they add a small, fixed number of bytes per cached
-or memoized entry, which is not currently charged against the tracked-memory
-total (see Threats to Validity, item 8).
+Scope exit events (\texttt{exitScope()}) recycle slot indices immediately into a LIFO free-list, preventing fragmentation. To avoid unnecessary decompression during lookup, \texttt{SymTabV3} checks a 1-byte hash fingerprint array (\texttt{fp8}), rejecting non-matching candidates in $O(1)$ time.
 
-\section{Implementation}
-The prototype is implemented in header-only C++14. It provides a common
-symbol-table interface (\texttt{insert}, \texttt{lookup}, \texttt{remove},
-\texttt{contains}, \texttt{enterScope}, \texttt{exitScope},
-\texttt{memoryUsage}, \texttt{statistics}) implemented by the conventional
-baseline, the interned baseline, and BUDGET-SYM itself, so that all three
-are exercised with identical operation sequences. Development surfaced
-several real toolchain/logic bugs, caught and fixed during implementation
---- including, in this revision, a latent measurement bug in the shared
-benchmark harness itself (Section VIII-E).
+\subsection{Zero-Allocation Compressed Path Optimization}
+To minimize front-coded decode latency, \texttt{SymTabV3} implements zero-allocation stack buffer decoding (\texttt{decodeToBuffer}). Rather than instantiating temporary \texttt{std::string} objects or executing substring concatenations (\texttt{cur.substr(0, len) + suffix}), prefix and suffix segments are copied directly into a stack-allocated buffer (\texttt{char stackBuf[512]}) via fast \texttt{memcpy}. Furthermore, anchor indices are computed in $O(1)$ time ($\text{start} = \text{slot} - (\text{slot} \pmod A)$), eliminating backward scanning loops. Name equality (\texttt{nameEquals}) performs direct in-place byte comparisons against \texttt{stackBuf}.
 
-\subsection{Review-2 Extension: Systematic Threshold Optimization}
-\textbf{Review-1 Limitation.} The six policy thresholds in
-\texttt{PolicyConfig}---\texttt{inlineMaxLen}, \texttt{compressMinLen},
-\texttt{lowPressureThreshold}, \texttt{highPressureThreshold},
-\texttt{hotAccessThreshold}, \texttt{prefixSimilarityMinShared}---were chosen
-by inspection during development with no systematic justification.
+\subsection{\texttt{SymTabV4}: Disclosed Negative Result}
+To test whether removing hot/cold metadata from \textsc{Inline} entries improves byte density, we designed \texttt{SymTabV4}. \texttt{SymTabV4} reduces \texttt{PackedEntry} from 32\,B to 24\,B (\texttt{CoreEntry}) by moving scalar metadata (\texttt{accessCount}, \texttt{lastAccessEpoch}) to a sparse side table (\texttt{HotMetaTable}). Both node-based and Robin Hood open-addressing side-table variants were implemented and differentially verified against \texttt{SymTabV3} under ASan/UBSan across 200,000 trace steps.
 
-\textbf{Approach.} A grid search is conducted over the six-dimensional
-threshold space using the eight synthetic benchmark datasets as the
-optimization target. Each configuration is scored by mean compression ratio
-across all eight datasets. Total configurations evaluated: $6 \times 5
-\times 4 \times 5 \times 5 \times 5 = 15{,}000$, shown in Table~\ref{tab:grid}.
+\section{Analytical Cost and Break-Even Model}
 
-\begin{table}[htbp]
-\caption{Threshold Grid-Search Space}
-\label{tab:grid}
-\centering
-\begin{tabular}{lll}
-\toprule
-Threshold & R1 Value & Sweep Range \\
-\midrule
-inlineMaxLen & 12 & 6, 8, 10, 12, 14, 16 \\
-compressMinLen & 10 & 6, 8, 10, 12, 14 \\
-lowPressureThreshold & 0.50 & 0.30, 0.40, 0.50, 0.60 \\
-highPressureThreshold & 0.85 & 0.70, 0.75, 0.80, 0.85, 0.90 \\
-hotAccessThreshold & 3 & 2, 3, 4, 5, 6 \\
-prefixSimilarityMinShared & 4 & 2, 3, 4, 5, 6 \\
-\bottomrule
-\end{tabular}
-\end{table}
+Equating $M_{\text{int}}(k, L) < M_{\text{conv}}(k, L)$ yields the theoretical break-even condition:
+\begin{equation}
+k > k_{\text{breakeven}}(L) = \frac{C_{\text{pool}}(L)}{S_{\text{meta}} + S_{\text{str}}(L) - C_{\text{idx}}}
+\end{equation}
 
-\textbf{Results.} The grid-search-optimal configuration achieves a mean
-compression ratio of 1.87$\times$ across the eight datasets, compared with
-1.71$\times$ for the Review-1 hand-picked thresholds --- an improvement of
-approximately 9\% without any change to the underlying architecture.
-Optimized values are reported in \texttt{results/optimal\_policy.csv} in the
-accompanying repository.
+For short names ($L \le 15$\,B), Conventional string storage $S_{\text{str}}(L) = 0$ due to SSO. Substituting $S_{\text{str}}(L) = 0$ yields:
+\begin{equation}
+k > \frac{2L + 86}{24 - 28} = \frac{2L + 86}{-4} < 0
+\end{equation}
+Because the denominator is negative, \textbf{no positive live duplication ratio $k$ exists for $L \le 15$\,B}. Interning cannot outperform Conventional hash tables on short SSO identifiers.
 
-\textbf{Caveat.} The optimized thresholds are tuned to the eight synthetic
-datasets. Generalization to real-world workloads is treated as an open
-empirical question, evaluated in the next subsection. This revision's
-threshold predictor (Section VIII-F) is a per-workload alternative to this
-one-time, dataset-fixed sweep.
+For long names ($L > 15$\,B), Conventional pays heap allocation $S_{\text{str}}(L) = L + 1 + H \approx L + 17$. The break-even equation becomes:
+\begin{equation}
+k_{\text{breakeven}}(L) = \frac{2L + 86}{24 + (L + 17) - 28} = \frac{2L + 86}{L + 13}
+\end{equation}
+As $L \to 15^{+}$, $k_{\text{breakeven}} \to 4.14$. As $L \to \infty$, $k_{\text{breakeven}} \to 2.0$. For $L = 32$\,B, $k_{\text{breakeven}} = 150/45 \approx 3.33$.
 
-\subsection{Review-2 Extension: Real-World Workload Evaluation}
-\textbf{Review-1 Limitation.} All eight benchmark datasets in Review-1 were
-synthetically generated. Results on real embedded-compiler identifier
-traffic were explicitly deferred.
-
-\textbf{Corpora.} Three open-source embedded C codebases were vendored
-locally under \texttt{corpora/} (see \texttt{docs/corpus\_setup.md}):
-FreeRTOS-Kernel (655 files), the Arduino core (AVR) library (311 files), and
-the Zephyr RTOS \texttt{kernel/} and \texttt{drivers/} subtrees (4{,}298
-files). A Python script (\texttt{scripts/extract\_identifiers.py})
-traverses \texttt{.c}/\texttt{.h} files, applies a regex tokenizer, filters
-C89/C99 language keywords only (standard-library and platform typedefs such
-as \texttt{uint32\_t} are deliberately kept, since compressing those is
-exactly what BudgetSym is meant to do), and feeds the resulting sequence
---- source order, duplicates preserved --- into the same benchmark harness
-used for the synthetic datasets (\texttt{corpus\_bench.exe}).
-
-\begin{table}[htbp]
-\caption{Real-World Corpus Results (Single Run, 64\,MB Budget)}
-\label{tab:corpus}
-\centering
-\small
-\begin{tabular}{lccc}
-\toprule
-Codebase & Tokens & Interned & BudgetSym \\
-\midrule
-FreeRTOS & 1{,}107{,}471 & 2.522$\times$ & 2.520$\times$ \\
-Arduino (AVR) & 329{,}480 & 2.335$\times$ & 2.346$\times$ \\
-Zephyr (kernel+drivers) & 3{,}710{,}619 & 2.315$\times$ & 2.312$\times$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Findings.} Both plain interning and BudgetSym reduce tracked memory
-by roughly 2.3$\times$--2.5$\times$ versus the conventional baseline on all
-three real corpora --- a substantially larger absolute reduction than any of
-the eight synthetic datasets show for interning alone (which sits at
-$\sim$1.05$\times$, Table~\ref{tab:multiseed}). This is a direct consequence
-of real embedded identifier streams' very high repeat rate: the same
-handful of identifiers (loop counters, HAL field names, common helpers) are
-declared and referenced repeatedly across hundreds of files, so a large
-fraction of insertions are exact-repeat lookups that both Interned and
-BudgetSym resolve identically (\texttt{decide()}'s first rule routes every
-exact repeat to INTERNED, matching the Interned baseline's own behavior).
-
-\textbf{Honest reading.} On these three corpora, BudgetSym's advantage over
-plain interning is within noise ($\pm$0.03$\times$, and Zephyr's promotion
-count was 0 in this single run) rather than the larger margins seen on the
-synthetic datasets. BudgetSym's real benefit here is not differentiating
-itself from interning on already-repeated identifiers --- it is scope-aware
-reclamation and the COMPRESSED representation's handling of long,
-prefix-similar \emph{first-occurrence} names, neither of which a flat
-interning pool provides. The synthetic high-prefix-similarity and
-nested-scopes datasets, not these three general-purpose corpora, remain the
-workloads that isolate that advantage most clearly. This is a corrected
-finding versus an earlier, unverified draft of this subsection, which
-reported per-corpus BudgetSym-only ratios of
-1.51$\times$/1.44$\times$/1.63$\times$ without an Interned baseline for
-direct comparison; those figures could not be reproduced when the corpora
-were actually run and are superseded by the numbers above.
-
-\subsection{Review-2 Extension: Multi-Seed Statistical Validation}
-\textbf{Review-1 Limitation.} All benchmark results in Review-1 came from a
-single deterministic run. No confidence intervals or significance tests were
-reported.
-
-\textbf{Method.} Each synthetic benchmark dataset is re-generated with 30
-independent random seeds. Mean and 95\% confidence intervals are computed
-using the $t$-distribution ($n=30$).
-
-\textbf{Findings.} BudgetSym's compression-ratio advantage over both
-baselines is statistically significant ($p<0.01$) on all eight datasets
-(Table~\ref{tab:multiseed}). The smallest advantage (random-identifiers,
-$\sim$1.40$\times$) has a tight 95\% CI, confirming the result is not
-attributable to a single favorable seed.
-
-\begin{table}[htbp]
-\caption{Multi-Seed Mean Compression Ratio vs. Conventional (30 Seeds, 95\% CI)}
-\label{tab:multiseed}
-\centering
-\small
-\begin{tabular}{lccc}
-\toprule
-Dataset & Interned & BudgetSym & $p$ vs. Conv. \\
-\midrule
-small & 1.058$\times$ & 1.810$\times$ & $<10^{-30}$ \\
-medium & 1.056$\times$ & 1.783$\times$ & $<10^{-50}$ \\
-large & 1.056$\times$ & 1.806$\times$ & $<10^{-70}$ \\
-high-prefix-sim. & 1.045$\times$ & 2.595$\times$ & $<10^{-80}$ \\
-random-identifiers & 1.054$\times$ & 1.403$\times$ & $<10^{-45}$ \\
-nested-scopes & 1.053$\times$ & 2.042$\times$ & $<10^{-75}$ \\
-hot-cold-access & 1.053$\times$ & 1.763$\times$ & $<10^{-50}$ \\
-memory-stress & 1.048$\times$ & 1.586$\times$ & $<10^{-75}$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Note: these Review-2 multi-seed figures are produced by the current
-codebase, in which BudgetSym's post-100-symbol thresholds are already
-reconfigured by this revision's threshold predictor (Section VIII-F) unless
-explicitly held fixed; they are consequently slightly higher than the
-Review-2 draft's original hand-picked-only numbers and should be read as
-current-system, not purely-Review-2-policy, figures.
-
-\subsection{Review-2 Extension: Latency Reduction via Lookup Cache}
-\textbf{Motivation.} Every prior revision of this paper reported lookup
-latency as an unresolved, honestly-stated cost: BUDGET-SYM's
-hash-then-reconstruct lookup path is structurally slower than a plain hash
-table for any non-INLINE representation, because a COMPRESSED symbol must
-walk its front-coding chain to confirm a match (Section I of
-\texttt{docs/architecture.md}). This subsection reports the first concrete
-mitigation.
-
-\textbf{Design.} A 64-entry LRU cache (\texttt{LRULookupCache<64>},
-\texttt{include/lookup\_cache.hpp}) is keyed by the 64-bit FNV-1a hash of the
-identifier plus the identifier itself, to guard against the non-cryptographic
-hash's collision risk producing a false hit. A hit moves the entry to the
-front of an internal \texttt{std::list} and returns its (stable, id-packed)
-entry reference directly, bypassing both the hash-bucket walk and any
-COMPRESSED-chain reconstruction. \texttt{exitScope()} invalidates by hash
-every symbol it reclaims, so a stale cache entry can never resurrect a
-reclaimed symbol. A companion, independent optimization---per-entry memoized
-COMPRESSED reconstruction (\texttt{CompEntry::reconstructedCache})---caches
-each chain node's fully-reconstructed string the first time it is computed,
-so repeated lookups of the same compressed symbol, or lookups that
-transitively re-walk a shared chain prefix, no longer re-walk the chain at
-all.
-
-\textbf{Measurement bug found and fixed.} While instrumenting this
-revision's benchmark pass, a latent bug was found in the existing shared
-benchmark harness (\texttt{include/bench\_metrics.hpp}): the lookup-timing
-loop was written as \texttt{sinkHit = sinkHit || table.lookup(id)}, which
-short-circuits as soon as the first lookup succeeds, silently skipping every
-subsequent \texttt{lookup()} call in the timed region for the rest of that
-loop. This means every previously reported \texttt{lookup\_success\_us}
-figure, across all revisions of this project, measured an almost-empty loop
-rather than repeated lookup work. It is fixed in this revision (evaluated
-correctly for the first time here); prior lookup-latency numbers in Review-1
-and Review-2 should be treated as unreliable and are not re-cited in this
-revision's own tables.
-
-\textbf{Results.} Table~\ref{tab:cache} reports per-dataset lookup latency
-with the cache enabled (BudgetSym-WithCache) against the cache disabled
-(BudgetSym) and the conventional baseline, using a hot-path access pattern
-(32 symbols, 20 repeated rounds --- see \texttt{results/benchmark\_results\_v3.csv}).
-Across the eight synthetic datasets, the cache achieved a hit rate of 95\%
-under this access pattern (one necessary cold miss per hot symbol, then all
-hits) and reduced mean per-lookup latency relative to the same table with
-the cache disabled on most datasets, though it did not close the gap to the
-conventional baseline's uncompressed \texttt{unordered\_map} lookup on any
-dataset -- consistent with the cache amortizing repeated cost rather than
-eliminating the underlying reconstruct-and-compare structure.
-
-\begin{table}[htbp]
-\caption{Lookup Latency ($\mu$s/op, Hot-Path Pattern) --- With vs. Without Cache}
-\label{tab:cache}
-\centering
-\small
-\begin{tabular}{lccc}
-\toprule
-Dataset & Conventional & BudgetSym & +Cache (hit\%) \\
-\midrule
-small & 0.032 & 0.058 & 0.068 (95\%) \\
-medium & 0.040 & 0.074 & 0.094 (95\%) \\
-large & 0.049 & 0.089 & 0.078 (95\%) \\
-high-prefix-sim. & 0.041 & 0.161 & 0.108 (95\%) \\
-random-identifiers & 0.034 & 0.089 & 0.095 (95\%) \\
-nested-scopes & 0.041 & 0.144 & 0.118 (95\%) \\
-hot-cold-access & 0.040 & 0.173 & 0.139 (95\%) \\
-memory-stress & 0.037 & 0.110 & 0.087 (95\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Honest reading.} The cache's effect splits along dataset character:
-it reduces BudgetSym's own lookup latency by 12--33\% on five of the eight
-datasets (large, high-prefix-similarity, nested-scopes, hot-cold-access,
-memory-stress), with the largest reductions on the three datasets with
-nonzero \texttt{promotions} in \texttt{results/benchmark\_results\_v3.csv}
-(high-prefix-similarity, nested-scopes, hot-cold-access) -- i.e. where
-COMPRESSED-chain activity, and hence chain-walk cost, is highest. It instead
-\emph{increases} latency by roughly 6--26\% on small, medium, and
-random-identifiers, whose sampled hot symbols are mostly INLINE/INTERNED
-already cheap to reconstruct, so the cache's own bookkeeping (hash lookup,
-list splice) costs more than the walk it replaces. This is a plausible,
-dataset-dependent trade-off rather than pure noise, though with only a
-single run per dataset here (see Threats to Validity, item 1, on multi-seed
-validation still being owed for this claim), it should be read as a
-direction, not a precise per-dataset percentage. It does not, on this measurement, bring
-BudgetSym's lookup latency below the conventional baseline's on any dataset
---- that would require eliminating the reconstruct-and-compare step for cold
-entries entirely, which is future work (Section XV).
-
-\subsection{Review-2 Extension: ML-Driven Threshold Prediction}
-\textbf{Motivation.} Section VIII-A's grid search produces one fixed,
-dataset-averaged optimum. A workload whose characteristics differ from the
-eight synthetic benchmark datasets gets no benefit from that sweep beyond
-whatever generalizes coincidentally. This subsection replaces the one-time
-sweep with a per-workload predictor triggered automatically during
-compilation.
-
-\textbf{WorkloadProfiler.} \texttt{include/workload\_profiler.hpp} observes
-the first 100 inserted identifiers (matching this revision's sampling window)
-and extracts five features in constant memory: mean name length,
-prefix-similarity coefficient (fraction of consecutive insert pairs sharing
-$\geq 4$ characters), repeat rate, scope-depth variance, and Shannon entropy
-over the character distribution.
-
-\textbf{Training procedure.} \texttt{scripts/train\_threshold\_predictor.py}
-generates 300 synthetic workloads (100 identifiers each) with randomized
-mean length ($[4,20]$), prefix-similarity coefficient ($[0,0.8]$), repeat
-rate ($[0,0.5]$), scope-depth variance ($[0,5]$), and character entropy
-target ($[2,5]$). For each workload, a Python port of BudgetSym's
-\texttt{decide()}/cost model is grid-searched over a reduced,
-144-combination threshold grid ($3\times3\times2\times2\times2\times2$,
-coarser than Section VIII-A's 15,000-combination sweep for compute
-tractability in an offline Python script) to find the compression-ratio-
-optimal \texttt{PolicyConfig} for that workload. The resulting
-(features, optimal-thresholds) pairs train one
-\texttt{sklearn.linear\_model.Ridge(alpha=1.0)} model per threshold, with an
-80/20 train/test split.
-
-\textbf{Results.} Table~\ref{tab:r2} reports test-set $R^2$ per threshold.
-Two thresholds (\texttt{lowPressureThreshold}, \texttt{hotAccessThreshold})
-collapsed to a constant prediction: under the 64\,MB budget used for
-training and the 100-symbol window, tracked memory never approaches either
-pressure threshold, so the reduced grid search always picked the same value
-for these two regardless of workload features --- an honest negative
-finding, not a modeling failure, and consistent with Review-1's own note
-that \texttt{hotAccessThreshold} was already near its optimum.
-\texttt{compressMinLen} and \texttt{prefixSimilarityMinShared} show the
-strongest fits, matching the intuition that these two thresholds are most
-directly determined by the prefix-similarity and length features.
-
-\begin{table}[htbp]
-\caption{ThresholdPredictor Test-Set $R^2$ per Threshold (300 Workloads, 80/20 Split)}
-\label{tab:r2}
-\centering
-\begin{tabular}{lc}
-\toprule
-Threshold & $R^2$ \\
-\midrule
-inlineMaxLen & 0.115 \\
-compressMinLen & 0.243 \\
-lowPressureThreshold & 0.000 (constant) \\
-highPressureThreshold & 0.889 \\
-hotAccessThreshold & 1.000 (constant) \\
-prefixSimilarityMinShared & 0.197 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:modelcompare} compares all seven candidate models (PRD
-Section 6.5 Step 2) on the same 300-workload, 80/20 split: mean $R^2$ and
-mean absolute error across the six thresholds, and downstream compression
-ratio when each model's predicted thresholds are applied to the eight real
-benchmark datasets (profiled on each dataset's first 100 identifiers, same
-as Section VIII-F's own methodology).
-
-\begin{table}[htbp]
-\caption{ML Model Comparison (Mean Across 6 Thresholds, 8-Dataset Downstream Compression)}
-\label{tab:modelcompare}
-\centering
-\small
-\begin{tabular}{lcccc}
-\toprule
-Model & Mean $R^2$ & Mean MAE & Downstream Ratio & Exportable \\
-\midrule
-Baseline Mean & 0.308 & 0.897 & 1.732$\times$ & Yes \\
-Lasso & 0.337 & 0.831 & 1.753$\times$ & Yes \\
-\textbf{Ridge} & \textbf{0.407} & \textbf{0.773} & \textbf{1.795$\times$} & \textbf{Yes} \\
-Decision Tree & $-$48.98 & 0.427 & 1.714$\times$ & No \\
-Random Forest & $-$1.917 & 0.439 & 1.724$\times$ & No \\
-SVR & 0.482 & 0.645 & 1.750$\times$ & No \\
-KNN & 0.651 & 0.606 & 1.719$\times$ & No \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Reading the comparison.} Two non-linear models (SVR, $R^2=0.482$;
-KNN, $R^2=0.651$) post higher raw $R^2$ than Ridge, but neither is
-exportable as compile-time constants -- SVR needs its full support-vector
-set and KNN needs the entire 300-workload training set at inference time,
-both unacceptable for a header-only, no-runtime-dependency library. Among
-the three exportable models, Ridge is the clear best on every column: it
-beats Lasso's $R^2$ by 21\% relative and the baseline-mean predictor by
-32\% relative, and it achieves the single highest downstream compression
-ratio of \emph{any} model in the table, exportable or not (1.795$\times$
-vs. KNN's 1.719$\times$) -- despite not having the best raw $R^2$. Decision
-Tree and Random Forest both post strongly negative test-set $R^2$ (worse
-than predicting the training mean), a genuine overfitting failure at this
-training-set size (240 training rows after the 80/20 split) with these
-un-tuned depths/tree-counts, not a bug in the comparison harness -- their
-downstream compression ratios are unaffected because \texttt{compressMinLen}
-and \texttt{prefixSimilarityMinShared}, the two thresholds that matter most
-for compression ratio (Table~\ref{tab:r2}), still land in a serviceable
-range even from an overfit model on this evaluation.
-
-Table~\ref{tab:mlcompare} compares compression ratio on the
-high-prefix-similarity dataset across four configurations: the conventional
-1.00$\times$ reference, Review-1's hand-picked thresholds, Review-2's
-dataset-averaged grid-search optimum, and this revision's ML-predicted
-thresholds (profiled on the same dataset's first 100 identifiers, then
-applied for the full run).
-
-\begin{table}[htbp]
-\caption{Compression Ratio, high-prefix-similarity Dataset}
-\label{tab:mlcompare}
-\centering
-\begin{tabular}{lc}
-\toprule
-Configuration & Compression Ratio \\
-\midrule
-Conventional & 1.00$\times$ \\
-Hand-Picked (R1) & 2.37$\times$ \\
-Grid-Search (R2, dataset-averaged) & 2.59$\times$ \\
-ML-Predicted (this revision) & 2.53$\times$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Honest reading.} The ML-predicted configuration slightly
-underperforms the dataset-specific grid-search optimum on this one dataset
-(2.53$\times$ vs. 2.59$\times$), which is expected: the grid search's
-15,000-combination sweep was optimized directly against this exact dataset,
-while the predictor generalizes from 300 unrelated synthetic workloads
-through a coarser 144-combination search and a linear model. Its practical
-value is not beating a dataset-specific optimum but recovering most of that
-optimum's benefit (2.53$\times$ vs. 2.37$\times$ hand-picked, a 6.8\%
-improvement) automatically, at runtime, for a workload the grid search was
-never run against, with no runtime ML dependency (\texttt{ThresholdPredictor::predict()}
-is six clamped linear expressions).
-
-\textbf{Feature ablation (PRD Section 6.5 Step 3).} To identify which of the
-five \texttt{WorkloadFeatures} actually drive Ridge's predictions, each
-feature is dropped in turn (retraining on the remaining four) and the mean
-$R^2$ delta across all six thresholds is reported, along with which single
-threshold's $R^2$ moved the most.
-
-\begin{table}[htbp]
-\caption{Ridge Feature Ablation (Mean $R^2$ Delta Across 6 Thresholds)}
-\label{tab:featureablation}
-\centering
-\begin{tabular}{lcl}
-\toprule
-Dropped Feature & Mean $R^2$ $\Delta$ & Most-Affected Threshold \\
-\midrule
-meanNameLength & $+0.053$ & prefixSimilarityMinShared \\
-prefixSimilarityCoeff & $+0.020$ & compressMinLen \\
-repeatRate & $+0.015$ & prefixSimilarityMinShared \\
-scopeDepthVariance & $-0.005$ & inlineMaxLen \\
-nameEntropy & $+0.008$ & prefixSimilarityMinShared \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Honest reading.} A positive $\Delta$ means dropping that feature
-\emph{improved} test-set $R^2$ on average -- i.e., the feature was net
-noise for that threshold on this 300-workload training set, not a useful
-signal. Every feature except \texttt{scopeDepthVariance} shows a positive
-mean delta, meaning the full 5-feature model is, on average, very slightly
-outperformed by simpler 4-feature ablations. \texttt{scopeDepthVariance} is
-the only feature with a negative mean delta ($-0.005$, i.e. removing it
-hurts, if only marginally), concentrated in \texttt{inlineMaxLen}
-($-0.027$), making it the one feature with a defensible claim to adding
-signal beyond noise. This is a modest result, not a strong one: at 300
-training workloads and 5 already-correlated features (e.g.
-\texttt{prefixSimilarityCoeff} and \texttt{meanNameLength} both partly
-encode "how compressible is this workload"), the ablation deltas are small
-relative to the $R^2$ values themselves (Table~\ref{tab:r2}) and should be
-read as a first-pass sensitivity check, not a definitive feature-importance
-ranking -- more training workloads or a regularization-path analysis would
-be needed to say more confidently which features are load-bearing.
-
-\subsection{Review-3 Extension: Correctness Fix --- Lookup Cache and Scope Shadowing}
-\textbf{Motivation.} Reviewing Review-2's \texttt{LRULookupCache} before
-extending it (Section VIII-I below) surfaced a correctness question that
-Review-2's own tests did not exercise: the cache is keyed by
-\texttt{(hash, name)} with no representation of scope, so it is not obvious
-from inspection alone that a symbol shadowing an outer-scope declaration of
-the same name is resolved correctly.
-
-\textbf{Bug found.} It is not resolved correctly. \texttt{insert()} never
-touched \texttt{lookupCache\_} prior to this revision; only
-\texttt{exitScope()} invalidated cache entries, and only for symbols in the
-scope actually being popped. A new declaration that shadows an
-already-cached outer symbol of the same name therefore leaves the outer
-symbol's stale \texttt{(hash, name) -> id} mapping in place, and
-\texttt{lookup()}'s cache fast path returns it instead of resolving through
-the scope stack. Confirmed empirically rather than by inspection alone: a
-targeted reproduction forces an outer declaration of \texttt{"x"} to a
-promotable (COMPRESSED) representation and a shadowing inner \texttt{"x"}
-to a non-promotable one (INTERNED, via the exact-repeat rule, which takes
-priority over every other branch of \texttt{decide()}), then issues three
-\texttt{lookup("x")} calls from inside the inner scope. Before the fix,
-\texttt{promotions()} reports 1 -- the three accesses were credited to the
-shadowed \emph{outer} entry, which is only reachable at all if the cache
-served its stale mapping instead of the live inner symbol. After the fix,
-\texttt{promotions()} reports 0, matching correct scope-respecting
-resolution (the inner symbol is already INTERNED and has nothing to
-promote to).
-
-\textbf{Fix.} \texttt{insert()} now invalidates \texttt{lookupCache\_}'s
-entry for a hash immediately after computing it, before the new entry is
-added to the scope's index -- so any declaration that reuses a hash,
-shadowing or otherwise, forces the next lookup for that hash to re-resolve
-through the real scope stack rather than serve a cached answer that predates
-the new declaration. A regression test
-(\texttt{test\_lookup\_cache\_respects\_scope\_shadowing}) encodes the
-reproduction above and is now part of the permanent suite. This is reported
-as a correctness fix, not a performance change: it does not alter any
-memory or compression figure in this paper, and the cache's throughput
-characteristics (Section VIII-E) are unaffected, since invalidating one
-hash on every insert is $O(1)$.
-
-\textbf{Why Review-2's own tests missed it.} The existing cache-invalidation
-test uses a symbol name that exists only inside the scope under test; it
-never declares the same name in two enclosing scopes. This is stated
-plainly because it is a useful, general lesson independent of this specific
-bug: a passing test suite supports the claim ``the mechanism is tested,''
-not the stronger claim ``the mechanism is tested for every interaction that
-matters,'' and the gap between those two claims is exactly where this bug
-lived.
-
-\subsection{Review-3 Extension: Hashing and Storage Algorithm Comparison}
-\textbf{Motivation.} Review-2's Future Work (Section XV) proposed
-``reducing cold-lookup cost directly (e.g., a secondary index keyed by a
-cheap partial reconstruction) rather than only amortizing it via caching''
-as an alternative to the lookup cache. This revision implements and
-measures two concrete structural alternatives, plus isolates the index hash
-function itself as a variable BUDGET-SYM had not previously varied.
-
-\textbf{Hash function.} \texttt{BudgetSym} is templated on its index hash
-function (\texttt{BudgetSymT<HashFn>}, defaulting to the original FNV-1a via
-a type alias, so no existing caller's behavior changes). Two additional
-backends are compared: MurmurHash3 \cite{appleby-murmur} (the public-domain
-32-bit x86 finalizer, applied twice with different seeds and packed into a
-64-bit key, since implementing the full MurmurHash3\_x64\_128 variant was
-judged out of proportion to what this lookup path needs) and DJB2, a
-single-multiply-and-add hash with no mixing step, included as a
-cheap-end comparison point.
-
-\textbf{Robin Hood open addressing.} \texttt{RobinHoodSymbolTable}
-\cite{celis-robinhood} is a new, direct string-keyed baseline (no adaptive
-representation selection, no interning) applying Robin Hood linear-probing
-open addressing the same way \texttt{ConventionalSymbolTable} applies
-\texttt{std::unordered\_map} -- isolating table \emph{structure} as the only
-variable against the conventional baseline. Entries live inline in one
-contiguous array rather than one heap node per chain-bucket entry, which
-is the actual mechanism behind its lookup speed, not a faster hash. This
-comes at a real, separately-reported memory cost: every slot, occupied or
-not, is a live \texttt{std::string} plus metadata in a preallocated array,
-so the structure carries genuine ``slack'' memory for its empty slots that
-a chaining table's null-pointer buckets do not pay. Deletion is not
-implemented (no tombstones, no backward-shift delete), since this project's
-only removal path is whole-scope reclamation, identical to
-\texttt{ConventionalSymbolTable}'s own approach -- there is no exercised
-code path that would call a single-key delete from a still-live table.
-
-\textbf{Shared trie.} \texttt{TrieSymbolTable} \cite{fredkin-trie} shares
-identifier prefixes across every string ever inserted, project-wide,
-independent of insertion order -- strictly more powerful sharing than
-BUDGET-SYM's COMPRESSED front-coding, which only shares a prefix with the
-one identifier inserted immediately before it in the chain. The cost is
-real: a dedicated node with its own child map is charged per distinct
-branching character, which is more expensive than front-coding's raw
-suffix bytes when there is little global prefix overlap to exploit. Lookup
-needs no reconstruct-then-compare step at all -- walking the query
-string's characters down existing children \emph{is} the equality check --
-which is a structurally different answer to the lookup-cost question than
-either the LRU cache (Section VIII-E) or a faster hash function: it avoids
-reconstruction entirely, for every lookup, hit or miss, rather than
-amortizing it across repeats of the same symbol.
-
-\begin{table}[htbp]
-\caption{Best Algorithm per Dataset, by Metric}
-\label{tab:algocompare}
-\centering
-\small
-\begin{tabular}{lcc}
-\toprule
-Dataset & Best Compression & Best Lookup (hit) \\
-\midrule
-small & BudgetSym, 1.65$\times$ & RobinHood, 0.054 $\mu$s \\
-medium & BudgetSym, 1.63$\times$ & RobinHood, 0.055 $\mu$s \\
-large & BudgetSym, 1.64$\times$ & RobinHood, 0.054 $\mu$s \\
-high-prefix-sim. & BudgetSym, 2.37$\times$ & RobinHood, 0.082 $\mu$s \\
-random-identifiers & BudgetSym, 1.34$\times$ & RobinHood, 0.061 $\mu$s \\
-nested-scopes & BudgetSym, 1.84$\times$ & RobinHood, 0.054 $\mu$s \\
-hot-cold-access & BudgetSym, 1.57$\times$ & RobinHood, 0.046 $\mu$s \\
-memory-stress & BudgetSym, 1.38$\times$ & RobinHood, 0.105 $\mu$s \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Results.} \texttt{src/algorithm\_benchmark\_main.cpp} compares
-BudgetSym-FNV1a, BudgetSym-Murmur3, BudgetSym-DJB2, RobinHood, and Trie on
-the same eight datasets and cost-accounting model as
-Table~\ref{tab:cache}. Table~\ref{tab:algocompare} reports the best
-algorithm per dataset on each of the two headline metrics. RobinHood wins
-lookup latency on every dataset, typically by roughly an order of magnitude
-or more over any BudgetSym variant, and BudgetSym wins compression on every
-dataset; no algorithm in the comparison wins both on any dataset. This is
-the direct, structural consequence of what each design optimizes for, not
-a coincidence of these particular measurements: BudgetSym pays a
-reconstruction cost specifically because it stores compressed or shared
-representations a direct string key cannot; RobinHood pays no
-reconstruction cost specifically because it stores full, uncompressed
-strings with no sharing, and pays real slack-memory overhead for that
-instead. Trie wins neither metric outright on any dataset but rejects
-absent identifiers fastest of all five algorithms on most datasets, since a
-missing child early in the walk ends the search immediately.
-
-\textbf{On hash function choice.} Memory is bit-for-bit identical across
-all three BudgetSym hash variants on every dataset and every run, as
-expected (the hash affects only bucket placement, never what is stored).
-Which hash function is fastest on lookup changes on every rerun of this
-benchmark on the shared, non-isolated development machine used for this
-work; the ranking itself is not reproducible, which is reported as the
-finding rather than papered over by presenting one run's ranking as
-definitive. The interpretation offered is that identifier strings in this
-project's workloads are short enough, and the dominant lookup cost
-(reconstruction) large enough, that hash-computation cost is not a
-distinguishing factor at this data scale.
-
-\textbf{An overclaim caught before publication.} An early run of this
-comparison showed Trie's lookup latency on the \texttt{random-identifiers}
-dataset higher than all three BudgetSym variants, consistent with a
-plausible mechanistic story: BudgetSym's adaptive policy can fall back to a
-cheap representation for identifiers that do not compress well, while a
-trie has no equivalent escape hatch. Repeating the identical run three more
-times showed Trie faster than BudgetSym twice and slower once, on identical
-code and data -- the effect was single-run timing noise on a shared
-machine, not a real, reproducible finding, and is reported here as such
-rather than as the clean story the first run suggested. This is offered as
-a concrete instance of the general risk Threats to Validity item 1 already
-names (single-seed measurement): a plausible-sounding, mechanism-backed
-result is not automatically a true one.
+For \texttt{SymTabV4} to beat \texttt{SymTabV3}, core-struct savings across \textsc{Inline} entries must exceed the side table's allocation floor ($T_{\text{table}}$) and entry cost ($S_{\text{hotmeta\_marginal}} \approx 34\text{--}57$\,B):
+\begin{equation}
+k_{\text{inline}} \cdot 8\text{\,B} > k_{\text{hot}} \cdot S_{\text{hotmeta\_marginal}} + T_{\text{table}}(N_{\text{hot}})
+\end{equation}
+Because real software codebases maintain $10\%$--$70\%$ non-\textsc{Inline} symbols, $k_{\text{hot}}$ is non-zero, causing side-table overheads to exceed core scalar field savings.
 
 \section{Experimental Methodology}
-Two real baselines are used: a conventional hash table
-(\texttt{unordered\_map<string, Symbol>}, one full string copy per symbol,
-used as the 1.00$\times$ reference point) and a string-interning table.
-Eight synthetic benchmark datasets are used: small, medium, large,
-high-prefix-similarity, random-identifiers, nested-scopes, hot-cold-access,
-and memory-stress, each designed to isolate a different identifier
-characteristic. Review-2 added three real-world codebase datasets and
-extended from single-seed to 30-seed evaluation with confidence intervals.
-This revision adds a ninth dataset, ml-predicted, and a fourth
-implementation variant, BudgetSym-WithCache, both described in Section VIII.
 
-For every experiment, the independent variable is the symbol-table
-implementation; the dependent variables are tracked memory and lookup
-latency; and the identifier workload, operation sequence, and
-memory-accounting model are held constant across implementations.
+\subsection{Physical Allocator Heap Accounting}
+All heap measurements use a physical allocator interceptor (\texttt{include/heap\_counter.hpp}) overriding global \texttt{operator new} and \texttt{operator delete}. The interceptor queries \texttt{malloc\_usable\_size(p)} to record true physical heap allocations, accounting for system page alignment and chunk rounding.
 
-\section{Evaluation Metrics}
-Memory metrics: total tracked memory, tracked memory per symbol, and
-compression ratio relative to the conventional baseline. Performance
-metrics: lookup latency per dataset, and lookup-cache hit rate
-[\textbf{new}]. Statistical metrics: mean compression ratio across 30 seeds,
-95\% confidence intervals, and $p$-values. Adaptive metrics: number of
-representation promotions, reclaimed memory on scope exit, memoized-
-reconstruction hit/cold-lookup counts [\textbf{new}], and predicted-versus-
-hand-picked/grid-search compression ratio [\textbf{new}].
-
-\section{Results}
-\subsection{Memory: BudgetSym vs. Two Baselines}
-BudgetSym reduces tracked memory relative to both baselines on every
-dataset tested, with the largest gains on prefix-similar and nested-scope
-workloads, consistent across Review-1, Review-2, and this revision (memory
-accounting is unaffected by the cache/profiler/predictor additions --- see
-Section VII).
-
-\subsection{Lookup Latency}
-See Table~\ref{tab:cache} (Section VIII-E). BudgetSym's lookup latency
-remains higher than the conventional baseline's on every dataset measured,
-but the 64-entry lookup cache measurably reduces it relative to BudgetSym
-without the cache, on a hot-path access pattern.
-
-\section{Ablation Study}
-Table~\ref{tab:ablation} reports a four-variant ablation on a fixed
-workload. Disabling scope-aware reclamation increases tracked memory
-substantially --- the largest single-mechanism effect, confirming
-scope-based reclamation as the dominant contributor. Disabling
-access-frequency-driven promotion changes memory only marginally, since
-promotion's direct memory cost is small; its value is primarily in lookup
-latency for hot symbols. Removing adaptive selection entirely is the
-worst-performing configuration. This revision's \texttt{disableMLThreshold-
-Prediction} flag (added to \texttt{PolicyConfig}) keeps the
-NoAccessFrequency variant's fixed threshold from being silently overwritten
-by the automatic post-100-symbol predictor described in Section VIII-F ---
-without it, this ablation variant's isolation of the access-frequency
-mechanism would be broken by exactly the new mechanism this revision adds.
-
-\begin{table}[htbp]
-\caption{Ablation Results (Fixed Workload, R1 Thresholds)}
-\label{tab:ablation}
-\centering
-\begin{tabular}{lcc}
-\toprule
-Variant & Tracked Mem. & Promotions \\
-\midrule
-BudgetSym-Full & 31{,}894 B & 4 \\
-BudgetSym-NoScope & 46{,}496 B & 4 \\
-BudgetSym-NoAccessFrequency & 34{,}143 B & 0 \\
-BudgetSym-NoAdaptiveSelection & 57{,}042 B & 0 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Discussion}
-The results indicate a genuine memory--latency trade-off rather than an
-unconditional win. BUDGET-SYM reduces tracked memory relative to both
-baselines on every dataset tested. Review-2's threshold optimization
-demonstrated that the hand-picked constants in Review-1 left measurable
-performance on the table. Real-world evaluation on FreeRTOS, Arduino, and
-Zephyr confirmed that the gains observed on synthetic data transfer to
-actual embedded codebases. Multi-seed validation established statistical
-significance across all eight synthetic datasets.
-
-This revision's two additions attack the lookup-latency side of the
-trade-off directly rather than accepting it as fixed. The lookup cache is a
-genuine, measured latency reduction, though it is a mitigation, not a
-resolution: BudgetSym's lookup latency still exceeds the conventional
-baseline's on every dataset tested. The threshold predictor demonstrates
-that a workload's own profile, sampled online in the first 100 symbols, can
-recover most of a dataset-specific grid search's compression benefit without
-ever running that grid search against the real workload. Its main
-limitation is symmetrical to the grid search's: the grid search overfits to
-eight fixed datasets, and the predictor's training data is itself 300
-synthetic workloads, not real compiler traffic --- see Threats to Validity,
-item 8.
-
-\section{Threats to Validity / Limitations}
+\subsection{Workload Suite}
+We evaluate three distinct workload categories:
 \begin{enumerate}
-\item Real-world workloads evaluated with a single seed in Review-2; not
-  re-run for this revision. Multi-seed validation for real corpora remains
-  future work.
-\item Tracked memory vs. OS RSS. The memory model is a deterministic
-  accounting construct, not OS resident memory, and this revision's cache
-  and memoization additions are not charged against it (see Section VII).
-\item Lookup overhead is reduced, not resolved. The 64-entry LRU cache
-  measurably lowers BudgetSym's own lookup latency on a hot-path access
-  pattern (Section VIII-E), but BudgetSym's lookup latency still exceeds the
-  conventional baseline's on every dataset measured; the cache mitigates the
-  structural cost, it does not eliminate it.
-\item COMPRESSED chain-interior reclamation is incomplete. Interior nodes
-  accumulate until the next re-anchor point (unchanged from Review-1/2).
-\item Prototype, not production integration. BUDGET-SYM has not been
-  integrated into a real compiler front end.
-\item Prior-art search incomplete. A full IEEE Xplore/ACM DL/arXiv search
-  has not yet been completed.
-\item Grid search (Section VIII-A) is tuned on eight fixed synthetic
-  datasets; generalization to out-of-distribution workloads beyond what the
-  threshold predictor addresses is untested.
-\item ML threshold predictor trained on synthetic workloads only. The 300
-  training workloads (Section VIII-F) are themselves synthetically generated
-  from randomized feature targets, using a reduced 144-combination grid
-  search as the ground-truth labeler rather than the full 15,000-combination
-  sweep. Generalization to real codebases is reported on one dataset
-  (Table~\ref{tab:mlcompare}) but is not exhaustively validated against the
-  FreeRTOS/Arduino/Zephyr corpora or against multiple random seeds.
-\item A latent benchmark-harness measurement bug (Section VIII-E) means
-  lookup-latency numbers from Review-1 and Review-2 were not reliable; only
-  this revision's own lookup-latency figures should be trusted.
-\item A correctness bug in the lookup cache (Section VIII-G) meant a symbol
-  shadowing an outer-scope declaration of the same name could resolve to
-  the wrong, stale entry; fixed and regression-tested in this revision, but
-  it shipped in Review-2 undetected, which is itself evidence that this
-  project's test coverage claims should be read as ``tested for the cases
-  written,'' not ``tested exhaustively.''
-\item The grid-search-based ablation study (Section XI) and the ML
-  threshold predictor both interact with \texttt{PolicyConfig} at runtime,
-  but \texttt{ablation\_main.cpp}'s \texttt{BudgetSym-Full} and
-  \texttt{BudgetSym-NoScope} variants do not set
-  \texttt{disableMLThresholdPrediction}, while \texttt{BudgetSym-NoAccessFrequency}
-  explicitly does (with a comment explaining why). The asymmetry means two
-  of the four ablation variants can have their thresholds silently replaced
-  by the ML predictor mid-run while the other two cannot, which is a
-  potential confound in that comparison not yet resolved.
-\item Robin Hood's ``slack'' memory (Section VIII-H) is reported as a
-  separate diagnostic, not folded into the shared tracked-memory
-  accounting model every other implementation in this paper uses, so it is
-  not directly comparable to the memory-per-symbol figures in
-  Table~\ref{tab:algocompare}'s companion CSV without consulting that
-  separate figure.
+    \item \textbf{Real Embedded Workloads}: Four real-world embedded software event traces: \textsc{FreeRTOS} (227k events, 10,386 unique symbols), \textsc{Arduino} (94k events, 11,000 unique symbols), \textsc{Zephyr} (2.6M events, 228,739 unique symbols), and \textsc{ESP-IDF} (2.2M events, 231,075 unique symbols).
+    \item \textbf{Host Software Corpora Characterization}: 20 real software codebases evaluated on 64-bit host systems to assess identifier length distributions and SSO fractions.
+    \item \textbf{Synthetic Microbenchmarks (Workloads A--F)}: Controlled experiments varying identifier length $L \in \{4\dots 64\}$\,B, duplication ratio $k \in \{1\dots 20\}$, scope depth, and access skew ($N=30$ seeds).
 \end{enumerate}
 
-\section{Future Work}
-Planned next steps include:
-\begin{itemize}
-\item Multi-seed statistical validation of real-codebase results, and of
-  this revision's cache-hit-rate and ML-predicted-compression-ratio claims.
-\item Charging the lookup cache's and memoization cache's own memory cost
-  against the tracked-memory model, so the latency/memory trade-off this
-  revision introduces is fully accounted for rather than latency-only.
-\item Training the ThresholdPredictor directly on real embedded-corpus
-  identifier traffic (FreeRTOS/Arduino/Zephyr) instead of purely synthetic
-  workloads, and re-running the full 15,000-combination grid search per
-  training workload if compute allows.
-\item Fix COMPRESSED chain-interior reclamation via a compacting GC pass
-  over \texttt{compPool\_}.
-\item \textbf{Addressed this revision:} reducing cold-lookup cost directly
-  rather than only amortizing it via caching. RobinHood (Section VIII-H)
-  eliminates the reconstruct-and-compare step entirely by giving up
-  compression, quantifying exactly what that trade costs and buys; the
-  originally-proposed narrower idea (a secondary index keyed by a cheap
-  partial reconstruction, kept compressed) remains open and would need to
-  close the gap without RobinHood's full slack-memory cost.
-\item Resolving the ablation/ML-threshold-predictor interaction flagged in
-  Threats to Validity so all four ablation variants are compared under a
-  consistently fixed or consistently adaptive policy.
-\item Reducing the corpus fixtures' repository footprint (the extracted
-  identifier lists are currently committed directly rather than
-  regenerated from the already-gitignored source corpora on demand).
-\item Completed IEEE Xplore/ACM DL/arXiv literature and prior-art search.
-\item Integration with a real compiler front end (e.g., as an LLVM pass
-  component).
-\end{itemize}
+Throughout this paper, we explicitly distinguish \textbf{peak heap} (maximum RAM allocated during execution) from \textbf{final heap} (residual RAM after processing complete event traces).
+
+\section{Empirical Results}
+
+\subsection{Primary Embedded Evaluation}
+Table~\ref{tab:embedded_canonical} presents physical allocator heap measurements, lookup latencies, representation counts, and gate status across the four embedded workloads.
+
+\begin{table*}[t]
+\centering
+\caption{Canonical Physical Allocator-Measured Memory and Lookup Latencies Across Four Embedded Workloads.}
+\label{tab:embedded_canonical}
+\begin{tabular}{llrrrrrrrrc}
+\toprule
+Workload & Implementation & Unique Syms & Peak Heap & Final Heap & $p_{50}$ ($\mu$s) & $p_{95}$ ($\mu$s) & $p_{99}$ ($\mu$s) & Mean ($\mu$s) & Final RAM vs EmbConv & $p_{95}$ Gate \\
+\midrule
+FreeRTOS & ConventionalHost & 10,386 & 3.99\,MB & 3.74\,MB & 0.072 & 0.189 & 0.295 & 0.089 & -- & -- \\
+ & EmbeddedConventional & 10,386 & 4.23\,MB & 3.89\,MB & 0.051 & 0.094 & 0.149 & 0.057 & Baseline & Baseline \\
+ & Interned & 10,386 & 5.17\,MB & 5.09\,MB & 0.072 & 0.143 & 0.203 & 0.087 & +30.8\% & FAIL \\
+ & \textbf{SymTabV3 (Optimized)} & 10,386 & 4.78\,MB & 4.72\,MB & 0.071 & 0.277 & 0.445 & 0.101 & +21.2\% & FAIL \\
+\midrule
+Arduino & ConventionalHost & 11,000 & 2.42\,MB & 2.42\,MB & 0.080 & 0.192 & 0.276 & 0.093 & -- & -- \\
+ & EmbeddedConventional & 11,000 & 2.31\,MB & 2.27\,MB & 0.046 & 0.089 & 0.130 & 0.051 & Baseline & Baseline \\
+ & Interned & 11,000 & 3.70\,MB & 3.70\,MB & 0.070 & 0.135 & 0.195 & 0.079 & +63.0\% & FAIL \\
+ & \textbf{SymTabV3 (Optimized)} & 11,000 & 2.99\,MB & 2.99\,MB & 0.061 & 0.171 & 0.356 & 0.077 & +31.7\% & FAIL \\
+\midrule
+Zephyr & ConventionalHost & 228,739 & 50.92\,MB & 47.76\,MB & 0.096 & 0.339 & 0.680 & 0.133 & -- & -- \\
+ & EmbeddedConventional & 228,739 & 76.37\,MB & 66.91\,MB & 0.050 & 0.125 & 0.225 & 0.060 & Baseline & Baseline \\
+ & Interned & 228,739 & 81.52\,MB & 81.22\,MB & 0.082 & 0.233 & 0.499 & 0.106 & +21.4\% & FAIL \\
+ & \textbf{SymTabV3 (Optimized)} & 228,739 & \textbf{57.89\,MB} & \textbf{53.39\,MB} & \textbf{0.066} & \textbf{0.228} & \textbf{0.481} & \textbf{0.092} & \textbf{-20.2\%} & \textbf{FAIL} \\
+\midrule
+ESP-IDF & ConventionalHost & 231,075 & 73.28\,MB & 65.65\,MB & 0.103 & 0.255 & 0.536 & 0.123 & -- & -- \\
+ & EmbeddedConventional & 231,075 & 75.77\,MB & 67.82\,MB & 0.061 & 0.236 & 0.374 & 0.086 & Baseline & Baseline \\
+ & Interned & 231,075 & 100.21\,MB & 92.95\,MB & 0.090 & 0.216 & 0.573 & 0.113 & +37.1\% & FAIL \\
+ & \textbf{SymTabV3 (Optimized)} & 231,075 & 89.36\,MB & 81.91\,MB & 0.079 & 0.297 & 0.712 & 0.113 & +20.8\% & FAIL \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Physical Memory Victory on Zephyr}
+On the large \textsc{Zephyr} workload (2.6M events, 228,739 unique symbols), \texttt{SymTabV3} achieves a clear physical allocator memory victory. \texttt{SymTabV3} reduces final heap consumption by **20.2\% (13.52\,MB)** relative to \texttt{EmbeddedConventional} (53.39\,MB vs 66.91\,MB final heap) and by **34.3\% (27.83\,MB)** relative to \texttt{Interned} (53.39\,MB vs 81.22\,MB final heap). Peak heap memory is similarly reduced by 24.2\% (57.89\,MB vs 76.37\,MB).
+
+Representation routing on \textsc{Zephyr} assigns 213,614 symbols (93.4\%) to \textsc{Inline}, 5,372 (2.3\%) to \textsc{Interned}, and 9,753 (4.3\%) to front-coded \textsc{Compressed}.
+
+\subsection{Quantified Latency Trade-off and Reconstruction Overhead}
+The zero-allocation compressed-path optimization reduced \textsc{Zephyr} $p_{95}$ latency from $0.547\,\mu\text{s}$ down to $0.228\,\mu\text{s}$ without altering memory footprint. Median lookup latency remains sub-microsecond ($p_{50} = 0.066\,\mu\text{s}$).
+
+However, comparing \texttt{SymTabV3} $p_{95}$ ($0.228\,\mu\text{s}$) against \texttt{EmbeddedConventional} $p_{95}$ ($0.125\,\mu\text{s}$) yields a ratio of **$1.824\times$**, failing the $1.25\times$ $p_{95}$ latency constraint.
+
+This latency gap is driven by measured reconstruction/copy overhead. During execution, 8.81\% of total lookup operations hit \textsc{Compressed} entries. Reconstructing front-coded members requires copying multiple prefix and suffix segments across block members (mean depth $3.31$ steps to anchor, $p_{95} = 7$ steps). Even with zero dynamic memory allocation, copying multiple memory slices introduces measured reconstruction/copy overhead that prevents satisfying the $1.25\times$ gate.
+
+Quantitatively, \texttt{SymTabV3} trades $0.103\,\mu\text{s}$ of added $p_{95}$ latency for 13.52\,MB of physical final heap saved ($131.26\text{ MB}$ saved per $\mu\text{s}$ of added $p_{95}$ latency).
+
+\subsection{Disclosed Negative Result (\texttt{SymTabV4})}
+\texttt{SymTabV4} (representation-conditional side-table metadata) failed to beat \texttt{SymTabV3} on 19/20 real software corpora and lost to Conventional on 20/20. Sparse side-table container allocations ($T_{\text{table}}$) plus marginal entry costs ($\sim 34\text{--}57$\,B) exceed the 8\,B core-struct savings across real identifier mixes.
+
+\subsection{Controlled Synthetic Microbenchmarks (Workloads A--F)}
+Synthetic experiments D1 and D2 confirm our analytical model. For $L=32$\,B, interning and \texttt{SymTabV3} beat Conventional on peak heap at $k \ge 3$ (1.09\,MB vs 1.16\,MB) and on final heap at $k \ge 4$ (0.70\,MB vs 1.44\,MB), validating the theoretical break-even threshold $k_{\text{breakeven}} = 3.33$.
+
+\subsection{Supporting Host-Side 20-Corpus Characterization}
+On 64-bit host systems, \texttt{ConventionalHost} (\texttt{std::unordered\_map}) achieves the lowest physical heap footprint on 20/20 real software corpora. Real host codebases are heavily dominated by short SSO identifiers ($59\%$--$76\%$) and low live duplication ($k < 1.5$), placing them strictly inside Conventional's optimal memory regime.
+
+\section{Discussion and Workload Boundaries}
+Our findings establish clear application boundaries for symbol table architectures:
+\begin{enumerate}
+    \item \textbf{Host Compilers \& Short Workloads}: When short SSO identifiers dominate ($L \le 15$\,B) and live duplication is low ($k < 1.5$), Conventional hash tables are optimal.
+    \item \textbf{Large-Scale Embedded Workloads}: When scale and identifier lengths are large ($L > 15$\,B, $N > 200\text{K}$), adaptive front-coding (\texttt{SymTabV3}) achieves significant physical RAM savings (20.2\% / 13.52\,MB on \textsc{Zephyr}).
+\end{enumerate}
+
+\section{Limitations}
+1) Front-coded block decompression introduces measured reconstruction/copy overhead during tail lookups;
+2) Global pool strings persist for compilation unit lifecycles;
+3) 64-bit hash fingerprints carry a theoretical collision probability of $\approx 4 \times 10^{-10}$ at 260,000 symbols.
 
 \section{Conclusion}
-This paper reports BUDGET-SYM, a prototype adaptive, scope-aware
-symbol-table architecture for memory-constrained embedded compilers.
-Measured against two real baselines on eight synthetic benchmark datasets,
-the prototype reduces tracked memory by 1.24$\times$--2.59$\times$. Review-2
-contributed a systematic grid-search threshold optimization, evaluation
-against real embedded C corpora, and multi-seed statistical validation. This
-revision contributes two further advances: a 64-entry LRU lookup cache
-(with per-entry memoized COMPRESSED reconstruction) that measurably reduces
-BudgetSym's own lookup latency on hot-path access patterns without changing
-its memory-accounting model, and an online WorkloadProfiler feeding an
-offline-trained Ridge-regression ThresholdPredictor that automatically
-reconfigures policy thresholds after a 100-symbol sampling window, recovering
-most of a dataset-specific grid search's compression benefit on an unseen
-workload with no runtime ML dependency. This revision (Review-3) contributes
-a correctness fix -- a scope-shadowing bug in the Review-2 lookup cache,
-found by review and confirmed empirically before being fixed and
-regression-tested -- and a five-way comparison of alternative hashing and
-storage backends (two additional index hash functions, a Robin Hood
-open-addressing baseline, and a shared-trie baseline) directly answering
-Review-2's own proposed future work on reducing cold-lookup cost
-structurally rather than only amortizing it. The comparison's central
-finding is that no algorithm wins both memory and lookup latency on any of
-the eight datasets: Robin Hood wins lookup latency universally by forgoing
-compression, and BudgetSym wins compression universally by paying the
-reconstruction cost that Robin Hood avoids. Lookup latency overhead is
-reduced along two independent axes (caching, and now this structural
-comparison) but remains an honestly reported, unresolved cost relative to
-the conventional baseline for BudgetSym itself. Further work toward LLVM
-integration, real-corpus predictor training, resolving the
-ablation/ML-predictor interaction noted in Threats to Validity, and a
-complete prior-art search are the required next steps.
+On the large \textsc{Zephyr} workload, \texttt{SymTabV3} reduced physically measured final heap by 20.2\% (13.52\,MB) relative to the embedded conventional baseline. This reduction was achieved with sub-microsecond median lookup latency, while the $p_{95}$ latency increased from $0.125\,\mu\text{s}$ to $0.228\,\mu\text{s}$. Thus the architecture demonstrates a measurable RAM advantage in the large-scale embedded regime, but does not satisfy the $1.25\times$ $p_{95}$ latency constraint.
 
-\begin{thebibliography}{00}
-\bibitem{liu-lab2} Link\"oping University, ``Lab 2: Symbol Table --- TDDE66
-  Compiler Construction,'' compiler-construction documentation. [Online].
-  Available: https://www.ida.liu.se/\textasciitilde{}TDDE66/laboratories/instructions/lab2.html
-\bibitem{jones-notes} D. W. Jones, ``Compiler Construction --- The Symbol
-  Table,'' University of Iowa, compiler notes. [Online]. Available:
-  https://homepage.cs.uiowa.edu/\textasciitilde{}dwjones/compiler/notes/09.shtml
-\bibitem{rust-interning} Rust compiler ecosystem, ``Interning / Symbol
-  Table,'' documentation and implementation discussion. [Online]. Available:
-  https://patterns.totorojam.com/patterns/interning/
-\bibitem{gcc-msp430} GNU Project, ``MSP430 Options,'' GCC documentation,
-  memory-constrained embedded-target options. [Online]. Available:
-  https://gcc.gnu.org/onlinedocs/gcc-10.4.0/gcc/MSP430-Options.html
-\bibitem{aho} A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman,
-  \emph{Compilers: Principles, Techniques, and Tools}, 2nd ed. Pearson, 2006.
-\bibitem{ieee-structure} IEEE Author Center Conferences, ``Structure Your
-  Paper.'' [Online]. Available:
-  https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/structure-your-paper/
-\bibitem{ieee-tools} IEEE Author Center Conferences, ``Authoring Tools and
-  Templates.'' [Online]. Available:
-  https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/authoring-tools-and-templates/
-\bibitem{celis-robinhood} P. Celis, P.-A. Larson, and J. I. Munro, ``Robin
-  Hood Hashing,'' in \emph{Proc. 26th Annual Symposium on Foundations of
-  Computer Science (FOCS)}, 1985, pp. 281--288.
-\bibitem{fredkin-trie} E. Fredkin, ``Trie Memory,'' \emph{Communications of
-  the ACM}, vol. 3, no. 9, pp. 490--499, 1960.
-\bibitem{appleby-murmur} A. Appleby, ``MurmurHash3 and the SMHasher hash
-  function test suite.'' [Online]. Available:
-  https://github.com/aappleby/smhasher
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{99}
+
+\bibitem{aho}
+A.~V. Aho, M.~S. Lam, R.~Sethi, and J.~D. Ullman, \emph{Compilers: Principles, Techniques, and Tools}, 2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley, 2006.
+
+\bibitem{lattner2004llvm}
+C.~Lattner and V.~Adve, ``LLVM: A compilation framework for lifelong program analysis \& transformation,'' in \emph{IEEE/ACM CGO}, 2004, pp. 75--86.
+
+\bibitem{meyers2001effective}
+S.~Meyers, \emph{Effective STL}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley, 2001.
+
+\bibitem{sutter2004exceptional}
+H.~Sutter, \emph{Exceptional C++ Style}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley, 2004.
+
+\bibitem{gosling2014java}
+J.~Gosling, B.~Joy, G.~Steele, G.~Bracha, and A.~Buckley, \emph{The Java Language Specification (Java SE 8 Edition)}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley, 2014.
+
+\bibitem{vanrossum2009python}
+G.~Van Rossum and F.~L. Drake, \emph{Python 3 Reference Manual}.\hskip 1em plus 0.5em minus 0.4em\relax CreateSpace, 2009.
+
+\bibitem{witten1999managing}
+I.~H. Witten, A.~Moffat, and T.~C. Bell, \emph{Managing Gigabytes: Compressing and Indexing Documents and Images}.\hskip 1em plus 0.5em minus 0.4em\relax Morgan Kaufmann, 1999.
+
+\bibitem{brisaboa2011compressed}
+N.~R. Brisaboa, R.~C{\'a}novas, S.~Ladra, and G.~Navarro, ``Compressed string dictionaries,'' in \emph{SPIRE}, 2011, pp. 136--148.
+
+\bibitem{martinez2016practical}
+M.~A. Mart{\'\i}nez-Prieto, N.~R. Brisaboa, R.~C{\'a}novas, A.~Fari{\~n}a, and G.~Navarro, ``Practical compressed string dictionaries,'' \emph{Information Systems}, vol.~56, pp. 73--108, 2016.
+
+\bibitem{ferragina2000opportunistic}
+P.~Ferragina and G.~Manzini, ``Opportunistic data structures with applications,'' in \emph{IEEE FOCS}, 2000, pp. 390--398.
+
+\bibitem{grossi2005compressed}
+R.~Grossi and J.~S. Vitter, ``Compressed suffix arrays and suffix trees with applications to text indexing and string matching,'' \emph{SIAM J. Comput.}, vol.~35, no.~2, pp. 378--407, 2005.
+
+\bibitem{botelho2009simple}
+F.~C. Botelho, R.~Pagh, and N.~Ziviani, ``Simple and space-efficient minimal perfect hash functions,'' \emph{ACM TALG}, vol.~5, no.~2, pp. 1--24, 2009.
+
+\bibitem{hanson1980fast}
+D.~R. Hanson, ``Fast allocation and deallocation of memory structures in C programs,'' \emph{Software: Practice and Experience}, vol.~10, no.~4, pp. 307--313, 1980.
+
+\bibitem{reiss1983practical}
+S.~P. Reiss, ``Practical lexical scoping and symbol tables,'' \emph{CACM}, vol.~26, no.~6, pp. 429--435, 1983.
+
+\bibitem{celis1986robin}
+P.~Celis, ``Robin Hood Hashing,'' Ph.D. dissertation, University of Waterloo, 1986.
+
+\bibitem{pagh2001cuckoo}
+R.~Pagh and F.~F. Rodler, ``Cuckoo hashing,'' in \emph{ESA}, 2001, pp. 121--133.
+
+\bibitem{askitis2007hat}
+N.~Askitis and R.~Sinha, ``HAT-trie: A cache-conscious trie-based data structure for strings,'' in \emph{ALENEX}, 2007, pp. 97--109.
+
+\bibitem{heinz2002burst}
+S.~Heinz, J.~Zobel, and H.~E. Williams, ``Burst tries for fast string access,'' \emph{ACM TOIS}, vol.~20, no.~2, pp. 192--223, 2002.
+
 \end{thebibliography}
-
-\vspace{1em}
-\noindent\textit{Formatting note: this document is an IEEE-inspired academic
-draft prepared for internal faculty review. It is not an official IEEE
-publication, has not been submitted to or accepted by any IEEE venue, and
-should not be represented as such.}
 
 \end{document}
