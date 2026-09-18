@@ -163,6 +163,7 @@ Table~\ref{tab:embedded_canonical} presents physical allocator heap measurements
 \centering
 \caption{Canonical Physical Allocator-Measured Memory and Lookup Latencies Across Four Embedded Workloads.}
 \label{tab:embedded_canonical}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrrrrrrc}
 \toprule
 Workload & Implementation & Unique Syms & Peak Heap & Final Heap & $p_{50}$ ($\mu$s) & $p_{95}$ ($\mu$s) & $p_{99}$ ($\mu$s) & Mean ($\mu$s) & Final RAM vs EmbConv & $p_{95}$ Gate \\
@@ -187,7 +188,8 @@ ESP-IDF & ConventionalHost & 231,075 & 73.28\,MB & 65.65\,MB & 0.103 & 0.255 & 0
  & Interned & 231,075 & 100.21\,MB & 92.95\,MB & 0.090 & 0.216 & 0.573 & 0.113 & +37.1\% & FAIL \\
  & \textbf{SymTabV3 (Optimized)} & 231,075 & 89.36\,MB & 81.91\,MB & 0.079 & 0.297 & 0.712 & 0.113 & +20.8\% & FAIL \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table*}
 
 \subsection{Physical Memory Victory on Zephyr}

@@ -1,16 +1,11 @@
-// Real-World Corpus Benchmark Engine (Phase 4)
+// Real-World Corpus Benchmark Engine (Phase 4 / Phase 2 Hardening)
 //
 // Replays the extracted semantic event streams (DECLARE, USE, ENTER_SCOPE, EXIT_SCOPE)
-// from representative real-world software workloads:
-//   1. FreeRTOS (Embedded RTOS)
-//   2. Arduino (Microcontroller HAL)
-//   3. Zephyr (Scalable RTOS)
-//   4. CPython (Compiler / Interpreter Core)
-//   5. Lua (Lightweight Embedded C Interpreter - Adversarial)
-//   6. ESP-IDF (Embedded IoT SDK)
+// from representative real-world software workloads with repeated timing passes
+// and variance quantification.
 //
-// Primary Scientific Comparison: Conventional vs Interned vs SymTabV2.
-// Outputs: data/real_world_benchmark.csv
+// Primary Scientific Comparison: Conventional vs Interned vs SymTabV2 vs SymTabV3 vs SymTabV4.
+// Outputs: data/real_world_benchmark.csv and results/real_world_benchmark.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
 #include "../include/heap_counter.hpp"
@@ -48,6 +43,13 @@ static double vmean(const std::vector<double>& v) {
     if (v.empty()) return 0.0;
     double s = 0.0; for (double x : v) s += x;
     return s / static_cast<double>(v.size());
+}
+
+static double vstddev(const std::vector<double>& v, double meanVal) {
+    if (v.size() <= 1) return 0.0;
+    double sumSq = 0.0;
+    for (double x : v) sumSq += (x - meanVal) * (x - meanVal);
+    return std::sqrt(sumSq / static_cast<double>(v.size() - 1));
 }
 
 struct Event {
@@ -88,6 +90,14 @@ struct CorpusBenchRow {
     size_t countInline = 0;
     size_t countInterned = 0;
     size_t countCompressed = 0;
+
+    size_t lookupInlineCount = 0;
+    size_t lookupInternedCount = 0;
+    size_t lookupCompressedCount = 0;
+
+    int timingReps = 1;
+    double lookupP95StddevUs = 0.0;
+    double lookupMeanStddevUs = 0.0;
 };
 
 static std::vector<Event> loadEvents(const std::string& filepath) {
@@ -123,357 +133,535 @@ static std::vector<Event> loadEvents(const std::string& filepath) {
 template<typename Table>
 static CorpusBenchRow runTable(HiResTimer& timer, const std::string& corpusName,
                                const std::string& implName,
-                               const std::vector<Event>& events) {
-    heap::Scope hs;
-    Table t(0);
-
-    std::vector<double> insSamples;
-    std::vector<double> lookupSamples;
-    std::unordered_set<std::string> uniqueSymbols;
-    size_t decls = 0, uses = 0;
-
-    for (auto& ev : events) {
-        if (ev.kind == Event::ENTER_SCOPE) {
-            t.enterScope();
-        } else if (ev.kind == Event::EXIT_SCOPE) {
-            t.exitScope();
-        } else if (ev.kind == Event::DECLARE) {
-            decls++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.insert(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            insSamples.push_back(timer.microsecondsBetween(a, b));
-        } else if (ev.kind == Event::USE) {
-            uses++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.resolve(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            lookupSamples.push_back(timer.microsecondsBetween(a, b));
-            t.recordAccess(ev.symbol);
-        }
-    }
-
+                               const std::vector<Event>& events,
+                               int numReps = 3) {
     CorpusBenchRow r;
     r.corpus = corpusName;
     r.impl = implName;
-    r.declarations = decls;
-    r.uses = uses;
-    r.uniqueNames = uniqueSymbols.size();
+    r.timingReps = numReps;
 
-    r.measuredFinalHeapBytes = hs.bytes();
-    r.measuredPeakHeapBytes  = hs.peakBytes();
-    r.modeledFinalBytes = t.tracker().current();
-    r.modeledPeakBytes  = t.tracker().peak();
-    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
-        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    // Pass 1: Physical Heap Tracking (Isolated)
+    {
+        heap::Scope hs;
+        Table t(0);
+        std::unordered_set<std::string> uniqueSymbols;
+        size_t decls = 0, uses = 0;
 
-    r.insertP50Us  = pctile(insSamples, 0.50);
-    r.insertP95Us  = pctile(insSamples, 0.95);
-    r.insertP99Us  = pctile(insSamples, 0.99);
-    r.insertMeanUs = vmean(insSamples);
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                decls++;
+                uniqueSymbols.insert(ev.symbol);
+                t.insert(ev.symbol);
+            } else if (ev.kind == Event::USE) {
+                uses++;
+                uniqueSymbols.insert(ev.symbol);
+                t.resolve(ev.symbol);
+                t.recordAccess(ev.symbol);
+            }
+        }
+        r.declarations = decls;
+        r.uses = uses;
+        r.uniqueNames = uniqueSymbols.size();
+        r.measuredFinalHeapBytes = hs.bytes();
+        r.measuredPeakHeapBytes  = hs.peakBytes();
+        r.modeledFinalBytes = t.tracker().current();
+        r.modeledPeakBytes  = t.tracker().peak();
+        r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+            ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    }
 
-    r.lookupP50Us  = pctile(lookupSamples, 0.50);
-    r.lookupP95Us  = pctile(lookupSamples, 0.95);
-    r.lookupP99Us  = pctile(lookupSamples, 0.99);
-    r.lookupMeanUs = vmean(lookupSamples);
+    // Pass 2: Multi-repetition latency sampling
+    std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
+    std::vector<double> repInsP50, repInsP95, repInsP99, repInsMean;
+
+    for (int rep = 0; rep < numReps; ++rep) {
+        Table t(0);
+        std::vector<double> insSamples;
+        std::vector<double> lookupSamples;
+
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                auto a = timer.now();
+                volatile int id = t.insert(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                insSamples.push_back(timer.microsecondsBetween(a, b));
+            } else if (ev.kind == Event::USE) {
+                auto a = timer.now();
+                volatile int id = t.resolve(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                lookupSamples.push_back(timer.microsecondsBetween(a, b));
+                t.recordAccess(ev.symbol);
+            }
+        }
+
+        repLookupP50.push_back(pctile(lookupSamples, 0.50));
+        repLookupP95.push_back(pctile(lookupSamples, 0.95));
+        repLookupP99.push_back(pctile(lookupSamples, 0.99));
+        repLookupMean.push_back(vmean(lookupSamples));
+
+        repInsP50.push_back(pctile(insSamples, 0.50));
+        repInsP95.push_back(pctile(insSamples, 0.95));
+        repInsP99.push_back(pctile(insSamples, 0.99));
+        repInsMean.push_back(vmean(insSamples));
+    }
+
+    r.lookupP50Us  = pctile(repLookupP50, 0.50);
+    r.lookupP95Us  = pctile(repLookupP95, 0.50);
+    r.lookupP99Us  = pctile(repLookupP99, 0.50);
+    r.lookupMeanUs = vmean(repLookupMean);
+
+    r.insertP50Us  = pctile(repInsP50, 0.50);
+    r.insertP95Us  = pctile(repInsP95, 0.50);
+    r.insertP99Us  = pctile(repInsP99, 0.50);
+    r.insertMeanUs = vmean(repInsMean);
+
+    r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
+    r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
 
     return r;
 }
 
 static CorpusBenchRow runV1(HiResTimer& timer, const std::string& corpusName,
-                             const std::vector<Event>& events) {
-    heap::Scope hs;
-    BudgetSym t(0);
-
-    std::vector<double> insSamples;
-    std::vector<double> lookupSamples;
-    std::unordered_set<std::string> uniqueSymbols;
-    size_t decls = 0, uses = 0;
-
-    for (auto& ev : events) {
-        if (ev.kind == Event::ENTER_SCOPE) {
-            t.enterScope();
-        } else if (ev.kind == Event::EXIT_SCOPE) {
-            t.exitScope();
-        } else if (ev.kind == Event::DECLARE) {
-            decls++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.insert(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            insSamples.push_back(timer.microsecondsBetween(a, b));
-        } else if (ev.kind == Event::USE) {
-            uses++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.resolve(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            lookupSamples.push_back(timer.microsecondsBetween(a, b));
-            t.recordAccess(ev.symbol);
-        }
-    }
-
+                             const std::vector<Event>& events,
+                             int numReps = 3) {
     CorpusBenchRow r;
     r.corpus = corpusName;
     r.impl = "BudgetSymV1";
-    r.declarations = decls;
-    r.uses = uses;
-    r.uniqueNames = uniqueSymbols.size();
+    r.timingReps = numReps;
 
-    r.measuredFinalHeapBytes = hs.bytes();
-    r.measuredPeakHeapBytes  = hs.peakBytes();
-    r.modeledFinalBytes = t.tracker().current();
-    r.modeledPeakBytes  = t.tracker().peak();
-    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
-        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    {
+        heap::Scope hs;
+        BudgetSym t(0);
+        std::unordered_set<std::string> uniqueSymbols;
+        size_t decls = 0, uses = 0;
 
-    r.insertP50Us  = pctile(insSamples, 0.50);
-    r.insertP95Us  = pctile(insSamples, 0.95);
-    r.insertP99Us  = pctile(insSamples, 0.99);
-    r.insertMeanUs = vmean(insSamples);
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                decls++;
+                uniqueSymbols.insert(ev.symbol);
+                t.insert(ev.symbol);
+            } else if (ev.kind == Event::USE) {
+                uses++;
+                uniqueSymbols.insert(ev.symbol);
+                t.resolve(ev.symbol);
+                t.recordAccess(ev.symbol);
+            }
+        }
+        r.declarations = decls;
+        r.uses = uses;
+        r.uniqueNames = uniqueSymbols.size();
+        r.measuredFinalHeapBytes = hs.bytes();
+        r.measuredPeakHeapBytes  = hs.peakBytes();
+        r.modeledFinalBytes = t.tracker().current();
+        r.modeledPeakBytes  = t.tracker().peak();
+        r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+            ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+        r.promotions = t.promotions();
+    }
 
-    r.lookupP50Us  = pctile(lookupSamples, 0.50);
-    r.lookupP95Us  = pctile(lookupSamples, 0.95);
-    r.lookupP99Us  = pctile(lookupSamples, 0.99);
-    r.lookupMeanUs = vmean(lookupSamples);
+    std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
+    std::vector<double> repInsP50, repInsP95, repInsP99, repInsMean;
 
-    r.promotions = t.promotions();
+    for (int rep = 0; rep < numReps; ++rep) {
+        BudgetSym t(0);
+        std::vector<double> insSamples;
+        std::vector<double> lookupSamples;
+
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                auto a = timer.now();
+                volatile int id = t.insert(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                insSamples.push_back(timer.microsecondsBetween(a, b));
+            } else if (ev.kind == Event::USE) {
+                auto a = timer.now();
+                volatile int id = t.resolve(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                lookupSamples.push_back(timer.microsecondsBetween(a, b));
+                t.recordAccess(ev.symbol);
+            }
+        }
+
+        repLookupP50.push_back(pctile(lookupSamples, 0.50));
+        repLookupP95.push_back(pctile(lookupSamples, 0.95));
+        repLookupP99.push_back(pctile(lookupSamples, 0.99));
+        repLookupMean.push_back(vmean(lookupSamples));
+
+        repInsP50.push_back(pctile(insSamples, 0.50));
+        repInsP95.push_back(pctile(insSamples, 0.95));
+        repInsP99.push_back(pctile(insSamples, 0.99));
+        repInsMean.push_back(vmean(insSamples));
+    }
+
+    r.lookupP50Us  = pctile(repLookupP50, 0.50);
+    r.lookupP95Us  = pctile(repLookupP95, 0.50);
+    r.lookupP99Us  = pctile(repLookupP99, 0.50);
+    r.lookupMeanUs = vmean(repLookupMean);
+
+    r.insertP50Us  = pctile(repInsP50, 0.50);
+    r.insertP95Us  = pctile(repInsP95, 0.50);
+    r.insertP99Us  = pctile(repInsP99, 0.50);
+    r.insertMeanUs = vmean(repInsMean);
+
+    r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
+    r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
+
     return r;
 }
 
 static CorpusBenchRow runV2(HiResTimer& timer, const std::string& corpusName,
-                             const std::vector<Event>& events) {
-    heap::Scope hs;
-    SymTabV2<> t(0);
-
-    std::vector<double> insSamples;
-    std::vector<double> lookupSamples;
-    std::unordered_set<std::string> uniqueSymbols;
-    size_t decls = 0, uses = 0;
-
-    for (auto& ev : events) {
-        if (ev.kind == Event::ENTER_SCOPE) {
-            t.enterScope();
-        } else if (ev.kind == Event::EXIT_SCOPE) {
-            t.exitScope();
-        } else if (ev.kind == Event::DECLARE) {
-            decls++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.insert(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            insSamples.push_back(timer.microsecondsBetween(a, b));
-        } else if (ev.kind == Event::USE) {
-            uses++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.resolve(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            lookupSamples.push_back(timer.microsecondsBetween(a, b));
-            t.recordAccess(ev.symbol);
-        }
-    }
-
+                             const std::vector<Event>& events,
+                             int numReps = 3) {
     CorpusBenchRow r;
     r.corpus = corpusName;
     r.impl = "SymTabV2";
-    r.declarations = decls;
-    r.uses = uses;
-    r.uniqueNames = uniqueSymbols.size();
+    r.timingReps = numReps;
 
-    r.measuredFinalHeapBytes = hs.bytes();
-    r.measuredPeakHeapBytes  = hs.peakBytes();
-    r.modeledFinalBytes = t.tracker().current();
-    r.modeledPeakBytes  = t.tracker().peak();
-    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
-        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    {
+        heap::Scope hs;
+        SymTabV2<> t(0);
+        std::unordered_set<std::string> uniqueSymbols;
+        size_t decls = 0, uses = 0;
 
-    r.insertP50Us  = pctile(insSamples, 0.50);
-    r.insertP95Us  = pctile(insSamples, 0.95);
-    r.insertP99Us  = pctile(insSamples, 0.99);
-    r.insertMeanUs = vmean(insSamples);
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                decls++;
+                uniqueSymbols.insert(ev.symbol);
+                t.insert(ev.symbol);
+            } else if (ev.kind == Event::USE) {
+                uses++;
+                uniqueSymbols.insert(ev.symbol);
+                t.resolve(ev.symbol);
+                t.recordAccess(ev.symbol);
+            }
+        }
+        r.declarations = decls;
+        r.uses = uses;
+        r.uniqueNames = uniqueSymbols.size();
+        r.measuredFinalHeapBytes = hs.bytes();
+        r.measuredPeakHeapBytes  = hs.peakBytes();
+        r.modeledFinalBytes = t.tracker().current();
+        r.modeledPeakBytes  = t.tracker().peak();
+        r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+            ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+        r.promotions = t.promotions();
+        r.demotions  = t.demotions();
+        r.reconCount = t.reconstructionCount();
+        r.reconSteps = t.reconstructionStepsTotal();
+        r.reconDepth = r.reconCount > 0
+            ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
 
-    r.lookupP50Us  = pctile(lookupSamples, 0.50);
-    r.lookupP95Us  = pctile(lookupSamples, 0.95);
-    r.lookupP99Us  = pctile(lookupSamples, 0.99);
-    r.lookupMeanUs = vmean(lookupSamples);
-
-    r.promotions = t.promotions();
-    r.demotions  = t.demotions();
-    r.reconCount = t.reconstructionCount();
-    r.reconSteps = t.reconstructionStepsTotal();
-    r.reconDepth = r.reconCount > 0
-        ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
-
-    for (auto& sym : uniqueSymbols) {
-        switch (t.representationOf(sym)) {
-            case Rep::INLINE_REP:     r.countInline++;    break;
-            case Rep::INTERNED_REP:   r.countInterned++;  break;
-            case Rep::COMPRESSED_REP: r.countCompressed++; break;
+        for (auto& sym : uniqueSymbols) {
+            switch (t.representationOf(sym)) {
+                case Rep::INLINE_REP:     r.countInline++;    break;
+                case Rep::INTERNED_REP:   r.countInterned++;  break;
+                case Rep::COMPRESSED_REP: r.countCompressed++; break;
+            }
         }
     }
+
+    std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
+    std::vector<double> repInsP50, repInsP95, repInsP99, repInsMean;
+
+    for (int rep = 0; rep < numReps; ++rep) {
+        SymTabV2<> t(0);
+        std::vector<double> insSamples;
+        std::vector<double> lookupSamples;
+
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                auto a = timer.now();
+                volatile int id = t.insert(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                insSamples.push_back(timer.microsecondsBetween(a, b));
+            } else if (ev.kind == Event::USE) {
+                auto a = timer.now();
+                volatile int id = t.resolve(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                lookupSamples.push_back(timer.microsecondsBetween(a, b));
+                t.recordAccess(ev.symbol);
+            }
+        }
+
+        repLookupP50.push_back(pctile(lookupSamples, 0.50));
+        repLookupP95.push_back(pctile(lookupSamples, 0.95));
+        repLookupP99.push_back(pctile(lookupSamples, 0.99));
+        repLookupMean.push_back(vmean(lookupSamples));
+
+        repInsP50.push_back(pctile(insSamples, 0.50));
+        repInsP95.push_back(pctile(insSamples, 0.95));
+        repInsP99.push_back(pctile(insSamples, 0.99));
+        repInsMean.push_back(vmean(insSamples));
+    }
+
+    r.lookupP50Us  = pctile(repLookupP50, 0.50);
+    r.lookupP95Us  = pctile(repLookupP95, 0.50);
+    r.lookupP99Us  = pctile(repLookupP99, 0.50);
+    r.lookupMeanUs = vmean(repLookupMean);
+
+    r.insertP50Us  = pctile(repInsP50, 0.50);
+    r.insertP95Us  = pctile(repInsP95, 0.50);
+    r.insertP99Us  = pctile(repInsP99, 0.50);
+    r.insertMeanUs = vmean(repInsMean);
+
+    r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
+    r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
 
     return r;
 }
 
 static CorpusBenchRow runV3(HiResTimer& timer, const std::string& corpusName,
-                             const std::vector<Event>& events) {
-    heap::Scope hs;
-    budgetsym::v3::SymTabV3<> t(0);
-
-    std::vector<double> insSamples;
-    std::vector<double> lookupSamples;
-    std::unordered_set<std::string> uniqueSymbols;
-    size_t decls = 0, uses = 0;
-
-    for (auto& ev : events) {
-        if (ev.kind == Event::ENTER_SCOPE) {
-            t.enterScope();
-        } else if (ev.kind == Event::EXIT_SCOPE) {
-            t.exitScope();
-        } else if (ev.kind == Event::DECLARE) {
-            decls++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.insert(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            insSamples.push_back(timer.microsecondsBetween(a, b));
-        } else if (ev.kind == Event::USE) {
-            uses++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.resolve(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            lookupSamples.push_back(timer.microsecondsBetween(a, b));
-            t.recordAccess(ev.symbol);
-        }
-    }
-
+                             const std::vector<Event>& events,
+                             int numReps = 3) {
     CorpusBenchRow r;
     r.corpus = corpusName;
     r.impl = "SymTabV3";
-    r.declarations = decls;
-    r.uses = uses;
-    r.uniqueNames = uniqueSymbols.size();
+    r.timingReps = numReps;
 
-    r.measuredFinalHeapBytes = hs.bytes();
-    r.measuredPeakHeapBytes  = hs.peakBytes();
-    r.modeledFinalBytes = t.tracker().current();
-    r.modeledPeakBytes  = t.tracker().peak();
-    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
-        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    {
+        heap::Scope hs;
+        budgetsym::v3::SymTabV3<> t(0);
+        std::unordered_set<std::string> uniqueSymbols;
+        size_t decls = 0, uses = 0;
 
-    r.insertP50Us  = pctile(insSamples, 0.50);
-    r.insertP95Us  = pctile(insSamples, 0.95);
-    r.insertP99Us  = pctile(insSamples, 0.99);
-    r.insertMeanUs = vmean(insSamples);
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                decls++;
+                uniqueSymbols.insert(ev.symbol);
+                t.insert(ev.symbol);
+            } else if (ev.kind == Event::USE) {
+                uses++;
+                uniqueSymbols.insert(ev.symbol);
+                t.resolve(ev.symbol);
+                t.recordAccess(ev.symbol);
+            }
+        }
+        r.declarations = decls;
+        r.uses = uses;
+        r.uniqueNames = uniqueSymbols.size();
+        r.measuredFinalHeapBytes = hs.bytes();
+        r.measuredPeakHeapBytes  = hs.peakBytes();
+        r.modeledFinalBytes = t.tracker().current();
+        r.modeledPeakBytes  = t.tracker().peak();
+        r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+            ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+        r.promotions = t.promotions();
+        r.demotions  = t.demotions();
+        r.reconCount = t.reconstructionCount();
+        r.reconSteps = t.reconstructionStepsTotal();
+        r.reconDepth = r.reconCount > 0
+            ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
 
-    r.lookupP50Us  = pctile(lookupSamples, 0.50);
-    r.lookupP95Us  = pctile(lookupSamples, 0.95);
-    r.lookupP99Us  = pctile(lookupSamples, 0.99);
-    r.lookupMeanUs = vmean(lookupSamples);
+        r.lookupInlineCount     = t.inlineLookups();
+        r.lookupInternedCount   = t.internedLookups();
+        r.lookupCompressedCount = t.compressedLookups();
 
-    r.promotions = t.promotions();
-    r.demotions  = t.demotions();
-    r.reconCount = t.reconstructionCount();
-    r.reconSteps = t.reconstructionStepsTotal();
-    r.reconDepth = r.reconCount > 0
-        ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
-
-    for (auto& sym : uniqueSymbols) {
-        switch (t.representationOf(sym)) {
-            case budgetsym::v3::Rep::INLINE_REP:     r.countInline++;    break;
-            case budgetsym::v3::Rep::INTERNED_REP:   r.countInterned++;  break;
-            case budgetsym::v3::Rep::COMPRESSED_REP: r.countCompressed++; break;
+        for (auto& sym : uniqueSymbols) {
+            switch (t.representationOf(sym)) {
+                case budgetsym::v3::Rep::INLINE_REP:     r.countInline++;    break;
+                case budgetsym::v3::Rep::INTERNED_REP:   r.countInterned++;  break;
+                case budgetsym::v3::Rep::COMPRESSED_REP: r.countCompressed++; break;
+            }
         }
     }
+
+    std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
+    std::vector<double> repInsP50, repInsP95, repInsP99, repInsMean;
+
+    for (int rep = 0; rep < numReps; ++rep) {
+        budgetsym::v3::SymTabV3<> t(0);
+        std::vector<double> insSamples;
+        std::vector<double> lookupSamples;
+
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                auto a = timer.now();
+                volatile int id = t.insert(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                insSamples.push_back(timer.microsecondsBetween(a, b));
+            } else if (ev.kind == Event::USE) {
+                auto a = timer.now();
+                volatile int id = t.resolve(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                lookupSamples.push_back(timer.microsecondsBetween(a, b));
+                t.recordAccess(ev.symbol);
+            }
+        }
+
+        repLookupP50.push_back(pctile(lookupSamples, 0.50));
+        repLookupP95.push_back(pctile(lookupSamples, 0.95));
+        repLookupP99.push_back(pctile(lookupSamples, 0.99));
+        repLookupMean.push_back(vmean(lookupSamples));
+
+        repInsP50.push_back(pctile(insSamples, 0.50));
+        repInsP95.push_back(pctile(insSamples, 0.95));
+        repInsP99.push_back(pctile(insSamples, 0.99));
+        repInsMean.push_back(vmean(insSamples));
+    }
+
+    r.lookupP50Us  = pctile(repLookupP50, 0.50);
+    r.lookupP95Us  = pctile(repLookupP95, 0.50);
+    r.lookupP99Us  = pctile(repLookupP99, 0.50);
+    r.lookupMeanUs = vmean(repLookupMean);
+
+    r.insertP50Us  = pctile(repInsP50, 0.50);
+    r.insertP95Us  = pctile(repInsP95, 0.50);
+    r.insertP99Us  = pctile(repInsP99, 0.50);
+    r.insertMeanUs = vmean(repInsMean);
+
+    r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
+    r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
 
     return r;
 }
 
 static CorpusBenchRow runV4(HiResTimer& timer, const std::string& corpusName,
-                             const std::vector<Event>& events) {
-    heap::Scope hs;
-    budgetsym::v4::SymTabV4<> t(0);
-
-    std::vector<double> insSamples;
-    std::vector<double> lookupSamples;
-    std::unordered_set<std::string> uniqueSymbols;
-    size_t decls = 0, uses = 0;
-
-    for (auto& ev : events) {
-        if (ev.kind == Event::ENTER_SCOPE) {
-            t.enterScope();
-        } else if (ev.kind == Event::EXIT_SCOPE) {
-            t.exitScope();
-        } else if (ev.kind == Event::DECLARE) {
-            decls++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.insert(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            insSamples.push_back(timer.microsecondsBetween(a, b));
-        } else if (ev.kind == Event::USE) {
-            uses++;
-            uniqueSymbols.insert(ev.symbol);
-            auto a = timer.now();
-            volatile int id = t.resolve(ev.symbol);
-            auto b = timer.now();
-            (void)id;
-            lookupSamples.push_back(timer.microsecondsBetween(a, b));
-            t.recordAccess(ev.symbol);
-        }
-    }
-
+                             const std::vector<Event>& events,
+                             int numReps = 3) {
     CorpusBenchRow r;
     r.corpus = corpusName;
     r.impl = "SymTabV4";
-    r.declarations = decls;
-    r.uses = uses;
-    r.uniqueNames = uniqueSymbols.size();
+    r.timingReps = numReps;
 
-    r.measuredFinalHeapBytes = hs.bytes();
-    r.measuredPeakHeapBytes  = hs.peakBytes();
-    r.modeledFinalBytes = t.tracker().current();
-    r.modeledPeakBytes  = t.tracker().peak();
-    r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
-        ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+    {
+        heap::Scope hs;
+        budgetsym::v4::SymTabV4<> t(0);
+        std::unordered_set<std::string> uniqueSymbols;
+        size_t decls = 0, uses = 0;
 
-    r.insertP50Us  = pctile(insSamples, 0.50);
-    r.insertP95Us  = pctile(insSamples, 0.95);
-    r.insertP99Us  = pctile(insSamples, 0.99);
-    r.insertMeanUs = vmean(insSamples);
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                decls++;
+                uniqueSymbols.insert(ev.symbol);
+                t.insert(ev.symbol);
+            } else if (ev.kind == Event::USE) {
+                uses++;
+                uniqueSymbols.insert(ev.symbol);
+                t.resolve(ev.symbol);
+                t.recordAccess(ev.symbol);
+            }
+        }
+        r.declarations = decls;
+        r.uses = uses;
+        r.uniqueNames = uniqueSymbols.size();
+        r.measuredFinalHeapBytes = hs.bytes();
+        r.measuredPeakHeapBytes  = hs.peakBytes();
+        r.modeledFinalBytes = t.tracker().current();
+        r.modeledPeakBytes  = t.tracker().peak();
+        r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
+            ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
+        r.promotions = t.promotions();
+        r.demotions  = t.demotions();
+        r.reconCount = t.reconstructionCount();
+        r.reconSteps = t.reconstructionStepsTotal();
+        r.reconDepth = r.reconCount > 0
+            ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
 
-    r.lookupP50Us  = pctile(lookupSamples, 0.50);
-    r.lookupP95Us  = pctile(lookupSamples, 0.95);
-    r.lookupP99Us  = pctile(lookupSamples, 0.99);
-    r.lookupMeanUs = vmean(lookupSamples);
-
-    r.promotions = t.promotions();
-    r.demotions  = t.demotions();
-    r.reconCount = t.reconstructionCount();
-    r.reconSteps = t.reconstructionStepsTotal();
-    r.reconDepth = r.reconCount > 0
-        ? static_cast<double>(r.reconSteps) / static_cast<double>(r.reconCount) : 0.0;
-
-    for (auto& sym : uniqueSymbols) {
-        switch (t.representationOf(sym)) {
-            case budgetsym::v4::Rep::INLINE_REP:     r.countInline++;    break;
-            case budgetsym::v4::Rep::INTERNED_REP:   r.countInterned++;  break;
-            case budgetsym::v4::Rep::COMPRESSED_REP: r.countCompressed++; break;
+        for (auto& sym : uniqueSymbols) {
+            switch (t.representationOf(sym)) {
+                case budgetsym::v4::Rep::INLINE_REP:     r.countInline++;    break;
+                case budgetsym::v4::Rep::INTERNED_REP:   r.countInterned++;  break;
+                case budgetsym::v4::Rep::COMPRESSED_REP: r.countCompressed++; break;
+            }
         }
     }
+
+    std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
+    std::vector<double> repInsP50, repInsP95, repInsP99, repInsMean;
+
+    for (int rep = 0; rep < numReps; ++rep) {
+        budgetsym::v4::SymTabV4<> t(0);
+        std::vector<double> insSamples;
+        std::vector<double> lookupSamples;
+
+        for (auto& ev : events) {
+            if (ev.kind == Event::ENTER_SCOPE) {
+                t.enterScope();
+            } else if (ev.kind == Event::EXIT_SCOPE) {
+                t.exitScope();
+            } else if (ev.kind == Event::DECLARE) {
+                auto a = timer.now();
+                volatile int id = t.insert(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                insSamples.push_back(timer.microsecondsBetween(a, b));
+            } else if (ev.kind == Event::USE) {
+                auto a = timer.now();
+                volatile int id = t.resolve(ev.symbol);
+                auto b = timer.now();
+                (void)id;
+                lookupSamples.push_back(timer.microsecondsBetween(a, b));
+                t.recordAccess(ev.symbol);
+            }
+        }
+
+        repLookupP50.push_back(pctile(lookupSamples, 0.50));
+        repLookupP95.push_back(pctile(lookupSamples, 0.95));
+        repLookupP99.push_back(pctile(lookupSamples, 0.99));
+        repLookupMean.push_back(vmean(lookupSamples));
+
+        repInsP50.push_back(pctile(insSamples, 0.50));
+        repInsP95.push_back(pctile(insSamples, 0.95));
+        repInsP99.push_back(pctile(insSamples, 0.99));
+        repInsMean.push_back(vmean(insSamples));
+    }
+
+    r.lookupP50Us  = pctile(repLookupP50, 0.50);
+    r.lookupP95Us  = pctile(repLookupP95, 0.50);
+    r.lookupP99Us  = pctile(repLookupP99, 0.50);
+    r.lookupMeanUs = vmean(repLookupMean);
+
+    r.insertP50Us  = pctile(repInsP50, 0.50);
+    r.insertP95Us  = pctile(repInsP95, 0.50);
+    r.insertP99Us  = pctile(repInsP99, 0.50);
+    r.insertMeanUs = vmean(repInsMean);
+
+    r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
+    r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
 
     return r;
 }
@@ -486,7 +674,9 @@ static void writeHeader(std::ofstream& out) {
            "lookup_p50_us,lookup_p95_us,lookup_p99_us,lookup_mean_us,"
            "insert_p50_us,insert_p95_us,insert_p99_us,insert_mean_us,"
            "promotions,demotions,reconstruction_count,reconstruction_steps_total,"
-           "mean_reconstruction_depth,count_inline,count_interned,count_compressed\n";
+           "mean_reconstruction_depth,count_inline,count_interned,count_compressed,"
+           "lookup_inline_count,lookup_interned_count,lookup_compressed_count,"
+           "timing_reps,lookup_p95_stddev_us,lookup_mean_stddev_us\n";
 }
 
 static void writeRow(std::ofstream& out, const CorpusBenchRow& r) {
@@ -498,10 +688,18 @@ static void writeRow(std::ofstream& out, const CorpusBenchRow& r) {
         << r.insertP50Us << "," << r.insertP95Us << "," << r.insertP99Us << "," << r.insertMeanUs << ","
         << r.promotions << "," << r.demotions << ","
         << r.reconCount << "," << r.reconSteps << "," << r.reconDepth << ","
-        << r.countInline << "," << r.countInterned << "," << r.countCompressed << "\n";
+        << r.countInline << "," << r.countInterned << "," << r.countCompressed << ","
+        << r.lookupInlineCount << "," << r.lookupInternedCount << "," << r.lookupCompressedCount << ","
+        << r.timingReps << "," << r.lookupP95StddevUs << "," << r.lookupMeanStddevUs << "\n";
 }
 
-int main() {
+int main(int argc, char** argv) {
+    int defaultReps = 3;
+    if (argc > 1) {
+        defaultReps = std::atoi(argv[1]);
+        if (defaultReps < 1) defaultReps = 1;
+    }
+
     HiResTimer timer;
 
     std::ofstream out("data/real_world_benchmark.csv");
@@ -515,7 +713,7 @@ int main() {
                                          "cJSON", "curl", "FFmpeg", "LLVM", "mbedTLS", "Nginx", "protobuf-c", "QEMU", "Redis", "SQLite",
                                          "nanopb", "TinyUSB", "LVGL", "OpenThread", "MbedTLS2", "CMSIS"};
 
-    std::cout << "=== Running Representative Real-World Corpus Benchmark ===\n";
+    std::cout << "=== Running Representative Real-World Corpus Benchmark (Reps: " << defaultReps << ") ===\n";
 
     for (auto& corpus : corpora) {
         std::string eventFile = "data/corpus_events_" + corpus + ".txt";
@@ -530,36 +728,43 @@ int main() {
         }
         std::cout << events.size() << " events loaded\n";
 
-        auto convRow = runTable<ConventionalSymbolTable>(timer, corpus, "Conventional", events);
+        // Adaptive reps for very large workloads vs micro workloads
+        int reps = defaultReps;
+        if (events.size() > 500000) reps = std::max(2, defaultReps - 1);
+        if (events.size() < 20000)  reps = std::max(5, defaultReps + 2);
+
+        auto convRow = runTable<ConventionalSymbolTable>(timer, corpus, "Conventional", events, reps);
         writeRow(out, convRow);
-        std::cout << "  Conventional: heap=" << convRow.measuredFinalHeapBytes << "B, lookup_p50=" << convRow.lookupP50Us << "us\n";
 
-        auto intRow = runTable<InternedSymbolTable>(timer, corpus, "Interned", events);
+        auto intRow = runTable<InternedSymbolTable>(timer, corpus, "Interned", events, reps);
         writeRow(out, intRow);
-        std::cout << "  Interned    : heap=" << intRow.measuredFinalHeapBytes << "B, lookup_p50=" << intRow.lookupP50Us << "us\n";
 
-        auto heapStrRow = runTable<ConventionalHeapStringSymbolTable>(timer, corpus, "Conventional-HeapString", events);
+        auto heapStrRow = runTable<ConventionalHeapStringSymbolTable>(timer, corpus, "Conventional-HeapString", events, reps);
         writeRow(out, heapStrRow);
-        std::cout << "  Conv-HeapStr: heap=" << heapStrRow.measuredFinalHeapBytes << "B, lookup_p50=" << heapStrRow.lookupP50Us << "us\n";
 
-        auto v1Row = runV1(timer, corpus, events);
+        auto v1Row = runV1(timer, corpus, events, reps);
         writeRow(out, v1Row);
-        std::cout << "  BudgetSymV1 : heap=" << v1Row.measuredFinalHeapBytes << "B, lookup_p50=" << v1Row.lookupP50Us << "us\n";
 
-        auto v2Row = runV2(timer, corpus, events);
+        auto v2Row = runV2(timer, corpus, events, reps);
         writeRow(out, v2Row);
 
-        auto v3Row = runV3(timer, corpus, events);
+        auto v3Row = runV3(timer, corpus, events, reps);
         writeRow(out, v3Row);
-        std::cout << "  SymTabV2    : heap=" << v2Row.measuredFinalHeapBytes << "B, lookup_p50=" << v2Row.lookupP50Us << "us\n";
-        std::cout << "  SymTabV3    : heap=" << v3Row.measuredFinalHeapBytes << "B, lookup_p50=" << v3Row.lookupP50Us << "us\n";
 
-        auto v4Row = runV4(timer, corpus, events);
+        auto v4Row = runV4(timer, corpus, events, reps);
         writeRow(out, v4Row);
-        std::cout << "  SymTabV4    : heap=" << v4Row.measuredFinalHeapBytes << "B, lookup_p50=" << v4Row.lookupP50Us << "us\n";
+
+        std::cout << "  Conventional: heap=" << convRow.measuredFinalHeapBytes << "B, lookup_p50=" << convRow.lookupP50Us << "us (p95=" << convRow.lookupP95Us << "us)\n";
+        std::cout << "  SymTabV3    : heap=" << v3Row.measuredFinalHeapBytes << "B, lookup_p50=" << v3Row.lookupP50Us << "us (p95=" << v3Row.lookupP95Us << "us, recon=" << v3Row.reconCount << ")\n";
     }
 
     out.flush();
     std::cout << "\nWrote data/real_world_benchmark.csv\n";
+
+    // Mirror to results/real_world_benchmark.csv
+    std::ifstream src("data/real_world_benchmark.csv");
+    std::ofstream dst("results/real_world_benchmark.csv");
+    if (src && dst) dst << src.rdbuf();
+
     return 0;
 }

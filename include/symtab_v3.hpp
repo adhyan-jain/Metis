@@ -305,6 +305,10 @@ public:
         for (auto it = scopes_.rbegin(); it != scopes_.rend(); ++it) {
             uint32_t slotId = it->index.find(fp, [&](uint32_t id) { return nameEquals(id, name); }, cfg_.disableFingerprints);
             if (slotId != UINT32_MAX) {
+                if (entries_[slotId].representation == Rep::INLINE_REP) inlineLookups_++;
+                else if (entries_[slotId].representation == Rep::INTERNED_REP) internedLookups_++;
+                else if (entries_[slotId].representation == Rep::COMPRESSED_REP) compressedLookups_++;
+
                 if (entries_[slotId].accessCount < UINT16_MAX) entries_[slotId].accessCount++;
                 entries_[slotId].lastAccessEpoch = epoch_;
                 maybePromote(slotId, name);
@@ -340,6 +344,9 @@ public:
     size_t demotions() const { return demotions_; }
     size_t reconstructionCount() const { return reconstructions_; }
     size_t reconstructionStepsTotal() const { return reconstructionSteps_; }
+    size_t inlineLookups() const { return inlineLookups_; }
+    size_t internedLookups() const { return internedLookups_; }
+    size_t compressedLookups() const { return compressedLookups_; }
 
     Rep representationOf(const std::string& name) const {
         uint32_t fp = fingerprint(name);
@@ -671,6 +678,9 @@ protected:
     uint32_t openBlock_ = UINT32_MAX;
     mutable size_t reconstructions_ = 0;
     mutable size_t reconstructionSteps_ = 0;
+    mutable size_t inlineLookups_ = 0;
+    mutable size_t internedLookups_ = 0;
+    mutable size_t compressedLookups_ = 0;
 
     std::vector<Scope> scopes_;
     int nextDeclId_ = 0;

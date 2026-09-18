@@ -2,6 +2,8 @@
 *.exe
 *.o
 *.obj
+bin/
+build/
 tests/smoke_test.exe
 
 # Python & Virtualenv
