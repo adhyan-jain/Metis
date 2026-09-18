@@ -50,7 +50,7 @@ export function Navbar() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-mono font-bold text-[15px] text-slate-900 tracking-tight">
-                  BUDGET-SYM
+                  Metis
                 </span>
                 <span className="hidden sm:inline px-1.5 py-0.5 rounded-full text-[9px] font-mono font-semibold uppercase tracking-wider bg-teal-50 text-teal-700 border border-teal-200">
                   Prototype

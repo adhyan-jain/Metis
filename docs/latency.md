@@ -52,7 +52,7 @@ of the adaptive-policy logic.
 Cost: roughly `(256 - 64)` extra cache-entry slots per `BudgetSym` instance
 (each entry is a 64-bit hash, a `std::string` name, and a `void*` --
 on the order of a few KB total, not charged against the tracked-memory
-model; see Threats to Validity item 2 in `budget_sym_v2.tex`).
+model; see Threats to Validity item 2 in `metis_v2.tex`).
 
 `tests/smoke_test.cpp`'s
 `test_lookup_cache_handles_hot_set_larger_than_old_capacity` encodes the

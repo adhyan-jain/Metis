@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BUDGET-SYM — Adaptive Symbol Table Research Dashboard",
+  title: "Metis — Adaptive Symbol Table Research Dashboard",
   description:
     "An adaptive, scope-aware symbol table for memory-bounded embedded compilation. Live benchmark metrics, ablation study, and a real compiler-backed playground.",
 };
@@ -35,7 +35,7 @@ export default function RootLayout({
           </main>
           <footer className="border-t border-slate-200 bg-white/60 text-slate-400 py-6 px-4 text-center font-mono text-xs">
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div>BUDGET-SYM — Adaptive Symbol Table Research Prototype</div>
+              <div>Metis — Adaptive Symbol Table Research Prototype</div>
               <div className="flex items-center gap-3 text-[11px]">
                 <span>Real data from results/*.csv</span>
                 <span>·</span>

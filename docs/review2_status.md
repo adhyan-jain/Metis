@@ -48,7 +48,7 @@ context.
 
 ## Not done — blocked on you
 
-**PDF recompilation is the one remaining checklist item.** `budget_sym_v2.tex`
+**PDF recompilation is the one remaining checklist item.** `metis_v2.tex`
 now has all the content the PRD requires (all 7 tables), but this machine
 has no `pdflatex`, and installing it needs an interactive sudo password the
 agent can't supply. This machine is **Arch Linux**, so the install command
@@ -61,17 +61,17 @@ sudo pacman -S texlive-basic texlive-bin texlive-latexextra texlive-publishers t
 Once installed, compile with:
 
 ```
-pdflatex budget_sym_v2.tex
-pdflatex budget_sym_v2.tex   # twice, for cross-references
+pdflatex metis_v2.tex
+pdflatex metis_v2.tex   # twice, for cross-references
 ```
 
 Then verify all 7 tables (I through VII) are present, e.g.:
 
 ```
-pdftotext budget_sym_v2.pdf - | grep -c "^TABLE"
+pdftotext metis_v2.pdf - | grep -c "^TABLE"
 ```
 
-...and replace the stale `BUDGET_SYM_v2_IEEE.pdf` (dated before all this
+...and replace the stale `Metis_v2_IEEE.pdf` (dated before all this
 session's `.tex` edits) with the freshly compiled one.
 
 ## Known pre-existing gap (not introduced this session, worth fixing if picked up)
@@ -86,7 +86,7 @@ system-wide matplotlib.
 
 ## Files changed this session
 
-- `budget_sym_v2.tex` -- real corpus numbers + Table III + Table VII
+- `metis_v2.tex` -- real corpus numbers + Table III + Table VII
 - `docs/corpus_setup.md` -- dropped stale no-internet note
 - `scripts/train_threshold_predictor.py` -- 7-model comparison + feature ablation
 - `src/benchmark_main.cpp` -- v3 CSV schema completed

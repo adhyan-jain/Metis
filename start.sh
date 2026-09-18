@@ -16,5 +16,5 @@ if [ ! -d node_modules ]; then
 fi
 
 echo ""
-echo "== Starting BUDGET-SYM dashboard on http://localhost:3000 =="
+echo "== Starting Metis dashboard on http://localhost:3000 =="
 npm run dev

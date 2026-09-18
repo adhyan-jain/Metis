@@ -1,4 +1,4 @@
-# BUDGET-SYM
+# Metis
 
 **An Adaptive Scope-Aware Symbol Table for Memory-Bounded Embedded Compilation**
 
@@ -132,7 +132,7 @@ results/                       All generated measured data -- see docs/architect
 figures/                       PNG charts generated from results CSVs
 docs/                          Research gap, novelty, methodology, architecture, experiment plan, Q&A,
                                  corpus setup, and docs/review2_status.md (Review-2 handoff status)
-budget_sym_v2.tex               IEEE paper source (Review-2), compiled to BUDGET_SYM_v2_IEEE.pdf
+metis_v2.tex                    IEEE paper source (Review-2), compiled to Metis_v2_IEEE.pdf
 DEMO.md                        5-minute presentation plan for faculty review
 ```
 

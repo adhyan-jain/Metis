@@ -59,7 +59,7 @@ export default function DashboardHome() {
               </span>
             </div>
             <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight">
-              BUDGET-SYM
+              Metis
             </h1>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
               The Memory-Constrained Compressed Symbol Table for Embedded Compilers — an

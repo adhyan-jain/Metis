@@ -1,6 +1,6 @@
-# BUDGET-SYM Frontend Dashboard & Live Simulator
+# Metis Frontend Dashboard & Live Simulator
 
-This is the Next.js 16 + React 19 + Tailwind CSS web dashboard and client-side simulator for **BUDGET-SYM** (an adaptive scope-aware symbol table for embedded compilers).
+This is the Next.js 16 + React 19 + Tailwind CSS web dashboard and client-side simulator for **Metis** (an adaptive scope-aware symbol table for embedded compilers).
 
 ## Getting Started
 

@@ -12,7 +12,7 @@
 This audit incorporates the complete evaluation results across all embedded workloads, 20 host software corpora, controlled synthetic microbenchmarks A–F, and theoretical break-even derivations:
 
 1. **Root Specifications**: `CLAUDE_RESEARCH.md`, `README.md`, PRD specifications.
-2. **Manuscript**: `budget_sym_v2.tex`, `budget_sym_v2.pdf`.
+2. **Manuscript**: `metis_v2.tex`, `metis_v2.pdf`.
 3. **Canonical Datasets**: [results/embedded_benchmark.csv](file:///home/adhyan/Desktop/Compiler/results/embedded_benchmark.csv), [data/real_world_benchmark.csv](file:///home/adhyan/Desktop/Compiler/data/real_world_benchmark.csv), [results/synthetic_experiments_A_F.csv](file:///home/adhyan/Desktop/Compiler/results/synthetic_experiments_A_F.csv).
 
 ---

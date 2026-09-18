@@ -21,7 +21,7 @@ in pure Python for 300 workloads (4.5M dataset x config combinations) is not
 compute-tractable for an offline training script. This script instead uses a
 144-combination reduced grid (3x3x2x2x2x2) per workload -- still a genuine
 sweep of all six thresholds, just coarser than the C++ tool's. This is a
-documented trade-off, not a hidden one; see budget_sym_v2.tex Section VIII-F.
+documented trade-off, not a hidden one; see metis_v2.tex Section VIII-F.
 """
 import csv
 import math

@@ -1,4 +1,4 @@
-# BUDGET-SYM — Product Requirements Document
+# Metis — Product Requirements Document
 **Adaptive Memory-Budget-Aware Symbol Table for Embedded Compilers**
 **Version:** Review-2 (Active) / Review-3 (Planned)
 **Repo:** https://github.com/adhyan-jain/Metis

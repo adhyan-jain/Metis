@@ -3,7 +3,7 @@
 **Status: done.** This has been run end-to-end in this repo -- `corpora/`
 (gitignored, not committed) currently holds real checkouts of all three
 codebases, and `results/corpus_results.csv` holds the real measured numbers
-that back Section VIII-F of `budget_sym_v2.tex`. An earlier revision of this
+that back Section VIII-F of `metis_v2.tex`. An earlier revision of this
 doc said "this sandbox has no internet access" -- that was true in an
 earlier session but is not a permanent constraint; the steps below were
 re-run successfully once network access was available. If you're picking

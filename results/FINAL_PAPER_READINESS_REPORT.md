@@ -1,7 +1,7 @@
 # FINAL PAPER READINESS REPORT
 
 **Target Repository**: `adhyan-jain/Metis`  
-**Manuscript**: `budget_sym_v2.tex` / `budget_sym_v2.pdf`  
+**Manuscript**: `metis_v2.tex` / `metis_v2.pdf`  
 **Date of Verification**: September 17, 2026  
 **Audit Engine**: Automated Antigravity Scientific Verification Engine  
 
@@ -58,4 +58,4 @@ The defensible scientific contribution is the **first closed-form analytical cos
 
 **VERDICT: READY FOR SUBMISSION.**
 
-All code builds cleanly, all 3 test suites pass, the paper compiles cleanly to PDF (`budget_sym_v2.pdf`), all quantitative figures and tables trace to the canonical dataset (`results/CANONICAL_FINAL_DATASET.csv`), all literature references are verified scholarly sources, and no ungrounded promotional claims remain.
+All code builds cleanly, all 3 test suites pass, the paper compiles cleanly to PDF (`metis_v2.pdf`), all quantitative figures and tables trace to the canonical dataset (`results/CANONICAL_FINAL_DATASET.csv`), all literature references are verified scholarly sources, and no ungrounded promotional claims remain.
