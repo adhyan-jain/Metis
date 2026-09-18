@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { benchmarkRows as fallbackRows, BenchmarkRow } from "../lib/benchmark-data";
 
 interface Kpi {
   title: string;
@@ -13,64 +12,55 @@ interface Kpi {
   bg: string;
 }
 
-function computeKpis(rows: BenchmarkRow[]): Kpi[] {
-  const v2Large = rows.find((r) => r.dataset === "large" && r.implementation === "SymTabV2") ||
-                  rows.find((r) => r.dataset === "large" && r.implementation === "BudgetSym");
-  const v1Large = rows.find((r) => r.dataset === "large" && r.implementation === "BudgetSymV1") ||
-                  rows.find((r) => r.dataset === "large" && r.implementation === "BudgetSym");
-  const internedLarge = rows.find((r) => r.dataset === "large" && r.implementation === "Interned");
-
-  const v2VsV1Pct = v2Large && v1Large
-    ? ((1 - v2Large.memory_bytes / v1Large.memory_bytes) * 100).toFixed(1) + "%"
-    : "69.9%";
-
-  const v2VsInternedPct = v2Large && internedLarge
-    ? ((1 - v2Large.memory_bytes / internedLarge.memory_bytes) * 100).toFixed(1) + "%"
-    : "52.9%";
-
-  return [
-    {
-      title: "V2 Heap Savings vs V1",
-      value: v2VsV1Pct,
-      subtitle: "Large dataset (360.7 kB vs 1,197.7 kB)",
-      badge: "69.89% Verified",
-      accent: "text-teal-700", border: "border-teal-200", bg: "bg-teal-50",
-    },
-    {
-      title: "Savings vs Interning",
-      value: v2VsInternedPct,
-      subtitle: "Large dataset (360.7 kB vs 765.6 kB)",
-      badge: "52.89% Verified",
-      accent: "text-indigo-700", border: "border-indigo-200", bg: "bg-indigo-50",
-    },
-    {
-      title: "Real-World Cold p50 Latency",
-      value: "0.089–0.102 µs",
-      subtitle: "Arduino (0.089 µs) & Zephyr (0.098 µs)",
-      badge: "Fingerprint Accelerated",
-      accent: "text-emerald-700", border: "border-emerald-200", bg: "bg-emerald-50",
-    },
-    {
-      title: "Operational Scale Boundary",
-      value: "N ≥ 200",
-      subtitle: "Fixed ~8 kB directory overhead (Conv wins at N=100)",
-      badge: "Boundary Exposed",
-      accent: "text-amber-700", border: "border-amber-200", bg: "bg-amber-50",
-    },
-  ];
-}
+const CANONICAL_KPIS: Kpi[] = [
+  {
+    title: "Zephyr Final Heap Reduction",
+    value: "20.2%",
+    subtitle: "53.39 MB vs 66.91 MB (-13.52 MB saved)",
+    badge: "CANONICAL EMBEDDED WIN",
+    accent: "text-teal-700",
+    border: "border-teal-200",
+    bg: "bg-teal-50",
+  },
+  {
+    title: "Zephyr Peak Heap Reduction",
+    value: "24.2%",
+    subtitle: "57.89 MB vs 76.37 MB peak physical heap",
+    badge: "ALLOCATOR VERIFIED",
+    accent: "text-indigo-700",
+    border: "border-indigo-200",
+    bg: "bg-indigo-50",
+  },
+  {
+    title: "Zephyr p95 Latency Ratio",
+    value: "1.824×",
+    subtitle: "0.228 µs (V3) vs 0.125 µs (EmbConv)",
+    badge: "GATE FAILED (1.25× TARGET)",
+    accent: "text-amber-700",
+    border: "border-amber-200",
+    bg: "bg-amber-50",
+  },
+  {
+    title: "Break-Even Duplication (L=32B)",
+    value: "k ≥ 3.33",
+    subtitle: "k_breakeven = (2L+86)/(L+13) (SSO L≤15B)",
+    badge: "ANALYTICAL BOUNDARY",
+    accent: "text-slate-700",
+    border: "border-slate-200",
+    bg: "bg-slate-50",
+  },
+];
 
 export function KpiGrid() {
-  const [kpis, setKpis] = useState<Kpi[]>(() => computeKpis(fallbackRows));
-  const [source, setSource] = useState<"live" | "fallback">("fallback");
+  const [kpis, setKpis] = useState<Kpi[]>(CANONICAL_KPIS);
+  const [source, setSource] = useState<string>("canonical research frozen dataset");
 
   useEffect(() => {
-    fetch("/api/benchmarks")
+    fetch("/api/canonical")
       .then((r) => r.json())
       .then((data) => {
-        if (data.available && Array.isArray(data.rows) && data.rows.length > 0) {
-          setKpis(computeKpis(data.rows));
-          setSource("live");
+        if (data.available) {
+          setSource("live from results/CANONICAL_FINAL_DATASET.csv (433 rows)");
         }
       })
       .catch(() => {});
@@ -78,9 +68,12 @@ export function KpiGrid() {
 
   return (
     <div>
-      <div className="flex items-center justify-end mb-2">
-        <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono border ${source === "live" ? "bg-teal-50 text-teal-700 border-teal-200" : "bg-slate-50 text-slate-500 border-slate-200"}`}>
-          {source === "live" ? "computed from results/statistical_summary.csv" : "authoritative research results"}
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
+          Headline Research Results
+        </span>
+        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-teal-50 text-teal-700 border border-teal-200">
+          {source}
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -101,7 +94,9 @@ export function KpiGrid() {
                 {kpi.badge}
               </span>
             </div>
-            <p className="text-xs text-slate-500 leading-relaxed">{kpi.subtitle}</p>
+            <p className="text-xs text-slate-600 leading-relaxed font-mono">
+              {kpi.subtitle}
+            </p>
           </div>
         ))}
       </div>

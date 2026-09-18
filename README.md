@@ -1,160 +1,130 @@
-# Metis
+# METIS: Memory-Constrained Adaptive Symbol-Table Architecture
 
-**An Adaptive Scope-Aware Symbol Table for Memory-Bounded Embedded Compilation**
+[![Build & Reproduce](https://img.shields.io/badge/reproducibility-automated-teal.svg)](./reproduce_all.sh)
+[![Paper](https://img.shields.io/badge/paper-IEEE%20PDF-blue.svg)](./Metis_v2_IEEE.pdf)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-A prototype (not a claim of theoretical optimality -- see `docs/novelty.md`)
-compiler symbol table that picks, per identifier, between three storage
-representations -- **INLINE**, **INTERNED**, **COMPRESSED** -- based on live
-memory pressure, scope/lifetime, exact-repeat status, prefix similarity to
-the previous declaration, and observed access frequency (with runtime
-promotion once an entry proves "hot"). Benchmarked against two baselines
-(`ConventionalSymbolTable`, `InternedSymbolTable`) on 8 synthetic datasets,
-and ablated to isolate which mechanism contributes how much of the result.
-Every number in `results/` and `figures/` comes from actually running this
-code -- see `docs/methodology.md` for the exact accounting model and two real
-toolchain bugs caught and fixed while building this.
+**METIS** is a research compiler symbol-table architecture that investigates the memory and latency boundaries of adaptive name representations under embedded resource constraints. Rather than storing all symbol names uniformly, METIS dynamically assigns identifiers to **INLINE**, **INTERNED**, or front-coded **COMPRESSED** representations based on identifier length, duplication, scope lifetime, and access frequency.
 
 ---
 
-## Quick Start & Running Commands
+## Central Research Question
 
-### ⚙️ Backend (C++ Compiler Engine & Python Environment)
-
-#### 1. Build and Run All C++ Components & Plotting
-Run the comprehensive build script to compile all C++ binaries, execute tests, run benchmarks, and generate visualization plots:
-
-```bash
-./build.sh
-```
-
-#### 2. Running C++ Components Individually
-
-- **Correctness Smoke Tests**:
-  ```bash
-  g++ -std=c++14 -O2 -Wall -Wextra tests/smoke_test.cpp -o tests/smoke_test.exe && ./tests/smoke_test.exe
-  ```
-- **Interactive Live Walkthrough Demo**:
-  ```bash
-  g++ -std=c++14 -O2 -Wall -Wextra src/demo_main.cpp -o budget_sym_demo.exe && ./budget_sym_demo.exe
-  ```
-- **Benchmark Suite** (generates `results/benchmark_results.csv` across 8 datasets):
-  ```bash
-  g++ -std=c++14 -O2 -Wall -Wextra src/benchmark_main.cpp -o benchmark.exe && ./benchmark.exe
-  ```
-- **Ablation Suite** (generates `results/ablation_results.csv` isolating mechanisms):
-  ```bash
-  g++ -std=c++14 -O2 -Wall -Wextra src/ablation_main.cpp -o ablation.exe && ./ablation.exe
-  ```
-
-#### 3. Python Plotting & Virtual Environment
-
-Set up the Python virtual environment and run the plot generator script:
-
-```bash
-# Create virtual environment & install dependencies
-python3 -m venv venv
-./venv/bin/pip install -r requirements.txt
-
-# Generate PNG charts in figures/ from CSV results
-./venv/bin/python3 scripts/plot_results.py
-```
+> *"Under what workload conditions can adaptive symbol-table name representations overcome the structural memory efficiency of an embedded conventional hash-table baseline while satisfying a latency constraint?"*
 
 ---
 
-### 💻 Frontend (Next.js Interactive Web Dashboard)
+## Architectural Mechanisms
 
-The project includes a Next.js 16 + React 19 + Tailwind CSS web dashboard and live client-side symbol table simulator.
+METIS (`SymTabV3`) integrates five core mechanisms to compact symbol storage while preserving sub-microsecond lookup throughput:
 
-#### Commands to Run the Frontend:
+1. **3-Tier Representation Routing**:
+   - **\textsc{Inline}**: Short identifiers ($\le 12$\,B) reside entirely within the 32-byte slot union (`inlineBytes[12]`), incurring zero secondary heap allocations.
+   - **\textsc{Interned}**: Duplicated or hot symbols reference a global string pool via a 4-byte pool index.
+   - **\textsc{Compressed}**: Long, cold identifiers are stored using front-coded block compression ($B=32$, anchor interval $A=8$).
+2. **Scope-Lifetime Slot Recycling**: Immediate LIFO recycling of slots on scope exit (`exitScope()`), preventing heap fragmentation during lexical tree traversal.
+3. **1-Byte Hash Fingerprints (`fp8`)**: Open-addressing slot indexing filters non-matching lookups in $O(1)$ time before attempting name comparison or decompression.
+4. **Zero-Allocation Stack Buffer Decoding**: Compressed string reconstruction unpacks prefix/suffix slices directly into a stack-allocated buffer (`char stackBuf[512]`) via fast `memcpy`, eliminating dynamic heap allocations on the lookup path.
+5. **Direct Anchor Index Calculation**: Anchors are computed in $O(1)$ time via arithmetic indexing ($\text{start} = \text{slot} - (\text{slot} \pmod A)$), removing backward scan loops.
+
+---
+
+## Canonical Empirical Results
+
+The authoritative dataset is frozen in [`results/CANONICAL_FINAL_DATASET.csv`](./results/CANONICAL_FINAL_DATASET.csv) (433 configurations), measured using physical allocator profiling (`malloc_usable_size`).
+
+### Embedded Evaluation Benchmark
+
+| Workload | Unique Symbols | Metric | EmbeddedConventional | SymTabV3 (Proposed) | Difference / Outcome |
+| :--- | :---: | :--- | :---: | :---: | :---: |
+| **FreeRTOS** | 10,386 | Final Heap<br>Peak Heap<br>Lookup $p_{50}$<br>Lookup $p_{95}$ | 3.89 MB<br>4.23 MB<br>0.051 $\mu$s<br>0.094 $\mu$s | 4.72 MB<br>4.78 MB<br>0.071 $\mu$s<br>0.277 $\mu$s | +21.2% (Conv wins)<br>+13.0%<br>0.071 $\mu$s<br>Gate FAIL ($2.95\times$) |
+| **Arduino** | 11,000 | Final Heap<br>Peak Heap<br>Lookup $p_{50}$<br>Lookup $p_{95}$ | 2.27 MB<br>2.31 MB<br>0.046 $\mu$s<br>0.089 $\mu$s | 2.99 MB<br>2.99 MB<br>0.061 $\mu$s<br>0.171 $\mu$s | +31.7% (Conv wins)<br>+29.4%<br>0.061 $\mu$s<br>Gate FAIL ($1.92\times$) |
+| **Zephyr** | **228,739** | **Final Heap**<br>**Peak Heap**<br>Lookup $p_{50}$<br>**Lookup $p_{95}$** | **66.91 MB**<br>**76.37 MB**<br>0.050 $\mu$s<br>**0.125 $\mu$s** | **53.39 MB**<br>**57.89 MB**<br>0.066 $\mu$s<br>**0.228 $\mu$s** | **-20.2% (-13.52 MB)**<br>**-24.2% (-18.48 MB)**<br>0.066 $\mu$s<br>**Gate FAIL ($1.824\times$)** |
+| **ESP-IDF** | 231,075 | Final Heap<br>Peak Heap<br>Lookup $p_{50}$<br>Lookup $p_{95}$ | 67.82 MB<br>75.77 MB<br>0.061 $\mu$s<br>0.236 $\mu$s | 81.91 MB<br>89.36 MB<br>0.079 $\mu$s<br>0.297 $\mu$s | +20.8% (Conv wins)<br>+17.9%<br>0.079 $\mu$s<br>Gate FAIL ($1.26\times$) |
+
+### Summary of Key Findings
+
+1. **Physical Memory Victory on Zephyr**: On large-scale embedded codebases ($N=2.6\text{M}$ events, 228k unique names), METIS achieves a **20.2% final heap reduction (13.52 MB saved)** and **24.2% peak heap reduction** relative to `EmbeddedConventional`.
+2. **Tail-Latency Trade-off & Gate Failure**: On Zephyr, median lookup remains sub-microsecond ($p_{50} = 0.066\,\mu\text{s}$), but $p_{95}$ latency is $0.228\,\mu\text{s}$ vs $0.125\,\mu\text{s}$ for `EmbeddedConventional` ($1.824\times$). METIS **fails the $1.25\times$ $p_{95}$ latency constraint** due to front-coded prefix/suffix reconstruction copy work.
+3. **SSO Boundary for Short Names ($L \le 15$\,B)**: Conventional hash tables storing names with Short String Optimization (SSO) incur 0 secondary heap bytes. The analytical break-even duplication ratio $k_{\text{breakeven}} < 0$, proving Conventional is structurally unbeatable on short names.
+4. **Long-Identifier Break-Even Model ($L > 15$\,B)**: Interning and adaptive compression beat Conventional when:
+   $$k > k_{\text{breakeven}}(L) = \frac{2L + 86}{L + 13}$$
+   At $L=32$\,B, break-even occurs at $k \approx 3.33$, confirmed empirically by Synthetic Experiment D2.
+5. **Disclosed Negative Result (`SymTabV4`)**: Moving metadata fields out of core entries into sparse side tables saves 8\,B on inline entries, but side-table container overheads ($T_{\text{table}}$) plus marginal entry costs ($\sim 34\text{--}57$\,B) exceed the savings across real identifier mixes (V4 loses to V3 on 19/20 real software corpora).
+
+---
+
+## End-to-End Reproduction
+
+The complete test suite, benchmark harnesses, dataset reconciliation, figure generation, and LaTeX manuscript build run via:
 
 ```bash
-# 1. Navigate to the frontend directory
+./reproduce_all.sh
+```
+
+### Script Execution Steps
+1. Compiles and executes correctness smoke tests and differential fuzzing tests (`tests/smoke_test.cpp`, `tests/differential_test.cpp`).
+2. Builds all C++ benchmark binaries (`bin/embedded_bench`, `bin/real_world_bench`, `bin/synthetic_experiments`, `bin/multiseed_v4`).
+3. Executes multi-repetition embedded benchmarks ($R=3$) with physical allocator heap profiling.
+4. Reconciles the master dataset (`scripts/reconcile_canonical_dataset.py` &rarr; `results/CANONICAL_FINAL_DATASET.csv`).
+5. Generates all 16 publication figures in `figures/`.
+6. Compiles the IEEE conference paper (`metis_v2.tex` &rarr; `Metis_v2_IEEE.pdf`).
+
+---
+
+## Interactive Visualization Dashboard
+
+A Next.js 16 + React 19 + Tailwind CSS research dashboard is provided in `frontend/`:
+
+```bash
 cd frontend
-
-# 2. Install dependencies (if not already installed)
 npm install
-
-# 3. Start the Development Server
 npm run dev
 ```
 
-Open your browser at `http://localhost:3000` (or `http://localhost:3001` if port 3000 is occupied) to view the application.
+Open `http://localhost:3000` to inspect interactive memory diagnostics, break-even models, 26-corpus workload explorers, and latency distributions.
 
-#### Production Build Commands:
+---
 
-```bash
-# Build production bundle
-cd frontend
-npm run build
+## Repository Structure
 
-# Start production server
-npm run start
+```
+├── include/                     # Header-only C++ implementations
+│   ├── symtab_v3.hpp            # Primary proposed architecture (SymTabV3)
+│   ├── embedded_conventional_symbol_table.hpp  # Embedded baseline (EmbeddedConventional)
+│   ├── conventional_symbol_table.hpp           # Host SSO baseline (ConventionalHost)
+│   ├── symtab_v4.hpp            # Disclosed negative result (side-table metadata)
+│   ├── heap_counter.hpp         # Physical allocator tracker (malloc_usable_size)
+│   └── common.hpp               # Shared types, hash fingerprints, and tokens
+├── src/                         # Benchmark and evaluation drivers
+│   ├── embedded_bench_main.cpp  # Multi-repetition embedded benchmark suite
+│   ├── real_world_bench_main.cpp# 20+ software corpora semantic event harness
+│   ├── synthetic_experiments_main.cpp # Controlled experiments A–F (30 seeds)
+│   └── multiseed_v4_main.cpp    # 30-seed V4 vs V3 statistical validation
+├── tests/                       # Correctness & fuzzing test suites
+│   ├── smoke_test.cpp           # Assert-based unit correctness test
+│   └── differential_test.cpp    # Cross-implementation differential fuzzing test
+├── scripts/                     # Python analysis and plotting scripts
+│   ├── reconcile_canonical_dataset.py # Reconciles CANONICAL_FINAL_DATASET.csv
+│   ├── plot_results.py          # Generates publication bar & latency charts
+│   ├── plot_pareto.py           # Generates memory vs latency Pareto frontiers
+│   └── generate_v4_evaluation_plots.py # Generates break-even curves & tables
+├── results/                     # Authoritative data and claim audit records
+│   ├── CANONICAL_FINAL_DATASET.csv # Master canonical dataset (433 rows)
+│   ├── CANONICAL_AUDIT_LOG.md   # Reconciliation log & provenance audit
+│   └── FINAL_CLAIMS_AUDIT.md    # 4-axis scientific claim classification
+├── figures/                     # 16 regenerated publication figures
+├── frontend/                    # Next.js research dashboard and simulator
+├── metis_v2.tex                 # IEEE conference manuscript source
+├── Metis_v2_IEEE.pdf            # Compiled publication paper
+└── reproduce_all.sh             # Master single-command reproduction script
 ```
 
 ---
 
-## Layout
+## Limitations and Boundary Conditions
 
-```
-include/                       Header-only C++ implementations
-  budget_sym.hpp                 Core adaptive symbol table (decide(), promotion, memoized reconstruction)
-  lookup_cache.hpp                Review-2: 64-entry LRU lookup cache
-  workload_profiler.hpp           Review-2: 5-feature workload profiler (100-symbol window)
-  predicted_thresholds.hpp        Review-2: GENERATED Ridge-regression threshold predictor (do not hand-edit)
-  conventional_symbol_table.hpp   Baseline #1
-  interned_symbol_table.hpp       Baseline #2
-  robinhood_symbol_table.hpp      Robin Hood open-addressing baseline, direct string-keyed (docs/robinhood.md)
-  trie_symbol_table.hpp           Shared-trie compression baseline (docs/trie.md)
-  hash_functions.hpp              FnvHash/Murmur3Hash/Djb2Hash -- swappable BudgetSymT<HashFn> backends
-  memory_tracker.hpp, hires_timer.hpp, dataset_generators.hpp, bench_metrics.hpp, common.hpp
-src/demo_main.cpp              -> budget_sym_demo.exe (live interactive demonstration)
-src/benchmark_main.cpp         -> benchmark.exe (8-dataset x implementation comparison; v3 pass adds
-                                   cache/ML-predicted variants -> results/benchmark_results_v3.csv)
-src/ablation_main.cpp          -> ablation.exe (4-variant mechanism isolation)
-src/grid_search_main.cpp       -> grid_search.exe (Review-2: 15,000-combination threshold sweep)
-src/multiseed_main.cpp         -> multiseed.exe (Review-2: 30-seed statistical validation)
-src/corpus_bench_main.cpp      -> corpus_bench.exe (Review-2: real-world corpus evaluation)
-src/cache_benchmark_main.cpp   -> cache_benchmark.exe (LRU cache on/off comparison, docs/caching.md)
-src/algorithm_benchmark_main.cpp -> algorithm_benchmark.exe (5-way hash/storage comparison, docs/algorithm_comparison.md)
-tests/smoke_test.cpp           -> tests/smoke_test.exe (assert-based correctness checks)
-scripts/
-  plot_results.py                CSV -> figures/*.png plot script (needs venv/'s matplotlib)
-  multiseed_stats.py              Computes 95% CI / p-values from multiseed_raw.csv
-  extract_identifiers.py          Review-2: tokenizes real .c/.h sources for corpus_bench.exe
-  train_threshold_predictor.py    Review-2: trains + compares 7 models, exports predicted_thresholds.hpp
-corpora/                        Review-2: real-world source trees (FreeRTOS/Arduino/Zephyr), gitignored
-                                 -- see docs/corpus_setup.md to (re)vendor them
-frontend/                      Next.js + React + Tailwind CSS web dashboard and live simulator
-venv/                          Python virtual environment (sklearn/numpy/pandas/scipy/matplotlib)
-requirements.txt               Python package dependencies
-results/                       All generated measured data -- see docs/architecture.md's component
-                                 map for which binary/script writes which CSV
-figures/                       PNG charts generated from results CSVs
-docs/                          Research gap, novelty, methodology, architecture, experiment plan, Q&A,
-                                 corpus setup, and docs/review2_status.md (Review-2 handoff status)
-metis_v2.tex                    IEEE paper source (Review-2), compiled to Metis_v2_IEEE.pdf
-DEMO.md                        5-minute presentation plan for faculty review
-```
-
-## Headline Result (from `results/benchmark_results.csv`)
-
-Across 8 datasets, BudgetSym's tracked-memory **compression ratio vs the
-conventional baseline** ranges from **1.24x** (`random-identifiers`, the
-least favorable case) to **2.37x** (`high-prefix-similarity`), beating plain
-string interning (which only reaches ~1.05x-1.07x on every dataset) in every
-single case. The cost: BudgetSym's insert is consistently the slowest of the
-three (more decision logic per symbol), and its lookup is somewhat slower
-than both baselines due to the hash-then-reconstruct lookup path every
-BudgetSym entry uses. This is a memory-for-latency trade, reported honestly
-in both directions -- not a strict win, and we don't present it as one. Full
-breakdown, including where the adaptive policy does and doesn't help, in
-`docs/novelty.md` and `docs/faculty_questions.md`.
-
-## What's Proposed vs. What's Established
-
-See `docs/research_gap.md` and `docs/novelty.md` for the full breakdown. In
-short: interning, front-coding, and scope-stack symbol tables are all
-existing techniques, used here as baselines or as one representation among
-three. The **proposed** part is the unified, budget/lifetime/frequency-aware
-policy that chooses between them per symbol, and that adapts the choice
-after insertion based on real access counts.
+1. **Host Workloads**: Conventional SSO hash tables remain optimal for host compilation workloads dominated by short identifiers ($L \le 15$\,B) and low duplication ($k < 1.5$).
+2. **Tail Latency Penalty**: Front-coded compressed representations require memory copying during decompression, leading to higher $p_{95}$ tail latencies that fail tight $1.25\times$ latency gates on embedded targets.
+3. **Global String Pool Persistence**: Interned strings remain in the global string pool for the duration of the compilation unit.
+4. **Empirical Cost Model Specificity**: The break-even equation $k_{\text{breakeven}} = (2L+86)/(L+13)$ is specific to the 64-bit C++ container layout and physical allocator alignment overheads.

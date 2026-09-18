@@ -1,179 +1,201 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { DATASETS as fallbackDatasets, benchmarkRows as fallbackRows, BenchmarkRow } from "../lib/benchmark-data";
 
-type MetricMode = "memory" | "per_symbol" | "ratio";
+interface EmbeddedRow {
+  corpus: string;
+  implementation: string;
+  unique_names: number;
+  measured_peak_heap_bytes: number;
+  measured_final_heap_bytes: number;
+  lookup_p50_us: number;
+  lookup_p95_us: number;
+  lookup_p99_us: number;
+  lookup_mean_us: number;
+}
+
+const CANONICAL_EMBEDDED_DATA: EmbeddedRow[] = [
+  { corpus: "FreeRTOS", implementation: "EmbeddedConventional", unique_names: 10386, measured_peak_heap_bytes: 4230000, measured_final_heap_bytes: 3890000, lookup_p50_us: 0.051, lookup_p95_us: 0.094, lookup_p99_us: 0.149, lookup_mean_us: 0.057 },
+  { corpus: "FreeRTOS", implementation: "SymTabV3", unique_names: 10386, measured_peak_heap_bytes: 4780000, measured_final_heap_bytes: 4720000, lookup_p50_us: 0.071, lookup_p95_us: 0.277, lookup_p99_us: 0.445, lookup_mean_us: 0.101 },
+  { corpus: "Arduino", implementation: "EmbeddedConventional", unique_names: 11000, measured_peak_heap_bytes: 2310000, measured_final_heap_bytes: 2270000, lookup_p50_us: 0.046, lookup_p95_us: 0.089, lookup_p99_us: 0.130, lookup_mean_us: 0.051 },
+  { corpus: "Arduino", implementation: "SymTabV3", unique_names: 11000, measured_peak_heap_bytes: 2990000, measured_final_heap_bytes: 2990000, lookup_p50_us: 0.061, lookup_p95_us: 0.171, lookup_p99_us: 0.356, lookup_mean_us: 0.077 },
+  { corpus: "Zephyr", implementation: "EmbeddedConventional", unique_names: 228739, measured_peak_heap_bytes: 76370000, measured_final_heap_bytes: 66910000, lookup_p50_us: 0.050, lookup_p95_us: 0.125, lookup_p99_us: 0.225, lookup_mean_us: 0.060 },
+  { corpus: "Zephyr", implementation: "SymTabV3", unique_names: 228739, measured_peak_heap_bytes: 57890000, measured_final_heap_bytes: 53390000, lookup_p50_us: 0.066, lookup_p95_us: 0.228, lookup_p99_us: 0.481, lookup_mean_us: 0.092 },
+  { corpus: "ESP-IDF", implementation: "EmbeddedConventional", unique_names: 231075, measured_peak_heap_bytes: 75770000, measured_final_heap_bytes: 67820000, lookup_p50_us: 0.061, lookup_p95_us: 0.236, lookup_p99_us: 0.374, lookup_mean_us: 0.086 },
+  { corpus: "ESP-IDF", implementation: "SymTabV3", unique_names: 231075, measured_peak_heap_bytes: 89360000, measured_final_heap_bytes: 81910000, lookup_p50_us: 0.079, lookup_p95_us: 0.297, lookup_p99_us: 0.712, lookup_mean_us: 0.113 },
+];
 
 export function BenchmarkCharts() {
-  const [metric, setMetric] = useState<MetricMode>("memory");
-  const [hoveredDataset, setHoveredDataset] = useState<string | null>(null);
-  const [rows, setRows] = useState<BenchmarkRow[]>(fallbackRows);
-  const [source, setSource] = useState<"live" | "fallback">("fallback");
+  const [rows, setRows] = useState<EmbeddedRow[]>(CANONICAL_EMBEDDED_DATA);
+  const [metricMode, setMetricMode] = useState<"final_heap" | "peak_heap" | "p95_latency">("final_heap");
 
   useEffect(() => {
-    fetch("/api/benchmarks")
+    fetch("/api/canonical")
       .then((r) => r.json())
       .then((data) => {
-        if (data.available && Array.isArray(data.rows) && data.rows.length > 0) {
-          setRows(data.rows);
-          setSource("live");
+        if (data.available && Array.isArray(data.embeddedRows) && data.embeddedRows.length > 0) {
+          const embRows: EmbeddedRow[] = data.embeddedRows.map((r: any) => ({
+            corpus: r.corpus,
+            implementation: r.implementation,
+            unique_names: Number(r.unique_names),
+            measured_peak_heap_bytes: Number(r.measured_peak_heap_bytes),
+            measured_final_heap_bytes: Number(r.measured_final_heap_bytes),
+            lookup_p50_us: Number(r.lookup_p50_us),
+            lookup_p95_us: Number(r.lookup_p95_us),
+            lookup_p99_us: Number(r.lookup_p99_us),
+            lookup_mean_us: Number(r.lookup_mean_us),
+          }));
+          setRows(embRows);
         }
       })
       .catch(() => {});
   }, []);
 
-  const datasets = source === "live" ? Array.from(new Set(rows.map((r) => r.dataset))) : fallbackDatasets;
-  const rowFor = (ds: string, impl: string) => rows.find((r) => r.dataset === ds && (r.implementation === impl || (impl === "SymTabV2" && r.implementation === "BudgetSym")));
+  const workloads = ["FreeRTOS", "Arduino", "Zephyr", "ESP-IDF"];
 
-  const getVal = (row: BenchmarkRow | undefined) => {
-    if (!row) return 0;
-    if (metric === "ratio") return row.compression_ratio;
-    if (metric === "memory") return row.memory_bytes;
-    return row.memory_per_symbol;
+  const getRow = (w: string, impl: string) => rows.find((r) => r.corpus === w && r.implementation === impl);
+
+  const formatBytes = (bytes: number) => {
+    if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    return `${(bytes / 1024).toFixed(1)} kB`;
   };
-
-  const getMaxVal = () => {
-    if (metric === "ratio") return Math.max(1.0, ...rows.map((r) => r.compression_ratio));
-    if (metric === "memory") return Math.max(1250000, ...rows.map((r) => r.memory_bytes));
-    return Math.max(250, ...rows.map((r) => r.memory_per_symbol));
-  };
-
-  const formatVal = (val: number) => {
-    if (metric === "ratio") return `${val.toFixed(2)}×`;
-    if (metric === "memory") return `${(val / 1024).toFixed(1)} kB`;
-    return `${val.toFixed(1)} B`;
-  };
-
-  const maxVal = getMaxVal();
 
   return (
-    <div className="panel p-6 rounded-2xl space-y-6">
-      {/* Header & Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
-        <div>
-          <h3 className="font-mono text-base font-semibold text-slate-900">
-            Synthetic Workload Analysis (N=30 Seeds Multi-Seed Validated)
-          </h3>
-          <p className="text-xs text-slate-500 mt-1">
-            Empirical heap memory comparison across Conventional, Interned, BudgetSym V1, and SymTab V2
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono border ${source === "live" ? "bg-teal-50 text-teal-700 border-teal-200" : "bg-slate-50 text-slate-500 border-slate-200"}`}>
-            {source === "live" ? "results/statistical_summary.csv" : "authoritative results"}
-          </span>
-          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200">
-            {([
-              { id: "memory", label: "Heap Bytes", accent: "indigo" },
-              { id: "per_symbol", label: "Bytes / Symbol", accent: "amber" },
-              { id: "ratio", label: "Relative Scale", accent: "teal" },
-            ] as const).map((opt) => (
-              <button
-                key={opt.id}
-                onClick={() => setMetric(opt.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                  metric === opt.id
-                    ? opt.accent === "teal"
-                      ? "bg-teal-50 text-teal-700 font-semibold border border-teal-200"
-                      : opt.accent === "indigo"
-                      ? "bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200"
-                      : "bg-amber-50 text-amber-700 font-semibold border border-amber-200"
-                    : "text-slate-500 hover:text-slate-800"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+    <div className="space-y-6">
+      <div className="panel p-6 rounded-2xl border border-slate-200 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+          <div>
+            <h3 className="font-mono text-base font-semibold text-slate-900">
+              Canonical Embedded Benchmark Evaluation
+            </h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Physical allocator heap footprint (<code className="font-mono">malloc_usable_size</code>) & multi-repetition lookup latencies
+            </p>
           </div>
-        </div>
-      </div>
-
-      {/* Legend */}
-      <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-slate-500">
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded bg-slate-400 inline-block" />
-          <span>Conventional</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded bg-indigo-400 inline-block" />
-          <span>Interned</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded bg-rose-400 inline-block" />
-          <span>BudgetSym V1</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded bg-teal-500 inline-block" />
-          <span className="text-teal-700 font-semibold">SymTab V2 (Full Policy)</span>
-        </div>
-      </div>
-
-      {/* Bar Chart Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 pt-4">
-        {datasets.map((ds) => {
-          const conv = rowFor(ds, "Conventional");
-          const interned = rowFor(ds, "Interned");
-          const v1 = rowFor(ds, "BudgetSymV1");
-          const v2 = rowFor(ds, "SymTabV2");
-
-          const cVal = getVal(conv);
-          const iVal = getVal(interned);
-          const v1Val = getVal(v1);
-          const v2Val = getVal(v2);
-
-          const cH = Math.min(100, Math.max(6, (cVal / maxVal) * 100));
-          const iH = Math.min(100, Math.max(6, (iVal / maxVal) * 100));
-          const v1H = Math.min(100, Math.max(6, (v1Val / maxVal) * 100));
-          const v2H = Math.min(100, Math.max(6, (v2Val / maxVal) * 100));
-
-          const isHovered = hoveredDataset === ds;
-
-          return (
-            <div
-              key={ds}
-              onMouseEnter={() => setHoveredDataset(ds)}
-              onMouseLeave={() => setHoveredDataset(null)}
-              className={`flex flex-col items-center gap-3 p-3 rounded-xl transition-all duration-200 border ${
-                isHovered ? "bg-slate-50 border-slate-300 shadow-sm" : "bg-white border-slate-100"
+          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200">
+            <button
+              onClick={() => setMetricMode("final_heap")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                metricMode === "final_heap"
+                  ? "bg-teal-50 text-teal-700 font-semibold border border-teal-200"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
             >
-              {/* Bars Container */}
-              <div className="h-44 w-full flex items-end justify-center gap-1 border-b border-slate-200 pb-2 px-0.5 relative">
-                <div className="w-1/4 bg-slate-300 rounded-t transition-all duration-500 relative group" style={{ height: `${cH}%` }}>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] font-mono bg-slate-800 text-white px-1.5 py-0.5 rounded whitespace-nowrap z-20">
-                    Conv: {formatVal(cVal)}
-                  </span>
-                </div>
-                <div className="w-1/4 bg-indigo-400 rounded-t transition-all duration-500 relative group" style={{ height: `${iH}%` }}>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] font-mono bg-slate-800 text-white px-1.5 py-0.5 rounded whitespace-nowrap z-20">
-                    Interned: {formatVal(iVal)}
-                  </span>
-                </div>
-                <div className="w-1/4 bg-rose-400 rounded-t transition-all duration-500 relative group" style={{ height: `${v1H}%` }}>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] font-mono bg-slate-800 text-white px-1.5 py-0.5 rounded whitespace-nowrap z-20">
-                    V1: {formatVal(v1Val)}
-                  </span>
-                </div>
-                <div className="w-1/4 bg-teal-500 rounded-t shadow-sm transition-all duration-500 relative group" style={{ height: `${v2H}%` }}>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] font-mono bg-teal-700 text-white px-1.5 py-0.5 rounded font-bold whitespace-nowrap z-20">
-                    V2: {formatVal(v2Val)}
-                  </span>
-                </div>
-              </div>
+              Final Heap
+            </button>
+            <button
+              onClick={() => setMetricMode("peak_heap")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                metricMode === "peak_heap"
+                  ? "bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200"
+                  : "text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              Peak Heap
+            </button>
+            <button
+              onClick={() => setMetricMode("p95_latency")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                metricMode === "p95_latency"
+                  ? "bg-amber-50 text-amber-700 font-semibold border border-amber-200"
+                  : "text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              p95 Latency
+            </button>
+          </div>
+        </div>
 
-              {/* Dataset Name */}
-              <div className="text-center">
-                <div className="font-mono text-[11px] font-medium text-slate-600 truncate max-w-[100px]" title={ds}>
-                  {ds}
+        {/* Workload Comparison Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {workloads.map((w) => {
+            const embConv = getRow(w, "EmbeddedConventional");
+            const v3 = getRow(w, "SymTabV3");
+
+            const embBytes = metricMode === "final_heap"
+              ? embConv?.measured_final_heap_bytes ?? 0
+              : embConv?.measured_peak_heap_bytes ?? 0;
+
+            const v3Bytes = metricMode === "final_heap"
+              ? v3?.measured_final_heap_bytes ?? 0
+              : v3?.measured_peak_heap_bytes ?? 0;
+
+            const embLat = embConv?.lookup_p95_us ?? 0;
+            const v3Lat = v3?.lookup_p95_us ?? 0;
+
+            const isZephyr = w === "Zephyr";
+            const deltaPct = embBytes > 0 ? ((v3Bytes - embBytes) / embBytes) * 100 : 0;
+            const latRatio = embLat > 0 ? (v3Lat / embLat) : 1;
+
+            return (
+              <div
+                key={w}
+                className={`p-4 rounded-xl border flex flex-col justify-between gap-4 ${
+                  isZephyr ? "bg-teal-50/40 border-teal-300 ring-1 ring-teal-200" : "bg-white border-slate-200"
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-sm text-slate-900">{w}</span>
+                    {isZephyr ? (
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-teal-100 text-teal-800">
+                        RAM WIN (-20.2%)
+                      </span>
+                    ) : (
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-600">
+                        {embConv?.unique_names.toLocaleString()} syms
+                      </span>
+                    )}
+                  </div>
+
+                  {metricMode === "p95_latency" ? (
+                    <div className="space-y-1.5 font-mono text-xs">
+                      <div className="flex justify-between text-slate-500">
+                        <span>EmbConv:</span>
+                        <span>{embLat.toFixed(3)} µs</span>
+                      </div>
+                      <div className="flex justify-between font-bold text-slate-800">
+                        <span>SymTabV3:</span>
+                        <span>{v3Lat.toFixed(3)} µs</span>
+                      </div>
+                      <div className="flex justify-between pt-1 border-t border-slate-200 font-bold text-amber-700">
+                        <span>Tail Ratio:</span>
+                        <span>{latRatio.toFixed(3)}× (Gate FAIL)</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-1.5 font-mono text-xs">
+                      <div className="flex justify-between text-slate-500">
+                        <span>EmbConv:</span>
+                        <span>{formatBytes(embBytes)}</span>
+                      </div>
+                      <div className="flex justify-between font-bold text-slate-800">
+                        <span>SymTabV3:</span>
+                        <span>{formatBytes(v3Bytes)}</span>
+                      </div>
+                      <div className={`flex justify-between pt-1 border-t border-slate-200 font-bold ${
+                        deltaPct < 0 ? "text-teal-700" : "text-red-600"
+                      }`}>
+                        <span>RAM Delta:</span>
+                        <span>{deltaPct > 0 ? `+${deltaPct.toFixed(1)}%` : `${deltaPct.toFixed(1)}%`}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="font-mono text-[10px] text-teal-700 font-semibold mt-0.5">
-                  V2: {formatVal(v2Val)}
+
+                <div className="text-[11px] text-slate-500 border-t border-slate-100 pt-2 font-mono">
+                  {isZephyr ? (
+                    <span className="text-teal-900 font-semibold">
+                      13.52 MB final heap saved; 1.824× p95 latency
+                    </span>
+                  ) : (
+                    <span>Short SSO names dominate; Conv optimal</span>
+                  )}
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

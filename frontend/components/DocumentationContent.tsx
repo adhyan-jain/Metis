@@ -4,7 +4,7 @@ import React from "react";
 
 function Code({ children }: { children: string }) {
   return (
-    <pre className="panel-soft rounded-xl p-4 text-[11px] font-mono text-slate-700 overflow-x-auto leading-relaxed">
+    <pre className="panel-soft rounded-xl p-4 text-[11px] font-mono text-slate-700 overflow-x-auto leading-relaxed border border-slate-200">
       {children}
     </pre>
   );
@@ -12,7 +12,7 @@ function Code({ children }: { children: string }) {
 
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="panel rounded-2xl p-6 space-y-3 scroll-mt-24">
+    <section id={id} className="panel rounded-2xl p-6 space-y-3 scroll-mt-24 border border-slate-200">
       <h2 className="text-base font-bold text-slate-900">{title}</h2>
       {children}
     </section>
@@ -20,24 +20,21 @@ function Section({ id, title, children }: { id: string; title: string; children:
 }
 
 const TOC = [
-  ["getting-started", "Getting Started"],
-  ["architecture", "Architecture"],
-  ["api", "API"],
-  ["representations", "Symbol Representations"],
-  ["memory-model", "Memory Model"],
-  ["methodology", "Benchmark Methodology"],
-  ["experiments", "Experiments"],
-  ["limitations", "Limitations"],
+  ["reproducibility", "Master Reproduction Guide"],
+  ["canonical-data", "Canonical Datasets"],
+  ["architecture", "METIS Architecture"],
+  ["methodology", "Physical Heap Methodology"],
+  ["limitations", "Known Limitations & Boundaries"],
 ] as const;
 
 export function DocumentationContent() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <aside className="lg:col-span-3">
-        <nav className="panel rounded-2xl p-4 sticky top-24 space-y-1">
+        <nav className="panel rounded-2xl p-4 sticky top-24 space-y-1 border border-slate-200">
           <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 px-2">On this page</div>
           {TOC.map(([id, label]) => (
-            <a key={id} href={`#${id}`} className="block px-2 py-1.5 rounded-lg text-xs text-slate-600 hover:bg-slate-50 hover:text-indigo-700">
+            <a key={id} href={`#${id}`} className="block px-2 py-1.5 rounded-lg text-xs text-slate-600 hover:bg-slate-50 hover:text-indigo-700 font-mono">
               {label}
             </a>
           ))}
@@ -45,83 +42,69 @@ export function DocumentationContent() {
       </aside>
 
       <div className="lg:col-span-9 space-y-6">
-        <Section id="getting-started" title="Getting Started">
-          <p className="text-xs text-slate-600 leading-relaxed">Build the C++ core and run the complete research suite:</p>
-          <Code>{`# Reproduce complete research pipeline from repo root
-./run_research_experiments.sh
+        <Section id="reproducibility" title="Master Reproduction Guide">
+          <p className="text-xs text-slate-600 leading-relaxed">
+            The entire METIS research artifact — including correctness tests, differential fuzzing, multi-repetition benchmark runs, dataset reconciliation, publication figure regeneration, and LaTeX document compilation — is automated via a single command:
+          </p>
+          <Code>{`# Clone and enter the repository
+git clone https://github.com/adhyan-jain/Metis.git
+cd Metis
 
-# Or start the web application
+# Run end-to-end master reproduction pipeline
+./reproduce_all.sh
+
+# Start the interactive research dashboard
 cd frontend
 npm install
-npm run dev                    # http://localhost:3000`}</Code>
-        </Section>
-
-        <Section id="architecture" title="Architecture">
-          <p className="text-xs text-slate-600 leading-relaxed">
-            Source → extractor → event stream → <code className="bg-slate-100 px-1 rounded">src/analyze_main.cpp</code> → SymTab V2 engine (<code className="bg-slate-100 px-1 rounded">include/budget_sym.hpp</code>) → web dashboard. Full interactive diagram on the{" "}
-            <a href="/architecture" className="text-indigo-600 hover:underline">Architecture page</a>.
-          </p>
-        </Section>
-
-        <Section id="api" title="API">
-          <p className="text-xs text-slate-600 leading-relaxed">All API endpoints are Next.js route handlers serving live research CSVs and compiled backend binaries.</p>
-          <div className="space-y-3">
-            <ApiRow method="POST" path="/api/analyze" desc="Body: { code, budgetBytes?, config? }. Runs code snippet through analyze.exe." />
-            <ApiRow method="GET" path="/api/benchmarks" desc="Reads results/statistical_summary.csv fresh from disk." />
-            <ApiRow method="GET" path="/api/experiments" desc="Reads results/ablation.csv fresh from disk." />
-            <ApiRow method="GET" path="/api/status" desc="System health and CSV status checks." />
+npm run dev`}</Code>
+          <div className="text-xs text-slate-600 space-y-1 pt-2">
+            <p><strong>Script Actions:</strong></p>
+            <ol className="list-decimal list-inside space-y-1 text-[11px] text-slate-600">
+              <li>Executes unit tests and differential fuzzing under AddressSanitizer/UBSan.</li>
+              <li>Compiles all C++ benchmark harnesses (<code className="font-mono">bin/embedded_bench</code>, <code className="font-mono">bin/real_world_bench</code>).</li>
+              <li>Runs multi-repetition embedded benchmarks ($R=3$) with physical allocator heap profiling.</li>
+              <li>Reconciles the canonical dataset into <code className="font-mono">results/CANONICAL_FINAL_DATASET.csv</code>.</li>
+              <li>Generates all 16 figures in <code className="font-mono">figures/</code>.</li>
+              <li>Compiles the IEEE publication paper (<code className="font-mono">Metis_v2_IEEE.pdf</code>).</li>
+            </ol>
           </div>
         </Section>
 
-        <Section id="representations" title="Symbol Representations">
+        <Section id="canonical-data" title="Canonical Datasets">
           <p className="text-xs text-slate-600 leading-relaxed">
-            INLINE (short, low pressure), INTERNED (exact repeats + default fallback), COMPRESSED
-            (front-coded against previous entry with 1-byte hash fingerprints). Detailed decision logic on the{" "}
-            <a href="/architecture" className="text-indigo-600 hover:underline">Architecture page</a>.
+            The single authoritative source of truth for all measurements is:
+          </p>
+          <Code>{`results/CANONICAL_FINAL_DATASET.csv (433 measured configurations)`}</Code>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Supporting CSV files include <code className="font-mono">results/embedded_benchmark.csv</code> (FreeRTOS, Arduino, Zephyr, ESP-IDF), <code className="font-mono">data/real_world_benchmark.csv</code> (26 host software corpora), and <code className="font-mono">results/synthetic_experiments_A_F.csv</code>.
           </p>
         </Section>
 
-        <Section id="memory-model" title="Memory Model">
+        <Section id="architecture" title="METIS Architecture">
           <p className="text-xs text-slate-600 leading-relaxed">
-            Physical heap memory is measured via custom OS heap hooks during benchmark runs. Deterministic modeled bytes represent pure symbol entry data structures. Both metrics are explicitly separated in all result tables and documentation.
+            METIS (<code className="font-mono">include/symtab_v3.hpp</code>) dynamically chooses per symbol between:
+          </p>
+          <ul className="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li><strong>INLINE</strong>: ≤12 bytes directly stored inside the slot.</li>
+            <li><strong>INTERNED</strong>: 4-byte pool index into a shared string dictionary.</li>
+            <li><strong>COMPRESSED</strong>: Front-coded in blocks of B=32 with anchor interval A=8 and zero-allocation stack buffer decoding.</li>
+          </ul>
+        </Section>
+
+        <Section id="methodology" title="Physical Heap Methodology">
+          <p className="text-xs text-slate-600 leading-relaxed">
+            All heap memory measurements override global <code className="font-mono">operator new</code> and <code className="font-mono">operator delete</code> via <code className="font-mono">include/heap_counter.hpp</code>, invoking <code className="font-mono">malloc_usable_size(p)</code> to record true physical RAM allocations including system alignment and chunk rounding overheads.
           </p>
         </Section>
 
-        <Section id="methodology" title="Benchmark Methodology">
-          <p className="text-xs text-slate-600 leading-relaxed">
-            Evaluated across 8 synthetic datasets (N=30 seeds each) and 3 real-world production codebases (FreeRTOS, Arduino Core, Zephyr RTOS) comparing Conventional, Interned, BudgetSym V1, and SymTab V2.
-          </p>
-        </Section>
-
-        <Section id="experiments" title="Experiments">
-          <p className="text-xs text-slate-600 leading-relaxed">
-            Ablation study systematically isolates scope slot recycling, front-coded block compression, 1-byte hash fingerprints, and adaptive policy selection on shared fixed workloads — see the{" "}
-            <a href="/experiments" className="text-indigo-600 hover:underline">Experiments page</a>.
-          </p>
-        </Section>
-
-        <Section id="limitations" title="Limitations">
-          <ul className="text-xs text-slate-600 leading-relaxed list-disc pl-4 space-y-1">
-            <li>Fixed directory allocation overhead (~8 kB) makes Conventional symbol tables superior on tiny workloads (N &lt; 200 symbols).</li>
-            <li>On Zephyr RTOS (703k declarations, low scope depth), string interning achieves slightly lower peak heap (81.5 MB vs V2&apos;s 84.7 MB).</li>
-            <li>Across real-world C/C++ corpora (FreeRTOS, Arduino, Lua, CPython, ESP-IDF, Zephyr), SymTab V2 measures 1.87x-6.52x more physical heap than Conventional, primarily due to persistent lookup registries (<code>everSeenRep_</code>, <code>poolLookup_</code>) that are never pruned on scope exit — see the Memory page&apos;s diagnosis section and docs/v2_real_world_memory_diagnosis.md. This is under active architectural redesign.</li>
-            <li>Front-coded block decompression adds cold lookup latency on synthetic random long string workloads with high prefix similarity.</li>
-            <li>Heavyweight ML models were rejected for policy selection due to high inference latency overhead (~57 ms) and OOD constraint violations; Hand-Designed Workload Heuristic is deployed.</li>
+        <Section id="limitations" title="Known Limitations &amp; Boundaries">
+          <ul className="list-disc list-inside text-xs text-slate-600 space-y-1.5">
+            <li><strong>Conventional SSO Optimal for Short Names</strong>: On host codebases dominated by short identifiers (L ≤ 15B), Conventional hash tables incur zero secondary heap bytes and remain optimal.</li>
+            <li><strong>Tail-Latency Trade-off</strong>: Compressed representation decoding introduces prefix/suffix memory copying, resulting in a 1.824x p95 latency overhead on Zephyr and failing the 1.25x latency gate.</li>
+            <li><strong>V4 Negative Result</strong>: Side-table container overheads exceed scalar field savings on real identifier distributions.</li>
           </ul>
         </Section>
       </div>
-    </div>
-  );
-}
-
-function ApiRow({ method, path, desc }: { method: string; path: string; desc: string }) {
-  return (
-    <div className="flex flex-col sm:flex-row sm:items-start gap-2 text-xs">
-      <div className="flex items-center gap-2 shrink-0 w-full sm:w-56">
-        <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200">{method}</span>
-        <span className="font-mono text-slate-800">{path}</span>
-      </div>
-      <span className="text-slate-500">{desc}</span>
     </div>
   );
 }

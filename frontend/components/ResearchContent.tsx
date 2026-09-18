@@ -4,80 +4,93 @@ import React from "react";
 
 const SECTIONS = [
   {
-    title: "Problem Statement",
-    body: "Embedded compilation environments operate under tight memory constraints, whereas conventional compiler symbol tables incur substantial string pointer, metadata, and hash table bucket overheads (~64B+ per entry). A memory-bounded embedded compiler cannot afford peak memory bloat, yet cannot pay uniform front-coding lookup overhead on every identifier hit.",
+    title: "Central Research Question",
+    body: "Under what workload conditions can adaptive symbol-table name representations overcome the structural memory efficiency of an embedded conventional hash-table baseline while satisfying a latency constraint?",
   },
   {
-    title: "Research Motivation",
-    body: "Neither extreme — uniform uncompressed tables (fast, memory-heavy) nor uniform string interning/compression (compact, lookup-costly) — idealizes resource-bounded compilation. SymTab V2 resolves this via a dynamic, 3-tier per-symbol decision policy (INLINE, INTERNED, COMPRESSED) combined with scope slot recycling and 1-byte hash fingerprints.",
+    title: "Key Contributions",
+    body: "1) Adaptive 3-tier architecture (SymTabV3) with zero-allocation stack buffer front-code decoding; 2) Closed-form analytical cost and break-even model (k_breakeven = (2L+86)/(L+13)); 3) Physical memory advantage on Zephyr RTOS (-20.2% final heap, -13.52 MB); 4) Quantified tail-latency trade-off (1.824x p95 latency ratio on Zephyr); 5) Disclosed negative architectural result for SymTabV4 side tables.",
   },
   {
-    title: "Baseline Positioning",
-    body: "SymTab V2 is evaluated against Conventional hash tables (unordered_map<string, Symbol>), Interned string pools (refcounted shared string dictionary), and BudgetSym V1. All baselines are measured under identical workload runners across synthetic and production codebases.",
+    title: "The Short-String (SSO) Regime",
+    body: "In standard 64-bit systems, Short String Optimization stores identifiers up to 15 bytes directly inside the string structure without secondary heap allocations. The analytical break-even model proves no positive duplication ratio k exists for L ≤ 15B, confirming Conventional hash tables are optimal for short identifiers.",
   },
   {
-    title: "Research Contributions",
-    body: "1) Unified 3-tier representation policy adapting to string length, scope nesting, and prefix similarity. 2) Scope slot recycling for non-nested scope lifetime reclamation. 3) 1-byte hash fingerprints accelerating cold lookups. 4) Empirical Pareto evaluation under formal latency bounds (1.10x, 1.25x, 1.50x, 2.00x).",
+    title: "The Long-Identifier Regime",
+    body: "For identifiers longer than the SSO threshold (L > 15B), Conventional pays dynamic heap allocations. Interning and adaptive compression beat Conventional when duplication k > (2L+86)/(L+13). At L = 32B, break-even occurs at k ≥ 3.33 (empirically confirmed by Synthetic Experiment D2).",
   },
   {
-    title: "Empirical Results Summary",
-    body: "On the large synthetic workload (N=20,000 symbols), SymTab V2 achieves 360.7 kB mean heap memory, delivering 69.89% heap savings vs BudgetSym V1 (1,197.7 kB) and 52.89% savings vs Interned (765.6 kB). This synthetic-workload result does not generalize to real-world corpora: on real-world C/C++ codebases, SymTab V2 measures 1.87x-6.52x MORE physical heap than Conventional (see the Memory Diagnosis section on the Memory page). On Zephyr RTOS (703k declarations), SymTab V2 manages peak heap memory at 84.7 MB while maintaining cold p50 lookup latency at 0.098 µs.",
+    title: "Tail-Latency Trade-off & Gate Failure",
+    body: "On Zephyr RTOS (2.6M events, 228k unique symbols), SymTabV3 achieves 53.39 MB final heap (vs 66.91 MB for EmbeddedConventional), saving 20.2% RAM. However, p95 latency increases from 0.125 µs to 0.228 µs (1.824x), failing the 1.25x p95 latency gate due to measured front-coded prefix/suffix memory copy operations.",
   },
   {
-    title: "Policy Selection & ML Evaluation",
-    body: "Evaluated Hand-Designed Workload Heuristic against ML models (Decision Tree, ExtraTrees, Ridge Classifier) across 4 latency bounds. Heavyweight ML models were rejected due to high inference latency overhead (~57 ms for ExtraTrees) and LOWO constraint violations on random strings. The Hand-Designed Workload Heuristic was selected for deployment, achieving 0% constraint violations on all held-out real-world corpora.",
-  },
-  {
-    title: "Operational Boundaries & Scope Caveats",
-    body: "SymTab V2 incurs a fixed directory allocation overhead (~8 kB). On tiny workloads (N=100 symbols), Conventional uses 2.1 kB vs SymTab V2's 8.3 kB. SymTab V2 requires N ≥ 200 symbols or active scope nesting to achieve net memory reduction.",
-  },
-  {
-    title: "Completed Validation Pipeline",
-    body: "100% of planned research validation is complete: 30-seed multi-seed statistical validation (results/statistical_summary.csv), ablation isolations (results/ablation.csv), production real-world corpus extraction (results/corpus_benchmark.csv), and Pareto ML evaluations (results/ml_comparison.csv).",
+    title: "Disclosed Negative Result (SymTabV4)",
+    body: "SymTabV4 evaluated representation-conditional metadata, reducing core entries to 24B and moving scalar fields to a sparse side table. Across real software codebases, side-table container overheads (T_table) and marginal entry costs (~34–57B) exceed the 8B core savings, causing V4 to lose to V3 on 19/20 real software corpora.",
   },
 ];
 
-const FACULTY_QA = [
+const RESEARCH_QA = [
   {
-    q: "Does SymTab V2 universally outperform Conventional or Interned symbol tables?",
-    a: "No. Claim boundaries are strictly grounded: Conventional is superior on tiny workloads (N < 200) due to V2's fixed ~8 kB directory overhead. On Zephyr RTOS, Interned achieves slightly lower heap (81.5 MB vs V2's 84.7 MB) because Zephyr contains a high ratio of global declarations with low scope nesting depth. More significantly, across real-world C/C++ corpora (FreeRTOS, Arduino, Lua, CPython, ESP-IDF, Zephyr), SymTab V2 measures 1.87x-6.52x MORE physical heap than Conventional -- the opposite of its synthetic-workload result -- because V2's everSeenRep_ and poolLookup_ registries are never pruned on scope exit while Conventional deallocates scope maps immediately (see docs/v2_real_world_memory_diagnosis.md and the Memory page's diagnosis section). V2's synthetic-workload advantage is real but does not currently transfer to production codebases; the memory tradeoff exists and is under active architectural redesign.",
+    q: "Does METIS claim universal memory superiority across all compiler workloads?",
+    a: "No. METIS explicitly establishes workload boundaries: Conventional hash tables with Short String Optimization (SSO) remain structurally optimal for short identifiers (L ≤ 15B) and low duplication (k < 1.5). Adaptive representations become advantageous only at larger scales with longer names and higher duplication (e.g. Zephyr RTOS).",
   },
   {
-    q: "How does 1-byte hash fingerprinting accelerate lookups?",
-    a: "1-byte hash fingerprints store a fast 8-bit hash header alongside entry descriptors. During lookup, fingerprint mismatches immediately reject non-matching candidate entries, bypassing expensive front-coded string chain decompression. This provides cold p50 lookup latencies of 0.089 µs on Arduino and 0.098 µs on Zephyr.",
+    q: "Why did SymTabV3 fail the 1.25x p95 latency gate on Zephyr?",
+    a: "Reconstructing front-coded compressed members requires copying prefix and suffix byte slices across block members to anchor strings (mean depth 3.31 steps). Even with zero dynamic allocations using stack buffers, executing multiple memory copy operations introduces reconstruction overhead that raises tail latency to 1.824x over uncompressed hash tables.",
   },
   {
-    q: "Why was the Hand-Designed Workload Heuristic chosen over ML models for policy selection?",
-    a: "ML models like ExtraTrees incurred high inference latency overheads (~57 ms) and exhibited high constraint violation rates (22%–55%) during LOWO cross-validation due to out-of-distribution synthetic random strings. The Hand-Designed Workload Heuristic operates in sub-microsecond time (0.25–0.43 µs) and achieved 0% constraint violations across all held-out real-world corpora.",
+    q: "What is the primary scientific value of the SymTabV4 evaluation?",
+    a: "SymTabV4 provides empirical negative evidence showing that sparse side-table container overheads erode scalar struct savings when workloads contain realistic representation mixes (10%–70% non-inline symbols). Disclosing this prevents future redundant compiler optimizations.",
   },
 ];
 
 export function ResearchContent() {
   return (
     <div className="space-y-8">
-      <div className="panel p-6 rounded-2xl space-y-2">
-        <h1 className="text-xl font-bold text-slate-900">Research Methodology &amp; Positioning</h1>
-        <p className="text-sm text-slate-500 max-w-3xl leading-relaxed">
-          SymTab V2 positions adaptive symbol representation within memory-bounded embedded compilers.
-          All claims are empirically validated against authoritative multi-seed and corpus benchmark results.
-        </p>
+      {/* Header */}
+      <div className="panel p-6 rounded-2xl border border-slate-200 space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h1 className="text-xl font-bold text-slate-900">METIS Research Methodology &amp; Paper</h1>
+            <p className="text-xs text-slate-500 mt-1">
+              Evaluating the Memory/Latency Boundary of Adaptive Symbol-Table Name Representations in Embedded Workloads
+            </p>
+          </div>
+          <a
+            href="/Metis_v2_IEEE.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-bold bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shadow-sm shrink-0"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download IEEE PDF
+          </a>
+        </div>
       </div>
 
+      {/* Sections Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {SECTIONS.map((s) => (
-          <div key={s.title} className="panel rounded-2xl p-5">
+          <div key={s.title} className="panel rounded-2xl p-5 border border-slate-200">
             <h3 className="text-sm font-bold text-slate-900 mb-2">{s.title}</h3>
             <p className="text-xs text-slate-600 leading-relaxed">{s.body}</p>
           </div>
         ))}
       </div>
 
-      <div className="panel p-6 rounded-2xl space-y-4">
-        <h3 className="font-mono text-sm font-bold text-slate-900">Research Audit Q&amp;A</h3>
+      {/* Research Q&A */}
+      <div className="panel p-6 rounded-2xl border border-slate-200 space-y-4">
+        <h3 className="font-mono text-sm font-bold text-slate-900 uppercase tracking-wider">
+          Scientific Audit &amp; Peer Review Q&amp;A
+        </h3>
         <div className="space-y-3">
-          {FACULTY_QA.map((qa, i) => (
+          {RESEARCH_QA.map((qa, i) => (
             <div key={i} className="panel-soft p-4 rounded-xl space-y-1">
-              <h4 className="font-mono text-xs font-bold text-indigo-700">Q: {qa.q}</h4>
+              <h4 className="font-mono text-xs font-bold text-indigo-800">Q: {qa.q}</h4>
               <p className="text-xs text-slate-600 leading-relaxed">{qa.a}</p>
             </div>
           ))}

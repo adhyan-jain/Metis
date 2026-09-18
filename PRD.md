@@ -1,13 +1,15 @@
-# Metis — Product Requirements Document
-**Adaptive Memory-Budget-Aware Symbol Table for Embedded Compilers**
-**Version:** Review-2 (Active) / Review-3 (Planned)
-**Repo:** https://github.com/adhyan-jain/Metis
-**Course:** Compiler Design, VIT Vellore — Guide: Prof. Bhuvaneshwari M
-**Authors:** Shubhi Singh, Adhyan Jain, Akshith Venkataramana, Arjuman
+# Metis — Original Requirements & Historical Design Specification
+
+> [!NOTE]
+> **Historical Design Specification**: This document describes the original project requirements and historical design stages (Review-1 and Review-2). The authoritative, frozen final research evaluation, canonical datasets, and scientific findings are documented in [`docs/FINAL_COMPLETION_AUDIT.md`](./docs/FINAL_COMPLETION_AUDIT.md), [`docs/FINAL_REPRODUCIBILITY_REPORT.md`](./docs/FINAL_REPRODUCIBILITY_REPORT.md), [`results/CANONICAL_FINAL_DATASET.csv`](./results/CANONICAL_FINAL_DATASET.csv), and the publication manuscript [`metis_v2.tex`](./metis_v2.tex) / [`Metis_v2_IEEE.pdf`](./Metis_v2_IEEE.pdf).
+
+**Repo:** https://github.com/adhyan-jain/Metis  
+**Course:** Compiler Design, VIT Vellore — Guide: Prof. Bhuvaneshwari M  
+**Authors:** Shubhi Singh, Adhyan Jain, Akshith Venkataramana, Arjuman  
 
 ---
 
-## 1. Overview
+## 1. Overview (Historical Context)
 
 BUDGET-SYM is a C++14 header-only adaptive symbol table for embedded compilers operating under tight memory constraints. Instead of storing all identifiers the same way, BUDGET-SYM selects a per-symbol storage representation at insert time based on five runtime signals, reclaims memory eagerly at scope exit, and adapts its own policy thresholds mid-compilation using a lightweight ML predictor trained offline.
 

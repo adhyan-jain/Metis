@@ -30,6 +30,11 @@ export function analyzeBinaryPath(): string | null {
 }
 
 export function resultsCsvPath(name:
+  | "CANONICAL_FINAL_DATASET.csv"
+  | "embedded_benchmark.csv"
+  | "real_world_benchmark.csv"
+  | "synthetic_experiments_A_F.csv"
+  | "multiseed_v4_summary.csv"
   | "benchmark_results.csv"
   | "ablation_results.csv"
   | "cache_benchmark_results.csv"
@@ -37,11 +42,12 @@ export function resultsCsvPath(name:
   | "pareto_results.csv"
   | "pareto_frontier.csv"
   | "corpus_characterization.csv"
+  | string
 ): string | null {
   const root = repoRoot();
   return firstExisting([
     path.join(root, "results", name),
-    path.join(root, "frontend", "data", name),
     path.join(root, "data", name),
+    path.join(root, "frontend", "data", name),
   ]);
 }
