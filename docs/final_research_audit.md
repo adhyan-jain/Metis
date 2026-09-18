@@ -1,7 +1,7 @@
 # Final Research Audit & Scientific Synthesis
 
 **Date**: September 17, 2026  
-**Repository**: `shubhisingh1510/compiler`  
+**Repository**: `adhyan-jain/Metis`  
 **Status**: Comprehensive Final Evaluation & Claims Audit (Architecture Frozen)
 
 ---

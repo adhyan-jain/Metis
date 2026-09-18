@@ -1,7 +1,7 @@
 # BUDGET-SYM — Product Requirements Document
 **Adaptive Memory-Budget-Aware Symbol Table for Embedded Compilers**
 **Version:** Review-2 (Active) / Review-3 (Planned)
-**Repo:** https://github.com/shubhisingh1510/compiler
+**Repo:** https://github.com/adhyan-jain/Metis
 **Course:** Compiler Design, VIT Vellore — Guide: Prof. Bhuvaneshwari M
 **Authors:** Shubhi Singh, Adhyan Jain, Akshith Venkataramana, Arjuman
 

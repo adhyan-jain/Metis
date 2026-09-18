@@ -20,7 +20,7 @@ const NAV_ITEMS = [
   { href: "/docs", label: "Docs" },
 ];
 
-const GITHUB_URL = "https://github.com/shubhisingh1510/compiler";
+const GITHUB_URL = "https://github.com/adhyan-jain/Metis";
 
 // Minimal mark: three stacked bars of decreasing width, standing in for a
 // compact symbol-table index -- deliberately not an "AI" glyph or robot icon.

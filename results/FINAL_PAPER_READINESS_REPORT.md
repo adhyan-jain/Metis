@@ -1,6 +1,6 @@
 # FINAL PAPER READINESS REPORT
 
-**Target Repository**: `shubhisingh1510/compiler`  
+**Target Repository**: `adhyan-jain/Metis`  
 **Manuscript**: `budget_sym_v2.tex` / `budget_sym_v2.pdf`  
 **Date of Verification**: September 17, 2026  
 **Audit Engine**: Automated Antigravity Scientific Verification Engine  
