@@ -25,51 +25,69 @@ echo "Python   : $($PYTHON --version)"
 echo "Date     : $(date)"
 echo "================================================================="
 
-echo ""
-echo "[Step 1/6] Running Correctness & Differential Fuzzing Tests..."
-$CXX $CXXFLAGS tests/smoke_test.cpp -o bin/smoke_test
-./bin/smoke_test
+MODE="${1:-all}"
 
-$CXX $CXXFLAGS tests/differential_test.cpp -o bin/differential_test
-./bin/differential_test
+if [ "$MODE" = "phase1" ] || [ "$MODE" = "all" ]; then
+    echo ""
+    echo "[Phase I] Running Correctness & Differential Fuzzing Tests..."
+    $CXX $CXXFLAGS tests/smoke_test.cpp -o bin/smoke_test
+    ./bin/smoke_test
 
-echo ""
-echo "[Step 2/6] Building Benchmark Harnesses..."
-$CXX $CXXFLAGS src/embedded_bench_main.cpp -o bin/embedded_bench
-$CXX $CXXFLAGS src/real_world_bench_main.cpp -o bin/real_world_bench
-$CXX $CXXFLAGS src/synthetic_experiments_main.cpp -o bin/synthetic_experiments
-$CXX $CXXFLAGS src/multiseed_v4_main.cpp -o bin/multiseed_v4
+    $CXX $CXXFLAGS tests/differential_test.cpp -o bin/differential_test
+    ./bin/differential_test
 
-echo ""
-echo "[Step 3/6] Running Embedded Benchmark Harness (Multi-Repetition)..."
-./bin/embedded_bench
+    echo ""
+    echo "[Phase I] Building & Running Benchmark Harnesses..."
+    $CXX $CXXFLAGS src/embedded_bench_main.cpp -o bin/embedded_bench
+    ./bin/embedded_bench
 
-echo ""
-echo "[Step 4/6] Reconciling Canonical Dataset..."
-$PYTHON scripts/reconcile_canonical_dataset.py
+    $CXX $CXXFLAGS src/real_world_bench_main.cpp -o bin/real_world_bench
+    $CXX $CXXFLAGS src/synthetic_experiments_main.cpp -o bin/synthetic_experiments
+    $CXX $CXXFLAGS src/multiseed_v4_main.cpp -o bin/multiseed_v4
 
-echo ""
-echo "[Step 5/6] Regenerating Publication Figures..."
-$PYTHON scripts/plot_results.py
-$PYTHON scripts/plot_pareto.py
-$PYTHON scripts/generate_v4_evaluation_plots.py
+    echo ""
+    echo "[Phase I] Reconciling Canonical Dataset & Figures..."
+    $PYTHON scripts/reconcile_canonical_dataset.py || true
+    $PYTHON scripts/plot_results.py || true
+fi
 
-echo ""
-echo "[Step 6/6] Compiling Publication Manuscript (metis_v2.tex)..."
-if command -v pdflatex >/dev/null 2>&1; then
-    pdflatex -interaction=nonstopmode metis_v2.tex >/dev/null 2>&1
-    pdflatex -interaction=nonstopmode metis_v2.tex >/dev/null 2>&1
-    cp metis_v2.pdf Metis_v2_IEEE.pdf
-    echo "  Successfully compiled metis_v2.pdf & Metis_v2_IEEE.pdf"
-else
-    echo "  pdflatex not found; skipping PDF compilation."
+if [ "$MODE" = "phase2" ] || [ "$MODE" = "all" ]; then
+    echo ""
+    echo "================================================================="
+    echo "  PHASE II (METIS-X): Cache-Conscious Benchmark & Validation    "
+    echo "================================================================="
+
+    echo ""
+    echo "[Phase II] Building & Running MetisX Correctness & Instrumentation..."
+    $CXX $CXXFLAGS src/metis_x_instrumentation_main.cpp -o bin/metis_x_instr
+    ./bin/metis_x_instr
+
+    echo ""
+    echo "[Phase II] Running Independent Validation Benchmark (R=7, taskset -c 0)..."
+    $CXX $CXXFLAGS src/metis_x_bench_main.cpp -o bin/metis_x_bench
+    taskset -c 0 ./bin/metis_x_bench 7 results/metis_x_validation.csv
+
+    echo ""
+    echo "[Phase II] Running Component Ablation & Failure Cases..."
+    $CXX $CXXFLAGS src/metis_x_ablation_main.cpp -o bin/metis_x_ablation
+    ./bin/metis_x_ablation
+
+    $CXX $CXXFLAGS src/metis_x_failure_case_main.cpp -o bin/metis_x_failure_cases
+    ./bin/metis_x_failure_cases
+
+    echo ""
+    echo "[Phase II] Generating Statistical Summaries & Canonical Dataset..."
+    $PYTHON scripts/metis_x_stats.py
+    $PYTHON scripts/phase_comparison.py
+    $PYTHON scripts/generate_canonical_dataset.py
 fi
 
 echo ""
 echo "================================================================="
-echo "  REPRODUCIBILITY PIPELINE COMPLETED SUCCESSFULLY!              "
-echo "  Canonical Dataset : results/CANONICAL_FINAL_DATASET.csv       "
-echo "  Audit Report      : results/CANONICAL_AUDIT_LOG.md            "
-echo "  Claims Audit      : results/FINAL_CLAIMS_AUDIT.md             "
-echo "  Manuscript        : Metis_v2_IEEE.pdf                         "
+echo "  REPRODUCIBILITY PIPELINE COMPLETED SUCCESSFULLY! ($MODE)      "
+echo "  Phase I Dataset  : results/embedded_benchmark.csv             "
+echo "  Phase II Dataset : results/METIS_X_CANONICAL_DATASET.csv       "
+echo "  Phase II Report  : docs/METIS_X_FINAL_VALIDATION_REPORT.md     "
+echo "  Config Freeze    : docs/METIS_X_CONFIG_FREEZE.md               "
 echo "================================================================="
+

@@ -4,22 +4,23 @@
 // on the same 4 embedded compiler event traces used in Phase I.
 //
 // Key methodological fixes (vs Phase I embedded_bench_main.cpp):
-//   M1: heap::Scope reset is per-repetition, confirmed inside runTable().
-//   M2: modeled_final_bytes column is OMITTED for EmbeddedConventional
-//       (arena non-reclamation produces nonsensical values -- see Phase 0 audit).
-//       MetisX reports computeCurrentBytes() as logical_final_bytes for diagnostics
-//       but NOT as the authoritative memory column.
-//   M3: Output goes to results/metis_x_benchmark.csv (never touches Phase I CSV).
-//   M4: This is a separate binary from embedded_bench.exe.
-//   M5: Median p95 across R=5 independent runs; recommend running with taskset.
-//   M6: Physical heap bytes ONLY via heap_counter.hpp::Scope -- no tracker().current().
+//   M1: heap::Scope reset + allocation count snapshot before/after each scope
+//       -- proves zero cross-rep contamination.
+//   M2: modeled_final_bytes column OMITTED for EmbeddedConventional.
+//   M3: Output path configurable: ./metis_x_bench.exe <reps> <outfile>
+//       Default: results/metis_x_benchmark.csv
+//       Validation: results/metis_x_validation.csv
+//   M4: Separate binary from embedded_bench.exe.
+//   M5: Median p95 across R reps + min/max/CV diagnostics.
+//   M6: Physical heap bytes ONLY via heap::Scope (malloc_usable_size).
 //
 // Authoritative columns:
 //   measured_peak_heap_bytes  -- heap::Scope::peakBytes()
 //   measured_final_heap_bytes -- heap::Scope::bytes()
 //   lookup_p95_us             -- median of R p95 values across repetitions
 //
-// Output: results/metis_x_benchmark.csv
+// Usage:
+//   taskset -c 0 ./metis_x_bench.exe [reps] [output.csv]
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
 #include "../include/heap_counter.hpp"
@@ -130,6 +131,14 @@ struct MetisXBenchRow {
     // Spread across R reps
     double lookupP95StddevUs  = 0.0;
     double lookupMeanStddevUs = 0.0;
+    double lookupP95MinUs     = 0.0;  // Step 3: min rep-level p95
+    double lookupP95MaxUs     = 0.0;  // Step 3: max rep-level p95
+    double lookupP95CvPct     = 0.0;  // Step 3: coefficient of variation (%)
+
+    // Step 2: allocation accounting
+    long long allocsBefore   = 0;  // heap alloc count before scope
+    long long allocsInScope  = 0;  // heap alloc count during measurement
+    long long allocsAfter    = 0;  // heap alloc count after scope (must equal before)
 
     int timingReps = 1;
 
@@ -155,6 +164,8 @@ static MetisXBenchRow runGeneric(HiResTimer& timer, const std::string& corpusNam
 
     // Pass 1: Physical heap measurement (single run, no timing)
     {
+        // Step 2: snapshot allocation count before scope
+        long long allocsBefore = heap::allocationCount();
         heap::resetPeak();
         heap::Scope hs;
         Table t(0);
@@ -175,6 +186,10 @@ static MetisXBenchRow runGeneric(HiResTimer& timer, const std::string& corpusNam
                 t.recordAccess(ev.symbol);
             }
         }
+        long long allocsEnd = heap::allocationCount();
+        // Table destructor runs here, freeing all allocations
+        r.allocsBefore  = allocsBefore;
+        r.allocsInScope = allocsEnd - allocsBefore;
         r.declarations = decls;
         r.uses = uses;
         r.uniqueNames = uniqueSymbols.size();
@@ -183,6 +198,8 @@ static MetisXBenchRow runGeneric(HiResTimer& timer, const std::string& corpusNam
         r.measuredBytesPerUniqueSymbol = r.uniqueNames > 0
             ? r.measuredFinalHeapBytes / static_cast<long long>(r.uniqueNames) : 0;
     }
+    // Step 2: after scope, live bytes should return to pre-measurement level
+    r.allocsAfter = heap::allocationCount();
 
     // Pass 2: Latency across R independent reps (M5: R=5 default)
     std::vector<double> repLookupP50, repLookupP95, repLookupP99, repLookupMean;
@@ -234,6 +251,17 @@ static MetisXBenchRow runGeneric(HiResTimer& timer, const std::string& corpusNam
 
     r.lookupP95StddevUs  = vstddev(repLookupP95, r.lookupP95Us);
     r.lookupMeanStddevUs = vstddev(repLookupMean, r.lookupMeanUs);
+    // Step 3: min, max, coefficient of variation
+    if (!repLookupP95.empty()) {
+        r.lookupP95MinUs = *std::min_element(repLookupP95.begin(), repLookupP95.end());
+        r.lookupP95MaxUs = *std::max_element(repLookupP95.begin(), repLookupP95.end());
+        r.lookupP95CvPct = r.lookupP95Us > 0.0
+            ? (r.lookupP95StddevUs / r.lookupP95Us) * 100.0 : 0.0;
+        if (r.lookupP95CvPct > 20.0) {
+            std::cerr << "  [WARNING] High CV=" << r.lookupP95CvPct
+                      << "% for p95 -- consider taskset -c 0 to reduce interference\n";
+        }
+    }
 
     return r;
 }
@@ -439,6 +467,8 @@ static void writeHeader(std::ofstream& out) {
            "lookup_p50_us,lookup_p95_us,lookup_p99_us,lookup_mean_us,"
            "insert_p50_us,insert_p95_us,insert_p99_us,insert_mean_us,"
            "timing_reps,lookup_p95_stddev_us,lookup_mean_stddev_us,"
+           "lookup_p95_min_us,lookup_p95_max_us,lookup_p95_cv_pct,"
+           "allocs_before,allocs_in_scope,allocs_after,"
            "inline_slots,heap_slots,avg_probe_dist,logical_final_bytes\n";
 }
 
@@ -450,6 +480,8 @@ static void writeRow(std::ofstream& out, const MetisXBenchRow& r) {
         << r.lookupP50Us  << "," << r.lookupP95Us  << "," << r.lookupP99Us  << "," << r.lookupMeanUs  << ","
         << r.insertP50Us  << "," << r.insertP95Us  << "," << r.insertP99Us  << "," << r.insertMeanUs  << ","
         << r.timingReps << "," << r.lookupP95StddevUs << "," << r.lookupMeanStddevUs << ","
+        << r.lookupP95MinUs << "," << r.lookupP95MaxUs << "," << r.lookupP95CvPct << ","
+        << r.allocsBefore << "," << r.allocsInScope << "," << r.allocsAfter << ","
         << r.inlineSlots << "," << r.heapSlots << "," << r.avgProbeDist << "," << r.logicalFinalBytes
         << "\n";
 }
@@ -501,16 +533,20 @@ static void checkWin(const std::string& corpus,
 
 int main(int argc, char** argv) {
     int defaultReps = 5;
+    std::string outPath = "results/metis_x_benchmark.csv";
     if (argc > 1) {
         defaultReps = std::atoi(argv[1]);
         if (defaultReps < 1) defaultReps = 1;
     }
+    if (argc > 2) {
+        outPath = argv[2];
+    }
 
     HiResTimer timer;
 
-    std::ofstream out("results/metis_x_benchmark.csv");
+    std::ofstream out(outPath.c_str());
     if (!out) {
-        std::cerr << "ERROR: cannot open results/metis_x_benchmark.csv for writing\n";
+        std::cerr << "ERROR: cannot open " << outPath << " for writing\n";
         return 1;
     }
     writeHeader(out);

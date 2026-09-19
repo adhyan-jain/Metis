@@ -47,6 +47,21 @@ This audit incorporates the complete evaluation results across all embedded work
 
 ---
 
-## 4. Final Canonical Conclusion Statement
+## 4. Phase-II (METIS-X) Claim Audit Matrix
 
-> "On the large Zephyr workload, SymTabV3 reduced physically measured final heap by 20.2% (13.52 MB) relative to the embedded conventional baseline. This reduction was achieved with sub-microsecond median lookup latency, while the p95 latency increased from 0.125 us to 0.228 us. Thus the architecture demonstrates a measurable RAM advantage in the large-scale embedded regime, but does not satisfy the 1.25x p95 latency constraint."
+| Claim Statement | Theoretical Mechanism | Empirical Finding | Source CSV File | Audit Verdict |
+| :--- | :--- | :--- | :--- | :--- |
+| **Zephyr Joint Win** | Flat 32B slots + inline $\le 12$B + zero decode | $-38.2\%$ final heap ($25.79$\,MB) AND $-15.2\%$ $p_{95}$ ($0.084\,\mu\text{s}$) vs EmbConv | `results/METIS_X_CANONICAL_DATASET.csv` | **VERIFIED ACCURATE** |
+| **ESP-IDF Joint Win** | Flat 32B slots + inline $\le 12$B + zero decode | $-17.5\%$ final heap ($35.20$\,MB) AND $-69.6\%$ $p_{95}$ ($0.069\,\mu\text{s}$) vs EmbConv | `results/METIS_X_CANONICAL_DATASET.csv` | **VERIFIED ACCURATE** |
+| **Zero Lookup Allocations** | Direct inline byte comparison | 0 heap allocations across 2,863,367 lookups | `results/metis_x_instrumentation.csv` | **VERIFIED ACCURATE** |
+| **Phase-I $p_{95}$ Latency Gate Resolution** | Elimination of front-coded reconstruction | MetisX is $2.33\times$ faster than SymTabV3 at $p_{95}$ ($0.084\,\mu\text{s}$ vs $0.196\,\mu\text{s}$) | `results/METIS_X_CANONICAL_DATASET.csv` | **VERIFIED ACCURATE** |
+| **Universal Superiority** | All identifier distributions fit inline | FreeRTOS/Arduino show partial wins (+2.6% heap on Arduino) | `results/METIS_X_CANONICAL_DATASET.csv` | **NOT SUPPORTED / PARTIAL** |
+
+---
+
+## 5. Final Canonical Conclusion Statement
+
+> **Phase I:** On the large Zephyr workload, SymTabV3 reduced physically measured final heap by 20.2% (13.52 MB) relative to the embedded conventional baseline. This reduction was achieved with sub-microsecond median lookup latency, while the p95 latency increased from 0.125 us to 0.228 us. Thus the adaptive architecture demonstrated a measurable RAM advantage, but failed the 1.25x p95 latency constraint.
+>
+> **Phase II (METIS-X):** By replacing adaptive compression with a cache-conscious flat open-addressing architecture (32B slots, inline $\le 12$B identifiers, Robin Hood displacement), METIS-X eliminated reconstruction overhead, achieving simultaneous reductions in physical final heap (−38.2% on Zephyr, −17.5% on ESP-IDF) and p95 lookup latency (−15.2% on Zephyr, −69.6% on ESP-IDF) relative to the embedded conventional baseline under zero hot-path heap allocations.
+

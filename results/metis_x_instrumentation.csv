@@ -1,0 +1,5 @@
+corpus,implementation,declarations,uses,lookups_measured,allocations_during_lookup,inline_slots,heap_slots,inline_pct,avg_probe_dist,logical_final_bytes
+FreeRTOS,MetisX,72376,123602,123602,0,2496,6803,28.3959,1.49295,698140
+Arduino,MetisX,31846,50273,50273,0,3786,3354,53.0475,0.416842,620930
+Zephyr,MetisX,703727,1523992,1523992,0,10757,43602,20.2668,0.680898,5261090
+ESP-IDF,MetisX,795847,1115502,1115502,0,16089,139434,10.3468,0.74514,12847443

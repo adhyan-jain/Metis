@@ -1,0 +1,11 @@
+corpus,ablation_level,final_heap_bytes,lookup_p95_us
+Zephyr,A0_ConventionalHost,2248584,0.228
+Zephyr,A1_FlatOA_LinearProb,68606544,0.126
+Zephyr,A2_FlatOA_RobinHood,43436720,0.262
+Zephyr,A3_EmbeddedConventional,21534528,0.09
+Zephyr,A5_FullMetisX,5593608,0.082
+ESP-IDF,A0_ConventionalHost,19106464,0.134
+ESP-IDF,A1_FlatOA_LinearProb,72303312,0.123
+ESP-IDF,A2_FlatOA_RobinHood,72303392,0.211
+ESP-IDF,A3_EmbeddedConventional,21312560,0.134
+ESP-IDF,A5_FullMetisX,13857160,0.07
