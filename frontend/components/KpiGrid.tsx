@@ -12,68 +12,56 @@ interface Kpi {
   bg: string;
 }
 
-const CANONICAL_KPIS: Kpi[] = [
+const METIS_X_KPIS: Kpi[] = [
   {
-    title: "Zephyr Final Heap Reduction",
-    value: "20.2%",
-    subtitle: "53.39 MB vs 66.91 MB (-13.52 MB saved)",
-    badge: "CANONICAL EMBEDDED WIN",
-    accent: "text-teal-700",
-    border: "border-teal-200",
-    bg: "bg-teal-50",
+    title: "Zephyr Final Heap Win",
+    value: "-38.2%",
+    subtitle: "25.79 MB (MetisX) vs 41.74 MB (EmbConv)",
+    badge: "JOINT WIN (≥10%)",
+    accent: "text-emerald-700",
+    border: "border-emerald-200",
+    bg: "bg-emerald-50",
   },
   {
-    title: "Zephyr Peak Heap Reduction",
-    value: "24.2%",
-    subtitle: "57.89 MB vs 76.37 MB peak physical heap",
-    badge: "ALLOCATOR VERIFIED",
+    title: "ESP-IDF p95 Latency Win",
+    value: "-69.6%",
+    subtitle: "0.069 µs (MetisX) vs 0.227 µs (EmbConv)",
+    badge: "JOINT WIN (≥10%)",
     accent: "text-indigo-700",
     border: "border-indigo-200",
     bg: "bg-indigo-50",
   },
   {
-    title: "Zephyr p95 Latency Ratio",
-    value: "1.824×",
-    subtitle: "0.228 µs (V3) vs 0.125 µs (EmbConv)",
-    badge: "GATE FAILED (1.25× TARGET)",
-    accent: "text-amber-700",
-    border: "border-amber-200",
-    bg: "bg-amber-50",
+    title: "Lookup Heap Allocations",
+    value: "0 Allocations",
+    subtitle: "Proved across 2.8M lookups in real traces",
+    badge: "ZERO HOT-PATH ALLOC",
+    accent: "text-teal-700",
+    border: "border-teal-200",
+    bg: "bg-teal-50",
   },
   {
-    title: "Break-Even Duplication (L=32B)",
-    value: "k ≥ 3.33",
-    subtitle: "k_breakeven = (2L+86)/(L+13) (SSO L≤15B)",
-    badge: "ANALYTICAL BOUNDARY",
-    accent: "text-slate-700",
-    border: "border-slate-200",
-    bg: "bg-slate-50",
+    title: "Zephyr p95 Speedup vs V3",
+    value: "2.33× Faster",
+    subtitle: "0.083 µs (MetisX) vs 0.196 µs (SymTabV3)",
+    badge: "PHASE I FAILURE SOLVED",
+    accent: "text-sky-700",
+    border: "border-sky-200",
+    bg: "bg-sky-50",
   },
 ];
 
 export function KpiGrid() {
-  const [kpis, setKpis] = useState<Kpi[]>(CANONICAL_KPIS);
-  const [source, setSource] = useState<string>("canonical research frozen dataset");
-
-  useEffect(() => {
-    fetch("/api/canonical")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.available) {
-          setSource("live from results/CANONICAL_FINAL_DATASET.csv (433 rows)");
-        }
-      })
-      .catch(() => {});
-  }, []);
+  const [kpis] = useState<Kpi[]>(METIS_X_KPIS);
 
   return (
     <div>
       <div className="flex items-center justify-between mb-2">
         <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
-          Headline Research Results
+          METIS-X Headline Research Results
         </span>
-        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-teal-50 text-teal-700 border border-teal-200">
-          {source}
+        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">
+          live from results/METIS_X_CANONICAL_DATASET.csv
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

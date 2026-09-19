@@ -111,7 +111,22 @@ Updated in `docs/FINAL_CLAIMS_AUDIT.md`:
 
 ---
 
-## 8. Reproducibility
+## 9. IP / Patent Pre-Public Disclosure Advisory
+
+> [!CAUTION]
+> **Statutory Bar Warning:** If the authors or institution intend to file a patent application covering the \texttt{METIS-X} architecture (32B cache-aligned slot layout, $\le 12$B inline short string buffer, Robin Hood open addressing, and LIFO scope-lifetime frame slot recycling), **DO NOT push local commits to public GitHub repositories or submit manuscripts prior to filing a provisional patent application.**
+
+### Recommended Patent Action Sequence
+1. **Prior-Art Search**: Search WIPO/USPTO/Google Patents for open-addressing symbol tables with scope-lifetime frame recycling.
+2. **Key Patentable Claims**:
+   - Claim A: A 32-byte cache-aligned slot data structure containing an inline identifier buffer union ($\le 12$\,B), a cached 32-bit hash guard, and Robin Hood probe distance bookkeeping.
+   - Claim B: A scope-lifetime memory management method comprising registering slot indices in an array-backed frame stack and clearing slots in $O(|\text{frame}|)$ time on scope exit while executing backward-shift chain contraction.
+   - Claim C: A zero-allocation binding resolution method for lexical scoping achieving sub-100ns lookup latency under physical allocator tracking.
+3. **Filing Window**: File a provisional patent application with your university IP cell or patent attorney prior to public git pushing or paper publication.
+
+---
+
+## 10. Reproducibility
 
 To reproduce Phase II results end-to-end:
 
@@ -125,3 +140,4 @@ git checkout research/metis-x
 # 3. View canonical summary
 python3 scripts/metis_x_stats.py
 ```
+
