@@ -13,6 +13,7 @@
 #include "../include/robinhood_symbol_table.hpp"
 #include "../include/trie_symbol_table.hpp"
 #include "../include/hash_functions.hpp"
+#include "../include/metis_x.hpp"
 
 using namespace budgetsym;
 
@@ -370,6 +371,88 @@ void test_trie_scope_reclaim_and_shared_prefix_survives() {
     CHECK(t.lookup("shared_global"));
 }
 
+// ============================================================================
+// METIS-X correctness tests (Phase II)
+// ============================================================================
+
+void test_metisx_basic() {
+    budgetsym::metisx::MetisXTable t;
+    t.insert("x");
+    t.insert("y");
+    CHECK(t.lookup("x"));
+    CHECK(t.lookup("y"));
+    CHECK(!t.lookup("z"));
+    CHECK(t.size() == 2);
+}
+
+void test_metisx_scope_reclaim() {
+    budgetsym::metisx::MetisXTable t;
+    t.insert("global");
+    t.enterScope();
+    t.insert("local1");
+    t.insert("local2");
+    CHECK(t.lookup("local1"));
+    CHECK(t.lookup("global"));
+    auto rep = t.exitScope();
+    CHECK(rep.symbolsReleased == 2);
+    CHECK(!t.lookup("local1"));
+    CHECK(!t.lookup("local2"));
+    CHECK(t.lookup("global")); // global scope still alive
+}
+
+void test_metisx_shadowing() {
+    budgetsym::metisx::MetisXTable t;
+    int outer = t.insert("x");
+    t.enterScope();
+    int inner = t.insert("x"); // shadow
+    CHECK(inner != outer);
+    CHECK(t.resolve("x") == inner);  // inner binding visible
+    t.exitScope();
+    CHECK(t.resolve("x") == outer);  // outer restored
+}
+
+void test_metisx_same_scope_redeclaration() {
+    budgetsym::metisx::MetisXTable t;
+    int first  = t.insert("counter");
+    int second = t.insert("counter"); // same scope redeclaration
+    // resolve() should return the latest id
+    CHECK(t.resolve("counter") == second);
+    (void)first;
+}
+
+void test_metisx_long_name_heap_path() {
+    // Names longer than kInlineCap (12) must be stored on heap
+    budgetsym::metisx::MetisXTable t;
+    std::string longName(32, 'a'); // "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    t.insert(longName);
+    CHECK(t.lookup(longName));
+    CHECK(!t.lookup(std::string(32, 'b')));
+    // Verify slot was correctly stored
+    auto st = t.stats();
+    CHECK(st.heapNames == 1);
+    CHECK(st.inlineNames == 0);
+}
+
+void test_metisx_many_symbols() {
+    // Insert enough symbols to force at least one rehash (> kInitialSlots * 0.7)
+    budgetsym::metisx::MetisXTable t;
+    const int N = 200;
+    for (int i = 0; i < N; i++) {
+        t.insert("sym_" + std::to_string(i));
+    }
+    CHECK(t.size() == static_cast<size_t>(N));
+    for (int i = 0; i < N; i++) {
+        CHECK(t.lookup("sym_" + std::to_string(i)));
+    }
+    CHECK(!t.lookup("sym_9999"));
+    // Scope reclaim across many symbols
+    t.enterScope();
+    for (int i = 0; i < 50; i++) t.insert("inner_" + std::to_string(i));
+    auto rep = t.exitScope();
+    CHECK(rep.symbolsReleased == 50);
+    CHECK(t.size() == static_cast<size_t>(N));
+}
+
 int main() {
     test_conventional();
     test_interned();
@@ -396,6 +479,14 @@ int main() {
     test_robinhood_survives_resize();
     test_trie_basic_and_prefix_is_not_a_match();
     test_trie_scope_reclaim_and_shared_prefix_survives();
+
+    // ---- METIS-X correctness tests (Phase II) --------------------------------
+    test_metisx_basic();
+    test_metisx_scope_reclaim();
+    test_metisx_shadowing();
+    test_metisx_same_scope_redeclaration();
+    test_metisx_long_name_heap_path();
+    test_metisx_many_symbols();
 
     if (failures == 0) {
         std::cout << "ALL TESTS PASSED\n";

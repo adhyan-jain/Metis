@@ -85,6 +85,9 @@ $CXX $FLAGS src/pareto_main.cpp -o pareto.exe
 echo "== Building systematic parameter study benchmark (CLAUDE_RESEARCH.md Section 13) =="
 $CXX $FLAGS src/parameter_study_main.cpp -o parameter_study.exe
 
+echo "== Building METIS-X Phase II benchmark (writes results/metis_x_benchmark.csv) =="
+$CXX $FLAGS src/metis_x_bench_main.cpp -o metis_x_bench.exe
+
 echo ""
 echo "== Running smoke test =="
 ./tests/smoke_test.exe
