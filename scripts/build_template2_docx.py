@@ -100,7 +100,7 @@ def add_image_with_caption(img_filename, caption_text):
 # Title & Authors
 add_p("Manuscript Template", bold=True, font_size=12, color_rgb=RGBColor(0, 0, 153), align=WD_ALIGN_PARAGRAPH.LEFT, space_before=0, space_after=4)
 add_p("METIS-X: A Cache-Conscious Symbol Table Architecture for Embedded Compiler Toolchains", bold=True, font_size=14, align=WD_ALIGN_PARAGRAPH.LEFT, space_before=0, space_after=6)
-add_p("Adhyan Jain¹, Shubhi Singh¹, Akshith Venkataramana¹, Arjuman¹, Prof. Bhuvaneswari M¹", bold=True, font_size=11, align=WD_ALIGN_PARAGRAPH.LEFT, space_before=0, space_after=2)
+add_p("Adhyan Jain¹, Shubhi Singh¹, Prof. Bhuvaneswari M¹", bold=True, font_size=11, align=WD_ALIGN_PARAGRAPH.LEFT, space_before=0, space_after=2)
 add_p("¹SCOPE, VIT Vellore, Vellore, Tamil Nadu, India", italic=True, font_size=10, align=WD_ALIGN_PARAGRAPH.LEFT, space_before=0, space_after=12)
 
 # Abstract Section
@@ -398,7 +398,7 @@ for ref in references_list:
 
 # Mandatory Template Sections
 add_heading_1("Author Contributions")
-add_p("Adhyan Jain conceived the METIS-X architecture, implemented the C++ template headers, physical allocator profiler, and benchmark drivers. Shubhi Singh performed the 26-corpus event trace extraction, statistical analysis, and baseline reconciliation. Akshith Venkataramana and Arjuman assisted in differential fuzz testing and figure generation. Prof. Bhuvaneswari M supervised the research, validated the experimental methodology, and reviewed the manuscript.", space_after=6)
+add_p("Adhyan Jain conceived the METIS-X architecture, implemented the C++ template headers, physical allocator profiler, and benchmark drivers. Shubhi Singh performed the 26-corpus event trace extraction, statistical analysis, baseline reconciliation, and figure generation. Prof. Bhuvaneswari M supervised the research, validated the experimental methodology, and reviewed the manuscript.", space_after=6)
 
 add_heading_1("Acknowledgements")
 add_p("The authors thank the SCOPE faculty and computing center at VIT Vellore for providing computing resources and infrastructure for this research project.", space_after=6)
