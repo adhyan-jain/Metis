@@ -11,7 +11,7 @@
 // every anchor offset, whole-block reclaim to exactly zero, partial-block
 // redeclaration not corrupting surviving members' front-coding) that a
 // generic cross-implementation fuzzer wouldn't isolate as clearly.
-#include "../include/symtab_v2.hpp"
+#include "historical/symtab_v2.hpp"
 #include <iostream>
 #include <string>
 #include <vector>

@@ -23,7 +23,7 @@
 //   taskset -c 0 ./metis_x_bench.exe [reps] [output.csv]
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -35,12 +35,12 @@
 #include <unordered_set>
 #include <vector>
 
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/embedded_conventional_symbol_table.hpp"
-#include "../include/interned_symbol_table.hpp"
-#include "../include/symtab_v3.hpp"
-#include "../include/metis_x.hpp"
-#include "../include/hires_timer.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/embedded_conventional_symbol_table.hpp"
+#include "historical/interned_symbol_table.hpp"
+#include "historical/symtab_v3.hpp"
+#include "metis_x.hpp"
+#include "hires_timer.hpp"
 
 using namespace budgetsym;
 

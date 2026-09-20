@@ -23,7 +23,7 @@
 // Output: results/synthetic_experiments_A_F.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -36,12 +36,12 @@
 #include <unordered_set>
 #include <vector>
 
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/conventional_heap_string_symbol_table.hpp"
-#include "../include/interned_symbol_table.hpp"
-#include "../include/symtab_v3.hpp"
-#include "../include/symtab_v4.hpp"
-#include "../include/hires_timer.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/conventional_heap_string_symbol_table.hpp"
+#include "historical/interned_symbol_table.hpp"
+#include "historical/symtab_v3.hpp"
+#include "historical/symtab_v4.hpp"
+#include "hires_timer.hpp"
 
 using namespace budgetsym;
 

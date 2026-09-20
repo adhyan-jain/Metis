@@ -13,7 +13,7 @@
 // Output: results/metis_x_failure_cases.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <fstream>
@@ -22,8 +22,8 @@
 #include <string>
 #include <vector>
 
-#include "../include/metis_x.hpp"
-#include "../include/hires_timer.hpp"
+#include "metis_x.hpp"
+#include "hires_timer.hpp"
 
 using namespace budgetsym;
 

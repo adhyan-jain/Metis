@@ -5,15 +5,15 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/interned_symbol_table.hpp"
-#include "../include/budget_sym.hpp"
-#include "../include/dataset_generators.hpp"
-#include "../include/bench_metrics.hpp"
-#include "../include/robinhood_symbol_table.hpp"
-#include "../include/trie_symbol_table.hpp"
-#include "../include/hash_functions.hpp"
-#include "../include/metis_x.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/interned_symbol_table.hpp"
+#include "historical/budget_sym.hpp"
+#include "historical/dataset_generators.hpp"
+#include "bench_metrics.hpp"
+#include "historical/robinhood_symbol_table.hpp"
+#include "historical/trie_symbol_table.hpp"
+#include "hash_functions.hpp"
+#include "metis_x.hpp"
 
 using namespace budgetsym;
 

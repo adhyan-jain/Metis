@@ -10,7 +10,7 @@
 // Output: results/metis_x_parameter_sweep.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -20,9 +20,9 @@
 #include <string>
 #include <vector>
 
-#include "../include/embedded_conventional_symbol_table.hpp"
-#include "../include/hash_functions.hpp"
-#include "../include/hires_timer.hpp"
+#include "historical/embedded_conventional_symbol_table.hpp"
+#include "hash_functions.hpp"
+#include "hires_timer.hpp"
 
 using namespace budgetsym;
 

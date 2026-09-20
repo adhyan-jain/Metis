@@ -8,7 +8,7 @@
 // Outputs: data/real_world_benchmark.csv and results/real_world_benchmark.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -20,14 +20,14 @@
 #include <unordered_set>
 #include <vector>
 
-#include "../include/budget_sym.hpp"
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/conventional_heap_string_symbol_table.hpp"
-#include "../include/hires_timer.hpp"
-#include "../include/interned_symbol_table.hpp"
-#include "../include/symtab_v2.hpp"
-#include "../include/symtab_v3.hpp"
-#include "../include/symtab_v4.hpp"
+#include "historical/budget_sym.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/conventional_heap_string_symbol_table.hpp"
+#include "hires_timer.hpp"
+#include "historical/interned_symbol_table.hpp"
+#include "historical/symtab_v2.hpp"
+#include "historical/symtab_v3.hpp"
+#include "historical/symtab_v4.hpp"
 
 using namespace budgetsym;
 using namespace budgetsym::v2;

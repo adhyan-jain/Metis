@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 CXX=${CXX:-g++}
-CXXFLAGS="-std=c++14 -O2 -Wall -Wextra -Iinclude"
+CXXFLAGS="-std=c++14 -O2 -Wall -Wextra -Iinclude -Iinclude/historical"
 PYTHON=${PYTHON:-./venv/bin/python3}
 if [ ! -x "$PYTHON" ]; then
     PYTHON=python3
@@ -90,4 +90,3 @@ echo "  Phase II Dataset : results/METIS_X_CANONICAL_DATASET.csv       "
 echo "  Phase II Report  : docs/METIS_X_FINAL_VALIDATION_REPORT.md     "
 echo "  Config Freeze    : docs/METIS_X_CONFIG_FREEZE.md               "
 echo "================================================================="
-

@@ -12,7 +12,7 @@
 // Output: results/metis_x_ablation.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <fstream>
@@ -21,10 +21,10 @@
 #include <string>
 #include <vector>
 
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/embedded_conventional_symbol_table.hpp"
-#include "../include/metis_x.hpp"
-#include "../include/hires_timer.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/embedded_conventional_symbol_table.hpp"
+#include "metis_x.hpp"
+#include "hires_timer.hpp"
 
 using namespace budgetsym;
 

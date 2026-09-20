@@ -7,7 +7,7 @@
 // Output: results/metis_x_instrumentation.csv
 
 #define BUDGETSYM_HEAP_COUNTER_IMPL
-#include "../include/heap_counter.hpp"
+#include "heap_counter.hpp"
 
 #include <algorithm>
 #include <fstream>
@@ -16,7 +16,7 @@
 #include <string>
 #include <vector>
 
-#include "../include/metis_x.hpp"
+#include "metis_x.hpp"
 
 using namespace budgetsym;
 

@@ -15,14 +15,14 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "../include/conventional_symbol_table.hpp"
-#include "../include/interned_symbol_table.hpp"
-#include "../include/budget_sym.hpp"
-#include "../include/robinhood_symbol_table.hpp"
-#include "../include/trie_symbol_table.hpp"
-#include "../include/symtab_v2.hpp"
-#include "../include/symtab_v3.hpp"
-#include "../include/symtab_v4.hpp"
+#include "historical/conventional_symbol_table.hpp"
+#include "historical/interned_symbol_table.hpp"
+#include "historical/budget_sym.hpp"
+#include "historical/robinhood_symbol_table.hpp"
+#include "historical/trie_symbol_table.hpp"
+#include "historical/symtab_v2.hpp"
+#include "historical/symtab_v3.hpp"
+#include "historical/symtab_v4.hpp"
 
 using namespace budgetsym;
 
