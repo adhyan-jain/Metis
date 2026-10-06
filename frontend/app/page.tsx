@@ -75,7 +75,7 @@ export default function DashboardHome() {
           <div className="grid grid-cols-3 gap-3 shrink-0 w-full lg:w-auto">
             <StatCell label="Joint Wins" value="Zephyr & ESP" />
             <StatCell label="Lookup Allocs" value="0 Proved" />
-            <StatCell label="Zephyr RAM" value="-38.2%" />
+            <StatCell label="Zephyr RAM" value="-40.2%" />
           </div>
         </div>
 
@@ -115,19 +115,19 @@ export default function DashboardHome() {
           <ul className="space-y-2 text-xs text-slate-700">
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">✓</span>
-              <span><strong>Zephyr RTOS Win:</strong> −38.2% physical final heap (25.79 MB vs 41.74 MB) and −15.2% p95 latency (0.084 µs vs 0.119 µs).</span>
+              <span><strong>Zephyr RTOS Win:</strong> −40.2% physical final heap (24.95 MB vs 41.74 MB) and −45.7% p95 latency (0.082 µs vs 0.151 µs).</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">✓</span>
-              <span><strong>ESP-IDF Win:</strong> −17.5% physical final heap (35.20 MB vs 42.65 MB) and −69.6% p95 latency (0.069 µs vs 0.227 µs).</span>
+              <span><strong>ESP-IDF Win:</strong> −17.6% physical final heap (35.15 MB vs 42.65 MB) and −56.7% p95 latency (0.081 µs vs 0.187 µs).</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-emerald-500 font-bold">✓</span>
-              <span><strong>Zero Hot-Path Allocations:</strong> 0 allocations across 2,863,367 lookups in real event streams.</span>
+              <span><strong>Zero Hot-Path Allocations:</strong> 0 allocations across 2,813,369 lookups in real event streams.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-amber-500 font-bold">⚠</span>
-              <span><strong>Arduino Trade-off:</strong> +2.6% heap due to fallback heap string allocations for names exceeding 12B.</span>
+              <span><strong>Arduino Trade-off:</strong> +2.5% heap due to fallback heap string allocations for names exceeding 12B.</span>
             </li>
           </ul>
         </div>

@@ -453,6 +453,98 @@ void test_metisx_many_symbols() {
     CHECK(t.size() == static_cast<size_t>(N));
 }
 
+void test_metisx_relocation_rehash_stress() {
+    budgetsym::metisx::MetisXTable t;
+
+    // Scope 0: 50 symbols
+    for (int i = 0; i < 50; i++) {
+        t.insert("scope0_var_" + std::to_string(i));
+    }
+
+    t.enterScope(); // Scope 1
+    // Insert enough symbols in Scope 1 to cause multiple rehashes (capacity: 16 -> 32 -> 64 -> 128 -> 256 -> 512)
+    for (int i = 0; i < 300; i++) {
+        t.insert("scope1_var_" + std::to_string(i));
+    }
+
+    t.enterScope(); // Scope 2
+    // Shadow some Scope 0 and Scope 1 symbols in Scope 2
+    int s2_s0 = t.insert("scope0_var_10");
+    int s2_s1 = t.insert("scope1_var_20");
+    int s2_new = t.insert("scope2_exclusive");
+
+    CHECK(t.resolve("scope0_var_10") == s2_s0);
+    CHECK(t.resolve("scope1_var_20") == s2_s1);
+    CHECK(t.resolve("scope2_exclusive") == s2_new);
+
+    // Exit Scope 2: verify restorations
+    auto rep2 = t.exitScope();
+    CHECK(rep2.symbolsReleased == 3);
+    CHECK(t.resolve("scope2_exclusive") == -1);
+    CHECK(t.resolve("scope0_var_10") >= 0);
+    CHECK(t.resolve("scope0_var_10") != s2_s0);
+    CHECK(t.resolve("scope1_var_20") >= 0);
+    CHECK(t.resolve("scope1_var_20") != s2_s1);
+
+    // Exit Scope 1: verify all 300 scope1 symbols are gone, but all 50 scope0 symbols survive
+    auto rep1 = t.exitScope();
+    CHECK(rep1.symbolsReleased == 300);
+    for (int i = 0; i < 300; i++) {
+        CHECK(t.resolve("scope1_var_" + std::to_string(i)) == -1);
+    }
+    for (int i = 0; i < 50; i++) {
+        CHECK(t.resolve("scope0_var_" + std::to_string(i)) >= 0);
+    }
+    CHECK(t.size() == 50);
+}
+
+void test_metisx_identifier_length_boundaries() {
+    budgetsym::metisx::MetisXTable t;
+
+    // Length 0 (empty string)
+    int id0 = t.insert("");
+    CHECK(id0 >= 0);
+    CHECK(t.resolve("") == id0);
+
+    // Length 1 (1 byte)
+    int id1 = t.insert("a");
+    CHECK(t.resolve("a") == id1);
+
+    // Length 12 (exact inline capacity boundary)
+    std::string s12(12, 'x');
+    int id12 = t.insert(s12);
+    CHECK(t.resolve(s12) == id12);
+
+    // Length 13 (first heap fallback boundary)
+    std::string s13(13, 'y');
+    int id13 = t.insert(s13);
+    CHECK(t.resolve(s13) == id13);
+
+    // Length 255 (old uint8_t boundary)
+    std::string s255(255, 'z');
+    int id255 = t.insert(s255);
+    CHECK(t.resolve(s255) == id255);
+
+    // Length 300 (exceeds 255B)
+    std::string s300(300, 'q');
+    int id300 = t.insert(s300);
+    CHECK(t.resolve(s300) == id300);
+
+    // Two 300-byte strings differing only in the last byte
+    std::string s300_a = std::string(299, 'm') + "A";
+    std::string s300_b = std::string(299, 'm') + "B";
+    int id300_a = t.insert(s300_a);
+    int id300_b = t.insert(s300_b);
+    CHECK(id300_a != id300_b);
+    CHECK(t.resolve(s300_a) == id300_a);
+    CHECK(t.resolve(s300_b) == id300_b);
+
+    // Length 1000
+    std::string s1000(1000, 'w');
+    int id1000 = t.insert(s1000);
+    CHECK(t.resolve(s1000) == id1000);
+}
+
 int main() {
     test_conventional();
     test_interned();
@@ -487,6 +579,8 @@ int main() {
     test_metisx_same_scope_redeclaration();
     test_metisx_long_name_heap_path();
     test_metisx_many_symbols();
+    test_metisx_relocation_rehash_stress();
+    test_metisx_identifier_length_boundaries();
 
     if (failures == 0) {
         std::cout << "ALL TESTS PASSED\n";

@@ -13,10 +13,10 @@
 //
 // METIS-X's design eliminates reconstruction from the hot lookup path:
 //
-//   1. Fixed-size 32B MetisXSlot (one cache-line half):
+//   1. Fixed-size 32B MetisXSlot:
 //        - 12B inline name buffer (covers 93.4% of Zephyr names verbatim)
-//        - 1B nameLen, 1B repFlags, 2B scopeId, 4B declId, 4B hashCache,
-//          1B probeDistance, 3B padding / future use
+//        - 4B declId (-1 sentinel for empty slot), 4B hashCache, 4B frameIndex,
+//          2B scopeId, 2B nameLen, 1B probeDistance, 1B repFlags, 1B typeId, 1B pad
 //        - For names > 12B: nameLen > kInlineCap sets REP_HEAP flag;
 //          the slot stores a heap pointer in the same 12B union.
 //
@@ -29,9 +29,10 @@
 //      stop probing as soon as current probe distance exceeds the slot's
 //      stored probe distance (key cannot be further out).
 //
-//   4. Scope lifetime: each scope pushes a frame to a vector<uint32_t>.
-//      exitScope() marks all frame slots as empty -- O(symbols_in_scope),
-//      same complexity as EmbeddedConventional.
+//   4. Scope lifetime: each scope pushes a frame to vector<vector<uint32_t>> scopeFrames_.
+//      Every displacement, rehash, or backward-shift updates the stored slot index
+//      in O(1) via the slot's frameIndex and scopeId.
+//      exitScope() clears all frame slots and backward-shifts downstream elements.
 //
 //   5. Same physical heap measurement: callers wrap benchmarks in
 //      budgetsym::heap::Scope (from heap_counter.hpp).
@@ -63,62 +64,62 @@ enum : uint8_t {
 
 // ---- slot layout: exactly 32 bytes -----------------------------------------
 struct MetisXSlot {
-    int32_t  declId        = -1;         // 4B: declaration ordinal
-    uint32_t hashCache     = 0;          // 4B: FNV hash (32-bit) for quick mismatch
+    int32_t  declId        = -1;         // 4B: declaration ordinal (-1 => empty slot sentinel)
+    uint32_t hashCache     = 0;          // 4B: FNV hash (32-bit) for quick mismatch rejection
+    uint32_t frameIndex    = 0;          // 4B: index in scopeFrames_[scopeId] for O(1) relocation updates
     uint16_t scopeId       = 0;          // 2B: scope depth at declaration
-    uint8_t  nameLen       = 0;          // 1B: 0 => empty slot sentinel
-    uint8_t  probeDistance = 0;          // 1B: Robin Hood probe distance
+    uint16_t nameLen       = 0;          // 2B: name byte length (supports up to 65,535B)
+    uint8_t  probeDistance = 0;          // 1B: Robin Hood probe distance from home bucket
     uint8_t  repFlags      = REP_INLINE; // 1B: REP_INLINE or REP_HEAP
     uint8_t  typeId        = 0;          // 1B: compiler type id
-    uint16_t _pad          = 0;          // 2B: reserved (keeps struct 32B)
+    char     inlineBytes[13] = {0};      // 13B: inline buffer (<=12B chars or 8B char* pointer)
 
-    union NameStorage {                  // 12B: inline bytes or heap pointer
-        char  inlineBytes[kInlineCap];
-        char* heapPtr;
-        NameStorage() { std::memset(inlineBytes, 0, sizeof(inlineBytes)); }
-    } name;
-
-    bool occupied() const { return nameLen > 0; }
+    bool occupied() const { return declId >= 0; }
 
     std::string getString() const {
+        if (!occupied()) return std::string();
         if (repFlags & REP_HEAP) {
             char* p;
-            std::memcpy(&p, name.inlineBytes, sizeof(char*));
+            std::memcpy(&p, inlineBytes, sizeof(char*));
             return std::string(p, nameLen);
         }
-        return std::string(name.inlineBytes, nameLen);
+        return std::string(inlineBytes, nameLen);
     }
 
     // Set name; allocates heap copy if len > kInlineCap. Returns heap ptr or null.
-    char* setName(const char* data, uint8_t len) {
+    char* setName(const char* data, uint16_t len) {
         nameLen = len;
         if (static_cast<size_t>(len) <= kInlineCap) {
             repFlags = REP_INLINE;
-            std::memcpy(name.inlineBytes, data, len);
+            std::memset(inlineBytes, 0, sizeof(inlineBytes));
+            if (len > 0) {
+                std::memcpy(inlineBytes, data, len);
+            }
             return nullptr;
         }
         repFlags = REP_HEAP;
         char* p = new char[len];
         std::memcpy(p, data, len);
-        std::memcpy(name.inlineBytes, &p, sizeof(char*));
+        std::memset(inlineBytes, 0, sizeof(inlineBytes));
+        std::memcpy(inlineBytes, &p, sizeof(char*));
         return p;
     }
 
     void clear() {
         if (occupied() && (repFlags & REP_HEAP)) {
             char* p;
-            std::memcpy(&p, name.inlineBytes, sizeof(char*));
+            std::memcpy(&p, inlineBytes, sizeof(char*));
             delete[] p;
         }
         declId        = -1;
         hashCache     = 0;
+        frameIndex    = 0;
         scopeId       = 0;
         nameLen       = 0;
         probeDistance = 0;
         repFlags      = REP_INLINE;
         typeId        = 0;
-        _pad          = 0;
-        std::memset(name.inlineBytes, 0, kInlineCap);
+        std::memset(inlineBytes, 0, sizeof(inlineBytes));
     }
 };
 
@@ -137,7 +138,7 @@ public:
         for (auto& s : slots_) {
             if (s.occupied() && (s.repFlags & REP_HEAP)) {
                 char* p;
-                std::memcpy(&p, s.name.inlineBytes, sizeof(char*));
+                std::memcpy(&p, s.inlineBytes, sizeof(char*));
                 delete[] p;
             }
         }
@@ -162,18 +163,15 @@ public:
         uint16_t currentScope = static_cast<uint16_t>(scopeFrames_.size() - 1);
         std::vector<uint32_t>& frame = scopeFrames_.back();
 
-        // Collect indices to clear (only those still alive in this scope)
-        std::vector<uint32_t> toClear;
-        for (uint32_t slotIdx : frame) {
+        // Process from back to front to minimize cascade backward shifts
+        while (!frame.empty()) {
+            uint32_t slotIdx = frame.back();
+            frame.pop_back();
+
             if (slotIdx >= static_cast<uint32_t>(slots_.size())) continue;
             MetisXSlot& s = slots_[slotIdx];
             if (!s.occupied() || s.scopeId != currentScope) continue;
-            toClear.push_back(slotIdx);
-        }
 
-        // Clear each slot and backward-shift to maintain Robin Hood invariant
-        for (uint32_t slotIdx : toClear) {
-            MetisXSlot& s = slots_[slotIdx];
             if (s.repFlags & REP_HEAP)
                 rep.bytesReclaimed += static_cast<long long>(s.nameLen);
             s.clear();
@@ -192,8 +190,8 @@ public:
         int id = nextId_++;
         uint16_t currentScope = static_cast<uint16_t>(scopeFrames_.size() - 1);
 
-        // Clamp name length to uint8_t range (identifiers > 255B are astronomically rare)
-        uint8_t nameLen8 = static_cast<uint8_t>(name.size() > 255 ? 255 : name.size());
+        // Support lengths up to 65535 bytes without truncation
+        uint16_t nameLen16 = static_cast<uint16_t>(name.size() > 65535 ? 65535 : name.size());
         uint32_t h = hash32(name);
 
         // Same-scope redeclaration: update in place
@@ -205,7 +203,7 @@ public:
                 MetisXSlot& s = slots_[idx];
                 if (s.probeDistance < dist) break;
                 if (s.hashCache == h && s.scopeId == currentScope &&
-                    s.nameLen == nameLen8 && nameMatch(s, name.data(), nameLen8)) {
+                    s.nameLen == nameLen16 && nameMatch(s, name.data(), nameLen16)) {
                     s.declId = id;
                     s.typeId = static_cast<uint8_t>(typeId);
                     return id;
@@ -223,36 +221,34 @@ public:
 
         // Robin Hood insert
         MetisXSlot toInsert;
-        toInsert.declId    = id;
-        toInsert.hashCache = h;
-        toInsert.scopeId   = currentScope;
-        toInsert.typeId    = static_cast<uint8_t>(typeId);
-        toInsert.setName(name.data(), nameLen8);
+        toInsert.declId     = id;
+        toInsert.hashCache  = h;
+        toInsert.scopeId    = currentScope;
+        toInsert.frameIndex = static_cast<uint32_t>(scopeFrames_.back().size());
+        toInsert.typeId     = static_cast<uint8_t>(typeId);
+        toInsert.setName(name.data(), nameLen16);
         toInsert.probeDistance = 0;
+
+        // Register in scope frame
+        scopeFrames_.back().push_back(0); // placeholder updated upon placement
 
         size_t mask = capacity_ - 1;
         size_t idx  = h & mask;
-        uint32_t slotIdx = static_cast<uint32_t>(idx);
 
         while (true) {
             MetisXSlot& cur = slots_[idx];
             if (!cur.occupied()) {
-                slotIdx = static_cast<uint32_t>(idx);
                 slots_[idx] = toInsert;
-                scopeFrames_.back().push_back(slotIdx);
+                updateSlotLocation(toInsert, idx);
                 liveCount_++;
                 return id;
             }
             if (cur.probeDistance < toInsert.probeDistance) {
-                // Robin Hood swap: displaced entry keeps its scope frame record
-                // (exitScope scans by scopeId, not by slotIdx position)
-                slotIdx = static_cast<uint32_t>(idx);
+                // Robin Hood swap
                 std::swap(toInsert, slots_[idx]);
-                // Register the new entry (toInsert before swap = our new entry)
-                scopeFrames_.back().push_back(slotIdx);
+                updateSlotLocation(slots_[idx], idx);
                 liveCount_++;
-                // Continue to place the displaced old entry
-                // (it will find its home without incrementing nextId_)
+                // Continue to place the displaced entry
                 reinsertDisplaced(toInsert, idx);
                 return id;
             }
@@ -264,11 +260,11 @@ public:
     // ---- lookup (hot path) --------------------------------------------------
 
     int resolve(const std::string& name) const {
-        uint8_t nameLen8 = static_cast<uint8_t>(name.size() > 255 ? 255 : name.size());
-        uint32_t h       = hash32(name);
-        size_t mask      = capacity_ - 1;
-        size_t idx       = h & mask;
-        uint8_t dist     = 0;
+        uint16_t nameLen16 = static_cast<uint16_t>(name.size() > 65535 ? 65535 : name.size());
+        uint32_t h        = hash32(name);
+        size_t mask       = capacity_ - 1;
+        size_t idx        = h & mask;
+        uint8_t dist      = 0;
 
         int bestDeclId = -1;
         int bestScope  = -1;
@@ -277,8 +273,8 @@ public:
             const MetisXSlot& s = slots_[idx];
             if (s.probeDistance < dist) break;  // Robin Hood early exit
 
-            if (s.hashCache == h && s.nameLen == nameLen8 &&
-                nameMatch(s, name.data(), nameLen8)) {
+            if (s.hashCache == h && s.nameLen == nameLen16 &&
+                nameMatch(s, name.data(), nameLen16)) {
                 if (static_cast<int>(s.scopeId) > bestScope) {
                     bestScope  = static_cast<int>(s.scopeId);
                     bestDeclId = s.declId;
@@ -351,14 +347,20 @@ private:
         return static_cast<uint32_t>(h64 ^ (h64 >> 32));
     }
 
-    static bool nameMatch(const MetisXSlot& s, const char* data, uint8_t len) {
+    static bool nameMatch(const MetisXSlot& s, const char* data, uint16_t len) {
         if (s.repFlags & REP_HEAP) {
             char* p;
-            std::memcpy(&p, s.name.inlineBytes, sizeof(char*));
+            std::memcpy(&p, s.inlineBytes, sizeof(char*));
             return std::memcmp(p, data, len) == 0;
         }
         // Hot path: <=12B memcmp -- typically 1-2 64-bit comparisons
-        return std::memcmp(s.name.inlineBytes, data, len) == 0;
+        return std::memcmp(s.inlineBytes, data, len) == 0;
+    }
+
+    void updateSlotLocation(const MetisXSlot& s, size_t slotIdx) {
+        if (s.scopeId < scopeFrames_.size() && s.frameIndex < scopeFrames_[s.scopeId].size()) {
+            scopeFrames_[s.scopeId][s.frameIndex] = static_cast<uint32_t>(slotIdx);
+        }
     }
 
     void backwardShift(size_t startIdx) {
@@ -370,13 +372,14 @@ private:
             if (!nextSlot.occupied() || nextSlot.probeDistance == 0) break;
             slots_[idx] = nextSlot;
             slots_[idx].probeDistance--;
-            nextSlot.nameLen = 0;  // mark original position empty (no heap free; ptr moved)
+            updateSlotLocation(slots_[idx], idx);
+            nextSlot.declId = -1;  // mark original position empty (no heap free; ptr moved)
+            nextSlot.nameLen = 0;
             idx = next;
         }
     }
 
     // Insert a displaced slot entry (Robin Hood swap continuation).
-    // Does NOT update scopeFrames_ -- caller registered the final resting slot.
     void reinsertDisplaced(MetisXSlot src, size_t startIdx) {
         size_t mask = capacity_ - 1;
         size_t idx  = (startIdx + 1) & mask;
@@ -386,10 +389,12 @@ private:
             MetisXSlot& cur = slots_[idx];
             if (!cur.occupied()) {
                 slots_[idx] = src;
+                updateSlotLocation(src, idx);
                 return;
             }
             if (cur.probeDistance < src.probeDistance) {
                 std::swap(src, slots_[idx]);
+                updateSlotLocation(slots_[idx], idx);
             }
             idx = (idx + 1) & mask;
             src.probeDistance++;
@@ -403,9 +408,6 @@ private:
         slots_.resize(newCap);
         capacity_  = newCap;
         liveCount_ = 0;
-        // Scope frames remain intact; slot indices change during rehash.
-        // exitScope() identifies slots by scopeId match, not by stored slotIdx,
-        // so correctness is maintained after rehash.
         for (auto& s : old) {
             if (!s.occupied()) continue;
             reinsertForRehash(s);
@@ -420,11 +422,13 @@ private:
             MetisXSlot& cur = slots_[idx];
             if (!cur.occupied()) {
                 slots_[idx] = src;
+                updateSlotLocation(src, idx);
                 liveCount_++;
                 return;
             }
             if (cur.probeDistance < src.probeDistance) {
                 std::swap(src, slots_[idx]);
+                updateSlotLocation(slots_[idx], idx);
             }
             idx = (idx + 1) & mask;
             src.probeDistance++;

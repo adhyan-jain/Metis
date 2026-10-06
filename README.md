@@ -75,11 +75,13 @@ Evaluated under $R=7$ independent repetitions with process CPU core pinning (`ta
 
 | Workload | Unique Symbols | Baseline RAM | METIS-X RAM | Physical RAM Advantage | Baseline $p_{95}$ | METIS-X $p_{95}$ | $p_{95}$ Latency Advantage | Classification |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Zephyr RTOS** | 228,739 | $41.74\text{ MB}$ | **$25.79\text{ MB}$** | **$-38.2\%$ RAM** | $0.119\ \mu\text{s}$ | **$0.083\ \mu\text{s}$** | **$-30.2\%$ p95 Latency** | **JOINT WIN ($\ge 10\%$)** |
-| **ESP-IDF** | 231,075 | $42.65\text{ MB}$ | **$35.20\text{ MB}$** | **$-17.5\%$ RAM** | $0.136\ \mu\text{s}$ | **$0.070\ \mu\text{s}$** | **$-48.5\%$ p95 Latency** | **JOINT WIN ($\ge 10\%$)** |
+| **Zephyr RTOS** | 228,739 | $41.74\text{ MB}$ | **$24.95\text{ MB}$** | **$-40.2\%$ RAM** | $0.151\ \mu\text{s}$ | **$0.082\ \mu\text{s}$** | **$-45.7\%$ p95 Latency** | **JOINT WIN ($\ge 10\%$)** |
+| **ESP-IDF** | 231,075 | $42.65\text{ MB}$ | **$35.15\text{ MB}$** | **$-17.6\%$ RAM** | $0.187\ \mu\text{s}$ | **$0.081\ \mu\text{s}$** | **$-56.7\%$ p95 Latency** | **JOINT WIN ($\ge 10\%$)** |
+| **FreeRTOS** | 10,386 | $1.79\text{ MB}$ | **$1.59\text{ MB}$** | **$-11.2\%$ RAM** | $0.087\ \mu\text{s}$ | **$0.080\ \mu\text{s}$** | **$-8.0\%$ p95 Latency** | **JOINT WIN ($\ge 10\%$)** |
+| **Arduino** | 11,000 | $1.48\text{ MB}$ | **$1.52\text{ MB}$** | **$+2.5\%$ RAM** | $0.093\ \mu\text{s}$ | **$0.078\ \mu\text{s}$** | **$-16.1\%$ p95 Latency** | **PARTIAL / TRADEOFF** |
 
-- **Zero Hot-Path Allocations**: Verified $0$ dynamic heap allocations across $2,863,367$ symbol lookup operations in real-world AST execution traces.
-- **Component Ablation Waterfall**: Memory footprint reduced from $43.44\text{ MB}$ ($A_2$: Flat Robin Hood with dynamic per-string heap allocations) to $5.59\text{ MB}$ ($A_5$: Full METIS-X with 32B inline slots and scope recycling), yielding an **$87.1\%$ physical memory reduction** on Zephyr AST symbol workloads.
+- **Zero Hot-Path Allocations**: Verified $0$ dynamic heap allocations across $2,813,369$ symbol lookup operations in real-world AST execution traces.
+- **Component Ablation Waterfall**: Memory footprint reduced from $43.44\text{ MB}$ ($A_2$: Flat Robin Hood with dynamic per-string heap allocations) to $4.73\text{ MB}$ ($A_5$: Full METIS-X with 32B inline slots and scope recycling), yielding an **$89.1\%$ physical memory reduction** on Zephyr AST symbol workloads.
 
 ---
 

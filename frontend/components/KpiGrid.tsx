@@ -15,8 +15,8 @@ interface Kpi {
 const METIS_X_KPIS: Kpi[] = [
   {
     title: "Zephyr Final Heap Win",
-    value: "-38.2%",
-    subtitle: "25.79 MB (MetisX) vs 41.74 MB (EmbConv)",
+    value: "-40.2%",
+    subtitle: "24.95 MB (MetisX) vs 41.74 MB (EmbConv)",
     badge: "JOINT WIN (≥10%)",
     accent: "text-emerald-700",
     border: "border-emerald-200",
@@ -24,8 +24,8 @@ const METIS_X_KPIS: Kpi[] = [
   },
   {
     title: "ESP-IDF p95 Latency Win",
-    value: "-69.6%",
-    subtitle: "0.069 µs (MetisX) vs 0.227 µs (EmbConv)",
+    value: "-56.7%",
+    subtitle: "0.081 µs (MetisX) vs 0.187 µs (EmbConv)",
     badge: "JOINT WIN (≥10%)",
     accent: "text-indigo-700",
     border: "border-indigo-200",
@@ -42,8 +42,8 @@ const METIS_X_KPIS: Kpi[] = [
   },
   {
     title: "Zephyr p95 Speedup vs V3",
-    value: "2.33× Faster",
-    subtitle: "0.083 µs (MetisX) vs 0.196 µs (SymTabV3)",
+    value: "2.68× Faster",
+    subtitle: "0.082 µs (MetisX) vs 0.220 µs (SymTabV3)",
     badge: "PHASE I FAILURE SOLVED",
     accent: "text-sky-700",
     border: "border-sky-200",

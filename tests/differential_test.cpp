@@ -23,6 +23,7 @@
 #include "historical/symtab_v2.hpp"
 #include "historical/symtab_v3.hpp"
 #include "historical/symtab_v4.hpp"
+#include "metis_x.hpp"
 
 using namespace budgetsym;
 
@@ -160,6 +161,9 @@ static void test_differential_fuzz() {
 
         budgetsym::v4::SymTabV4<> v4table(1 << 20);
         runTrace(v4table, trace, "SymTabV4");
+
+        budgetsym::metisx::MetisXTable metisx;
+        runTrace(metisx, trace, "MetisX");
         // Byte-accounting check the id-only runTrace() above cannot catch
         // (review MEDIUM finding: a double-reclaim or refcount bug wouldn't
         // perturb resolve() ids at all). Every live entry pays AT LEAST
@@ -355,11 +359,91 @@ static void test_resolve_respects_shadowing() {
     CHECK(t.resolve("x") == outer); // outer binding visible again
 }
 
+// Intensive randomized fuzz test specifically designed to stress-test METIS-X's
+// Robin Hood displacement, multiple geometric rehashes while nested scopes are
+// active, backward-shift deletions, and shadowing restoration against ReferenceModel.
+static void test_metisx_intensive_relocation_fuzz() {
+    const int kTraces = 300;
+    const int kEventsPerTrace = 500;
+    std::mt19937 rng(133742);
+
+    static const std::vector<std::string> namePool = {
+        "a", "b", "c", "d", "x", "y", "z", "foo", "bar", "tmp", "val", "cnt",
+        "short1", "short2", "inline12char",
+        "longerThan12BytesName1", "longerThan12BytesName2", "veryLongIdentifierNameWithSignificantPrefixAlpha",
+        "veryLongIdentifierNameWithSignificantPrefixBeta",
+        std::string(300, 'k'), // 300-byte identifier
+        std::string(1000, 'w') // 1000-byte identifier
+    };
+
+    std::uniform_int_distribution<int> opDist(0, 9);
+    std::uniform_int_distribution<size_t> nameDist(0, namePool.size() - 1);
+
+    for (int t = 0; t < kTraces; t++) {
+        ReferenceModel ref;
+        budgetsym::metisx::MetisXTable table;
+        int depth = 0;
+
+        for (int step = 0; step < kEventsPerTrace; step++) {
+            int op = opDist(rng);
+            if (op <= 4) { // Declare
+                const std::string& name = namePool[nameDist(rng)];
+                int expectedId = ref.insert(name);
+                int actualId = table.insert(name);
+                CHECK(actualId == expectedId);
+            } else if (op <= 7) { // Use / Resolve
+                const std::string& name = namePool[nameDist(rng)];
+                int expectedId = ref.resolve(name);
+                int actualId = table.resolve(name);
+                if (actualId != expectedId) {
+                    std::cerr << "MISMATCH[MetisX Intensive Fuzz trace " << t << " step " << step
+                              << "] resolve(\"" << name.substr(0, 20) << "\") expected="
+                              << expectedId << " actual=" << actualId << "\n";
+                    failures++;
+                }
+            } else if (op == 8 && depth < 10) { // Enter Scope
+                ref.enterScope();
+                table.enterScope();
+                depth++;
+            } else if (depth > 0) { // Exit Scope
+                ref.exitScope();
+                table.exitScope();
+                depth--;
+            } else {
+                const std::string& name = namePool[nameDist(rng)];
+                int expectedId = ref.insert(name);
+                int actualId = table.insert(name);
+                CHECK(actualId == expectedId);
+            }
+        }
+
+        // Exit all remaining scopes
+        while (depth > 0) {
+            ref.exitScope();
+            table.exitScope();
+            depth--;
+        }
+
+        // Final sanity check across entire pool
+        for (const auto& name : namePool) {
+            int expectedId = ref.resolve(name);
+            int actualId = table.resolve(name);
+            CHECK(actualId == expectedId);
+        }
+    }
+
+    if (failures == 0) {
+        std::cout << "test_metisx_intensive_relocation_fuzz: " << kTraces
+                  << " stress traces (displacements, rehashes, scope churn) PASSED\n";
+    }
+}
+
 int main() {
     test_same_scope_redeclaration_no_double_charge();
     test_resolve_respects_shadowing();
     test_exit_scope_does_not_free_slot_reused_by_inner_scope();
     test_differential_fuzz();
+    test_metisx_intensive_relocation_fuzz();
 
     if (failures == 0) {
         std::cout << "ALL DIFFERENTIAL TESTS PASSED\n";

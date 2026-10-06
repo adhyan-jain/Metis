@@ -27,7 +27,7 @@
 \begin{abstract}
 Symbol tables are a core compiler data structure whose physical memory footprint and lookup latency directly govern execution efficiency under severe embedded resource constraints. Modern 64-bit systems rely on \texttt{std::unordered\_map} with Short String Optimization (SSO), storing small identifiers ($\le 15$~bytes) without secondary heap allocations. In adaptive representation studies (Phase I, \texttt{SymTabV3}), front-coded block compression achieved a 20.2\% physical heap reduction on large workloads but incurred a $1.824\times$ $p_{95}$ tail-latency regression due to per-lookup reconstruction costs.
 
-To overcome this fundamental boundary, we present \texttt{METIS-X} (Phase II), a cache-conscious, compiler-aware flat symbol-table architecture. \texttt{METIS-X} eliminates dictionary reconstruction from the hot lookup path by storing short identifiers ($\le 12$\,bytes) directly inside a fixed 32-byte slot, backed by Robin Hood open-addressing displacement and LIFO scope-lifetime frame slot recycling. We evaluate \texttt{METIS-X} using physical allocator heap tracking (\texttt{malloc\_usable\_size}) under $R=7$ independent repetitions with CPU core pinning (\texttt{taskset -c 0}). On the primary \textsc{Zephyr} RTOS workload (2.6M events, 228,739 unique symbols), \texttt{METIS-X} achieves a \textbf{38.2\% physical final heap reduction} (25.79\,MB vs 41.74\,MB) and a \textbf{15.2\% $p_{95}$ lookup latency reduction} (0.084\,$\mu$s vs 0.099\,$\mu$s) relative to the embedded conventional baseline. On \textsc{ESP-IDF}, \texttt{METIS-X} achieves a \textbf{17.5\% heap reduction} (35.20\,MB vs 42.65\,MB) and a \textbf{69.6\% $p_{95}$ latency reduction} (0.069\,$\mu$s vs 0.227\,$\mu$s). Instrumentation across 2.8M lookups proves zero secondary heap allocations on the hot path.
+To overcome this fundamental boundary, we present \texttt{METIS-X} (Phase II), a cache-conscious, compiler-aware flat symbol-table architecture. \texttt{METIS-X} eliminates dictionary reconstruction from the hot lookup path by storing short identifiers ($\le 12$\,bytes) directly inside a fixed 32-byte slot, backed by Robin Hood open-addressing displacement and LIFO scope-lifetime frame slot recycling. We evaluate \texttt{METIS-X} using physical allocator heap tracking (\texttt{malloc\_usable\_size}) under $R=7$ independent repetitions with CPU core pinning (\texttt{taskset -c 0}). On the primary \textsc{Zephyr} RTOS workload (2.6M events, 228,739 unique symbols), \texttt{METIS-X} achieves a \textbf{40.2\% physical final heap reduction} (24.95\,MB vs 41.74\,MB) and a \textbf{45.7\% $p_{95}$ lookup latency reduction} (0.082\,$\mu$s vs 0.151\,$\mu$s) relative to the embedded conventional baseline. On \textsc{ESP-IDF}, \texttt{METIS-X} achieves a \textbf{17.6\% heap reduction} (35.15\,MB vs 42.65\,MB) and a \textbf{56.7\% $p_{95}$ latency reduction} (0.081\,$\mu$s vs 0.187\,$\mu$s). Instrumentation across 2.8M lookups proves zero secondary heap allocations on the hot path.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -50,9 +50,9 @@ We answer this in the affirmative by presenting \texttt{METIS-X}. We make the fo
 \begin{enumerate}
     \item \textbf{Cache-Conscious Architecture (\texttt{METIS-X})}: We present a 32-byte flat slot design with $\le 12$\,B inline name storage, Robin Hood displacement, 32-bit hash cache guards, and LIFO scope-lifetime frame slot recycling.
     \item \textbf{Zero-Allocation Hot Path}: We instrument and prove zero secondary heap allocations across 2.8M lookup calls in real embedded compiler traces.
-    \item \textbf{Joint Memory/Latency Wins}: On \textsc{Zephyr} RTOS, \texttt{METIS-X} reduces physical final heap by 38.2\% (25.79\,MB vs 41.74\,MB) and $p_{95}$ lookup latency by 15.2\% (0.084\,$\mu\text{s}$ vs 0.099\,$\mu\text{s}$). On \textsc{ESP-IDF}, \texttt{METIS-X} reduces heap by 17.5\% (35.20\,MB vs 42.65\,MB) and $p_{95}$ latency by 69.6\% (0.069\,$\mu\text{s}$ vs 0.227\,$\mu\text{s}$).
-    \item \textbf{Resolution of Phase-I Latency Failure}: On \textsc{Zephyr}, \texttt{METIS-X} is $2.33\times$ faster at $p_{95}$ than \texttt{SymTabV3} (0.084\,$\mu\text{s}$ vs 0.196\,$\mu\text{s}$) while consuming 2.43\,MB less heap (25.79\,MB vs 28.22\,MB).
-    \item \textbf{Component Ablation \& Failure Limits}: We perform a 5-level component ablation ($A_0 \to A_5$) proving that inline slot storage with scope recycling cuts physical heap by 87\% over flat open addressing with per-entry heap strings, and quantify performance limits on long-identifier fallback paths.
+    \item \textbf{Joint Memory/Latency Wins}: On \textsc{Zephyr} RTOS, \texttt{METIS-X} reduces physical final heap by 40.2\% (24.95\,MB vs 41.74\,MB) and $p_{95}$ lookup latency by 45.7\% (0.082\,$\mu\text{s}$ vs 0.151\,$\mu\text{s}$). On \textsc{ESP-IDF}, \texttt{METIS-X} reduces heap by 17.6\% (35.15\,MB vs 42.65\,MB) and $p_{95}$ latency by 56.7\% (0.081\,$\mu\text{s}$ vs 0.187\,$\mu\text{s}$).
+    \item \textbf{Resolution of Phase-I Latency Failure}: On \textsc{Zephyr}, \texttt{METIS-X} is $2.68\times$ faster at $p_{95}$ than \texttt{SymTabV3} (0.082\,$\mu\text{s}$ vs 0.220\,$\mu\text{s}$) while consuming 3.27\,MB less heap (24.95\,MB vs 28.22\,MB).
+    \item \textbf{Component Ablation \& Failure Limits}: We perform a 5-level component ablation ($A_0 \to A_5$) proving that inline slot storage with scope recycling cuts physical heap by 89\% over flat open addressing with per-entry heap strings, and quantify performance limits on long-identifier fallback paths.
 \end{enumerate}
 
 \section{Background: Phase I Lessons}
@@ -72,38 +72,39 @@ To test whether moving scalar metadata (\texttt{accessCount}, \texttt{lastAccess
 \subsection{Fixed 32-Byte Cache-Aligned Slot}
 \texttt{METIS-X} replaces multi-tier adaptive representation with a single flat power-of-two slot slab (\texttt{MetisXSlot[]}). Each slot is exactly 32 bytes:
 \begin{itemize}
-    \item \texttt{declId} (4\,B): Declaration ordinal.
+    \item \texttt{declId} (4\,B): Declaration ordinal (-1 sentinel for empty slots).
     \item \texttt{hashCache} (4\,B): 32-bit FNV-1a hash for fast mismatch rejection.
+    \item \texttt{frameIndex} (4\,B): Frame entry index for $O(1)$ relocation updates.
     \item \texttt{scopeId} (2\,B): Lexical scope depth.
-    \item \texttt{nameLen} (1\,B): Identifier byte length ($0 = \text{empty slot}$).
+    \item \texttt{nameLen} (2\,B): Identifier byte length (supporting names up to 65,535\,B).
     \item \texttt{probeDistance} (1\,B): Robin Hood distance from home bucket.
     \item \texttt{repFlags} (1\,B): \texttt{REP\_INLINE} (0x00) or \texttt{REP\_HEAP} (0x01).
-    \item \texttt{typeId} (1\,B) \& Padding (2\,B).
-    \item \texttt{name} (12\,B union): Stores inline characters for $L \le 12$\,B, or a 64-bit heap pointer for $L > 12$\,B.
+    \item \texttt{typeId} (1\,B): Compiler type ordinal.
+    \item \texttt{inlineBytes} (13\,B): Stores inline characters for $L \le 12$\,B, or an 8-byte heap pointer for $L > 12$\,B.
 \end{itemize}
 
-For identifiers $L \le 12$\,B (which constitute 93.4\% of live \textsc{Zephyr} symbols), lookup equality checking performs a direct in-place \texttt{memcmp} against \texttt{inlineBytes[12]} without secondary heap dereferences or buffer reconstruction:
+For identifiers $L \le 12$\,B (which constitute 93.4\% of live \textsc{Zephyr} symbols), lookup equality checking performs a direct in-place \texttt{memcmp} against \texttt{inlineBytes[13]} without secondary heap dereferences or buffer reconstruction:
 \begin{equation}
 T_{\text{lookup\_MetisX}} = T_{\text{hash}} + T_{\text{probe}} + T_{\text{memcmp}}
 \end{equation}
 
-\subsection{Robin Hood Displacement & Backward Shift}
+\subsection{Robin Hood Displacement \& Backward Shift}
 On insertion, if an incoming element's probe distance exceeds that of the current slot occupant, the elements are swapped (Robin Hood displacement). On lookup, probing terminates early as soon as $dist > slot.probeDistance$. On scope exit (\texttt{exitScope()}), frame slots are cleared and subsequent chain elements are shifted backward (\texttt{backwardShift}) to preserve the Robin Hood invariant without tombstones.
 
-\subsection{LIFO Scope Frame Recycling}
-Rather than maintaining separate per-scope hash tables or vector arrays, \texttt{METIS-X} tracks open scope frames in a lightweight \texttt{scopeFrames\_} stack. On \texttt{exitScope()}, all slots registered in the current frame are invalidated in $O(|\text{frame}|)$ time, reclaiming slots immediately without heap arena fragmentation.
+\subsection{Relocation-Safe LIFO Scope Frame Recycling}
+Rather than maintaining separate per-scope hash tables or vector arrays, \texttt{METIS-X} tracks open scope frames in a lightweight \texttt{scopeFrames\_} stack. When any slot is relocated (Robin Hood displacement, geometric rehash, or backward shift), its frame record is updated in $O(1)$ time via \texttt{frameIndex}. On \texttt{exitScope()}, all slots registered in the current frame are invalidated in $O(|\text{frame}|)$ time, reclaiming slots immediately without heap fragmentation.
 
 \section{Experimental Methodology}
 
 \subsection{Physical Allocator Heap Accounting}
-All physical heap memory is measured using the \texttt{heap::Scope} interceptor (\texttt{include/heap_counter.hpp}) overriding global \texttt{operator new/delete} and querying \texttt{malloc\_usable_size(p)}. This captures true physical page allocation and allocator slab alignment rounding.
+All physical heap memory is measured using the \texttt{heap::Scope} interceptor (\texttt{include/heap\_counter.hpp}) overriding global \texttt{operator new/delete} and querying \texttt{malloc\_usable\_size(p)}. This captures true physical page allocation and allocator slab alignment rounding.
 
 \subsection{Benchmark Protocol}
 Benchmarks are evaluated across four real embedded event traces (\textsc{FreeRTOS}, \textsc{Arduino}, \textsc{Zephyr}, \textsc{ESP-IDF}) under $R=7$ independent repetitions with process CPU pinning (\texttt{taskset -c 0}). All code is compiled with GCC 16.2.1 under \texttt{-std=c++14 -O2}.
 
 \section{Empirical Evaluation}
 
-\subsection{Headline Physical Memory & Latency Results}
+\subsection{Headline Physical Memory \& Latency Results}
 Table~\ref{tab:metis_x_results} presents the canonical baseline comparison across all four embedded workloads.
 
 \begin{table*}[t]
@@ -115,35 +116,35 @@ Table~\ref{tab:metis_x_results} presents the canonical baseline comparison acros
 \toprule
 \textbf{Workload} & \textbf{Implementation} & \textbf{Declarations} & \textbf{Uses} & \textbf{Unique Names} & \textbf{Final Heap (B)} & \textbf{Peak Heap (B)} & \textbf{p50 ($\mu$s)} & \textbf{p95 ($\mu$s)} & \textbf{p99 ($\mu$s)} \\
 \midrule
-FreeRTOS & EmbeddedConventional & 72,376 & 123,602 & 10,386 & 1,794,768 & 1,870,400 & 0.041 & 0.071 & 0.104 \\
-FreeRTOS & \textbf{METIS-X} & 72,376 & 123,602 & 10,386 & \textbf{1,649,792} & \textbf{1,724,384} & \textbf{0.040} & \textbf{0.071} & \textbf{0.093} \\
-FreeRTOS & SymTabV3 & 72,376 & 123,602 & 10,386 & 2,618,480 & 2,687,048 & 0.052 & 0.195 & 0.308 \\
-FreeRTOS & ConventionalHost & 72,376 & 123,602 & 10,386 & 1,647,440 & 1,718,248 & 0.055 & 0.123 & 0.176 \\
+FreeRTOS & EmbeddedConventional & 72,376 & 123,602 & 10,386 & 1,794,768 & 1,870,400 & 0.049 & 0.087 & 0.139 \\
+FreeRTOS & \textbf{METIS-X} & 72,376 & 123,602 & 10,386 & \textbf{1,594,208} & \textbf{1,668,776} & \textbf{0.045} & \textbf{0.080} & \textbf{0.107} \\
+FreeRTOS & SymTabV3 & 72,376 & 123,602 & 10,386 & 2,618,352 & 2,686,584 & 0.062 & 0.243 & 0.379 \\
+FreeRTOS & ConventionalHost & 72,376 & 123,602 & 10,386 & 1,647,600 & 1,718,376 & 0.065 & 0.150 & 0.210 \\
 \midrule
-Arduino & EmbeddedConventional & 31,846 & 50,273 & 11,000 & 1,484,136 & 1,523,288 & 0.036 & 0.065 & 0.093 \\
-Arduino & \textbf{METIS-X} & 31,846 & 50,273 & 11,000 & 1,522,720 & 1,591,336 & \textbf{0.035} & \textbf{0.059} & \textbf{0.073} \\
-Arduino & SymTabV3 & 31,846 & 50,273 & 11,000 & 2,205,136 & 2,205,360 & 0.046 & 0.117 & 0.262 \\
-Arduino & ConventionalHost & 31,846 & 50,273 & 11,000 & 1,636,512 & 1,636,784 & 0.059 & 0.126 & 0.174 \\
+Arduino & EmbeddedConventional & 31,846 & 50,273 & 11,000 & 1,484,216 & 1,523,336 & 0.048 & 0.093 & 0.143 \\
+Arduino & \textbf{METIS-X} & 31,846 & 50,273 & 11,000 & 1,521,592 & 1,608,352 & \textbf{0.045} & \textbf{0.078} & \textbf{0.102} \\
+Arduino & SymTabV3 & 31,846 & 50,273 & 11,000 & 2,205,040 & 2,205,520 & 0.060 & 0.163 & 0.343 \\
+Arduino & ConventionalHost & 31,846 & 50,273 & 11,000 & 1,636,432 & 1,636,784 & 0.081 & 0.182 & 0.261 \\
 \midrule
-Zephyr & EmbeddedConventional & 703,727 & 1,523,992 & 228,739 & 41,742,312 & 51,203,416 & 0.044 & 0.119 & 0.198 \\
-Zephyr & \textbf{METIS-X} & 703,727 & 1,523,992 & 228,739 & \textbf{25,789,424} & \textbf{25,924,248} & \textbf{0.044} & \textbf{0.083} & \textbf{0.124} \\
-Zephyr & SymTabV3 & 703,727 & 1,523,992 & 228,739 & 28,222,032 & 29,431,296 & 0.055 & 0.185 & 0.447 \\
-Zephyr & ConventionalHost & 703,727 & 1,523,992 & 228,739 & 22,586,992 & 23,214,200 & 0.076 & 0.254 & 0.569 \\
+Zephyr & EmbeddedConventional & 703,727 & 1,523,992 & 228,739 & 41,742,312 & 51,203,432 & 0.055 & 0.151 & 0.278 \\
+Zephyr & \textbf{METIS-X} & 703,727 & 1,523,992 & 228,739 & \textbf{24,951,976} & \textbf{25,066,680} & \textbf{0.045} & \textbf{0.082} & \textbf{0.117} \\
+Zephyr & SymTabV3 & 703,727 & 1,523,992 & 228,739 & 28,224,016 & 29,431,008 & 0.064 & 0.220 & 0.468 \\
+Zephyr & ConventionalHost & 703,727 & 1,523,992 & 228,739 & 22,587,744 & 23,213,960 & 0.089 & 0.300 & 0.608 \\
 \midrule
-ESP-IDF & EmbeddedConventional & 795,847 & 1,115,502 & 231,075 & 42,651,920 & 42,652,080 & 0.044 & 0.136 & 0.230 \\
-ESP-IDF & \textbf{METIS-X} & 795,847 & 1,115,502 & 231,075 & \textbf{35,196,200} & \textbf{35,196,040} & 0.052 & \textbf{0.070} & \textbf{0.193} \\
-ESP-IDF & SymTabV3 & 795,847 & 1,115,502 & 231,075 & 56,741,632 & 56,741,744 & 0.070 & 0.154 & 0.614 \\
-ESP-IDF & ConventionalHost & 795,847 & 1,115,502 & 231,075 & 40,484,448 & 40,484,304 & 0.082 & 0.137 & 0.422 \\
+ESP-IDF & EmbeddedConventional & 795,847 & 1,115,502 & 231,075 & 42,651,888 & 42,651,888 & 0.049 & 0.187 & 0.310 \\
+ESP-IDF & \textbf{METIS-X} & 795,847 & 1,115,502 & 231,075 & \textbf{35,150,120} & \textbf{35,150,120} & \textbf{0.044} & \textbf{0.081} & \textbf{0.153} \\
+ESP-IDF & SymTabV3 & 795,847 & 1,115,502 & 231,075 & 56,741,312 & 56,741,600 & 0.058 & 0.216 & 0.513 \\
+ESP-IDF & ConventionalHost & 795,847 & 1,115,502 & 231,075 & 40,483,840 & 40,484,176 & 0.077 & 0.190 & 0.417 \\
 \bottomrule
 \end{tabular}
 }
 \end{table*}
 
 \subsection{Analysis of Joint Wins}
-On \textsc{Zephyr} RTOS, \texttt{METIS-X} achieves a physical final heap of 25.79\,MB compared to 41.74\,MB for \texttt{EmbeddedConventional} (a \textbf{38.2\% reduction}), while lowering $p_{95}$ lookup latency from 0.119\,$\mu$s to 0.083\,$\mu$s (a \textbf{15.2\% reduction}). On \textsc{ESP-IDF}, \texttt{METIS-X} reduces final heap from 42.65\,MB to 35.20\,MB (\textbf{−17.5\%}) and $p_{95}$ latency from 0.136\,$\mu$s to 0.070\,$\mu$s (\textbf{−48.5\%}). Both workloads satisfy the $\ge 10\%$ joint improvement win criterion.
+On \textsc{Zephyr} RTOS, \texttt{METIS-X} achieves a physical final heap of 24.95\,MB compared to 41.74\,MB for \texttt{EmbeddedConventional} (a \textbf{40.2\% reduction}), while lowering $p_{95}$ lookup latency from 0.151\,$\mu$s to 0.082\,$\mu$s (a \textbf{45.7\% reduction}). On \textsc{ESP-IDF}, \texttt{METIS-X} reduces final heap from 42.65\,MB to 35.15\,MB (\textbf{-17.6\%}) and $p_{95}$ latency from 0.187\,$\mu$s to 0.081\,$\mu$s (\textbf{-56.7\%}). Both workloads satisfy the $\ge 10\%$ joint improvement win criterion. On \textsc{FreeRTOS}, \texttt{METIS-X} achieves an 11.2\% final heap reduction (1.59\,MB vs 1.79\,MB) and an 8.0\% $p_{95}$ latency reduction (0.080\,$\mu$s vs 0.087\,$\mu$s).
 
 \subsection{Resolution of Phase-I Latency Regression}
-On \textsc{Zephyr}, Phase-I \texttt{SymTabV3} paid $0.185\,\mu\text{s}$ at $p_{95}$ due to front-coded decompression. \texttt{METIS-X} achieves $0.083\,\mu\text{s}$, representing a **$2.23\times$ speedup at $p_{95}$** over \texttt{SymTabV3} while using 2.43\,MB less memory (25.79\,MB vs 28.22\,MB).
+On \textsc{Zephyr}, Phase-I \texttt{SymTabV3} paid $0.220\,\mu\text{s}$ at $p_{95}$ due to front-coded decompression. \texttt{METIS-X} achieves $0.082\,\mu\text{s}$, representing a \textbf{$2.68\times$ speedup at $p_{95}$} over \texttt{SymTabV3} while using 3.27\,MB less memory (24.95\,MB vs 28.22\,MB).
 
 \subsection{Component Ablation}
 Table~\ref{tab:ablation} presents the 5-level component ablation on \textsc{Zephyr}.
@@ -152,23 +153,25 @@ Table~\ref{tab:ablation} presents the 5-level component ablation on \textsc{Zeph
 \centering
 \caption{Component Ablation Waterfall on \textsc{Zephyr} RTOS}
 \label{tab:ablation}
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lrr}
 \toprule
 \textbf{Ablation Level} & \textbf{Final Heap (B)} & \textbf{$p_{95}$ Latency ($\mu$s)} \\
 \midrule
-$A_0$: ConventionalHost & 2,248,584 & 0.228 \\
-$A_1$: Flat OA (Linear, Heap Strings) & 68,606,544 & 0.126 \\
-$A_2$: Flat OA (Robin Hood, Heap Strings) & 43,436,720 & 0.262 \\
-$A_3$: EmbeddedConventional (Arena) & 21,534,528 & 0.108 \\
-$A_5$: \textbf{Full METIS-X} & \textbf{5,593,608} & \textbf{0.082} \\
+$A_0$: ConventionalHost & 2,248,584 & 0.309 \\
+$A_1$: Flat OA (Linear, Heap Strings) & 68,606,544 & 0.178 \\
+$A_2$: Flat OA (Robin Hood, Heap Strings) & 43,436,720 & 0.340 \\
+$A_3$: EmbeddedConventional (Arena) & 21,534,528 & 0.135 \\
+$A_5$: \textbf{Full METIS-X} & \textbf{4,728,976} & \textbf{0.089} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
-Moving from $A_2$ (flat open addressing with per-entry heap strings) to $A_5$ (\texttt{METIS-X} with $\le 12$\,B inline storage + scope recycling) drops final heap by **87.1\%** (43.44\,MB $\to$ 5.59\,MB). This isolates inline slot storage as the primary mechanism for eliminating allocator slab headers.
+Moving from $A_2$ (flat open addressing with per-entry heap strings) to $A_5$ (\texttt{METIS-X} with $\le 12$\,B inline storage + scope recycling) drops final heap by \textbf{89.1\%} (43.44\,MB $\to$ 4.73\,MB). This isolates inline slot storage as the primary mechanism for eliminating allocator slab headers.
 
 \subsection{Zero-Allocation Hot-Path Proof}
-Instrumentation across 2,863,367 lookups in real embedded traces confirms:
+Instrumentation across 2,813,369 lookups in real embedded traces confirms:
 \begin{equation}
 \text{allocations\_during\_lookup} = 0
 \end{equation}
@@ -176,12 +179,12 @@ The lookup path executes zero \texttt{operator new} or \texttt{malloc} calls.
 
 \section{Limitations}
 \begin{enumerate}
-    \item \textbf{Long Identifier Fallback}: For identifiers $>12$\,B, \texttt{METIS-X} allocates a separate \texttt{char[]} heap buffer. On small corpora with long average name lengths (e.g., \textsc{Arduino}), fallback allocations introduce a +2.6\% final heap trade-off.
+    \item \textbf{Long Identifier Fallback}: For identifiers $>12$\,B, \texttt{METIS-X} allocates a separate \texttt{char[]} heap buffer. On small corpora with long average name lengths (e.g., \textsc{Arduino}), fallback allocations introduce a +2.5\% final heap trade-off.
     \item \textbf{Deep Scope Shadowing}: Under synthetic stress tests with scope depth 20 and heavy redeclaration, $p_{95}$ latency increases to $0.188\,\mu\text{s}$ due to multi-scope probe chain traversal.
 \end{enumerate}
 
 \section{Conclusion}
-\texttt{METIS-X} demonstrates that a cache-conscious flat open-addressing symbol table with 32-byte slots and $\le 12$\,B inline string storage eliminates dictionary reconstruction overhead while achieving simultaneous physical heap reductions (up to 38.2\%) and $p_{95}$ lookup latency speedups (up to 69.6\%) over conventional embedded baselines.
+\texttt{METIS-X} demonstrates that a cache-conscious flat open-addressing symbol table with 32-byte slots and $\le 12$\,B inline string storage eliminates dictionary reconstruction overhead while achieving simultaneous physical heap reductions (up to 40.2\%) and $p_{95}$ lookup latency speedups (up to 56.7\%) over conventional embedded baselines.
 
 \begin{thebibliography}{99}
 \bibitem{aho} A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman, \emph{Compilers: Principles, Techniques, and Tools}, 2nd ed. Addison-Wesley, 2006.

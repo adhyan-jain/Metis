@@ -11,12 +11,14 @@ TEMPLATE_PATH = "/home/adhyan/Downloads/Paper Template-2.docx"
 OUTPUT_PATH = "/home/adhyan/Desktop/Compiler/METIS_X_Final_Paper_Template2.docx"
 FIGURES_DIR = "/home/adhyan/Desktop/Compiler/figures"
 
-doc = docx.Document(TEMPLATE_PATH)
-
-# Clear existing paragraphs
-p_elements = doc.element.body.xpath('w:p')
-for p_elem in p_elements:
-    doc.element.body.remove(p_elem)
+if os.path.exists(TEMPLATE_PATH):
+    doc = docx.Document(TEMPLATE_PATH)
+    # Clear existing paragraphs
+    p_elements = doc.element.body.xpath('w:p')
+    for p_elem in p_elements:
+        doc.element.body.remove(p_elem)
+else:
+    doc = docx.Document()
 
 def set_cell_background(cell, fill_color):
     tcPr = cell._tc.get_or_add_tcPr()
@@ -110,7 +112,7 @@ add_bullet("Problem statement", "Standard 64-bit systems utilize std::unordered_
 add_bullet("About Existing methodology", "In adaptive representation studies (Phase I SymTabV3), symbols were dynamically assigned to Inline, Interned, or front-coded Compressed tiers. While front coding achieved a 20.2% physical heap reduction on Zephyr RTOS, dynamic string reconstruction introduced a severe 1.824x p95 lookup tail-latency regression.")
 add_bullet("Shortfall of Existing methodology", "Dynamic block decompression during lookup requires string decoding and stack allocation, failing the 1.25x p95 latency constraint required for compiler integration.")
 add_bullet("Proposed methodology and its advantage", "We propose METIS-X (Phase II), a cache-conscious flat open-addressing symbol table. METIS-X packs entries into fixed 32-byte cache-aligned slots with <= 12B inline name storage, Robin Hood displacement, 32-bit hash cache mismatch guards, and LIFO scope-lifetime frame slot recycling.")
-add_bullet("Results and achievement", "Evaluated under R=7 repetitions pinned to CPU Core 0 (taskset -c 0) with physical allocator profiling (malloc_usable_size), METIS-X achieves a 38.2% physical final heap reduction (25.79 MB vs 41.74 MB) and a 15.2% p95 latency speedup on Zephyr RTOS, and a 17.5% heap reduction with 69.6% p95 latency speedup on ESP-IDF. Instrumentation proves zero secondary heap allocations across 2.8 million lookups.")
+add_bullet("Results and achievement", "Evaluated under R=7 repetitions pinned to CPU Core 0 (taskset -c 0) with physical allocator profiling (malloc_usable_size), METIS-X achieves a 40.2% physical final heap reduction (24.95 MB vs 41.74 MB) and a 45.7% p95 latency speedup on Zephyr RTOS, and a 17.6% heap reduction with 56.7% p95 latency speedup on ESP-IDF. Instrumentation proves zero secondary heap allocations across 2.8 million lookups.")
 add_bullet("Scope for future work", "Future extensions include adaptive slot sizing (16B inline capacity) and SIMD-accelerated 32-bit hash cache vector scanning.")
 
 add_p("Keywords – Cache-conscious data structures, Compiler memory management, Embedded systems, Open addressing, Robin Hood hashing, Short String Optimization, Symbol table.", bold=True, space_before=6, space_after=12)
@@ -164,11 +166,11 @@ add_bullet("Proposed system architecture diagram", "Figure 1 illustrates the cac
 
 add_image_with_caption("metis_x_v3_vs_metisx.png", "Figure 1: METIS-X Architecture vs SymTabV3 Phase-I Resolution of Lookup Tail Latency")
 
-add_bullet("Explanation about system architecture", "The METIS-X table consists of a single contiguous vector of 32-byte slots (MetisXSlot[]). Each slot packs declId (4B), 32-bit FNV-1a hash cache (4B), scopeId (2B), nameLen (1B), probeDistance (1B), repFlags (1B), typeId (1B), and a 12-byte name union. Names <= 12 bytes reside directly in inlineBytes[12], requiring zero secondary heap allocations. Long names (> 12B) store a 64-bit heap pointer. Lexical scopes are tracked via a lightweight scopeFrames_ LIFO stack.")
+add_bullet("Explanation about system architecture", "The METIS-X table consists of a single contiguous vector of 32-byte slots (MetisXSlot[]). Each slot packs declId (4B), 32-bit FNV-1a hash cache (4B), frameIndex (4B), scopeId (2B), nameLen (2B), probeDistance (1B), repFlags (1B), typeId (1B), and a 13-byte name buffer (inline characters for <= 12B or 8-byte heap pointer). Names <= 12 bytes reside directly in inlineBytes, requiring zero secondary heap allocations. Lexical scopes are tracked via a lightweight scopeFrames_ LIFO stack.")
 
-add_bullet("Detailed methodology with diagram illustrations", "Figure 2 details the component ablation waterfall (A0 to A5), demonstrating how moving from flat open addressing with per-entry heap strings (A2) to METIS-X inline slots with scope recycling (A5) cuts physical heap by 87.1% on Zephyr RTOS. Figure 3 illustrates the trade-off frontier between final heap footprint and lookup tail latency.")
+add_bullet("Detailed methodology with diagram illustrations", "Figure 2 details the component ablation waterfall (A0 to A5), demonstrating how moving from flat open addressing with per-entry heap strings (A2) to METIS-X inline slots with scope recycling (A5) cuts physical heap by 89.1% on Zephyr RTOS. Figure 3 illustrates the trade-off frontier between final heap footprint and lookup tail latency.")
 
-add_image_with_caption("metis_x_ablation.png", "Figure 2: Component Ablation Waterfall (Zephyr RTOS) demonstrating 87.1% Physical Heap Reduction")
+add_image_with_caption("metis_x_ablation.png", "Figure 2: Component Ablation Waterfall (Zephyr RTOS) demonstrating 89.1% Physical Heap Reduction")
 add_image_with_caption("pareto_memory_vs_latency.png", "Figure 3: Physical Memory Footprint vs Lookup Tail Latency Trade-off Frontier")
 
 add_bullet("About modules and its functions", "METIS-X comprises four primary modules: 1) Slot Storage Module (32-byte packed struct with inline/heap string union); 2) Robin Hood Engine (displacement insertion, early-exit probing, and backward-shift chain contraction); 3) Scope Lifecycle Tracker (LIFO frame stack recording slot indices for O(|frame|) cleanup); 4) Physical Allocator Profiler (malloc_usable_size interceptor overriding global operator new/delete).")
@@ -179,7 +181,7 @@ add_bullet("Minimum 6 mathematical equations and its explanation", "The mathemat
 
 # 6 Equations
 add_p("Equation 1: Single Slot Memory Footprint (Cache Alignment)", bold=True, space_before=4, space_after=2)
-add_p("sizeof(MetisXSlot) = sizeof(declId) + sizeof(hashCache) + sizeof(scopeId) + sizeof(nameLen) + sizeof(probeDistance) + sizeof(repFlags) + sizeof(typeId) + sizeof(_pad) + sizeof(NameStorage) = 4 + 4 + 2 + 1 + 1 + 1 + 1 + 2 + 12 = 32 bytes (exactly 0.5 * 64B L1 cache line)", italic=True, space_before=0, space_after=4)
+add_p("sizeof(MetisXSlot) = sizeof(declId) + sizeof(hashCache) + sizeof(frameIndex) + sizeof(scopeId) + sizeof(nameLen) + sizeof(probeDistance) + sizeof(repFlags) + sizeof(typeId) + sizeof(inlineBytes) = 4 + 4 + 4 + 2 + 2 + 1 + 1 + 1 + 13 = 32 bytes (exactly 0.5 * 64B L1 cache line)", italic=True, space_before=0, space_after=4)
 
 add_p("Equation 2: Analytical Break-Even Duplication Ratio (SSO Regime L <= 15B)", bold=True, space_before=4, space_after=2)
 add_p("k_breakeven(L) = C_pool(L) / (S_meta + S_str(L) - C_idx) = (2L + 86) / (24 + 0 - 28) = (2L + 86) / (-4) < 0 (No positive duplication ratio exists for L <= 15B)", italic=True, space_before=0, space_after=4)
@@ -301,22 +303,22 @@ t2 = doc.add_table(rows=17, cols=7)
 t2.alignment = WD_TABLE_ALIGNMENT.CENTER
 t2_headers = ["Workload", "Implementation", "Final Heap (MB)", "Peak Heap (MB)", "p50 (µs)", "p95 (µs)", "p99 (µs)"]
 t2_data = [
-    ["FreeRTOS", "EmbeddedConventional", "1.79 MB", "1.87 MB", "0.041", "0.071", "0.104"],
-    ["FreeRTOS", "METIS-X (Proposed)", "1.65 MB", "1.72 MB", "0.040", "0.071", "0.093"],
-    ["FreeRTOS", "SymTabV3 (Phase I)", "2.62 MB", "2.69 MB", "0.052", "0.195", "0.308"],
-    ["FreeRTOS", "ConventionalHost", "1.65 MB", "1.72 MB", "0.055", "0.123", "0.176"],
-    ["Arduino", "EmbeddedConventional", "1.48 MB", "1.52 MB", "0.036", "0.065", "0.093"],
-    ["Arduino", "METIS-X (Proposed)", "1.52 MB", "1.59 MB", "0.035", "0.059", "0.073"],
-    ["Arduino", "SymTabV3 (Phase I)", "2.21 MB", "2.21 MB", "0.046", "0.117", "0.262"],
-    ["Arduino", "ConventionalHost", "1.64 MB", "1.64 MB", "0.059", "0.126", "0.174"],
-    ["Zephyr RTOS", "EmbeddedConventional", "41.74 MB", "51.20 MB", "0.044", "0.119", "0.198"],
-    ["Zephyr RTOS", "METIS-X (Proposed)", "25.79 MB", "25.92 MB", "0.044", "0.083", "0.124"],
-    ["Zephyr RTOS", "SymTabV3 (Phase I)", "28.22 MB", "29.43 MB", "0.055", "0.185", "0.447"],
-    ["Zephyr RTOS", "ConventionalHost", "22.59 MB", "23.21 MB", "0.076", "0.254", "0.569"],
-    ["ESP-IDF", "EmbeddedConventional", "42.65 MB", "42.65 MB", "0.044", "0.136", "0.230"],
-    ["ESP-IDF", "METIS-X (Proposed)", "35.20 MB", "35.20 MB", "0.052", "0.070", "0.193"],
-    ["ESP-IDF", "SymTabV3 (Phase I)", "56.74 MB", "56.74 MB", "0.070", "0.154", "0.614"],
-    ["ESP-IDF", "ConventionalHost", "40.48 MB", "40.48 MB", "0.082", "0.137", "0.422"]
+    ["FreeRTOS", "EmbeddedConventional", "1.79 MB", "1.87 MB", "0.049", "0.087", "0.139"],
+    ["FreeRTOS", "METIS-X (Proposed)", "1.59 MB", "1.67 MB", "0.045", "0.080", "0.107"],
+    ["FreeRTOS", "SymTabV3 (Phase I)", "2.62 MB", "2.69 MB", "0.062", "0.243", "0.379"],
+    ["FreeRTOS", "ConventionalHost", "1.65 MB", "1.72 MB", "0.065", "0.150", "0.210"],
+    ["Arduino", "EmbeddedConventional", "1.48 MB", "1.52 MB", "0.048", "0.093", "0.143"],
+    ["Arduino", "METIS-X (Proposed)", "1.52 MB", "1.61 MB", "0.045", "0.078", "0.102"],
+    ["Arduino", "SymTabV3 (Phase I)", "2.21 MB", "2.21 MB", "0.060", "0.163", "0.343"],
+    ["Arduino", "ConventionalHost", "1.64 MB", "1.64 MB", "0.081", "0.182", "0.261"],
+    ["Zephyr RTOS", "EmbeddedConventional", "41.74 MB", "51.20 MB", "0.055", "0.151", "0.278"],
+    ["Zephyr RTOS", "METIS-X (Proposed)", "24.95 MB", "25.07 MB", "0.045", "0.082", "0.117"],
+    ["Zephyr RTOS", "SymTabV3 (Phase I)", "28.22 MB", "29.43 MB", "0.064", "0.220", "0.468"],
+    ["Zephyr RTOS", "ConventionalHost", "22.59 MB", "23.21 MB", "0.089", "0.300", "0.608"],
+    ["ESP-IDF", "EmbeddedConventional", "42.65 MB", "42.65 MB", "0.049", "0.187", "0.310"],
+    ["ESP-IDF", "METIS-X (Proposed)", "35.15 MB", "35.15 MB", "0.044", "0.081", "0.153"],
+    ["ESP-IDF", "SymTabV3 (Phase I)", "56.74 MB", "56.74 MB", "0.058", "0.216", "0.513"],
+    ["ESP-IDF", "ConventionalHost", "40.48 MB", "40.48 MB", "0.077", "0.190", "0.417"]
 ]
 
 for col_idx, h_text in enumerate(t2_headers):
@@ -353,7 +355,7 @@ add_bullet("About the proposed work", "METIS-X is a cache-conscious flat open-ad
 add_bullet("About Existing methodology", "EmbeddedConventional symbol tables store string characters in an append-only arena, retaining all unique symbol bytes until compilation ends.")
 add_bullet("Proposed methodology and its advantage", "METIS-X stores short identifiers <= 12 bytes inside a 32-byte cache-aligned slot union, executing zero hot-path heap allocations and immediately recycling slots on scope exit via LIFO frame contraction.")
 add_bullet("About the simulation/emulation/IDE tools for experimentation", "Evaluated under GCC 16.2.1 (-std=c++14 -O2) with Linux physical allocator tracking (malloc_usable_size) and CPU core pinning (taskset -c 0).")
-add_bullet("Results and achievement", "METIS-X achieves a 38.2% physical final heap reduction (25.79 MB vs 41.74 MB) and 15.2% p95 latency speedup on Zephyr RTOS, and a 17.5% heap reduction with 69.6% p95 latency speedup on ESP-IDF, resolving Phase-I tail latency regressions.")
+add_bullet("Results and achievement", "METIS-X achieves a 40.2% physical final heap reduction (24.95 MB vs 41.74 MB) and 45.7% p95 latency speedup on Zephyr RTOS, and a 17.6% heap reduction with 56.7% p95 latency speedup on ESP-IDF, resolving Phase-I tail latency regressions.")
 add_bullet("Scope for future work", "Future research will explore adaptive 16-byte slot expansion for long-name corpora, AVX2/NEON SIMD vector scanning for 32-bit hash cache guards, and integration into LLVM/Clang embedded front-ends.")
 
 # Section 6: References
@@ -372,7 +374,7 @@ references_list = [
     "[9] Witten, Ian H., Alistair Moffat, and Timothy C. Bell. (1999) “Managing Gigabytes: Compressing and Indexing Documents and Images.” Morgan Kaufmann.",
     "[10] Brisaboa, Nieves R., Antonio Fariña, Gonzalo Navarro, and José R. Paramá. (2011) “Lightweight natural language text compression.” Information Systems 36 (1): 1–21.",
     "[11] Ferragina, Paolo, and Giovanni Manzini. (2000) “Opportunistic data structures with applications.” In FOCS, 390–398.",
-    "[12] Botelho, Fabianes C., Rasmus Pagh, and Nivio Ziviani. (2009) “Simple and space-efficient minimal perfect hash functions.” $ACM\ TALG$ 5 (2): 1–20.",
+    "[12] Botelho, Fabianes C., Rasmus Pagh, and Nivio Ziviani. (2009) “Simple and space-efficient minimal perfect hash functions.” $ACM\\ TALG$ 5 (2): 1–20.",
     "[13] Askitis, Nikolas. (2018) “Fast and compact hash tables for modern hardware.” Software: Practice and Experience 48 (4): 812–835.",
     "[14] Lemire, Daniel. (2019) “Fast random integer generation in an interval without division.” ACM TOMS 45 (1): 1–12.",
     "[15] Richter, Stefan, Victor Leis, and Thomas Neumann. (2020) “Cache-line-conscious hash tables for main-memory database systems.” VLDB Journal 29 (2): 621–642.",
