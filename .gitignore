@@ -15,14 +15,16 @@ venv/
 # Vendored third-party source for corpus evaluation (see docs/corpus_setup.md)
 corpora/
 
-# Editor/OS
+# Editor/OS & AI Tools
 .vscode/
 .idea/
 .claude/
+.gemini/
 .DS_Store
 Thumbs.db
 *.swp
 *~
+graphify-out/
 tests/differential_test.exe
 tests/symtab_v2_compressed_test.exe
 

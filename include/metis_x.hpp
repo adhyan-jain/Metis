@@ -51,10 +51,11 @@ namespace budgetsym {
 namespace metisx {
 
 // ---- tunables ---------------------------------------------------------------
-static const size_t kInlineCap    = 12;    // max chars stored in-slot (no heap)
-static const size_t kInitialSlots = 16;    // must be power of 2
-static const int    kLoadNum      = 7;     // rehash when liveCount * 10 > cap * kLoadNum
-// Effective load factor = kLoadNum / 10 = 0.70
+static const size_t kInlineCap       = 12;    // max chars stored in-slot (no heap)
+static const size_t kInitialSlots    = 16;    // must be power of 2
+static const int    kLoadNum         = 7;     // rehash when liveCount * 10 > cap * kLoadNum
+static const size_t kMaxScopeDepth   = 65535; // max scope depth supported by uint16_t scopeId
+static const uint8_t kMaxProbeDist   = 250;   // max probe distance before rehash/rejection guard
 
 // ---- representation flags ---------------------------------------------------
 enum : uint8_t {
@@ -149,7 +150,12 @@ public:
 
     // ---- scope management ---------------------------------------------------
 
+    // ---- scope management ---------------------------------------------------
+
     int enterScope() {
+        if (scopeFrames_.size() >= kMaxScopeDepth) {
+            return -1; // Enforce uint16_t scopeId representation limit
+        }
         scopeFrames_.emplace_back();
         return static_cast<int>(scopeFrames_.size()) - 1;
     }
@@ -187,11 +193,13 @@ public:
     // ---- insert -------------------------------------------------------------
 
     int insert(const std::string& name, int typeId = 0) {
+        if (name.size() > 65535) return -1;
+        if (typeId < 0 || typeId > 255) return -1; // Enforce uint8_t typeId representation contract
+        if (scopeFrames_.empty() || scopeFrames_.size() > kMaxScopeDepth) return -1;
+
         int id = nextId_++;
         uint16_t currentScope = static_cast<uint16_t>(scopeFrames_.size() - 1);
-
-        // Support lengths up to 65535 bytes without truncation
-        uint16_t nameLen16 = static_cast<uint16_t>(name.size() > 65535 ? 65535 : name.size());
+        uint16_t nameLen16 = static_cast<uint16_t>(name.size());
         uint32_t h = hash32(name);
 
         // Same-scope redeclaration: update in place
@@ -219,48 +227,31 @@ public:
             rehash(capacity_ * 2);
         }
 
-        // Robin Hood insert
         MetisXSlot toInsert;
         toInsert.declId     = id;
         toInsert.hashCache  = h;
         toInsert.scopeId    = currentScope;
-        toInsert.frameIndex = static_cast<uint32_t>(scopeFrames_.back().size());
         toInsert.typeId     = static_cast<uint8_t>(typeId);
         toInsert.setName(name.data(), nameLen16);
         toInsert.probeDistance = 0;
 
-        // Register in scope frame
-        scopeFrames_.back().push_back(0); // placeholder updated upon placement
-
-        size_t mask = capacity_ - 1;
-        size_t idx  = h & mask;
-
-        while (true) {
-            MetisXSlot& cur = slots_[idx];
-            if (!cur.occupied()) {
-                slots_[idx] = toInsert;
-                updateSlotLocation(toInsert, idx);
-                liveCount_++;
-                return id;
-            }
-            if (cur.probeDistance < toInsert.probeDistance) {
-                // Robin Hood swap
-                std::swap(toInsert, slots_[idx]);
-                updateSlotLocation(slots_[idx], idx);
-                liveCount_++;
-                // Continue to place the displaced entry
-                reinsertDisplaced(toInsert, idx);
-                return id;
-            }
-            idx = (idx + 1) & mask;
-            toInsert.probeDistance++;
+        // Dry-run probe distance check: verify placement will not exceed kMaxProbeDist (250)
+        if (!dryRunCanInsert(toInsert)) {
+            // Unresolvable probe overflow (e.g. >250 colliding entries).
+            // Reject safely without mutating table slots or scope frames, preserving exact capacity.
+            toInsert.clear();
+            nextId_--;
+            return -1;
         }
+
+        return insertSlotInternal(toInsert);
     }
 
     // ---- lookup (hot path) --------------------------------------------------
 
     int resolve(const std::string& name) const {
-        uint16_t nameLen16 = static_cast<uint16_t>(name.size() > 65535 ? 65535 : name.size());
+        if (name.size() > 65535) return -1;
+        uint16_t nameLen16 = static_cast<uint16_t>(name.size());
         uint32_t h        = hash32(name);
         size_t mask       = capacity_ - 1;
         size_t idx        = h & mask;
@@ -342,10 +333,70 @@ public:
 private:
     // ---- internal helpers ---------------------------------------------------
 
+    bool dryRunCanInsert(const MetisXSlot& candidate) const {
+        size_t mask = capacity_ - 1;
+        size_t idx  = candidate.hashCache & mask;
+        size_t curDist = candidate.probeDistance;
+        size_t steps = 0;
+
+        while (slots_[idx].occupied()) {
+            if (slots_[idx].probeDistance < curDist) {
+                curDist = slots_[idx].probeDistance;
+            }
+            idx = (idx + 1) & mask;
+            curDist++;
+            steps++;
+            if (curDist > kMaxProbeDist || steps > capacity_) {
+                return false;
+            }
+        }
+        return (curDist <= kMaxProbeDist);
+    }
+
+    int insertSlotInternal(MetisXSlot toInsert) {
+        int originalDeclId = toInsert.declId;
+        toInsert.frameIndex = static_cast<uint32_t>(scopeFrames_.back().size());
+        scopeFrames_.back().push_back(0);
+
+        size_t mask = capacity_ - 1;
+        size_t idx  = toInsert.hashCache & mask;
+
+        while (true) {
+            MetisXSlot& cur = slots_[idx];
+            if (!cur.occupied()) {
+                slots_[idx] = toInsert;
+                updateSlotLocation(slots_[idx], idx);
+                liveCount_++;
+                return originalDeclId;
+            }
+            if (cur.probeDistance < toInsert.probeDistance) {
+                std::swap(toInsert, slots_[idx]);
+                updateSlotLocation(slots_[idx], idx);
+            }
+            idx = (idx + 1) & mask;
+            toInsert.probeDistance++;
+        }
+    }
+
     static uint32_t hash32(const std::string& name) {
+#ifdef METISX_TEST_HOOK
+        if (getCustomHashFn()) return getCustomHashFn()(name);
+#endif
         uint64_t h64 = FnvHash::hash(name);
         return static_cast<uint32_t>(h64 ^ (h64 >> 32));
     }
+
+#ifdef METISX_TEST_HOOK
+public:
+    typedef uint32_t (*HashFnPtr)(const std::string&);
+    static HashFnPtr& getCustomHashFn() {
+        static HashFnPtr fn = nullptr;
+        return fn;
+    }
+    static void setCustomHashFn(HashFnPtr fn) {
+        getCustomHashFn() = fn;
+    }
+#endif
 
     static bool nameMatch(const MetisXSlot& s, const char* data, uint16_t len) {
         if (s.repFlags & REP_HEAP) {

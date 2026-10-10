@@ -1,0 +1,21 @@
+\begin{table}[h]
+\centering
+\begin{tabular}{llrr}
+\toprule
+Corpus & Architecture & Peak Heap (MB) & $p_{95}$ Latency ($\mu$s) \\
+\midrule
+Zephyr & A0\_ConventionalHost & 2.14 & 0.250 \\
+Zephyr & A1\_FlatOA\_LinearProb & 65.43 & 0.233 \\
+Zephyr & A2\_FlatOA\_RobinHood & 41.42 & 0.475 \\
+Zephyr & A3\_EmbeddedConventional & 20.54 & 0.155 \\
+Zephyr & A5\_FullMetisX & 4.51 & 0.110 \\
+ESP-IDF & A0\_ConventionalHost & 18.22 & 0.240 \\
+ESP-IDF & A1\_FlatOA\_LinearProb & 68.95 & 0.236 \\
+ESP-IDF & A2\_FlatOA\_RobinHood & 68.95 & 0.385 \\
+ESP-IDF & A3\_EmbeddedConventional & 20.33 & 0.236 \\
+ESP-IDF & A5\_FullMetisX & 13.17 & 0.098 \\
+\bottomrule
+\end{tabular}
+\caption{Authoritative Canonical Results from Phase 2 Benchmark.}
+\label{tab:canonical_results}
+\end{table}
