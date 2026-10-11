@@ -1,0 +1,62 @@
+[
+  {
+    "variant": "budget_0_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_0_direct ===\nResults for budget_0_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_0_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_0_checkpoint ===\nResults for budget_0_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_8_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_8_direct ===\nResults for budget_8_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_8_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_8_checkpoint ===\nResults for budget_8_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_16_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_16_direct ===\nResults for budget_16_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_16_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_16_checkpoint ===\nResults for budget_16_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_32_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_32_direct ===\nResults for budget_32_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_32_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_32_checkpoint ===\nResults for budget_32_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_64_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_64_direct ===\nResults for budget_64_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_64_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_64_checkpoint ===\nResults for budget_64_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_128_direct",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_128_direct ===\nResults for budget_128_direct: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  },
+  {
+    "variant": "budget_128_checkpoint",
+    "status": "PASS",
+    "output": "=== Running Correctness Tests for Variant: budget_128_checkpoint ===\nResults for budget_128_checkpoint: 902 passed, 0 failed (Total 902 checks)\nPASS"
+  }
+]

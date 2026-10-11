@@ -1,0 +1,170 @@
+[
+  {
+    "workload": "hello_world",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 158,
+    "unique_names": 158,
+    "raw_name_bytes": 3144,
+    "entry_table_bytes": 1276,
+    "stock_table_overhead_bytes": 4420,
+    "stock_flash_y": 19792,
+    "stock_flash_n": 15700,
+    "feature_delta": 4092,
+    "static_ram_y": 196,
+    "variants": {
+      "Direct": {
+        "encoded_names_bytes": 1278,
+        "dict_bytes": 499,
+        "index_bytes": 948,
+        "total_rodata": 2725,
+        "decoder_text": 275,
+        "cu_flash": 3000,
+        "whole_image_flash": 18384,
+        "net_savings_bytes": 1408,
+        "reduction_percent": 34.41,
+        "whole_image_ram": 196,
+        "ram_delta": 0
+      },
+      "Checkpoint": {
+        "encoded_names_bytes": 1278,
+        "dict_bytes": 499,
+        "index_bytes": 652,
+        "total_rodata": 2429,
+        "decoder_text": 317,
+        "cu_flash": 2746,
+        "whole_image_flash": 18128,
+        "net_savings_bytes": 1664,
+        "reduction_percent": 40.66,
+        "whole_image_ram": 196,
+        "ram_delta": 0
+      }
+    }
+  },
+  {
+    "workload": "shell_module",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 557,
+    "unique_names": 546,
+    "raw_name_bytes": 10514,
+    "entry_table_bytes": 4468,
+    "stock_table_overhead_bytes": 14982,
+    "stock_flash_y": 89112,
+    "stock_flash_n": 74344,
+    "feature_delta": 14768,
+    "static_ram_y": 476,
+    "variants": {
+      "Direct": {
+        "encoded_names_bytes": 4916,
+        "dict_bytes": 793,
+        "index_bytes": 3342,
+        "total_rodata": 9051,
+        "decoder_text": 275,
+        "cu_flash": 9326,
+        "whole_image_flash": 83680,
+        "net_savings_bytes": 5432,
+        "reduction_percent": 36.78,
+        "whole_image_ram": 476,
+        "ram_delta": 0
+      },
+      "Checkpoint": {
+        "encoded_names_bytes": 4916,
+        "dict_bytes": 793,
+        "index_bytes": 2298,
+        "total_rodata": 8007,
+        "decoder_text": 317,
+        "cu_flash": 8324,
+        "whole_image_flash": 82680,
+        "net_savings_bytes": 6432,
+        "reduction_percent": 43.55,
+        "whole_image_ram": 476,
+        "ram_delta": 0
+      }
+    }
+  },
+  {
+    "workload": "echo_server",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 1381,
+    "unique_names": 1367,
+    "raw_name_bytes": 26414,
+    "entry_table_bytes": 11060,
+    "stock_table_overhead_bytes": 37474,
+    "stock_flash_y": 291936,
+    "stock_flash_n": 254840,
+    "feature_delta": 37096,
+    "static_ram_y": 9180,
+    "variants": {
+      "Direct": {
+        "encoded_names_bytes": 13810,
+        "dict_bytes": 745,
+        "index_bytes": 8286,
+        "total_rodata": 22841,
+        "decoder_text": 279,
+        "cu_flash": 23120,
+        "whole_image_flash": 277976,
+        "net_savings_bytes": 13960,
+        "reduction_percent": 37.63,
+        "whole_image_ram": 9180,
+        "ram_delta": 0
+      },
+      "Checkpoint": {
+        "encoded_names_bytes": 13810,
+        "dict_bytes": 745,
+        "index_bytes": 5698,
+        "total_rodata": 20253,
+        "decoder_text": 321,
+        "cu_flash": 20574,
+        "whole_image_flash": 275424,
+        "net_savings_bytes": 16512,
+        "reduction_percent": 44.51,
+        "whole_image_ram": 9180,
+        "ram_delta": 0
+      }
+    }
+  },
+  {
+    "workload": "hello_world (constrained)",
+    "board": "nrf52840dk/nrf52840",
+    "arch": "Cortex-M4",
+    "num_symbols": 226,
+    "unique_names": 223,
+    "raw_name_bytes": 4234,
+    "entry_table_bytes": 1820,
+    "stock_table_overhead_bytes": 6054,
+    "stock_flash_y": 30200,
+    "stock_flash_n": 24204,
+    "feature_delta": 5996,
+    "static_ram_y": 200,
+    "variants": {
+      "Direct": {
+        "encoded_names_bytes": 2146,
+        "dict_bytes": 431,
+        "index_bytes": 1356,
+        "total_rodata": 3933,
+        "decoder_text": 275,
+        "cu_flash": 4208,
+        "whole_image_flash": 28412,
+        "net_savings_bytes": 1788,
+        "reduction_percent": 29.82,
+        "whole_image_ram": 200,
+        "ram_delta": 0
+      },
+      "Checkpoint": {
+        "encoded_names_bytes": 2146,
+        "dict_bytes": 431,
+        "index_bytes": 934,
+        "total_rodata": 3511,
+        "decoder_text": 317,
+        "cu_flash": 3828,
+        "whole_image_flash": 28060,
+        "net_savings_bytes": 2140,
+        "reduction_percent": 35.69,
+        "whole_image_ram": 200,
+        "ram_delta": 0
+      }
+    }
+  }
+]

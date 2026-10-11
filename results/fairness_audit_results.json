@@ -1,0 +1,330 @@
+[
+  {
+    "workload": "hello_world",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 158,
+    "real_symbols": 157,
+    "unique_names": 158,
+    "max_name_len": 41,
+    "raw_name_bytes": 3144,
+    "entry_table_bytes": 1276,
+    "stock_table_overhead": 4420,
+    "stock_flash_y": 19792,
+    "stock_flash_n": 15376,
+    "stock_feature_delta": 4416,
+    "caller_stack_buffer_bytes": 64,
+    "methods": {
+      "A_No_Symtab": {
+        "role": "Application reference only (no service)",
+        "whole_image_flash": 15376,
+        "delta_vs_stock": -4416,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 0,
+        "text": 0
+      },
+      "B_Stock_Zephyr": {
+        "role": "Unmodified official implementation",
+        "whole_image_flash": 19792,
+        "delta_vs_stock": 0,
+        "savings_percent_feature": 0.0,
+        "savings_percent_whole": 0.0,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 4420,
+        "text": 130
+      },
+      "C_Linux_Kallsyms_M256": {
+        "compilation_unit_flash": 3852,
+        "rodata_bytes": 3589,
+        "text_decoder_bytes": 263,
+        "whole_image_flash": 19240,
+        "net_savings_bytes": 552,
+        "savings_percent_feature": 12.5,
+        "savings_percent_whole": 2.79,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "C_Linux_Kallsyms_M16": {
+        "compilation_unit_flash": 3900,
+        "rodata_bytes": 3625,
+        "text_decoder_bytes": 275,
+        "whole_image_flash": 19288,
+        "net_savings_bytes": 504,
+        "savings_percent_feature": 11.41,
+        "savings_percent_whole": 2.55,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "D_Candidate_Direct_K1": {
+        "compilation_unit_flash": 3022,
+        "rodata_bytes": 2723,
+        "text_decoder_bytes": 299,
+        "whole_image_flash": 18408,
+        "net_savings_bytes": 1384,
+        "savings_percent_feature": 31.34,
+        "savings_percent_whole": 6.99,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "E_Candidate_Checkpoint_K16": {
+        "compilation_unit_flash": 2750,
+        "rodata_bytes": 2427,
+        "text_decoder_bytes": 323,
+        "whole_image_flash": 18136,
+        "net_savings_bytes": 1656,
+        "savings_percent_feature": 37.5,
+        "savings_percent_whole": 8.37,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      }
+    }
+  },
+  {
+    "workload": "shell_module",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 557,
+    "real_symbols": 556,
+    "unique_names": 546,
+    "max_name_len": 41,
+    "raw_name_bytes": 10514,
+    "entry_table_bytes": 4468,
+    "stock_table_overhead": 14982,
+    "stock_flash_y": 89112,
+    "stock_flash_n": 74344,
+    "stock_feature_delta": 14768,
+    "caller_stack_buffer_bytes": 64,
+    "methods": {
+      "A_No_Symtab": {
+        "role": "Application reference only (no service)",
+        "whole_image_flash": 74344,
+        "delta_vs_stock": -14768,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 0,
+        "text": 0
+      },
+      "B_Stock_Zephyr": {
+        "role": "Unmodified official implementation",
+        "whole_image_flash": 89112,
+        "delta_vs_stock": 0,
+        "savings_percent_feature": 0.0,
+        "savings_percent_whole": 0.0,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 14982,
+        "text": 130
+      },
+      "C_Linux_Kallsyms_M256": {
+        "compilation_unit_flash": 8554,
+        "rodata_bytes": 8299,
+        "text_decoder_bytes": 255,
+        "whole_image_flash": 82912,
+        "net_savings_bytes": 6200,
+        "savings_percent_feature": 41.98,
+        "savings_percent_whole": 6.96,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "C_Linux_Kallsyms_M16": {
+        "compilation_unit_flash": 8690,
+        "rodata_bytes": 8427,
+        "text_decoder_bytes": 263,
+        "whole_image_flash": 83048,
+        "net_savings_bytes": 6064,
+        "savings_percent_feature": 41.06,
+        "savings_percent_whole": 6.8,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "D_Candidate_Direct_K1": {
+        "compilation_unit_flash": 9350,
+        "rodata_bytes": 9050,
+        "text_decoder_bytes": 300,
+        "whole_image_flash": 83704,
+        "net_savings_bytes": 5408,
+        "savings_percent_feature": 36.62,
+        "savings_percent_whole": 6.07,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "E_Candidate_Checkpoint_K16": {
+        "compilation_unit_flash": 8330,
+        "rodata_bytes": 8006,
+        "text_decoder_bytes": 324,
+        "whole_image_flash": 82688,
+        "net_savings_bytes": 6424,
+        "savings_percent_feature": 43.5,
+        "savings_percent_whole": 7.21,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      }
+    }
+  },
+  {
+    "workload": "echo_server",
+    "board": "mps2/an385",
+    "arch": "Cortex-M3",
+    "num_symbols": 1381,
+    "real_symbols": 1380,
+    "unique_names": 1367,
+    "max_name_len": 41,
+    "raw_name_bytes": 26414,
+    "entry_table_bytes": 11060,
+    "stock_table_overhead": 37474,
+    "stock_flash_y": 291936,
+    "stock_flash_n": 254840,
+    "stock_feature_delta": 37096,
+    "caller_stack_buffer_bytes": 64,
+    "methods": {
+      "A_No_Symtab": {
+        "role": "Application reference only (no service)",
+        "whole_image_flash": 254840,
+        "delta_vs_stock": -37096,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 0,
+        "text": 0
+      },
+      "B_Stock_Zephyr": {
+        "role": "Unmodified official implementation",
+        "whole_image_flash": 291936,
+        "delta_vs_stock": 0,
+        "savings_percent_feature": 0.0,
+        "savings_percent_whole": 0.0,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 37474,
+        "text": 130
+      },
+      "C_Linux_Kallsyms_M256": {
+        "compilation_unit_flash": 19362,
+        "rodata_bytes": 19104,
+        "text_decoder_bytes": 258,
+        "whole_image_flash": 274216,
+        "net_savings_bytes": 17720,
+        "savings_percent_feature": 47.77,
+        "savings_percent_whole": 6.07,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "C_Linux_Kallsyms_M16": {
+        "compilation_unit_flash": 19694,
+        "rodata_bytes": 19428,
+        "text_decoder_bytes": 266,
+        "whole_image_flash": 274552,
+        "net_savings_bytes": 17384,
+        "savings_percent_feature": 46.86,
+        "savings_percent_whole": 5.95,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "D_Candidate_Direct_K1": {
+        "compilation_unit_flash": 23138,
+        "rodata_bytes": 22836,
+        "text_decoder_bytes": 302,
+        "whole_image_flash": 277992,
+        "net_savings_bytes": 13944,
+        "savings_percent_feature": 37.59,
+        "savings_percent_whole": 4.78,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "E_Candidate_Checkpoint_K16": {
+        "compilation_unit_flash": 20578,
+        "rodata_bytes": 20248,
+        "text_decoder_bytes": 330,
+        "whole_image_flash": 275432,
+        "net_savings_bytes": 16504,
+        "savings_percent_feature": 44.49,
+        "savings_percent_whole": 5.65,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      }
+    }
+  },
+  {
+    "workload": "hello_world (constrained)",
+    "board": "nrf52840dk/nrf52840",
+    "arch": "Cortex-M4",
+    "num_symbols": 226,
+    "real_symbols": 225,
+    "unique_names": 223,
+    "max_name_len": 42,
+    "raw_name_bytes": 4234,
+    "entry_table_bytes": 1820,
+    "stock_table_overhead": 6054,
+    "stock_flash_y": 30200,
+    "stock_flash_n": 24204,
+    "stock_feature_delta": 5996,
+    "caller_stack_buffer_bytes": 64,
+    "methods": {
+      "A_No_Symtab": {
+        "role": "Application reference only (no service)",
+        "whole_image_flash": 24204,
+        "delta_vs_stock": -5996,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 0,
+        "text": 0
+      },
+      "B_Stock_Zephyr": {
+        "role": "Unmodified official implementation",
+        "whole_image_flash": 30200,
+        "delta_vs_stock": 0,
+        "savings_percent_feature": 0.0,
+        "savings_percent_whole": 0.0,
+        "static_ram": 0,
+        "caller_stack_buffer": 0,
+        "rodata": 6054,
+        "text": 130
+      },
+      "C_Linux_Kallsyms_M256": {
+        "compilation_unit_flash": 4386,
+        "rodata_bytes": 4151,
+        "text_decoder_bytes": 235,
+        "whole_image_flash": 28604,
+        "net_savings_bytes": 1596,
+        "savings_percent_feature": 26.62,
+        "savings_percent_whole": 5.28,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "C_Linux_Kallsyms_M16": {
+        "compilation_unit_flash": 4470,
+        "rodata_bytes": 4207,
+        "text_decoder_bytes": 263,
+        "whole_image_flash": 28684,
+        "net_savings_bytes": 1516,
+        "savings_percent_feature": 25.28,
+        "savings_percent_whole": 5.02,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "D_Candidate_Direct_K1": {
+        "compilation_unit_flash": 4232,
+        "rodata_bytes": 3933,
+        "text_decoder_bytes": 299,
+        "whole_image_flash": 28444,
+        "net_savings_bytes": 1756,
+        "savings_percent_feature": 29.29,
+        "savings_percent_whole": 5.81,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      },
+      "E_Candidate_Checkpoint_K16": {
+        "compilation_unit_flash": 3834,
+        "rodata_bytes": 3511,
+        "text_decoder_bytes": 323,
+        "whole_image_flash": 28060,
+        "net_savings_bytes": 2140,
+        "savings_percent_feature": 35.69,
+        "savings_percent_whole": 7.09,
+        "static_ram_delta": 0,
+        "caller_stack_buffer": 64
+      }
+    }
+  }
+]

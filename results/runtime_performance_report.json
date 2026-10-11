@@ -1,0 +1,250 @@
+{
+  "hello_world_mps2": {
+    "Stock_Zephyr_Adapter": {
+      "host_median_latency_ns": 21.24,
+      "host_iqr_spread_ns": 0.64,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 0,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 1
+      }
+    },
+    "Candidate_Direct_K1": {
+      "host_median_latency_ns": 30.92,
+      "host_iqr_spread_ns": 6.47,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 2
+      }
+    },
+    "Candidate_Checkpoint_K16": {
+      "host_median_latency_ns": 79.59,
+      "host_iqr_spread_ns": 25.26,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M16": {
+      "host_median_latency_ns": 87.65,
+      "host_iqr_spread_ns": 12.3,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M256": {
+      "host_median_latency_ns": 217.07,
+      "host_iqr_spread_ns": 190.18,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 156,
+        "scan_steps_avg": 78.0,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 80.0
+      }
+    }
+  },
+  "shell_module_mps2": {
+    "Stock_Zephyr_Adapter": {
+      "host_median_latency_ns": 33.34,
+      "host_iqr_spread_ns": 18.73,
+      "complexity": {
+        "bsearch_steps": 10,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 0,
+        "memory_accesses_bsearch": 10,
+        "memory_accesses_decode": 1
+      }
+    },
+    "Candidate_Direct_K1": {
+      "host_median_latency_ns": 25.21,
+      "host_iqr_spread_ns": 6.08,
+      "complexity": {
+        "bsearch_steps": 10,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 10,
+        "memory_accesses_decode": 2
+      }
+    },
+    "Candidate_Checkpoint_K16": {
+      "host_median_latency_ns": 44.45,
+      "host_iqr_spread_ns": 28.41,
+      "complexity": {
+        "bsearch_steps": 10,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 10,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M16": {
+      "host_median_latency_ns": 38.68,
+      "host_iqr_spread_ns": 8.07,
+      "complexity": {
+        "bsearch_steps": 10,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 10,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M256": {
+      "host_median_latency_ns": 315.21,
+      "host_iqr_spread_ns": 238.56,
+      "complexity": {
+        "bsearch_steps": 10,
+        "scan_steps_worst": 255,
+        "scan_steps_avg": 127.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 10,
+        "memory_accesses_decode": 129.5
+      }
+    }
+  },
+  "echo_server_mps2": {
+    "Stock_Zephyr_Adapter": {
+      "host_median_latency_ns": 31.39,
+      "host_iqr_spread_ns": 14.29,
+      "complexity": {
+        "bsearch_steps": 11,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 0,
+        "memory_accesses_bsearch": 11,
+        "memory_accesses_decode": 1
+      }
+    },
+    "Candidate_Direct_K1": {
+      "host_median_latency_ns": 58.77,
+      "host_iqr_spread_ns": 10.28,
+      "complexity": {
+        "bsearch_steps": 11,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 11,
+        "memory_accesses_decode": 2
+      }
+    },
+    "Candidate_Checkpoint_K16": {
+      "host_median_latency_ns": 80.0,
+      "host_iqr_spread_ns": 20.17,
+      "complexity": {
+        "bsearch_steps": 11,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 11,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M16": {
+      "host_median_latency_ns": 49.69,
+      "host_iqr_spread_ns": 15.25,
+      "complexity": {
+        "bsearch_steps": 11,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 11,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M256": {
+      "host_median_latency_ns": 309.67,
+      "host_iqr_spread_ns": 197.32,
+      "complexity": {
+        "bsearch_steps": 11,
+        "scan_steps_worst": 255,
+        "scan_steps_avg": 127.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 11,
+        "memory_accesses_decode": 129.5
+      }
+    }
+  },
+  "hello_world_nrf52840": {
+    "Stock_Zephyr_Adapter": {
+      "host_median_latency_ns": 26.16,
+      "host_iqr_spread_ns": 4.48,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 0,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 1
+      }
+    },
+    "Candidate_Direct_K1": {
+      "host_median_latency_ns": 40.8,
+      "host_iqr_spread_ns": 8.24,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 0,
+        "scan_steps_avg": 0.0,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 2
+      }
+    },
+    "Candidate_Checkpoint_K16": {
+      "host_median_latency_ns": 87.75,
+      "host_iqr_spread_ns": 26.32,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 1,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M16": {
+      "host_median_latency_ns": 60.71,
+      "host_iqr_spread_ns": 9.38,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 15,
+        "scan_steps_avg": 7.5,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 9.5
+      }
+    },
+    "Linux_Kallsyms_M256": {
+      "host_median_latency_ns": 289.44,
+      "host_iqr_spread_ns": 307.69,
+      "complexity": {
+        "bsearch_steps": 8,
+        "scan_steps_worst": 224,
+        "scan_steps_avg": 112.0,
+        "token_indirections": 2,
+        "memory_accesses_bsearch": 8,
+        "memory_accesses_decode": 114.0
+      }
+    }
+  }
+}

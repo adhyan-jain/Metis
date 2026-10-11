@@ -1,0 +1,30 @@
+{
+  "hello_world_mps2": {
+    "Stock_Zephyr_Adapter": "PASSED=469 FAILED=0 TOTAL=469",
+    "Linux_Kallsyms_M256": "PASSED=469 FAILED=0 TOTAL=469",
+    "Linux_Kallsyms_M16": "PASSED=469 FAILED=0 TOTAL=469",
+    "Candidate_Direct_K1": "PASSED=469 FAILED=0 TOTAL=469",
+    "Candidate_Checkpoint_K16": "PASSED=469 FAILED=0 TOTAL=469"
+  },
+  "shell_module_mps2": {
+    "Stock_Zephyr_Adapter": "PASSED=1634 FAILED=0 TOTAL=1634",
+    "Linux_Kallsyms_M256": "PASSED=1634 FAILED=0 TOTAL=1634",
+    "Linux_Kallsyms_M16": "PASSED=1634 FAILED=0 TOTAL=1634",
+    "Candidate_Direct_K1": "PASSED=1634 FAILED=0 TOTAL=1634",
+    "Candidate_Checkpoint_K16": "PASSED=1634 FAILED=0 TOTAL=1634"
+  },
+  "echo_server_mps2": {
+    "Stock_Zephyr_Adapter": "PASSED=4032 FAILED=0 TOTAL=4032",
+    "Linux_Kallsyms_M256": "PASSED=4032 FAILED=0 TOTAL=4032",
+    "Linux_Kallsyms_M16": "PASSED=4032 FAILED=0 TOTAL=4032",
+    "Candidate_Direct_K1": "PASSED=4032 FAILED=0 TOTAL=4032",
+    "Candidate_Checkpoint_K16": "PASSED=4032 FAILED=0 TOTAL=4032"
+  },
+  "hello_world_nrf52840": {
+    "Stock_Zephyr_Adapter": "PASSED=661 FAILED=0 TOTAL=661",
+    "Linux_Kallsyms_M256": "PASSED=661 FAILED=0 TOTAL=661",
+    "Linux_Kallsyms_M16": "PASSED=661 FAILED=0 TOTAL=661",
+    "Candidate_Direct_K1": "PASSED=661 FAILED=0 TOTAL=661",
+    "Candidate_Checkpoint_K16": "PASSED=661 FAILED=0 TOTAL=661"
+  }
+}

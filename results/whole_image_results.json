@@ -1,0 +1,58 @@
+{
+  "target": "mps2/an385 (ARM Cortex-M3)",
+  "toolchain": "Clang 22.1.8 / LLD 22.1.5 (-Os)",
+  "application": "samples/hello_world",
+  "symbols_count": 158,
+  "baseline": {
+    "symtab_y_flash_bytes": 19792,
+    "symtab_n_flash_bytes": 15376,
+    "feature_delta_bytes": 4416,
+    "entry_table_and_metadata_bytes": 1276,
+    "name_strings_bytes": 3140,
+    "static_ram_bytes": 6208
+  },
+  "candidates": [
+    {
+      "variant": "budget_64_checkpoint",
+      "tokens": 64,
+      "checkpoint_interval": 16,
+      "encoded_names_bytes": 1278,
+      "dict_pool_bytes": 435,
+      "dict_offsets_bytes": 64,
+      "total_dict_bytes": 499,
+      "addr_offsets_bytes": 632,
+      "name_index_bytes": 20,
+      "total_index_bytes": 652,
+      "decoder_text_bytes": 317,
+      "compilation_unit_flash_bytes": 2746,
+      "compilation_unit_savings_bytes": 1670,
+      "whole_image_flash_bytes": 18128,
+      "whole_image_savings_bytes": 1664,
+      "feature_delta_reduction_percent": 37.68,
+      "static_ram_bytes": 6208,
+      "static_ram_delta_bytes": 0,
+      "lookup_complexity": "O(log N) binary search + O(K) linear scan up to interval K=16"
+    },
+    {
+      "variant": "budget_64_direct",
+      "tokens": 64,
+      "checkpoint_interval": 1,
+      "encoded_names_bytes": 1278,
+      "dict_pool_bytes": 435,
+      "dict_offsets_bytes": 64,
+      "total_dict_bytes": 499,
+      "addr_offsets_bytes": 632,
+      "name_index_bytes": 316,
+      "total_index_bytes": 948,
+      "decoder_text_bytes": 275,
+      "compilation_unit_flash_bytes": 3000,
+      "compilation_unit_savings_bytes": 1416,
+      "whole_image_flash_bytes": 18384,
+      "whole_image_savings_bytes": 1408,
+      "feature_delta_reduction_percent": 31.88,
+      "static_ram_bytes": 6208,
+      "static_ram_delta_bytes": 0,
+      "lookup_complexity": "O(log N) binary search + O(1) direct name offset index"
+    }
+  ]
+}

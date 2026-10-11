@@ -1,0 +1,3901 @@
+[
+  {
+    "index": 0,
+    "addr": 193,
+    "offset": 0,
+    "size": 20,
+    "name": "strcmp"
+  },
+  {
+    "index": 1,
+    "addr": 213,
+    "offset": 20,
+    "size": 16,
+    "name": "strcpy"
+  },
+  {
+    "index": 2,
+    "addr": 229,
+    "offset": 36,
+    "size": 16,
+    "name": "strlen"
+  },
+  {
+    "index": 3,
+    "addr": 245,
+    "offset": 52,
+    "size": 14,
+    "name": "__aeabi_memclr8"
+  },
+  {
+    "index": 4,
+    "addr": 259,
+    "offset": 66,
+    "size": 16,
+    "name": "__aeabi_memclr4"
+  },
+  {
+    "index": 5,
+    "addr": 275,
+    "offset": 82,
+    "size": 16,
+    "name": "__aeabi_memclr"
+  },
+  {
+    "index": 6,
+    "addr": 291,
+    "offset": 98,
+    "size": 66,
+    "name": "__aeabi_uldivmod"
+  },
+  {
+    "index": 7,
+    "addr": 357,
+    "offset": 164,
+    "size": 66,
+    "name": "__aeabi_ldivmod"
+  },
+  {
+    "index": 8,
+    "addr": 425,
+    "offset": 232,
+    "size": 86,
+    "name": "cmd_demo_hexdump"
+  },
+  {
+    "index": 9,
+    "addr": 513,
+    "offset": 320,
+    "size": 72,
+    "name": "cmd_demo_params"
+  },
+  {
+    "index": 10,
+    "addr": 585,
+    "offset": 392,
+    "size": 222,
+    "name": "bypass_cb"
+  },
+  {
+    "index": 11,
+    "addr": 809,
+    "offset": 616,
+    "size": 220,
+    "name": "cmd_dynamic_add"
+  },
+  {
+    "index": 12,
+    "addr": 1029,
+    "offset": 836,
+    "size": 102,
+    "name": "cmd_dynamic_execute"
+  },
+  {
+    "index": 13,
+    "addr": 1133,
+    "offset": 940,
+    "size": 136,
+    "name": "cmd_dynamic_remove"
+  },
+  {
+    "index": 14,
+    "addr": 1269,
+    "offset": 1076,
+    "size": 122,
+    "name": "cmd_dynamic_show"
+  },
+  {
+    "index": 15,
+    "addr": 1393,
+    "offset": 1200,
+    "size": 192,
+    "name": "direct_uart_callback"
+  },
+  {
+    "index": 16,
+    "addr": 1585,
+    "offset": 1392,
+    "size": 140,
+    "name": "alloc_chunk"
+  },
+  {
+    "index": 17,
+    "addr": 1725,
+    "offset": 1532,
+    "size": 1196,
+    "name": "cbvprintf_package"
+  },
+  {
+    "index": 18,
+    "addr": 2921,
+    "offset": 2728,
+    "size": 86,
+    "name": "cbpprintf_external"
+  },
+  {
+    "index": 19,
+    "addr": 3009,
+    "offset": 2816,
+    "size": 128,
+    "name": "is_ptr"
+  },
+  {
+    "index": 20,
+    "addr": 3137,
+    "offset": 2944,
+    "size": 1148,
+    "name": "cbprintf_package_convert"
+  },
+  {
+    "index": 21,
+    "addr": 4285,
+    "offset": 4092,
+    "size": 326,
+    "name": "mpsc_pbuf_alloc"
+  },
+  {
+    "index": 22,
+    "addr": 4613,
+    "offset": 4420,
+    "size": 230,
+    "name": "mpsc_pbuf_claim"
+  },
+  {
+    "index": 23,
+    "addr": 4845,
+    "offset": 4652,
+    "size": 46,
+    "name": "sys_reboot"
+  },
+  {
+    "index": 24,
+    "addr": 4893,
+    "offset": 4700,
+    "size": 132,
+    "name": "ring_buf_put"
+  },
+  {
+    "index": 25,
+    "addr": 5025,
+    "offset": 4832,
+    "size": 136,
+    "name": "ring_buf_get"
+  },
+  {
+    "index": 26,
+    "addr": 5161,
+    "offset": 4968,
+    "size": 94,
+    "name": "z_log_notify_drop"
+  },
+  {
+    "index": 27,
+    "addr": 5257,
+    "offset": 5064,
+    "size": 134,
+    "name": "log_core_init"
+  },
+  {
+    "index": 28,
+    "addr": 5393,
+    "offset": 5200,
+    "size": 190,
+    "name": "z_log_init"
+  },
+  {
+    "index": 29,
+    "addr": 5585,
+    "offset": 5392,
+    "size": 90,
+    "name": "z_impl_log_panic"
+  },
+  {
+    "index": 30,
+    "addr": 5677,
+    "offset": 5484,
+    "size": 362,
+    "name": "z_impl_log_process"
+  },
+  {
+    "index": 31,
+    "addr": 6041,
+    "offset": 5848,
+    "size": 94,
+    "name": "z_log_dropped"
+  },
+  {
+    "index": 32,
+    "addr": 6137,
+    "offset": 5944,
+    "size": 154,
+    "name": "msg_commit"
+  },
+  {
+    "index": 33,
+    "addr": 6293,
+    "offset": 6100,
+    "size": 86,
+    "name": "activate_foreach_backend"
+  },
+  {
+    "index": 34,
+    "addr": 6381,
+    "offset": 6188,
+    "size": 192,
+    "name": "log_process_thread_func"
+  },
+  {
+    "index": 35,
+    "addr": 6573,
+    "offset": 6380,
+    "size": 52,
+    "name": "z_log_runtime_filters_init"
+  },
+  {
+    "index": 36,
+    "addr": 6625,
+    "offset": 6432,
+    "size": 210,
+    "name": "filter_set"
+  },
+  {
+    "index": 37,
+    "addr": 6837,
+    "offset": 6644,
+    "size": 66,
+    "name": "backend_filter_set"
+  },
+  {
+    "index": 38,
+    "addr": 6905,
+    "offset": 6712,
+    "size": 82,
+    "name": "z_log_msg_simple_create"
+  },
+  {
+    "index": 39,
+    "addr": 6989,
+    "offset": 6796,
+    "size": 826,
+    "name": "log_output_process"
+  },
+  {
+    "index": 40,
+    "addr": 7817,
+    "offset": 7624,
+    "size": 102,
+    "name": "out_func"
+  },
+  {
+    "index": 41,
+    "addr": 7921,
+    "offset": 7728,
+    "size": 140,
+    "name": "log_output_dropped_process"
+  },
+  {
+    "index": 42,
+    "addr": 8061,
+    "offset": 7868,
+    "size": 62,
+    "name": "log_output_timestamp_freq_set"
+  },
+  {
+    "index": 43,
+    "addr": 8125,
+    "offset": 7932,
+    "size": 102,
+    "name": "cmd_log_backend_halt"
+  },
+  {
+    "index": 44,
+    "addr": 8229,
+    "offset": 8036,
+    "size": 116,
+    "name": "shell_backend_cmd_execute"
+  },
+  {
+    "index": 45,
+    "addr": 8345,
+    "offset": 8152,
+    "size": 222,
+    "name": "filters_set"
+  },
+  {
+    "index": 46,
+    "addr": 8569,
+    "offset": 8376,
+    "size": 98,
+    "name": "log_enable"
+  },
+  {
+    "index": 47,
+    "addr": 8669,
+    "offset": 8476,
+    "size": 82,
+    "name": "log_go"
+  },
+  {
+    "index": 48,
+    "addr": 8753,
+    "offset": 8560,
+    "size": 194,
+    "name": "log_status"
+  },
+  {
+    "index": 49,
+    "addr": 8949,
+    "offset": 8756,
+    "size": 106,
+    "name": "cmd_log_backends_list"
+  },
+  {
+    "index": 50,
+    "addr": 9057,
+    "offset": 8864,
+    "size": 224,
+    "name": "stats_walk"
+  },
+  {
+    "index": 51,
+    "addr": 9281,
+    "offset": 9088,
+    "size": 38,
+    "name": "stats_group_walk"
+  },
+  {
+    "index": 52,
+    "addr": 9321,
+    "offset": 9128,
+    "size": 266,
+    "name": "cmd_device_list"
+  },
+  {
+    "index": 53,
+    "addr": 9589,
+    "offset": 9396,
+    "size": 388,
+    "name": "cmd_dump"
+  },
+  {
+    "index": 54,
+    "addr": 9977,
+    "offset": 9784,
+    "size": 212,
+    "name": "cmd_load"
+  },
+  {
+    "index": 55,
+    "addr": 10189,
+    "offset": 9996,
+    "size": 304,
+    "name": "bypass_cb"
+  },
+  {
+    "index": 56,
+    "addr": 10493,
+    "offset": 10300,
+    "size": 114,
+    "name": "write_uart"
+  },
+  {
+    "index": 57,
+    "addr": 10609,
+    "offset": 10416,
+    "size": 378,
+    "name": "uart_callback"
+  },
+  {
+    "index": 58,
+    "addr": 10989,
+    "offset": 10796,
+    "size": 136,
+    "name": "shell_thread"
+  },
+  {
+    "index": 59,
+    "addr": 11125,
+    "offset": 10932,
+    "size": 208,
+    "name": "shell_start"
+  },
+  {
+    "index": 60,
+    "addr": 11333,
+    "offset": 11140,
+    "size": 82,
+    "name": "shell_process"
+  },
+  {
+    "index": 61,
+    "addr": 11417,
+    "offset": 11224,
+    "size": 210,
+    "name": "shell_log_process"
+  },
+  {
+    "index": 62,
+    "addr": 11629,
+    "offset": 11436,
+    "size": 312,
+    "name": "shell_init"
+  },
+  {
+    "index": 63,
+    "addr": 11941,
+    "offset": 11748,
+    "size": 2718,
+    "name": "state_collect"
+  },
+  {
+    "index": 64,
+    "addr": 14661,
+    "offset": 14468,
+    "size": 176,
+    "name": "z_shell_print"
+  },
+  {
+    "index": 65,
+    "addr": 14837,
+    "offset": 14644,
+    "size": 906,
+    "name": "execute"
+  },
+  {
+    "index": 66,
+    "addr": 15745,
+    "offset": 15552,
+    "size": 68,
+    "name": "shell_obscure_set"
+  },
+  {
+    "index": 67,
+    "addr": 15813,
+    "offset": 15620,
+    "size": 354,
+    "name": "shell_readline"
+  },
+  {
+    "index": 68,
+    "addr": 16169,
+    "offset": 15976,
+    "size": 514,
+    "name": "ctrl_metakeys_handle"
+  },
+  {
+    "index": 69,
+    "addr": 16685,
+    "offset": 16492,
+    "size": 210,
+    "name": "history_handle"
+  },
+  {
+    "index": 70,
+    "addr": 16897,
+    "offset": 16704,
+    "size": 498,
+    "name": "z_shell_make_argv"
+  },
+  {
+    "index": 71,
+    "addr": 17397,
+    "offset": 17204,
+    "size": 64,
+    "name": "z_shell_find_cmd"
+  },
+  {
+    "index": 72,
+    "addr": 17461,
+    "offset": 17268,
+    "size": 100,
+    "name": "z_shell_get_last_command"
+  },
+  {
+    "index": 73,
+    "addr": 17561,
+    "offset": 17368,
+    "size": 166,
+    "name": "z_shell_spaces_trim"
+  },
+  {
+    "index": 74,
+    "addr": 17729,
+    "offset": 17536,
+    "size": 118,
+    "name": "z_shell_cmd_trim"
+  },
+  {
+    "index": 75,
+    "addr": 17849,
+    "offset": 17656,
+    "size": 134,
+    "name": "shell_device_internal"
+  },
+  {
+    "index": 76,
+    "addr": 17985,
+    "offset": 17792,
+    "size": 154,
+    "name": "shell_device_get_binding_all"
+  },
+  {
+    "index": 77,
+    "addr": 18141,
+    "offset": 17948,
+    "size": 224,
+    "name": "shell_hexdump_line"
+  },
+  {
+    "index": 78,
+    "addr": 18365,
+    "offset": 18172,
+    "size": 50,
+    "name": "shell_hexdump"
+  },
+  {
+    "index": 79,
+    "addr": 18417,
+    "offset": 18224,
+    "size": 166,
+    "name": "z_shell_op_cursor_word_move"
+  },
+  {
+    "index": 80,
+    "addr": 18585,
+    "offset": 18392,
+    "size": 218,
+    "name": "z_shell_op_word_remove"
+  },
+  {
+    "index": 81,
+    "addr": 18805,
+    "offset": 18612,
+    "size": 318,
+    "name": "reprint_from_cursor"
+  },
+  {
+    "index": 82,
+    "addr": 19125,
+    "offset": 18932,
+    "size": 148,
+    "name": "z_shell_print_cmd"
+  },
+  {
+    "index": 83,
+    "addr": 19273,
+    "offset": 19080,
+    "size": 146,
+    "name": "z_shell_write"
+  },
+  {
+    "index": 84,
+    "addr": 19421,
+    "offset": 19228,
+    "size": 54,
+    "name": "z_shell_backend_rx_buffer_flush"
+  },
+  {
+    "index": 85,
+    "addr": 19477,
+    "offset": 19284,
+    "size": 104,
+    "name": "z_shell_log_backend_process"
+  },
+  {
+    "index": 86,
+    "addr": 19581,
+    "offset": 19388,
+    "size": 480,
+    "name": "process"
+  },
+  {
+    "index": 87,
+    "addr": 20061,
+    "offset": 19868,
+    "size": 60,
+    "name": "dropped"
+  },
+  {
+    "index": 88,
+    "addr": 20121,
+    "offset": 19928,
+    "size": 124,
+    "name": "panic"
+  },
+  {
+    "index": 89,
+    "addr": 20245,
+    "offset": 20052,
+    "size": 296,
+    "name": "z_shell_help_subcmd_print"
+  },
+  {
+    "index": 90,
+    "addr": 20541,
+    "offset": 20348,
+    "size": 286,
+    "name": "formatted_text_print"
+  },
+  {
+    "index": 91,
+    "addr": 20829,
+    "offset": 20636,
+    "size": 96,
+    "name": "cmd_backends"
+  },
+  {
+    "index": 92,
+    "addr": 20925,
+    "offset": 20732,
+    "size": 36,
+    "name": "cmd_backspace_mode_backspace"
+  },
+  {
+    "index": 93,
+    "addr": 20961,
+    "offset": 20768,
+    "size": 36,
+    "name": "cmd_backspace_mode_delete"
+  },
+  {
+    "index": 94,
+    "addr": 20997,
+    "offset": 20804,
+    "size": 36,
+    "name": "cmd_colors_off"
+  },
+  {
+    "index": 95,
+    "addr": 21033,
+    "offset": 20840,
+    "size": 36,
+    "name": "cmd_colors_on"
+  },
+  {
+    "index": 96,
+    "addr": 21069,
+    "offset": 20876,
+    "size": 36,
+    "name": "cmd_vt100_off"
+  },
+  {
+    "index": 97,
+    "addr": 21105,
+    "offset": 20912,
+    "size": 36,
+    "name": "cmd_vt100_on"
+  },
+  {
+    "index": 98,
+    "addr": 21141,
+    "offset": 20948,
+    "size": 36,
+    "name": "cmd_echo_off"
+  },
+  {
+    "index": 99,
+    "addr": 21177,
+    "offset": 20984,
+    "size": 36,
+    "name": "cmd_echo_on"
+  },
+  {
+    "index": 100,
+    "addr": 21213,
+    "offset": 21020,
+    "size": 110,
+    "name": "cmd_history"
+  },
+  {
+    "index": 101,
+    "addr": 21325,
+    "offset": 21132,
+    "size": 470,
+    "name": "cmd_resize"
+  },
+  {
+    "index": 102,
+    "addr": 21797,
+    "offset": 21604,
+    "size": 118,
+    "name": "z_shell_history_put"
+  },
+  {
+    "index": 103,
+    "addr": 21917,
+    "offset": 21724,
+    "size": 20,
+    "name": "z_shell_history_purge"
+  },
+  {
+    "index": 104,
+    "addr": 21937,
+    "offset": 21744,
+    "size": 42,
+    "name": "z_shell_has_wildcard"
+  },
+  {
+    "index": 105,
+    "addr": 21981,
+    "offset": 21788,
+    "size": 300,
+    "name": "z_shell_wildcard_process"
+  },
+  {
+    "index": 106,
+    "addr": 22281,
+    "offset": 22088,
+    "size": 0,
+    "name": "z_SysNmiOnReset"
+  },
+  {
+    "index": 107,
+    "addr": 22289,
+    "offset": 22096,
+    "size": 574,
+    "name": "z_arm_fault"
+  },
+  {
+    "index": 108,
+    "addr": 22865,
+    "offset": 22672,
+    "size": 0,
+    "name": "z_arm_hard_fault"
+  },
+  {
+    "index": 109,
+    "addr": 22885,
+    "offset": 22692,
+    "size": 0,
+    "name": "__start"
+  },
+  {
+    "index": 110,
+    "addr": 22953,
+    "offset": 22760,
+    "size": 36,
+    "name": "__NVIC_SystemReset"
+  },
+  {
+    "index": 111,
+    "addr": 22989,
+    "offset": 22796,
+    "size": 0,
+    "name": "z_arm_svc"
+  },
+  {
+    "index": 112,
+    "addr": 23025,
+    "offset": 22832,
+    "size": 54,
+    "name": "arch_switch_to_main_thread"
+  },
+  {
+    "index": 113,
+    "addr": 23081,
+    "offset": 22888,
+    "size": 0,
+    "name": "z_arm_pendsv"
+  },
+  {
+    "index": 114,
+    "addr": 23177,
+    "offset": 22984,
+    "size": 22,
+    "name": "z_arm_interrupt_init"
+  },
+  {
+    "index": 115,
+    "addr": 23201,
+    "offset": 23008,
+    "size": 602,
+    "name": "z_arm_mpu_init"
+  },
+  {
+    "index": 116,
+    "addr": 23805,
+    "offset": 23612,
+    "size": 170,
+    "name": "mpu_configure_regions"
+  },
+  {
+    "index": 117,
+    "addr": 23977,
+    "offset": 23784,
+    "size": 1686,
+    "name": "fnmatchx"
+  },
+  {
+    "index": 118,
+    "addr": 25665,
+    "offset": 25472,
+    "size": 40,
+    "name": "timing_start"
+  },
+  {
+    "index": 119,
+    "addr": 25705,
+    "offset": 25512,
+    "size": 126,
+    "name": "gpio_cmsdk_ahb_manage_callback"
+  },
+  {
+    "index": 120,
+    "addr": 25833,
+    "offset": 25640,
+    "size": 44,
+    "name": "gpio_cmsdk_ahb_isr"
+  },
+  {
+    "index": 121,
+    "addr": 25877,
+    "offset": 25684,
+    "size": 62,
+    "name": "pinctrl_lookup_state"
+  },
+  {
+    "index": 122,
+    "addr": 25941,
+    "offset": 25748,
+    "size": 82,
+    "name": "pinctrl_configure_pins"
+  },
+  {
+    "index": 123,
+    "addr": 26025,
+    "offset": 25832,
+    "size": 14,
+    "name": "uart_cmsdk_apb_poll_out"
+  },
+  {
+    "index": 124,
+    "addr": 26041,
+    "offset": 25848,
+    "size": 32,
+    "name": "z_impl_k_busy_wait"
+  },
+  {
+    "index": 125,
+    "addr": 26073,
+    "offset": 25880,
+    "size": 18,
+    "name": "arch_system_halt"
+  },
+  {
+    "index": 126,
+    "addr": 26093,
+    "offset": 25900,
+    "size": 166,
+    "name": "z_cstart"
+  },
+  {
+    "index": 127,
+    "addr": 26261,
+    "offset": 26068,
+    "size": 52,
+    "name": "z_sys_init_run_level"
+  },
+  {
+    "index": 128,
+    "addr": 26313,
+    "offset": 26120,
+    "size": 234,
+    "name": "bg_thread_main"
+  },
+  {
+    "index": 129,
+    "addr": 26549,
+    "offset": 26356,
+    "size": 60,
+    "name": "statics_init"
+  },
+  {
+    "index": 130,
+    "addr": 26609,
+    "offset": 26416,
+    "size": 138,
+    "name": "k_heap_alloc"
+  },
+  {
+    "index": 131,
+    "addr": 26749,
+    "offset": 26556,
+    "size": 22,
+    "name": "idle"
+  },
+  {
+    "index": 132,
+    "addr": 26773,
+    "offset": 26580,
+    "size": 414,
+    "name": "work_queue_main"
+  },
+  {
+    "index": 133,
+    "addr": 27189,
+    "offset": 26996,
+    "size": 152,
+    "name": "k_thread_state_str"
+  },
+  {
+    "index": 134,
+    "addr": 27341,
+    "offset": 27148,
+    "size": 34,
+    "name": "z_stack_space_get"
+  },
+  {
+    "index": 135,
+    "addr": 27377,
+    "offset": 27184,
+    "size": 40,
+    "name": "z_impl_k_thread_stack_space_get"
+  },
+  {
+    "index": 136,
+    "addr": 27417,
+    "offset": 27224,
+    "size": 118,
+    "name": "move_current_to_end_of_prio_q"
+  },
+  {
+    "index": 137,
+    "addr": 27537,
+    "offset": 27344,
+    "size": 172,
+    "name": "z_ready_thread"
+  },
+  {
+    "index": 138,
+    "addr": 27709,
+    "offset": 27516,
+    "size": 156,
+    "name": "z_sched_ready_locked"
+  },
+  {
+    "index": 139,
+    "addr": 27865,
+    "offset": 27672,
+    "size": 572,
+    "name": "z_thread_halt"
+  },
+  {
+    "index": 140,
+    "addr": 28437,
+    "offset": 28244,
+    "size": 82,
+    "name": "z_sched_add_to_waitq_locked"
+  },
+  {
+    "index": 141,
+    "addr": 28521,
+    "offset": 28328,
+    "size": 166,
+    "name": "z_sched_yield"
+  },
+  {
+    "index": 142,
+    "addr": 28689,
+    "offset": 28496,
+    "size": 196,
+    "name": "z_sched_wake_thread_locked"
+  },
+  {
+    "index": 143,
+    "addr": 28885,
+    "offset": 28692,
+    "size": 244,
+    "name": "z_unpend_all"
+  },
+  {
+    "index": 144,
+    "addr": 29129,
+    "offset": 28936,
+    "size": 122,
+    "name": "z_sched_waitq_walk"
+  },
+  {
+    "index": 145,
+    "addr": 29253,
+    "offset": 29060,
+    "size": 112,
+    "name": "slice_reset"
+  },
+  {
+    "index": 146,
+    "addr": 29365,
+    "offset": 29172,
+    "size": 58,
+    "name": "slice_timeout"
+  },
+  {
+    "index": 147,
+    "addr": 29425,
+    "offset": 29232,
+    "size": 66,
+    "name": "z_thread_monitor_exit"
+  },
+  {
+    "index": 148,
+    "addr": 29493,
+    "offset": 29300,
+    "size": 62,
+    "name": "k_thread_foreach"
+  },
+  {
+    "index": 149,
+    "addr": 29557,
+    "offset": 29364,
+    "size": 82,
+    "name": "k_thread_foreach_unlocked"
+  },
+  {
+    "index": 150,
+    "addr": 29641,
+    "offset": 29448,
+    "size": 456,
+    "name": "z_add_timeout"
+  },
+  {
+    "index": 151,
+    "addr": 30097,
+    "offset": 29904,
+    "size": 284,
+    "name": "sys_clock_announce_locked"
+  },
+  {
+    "index": 152,
+    "addr": 30381,
+    "offset": 30188,
+    "size": 18,
+    "name": "__aeabi_memcpy"
+  },
+  {
+    "index": 153,
+    "addr": 30401,
+    "offset": 30208,
+    "size": 58,
+    "name": "__aeabi_memmove"
+  },
+  {
+    "index": 154,
+    "addr": 30461,
+    "offset": 30268,
+    "size": 14,
+    "name": "memset"
+  },
+  {
+    "index": 155,
+    "addr": 30477,
+    "offset": 30284,
+    "size": 1384,
+    "name": "qsort"
+  },
+  {
+    "index": 156,
+    "addr": 31861,
+    "offset": 31668,
+    "size": 36,
+    "name": "memcmp"
+  },
+  {
+    "index": 157,
+    "addr": 31897,
+    "offset": 31704,
+    "size": 22,
+    "name": "strchr"
+  },
+  {
+    "index": 158,
+    "addr": 31921,
+    "offset": 31728,
+    "size": 68,
+    "name": "strncmp"
+  },
+  {
+    "index": 159,
+    "addr": 31989,
+    "offset": 31796,
+    "size": 38,
+    "name": "strncpy"
+  },
+  {
+    "index": 160,
+    "addr": 32029,
+    "offset": 31836,
+    "size": 30,
+    "name": "strnlen"
+  },
+  {
+    "index": 161,
+    "addr": 32061,
+    "offset": 31868,
+    "size": 72,
+    "name": "strstr"
+  },
+  {
+    "index": 162,
+    "addr": 32133,
+    "offset": 31940,
+    "size": 260,
+    "name": "strtol"
+  },
+  {
+    "index": 163,
+    "addr": 32393,
+    "offset": 32200,
+    "size": 220,
+    "name": "strtoul"
+  },
+  {
+    "index": 164,
+    "addr": 32613,
+    "offset": 32420,
+    "size": 316,
+    "name": "strtoull"
+  },
+  {
+    "index": 165,
+    "addr": 32929,
+    "offset": 32736,
+    "size": 1380,
+    "name": "vfprintf"
+  },
+  {
+    "index": 166,
+    "addr": 34309,
+    "offset": 34116,
+    "size": 372,
+    "name": "skip_to_arg"
+  },
+  {
+    "index": 167,
+    "addr": 34681,
+    "offset": 34488,
+    "size": 200,
+    "name": "__ultoa_invert"
+  },
+  {
+    "index": 168,
+    "addr": 34881,
+    "offset": 34688,
+    "size": 2,
+    "name": "_OffsetAbsSyms"
+  },
+  {
+    "index": 169,
+    "addr": 34883,
+    "offset": 34690,
+    "size": 54,
+    "name": "timer_expired_handler"
+  },
+  {
+    "index": 170,
+    "addr": 34937,
+    "offset": 34744,
+    "size": 20,
+    "name": "cmd1_handler"
+  },
+  {
+    "index": 171,
+    "addr": 34957,
+    "offset": 34764,
+    "size": 4,
+    "name": "main"
+  },
+  {
+    "index": 172,
+    "addr": 34961,
+    "offset": 34768,
+    "size": 36,
+    "name": "cmd_log_test_stop"
+  },
+  {
+    "index": 173,
+    "addr": 34997,
+    "offset": 34804,
+    "size": 54,
+    "name": "cmd_log_test_start_demo"
+  },
+  {
+    "index": 174,
+    "addr": 35051,
+    "offset": 34858,
+    "size": 54,
+    "name": "cmd_log_test_start_flood"
+  },
+  {
+    "index": 175,
+    "addr": 35105,
+    "offset": 34912,
+    "size": 20,
+    "name": "cmd_demo_ping"
+  },
+  {
+    "index": 176,
+    "addr": 35125,
+    "offset": 34932,
+    "size": 20,
+    "name": "cmd_demo_board"
+  },
+  {
+    "index": 177,
+    "addr": 35145,
+    "offset": 34952,
+    "size": 142,
+    "name": "cmd_demo_readline"
+  },
+  {
+    "index": 178,
+    "addr": 35287,
+    "offset": 35094,
+    "size": 34,
+    "name": "cmd_dict_cmd_dict_value_0"
+  },
+  {
+    "index": 179,
+    "addr": 35321,
+    "offset": 35128,
+    "size": 34,
+    "name": "cmd_dict_cmd_dict_value_1"
+  },
+  {
+    "index": 180,
+    "addr": 35355,
+    "offset": 35162,
+    "size": 34,
+    "name": "cmd_dict_cmd_dict_value_2"
+  },
+  {
+    "index": 181,
+    "addr": 35389,
+    "offset": 35196,
+    "size": 34,
+    "name": "cmd_dict_cmd_dict_value_3"
+  },
+  {
+    "index": 182,
+    "addr": 35423,
+    "offset": 35230,
+    "size": 28,
+    "name": "cmd_version"
+  },
+  {
+    "index": 183,
+    "addr": 35451,
+    "offset": 35258,
+    "size": 12,
+    "name": "cmd_bypass"
+  },
+  {
+    "index": 184,
+    "addr": 35463,
+    "offset": 35270,
+    "size": 86,
+    "name": "set_bypass"
+  },
+  {
+    "index": 185,
+    "addr": 35549,
+    "offset": 35356,
+    "size": 94,
+    "name": "foo"
+  },
+  {
+    "index": 186,
+    "addr": 35643,
+    "offset": 35450,
+    "size": 20,
+    "name": "cmd2_handler"
+  },
+  {
+    "index": 187,
+    "addr": 35663,
+    "offset": 35470,
+    "size": 20,
+    "name": "sub_cmd1_handler"
+  },
+  {
+    "index": 188,
+    "addr": 35683,
+    "offset": 35490,
+    "size": 50,
+    "name": "dynamic_cmd_get"
+  },
+  {
+    "index": 189,
+    "addr": 35733,
+    "offset": 35540,
+    "size": 4,
+    "name": "string_cmp"
+  },
+  {
+    "index": 190,
+    "addr": 35737,
+    "offset": 35544,
+    "size": 48,
+    "name": "shell_init_from_work"
+  },
+  {
+    "index": 191,
+    "addr": 35785,
+    "offset": 35592,
+    "size": 68,
+    "name": "cmd_uart_release"
+  },
+  {
+    "index": 192,
+    "addr": 35853,
+    "offset": 35660,
+    "size": 50,
+    "name": "shell_uninit_cb"
+  },
+  {
+    "index": 193,
+    "addr": 35903,
+    "offset": 35710,
+    "size": 412,
+    "name": "sys_heap_free"
+  },
+  {
+    "index": 194,
+    "addr": 36315,
+    "offset": 36122,
+    "size": 146,
+    "name": "sys_heap_alloc"
+  },
+  {
+    "index": 195,
+    "addr": 36461,
+    "offset": 36268,
+    "size": 144,
+    "name": "split_chunks"
+  },
+  {
+    "index": 196,
+    "addr": 36605,
+    "offset": 36412,
+    "size": 186,
+    "name": "free_list_add"
+  },
+  {
+    "index": 197,
+    "addr": 36791,
+    "offset": 36598,
+    "size": 6,
+    "name": "sys_heap_noalign_alloc"
+  },
+  {
+    "index": 198,
+    "addr": 36797,
+    "offset": 36604,
+    "size": 240,
+    "name": "sys_heap_init"
+  },
+  {
+    "index": 199,
+    "addr": 37037,
+    "offset": 36844,
+    "size": 46,
+    "name": "free_list_remove"
+  },
+  {
+    "index": 200,
+    "addr": 37083,
+    "offset": 36890,
+    "size": 90,
+    "name": "merge_chunks"
+  },
+  {
+    "index": 201,
+    "addr": 37173,
+    "offset": 36980,
+    "size": 98,
+    "name": "free_list_remove_bidx"
+  },
+  {
+    "index": 202,
+    "addr": 37271,
+    "offset": 37078,
+    "size": 4,
+    "name": "boot_banner"
+  },
+  {
+    "index": 203,
+    "addr": 37275,
+    "offset": 37082,
+    "size": 256,
+    "name": "sys_clock_gettime"
+  },
+  {
+    "index": 204,
+    "addr": 37531,
+    "offset": 37338,
+    "size": 230,
+    "name": "z_impl_sys_clock_settime"
+  },
+  {
+    "index": 205,
+    "addr": 37761,
+    "offset": 37568,
+    "size": 4,
+    "name": "arch_printk_char_out"
+  },
+  {
+    "index": 206,
+    "addr": 37765,
+    "offset": 37572,
+    "size": 12,
+    "name": "__printk_hook_install"
+  },
+  {
+    "index": 207,
+    "addr": 37777,
+    "offset": 37584,
+    "size": 2,
+    "name": "printk_panic"
+  },
+  {
+    "index": 208,
+    "addr": 37779,
+    "offset": 37586,
+    "size": 32,
+    "name": "printk"
+  },
+  {
+    "index": 209,
+    "addr": 37811,
+    "offset": 37618,
+    "size": 64,
+    "name": "mpsc_pbuf_init"
+  },
+  {
+    "index": 210,
+    "addr": 37875,
+    "offset": 37682,
+    "size": 88,
+    "name": "post_drop_action"
+  },
+  {
+    "index": 211,
+    "addr": 37963,
+    "offset": 37770,
+    "size": 328,
+    "name": "drop_item_locked"
+  },
+  {
+    "index": 212,
+    "addr": 38291,
+    "offset": 38098,
+    "size": 102,
+    "name": "add_skip_item"
+  },
+  {
+    "index": 213,
+    "addr": 38393,
+    "offset": 38200,
+    "size": 112,
+    "name": "mpsc_pbuf_commit"
+  },
+  {
+    "index": 214,
+    "addr": 38505,
+    "offset": 38312,
+    "size": 156,
+    "name": "mpsc_pbuf_free"
+  },
+  {
+    "index": 215,
+    "addr": 38661,
+    "offset": 38468,
+    "size": 50,
+    "name": "mpsc_pbuf_is_pending"
+  },
+  {
+    "index": 216,
+    "addr": 38711,
+    "offset": 38518,
+    "size": 82,
+    "name": "mpsc_pbuf_get_utilization"
+  },
+  {
+    "index": 217,
+    "addr": 38793,
+    "offset": 38600,
+    "size": 44,
+    "name": "mpsc_pbuf_get_max_utilization"
+  },
+  {
+    "index": 218,
+    "addr": 38837,
+    "offset": 38644,
+    "size": 228,
+    "name": "timeutil_timegm64"
+  },
+  {
+    "index": 219,
+    "addr": 39065,
+    "offset": 38872,
+    "size": 26,
+    "name": "timeutil_timegm"
+  },
+  {
+    "index": 220,
+    "addr": 39091,
+    "offset": 38898,
+    "size": 168,
+    "name": "timespec_normalize"
+  },
+  {
+    "index": 221,
+    "addr": 39259,
+    "offset": 39066,
+    "size": 82,
+    "name": "sys_getopt_init"
+  },
+  {
+    "index": 222,
+    "addr": 39341,
+    "offset": 39148,
+    "size": 284,
+    "name": "sys_getopt"
+  },
+  {
+    "index": 223,
+    "addr": 39625,
+    "offset": 39432,
+    "size": 74,
+    "name": "z_getopt_global_state_update"
+  },
+  {
+    "index": 224,
+    "addr": 39699,
+    "offset": 39506,
+    "size": 10,
+    "name": "sys_getopt_state_get"
+  },
+  {
+    "index": 225,
+    "addr": 39709,
+    "offset": 39516,
+    "size": 2,
+    "name": "_ConfigAbsSyms"
+  },
+  {
+    "index": 226,
+    "addr": 39711,
+    "offset": 39518,
+    "size": 32,
+    "name": "z_log_vprintk"
+  },
+  {
+    "index": 227,
+    "addr": 39743,
+    "offset": 39550,
+    "size": 14,
+    "name": "default_lf_get_timestamp"
+  },
+  {
+    "index": 228,
+    "addr": 39757,
+    "offset": 39564,
+    "size": 32,
+    "name": "z_log_notify_backend_enabled"
+  },
+  {
+    "index": 229,
+    "addr": 39789,
+    "offset": 39596,
+    "size": 18,
+    "name": "z_log_msg_alloc"
+  },
+  {
+    "index": 230,
+    "addr": 39807,
+    "offset": 39614,
+    "size": 38,
+    "name": "z_log_msg_commit"
+  },
+  {
+    "index": 231,
+    "addr": 39845,
+    "offset": 39652,
+    "size": 4,
+    "name": "z_log_get_tag"
+  },
+  {
+    "index": 232,
+    "addr": 39849,
+    "offset": 39656,
+    "size": 22,
+    "name": "log_mem_get_usage"
+  },
+  {
+    "index": 233,
+    "addr": 39871,
+    "offset": 39678,
+    "size": 14,
+    "name": "log_mem_get_max_usage"
+  },
+  {
+    "index": 234,
+    "addr": 39885,
+    "offset": 39692,
+    "size": 98,
+    "name": "enable_logger"
+  },
+  {
+    "index": 235,
+    "addr": 39983,
+    "offset": 39790,
+    "size": 4,
+    "name": "dummy_timestamp"
+  },
+  {
+    "index": 236,
+    "addr": 39987,
+    "offset": 39794,
+    "size": 32,
+    "name": "log_msg_generic_get_wlen"
+  },
+  {
+    "index": 237,
+    "addr": 40019,
+    "offset": 39826,
+    "size": 12,
+    "name": "log_process_thread_timer_expiry_fn"
+  },
+  {
+    "index": 238,
+    "addr": 40031,
+    "offset": 39838,
+    "size": 22,
+    "name": "log_src_cnt_get"
+  },
+  {
+    "index": 239,
+    "addr": 40053,
+    "offset": 39860,
+    "size": 32,
+    "name": "log_source_name_get"
+  },
+  {
+    "index": 240,
+    "addr": 40085,
+    "offset": 39892,
+    "size": 16,
+    "name": "z_impl_log_filter_set"
+  },
+  {
+    "index": 241,
+    "addr": 40101,
+    "offset": 39908,
+    "size": 36,
+    "name": "log_backend_enable"
+  },
+  {
+    "index": 242,
+    "addr": 40137,
+    "offset": 39944,
+    "size": 28,
+    "name": "log_backend_disable"
+  },
+  {
+    "index": 243,
+    "addr": 40165,
+    "offset": 39972,
+    "size": 96,
+    "name": "log_filter_get"
+  },
+  {
+    "index": 244,
+    "addr": 40261,
+    "offset": 40068,
+    "size": 48,
+    "name": "z_log_msg_finalize"
+  },
+  {
+    "index": 245,
+    "addr": 40309,
+    "offset": 40116,
+    "size": 18,
+    "name": "z_impl_z_log_msg_simple_create_0"
+  },
+  {
+    "index": 246,
+    "addr": 40327,
+    "offset": 40134,
+    "size": 20,
+    "name": "z_impl_z_log_msg_simple_create_1"
+  },
+  {
+    "index": 247,
+    "addr": 40347,
+    "offset": 40154,
+    "size": 284,
+    "name": "z_impl_z_log_msg_static_create"
+  },
+  {
+    "index": 248,
+    "addr": 40631,
+    "offset": 40438,
+    "size": 192,
+    "name": "z_log_msg_runtime_vcreate"
+  },
+  {
+    "index": 249,
+    "addr": 40823,
+    "offset": 40630,
+    "size": 26,
+    "name": "log_msg_get_source_id"
+  },
+  {
+    "index": 250,
+    "addr": 40849,
+    "offset": 40656,
+    "size": 50,
+    "name": "z_cbprintf_cpy"
+  },
+  {
+    "index": 251,
+    "addr": 40899,
+    "offset": 40706,
+    "size": 30,
+    "name": "cr_out_func"
+  },
+  {
+    "index": 252,
+    "addr": 40929,
+    "offset": 40736,
+    "size": 92,
+    "name": "log_output_msg_process"
+  },
+  {
+    "index": 253,
+    "addr": 41021,
+    "offset": 40828,
+    "size": 42,
+    "name": "print_formatted"
+  },
+  {
+    "index": 254,
+    "addr": 41063,
+    "offset": 40870,
+    "size": 30,
+    "name": "module_name_get"
+  },
+  {
+    "index": 255,
+    "addr": 41093,
+    "offset": 40900,
+    "size": 36,
+    "name": "severity_lvl_get"
+  },
+  {
+    "index": 256,
+    "addr": 41129,
+    "offset": 40936,
+    "size": 56,
+    "name": "backend_name_get"
+  },
+  {
+    "index": 257,
+    "addr": 41185,
+    "offset": 40992,
+    "size": 12,
+    "name": "cmd_log_backend_disable"
+  },
+  {
+    "index": 258,
+    "addr": 41197,
+    "offset": 41004,
+    "size": 12,
+    "name": "cmd_log_backend_enable"
+  },
+  {
+    "index": 259,
+    "addr": 41209,
+    "offset": 41016,
+    "size": 12,
+    "name": "cmd_log_backend_go"
+  },
+  {
+    "index": 260,
+    "addr": 41221,
+    "offset": 41028,
+    "size": 18,
+    "name": "cmd_log_backend_status"
+  },
+  {
+    "index": 261,
+    "addr": 41239,
+    "offset": 41046,
+    "size": 26,
+    "name": "log_disable"
+  },
+  {
+    "index": 262,
+    "addr": 41265,
+    "offset": 41072,
+    "size": 104,
+    "name": "cmd_log_self_disable"
+  },
+  {
+    "index": 263,
+    "addr": 41369,
+    "offset": 41176,
+    "size": 90,
+    "name": "cmd_log_self_enable"
+  },
+  {
+    "index": 264,
+    "addr": 41459,
+    "offset": 41266,
+    "size": 80,
+    "name": "cmd_log_self_go"
+  },
+  {
+    "index": 265,
+    "addr": 41539,
+    "offset": 41346,
+    "size": 70,
+    "name": "cmd_log_self_halt"
+  },
+  {
+    "index": 266,
+    "addr": 41609,
+    "offset": 41416,
+    "size": 80,
+    "name": "cmd_log_self_status"
+  },
+  {
+    "index": 267,
+    "addr": 41689,
+    "offset": 41496,
+    "size": 148,
+    "name": "cmd_log_mem"
+  },
+  {
+    "index": 268,
+    "addr": 41837,
+    "offset": 41644,
+    "size": 16,
+    "name": "mem_attr_get_regions"
+  },
+  {
+    "index": 269,
+    "addr": 41853,
+    "offset": 41660,
+    "size": 14,
+    "name": "cmd_stats_list"
+  },
+  {
+    "index": 270,
+    "addr": 41867,
+    "offset": 41674,
+    "size": 50,
+    "name": "stats_group_cb"
+  },
+  {
+    "index": 271,
+    "addr": 41917,
+    "offset": 41724,
+    "size": 86,
+    "name": "stats_cb"
+  },
+  {
+    "index": 272,
+    "addr": 42003,
+    "offset": 41810,
+    "size": 30,
+    "name": "cmd_kernel_cycles"
+  },
+  {
+    "index": 273,
+    "addr": 42033,
+    "offset": 41840,
+    "size": 78,
+    "name": "cmd_kernel_sleep"
+  },
+  {
+    "index": 274,
+    "addr": 42111,
+    "offset": 41918,
+    "size": 288,
+    "name": "cmd_kernel_uptime"
+  },
+  {
+    "index": 275,
+    "addr": 42399,
+    "offset": 42206,
+    "size": 28,
+    "name": "cmd_kernel_version"
+  },
+  {
+    "index": 276,
+    "addr": 42427,
+    "offset": 42234,
+    "size": 6,
+    "name": "cmd_kernel_reboot_cold"
+  },
+  {
+    "index": 277,
+    "addr": 42433,
+    "offset": 42240,
+    "size": 6,
+    "name": "cmd_kernel_reboot_warm"
+  },
+  {
+    "index": 278,
+    "addr": 42439,
+    "offset": 42246,
+    "size": 32,
+    "name": "z_thread_is_valid"
+  },
+  {
+    "index": 279,
+    "addr": 42471,
+    "offset": 42278,
+    "size": 12,
+    "name": "thread_valid_cb"
+  },
+  {
+    "index": 280,
+    "addr": 42483,
+    "offset": 42290,
+    "size": 82,
+    "name": "cmd_kernel_thread_list"
+  },
+  {
+    "index": 281,
+    "addr": 42565,
+    "offset": 42372,
+    "size": 296,
+    "name": "shell_tdata_dump"
+  },
+  {
+    "index": 282,
+    "addr": 42861,
+    "offset": 42668,
+    "size": 122,
+    "name": "cmd_kernel_thread_stacks"
+  },
+  {
+    "index": 283,
+    "addr": 42983,
+    "offset": 42790,
+    "size": 102,
+    "name": "shell_stack_dump"
+  },
+  {
+    "index": 284,
+    "addr": 43085,
+    "offset": 42892,
+    "size": 102,
+    "name": "cmd_kernel_thread_suspend"
+  },
+  {
+    "index": 285,
+    "addr": 43187,
+    "offset": 42994,
+    "size": 102,
+    "name": "cmd_kernel_thread_resume"
+  },
+  {
+    "index": 286,
+    "addr": 43289,
+    "offset": 43096,
+    "size": 102,
+    "name": "cmd_kernel_thread_kill"
+  },
+  {
+    "index": 287,
+    "addr": 43391,
+    "offset": 43198,
+    "size": 36,
+    "name": "device_name_lookup"
+  },
+  {
+    "index": 288,
+    "addr": 43427,
+    "offset": 43234,
+    "size": 36,
+    "name": "device_name_get_non_ready"
+  },
+  {
+    "index": 289,
+    "addr": 43463,
+    "offset": 43270,
+    "size": 118,
+    "name": "cmd_device_init"
+  },
+  {
+    "index": 290,
+    "addr": 43581,
+    "offset": 43388,
+    "size": 324,
+    "name": "cmd_date_set"
+  },
+  {
+    "index": 291,
+    "addr": 43905,
+    "offset": 43712,
+    "size": 74,
+    "name": "cmd_date_get"
+  },
+  {
+    "index": 292,
+    "addr": 43979,
+    "offset": 43786,
+    "size": 164,
+    "name": "get_h_m_s"
+  },
+  {
+    "index": 293,
+    "addr": 44143,
+    "offset": 43950,
+    "size": 228,
+    "name": "cmd_devmem"
+  },
+  {
+    "index": 294,
+    "addr": 44371,
+    "offset": 44178,
+    "size": 82,
+    "name": "set_bypass"
+  },
+  {
+    "index": 295,
+    "addr": 44453,
+    "offset": 44260,
+    "size": 82,
+    "name": "init"
+  },
+  {
+    "index": 296,
+    "addr": 44535,
+    "offset": 44342,
+    "size": 36,
+    "name": "uninit"
+  },
+  {
+    "index": 297,
+    "addr": 44571,
+    "offset": 44378,
+    "size": 26,
+    "name": "enable"
+  },
+  {
+    "index": 298,
+    "addr": 44597,
+    "offset": 44404,
+    "size": 20,
+    "name": "read_uart"
+  },
+  {
+    "index": 299,
+    "addr": 44617,
+    "offset": 44424,
+    "size": 32,
+    "name": "log_msg_generic_get_wlen"
+  },
+  {
+    "index": 300,
+    "addr": 44649,
+    "offset": 44456,
+    "size": 62,
+    "name": "enable_shell_uart"
+  },
+  {
+    "index": 301,
+    "addr": 44711,
+    "offset": 44518,
+    "size": 10,
+    "name": "shell_backend_uart_get_ptr"
+  },
+  {
+    "index": 302,
+    "addr": 44721,
+    "offset": 44528,
+    "size": 58,
+    "name": "shell_signal_handle"
+  },
+  {
+    "index": 303,
+    "addr": 44779,
+    "offset": 44586,
+    "size": 36,
+    "name": "kill_handler"
+  },
+  {
+    "index": 304,
+    "addr": 44815,
+    "offset": 44622,
+    "size": 52,
+    "name": "instance_uninit"
+  },
+  {
+    "index": 305,
+    "addr": 44867,
+    "offset": 44674,
+    "size": 16,
+    "name": "shell_uninit"
+  },
+  {
+    "index": 306,
+    "addr": 44883,
+    "offset": 44690,
+    "size": 40,
+    "name": "shell_fprintf_impl"
+  },
+  {
+    "index": 307,
+    "addr": 44923,
+    "offset": 44730,
+    "size": 86,
+    "name": "shell_prompt_change"
+  },
+  {
+    "index": 308,
+    "addr": 45009,
+    "offset": 44816,
+    "size": 68,
+    "name": "shell_help"
+  },
+  {
+    "index": 309,
+    "addr": 45077,
+    "offset": 44884,
+    "size": 16,
+    "name": "shell_get_return_value"
+  },
+  {
+    "index": 310,
+    "addr": 45093,
+    "offset": 44900,
+    "size": 34,
+    "name": "shell_set_bypass"
+  },
+  {
+    "index": 311,
+    "addr": 45127,
+    "offset": 44934,
+    "size": 6,
+    "name": "shell_readline_prompt_set"
+  },
+  {
+    "index": 312,
+    "addr": 45133,
+    "offset": 44940,
+    "size": 4,
+    "name": "k_thread_abort"
+  },
+  {
+    "index": 313,
+    "addr": 45137,
+    "offset": 44944,
+    "size": 4,
+    "name": "k_current_get"
+  },
+  {
+    "index": 314,
+    "addr": 45141,
+    "offset": 44948,
+    "size": 28,
+    "name": "z_shell_raw_fprintf"
+  },
+  {
+    "index": 315,
+    "addr": 45169,
+    "offset": 44976,
+    "size": 22,
+    "name": "transport_evt_handler"
+  },
+  {
+    "index": 316,
+    "addr": 45191,
+    "offset": 44998,
+    "size": 130,
+    "name": "tab_item_print"
+  },
+  {
+    "index": 317,
+    "addr": 45321,
+    "offset": 45128,
+    "size": 86,
+    "name": "cmd_help"
+  },
+  {
+    "index": 318,
+    "addr": 45407,
+    "offset": 45214,
+    "size": 50,
+    "name": "z_shell_fprintf_fmt"
+  },
+  {
+    "index": 319,
+    "addr": 45457,
+    "offset": 45264,
+    "size": 70,
+    "name": "out_func"
+  },
+  {
+    "index": 320,
+    "addr": 45527,
+    "offset": 45334,
+    "size": 24,
+    "name": "z_shell_fprintf_buffer_flush"
+  },
+  {
+    "index": 321,
+    "addr": 45551,
+    "offset": 45358,
+    "size": 56,
+    "name": "z_shell_cbpprintf_fmt"
+  },
+  {
+    "index": 322,
+    "addr": 45607,
+    "offset": 45414,
+    "size": 28,
+    "name": "z_column_span_with_buffer_offsets_get"
+  },
+  {
+    "index": 323,
+    "addr": 45635,
+    "offset": 45442,
+    "size": 20,
+    "name": "z_row_span_with_buffer_offsets_get"
+  },
+  {
+    "index": 324,
+    "addr": 45655,
+    "offset": 45462,
+    "size": 50,
+    "name": "z_shell_multiline_data_calc"
+  },
+  {
+    "index": 325,
+    "addr": 45705,
+    "offset": 45512,
+    "size": 78,
+    "name": "z_shell_pattern_remove"
+  },
+  {
+    "index": 326,
+    "addr": 45783,
+    "offset": 45590,
+    "size": 174,
+    "name": "z_shell_cmd_get"
+  },
+  {
+    "index": 327,
+    "addr": 45957,
+    "offset": 45764,
+    "size": 6,
+    "name": "z_shell_expand_alias"
+  },
+  {
+    "index": 328,
+    "addr": 45963,
+    "offset": 45770,
+    "size": 8,
+    "name": "shell_device_lookup_all"
+  },
+  {
+    "index": 329,
+    "addr": 45971,
+    "offset": 45778,
+    "size": 8,
+    "name": "shell_device_lookup_non_ready"
+  },
+  {
+    "index": 330,
+    "addr": 45979,
+    "offset": 45786,
+    "size": 88,
+    "name": "shell_strtoul"
+  },
+  {
+    "index": 331,
+    "addr": 46067,
+    "offset": 45874,
+    "size": 44,
+    "name": "z_shell_op_cursor_vert_move"
+  },
+  {
+    "index": 332,
+    "addr": 46111,
+    "offset": 45918,
+    "size": 28,
+    "name": "z_shell_raw_fprintf"
+  },
+  {
+    "index": 333,
+    "addr": 46139,
+    "offset": 45946,
+    "size": 44,
+    "name": "z_shell_op_cursor_horiz_move"
+  },
+  {
+    "index": 334,
+    "addr": 46183,
+    "offset": 45990,
+    "size": 46,
+    "name": "z_shell_cursor_in_empty_line"
+  },
+  {
+    "index": 335,
+    "addr": 46229,
+    "offset": 46036,
+    "size": 88,
+    "name": "z_shell_op_cond_next_line"
+  },
+  {
+    "index": 336,
+    "addr": 46317,
+    "offset": 46124,
+    "size": 118,
+    "name": "z_shell_op_cursor_position_synchronize"
+  },
+  {
+    "index": 337,
+    "addr": 46435,
+    "offset": 46242,
+    "size": 92,
+    "name": "z_shell_op_cursor_move"
+  },
+  {
+    "index": 338,
+    "addr": 46527,
+    "offset": 46334,
+    "size": 40,
+    "name": "z_shell_fprintf"
+  },
+  {
+    "index": 339,
+    "addr": 46567,
+    "offset": 46374,
+    "size": 14,
+    "name": "z_shell_op_cursor_home_move"
+  },
+  {
+    "index": 340,
+    "addr": 46581,
+    "offset": 46388,
+    "size": 18,
+    "name": "z_shell_op_cursor_end_move"
+  },
+  {
+    "index": 341,
+    "addr": 46599,
+    "offset": 46406,
+    "size": 20,
+    "name": "z_shell_op_left_arrow"
+  },
+  {
+    "index": 342,
+    "addr": 46619,
+    "offset": 46426,
+    "size": 22,
+    "name": "z_shell_op_right_arrow"
+  },
+  {
+    "index": 343,
+    "addr": 46641,
+    "offset": 46448,
+    "size": 156,
+    "name": "z_shell_op_char_insert"
+  },
+  {
+    "index": 344,
+    "addr": 46797,
+    "offset": 46604,
+    "size": 126,
+    "name": "data_insert"
+  },
+  {
+    "index": 345,
+    "addr": 46923,
+    "offset": 46730,
+    "size": 40,
+    "name": "z_shell_op_char_backspace"
+  },
+  {
+    "index": 346,
+    "addr": 46963,
+    "offset": 46770,
+    "size": 66,
+    "name": "z_shell_op_char_delete"
+  },
+  {
+    "index": 347,
+    "addr": 47029,
+    "offset": 46836,
+    "size": 50,
+    "name": "z_shell_op_delete_from_cursor"
+  },
+  {
+    "index": 348,
+    "addr": 47079,
+    "offset": 46886,
+    "size": 4,
+    "name": "z_shell_op_completion_insert"
+  },
+  {
+    "index": 349,
+    "addr": 47083,
+    "offset": 46890,
+    "size": 78,
+    "name": "z_shell_cmd_line_erase"
+  },
+  {
+    "index": 350,
+    "addr": 47161,
+    "offset": 46968,
+    "size": 54,
+    "name": "z_shell_print_prompt_and_cmd"
+  },
+  {
+    "index": 351,
+    "addr": 47215,
+    "offset": 47022,
+    "size": 4,
+    "name": "z_shell_print_stream"
+  },
+  {
+    "index": 352,
+    "addr": 47219,
+    "offset": 47026,
+    "size": 66,
+    "name": "z_shell_vt100_color_set"
+  },
+  {
+    "index": 353,
+    "addr": 47285,
+    "offset": 47092,
+    "size": 60,
+    "name": "z_shell_vt100_colors_restore"
+  },
+  {
+    "index": 354,
+    "addr": 47345,
+    "offset": 47152,
+    "size": 24,
+    "name": "z_shell_cbpprintf"
+  },
+  {
+    "index": 355,
+    "addr": 47369,
+    "offset": 47176,
+    "size": 100,
+    "name": "z_shell_print"
+  },
+  {
+    "index": 356,
+    "addr": 47469,
+    "offset": 47276,
+    "size": 22,
+    "name": "z_shell_vfprintf"
+  },
+  {
+    "index": 357,
+    "addr": 47491,
+    "offset": 47298,
+    "size": 18,
+    "name": "z_shell_log_backend_output_func"
+  },
+  {
+    "index": 358,
+    "addr": 47509,
+    "offset": 47316,
+    "size": 48,
+    "name": "z_shell_log_backend_enable"
+  },
+  {
+    "index": 359,
+    "addr": 47557,
+    "offset": 47364,
+    "size": 18,
+    "name": "z_shell_log_backend_disable"
+  },
+  {
+    "index": 360,
+    "addr": 47575,
+    "offset": 47382,
+    "size": 64,
+    "name": "process_msg_from_buffer"
+  },
+  {
+    "index": 361,
+    "addr": 47639,
+    "offset": 47446,
+    "size": 28,
+    "name": "z_shell_raw_fprintf"
+  },
+  {
+    "index": 362,
+    "addr": 47667,
+    "offset": 47474,
+    "size": 120,
+    "name": "z_shell_help_cmd_print"
+  },
+  {
+    "index": 363,
+    "addr": 47787,
+    "offset": 47594,
+    "size": 76,
+    "name": "formatted_structured_help_print"
+  },
+  {
+    "index": 364,
+    "addr": 47863,
+    "offset": 47670,
+    "size": 42,
+    "name": "z_shell_help_request"
+  },
+  {
+    "index": 365,
+    "addr": 47905,
+    "offset": 47712,
+    "size": 28,
+    "name": "z_shell_raw_fprintf"
+  },
+  {
+    "index": 366,
+    "addr": 47933,
+    "offset": 47740,
+    "size": 4,
+    "name": "cmd_comment"
+  },
+  {
+    "index": 367,
+    "addr": 47937,
+    "offset": 47744,
+    "size": 56,
+    "name": "cmd_clear"
+  },
+  {
+    "index": 368,
+    "addr": 47993,
+    "offset": 47800,
+    "size": 28,
+    "name": "z_shell_raw_fprintf"
+  },
+  {
+    "index": 369,
+    "addr": 48021,
+    "offset": 47828,
+    "size": 92,
+    "name": "cmd_echo"
+  },
+  {
+    "index": 370,
+    "addr": 48113,
+    "offset": 47920,
+    "size": 18,
+    "name": "cmd_prompt_off"
+  },
+  {
+    "index": 371,
+    "addr": 48131,
+    "offset": 47938,
+    "size": 12,
+    "name": "cmd_prompt_on"
+  },
+  {
+    "index": 372,
+    "addr": 48143,
+    "offset": 47950,
+    "size": 10,
+    "name": "cmd_shell_stats_reset"
+  },
+  {
+    "index": 373,
+    "addr": 48153,
+    "offset": 47960,
+    "size": 24,
+    "name": "cmd_shell_stats_show"
+  },
+  {
+    "index": 374,
+    "addr": 48177,
+    "offset": 47984,
+    "size": 48,
+    "name": "cmd_resize_default"
+  },
+  {
+    "index": 375,
+    "addr": 48225,
+    "offset": 48032,
+    "size": 30,
+    "name": "cmd_get_retval"
+  },
+  {
+    "index": 376,
+    "addr": 48255,
+    "offset": 48062,
+    "size": 6,
+    "name": "z_shell_history_mode_exit"
+  },
+  {
+    "index": 377,
+    "addr": 48261,
+    "offset": 48068,
+    "size": 82,
+    "name": "z_shell_history_get"
+  },
+  {
+    "index": 378,
+    "addr": 48343,
+    "offset": 48150,
+    "size": 42,
+    "name": "remove_from_tail"
+  },
+  {
+    "index": 379,
+    "addr": 48385,
+    "offset": 48192,
+    "size": 62,
+    "name": "z_shell_wildcard_prepare"
+  },
+  {
+    "index": 380,
+    "addr": 48447,
+    "offset": 48254,
+    "size": 34,
+    "name": "z_shell_wildcard_finalize"
+  },
+  {
+    "index": 381,
+    "addr": 48481,
+    "offset": 48288,
+    "size": 22,
+    "name": "z_thread_entry"
+  },
+  {
+    "index": 382,
+    "addr": 48503,
+    "offset": 48310,
+    "size": 4,
+    "name": "k_thread_abort"
+  },
+  {
+    "index": 383,
+    "addr": 48507,
+    "offset": 48314,
+    "size": 4,
+    "name": "k_current_get"
+  },
+  {
+    "index": 384,
+    "addr": 48511,
+    "offset": 48318,
+    "size": 14,
+    "name": "arch_early_memset"
+  },
+  {
+    "index": 385,
+    "addr": 48525,
+    "offset": 48332,
+    "size": 4,
+    "name": "arch_early_memcpy"
+  },
+  {
+    "index": 386,
+    "addr": 48529,
+    "offset": 48336,
+    "size": 24,
+    "name": "arch_bss_zero"
+  },
+  {
+    "index": 387,
+    "addr": 48553,
+    "offset": 48360,
+    "size": 66,
+    "name": "arch_data_copy"
+  },
+  {
+    "index": 388,
+    "addr": 48619,
+    "offset": 48426,
+    "size": 2,
+    "name": "arch_timing_init"
+  },
+  {
+    "index": 389,
+    "addr": 48621,
+    "offset": 48428,
+    "size": 2,
+    "name": "arch_timing_start"
+  },
+  {
+    "index": 390,
+    "addr": 48623,
+    "offset": 48430,
+    "size": 10,
+    "name": "arch_timing_counter_get"
+  },
+  {
+    "index": 391,
+    "addr": 48633,
+    "offset": 48440,
+    "size": 78,
+    "name": "z_arm_fatal_error"
+  },
+  {
+    "index": 392,
+    "addr": 48711,
+    "offset": 48518,
+    "size": 232,
+    "name": "esf_dump"
+  },
+  {
+    "index": 393,
+    "addr": 48943,
+    "offset": 48750,
+    "size": 8,
+    "name": "z_do_kernel_oops"
+  },
+  {
+    "index": 394,
+    "addr": 48951,
+    "offset": 48758,
+    "size": 22,
+    "name": "z_arm_nmi"
+  },
+  {
+    "index": 395,
+    "addr": 48973,
+    "offset": 48780,
+    "size": 26,
+    "name": "z_arm_fault_init"
+  },
+  {
+    "index": 396,
+    "addr": 48999,
+    "offset": 48806,
+    "size": 296,
+    "name": "mem_manage_fault"
+  },
+  {
+    "index": 397,
+    "addr": 49295,
+    "offset": 49102,
+    "size": 330,
+    "name": "bus_fault"
+  },
+  {
+    "index": 398,
+    "addr": 49625,
+    "offset": 49432,
+    "size": 304,
+    "name": "usage_fault"
+  },
+  {
+    "index": 399,
+    "addr": 49929,
+    "offset": 49736,
+    "size": 120,
+    "name": "reserved_exception"
+  },
+  {
+    "index": 400,
+    "addr": 50049,
+    "offset": 49856,
+    "size": 4,
+    "name": "sys_arch_reboot"
+  },
+  {
+    "index": 401,
+    "addr": 50053,
+    "offset": 49860,
+    "size": 30,
+    "name": "arm_irq_enable"
+  },
+  {
+    "index": 402,
+    "addr": 50083,
+    "offset": 49890,
+    "size": 30,
+    "name": "arm_irq_priority_set"
+  },
+  {
+    "index": 403,
+    "addr": 50113,
+    "offset": 49920,
+    "size": 8,
+    "name": "z_irq_spurious"
+  },
+  {
+    "index": 404,
+    "addr": 50121,
+    "offset": 49928,
+    "size": 38,
+    "name": "relocate_vector_table"
+  },
+  {
+    "index": 405,
+    "addr": 50159,
+    "offset": 49966,
+    "size": 20,
+    "name": "z_prep_c"
+  },
+  {
+    "index": 406,
+    "addr": 50179,
+    "offset": 49986,
+    "size": 52,
+    "name": "arch_new_thread"
+  },
+  {
+    "index": 407,
+    "addr": 50231,
+    "offset": 50038,
+    "size": 6,
+    "name": "arch_coprocessors_disable"
+  },
+  {
+    "index": 408,
+    "addr": 50237,
+    "offset": 50044,
+    "size": 14,
+    "name": "arch_irq_unlock_outlined"
+  },
+  {
+    "index": 409,
+    "addr": 50251,
+    "offset": 50058,
+    "size": 14,
+    "name": "z_arm_cpu_idle_init"
+  },
+  {
+    "index": 410,
+    "addr": 50265,
+    "offset": 50072,
+    "size": 26,
+    "name": "arch_cpu_idle"
+  },
+  {
+    "index": 411,
+    "addr": 50291,
+    "offset": 50098,
+    "size": 36,
+    "name": "z_arm_int_exit"
+  },
+  {
+    "index": 412,
+    "addr": 50327,
+    "offset": 50134,
+    "size": 58,
+    "name": "z_impl_k_thread_abort"
+  },
+  {
+    "index": 413,
+    "addr": 50385,
+    "offset": 50192,
+    "size": 36,
+    "name": "_isr_wrapper"
+  },
+  {
+    "index": 414,
+    "addr": 50421,
+    "offset": 50228,
+    "size": 30,
+    "name": "z_arm_configure_static_mpu_regions"
+  },
+  {
+    "index": 415,
+    "addr": 50451,
+    "offset": 50258,
+    "size": 22,
+    "name": "arm_core_mpu_configure_static_mpu_regions"
+  },
+  {
+    "index": 416,
+    "addr": 50473,
+    "offset": 50280,
+    "size": 108,
+    "name": "region_allocate_and_init"
+  },
+  {
+    "index": 417,
+    "addr": 50581,
+    "offset": 50388,
+    "size": 46,
+    "name": "cbvprintf"
+  },
+  {
+    "index": 418,
+    "addr": 50627,
+    "offset": 50434,
+    "size": 12,
+    "name": "cbputc"
+  },
+  {
+    "index": 419,
+    "addr": 50639,
+    "offset": 50446,
+    "size": 4,
+    "name": "z_errno_wrap"
+  },
+  {
+    "index": 420,
+    "addr": 50643,
+    "offset": 50450,
+    "size": 28,
+    "name": "__stdout_hook_install"
+  },
+  {
+    "index": 421,
+    "addr": 50671,
+    "offset": 50478,
+    "size": 18,
+    "name": "picolibc_put"
+  },
+  {
+    "index": 422,
+    "addr": 50689,
+    "offset": 50496,
+    "size": 36,
+    "name": "malloc_prepare"
+  },
+  {
+    "index": 423,
+    "addr": 50725,
+    "offset": 50532,
+    "size": 14,
+    "name": "z_impl_z_errno"
+  },
+  {
+    "index": 424,
+    "addr": 50739,
+    "offset": 50546,
+    "size": 24,
+    "name": "fnmatch"
+  },
+  {
+    "index": 425,
+    "addr": 50763,
+    "offset": 50570,
+    "size": 52,
+    "name": "z_getopt_global_state_update_shim"
+  },
+  {
+    "index": 426,
+    "addr": 50815,
+    "offset": 50622,
+    "size": 24,
+    "name": "timing_init"
+  },
+  {
+    "index": 427,
+    "addr": 50839,
+    "offset": 50646,
+    "size": 46,
+    "name": "uart_console_init"
+  },
+  {
+    "index": 428,
+    "addr": 50885,
+    "offset": 50692,
+    "size": 54,
+    "name": "console_out"
+  },
+  {
+    "index": 429,
+    "addr": 50939,
+    "offset": 50746,
+    "size": 70,
+    "name": "cmsdk_ahb_gpio_config"
+  },
+  {
+    "index": 430,
+    "addr": 51009,
+    "offset": 50816,
+    "size": 14,
+    "name": "gpio_cmsdk_ahb_port_set_bits_raw"
+  },
+  {
+    "index": 431,
+    "addr": 51023,
+    "offset": 50830,
+    "size": 16,
+    "name": "gpio_cmsdk_ahb_port_clear_bits_raw"
+  },
+  {
+    "index": 432,
+    "addr": 51039,
+    "offset": 50846,
+    "size": 10,
+    "name": "gpio_cmsdk_ahb_config"
+  },
+  {
+    "index": 433,
+    "addr": 51049,
+    "offset": 50856,
+    "size": 12,
+    "name": "gpio_cmsdk_ahb_port_get_raw"
+  },
+  {
+    "index": 434,
+    "addr": 51061,
+    "offset": 50868,
+    "size": 18,
+    "name": "gpio_cmsdk_ahb_port_set_masked_raw"
+  },
+  {
+    "index": 435,
+    "addr": 51079,
+    "offset": 50886,
+    "size": 14,
+    "name": "gpio_cmsdk_ahb_port_toggle_bits"
+  },
+  {
+    "index": 436,
+    "addr": 51093,
+    "offset": 50900,
+    "size": 98,
+    "name": "gpio_cmsdk_ahb_pin_interrupt_configure"
+  },
+  {
+    "index": 437,
+    "addr": 51191,
+    "offset": 50998,
+    "size": 12,
+    "name": "gpio_cmsdk_ahb_init"
+  },
+  {
+    "index": 438,
+    "addr": 51203,
+    "offset": 51010,
+    "size": 22,
+    "name": "gpio_cmsdk_port_0_config_func"
+  },
+  {
+    "index": 439,
+    "addr": 51225,
+    "offset": 51032,
+    "size": 22,
+    "name": "gpio_cmsdk_port_1_config_func"
+  },
+  {
+    "index": 440,
+    "addr": 51247,
+    "offset": 51054,
+    "size": 22,
+    "name": "gpio_cmsdk_port_2_config_func"
+  },
+  {
+    "index": 441,
+    "addr": 51269,
+    "offset": 51076,
+    "size": 22,
+    "name": "gpio_cmsdk_port_3_config_func"
+  },
+  {
+    "index": 442,
+    "addr": 51291,
+    "offset": 51098,
+    "size": 6,
+    "name": "gpio_mmio32_pin_interrupt_configure"
+  },
+  {
+    "index": 443,
+    "addr": 51297,
+    "offset": 51104,
+    "size": 154,
+    "name": "gpio_mmio32_config"
+  },
+  {
+    "index": 444,
+    "addr": 51451,
+    "offset": 51258,
+    "size": 18,
+    "name": "gpio_mmio32_port_get_raw"
+  },
+  {
+    "index": 445,
+    "addr": 51469,
+    "offset": 51276,
+    "size": 46,
+    "name": "gpio_mmio32_port_set_masked_raw"
+  },
+  {
+    "index": 446,
+    "addr": 51515,
+    "offset": 51322,
+    "size": 40,
+    "name": "gpio_mmio32_port_set_bits_raw"
+  },
+  {
+    "index": 447,
+    "addr": 51555,
+    "offset": 51362,
+    "size": 42,
+    "name": "gpio_mmio32_port_clear_bits_raw"
+  },
+  {
+    "index": 448,
+    "addr": 51597,
+    "offset": 51404,
+    "size": 40,
+    "name": "gpio_mmio32_port_toggle_bits"
+  },
+  {
+    "index": 449,
+    "addr": 51637,
+    "offset": 51444,
+    "size": 10,
+    "name": "gpio_mmio32_init"
+  },
+  {
+    "index": 450,
+    "addr": 51647,
+    "offset": 51454,
+    "size": 22,
+    "name": "uart_cmsdk_apb_poll_in"
+  },
+  {
+    "index": 451,
+    "addr": 51669,
+    "offset": 51476,
+    "size": 28,
+    "name": "uart_cmsdk_apb_fifo_fill"
+  },
+  {
+    "index": 452,
+    "addr": 51697,
+    "offset": 51504,
+    "size": 30,
+    "name": "uart_cmsdk_apb_fifo_read"
+  },
+  {
+    "index": 453,
+    "addr": 51727,
+    "offset": 51534,
+    "size": 56,
+    "name": "uart_cmsdk_apb_irq_tx_enable"
+  },
+  {
+    "index": 454,
+    "addr": 51783,
+    "offset": 51590,
+    "size": 42,
+    "name": "uart_cmsdk_apb_irq_tx_disable"
+  },
+  {
+    "index": 455,
+    "addr": 51825,
+    "offset": 51632,
+    "size": 20,
+    "name": "uart_cmsdk_apb_irq_tx_ready"
+  },
+  {
+    "index": 456,
+    "addr": 51845,
+    "offset": 51652,
+    "size": 56,
+    "name": "uart_cmsdk_apb_irq_rx_enable"
+  },
+  {
+    "index": 457,
+    "addr": 51901,
+    "offset": 51708,
+    "size": 42,
+    "name": "uart_cmsdk_apb_irq_rx_disable"
+  },
+  {
+    "index": 458,
+    "addr": 51943,
+    "offset": 51750,
+    "size": 20,
+    "name": "uart_cmsdk_apb_irq_tx_complete"
+  },
+  {
+    "index": 459,
+    "addr": 51963,
+    "offset": 51770,
+    "size": 20,
+    "name": "uart_cmsdk_apb_irq_rx_ready"
+  },
+  {
+    "index": 460,
+    "addr": 51983,
+    "offset": 51790,
+    "size": 2,
+    "name": "uart_cmsdk_apb_irq_err_enable"
+  },
+  {
+    "index": 461,
+    "addr": 51985,
+    "offset": 51792,
+    "size": 2,
+    "name": "uart_cmsdk_apb_irq_err_disable"
+  },
+  {
+    "index": 462,
+    "addr": 51987,
+    "offset": 51794,
+    "size": 36,
+    "name": "uart_cmsdk_apb_irq_is_pending"
+  },
+  {
+    "index": 463,
+    "addr": 52023,
+    "offset": 51830,
+    "size": 8,
+    "name": "uart_cmsdk_apb_irq_callback_set"
+  },
+  {
+    "index": 464,
+    "addr": 52031,
+    "offset": 51838,
+    "size": 82,
+    "name": "uart_cmsdk_apb_init"
+  },
+  {
+    "index": 465,
+    "addr": 52113,
+    "offset": 51920,
+    "size": 12,
+    "name": "uart_cmsdk_apb_isr"
+  },
+  {
+    "index": 466,
+    "addr": 52125,
+    "offset": 51932,
+    "size": 38,
+    "name": "uart_cmsdk_apb_irq_config_func_0"
+  },
+  {
+    "index": 467,
+    "addr": 52163,
+    "offset": 51970,
+    "size": 38,
+    "name": "uart_cmsdk_apb_irq_config_func_1"
+  },
+  {
+    "index": 468,
+    "addr": 52201,
+    "offset": 52008,
+    "size": 38,
+    "name": "uart_cmsdk_apb_irq_config_func_2"
+  },
+  {
+    "index": 469,
+    "addr": 52239,
+    "offset": 52046,
+    "size": 4,
+    "name": "sys_clock_set_timeout"
+  },
+  {
+    "index": 470,
+    "addr": 52243,
+    "offset": 52050,
+    "size": 274,
+    "name": "timer_core_arm"
+  },
+  {
+    "index": 471,
+    "addr": 52517,
+    "offset": 52324,
+    "size": 58,
+    "name": "sys_clock_elapsed"
+  },
+  {
+    "index": 472,
+    "addr": 52575,
+    "offset": 52382,
+    "size": 44,
+    "name": "sys_clock_cycle_get_32"
+  },
+  {
+    "index": 473,
+    "addr": 52619,
+    "offset": 52426,
+    "size": 78,
+    "name": "sys_clock_isr"
+  },
+  {
+    "index": 474,
+    "addr": 52697,
+    "offset": 52504,
+    "size": 80,
+    "name": "elapsed"
+  },
+  {
+    "index": 475,
+    "addr": 52777,
+    "offset": 52584,
+    "size": 152,
+    "name": "timer_core_announce_from"
+  },
+  {
+    "index": 476,
+    "addr": 52929,
+    "offset": 52736,
+    "size": 18,
+    "name": "sys_clock_disable"
+  },
+  {
+    "index": 477,
+    "addr": 52947,
+    "offset": 52754,
+    "size": 152,
+    "name": "sys_clock_driver_init"
+  },
+  {
+    "index": 478,
+    "addr": 53099,
+    "offset": 52906,
+    "size": 52,
+    "name": "do_device_init"
+  },
+  {
+    "index": 479,
+    "addr": 53151,
+    "offset": 52958,
+    "size": 62,
+    "name": "z_impl_device_init"
+  },
+  {
+    "index": 480,
+    "addr": 53213,
+    "offset": 53020,
+    "size": 24,
+    "name": "z_impl_device_is_ready"
+  },
+  {
+    "index": 481,
+    "addr": 53237,
+    "offset": 53044,
+    "size": 26,
+    "name": "z_device_get_all_static"
+  },
+  {
+    "index": 482,
+    "addr": 53263,
+    "offset": 53070,
+    "size": 54,
+    "name": "k_sys_fatal_error_handler"
+  },
+  {
+    "index": 483,
+    "addr": 53317,
+    "offset": 53124,
+    "size": 330,
+    "name": "z_fatal_error"
+  },
+  {
+    "index": 484,
+    "addr": 53647,
+    "offset": 53454,
+    "size": 144,
+    "name": "z_init_cpu"
+  },
+  {
+    "index": 485,
+    "addr": 53791,
+    "offset": 53598,
+    "size": 24,
+    "name": "switch_to_main_thread"
+  },
+  {
+    "index": 486,
+    "addr": 53815,
+    "offset": 53622,
+    "size": 104,
+    "name": "prepare_multithreading"
+  },
+  {
+    "index": 487,
+    "addr": 53919,
+    "offset": 53726,
+    "size": 58,
+    "name": "k_heap_free"
+  },
+  {
+    "index": 488,
+    "addr": 53977,
+    "offset": 53784,
+    "size": 24,
+    "name": "z_impl_k_sem_init"
+  },
+  {
+    "index": 489,
+    "addr": 54001,
+    "offset": 53808,
+    "size": 108,
+    "name": "z_impl_k_sem_give"
+  },
+  {
+    "index": 490,
+    "addr": 54109,
+    "offset": 53916,
+    "size": 88,
+    "name": "z_impl_k_sem_take"
+  },
+  {
+    "index": 491,
+    "addr": 54197,
+    "offset": 54004,
+    "size": 12,
+    "name": "k_work_init"
+  },
+  {
+    "index": 492,
+    "addr": 54209,
+    "offset": 54016,
+    "size": 66,
+    "name": "z_work_submit_to_queue"
+  },
+  {
+    "index": 493,
+    "addr": 54275,
+    "offset": 54082,
+    "size": 234,
+    "name": "submit_to_queue_locked"
+  },
+  {
+    "index": 494,
+    "addr": 54509,
+    "offset": 54316,
+    "size": 14,
+    "name": "k_work_submit"
+  },
+  {
+    "index": 495,
+    "addr": 54523,
+    "offset": 54330,
+    "size": 170,
+    "name": "k_work_queue_start"
+  },
+  {
+    "index": 496,
+    "addr": 54693,
+    "offset": 54500,
+    "size": 48,
+    "name": "sys_work_q_init"
+  },
+  {
+    "index": 497,
+    "addr": 54741,
+    "offset": 54548,
+    "size": 12,
+    "name": "k_is_in_isr"
+  },
+  {
+    "index": 498,
+    "addr": 54753,
+    "offset": 54560,
+    "size": 46,
+    "name": "z_impl_k_thread_name_set"
+  },
+  {
+    "index": 499,
+    "addr": 54799,
+    "offset": 54606,
+    "size": 4,
+    "name": "k_thread_name_get"
+  },
+  {
+    "index": 500,
+    "addr": 54803,
+    "offset": 54610,
+    "size": 222,
+    "name": "z_setup_new_thread"
+  },
+  {
+    "index": 501,
+    "addr": 55025,
+    "offset": 54832,
+    "size": 88,
+    "name": "z_impl_k_thread_create"
+  },
+  {
+    "index": 502,
+    "addr": 55113,
+    "offset": 54920,
+    "size": 14,
+    "name": "z_thread_mark_switched_in"
+  },
+  {
+    "index": 503,
+    "addr": 55127,
+    "offset": 54934,
+    "size": 4,
+    "name": "z_thread_mark_switched_out"
+  },
+  {
+    "index": 504,
+    "addr": 55131,
+    "offset": 54938,
+    "size": 32,
+    "name": "k_thread_runtime_stats_get"
+  },
+  {
+    "index": 505,
+    "addr": 55163,
+    "offset": 54970,
+    "size": 90,
+    "name": "k_thread_runtime_stats_all_get"
+  },
+  {
+    "index": 506,
+    "addr": 55253,
+    "offset": 55060,
+    "size": 38,
+    "name": "z_dummy_thread_init"
+  },
+  {
+    "index": 507,
+    "addr": 55291,
+    "offset": 55098,
+    "size": 60,
+    "name": "z_impl_k_thread_suspend"
+  },
+  {
+    "index": 508,
+    "addr": 55351,
+    "offset": 55158,
+    "size": 52,
+    "name": "z_impl_k_thread_resume"
+  },
+  {
+    "index": 509,
+    "addr": 55403,
+    "offset": 55210,
+    "size": 66,
+    "name": "z_impl_k_wakeup"
+  },
+  {
+    "index": 510,
+    "addr": 55469,
+    "offset": 55276,
+    "size": 64,
+    "name": "z_thread_abort"
+  },
+  {
+    "index": 511,
+    "addr": 55533,
+    "offset": 55340,
+    "size": 56,
+    "name": "k_can_yield"
+  },
+  {
+    "index": 512,
+    "addr": 55589,
+    "offset": 55396,
+    "size": 4,
+    "name": "z_impl_k_yield"
+  },
+  {
+    "index": 513,
+    "addr": 55593,
+    "offset": 55400,
+    "size": 100,
+    "name": "z_sched_unready_locked"
+  },
+  {
+    "index": 514,
+    "addr": 55693,
+    "offset": 55500,
+    "size": 80,
+    "name": "z_sched_lock_reschedule"
+  },
+  {
+    "index": 515,
+    "addr": 55773,
+    "offset": 55580,
+    "size": 6,
+    "name": "z_reschedule_locked"
+  },
+  {
+    "index": 516,
+    "addr": 55779,
+    "offset": 55586,
+    "size": 44,
+    "name": "z_thread_timeout"
+  },
+  {
+    "index": 517,
+    "addr": 55823,
+    "offset": 55630,
+    "size": 142,
+    "name": "z_pend_curr"
+  },
+  {
+    "index": 518,
+    "addr": 55965,
+    "offset": 55772,
+    "size": 58,
+    "name": "z_unpend1_no_timeout"
+  },
+  {
+    "index": 519,
+    "addr": 56023,
+    "offset": 55830,
+    "size": 66,
+    "name": "z_reschedule"
+  },
+  {
+    "index": 520,
+    "addr": 56089,
+    "offset": 55896,
+    "size": 124,
+    "name": "z_thread_suspend_current"
+  },
+  {
+    "index": 521,
+    "addr": 56213,
+    "offset": 56020,
+    "size": 158,
+    "name": "z_impl_k_sleep_ticks"
+  },
+  {
+    "index": 522,
+    "addr": 56371,
+    "offset": 56178,
+    "size": 18,
+    "name": "z_sched_init"
+  },
+  {
+    "index": 523,
+    "addr": 56389,
+    "offset": 56196,
+    "size": 40,
+    "name": "k_sched_lock"
+  },
+  {
+    "index": 524,
+    "addr": 56429,
+    "offset": 56236,
+    "size": 34,
+    "name": "k_sched_unlock"
+  },
+  {
+    "index": 525,
+    "addr": 56463,
+    "offset": 56270,
+    "size": 12,
+    "name": "z_impl_k_sched_current_thread_query"
+  },
+  {
+    "index": 526,
+    "addr": 56475,
+    "offset": 56282,
+    "size": 36,
+    "name": "z_sched_wait"
+  },
+  {
+    "index": 527,
+    "addr": 56511,
+    "offset": 56318,
+    "size": 74,
+    "name": "z_time_slice_reset"
+  },
+  {
+    "index": 528,
+    "addr": 56585,
+    "offset": 56392,
+    "size": 158,
+    "name": "z_time_slice"
+  },
+  {
+    "index": 529,
+    "addr": 56743,
+    "offset": 56550,
+    "size": 148,
+    "name": "z_try_abort_timeout"
+  },
+  {
+    "index": 530,
+    "addr": 56891,
+    "offset": 56698,
+    "size": 106,
+    "name": "reprogram_next"
+  },
+  {
+    "index": 531,
+    "addr": 56997,
+    "offset": 56804,
+    "size": 46,
+    "name": "z_timeout_inflight_superseded"
+  },
+  {
+    "index": 532,
+    "addr": 57043,
+    "offset": 56850,
+    "size": 64,
+    "name": "sys_clock_tick_get"
+  },
+  {
+    "index": 533,
+    "addr": 57107,
+    "offset": 56914,
+    "size": 8,
+    "name": "sys_clock_tick_get_32"
+  },
+  {
+    "index": 534,
+    "addr": 57115,
+    "offset": 56922,
+    "size": 4,
+    "name": "z_impl_k_uptime_ticks"
+  },
+  {
+    "index": 535,
+    "addr": 57119,
+    "offset": 56926,
+    "size": 60,
+    "name": "sys_timepoint_calc"
+  },
+  {
+    "index": 536,
+    "addr": 57179,
+    "offset": 56986,
+    "size": 60,
+    "name": "sys_timepoint_timeout"
+  },
+  {
+    "index": 537,
+    "addr": 57239,
+    "offset": 57046,
+    "size": 246,
+    "name": "z_timer_expiration_handler"
+  },
+  {
+    "index": 538,
+    "addr": 57485,
+    "offset": 57292,
+    "size": 28,
+    "name": "k_timer_init"
+  },
+  {
+    "index": 539,
+    "addr": 57513,
+    "offset": 57320,
+    "size": 86,
+    "name": "z_impl_k_timer_start"
+  },
+  {
+    "index": 540,
+    "addr": 57599,
+    "offset": 57406,
+    "size": 106,
+    "name": "z_impl_k_timer_stop"
+  },
+  {
+    "index": 541,
+    "addr": 57705,
+    "offset": 57512,
+    "size": 10,
+    "name": "z_impl_k_event_init"
+  },
+  {
+    "index": 542,
+    "addr": 57715,
+    "offset": 57522,
+    "size": 6,
+    "name": "z_impl_k_event_post"
+  },
+  {
+    "index": 543,
+    "addr": 57721,
+    "offset": 57528,
+    "size": 82,
+    "name": "k_event_post_internal"
+  },
+  {
+    "index": 544,
+    "addr": 57803,
+    "offset": 57610,
+    "size": 8,
+    "name": "z_impl_k_event_clear"
+  },
+  {
+    "index": 545,
+    "addr": 57811,
+    "offset": 57618,
+    "size": 18,
+    "name": "z_impl_k_event_wait"
+  },
+  {
+    "index": 546,
+    "addr": 57829,
+    "offset": 57636,
+    "size": 152,
+    "name": "k_event_wait_internal"
+  },
+  {
+    "index": 547,
+    "addr": 57981,
+    "offset": 57788,
+    "size": 60,
+    "name": "event_walk_op"
+  },
+  {
+    "index": 548,
+    "addr": 58041,
+    "offset": 57848,
+    "size": 24,
+    "name": "z_sched_usage_start"
+  },
+  {
+    "index": 549,
+    "addr": 58065,
+    "offset": 57872,
+    "size": 108,
+    "name": "z_sched_usage_stop"
+  },
+  {
+    "index": 550,
+    "addr": 58173,
+    "offset": 57980,
+    "size": 212,
+    "name": "z_sched_cpu_usage"
+  },
+  {
+    "index": 551,
+    "addr": 58385,
+    "offset": 58192,
+    "size": 140,
+    "name": "z_sched_thread_usage"
+  },
+  {
+    "index": 552,
+    "addr": 58525,
+    "offset": 58332,
+    "size": 10,
+    "name": "__aeabi_memset4"
+  },
+  {
+    "index": 553,
+    "addr": 58535,
+    "offset": 58342,
+    "size": 472,
+    "name": "gmtime_r"
+  },
+  {
+    "index": 554,
+    "addr": 59007,
+    "offset": 58814,
+    "size": 82,
+    "name": "snprintf"
+  },
+  {
+    "index": 555,
+    "addr": 59089,
+    "offset": 58896,
+    "size": 16,
+    "name": "__file_str_put"
+  },
+  {
+    "index": 556,
+    "addr": 59105,
+    "offset": 58912,
+    "size": 0,
+    "name": "?"
+  }
+]
