@@ -1,0 +1,29 @@
+workload,target,symbols,method,whole_image_flash,feature_bytes,abs_savings_vs_stock_adapter,pct_savings_feature,pct_savings_whole,static_ram_delta,caller_stack_buffer
+hello_world,mps2/an385 (Cortex-M3),158,A_No_Symtab,15376,0,-4664,N/A,N/A,0,0
+hello_world,mps2/an385 (Cortex-M3),158,B_Stock_Native,19896,4520,144,3.09,0.72,0,0
+hello_world,mps2/an385 (Cortex-M3),158,B_Stock_Adapter,20040,4664,0,0.0,0.0,0,64
+hello_world,mps2/an385 (Cortex-M3),158,C1_Linux_Kallsyms_M256,19272,3896,768,16.47,3.83,0,64
+hello_world,mps2/an385 (Cortex-M3),158,C2_Linux_Kallsyms_M16,19320,3944,720,15.44,3.59,0,64
+hello_world,mps2/an385 (Cortex-M3),158,D_Candidate_Direct_K1,18416,3040,1624,34.82,8.1,0,64
+hello_world,mps2/an385 (Cortex-M3),158,E_Candidate_Checkpoint_K16,18136,2760,1904,40.82,9.5,0,64
+shell_module,mps2/an385 (Cortex-M3),557,A_No_Symtab,74344,0,-15016,N/A,N/A,0,0
+shell_module,mps2/an385 (Cortex-M3),557,B_Stock_Native,89216,14872,144,0.96,0.16,0,0
+shell_module,mps2/an385 (Cortex-M3),557,B_Stock_Adapter,89360,15016,0,0.0,0.0,0,64
+shell_module,mps2/an385 (Cortex-M3),557,C1_Linux_Kallsyms_M256,82960,8616,6400,42.62,7.16,0,64
+shell_module,mps2/an385 (Cortex-M3),557,C2_Linux_Kallsyms_M16,83096,8752,6264,41.72,7.01,0,64
+shell_module,mps2/an385 (Cortex-M3),557,D_Candidate_Direct_K1,83720,9376,5640,37.56,6.31,0,64
+shell_module,mps2/an385 (Cortex-M3),557,E_Candidate_Checkpoint_K16,82696,8352,6664,44.38,7.46,0,64
+echo_server,mps2/an385 (Cortex-M3),1381,A_No_Symtab,254840,0,-37344,N/A,N/A,0,0
+echo_server,mps2/an385 (Cortex-M3),1381,B_Stock_Native,292048,37208,136,0.36,0.05,0,0
+echo_server,mps2/an385 (Cortex-M3),1381,B_Stock_Adapter,292184,37344,0,0.0,0.0,0,64
+echo_server,mps2/an385 (Cortex-M3),1381,C1_Linux_Kallsyms_M256,274272,19432,17912,47.96,6.13,0,64
+echo_server,mps2/an385 (Cortex-M3),1381,C2_Linux_Kallsyms_M16,274600,19760,17584,47.09,6.02,0,64
+echo_server,mps2/an385 (Cortex-M3),1381,D_Candidate_Direct_K1,278008,23168,14176,37.96,4.85,0,64
+echo_server,mps2/an385 (Cortex-M3),1381,E_Candidate_Checkpoint_K16,275440,20600,16744,44.84,5.73,0,64
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,A_No_Symtab,24204,0,-6268,N/A,N/A,0,0
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,B_Stock_Native,30312,6108,160,2.55,0.53,0,0
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,B_Stock_Adapter,30472,6268,0,0.0,0.0,0,64
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,C1_Linux_Kallsyms_M256,28668,4464,1804,28.78,5.92,0,64
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,C2_Linux_Kallsyms_M16,28748,4544,1724,27.5,5.66,0,64
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,D_Candidate_Direct_K1,28444,4240,2028,32.35,6.66,0,64
+hello_world (constrained),nrf52840dk/nrf52840 (Cortex-M4),226,E_Candidate_Checkpoint_K16,28060,3856,2412,38.48,7.92,0,64

@@ -1,0 +1,52 @@
+{
+ "per_workload": {
+  "hello_world_mps2": {
+   "S1_coverage_pct": 0.0,
+   "S1_saving_bytes": 0,
+   "ceiling_if_100pct_coverage_and_exidx_free_pct": 1.041,
+   "S2_exidx_min_bytes": 1256,
+   "S2_net_saving_bytes_at_100pct_coverage": -1073,
+   "S2_net_pct": -6.105,
+   "passes_cov90": false,
+   "passes_1pct": false
+  },
+  "shell_module_mps2": {
+   "S1_coverage_pct": 0.0,
+   "S1_saving_bytes": 0,
+   "ceiling_if_100pct_coverage_and_exidx_free_pct": 0.876,
+   "S2_exidx_min_bytes": 4448,
+   "S2_net_saving_bytes_at_100pct_coverage": -3741,
+   "S2_net_pct": -4.638,
+   "passes_cov90": false,
+   "passes_1pct": false
+  },
+  "echo_server_mps2": {
+   "S1_coverage_pct": 0.0,
+   "S1_saving_bytes": 0,
+   "ceiling_if_100pct_coverage_and_exidx_free_pct": 0.712,
+   "S2_exidx_min_bytes": 11040,
+   "S2_net_saving_bytes_at_100pct_coverage": -9119,
+   "S2_net_pct": -3.38,
+   "passes_cov90": false,
+   "passes_1pct": false
+  },
+  "hello_world_nrf52840": {
+   "S1_coverage_pct": 0.0,
+   "S1_saving_bytes": 0,
+   "ceiling_if_100pct_coverage_and_exidx_free_pct": 1.015,
+   "S2_exidx_min_bytes": 1800,
+   "S2_net_saving_bytes_at_100pct_coverage": -1525,
+   "S2_net_pct": -5.631,
+   "passes_cov90": false,
+   "passes_1pct": false
+  }
+ },
+ "rule": "research/metis_exidx/GATE_FROZEN.md",
+ "decision": "STOP",
+ "reasons": [
+  "S1 coverage 0%",
+  "S2 measured coverage 56.8% (hello) <90%",
+  "S2 exidx cost >= 8N >> METIS address index",
+  "echo ceiling 0.71% <1% even if index free"
+ ]
+}

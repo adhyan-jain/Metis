@@ -110,6 +110,14 @@ export function ResearchContent() {
           Zephyr Runtime Symbolization &mdash; Gap-Fill Outcome
         </h3>
         <p className="text-xs font-bold text-rose-700">{ZEPHYR_STUDY.status}</p>
+        <a
+          href="/Metis_Zephyr_Symbolization_Report.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-slate-800 text-white hover:bg-slate-900"
+        >
+          Download negative-result report (PDF)
+        </a>
         <p className="text-xs text-slate-600 leading-relaxed">{ZEPHYR_STUDY.summary}</p>
         <div className="overflow-x-auto">
           <table className="w-full text-xs text-left">

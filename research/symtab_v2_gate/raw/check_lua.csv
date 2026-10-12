@@ -1,0 +1,16 @@
+mode,workload,impl,rep,metric,value
+check,lua,Conventional,0,mismatches,0
+check,lua,Interned,0,mismatches,0
+check,lua,AbslFlat,0,mismatches,0
+check,lua,ScopedId,0,mismatches,0
+check,lua,V2,0,mismatches,0
+check,lua,V2_noFingerprint,0,mismatches,0
+check,lua,V2_noReclaim,0,mismatches,0
+check,lua,V2_fixedInterned,0,mismatches,0
+check,lua,V2_noCompress,0,mismatches,0
+check,lua,V2_compressFirst,0,mismatches,0
+check,lua,V2abl_identity,0,mismatches,0
+check,lua,V2_noSlotRecycle,0,mismatches,0
+check,lua,V2_noSeenMap_diag,0,mismatches,0
+check,lua,V2_noSeenMap_noCompress_diag,0,mismatches,0
+check,lua,V2_noSeenMap_fixedInterned_diag,0,mismatches,0

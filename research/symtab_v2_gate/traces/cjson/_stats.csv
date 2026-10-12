@@ -1,0 +1,4 @@
+tu,file,decl,use,enter,max_depth,sys_events,errors
+0,/home/adhyan/Desktop/Compiler/corpora/cjson/cJSON.c,2650,2870,1398,7,2300,0
+1,/home/adhyan/Desktop/Compiler/corpora/cjson/cJSON_Utils.c,2414,1721,1086,7,2300,0
+2,/home/adhyan/Desktop/Compiler/corpora/cjson/test.c,1216,685,350,4,1302,0

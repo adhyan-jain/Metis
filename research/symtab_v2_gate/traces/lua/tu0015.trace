@@ -1,0 +1,4643 @@
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D float_t 0 1
+D double_t 0 1
+D __fpclassify 0 1
+E
+D __value 1 1
+X
+D __signbit 0 1
+E
+D __value 1 1
+X
+D __isinf 0 1
+E
+D __value 1 1
+X
+D __finite 0 1
+E
+D __value 1 1
+X
+D __isnan 0 1
+E
+D __value 1 1
+X
+D __iseqsig 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignaling 0 1
+E
+D __value 1 1
+X
+D acos 0 1
+E
+D __x 1 1
+X
+D __acos 0 1
+E
+D __x 1 1
+X
+D asin 0 1
+E
+D __x 1 1
+X
+D __asin 0 1
+E
+D __x 1 1
+X
+D atan 0 1
+E
+D __x 1 1
+X
+D __atan 0 1
+E
+D __x 1 1
+X
+D atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cos 0 1
+E
+D __x 1 1
+X
+D __cos 0 1
+E
+D __x 1 1
+X
+D sin 0 1
+E
+D __x 1 1
+X
+D __sin 0 1
+E
+D __x 1 1
+X
+D tan 0 1
+E
+D __x 1 1
+X
+D __tan 0 1
+E
+D __x 1 1
+X
+D cosh 0 1
+E
+D __x 1 1
+X
+D __cosh 0 1
+E
+D __x 1 1
+X
+D sinh 0 1
+E
+D __x 1 1
+X
+D __sinh 0 1
+E
+D __x 1 1
+X
+D tanh 0 1
+E
+D __x 1 1
+X
+D __tanh 0 1
+E
+D __x 1 1
+X
+D acosh 0 1
+E
+D __x 1 1
+X
+D __acosh 0 1
+E
+D __x 1 1
+X
+D asinh 0 1
+E
+D __x 1 1
+X
+D __asinh 0 1
+E
+D __x 1 1
+X
+D atanh 0 1
+E
+D __x 1 1
+X
+D __atanh 0 1
+E
+D __x 1 1
+X
+D exp 0 1
+E
+D __x 1 1
+X
+D __exp 0 1
+E
+D __x 1 1
+X
+D frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D log 0 1
+E
+D __x 1 1
+X
+D __log 0 1
+E
+D __x 1 1
+X
+D log10 0 1
+E
+D __x 1 1
+X
+D __log10 0 1
+E
+D __x 1 1
+X
+D modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1 0 1
+E
+D __x 1 1
+X
+D __expm1 0 1
+E
+D __x 1 1
+X
+D log1p 0 1
+E
+D __x 1 1
+X
+D __log1p 0 1
+E
+D __x 1 1
+X
+D logb 0 1
+E
+D __x 1 1
+X
+D __logb 0 1
+E
+D __x 1 1
+X
+D exp2 0 1
+E
+D __x 1 1
+X
+D __exp2 0 1
+E
+D __x 1 1
+X
+D log2 0 1
+E
+D __x 1 1
+X
+D __log2 0 1
+E
+D __x 1 1
+X
+D pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrt 0 1
+E
+D __x 1 1
+X
+D __sqrt 0 1
+E
+D __x 1 1
+X
+D hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrt 0 1
+E
+D __x 1 1
+X
+D __cbrt 0 1
+E
+D __x 1 1
+X
+D ceil 0 1
+E
+D __x 1 1
+X
+D fabs 0 1
+E
+D __x 1 1
+X
+D floor 0 1
+E
+D __x 1 1
+X
+D fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D copysign 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nan 0 1
+E
+D __tagb 1 1
+X
+D __nan 0 1
+E
+D __tagb 1 1
+X
+D j0 0 1
+E
+X
+D __j0 0 1
+E
+X
+D j1 0 1
+E
+X
+D __j1 0 1
+E
+X
+D jn 0 1
+E
+X
+D __jn 0 1
+E
+X
+D y0 0 1
+E
+X
+D __y0 0 1
+E
+X
+D y1 0 1
+E
+X
+D __y1 0 1
+E
+X
+D yn 0 1
+E
+X
+D __yn 0 1
+E
+X
+D erf 0 1
+E
+X
+D __erf 0 1
+E
+X
+D erfc 0 1
+E
+X
+D __erfc 0 1
+E
+X
+D lgamma 0 1
+E
+X
+D __lgamma 0 1
+E
+X
+D tgamma 0 1
+E
+X
+D __tgamma 0 1
+E
+X
+D rint 0 1
+E
+D __x 1 1
+X
+D __rint 0 1
+E
+D __x 1 1
+X
+D nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogb 0 1
+E
+D __x 1 1
+X
+D __ilogb 0 1
+E
+D __x 1 1
+X
+D scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyint 0 1
+E
+D __x 1 1
+X
+D __nearbyint 0 1
+E
+D __x 1 1
+X
+D round 0 1
+E
+D __x 1 1
+X
+D trunc 0 1
+E
+D __x 1 1
+X
+D remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrint 0 1
+E
+D __x 1 1
+X
+D __lrint 0 1
+E
+D __x 1 1
+X
+D llrint 0 1
+E
+D __x 1 1
+X
+D __llrint 0 1
+E
+D __x 1 1
+X
+D lround 0 1
+E
+D __x 1 1
+X
+D __lround 0 1
+E
+D __x 1 1
+X
+D llround 0 1
+E
+D __x 1 1
+X
+D __llround 0 1
+E
+D __x 1 1
+X
+D fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmax 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmin 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyf 0 1
+E
+D __value 1 1
+X
+D __signbitf 0 1
+E
+D __value 1 1
+X
+D __isinff 0 1
+E
+D __value 1 1
+X
+D __finitef 0 1
+E
+D __value 1 1
+X
+D __isnanf 0 1
+E
+D __value 1 1
+X
+D __iseqsigf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingf 0 1
+E
+D __value 1 1
+X
+D acosf 0 1
+E
+D __x 1 1
+X
+D __acosf 0 1
+E
+D __x 1 1
+X
+D asinf 0 1
+E
+D __x 1 1
+X
+D __asinf 0 1
+E
+D __x 1 1
+X
+D atanf 0 1
+E
+D __x 1 1
+X
+D __atanf 0 1
+E
+D __x 1 1
+X
+D atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosf 0 1
+E
+D __x 1 1
+X
+D __cosf 0 1
+E
+D __x 1 1
+X
+D sinf 0 1
+E
+D __x 1 1
+X
+D __sinf 0 1
+E
+D __x 1 1
+X
+D tanf 0 1
+E
+D __x 1 1
+X
+D __tanf 0 1
+E
+D __x 1 1
+X
+D coshf 0 1
+E
+D __x 1 1
+X
+D __coshf 0 1
+E
+D __x 1 1
+X
+D sinhf 0 1
+E
+D __x 1 1
+X
+D __sinhf 0 1
+E
+D __x 1 1
+X
+D tanhf 0 1
+E
+D __x 1 1
+X
+D __tanhf 0 1
+E
+D __x 1 1
+X
+D acoshf 0 1
+E
+D __x 1 1
+X
+D __acoshf 0 1
+E
+D __x 1 1
+X
+D asinhf 0 1
+E
+D __x 1 1
+X
+D __asinhf 0 1
+E
+D __x 1 1
+X
+D atanhf 0 1
+E
+D __x 1 1
+X
+D __atanhf 0 1
+E
+D __x 1 1
+X
+D expf 0 1
+E
+D __x 1 1
+X
+D __expf 0 1
+E
+D __x 1 1
+X
+D frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logf 0 1
+E
+D __x 1 1
+X
+D __logf 0 1
+E
+D __x 1 1
+X
+D log10f 0 1
+E
+D __x 1 1
+X
+D __log10f 0 1
+E
+D __x 1 1
+X
+D modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1f 0 1
+E
+D __x 1 1
+X
+D __expm1f 0 1
+E
+D __x 1 1
+X
+D log1pf 0 1
+E
+D __x 1 1
+X
+D __log1pf 0 1
+E
+D __x 1 1
+X
+D logbf 0 1
+E
+D __x 1 1
+X
+D __logbf 0 1
+E
+D __x 1 1
+X
+D exp2f 0 1
+E
+D __x 1 1
+X
+D __exp2f 0 1
+E
+D __x 1 1
+X
+D log2f 0 1
+E
+D __x 1 1
+X
+D __log2f 0 1
+E
+D __x 1 1
+X
+D powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtf 0 1
+E
+D __x 1 1
+X
+D __sqrtf 0 1
+E
+D __x 1 1
+X
+D hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtf 0 1
+E
+D __x 1 1
+X
+D __cbrtf 0 1
+E
+D __x 1 1
+X
+D ceilf 0 1
+E
+D __x 1 1
+X
+D fabsf 0 1
+E
+D __x 1 1
+X
+D floorf 0 1
+E
+D __x 1 1
+X
+D fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D copysignf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanf 0 1
+E
+D __tagb 1 1
+X
+D __nanf 0 1
+E
+D __tagb 1 1
+X
+D erff 0 1
+E
+X
+D __erff 0 1
+E
+X
+D erfcf 0 1
+E
+X
+D __erfcf 0 1
+E
+X
+D lgammaf 0 1
+E
+X
+D __lgammaf 0 1
+E
+X
+D tgammaf 0 1
+E
+X
+D __tgammaf 0 1
+E
+X
+D rintf 0 1
+E
+D __x 1 1
+X
+D __rintf 0 1
+E
+D __x 1 1
+X
+D nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbf 0 1
+E
+D __x 1 1
+X
+D __ilogbf 0 1
+E
+D __x 1 1
+X
+D scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintf 0 1
+E
+D __x 1 1
+X
+D __nearbyintf 0 1
+E
+D __x 1 1
+X
+D roundf 0 1
+E
+D __x 1 1
+X
+D truncf 0 1
+E
+D __x 1 1
+X
+D remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintf 0 1
+E
+D __x 1 1
+X
+D __lrintf 0 1
+E
+D __x 1 1
+X
+D llrintf 0 1
+E
+D __x 1 1
+X
+D __llrintf 0 1
+E
+D __x 1 1
+X
+D lroundf 0 1
+E
+D __x 1 1
+X
+D __lroundf 0 1
+E
+D __x 1 1
+X
+D llroundf 0 1
+E
+D __x 1 1
+X
+D __llroundf 0 1
+E
+D __x 1 1
+X
+D fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fpclassifyl 0 1
+E
+D __value 1 1
+X
+D __signbitl 0 1
+E
+D __value 1 1
+X
+D __isinfl 0 1
+E
+D __value 1 1
+X
+D __finitel 0 1
+E
+D __value 1 1
+X
+D __isnanl 0 1
+E
+D __value 1 1
+X
+D __iseqsigl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingl 0 1
+E
+D __value 1 1
+X
+D acosl 0 1
+E
+D __x 1 1
+X
+D __acosl 0 1
+E
+D __x 1 1
+X
+D asinl 0 1
+E
+D __x 1 1
+X
+D __asinl 0 1
+E
+D __x 1 1
+X
+D atanl 0 1
+E
+D __x 1 1
+X
+D __atanl 0 1
+E
+D __x 1 1
+X
+D atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosl 0 1
+E
+D __x 1 1
+X
+D __cosl 0 1
+E
+D __x 1 1
+X
+D sinl 0 1
+E
+D __x 1 1
+X
+D __sinl 0 1
+E
+D __x 1 1
+X
+D tanl 0 1
+E
+D __x 1 1
+X
+D __tanl 0 1
+E
+D __x 1 1
+X
+D coshl 0 1
+E
+D __x 1 1
+X
+D __coshl 0 1
+E
+D __x 1 1
+X
+D sinhl 0 1
+E
+D __x 1 1
+X
+D __sinhl 0 1
+E
+D __x 1 1
+X
+D tanhl 0 1
+E
+D __x 1 1
+X
+D __tanhl 0 1
+E
+D __x 1 1
+X
+D acoshl 0 1
+E
+D __x 1 1
+X
+D __acoshl 0 1
+E
+D __x 1 1
+X
+D asinhl 0 1
+E
+D __x 1 1
+X
+D __asinhl 0 1
+E
+D __x 1 1
+X
+D atanhl 0 1
+E
+D __x 1 1
+X
+D __atanhl 0 1
+E
+D __x 1 1
+X
+D expl 0 1
+E
+D __x 1 1
+X
+D __expl 0 1
+E
+D __x 1 1
+X
+D frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logl 0 1
+E
+D __x 1 1
+X
+D __logl 0 1
+E
+D __x 1 1
+X
+D log10l 0 1
+E
+D __x 1 1
+X
+D __log10l 0 1
+E
+D __x 1 1
+X
+D modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1l 0 1
+E
+D __x 1 1
+X
+D __expm1l 0 1
+E
+D __x 1 1
+X
+D log1pl 0 1
+E
+D __x 1 1
+X
+D __log1pl 0 1
+E
+D __x 1 1
+X
+D logbl 0 1
+E
+D __x 1 1
+X
+D __logbl 0 1
+E
+D __x 1 1
+X
+D exp2l 0 1
+E
+D __x 1 1
+X
+D __exp2l 0 1
+E
+D __x 1 1
+X
+D log2l 0 1
+E
+D __x 1 1
+X
+D __log2l 0 1
+E
+D __x 1 1
+X
+D powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtl 0 1
+E
+D __x 1 1
+X
+D __sqrtl 0 1
+E
+D __x 1 1
+X
+D hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtl 0 1
+E
+D __x 1 1
+X
+D __cbrtl 0 1
+E
+D __x 1 1
+X
+D ceill 0 1
+E
+D __x 1 1
+X
+D fabsl 0 1
+E
+D __x 1 1
+X
+D floorl 0 1
+E
+D __x 1 1
+X
+D fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D copysignl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanl 0 1
+E
+D __tagb 1 1
+X
+D __nanl 0 1
+E
+D __tagb 1 1
+X
+D erfl 0 1
+E
+X
+D __erfl 0 1
+E
+X
+D erfcl 0 1
+E
+X
+D __erfcl 0 1
+E
+X
+D lgammal 0 1
+E
+X
+D __lgammal 0 1
+E
+X
+D tgammal 0 1
+E
+X
+D __tgammal 0 1
+E
+X
+D rintl 0 1
+E
+D __x 1 1
+X
+D __rintl 0 1
+E
+D __x 1 1
+X
+D nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbl 0 1
+E
+D __x 1 1
+X
+D __ilogbl 0 1
+E
+D __x 1 1
+X
+D scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintl 0 1
+E
+D __x 1 1
+X
+D __nearbyintl 0 1
+E
+D __x 1 1
+X
+D roundl 0 1
+E
+D __x 1 1
+X
+D truncl 0 1
+E
+D __x 1 1
+X
+D remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintl 0 1
+E
+D __x 1 1
+X
+D __lrintl 0 1
+E
+D __x 1 1
+X
+D llrintl 0 1
+E
+D __x 1 1
+X
+D __llrintl 0 1
+E
+D __x 1 1
+X
+D lroundl 0 1
+E
+D __x 1 1
+X
+D __lroundl 0 1
+E
+D __x 1 1
+X
+D llroundl 0 1
+E
+D __x 1 1
+X
+D __llroundl 0 1
+E
+D __x 1 1
+X
+D fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fpclassifyf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __signbitf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isinff128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __finitef128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isnanf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __iseqsigf128 0 1
+E
+D __x 1 1
+U _Float128 1 1
+D __y 1 1
+U _Float128 1 1
+X
+D __issignalingf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D signgam 0 1
+D FP_NAN 0 1
+D FP_INFINITE 0 1
+D FP_ZERO 0 1
+D FP_SUBNORMAL 0 1
+D FP_NORMAL 0 1
+D size_t 0 1
+D wchar_t 0 1
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D ino_t 0 1
+U __ino64_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D off_t 0 1
+U __off64_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D useconds_t 0 1
+U __useconds_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt64_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt64_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt64_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D posix_openpt 0 1
+E
+D __oflag 1 1
+X
+D grantpt 0 1
+E
+D __fd 1 1
+X
+D unlockpt 0 1
+E
+D __fd 1 1
+X
+D ptsname 0 1
+E
+D __fd 1 1
+X
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D clock 0 1
+U clock_t 0 1
+D time 0 1
+E
+U time_t 1 1
+D __timer 1 1
+U time_t 1 1
+X
+D difftime 0 1
+E
+D __time1 1 1
+U time_t 1 1
+D __time0 1 1
+U time_t 1 1
+X
+D mktime 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D strftime 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+X
+D strptime 0 1
+E
+D __s 1 1
+D __fmt 1 1
+D __tp 1 1
+X
+D gmtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D localtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D gmtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D localtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D asctime 0 1
+E
+D __tp 1 1
+X
+D ctime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D asctime_r 0 1
+E
+D __tp 1 1
+D __buf 1 1
+X
+D ctime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __buf 1 1
+X
+D __tzname 0 1
+D __daylight 0 1
+D __timezone 0 1
+D tzname 0 1
+D tzset 0 1
+D daylight 0 1
+D timezone 0 1
+D nanosleep 0 1
+E
+D __requested_time 1 1
+D __remaining 1 1
+X
+D clock_getres 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __res 1 1
+X
+D clock_gettime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_settime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_nanosleep 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __flags 1 1
+D __req 1 1
+D __rem 1 1
+X
+D clock_getcpuclockid 0 1
+E
+D __pid 1 1
+U pid_t 1 1
+D __clock_id 1 1
+U clockid_t 1 1
+X
+D timer_create 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __evp 1 1
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_delete 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_settime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __flags 1 1
+D __value 1 1
+D __ovalue 1 1
+X
+D timer_gettime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __value 1 1
+X
+D timer_getoverrun 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timespec_get 0 1
+E
+D __ts 1 1
+D __base 1 1
+X
+D getdate_err 0 1
+D getdate 0 1
+E
+D __string 1 1
+X
+D __gnuc_va_list 0 1
+D va_list 0 1
+D ptrdiff_t 0 1
+D max_align_t 0 1
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D lua_State 0 0
+D lua_Number 0 0
+D lua_Integer 0 0
+D lua_Unsigned 0 0
+D lua_KContext 0 0
+U intptr_t 0 0
+D lua_CFunction 0 0
+D L 0 0
+U lua_State 0 0
+D lua_KFunction 0 0
+D L 0 0
+U lua_State 0 0
+D status 0 0
+D ctx 0 0
+U lua_KContext 0 0
+D lua_Reader 0 0
+D L 0 0
+U lua_State 0 0
+D ud 0 0
+D sz 0 0
+U size_t 0 0
+D lua_Writer 0 0
+D L 0 0
+U lua_State 0 0
+D p 0 0
+D sz 0 0
+U size_t 0 0
+D ud 0 0
+D lua_Alloc 0 0
+D ud 0 0
+D ptr 0 0
+D osize 0 0
+U size_t 0 0
+D nsize 0 0
+U size_t 0 0
+D lua_WarnFunction 0 0
+D ud 0 0
+D msg 0 0
+D tocont 0 0
+D lua_Debug 0 0
+D lua_Hook 0 0
+D L 0 0
+U lua_State 0 0
+D ar 0 0
+U lua_Debug 0 0
+D lua_ident 0 0
+D lua_newstate 0 0
+E
+U lua_State 1 0
+D f 1 0
+U lua_Alloc 1 0
+D ud 1 0
+D seed 1 0
+X
+D lua_close 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_newthread 0 0
+E
+U lua_State 1 0
+D L 1 0
+U lua_State 1 0
+X
+D lua_closethread 0 0
+E
+D L 1 0
+U lua_State 1 0
+D from 1 0
+U lua_State 1 0
+X
+D lua_atpanic 0 0
+E
+U lua_CFunction 1 0
+D L 1 0
+U lua_State 1 0
+D panicf 1 0
+U lua_CFunction 1 0
+X
+D lua_version 0 0
+E
+U lua_Number 1 0
+D L 1 0
+U lua_State 1 0
+X
+D lua_absindex 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_gettop 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_settop 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_pushvalue 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_rotate 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+X
+D lua_copy 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fromidx 1 0
+D toidx 1 0
+X
+D lua_checkstack 0 0
+E
+D L 1 0
+U lua_State 1 0
+D n 1 0
+X
+D lua_xmove 0 0
+E
+D from 1 0
+U lua_State 1 0
+D to 1 0
+U lua_State 1 0
+D n 1 0
+X
+D lua_isnumber 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_isstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_iscfunction 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_isinteger 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_isuserdata 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_type 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_typename 0 0
+E
+D L 1 0
+U lua_State 1 0
+D tp 1 0
+X
+D lua_tonumberx 0 0
+E
+U lua_Number 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D isnum 1 0
+X
+D lua_tointegerx 0 0
+E
+U lua_Integer 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D isnum 1 0
+X
+D lua_toboolean 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_tolstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D len 1 0
+U size_t 1 0
+X
+D lua_rawlen 0 0
+E
+U lua_Unsigned 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_tocfunction 0 0
+E
+U lua_CFunction 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_touserdata 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_tothread 0 0
+E
+U lua_State 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_topointer 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_arith 0 0
+E
+D L 1 0
+U lua_State 1 0
+D op 1 0
+X
+D lua_rawequal 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx1 1 0
+D idx2 1 0
+X
+D lua_compare 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx1 1 0
+D idx2 1 0
+D op 1 0
+X
+D lua_pushnil 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_pushnumber 0 0
+E
+D L 1 0
+U lua_State 1 0
+D n 1 0
+U lua_Number 1 0
+X
+D lua_pushinteger 0 0
+E
+D L 1 0
+U lua_State 1 0
+D n 1 0
+U lua_Integer 1 0
+X
+D lua_pushlstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D s 1 0
+D len 1 0
+U size_t 1 0
+X
+D lua_pushexternalstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D s 1 0
+D len 1 0
+U size_t 1 0
+D falloc 1 0
+U lua_Alloc 1 0
+D ud 1 0
+X
+D lua_pushstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D s 1 0
+X
+D lua_pushvfstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fmt 1 0
+D argp 1 0
+U va_list 1 0
+X
+D lua_pushfstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fmt 1 0
+X
+D lua_pushcclosure 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fn 1 0
+U lua_CFunction 1 0
+D n 1 0
+X
+D lua_pushboolean 0 0
+E
+D L 1 0
+U lua_State 1 0
+D b 1 0
+X
+D lua_pushlightuserdata 0 0
+E
+D L 1 0
+U lua_State 1 0
+D p 1 0
+X
+D lua_pushthread 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_getglobal 0 0
+E
+D L 1 0
+U lua_State 1 0
+D name 1 0
+X
+D lua_gettable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_getfield 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D k 1 0
+X
+D lua_geti 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+U lua_Integer 1 0
+X
+D lua_rawget 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_rawgeti 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+U lua_Integer 1 0
+X
+D lua_rawgetp 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D p 1 0
+X
+D lua_createtable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D narr 1 0
+D nrec 1 0
+X
+D lua_newuserdatauv 0 0
+E
+D L 1 0
+U lua_State 1 0
+D sz 1 0
+U size_t 1 0
+D nuvalue 1 0
+X
+D lua_getmetatable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D objindex 1 0
+X
+D lua_getiuservalue 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+X
+D lua_setglobal 0 0
+E
+D L 1 0
+U lua_State 1 0
+D name 1 0
+X
+D lua_settable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_setfield 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D k 1 0
+X
+D lua_seti 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+U lua_Integer 1 0
+X
+D lua_rawset 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_rawseti 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+U lua_Integer 1 0
+X
+D lua_rawsetp 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D p 1 0
+X
+D lua_setmetatable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D objindex 1 0
+X
+D lua_setiuservalue 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D n 1 0
+X
+D lua_callk 0 0
+E
+D L 1 0
+U lua_State 1 0
+D nargs 1 0
+D nresults 1 0
+D ctx 1 0
+U lua_KContext 1 0
+D k 1 0
+U lua_KFunction 1 0
+X
+D lua_pcallk 0 0
+E
+D L 1 0
+U lua_State 1 0
+D nargs 1 0
+D nresults 1 0
+D errfunc 1 0
+D ctx 1 0
+U lua_KContext 1 0
+D k 1 0
+U lua_KFunction 1 0
+X
+D lua_load 0 0
+E
+D L 1 0
+U lua_State 1 0
+D reader 1 0
+U lua_Reader 1 0
+D dt 1 0
+D chunkname 1 0
+D mode 1 0
+X
+D lua_dump 0 0
+E
+D L 1 0
+U lua_State 1 0
+D writer 1 0
+U lua_Writer 1 0
+D data 1 0
+D strip 1 0
+X
+D lua_yieldk 0 0
+E
+D L 1 0
+U lua_State 1 0
+D nresults 1 0
+D ctx 1 0
+U lua_KContext 1 0
+D k 1 0
+U lua_KFunction 1 0
+X
+D lua_resume 0 0
+E
+D L 1 0
+U lua_State 1 0
+D from 1 0
+U lua_State 1 0
+D narg 1 0
+D nres 1 0
+X
+D lua_status 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_isyieldable 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_setwarnf 0 0
+E
+D L 1 0
+U lua_State 1 0
+D f 1 0
+U lua_WarnFunction 1 0
+D ud 1 0
+X
+D lua_warning 0 0
+E
+D L 1 0
+U lua_State 1 0
+D msg 1 0
+D tocont 1 0
+X
+D lua_gc 0 0
+E
+D L 1 0
+U lua_State 1 0
+D what 1 0
+X
+D lua_error 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_next 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_concat 0 0
+E
+D L 1 0
+U lua_State 1 0
+D n 1 0
+X
+D lua_len 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_numbertocstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D buff 1 0
+X
+D lua_stringtonumber 0 0
+E
+U size_t 1 0
+D L 1 0
+U lua_State 1 0
+D s 1 0
+X
+D lua_getallocf 0 0
+E
+U lua_Alloc 1 0
+D L 1 0
+U lua_State 1 0
+D ud 1 0
+X
+D lua_setallocf 0 0
+E
+D L 1 0
+U lua_State 1 0
+D f 1 0
+U lua_Alloc 1 0
+D ud 1 0
+X
+D lua_toclose 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_closeslot 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D lua_getstack 0 0
+E
+D L 1 0
+U lua_State 1 0
+D level 1 0
+D ar 1 0
+U lua_Debug 1 0
+X
+D lua_getinfo 0 0
+E
+D L 1 0
+U lua_State 1 0
+D what 1 0
+D ar 1 0
+U lua_Debug 1 0
+X
+D lua_getlocal 0 0
+E
+D L 1 0
+U lua_State 1 0
+D ar 1 0
+U lua_Debug 1 0
+D n 1 0
+X
+D lua_setlocal 0 0
+E
+D L 1 0
+U lua_State 1 0
+D ar 1 0
+U lua_Debug 1 0
+D n 1 0
+X
+D lua_getupvalue 0 0
+E
+D L 1 0
+U lua_State 1 0
+D funcindex 1 0
+D n 1 0
+X
+D lua_setupvalue 0 0
+E
+D L 1 0
+U lua_State 1 0
+D funcindex 1 0
+D n 1 0
+X
+D lua_upvalueid 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fidx 1 0
+D n 1 0
+X
+D lua_upvaluejoin 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fidx1 1 0
+D n1 1 0
+D fidx2 1 0
+D n2 1 0
+X
+D lua_sethook 0 0
+E
+D L 1 0
+U lua_State 1 0
+D func 1 0
+U lua_Hook 1 0
+D mask 1 0
+D count 1 0
+X
+D lua_gethook 0 0
+E
+U lua_Hook 1 0
+D L 1 0
+U lua_State 1 0
+X
+D lua_gethookmask 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D lua_gethookcount 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+U size_t 0 0
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D fpos_t 0 1
+U __fpos64_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off64_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off64_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D luaL_Buffer 0 0
+U lua_CFunction 0 0
+D luaL_Reg 0 0
+U lua_CFunction 0 0
+D luaL_checkversion_ 0 0
+E
+D L 1 0
+U lua_State 1 0
+D ver 1 0
+U lua_Number 1 0
+D sz 1 0
+U size_t 1 0
+X
+D luaL_getmetafield 0 0
+E
+D L 1 0
+U lua_State 1 0
+D obj 1 0
+D e 1 0
+X
+D luaL_callmeta 0 0
+E
+D L 1 0
+U lua_State 1 0
+D obj 1 0
+D e 1 0
+X
+D luaL_tolstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D len 1 0
+U size_t 1 0
+X
+D luaL_argerror 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D extramsg 1 0
+X
+D luaL_typeerror 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D tname 1 0
+X
+D luaL_checklstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D l 1 0
+U size_t 1 0
+X
+D luaL_optlstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D def 1 0
+D l 1 0
+U size_t 1 0
+X
+D luaL_checknumber 0 0
+E
+U lua_Number 1 0
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+X
+D luaL_optnumber 0 0
+E
+U lua_Number 1 0
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D def 1 0
+U lua_Number 1 0
+X
+D luaL_checkinteger 0 0
+E
+U lua_Integer 1 0
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+X
+D luaL_optinteger 0 0
+E
+U lua_Integer 1 0
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D def 1 0
+U lua_Integer 1 0
+X
+D luaL_checkstack 0 0
+E
+D L 1 0
+U lua_State 1 0
+D sz 1 0
+D msg 1 0
+X
+D luaL_checktype 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D t 1 0
+X
+D luaL_checkany 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+X
+D luaL_newmetatable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D tname 1 0
+X
+D luaL_setmetatable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D tname 1 0
+X
+D luaL_testudata 0 0
+E
+D L 1 0
+U lua_State 1 0
+D ud 1 0
+D tname 1 0
+X
+D luaL_checkudata 0 0
+E
+D L 1 0
+U lua_State 1 0
+D ud 1 0
+D tname 1 0
+X
+D luaL_where 0 0
+E
+D L 1 0
+U lua_State 1 0
+D lvl 1 0
+X
+D luaL_error 0 0
+E
+D L 1 0
+U lua_State 1 0
+D fmt 1 0
+X
+D luaL_checkoption 0 0
+E
+D L 1 0
+U lua_State 1 0
+D arg 1 0
+D def 1 0
+D lst 1 0
+X
+D luaL_fileresult 0 0
+E
+D L 1 0
+U lua_State 1 0
+D stat 1 0
+D fname 1 0
+X
+D luaL_execresult 0 0
+E
+D L 1 0
+U lua_State 1 0
+D stat 1 0
+X
+D luaL_alloc 0 0
+E
+D ud 1 0
+D ptr 1 0
+D osize 1 0
+U size_t 1 0
+D nsize 1 0
+U size_t 1 0
+X
+D luaL_ref 0 0
+E
+D L 1 0
+U lua_State 1 0
+D t 1 0
+X
+D luaL_unref 0 0
+E
+D L 1 0
+U lua_State 1 0
+D t 1 0
+D ref 1 0
+X
+D luaL_loadfilex 0 0
+E
+D L 1 0
+U lua_State 1 0
+D filename 1 0
+D mode 1 0
+X
+D luaL_loadbufferx 0 0
+E
+D L 1 0
+U lua_State 1 0
+D buff 1 0
+D sz 1 0
+U size_t 1 0
+D name 1 0
+D mode 1 0
+X
+D luaL_loadstring 0 0
+E
+D L 1 0
+U lua_State 1 0
+D s 1 0
+X
+D luaL_newstate 0 0
+U lua_State 0 0
+D luaL_makeseed 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaL_len 0 0
+E
+U lua_Integer 1 0
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+X
+D luaL_addgsub 0 0
+E
+D b 1 0
+U luaL_Buffer 1 0
+D s 1 0
+D p 1 0
+D r 1 0
+X
+D luaL_gsub 0 0
+E
+D L 1 0
+U lua_State 1 0
+D s 1 0
+D p 1 0
+D r 1 0
+X
+D luaL_setfuncs 0 0
+E
+D L 1 0
+U lua_State 1 0
+D l 1 0
+U luaL_Reg 1 0
+D nup 1 0
+X
+D luaL_getsubtable 0 0
+E
+D L 1 0
+U lua_State 1 0
+D idx 1 0
+D fname 1 0
+X
+D luaL_traceback 0 0
+E
+D L 1 0
+U lua_State 1 0
+D L1 1 0
+U lua_State 1 0
+D msg 1 0
+D level 1 0
+X
+D luaL_requiref 0 0
+E
+D L 1 0
+U lua_State 1 0
+D modname 1 0
+D openf 1 0
+U lua_CFunction 1 0
+D glb 1 0
+X
+U size_t 0 0
+U size_t 0 0
+U lua_State 0 0
+U lua_Number 0 0
+U lua_Number 0 0
+D luaL_buffinit 0 0
+E
+D L 1 0
+U lua_State 1 0
+D B 1 0
+U luaL_Buffer 1 0
+X
+D luaL_prepbuffsize 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+D sz 1 0
+U size_t 1 0
+X
+D luaL_addlstring 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+D s 1 0
+D l 1 0
+U size_t 1 0
+X
+D luaL_addstring 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+D s 1 0
+X
+D luaL_addvalue 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+X
+D luaL_pushresult 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+X
+D luaL_pushresultsize 0 0
+E
+D B 1 0
+U luaL_Buffer 1 0
+D sz 1 0
+U size_t 1 0
+X
+D luaL_buffinitsize 0 0
+E
+D L 1 0
+U lua_State 1 0
+D B 1 0
+U luaL_Buffer 1 0
+D sz 1 0
+U size_t 1 0
+X
+U FILE 0 0
+U lua_CFunction 0 0
+D luaL_Stream 0 0
+U FILE 0 0
+U lua_CFunction 0 0
+D luaopen_base 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_package 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_coroutine 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_debug 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_io 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_math 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_os 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_string 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_table 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaopen_utf8 0 0
+E
+D L 1 0
+U lua_State 1 0
+X
+D luaL_openselectedlibs 0 0
+E
+D L 1 0
+U lua_State 1 0
+D load 1 0
+D preload 1 0
+X
+D l_mem 0 0
+U ptrdiff_t 0 0
+D lu_mem 0 0
+U size_t 0 0
+D lu_byte 0 0
+D ls_byte 0 0
+D TStatus 0 0
+U lu_byte 0 0
+D l_uacNumber 0 0
+D l_uacInt 0 0
+D voidf 0 0
+D l_uint32 0 0
+D math_abs 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_isinteger 2 0
+U L 2 0
+E
+D n 3 0
+U lua_Integer 3 0
+U lua_tointegerx 3 0
+U L 3 0
+U n 3 0
+U n 3 0
+U lua_Integer 3 0
+U lua_Unsigned 3 0
+U n 3 0
+U lua_pushinteger 3 0
+U L 3 0
+U n 3 0
+X
+U lua_pushnumber 2 0
+U L 2 0
+U fabs 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_sin 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U sin 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_cos 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U cos 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_tan 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U tan 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_asin 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U asin 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_acos 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U acos 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_atan 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D y 2 0
+U lua_Number 2 0
+U luaL_checknumber 2 0
+U L 2 0
+D x 2 0
+U lua_Number 2 0
+U luaL_optnumber 2 0
+U L 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U atan2 2 0
+U y 2 0
+U x 2 0
+X
+X
+D math_toint 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D valid 2 0
+D n 2 0
+U lua_Integer 2 0
+U lua_tointegerx 2 0
+U L 2 0
+U valid 2 0
+U __builtin_expect 2 0
+U valid 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U n 2 0
+E
+U luaL_checkany 3 0
+U L 3 0
+U lua_pushnil 3 0
+U L 3 0
+X
+X
+X
+D pushnumint 0 0
+E
+D L 1 0
+U lua_State 1 0
+D d 1 0
+U lua_Number 1 0
+E
+D n 2 0
+U lua_Integer 2 0
+U d 2 0
+U d 2 0
+U n 2 0
+U d 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U n 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U d 2 0
+X
+X
+D math_floor 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_isinteger 2 0
+U L 2 0
+U lua_settop 2 0
+U L 2 0
+E
+D d 3 0
+U lua_Number 3 0
+U floor 3 0
+U luaL_checknumber 3 0
+U L 3 0
+U pushnumint 3 0
+U L 3 0
+U d 3 0
+X
+X
+X
+D math_ceil 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_isinteger 2 0
+U L 2 0
+U lua_settop 2 0
+U L 2 0
+E
+D d 3 0
+U lua_Number 3 0
+U ceil 3 0
+U luaL_checknumber 3 0
+U L 3 0
+U pushnumint 3 0
+U L 3 0
+U d 3 0
+X
+X
+X
+D math_fmod 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_isinteger 2 0
+U L 2 0
+U lua_isinteger 2 0
+U L 2 0
+E
+D d 3 0
+U lua_Integer 3 0
+U lua_tointegerx 3 0
+U L 3 0
+U lua_Unsigned 3 0
+U d 3 0
+E
+U __builtin_expect 4 0
+U d 4 0
+U luaL_argerror 4 0
+U L 4 0
+U lua_pushinteger 4 0
+U L 4 0
+X
+U lua_pushinteger 3 0
+U L 3 0
+U lua_tointegerx 3 0
+U L 3 0
+U d 3 0
+X
+U lua_pushnumber 2 0
+U L 2 0
+U fmod 2 0
+U luaL_checknumber 2 0
+U L 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_modf 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_isinteger 2 0
+U L 2 0
+E
+U lua_settop 3 0
+U L 3 0
+U lua_pushnumber 3 0
+U L 3 0
+X
+E
+D n 3 0
+U lua_Number 3 0
+U luaL_checknumber 3 0
+U L 3 0
+D ip 3 0
+U lua_Number 3 0
+U n 3 0
+U ceil 3 0
+U n 3 0
+U floor 3 0
+U n 3 0
+U pushnumint 3 0
+U L 3 0
+U ip 3 0
+U lua_pushnumber 3 0
+U L 3 0
+U n 3 0
+U ip 3 0
+U n 3 0
+U ip 3 0
+X
+X
+X
+D math_sqrt 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U sqrt 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_ult 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D a 2 0
+U lua_Integer 2 0
+U luaL_checkinteger 2 0
+U L 2 0
+D b 2 0
+U lua_Integer 2 0
+U luaL_checkinteger 2 0
+U L 2 0
+U lua_pushboolean 2 0
+U L 2 0
+U lua_Unsigned 2 0
+U a 2 0
+U lua_Unsigned 2 0
+U b 2 0
+X
+X
+D math_log 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D x 2 0
+U lua_Number 2 0
+U luaL_checknumber 2 0
+U L 2 0
+D res 2 0
+U lua_Number 2 0
+U lua_type 2 0
+U L 2 0
+U res 2 0
+U log 2 0
+U x 2 0
+E
+D base 3 0
+U lua_Number 3 0
+U luaL_checknumber 3 0
+U L 3 0
+U base 3 0
+U res 3 0
+U log2 3 0
+U x 3 0
+U base 3 0
+U res 3 0
+U log10 3 0
+U x 3 0
+U res 3 0
+U log 3 0
+U x 3 0
+U log 3 0
+U base 3 0
+X
+U lua_pushnumber 2 0
+U L 2 0
+U res 2 0
+X
+X
+D math_exp 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U exp 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_deg 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_rad 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_pushnumber 2 0
+U L 2 0
+U luaL_checknumber 2 0
+U L 2 0
+X
+X
+D math_frexp 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D x 2 0
+U lua_Number 2 0
+U luaL_checknumber 2 0
+U L 2 0
+D ep 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U frexp 2 0
+U x 2 0
+U ep 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U ep 2 0
+X
+X
+D math_ldexp 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D x 2 0
+U lua_Number 2 0
+U luaL_checknumber 2 0
+U L 2 0
+D ep 2 0
+U luaL_checkinteger 2 0
+U L 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U ldexp 2 0
+U x 2 0
+U ep 2 0
+X
+X
+D math_min 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D n 2 0
+U lua_gettop 2 0
+U L 2 0
+D imin 2 0
+D i 2 0
+U __builtin_expect 2 0
+U n 2 0
+U luaL_argerror 2 0
+U L 2 0
+E
+U i 3 0
+U i 3 0
+U n 3 0
+U i 3 0
+E
+U lua_compare 4 0
+U L 4 0
+U i 4 0
+U imin 4 0
+U imin 4 0
+U i 4 0
+X
+X
+U lua_pushvalue 2 0
+U L 2 0
+U imin 2 0
+X
+X
+D math_max 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D n 2 0
+U lua_gettop 2 0
+U L 2 0
+D imax 2 0
+D i 2 0
+U __builtin_expect 2 0
+U n 2 0
+U luaL_argerror 2 0
+U L 2 0
+E
+U i 3 0
+U i 3 0
+U n 3 0
+U i 3 0
+E
+U lua_compare 4 0
+U L 4 0
+U imax 4 0
+U i 4 0
+U imax 4 0
+U i 4 0
+X
+X
+U lua_pushvalue 2 0
+U L 2 0
+U imax 2 0
+X
+X
+D math_type 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U lua_type 2 0
+U L 2 0
+U lua_pushstring 2 0
+U L 2 0
+U lua_isinteger 2 0
+U L 2 0
+E
+U luaL_checkany 3 0
+U L 3 0
+U lua_pushnil 3 0
+U L 3 0
+X
+X
+X
+D rotl 0 0
+E
+D x 1 0
+D n 1 0
+E
+U x 2 0
+U n 2 0
+U x 2 0
+U n 2 0
+X
+X
+D nextrand 0 0
+E
+D state 1 0
+E
+D state0 2 0
+U state 2 0
+D state1 2 0
+U state 2 0
+D state2 2 0
+U state 2 0
+U state0 2 0
+D state3 2 0
+U state 2 0
+U state1 2 0
+D res 2 0
+U rotl 2 0
+U state1 2 0
+U state 2 0
+U state0 2 0
+U state3 2 0
+U state 2 0
+U state1 2 0
+U state2 2 0
+U state 2 0
+U state2 2 0
+U state1 2 0
+U state 2 0
+U rotl 2 0
+U state3 2 0
+U res 2 0
+X
+X
+D I2d 0 0
+E
+U lua_Number 1 0
+D x 1 0
+E
+D sx 2 0
+U x 2 0
+D res 2 0
+U lua_Number 2 0
+U lua_Number 2 0
+U sx 2 0
+U sx 2 0
+U res 2 0
+U res 2 0
+X
+X
+D RanState 0 0
+D project 0 0
+E
+U lua_Unsigned 1 0
+D ran 1 0
+U lua_Unsigned 1 0
+D n 1 0
+U lua_Unsigned 1 0
+D state 1 0
+U RanState 1 0
+E
+D lim 2 0
+U lua_Unsigned 2 0
+U n 2 0
+D sh 2 0
+E
+U sh 3 0
+U lim 3 0
+U lim 3 0
+U sh 3 0
+U lim 3 0
+U lim 3 0
+U sh 3 0
+X
+U ran 2 0
+U lim 2 0
+U n 2 0
+U ran 2 0
+U lua_Unsigned 2 0
+U nextrand 2 0
+U state 2 0
+U ran 2 0
+X
+X
+D math_random 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D low 2 0
+U lua_Integer 2 0
+D up 2 0
+U lua_Integer 2 0
+D p 2 0
+U lua_Unsigned 2 0
+D state 2 0
+U RanState 2 0
+U RanState 2 0
+U lua_touserdata 2 0
+U L 2 0
+D rv 2 0
+U nextrand 2 0
+U state 2 0
+U lua_gettop 2 0
+U L 2 0
+E
+E
+U lua_pushnumber 4 0
+U L 4 0
+U I2d 4 0
+U rv 4 0
+X
+E
+U low 4 0
+U up 4 0
+U luaL_checkinteger 4 0
+U L 4 0
+U up 4 0
+E
+U lua_pushinteger 5 0
+U L 5 0
+U lua_Integer 5 0
+U lua_Unsigned 5 0
+U rv 5 0
+X
+X
+E
+U low 4 0
+U luaL_checkinteger 4 0
+U L 4 0
+U up 4 0
+U luaL_checkinteger 4 0
+U L 4 0
+X
+U luaL_error 3 0
+U L 3 0
+X
+U __builtin_expect 2 0
+U low 2 0
+U up 2 0
+U luaL_argerror 2 0
+U L 2 0
+U p 2 0
+U project 2 0
+U lua_Unsigned 2 0
+U rv 2 0
+U lua_Unsigned 2 0
+U up 2 0
+U lua_Unsigned 2 0
+U low 2 0
+U state 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U lua_Integer 2 0
+U p 2 0
+U lua_Unsigned 2 0
+U low 2 0
+X
+X
+D setseed 0 0
+E
+D L 1 0
+U lua_State 1 0
+D state 1 0
+D n1 1 0
+U lua_Unsigned 1 0
+D n2 1 0
+U lua_Unsigned 1 0
+E
+D i 2 0
+U state 2 0
+U n1 2 0
+U state 2 0
+U state 2 0
+U n2 2 0
+U state 2 0
+E
+U i 3 0
+U i 3 0
+U i 3 0
+U nextrand 3 0
+U state 3 0
+X
+U lua_pushinteger 2 0
+U L 2 0
+U lua_Integer 2 0
+U n1 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U lua_Integer 2 0
+U n2 2 0
+X
+X
+D math_randomseed 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D state 2 0
+U RanState 2 0
+U RanState 2 0
+U lua_touserdata 2 0
+U L 2 0
+D n1 2 0
+U lua_Unsigned 2 0
+D n2 2 0
+U lua_Unsigned 2 0
+U lua_type 2 0
+U L 2 0
+E
+U n1 3 0
+U luaL_makeseed 3 0
+U L 3 0
+U n2 3 0
+U lua_Unsigned 3 0
+U nextrand 3 0
+U state 3 0
+X
+E
+U n1 3 0
+U lua_Unsigned 3 0
+U luaL_checkinteger 3 0
+U L 3 0
+U n2 3 0
+U lua_Unsigned 3 0
+U luaL_optinteger 3 0
+U L 3 0
+X
+U setseed 2 0
+U L 2 0
+U state 2 0
+U n1 2 0
+U n2 2 0
+X
+X
+D randfuncs 0 0
+U luaL_Reg 0 0
+U math_random 0 0
+U math_randomseed 0 0
+D setrandfunc 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+D state 2 0
+U RanState 2 0
+U RanState 2 0
+U lua_newuserdatauv 2 0
+U L 2 0
+U RanState 2 0
+U setseed 2 0
+U L 2 0
+U state 2 0
+U luaL_makeseed 2 0
+U L 2 0
+U lua_settop 2 0
+U L 2 0
+U luaL_setfuncs 2 0
+U L 2 0
+U randfuncs 2 0
+X
+X
+D mathlib 0 0
+U luaL_Reg 0 0
+U math_abs 0 0
+U math_acos 0 0
+U math_asin 0 0
+U math_atan 0 0
+U math_ceil 0 0
+U math_cos 0 0
+U math_deg 0 0
+U math_exp 0 0
+U math_toint 0 0
+U math_floor 0 0
+U math_fmod 0 0
+U math_frexp 0 0
+U math_ult 0 0
+U math_ldexp 0 0
+U math_log 0 0
+U math_max 0 0
+U math_min 0 0
+U math_modf 0 0
+U math_rad 0 0
+U math_sin 0 0
+U math_sqrt 0 0
+U math_tan 0 0
+U math_type 0 0
+D luaopen_math 0 0
+E
+D L 1 0
+U lua_State 1 0
+E
+U luaL_checkversion_ 2 0
+U L 2 0
+U lua_Integer 2 0
+U lua_Number 2 0
+U lua_createtable 2 0
+U L 2 0
+U mathlib 2 0
+U mathlib 2 0
+U luaL_setfuncs 2 0
+U L 2 0
+U mathlib 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U lua_setfield 2 0
+U L 2 0
+U lua_pushnumber 2 0
+U L 2 0
+U lua_Number 2 0
+U __builtin_huge_val 2 0
+U lua_setfield 2 0
+U L 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U lua_setfield 2 0
+U L 2 0
+U lua_pushinteger 2 0
+U L 2 0
+U lua_setfield 2 0
+U L 2 0
+U setrandfunc 2 0
+U L 2 0
+X
+X

@@ -1,0 +1,378 @@
+[
+  {
+    "workload": "hello_world_mps2",
+    "whole_image_bytes": 17568,
+    "total_functions": 157,
+    "matched_functions": 1,
+    "match_percentage": 0.64,
+    "raw_duplicate_bytes": 5,
+    "unique_matched_string_bytes": 5,
+    "gross_saved_metis": 7.4,
+    "mech_a_ref_cost": 2,
+    "mech_a_tag_cost": 20,
+    "mech_a_code_delta": 36,
+    "mech_a_prefix_loss": 1.0,
+    "mech_a_net_saving_bytes": -51.6,
+    "mech_a_pct_image": -0.294,
+    "mech_a_pass": false,
+    "mech_b_net_saving_bytes": -51.6,
+    "mech_b_pct_image": -0.294,
+    "mech_b_pass": false,
+    "abs_upper_bound_bytes": 5,
+    "abs_upper_bound_pct": 0.028,
+    "abs_bound_pass": false,
+    "consumer_distribution": {
+      "rodata_const": 1
+    },
+    "match_inventory": [
+      {
+        "function_name": "main",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x41bb"
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "shell_module_mps2",
+    "whole_image_bytes": 80624,
+    "total_functions": 556,
+    "matched_functions": 6,
+    "match_percentage": 1.08,
+    "raw_duplicate_bytes": 41,
+    "unique_matched_string_bytes": 41,
+    "gross_saved_metis": 48.4,
+    "mech_a_ref_cost": 12,
+    "mech_a_tag_cost": 70,
+    "mech_a_code_delta": 36,
+    "mech_a_prefix_loss": 6.0,
+    "mech_a_net_saving_bytes": -75.6,
+    "mech_a_pct_image": -0.094,
+    "mech_a_pass": false,
+    "mech_b_net_saving_bytes": -75.6,
+    "mech_b_pct_image": -0.094,
+    "mech_b_pass": false,
+    "abs_upper_bound_bytes": 41,
+    "abs_upper_bound_pct": 0.051,
+    "abs_bound_pass": false,
+    "consumer_distribution": {
+      "rodata_const": 6
+    },
+    "match_inventory": [
+      {
+        "function_name": "enable",
+        "length_with_nul": 7,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x135da"
+        ]
+      },
+      {
+        "function_name": "main",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x12719"
+        ]
+      },
+      {
+        "function_name": "init",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x12866"
+        ]
+      },
+      {
+        "function_name": "idle",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x11876"
+        ]
+      },
+      {
+        "function_name": "execute",
+        "length_with_nul": 8,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x130aa"
+        ]
+      },
+      {
+        "function_name": "sys_getopt",
+        "length_with_nul": 11,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x12cec"
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "echo_server_mps2",
+    "whole_image_bytes": 269448,
+    "total_functions": 1380,
+    "matched_functions": 16,
+    "match_percentage": 1.16,
+    "raw_duplicate_bytes": 148,
+    "unique_matched_string_bytes": 148,
+    "gross_saved_metis": 128.8,
+    "mech_a_ref_cost": 32,
+    "mech_a_tag_cost": 173,
+    "mech_a_code_delta": 36,
+    "mech_a_prefix_loss": 16.0,
+    "mech_a_net_saving_bytes": -128.2,
+    "mech_a_pct_image": -0.048,
+    "mech_a_pass": false,
+    "mech_b_net_saving_bytes": -128.2,
+    "mech_b_pct_image": -0.048,
+    "mech_b_pass": false,
+    "abs_upper_bound_bytes": 148,
+    "abs_upper_bound_pct": 0.055,
+    "abs_bound_pass": false,
+    "consumer_distribution": {
+      "rodata_const": 16
+    },
+    "match_inventory": [
+      {
+        "function_name": "conn_mgr_if_connect",
+        "length_with_nul": 20,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x377b5"
+        ]
+      },
+      {
+        "function_name": "init",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3b929"
+        ]
+      },
+      {
+        "function_name": "net_if_down",
+        "length_with_nul": 12,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3ed4e"
+        ]
+      },
+      {
+        "function_name": "close",
+        "length_with_nul": 6,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x39fdc"
+        ]
+      },
+      {
+        "function_name": "recv",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x38f90"
+        ]
+      },
+      {
+        "function_name": "main",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3b3fa"
+        ]
+      },
+      {
+        "function_name": "conn_mgr_if_disconnect",
+        "length_with_nul": 23,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x36a59"
+        ]
+      },
+      {
+        "function_name": "handle_data",
+        "length_with_nul": 12,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3b434"
+        ]
+      },
+      {
+        "function_name": "bind",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3b368"
+        ]
+      },
+      {
+        "function_name": "net_if_up",
+        "length_with_nul": 10,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x36a4f"
+        ]
+      },
+      {
+        "function_name": "quit",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3ec9b"
+        ]
+      },
+      {
+        "function_name": "sys_getopt",
+        "length_with_nul": 11,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3cad2"
+        ]
+      },
+      {
+        "function_name": "enable",
+        "length_with_nul": 7,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3f100"
+        ]
+      },
+      {
+        "function_name": "send",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x39fd7"
+        ]
+      },
+      {
+        "function_name": "idle",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x38576"
+        ]
+      },
+      {
+        "function_name": "process_udp",
+        "length_with_nul": 12,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x3b8f8"
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "hello_world_nrf52840",
+    "whole_image_bytes": 27120,
+    "total_functions": 225,
+    "matched_functions": 1,
+    "match_percentage": 0.44,
+    "raw_duplicate_bytes": 5,
+    "unique_matched_string_bytes": 5,
+    "gross_saved_metis": 7.8,
+    "mech_a_ref_cost": 2,
+    "mech_a_tag_cost": 29,
+    "mech_a_code_delta": 36,
+    "mech_a_prefix_loss": 1.0,
+    "mech_a_net_saving_bytes": -60.2,
+    "mech_a_pct_image": -0.222,
+    "mech_a_pass": false,
+    "mech_b_net_saving_bytes": -60.2,
+    "mech_b_pct_image": -0.222,
+    "mech_b_pass": false,
+    "abs_upper_bound_bytes": 5,
+    "abs_upper_bound_pct": 0.018,
+    "abs_bound_pass": false,
+    "consumer_distribution": {
+      "rodata_const": 1
+    },
+    "match_inventory": [
+      {
+        "function_name": "main",
+        "length_with_nul": 5,
+        "occurrences": 1,
+        "sections": [
+          "rodata"
+        ],
+        "addresses": [
+          "0x6701"
+        ]
+      }
+    ]
+  }
+]

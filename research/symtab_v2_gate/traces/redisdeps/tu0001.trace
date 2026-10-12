@@ -1,0 +1,5841 @@
+D size_t 0 1
+D wchar_t 0 1
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtouq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D off_t 0 1
+U __off_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+D random_r 0 1
+E
+D __buf 1 1
+D __result 1 1
+U int32_t 1 1
+X
+D srandom_r 0 1
+E
+D __seed 1 1
+D __buf 1 1
+X
+D initstate_r 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+D __buf 1 1
+X
+D setstate_r 0 1
+E
+D __statebuf 1 1
+D __buf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D drand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D erand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D lrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D nrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D mrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D jrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D srand48_r 0 1
+E
+D __seedval 1 1
+D __buffer 1 1
+X
+D seed48_r 0 1
+E
+D __seed16v 1 1
+D __buffer 1 1
+X
+D lcong48_r 0 1
+E
+D __param 1 1
+D __buffer 1 1
+X
+D arc4random 0 1
+U __uint32_t 0 1
+D arc4random_buf 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D arc4random_uniform 0 1
+E
+U __uint32_t 1 1
+D __upper_bound 1 1
+U __uint32_t 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D alloca 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D on_exit 0 1
+E
+D __func 1 1
+D __status 1 1
+D __arg 1 1
+D __arg 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D clearenv 0 1
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D mkstemps 0 1
+E
+D __template 1 1
+D __suffixlen 1 1
+X
+D mkdtemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D qecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qfcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qgcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D ecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D fcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qfcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D rpmatch 0 1
+E
+D __response 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D getloadavg 0 1
+E
+D __loadavg 1 1
+D __nelem 1 1
+X
+D float_t 0 1
+D double_t 0 1
+D __fpclassify 0 1
+E
+D __value 1 1
+X
+D __signbit 0 1
+E
+D __value 1 1
+X
+D __isinf 0 1
+E
+D __value 1 1
+X
+D __finite 0 1
+E
+D __value 1 1
+X
+D __isnan 0 1
+E
+D __value 1 1
+X
+D __iseqsig 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignaling 0 1
+E
+D __value 1 1
+X
+D acos 0 1
+E
+D __x 1 1
+X
+D __acos 0 1
+E
+D __x 1 1
+X
+D asin 0 1
+E
+D __x 1 1
+X
+D __asin 0 1
+E
+D __x 1 1
+X
+D atan 0 1
+E
+D __x 1 1
+X
+D __atan 0 1
+E
+D __x 1 1
+X
+D atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cos 0 1
+E
+D __x 1 1
+X
+D __cos 0 1
+E
+D __x 1 1
+X
+D sin 0 1
+E
+D __x 1 1
+X
+D __sin 0 1
+E
+D __x 1 1
+X
+D tan 0 1
+E
+D __x 1 1
+X
+D __tan 0 1
+E
+D __x 1 1
+X
+D cosh 0 1
+E
+D __x 1 1
+X
+D __cosh 0 1
+E
+D __x 1 1
+X
+D sinh 0 1
+E
+D __x 1 1
+X
+D __sinh 0 1
+E
+D __x 1 1
+X
+D tanh 0 1
+E
+D __x 1 1
+X
+D __tanh 0 1
+E
+D __x 1 1
+X
+D acosh 0 1
+E
+D __x 1 1
+X
+D __acosh 0 1
+E
+D __x 1 1
+X
+D asinh 0 1
+E
+D __x 1 1
+X
+D __asinh 0 1
+E
+D __x 1 1
+X
+D atanh 0 1
+E
+D __x 1 1
+X
+D __atanh 0 1
+E
+D __x 1 1
+X
+D exp 0 1
+E
+D __x 1 1
+X
+D __exp 0 1
+E
+D __x 1 1
+X
+D frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D log 0 1
+E
+D __x 1 1
+X
+D __log 0 1
+E
+D __x 1 1
+X
+D log10 0 1
+E
+D __x 1 1
+X
+D __log10 0 1
+E
+D __x 1 1
+X
+D modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1 0 1
+E
+D __x 1 1
+X
+D __expm1 0 1
+E
+D __x 1 1
+X
+D log1p 0 1
+E
+D __x 1 1
+X
+D __log1p 0 1
+E
+D __x 1 1
+X
+D logb 0 1
+E
+D __x 1 1
+X
+D __logb 0 1
+E
+D __x 1 1
+X
+D exp2 0 1
+E
+D __x 1 1
+X
+D __exp2 0 1
+E
+D __x 1 1
+X
+D log2 0 1
+E
+D __x 1 1
+X
+D __log2 0 1
+E
+D __x 1 1
+X
+D pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrt 0 1
+E
+D __x 1 1
+X
+D __sqrt 0 1
+E
+D __x 1 1
+X
+D hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrt 0 1
+E
+D __x 1 1
+X
+D __cbrt 0 1
+E
+D __x 1 1
+X
+D ceil 0 1
+E
+D __x 1 1
+X
+D fabs 0 1
+E
+D __x 1 1
+X
+D floor 0 1
+E
+D __x 1 1
+X
+D fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinf 0 1
+E
+D __value 1 1
+X
+D finite 0 1
+E
+D __value 1 1
+X
+D drem 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __drem 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significand 0 1
+E
+D __x 1 1
+X
+D __significand 0 1
+E
+D __x 1 1
+X
+D copysign 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nan 0 1
+E
+D __tagb 1 1
+X
+D __nan 0 1
+E
+D __tagb 1 1
+X
+D isnan 0 1
+E
+D __value 1 1
+X
+D j0 0 1
+E
+X
+D __j0 0 1
+E
+X
+D j1 0 1
+E
+X
+D __j1 0 1
+E
+X
+D jn 0 1
+E
+X
+D __jn 0 1
+E
+X
+D y0 0 1
+E
+X
+D __y0 0 1
+E
+X
+D y1 0 1
+E
+X
+D __y1 0 1
+E
+X
+D yn 0 1
+E
+X
+D __yn 0 1
+E
+X
+D erf 0 1
+E
+X
+D __erf 0 1
+E
+X
+D erfc 0 1
+E
+X
+D __erfc 0 1
+E
+X
+D lgamma 0 1
+E
+X
+D __lgamma 0 1
+E
+X
+D tgamma 0 1
+E
+X
+D __tgamma 0 1
+E
+X
+D gamma 0 1
+E
+X
+D __gamma 0 1
+E
+X
+D lgamma_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgamma_r 0 1
+E
+D __signgamp 1 1
+X
+D rint 0 1
+E
+D __x 1 1
+X
+D __rint 0 1
+E
+D __x 1 1
+X
+D nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogb 0 1
+E
+D __x 1 1
+X
+D __ilogb 0 1
+E
+D __x 1 1
+X
+D scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyint 0 1
+E
+D __x 1 1
+X
+D __nearbyint 0 1
+E
+D __x 1 1
+X
+D round 0 1
+E
+D __x 1 1
+X
+D trunc 0 1
+E
+D __x 1 1
+X
+D remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrint 0 1
+E
+D __x 1 1
+X
+D __lrint 0 1
+E
+D __x 1 1
+X
+D llrint 0 1
+E
+D __x 1 1
+X
+D __llrint 0 1
+E
+D __x 1 1
+X
+D lround 0 1
+E
+D __x 1 1
+X
+D __lround 0 1
+E
+D __x 1 1
+X
+D llround 0 1
+E
+D __x 1 1
+X
+D __llround 0 1
+E
+D __x 1 1
+X
+D fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmax 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmin 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyf 0 1
+E
+D __value 1 1
+X
+D __signbitf 0 1
+E
+D __value 1 1
+X
+D __isinff 0 1
+E
+D __value 1 1
+X
+D __finitef 0 1
+E
+D __value 1 1
+X
+D __isnanf 0 1
+E
+D __value 1 1
+X
+D __iseqsigf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingf 0 1
+E
+D __value 1 1
+X
+D acosf 0 1
+E
+D __x 1 1
+X
+D __acosf 0 1
+E
+D __x 1 1
+X
+D asinf 0 1
+E
+D __x 1 1
+X
+D __asinf 0 1
+E
+D __x 1 1
+X
+D atanf 0 1
+E
+D __x 1 1
+X
+D __atanf 0 1
+E
+D __x 1 1
+X
+D atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosf 0 1
+E
+D __x 1 1
+X
+D __cosf 0 1
+E
+D __x 1 1
+X
+D sinf 0 1
+E
+D __x 1 1
+X
+D __sinf 0 1
+E
+D __x 1 1
+X
+D tanf 0 1
+E
+D __x 1 1
+X
+D __tanf 0 1
+E
+D __x 1 1
+X
+D coshf 0 1
+E
+D __x 1 1
+X
+D __coshf 0 1
+E
+D __x 1 1
+X
+D sinhf 0 1
+E
+D __x 1 1
+X
+D __sinhf 0 1
+E
+D __x 1 1
+X
+D tanhf 0 1
+E
+D __x 1 1
+X
+D __tanhf 0 1
+E
+D __x 1 1
+X
+D acoshf 0 1
+E
+D __x 1 1
+X
+D __acoshf 0 1
+E
+D __x 1 1
+X
+D asinhf 0 1
+E
+D __x 1 1
+X
+D __asinhf 0 1
+E
+D __x 1 1
+X
+D atanhf 0 1
+E
+D __x 1 1
+X
+D __atanhf 0 1
+E
+D __x 1 1
+X
+D expf 0 1
+E
+D __x 1 1
+X
+D __expf 0 1
+E
+D __x 1 1
+X
+D frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logf 0 1
+E
+D __x 1 1
+X
+D __logf 0 1
+E
+D __x 1 1
+X
+D log10f 0 1
+E
+D __x 1 1
+X
+D __log10f 0 1
+E
+D __x 1 1
+X
+D modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1f 0 1
+E
+D __x 1 1
+X
+D __expm1f 0 1
+E
+D __x 1 1
+X
+D log1pf 0 1
+E
+D __x 1 1
+X
+D __log1pf 0 1
+E
+D __x 1 1
+X
+D logbf 0 1
+E
+D __x 1 1
+X
+D __logbf 0 1
+E
+D __x 1 1
+X
+D exp2f 0 1
+E
+D __x 1 1
+X
+D __exp2f 0 1
+E
+D __x 1 1
+X
+D log2f 0 1
+E
+D __x 1 1
+X
+D __log2f 0 1
+E
+D __x 1 1
+X
+D powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtf 0 1
+E
+D __x 1 1
+X
+D __sqrtf 0 1
+E
+D __x 1 1
+X
+D hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtf 0 1
+E
+D __x 1 1
+X
+D __cbrtf 0 1
+E
+D __x 1 1
+X
+D ceilf 0 1
+E
+D __x 1 1
+X
+D fabsf 0 1
+E
+D __x 1 1
+X
+D floorf 0 1
+E
+D __x 1 1
+X
+D fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinff 0 1
+E
+D __value 1 1
+X
+D finitef 0 1
+E
+D __value 1 1
+X
+D dremf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __dremf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significandf 0 1
+E
+D __x 1 1
+X
+D __significandf 0 1
+E
+D __x 1 1
+X
+D copysignf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanf 0 1
+E
+D __tagb 1 1
+X
+D __nanf 0 1
+E
+D __tagb 1 1
+X
+D isnanf 0 1
+E
+D __value 1 1
+X
+D j0f 0 1
+E
+X
+D __j0f 0 1
+E
+X
+D j1f 0 1
+E
+X
+D __j1f 0 1
+E
+X
+D jnf 0 1
+E
+X
+D __jnf 0 1
+E
+X
+D y0f 0 1
+E
+X
+D __y0f 0 1
+E
+X
+D y1f 0 1
+E
+X
+D __y1f 0 1
+E
+X
+D ynf 0 1
+E
+X
+D __ynf 0 1
+E
+X
+D erff 0 1
+E
+X
+D __erff 0 1
+E
+X
+D erfcf 0 1
+E
+X
+D __erfcf 0 1
+E
+X
+D lgammaf 0 1
+E
+X
+D __lgammaf 0 1
+E
+X
+D tgammaf 0 1
+E
+X
+D __tgammaf 0 1
+E
+X
+D gammaf 0 1
+E
+X
+D __gammaf 0 1
+E
+X
+D lgammaf_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgammaf_r 0 1
+E
+D __signgamp 1 1
+X
+D rintf 0 1
+E
+D __x 1 1
+X
+D __rintf 0 1
+E
+D __x 1 1
+X
+D nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbf 0 1
+E
+D __x 1 1
+X
+D __ilogbf 0 1
+E
+D __x 1 1
+X
+D scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintf 0 1
+E
+D __x 1 1
+X
+D __nearbyintf 0 1
+E
+D __x 1 1
+X
+D roundf 0 1
+E
+D __x 1 1
+X
+D truncf 0 1
+E
+D __x 1 1
+X
+D remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintf 0 1
+E
+D __x 1 1
+X
+D __lrintf 0 1
+E
+D __x 1 1
+X
+D llrintf 0 1
+E
+D __x 1 1
+X
+D __llrintf 0 1
+E
+D __x 1 1
+X
+D lroundf 0 1
+E
+D __x 1 1
+X
+D __lroundf 0 1
+E
+D __x 1 1
+X
+D llroundf 0 1
+E
+D __x 1 1
+X
+D __llroundf 0 1
+E
+D __x 1 1
+X
+D fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalbf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyl 0 1
+E
+D __value 1 1
+X
+D __signbitl 0 1
+E
+D __value 1 1
+X
+D __isinfl 0 1
+E
+D __value 1 1
+X
+D __finitel 0 1
+E
+D __value 1 1
+X
+D __isnanl 0 1
+E
+D __value 1 1
+X
+D __iseqsigl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingl 0 1
+E
+D __value 1 1
+X
+D acosl 0 1
+E
+D __x 1 1
+X
+D __acosl 0 1
+E
+D __x 1 1
+X
+D asinl 0 1
+E
+D __x 1 1
+X
+D __asinl 0 1
+E
+D __x 1 1
+X
+D atanl 0 1
+E
+D __x 1 1
+X
+D __atanl 0 1
+E
+D __x 1 1
+X
+D atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosl 0 1
+E
+D __x 1 1
+X
+D __cosl 0 1
+E
+D __x 1 1
+X
+D sinl 0 1
+E
+D __x 1 1
+X
+D __sinl 0 1
+E
+D __x 1 1
+X
+D tanl 0 1
+E
+D __x 1 1
+X
+D __tanl 0 1
+E
+D __x 1 1
+X
+D coshl 0 1
+E
+D __x 1 1
+X
+D __coshl 0 1
+E
+D __x 1 1
+X
+D sinhl 0 1
+E
+D __x 1 1
+X
+D __sinhl 0 1
+E
+D __x 1 1
+X
+D tanhl 0 1
+E
+D __x 1 1
+X
+D __tanhl 0 1
+E
+D __x 1 1
+X
+D acoshl 0 1
+E
+D __x 1 1
+X
+D __acoshl 0 1
+E
+D __x 1 1
+X
+D asinhl 0 1
+E
+D __x 1 1
+X
+D __asinhl 0 1
+E
+D __x 1 1
+X
+D atanhl 0 1
+E
+D __x 1 1
+X
+D __atanhl 0 1
+E
+D __x 1 1
+X
+D expl 0 1
+E
+D __x 1 1
+X
+D __expl 0 1
+E
+D __x 1 1
+X
+D frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logl 0 1
+E
+D __x 1 1
+X
+D __logl 0 1
+E
+D __x 1 1
+X
+D log10l 0 1
+E
+D __x 1 1
+X
+D __log10l 0 1
+E
+D __x 1 1
+X
+D modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1l 0 1
+E
+D __x 1 1
+X
+D __expm1l 0 1
+E
+D __x 1 1
+X
+D log1pl 0 1
+E
+D __x 1 1
+X
+D __log1pl 0 1
+E
+D __x 1 1
+X
+D logbl 0 1
+E
+D __x 1 1
+X
+D __logbl 0 1
+E
+D __x 1 1
+X
+D exp2l 0 1
+E
+D __x 1 1
+X
+D __exp2l 0 1
+E
+D __x 1 1
+X
+D log2l 0 1
+E
+D __x 1 1
+X
+D __log2l 0 1
+E
+D __x 1 1
+X
+D powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtl 0 1
+E
+D __x 1 1
+X
+D __sqrtl 0 1
+E
+D __x 1 1
+X
+D hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtl 0 1
+E
+D __x 1 1
+X
+D __cbrtl 0 1
+E
+D __x 1 1
+X
+D ceill 0 1
+E
+D __x 1 1
+X
+D fabsl 0 1
+E
+D __x 1 1
+X
+D floorl 0 1
+E
+D __x 1 1
+X
+D fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinfl 0 1
+E
+D __value 1 1
+X
+D finitel 0 1
+E
+D __value 1 1
+X
+D dreml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __dreml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significandl 0 1
+E
+D __x 1 1
+X
+D __significandl 0 1
+E
+D __x 1 1
+X
+D copysignl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanl 0 1
+E
+D __tagb 1 1
+X
+D __nanl 0 1
+E
+D __tagb 1 1
+X
+D isnanl 0 1
+E
+D __value 1 1
+X
+D j0l 0 1
+E
+X
+D __j0l 0 1
+E
+X
+D j1l 0 1
+E
+X
+D __j1l 0 1
+E
+X
+D jnl 0 1
+E
+X
+D __jnl 0 1
+E
+X
+D y0l 0 1
+E
+X
+D __y0l 0 1
+E
+X
+D y1l 0 1
+E
+X
+D __y1l 0 1
+E
+X
+D ynl 0 1
+E
+X
+D __ynl 0 1
+E
+X
+D erfl 0 1
+E
+X
+D __erfl 0 1
+E
+X
+D erfcl 0 1
+E
+X
+D __erfcl 0 1
+E
+X
+D lgammal 0 1
+E
+X
+D __lgammal 0 1
+E
+X
+D tgammal 0 1
+E
+X
+D __tgammal 0 1
+E
+X
+D gammal 0 1
+E
+X
+D __gammal 0 1
+E
+X
+D lgammal_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgammal_r 0 1
+E
+D __signgamp 1 1
+X
+D rintl 0 1
+E
+D __x 1 1
+X
+D __rintl 0 1
+E
+D __x 1 1
+X
+D nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbl 0 1
+E
+D __x 1 1
+X
+D __ilogbl 0 1
+E
+D __x 1 1
+X
+D scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintl 0 1
+E
+D __x 1 1
+X
+D __nearbyintl 0 1
+E
+D __x 1 1
+X
+D roundl 0 1
+E
+D __x 1 1
+X
+D truncl 0 1
+E
+D __x 1 1
+X
+D remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintl 0 1
+E
+D __x 1 1
+X
+D __lrintl 0 1
+E
+D __x 1 1
+X
+D llrintl 0 1
+E
+D __x 1 1
+X
+D __llrintl 0 1
+E
+D __x 1 1
+X
+D lroundl 0 1
+E
+D __x 1 1
+X
+D __lroundl 0 1
+E
+D __x 1 1
+X
+D llroundl 0 1
+E
+D __x 1 1
+X
+D __llroundl 0 1
+E
+D __x 1 1
+X
+D fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalbl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __signbitf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isinff128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __finitef128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isnanf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __iseqsigf128 0 1
+E
+D __x 1 1
+U _Float128 1 1
+D __y 1 1
+U _Float128 1 1
+X
+D __issignalingf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D signgam 0 1
+D FP_NAN 0 1
+D FP_INFINITE 0 1
+D FP_ZERO 0 1
+D FP_SUBNORMAL 0 1
+D FP_NORMAL 0 1
+D __gnuc_va_list 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D cookie_read_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_write_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_seek_function_t 0 1
+D __cookie 0 1
+D __pos 0 1
+U __off64_t 0 1
+D __w 0 1
+D cookie_close_function_t 0 1
+D __cookie 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D cookie_io_functions_t 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D fpos_t 0 1
+U __fpos_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D renameat 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tmpnam_r 0 1
+E
+D __s 1 1
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fflush_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D fopencookie 0 1
+E
+U FILE 1 1
+D __magic_cookie 1 1
+D __modes 1 1
+D __io_funcs 1 1
+U cookie_io_functions_t 1 1
+X
+D fmemopen 0 1
+E
+U FILE 1 1
+D __s 1 1
+D __len 1 1
+U size_t 1 1
+D __modes 1 1
+X
+D open_memstream 0 1
+E
+U FILE 1 1
+D __bufloc 1 1
+D __sizeloc 1 1
+U size_t 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D setbuffer 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D setlinebuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vasprintf 0 1
+E
+D __ptr 1 1
+D __f 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D __asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D vdprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D dprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fgetc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D fputc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D getw 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D putw 0 1
+E
+D __w 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D __getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getline 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fread_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D clearerr_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fileno_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D __errno_location 0 1
+D __gwchar_t 0 1
+D imaxdiv_t 0 1
+D imaxabs 0 1
+E
+U intmax_t 1 1
+D __n 1 1
+U intmax_t 1 1
+X
+D imaxdiv 0 1
+E
+U imaxdiv_t 1 1
+D __numer 1 1
+U intmax_t 1 1
+D __denom 1 1
+U intmax_t 1 1
+X
+D strtoimax 0 1
+E
+U intmax_t 1 1
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoumax 0 1
+E
+U uintmax_t 1 1
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D wcstoimax 0 1
+E
+U intmax_t 1 1
+D __nptr 1 1
+U __gwchar_t 1 1
+D __endptr 1 1
+U __gwchar_t 1 1
+D __base 1 1
+X
+D wcstoumax 0 1
+E
+U uintmax_t 1 1
+D __nptr 1 1
+U __gwchar_t 1 1
+D __endptr 1 1
+U __gwchar_t 1 1
+D __base 1 1
+X
+U int64_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+D hdr_init 0 0
+E
+D lowest_discernible_value 1 0
+U int64_t 1 0
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D result 1 0
+X
+D hdr_close 0 0
+E
+D h 1 0
+X
+D hdr_alloc 0 0
+E
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D result 1 0
+X
+D hdr_reset 0 0
+E
+D h 1 0
+X
+D hdr_get_memory_size 0 0
+E
+U size_t 1 0
+D h 1 0
+X
+D hdr_record_value 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_record_value_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_record_values 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+X
+D hdr_record_values_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+X
+D hdr_record_corrected_value 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+X
+D hdr_record_corrected_value_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+X
+D hdr_record_corrected_values 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+X
+D hdr_record_corrected_values_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+X
+D hdr_add 0 0
+E
+U int64_t 1 0
+D h 1 0
+D from 1 0
+X
+D hdr_add_while_correcting_for_coordinated_omission 0 0
+E
+U int64_t 1 0
+D h 1 0
+D from 1 0
+D expected_interval 1 0
+U int64_t 1 0
+X
+D hdr_min 0 0
+E
+U int64_t 1 0
+D h 1 0
+X
+D hdr_max 0 0
+E
+U int64_t 1 0
+D h 1 0
+X
+D hdr_value_at_percentile 0 0
+E
+U int64_t 1 0
+D h 1 0
+D percentile 1 0
+X
+D hdr_value_at_percentiles 0 0
+E
+D h 1 0
+D percentiles 1 0
+D values 1 0
+U int64_t 1 0
+D length 1 0
+U size_t 1 0
+X
+D hdr_stddev 0 0
+E
+D h 1 0
+X
+D hdr_mean 0 0
+E
+D h 1 0
+X
+D hdr_values_are_equivalent 0 0
+E
+D h 1 0
+D a 1 0
+U int64_t 1 0
+D b 1 0
+U int64_t 1 0
+X
+D hdr_lowest_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_count_at_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_count_at_index 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+X
+D hdr_value_at_index 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+X
+U int32_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+D iter 0 0
+D hdr_iter_init 0 0
+E
+D iter 1 0
+D h 1 0
+X
+D hdr_iter_percentile_init 0 0
+E
+D iter 1 0
+D h 1 0
+D ticks_per_half_distance 1 0
+U int32_t 1 0
+X
+D hdr_iter_recorded_init 0 0
+E
+D iter 1 0
+D h 1 0
+X
+D hdr_iter_linear_init 0 0
+E
+D iter 1 0
+D h 1 0
+D value_units_per_bucket 1 0
+U int64_t 1 0
+X
+D hdr_iter_linear_set_value_units_per_bucket 0 0
+E
+D iter 1 0
+D value_units_per_bucket 1 0
+U int64_t 1 0
+X
+D hdr_iter_log_init 0 0
+E
+D iter 1 0
+D h 1 0
+D value_units_first_bucket 1 0
+U int64_t 1 0
+D log_base 1 0
+X
+D hdr_iter_next 0 0
+E
+D iter 1 0
+X
+D CLASSIC 0 0
+D CSV 0 0
+D format_type 0 0
+D CLASSIC 0 0
+D CSV 0 0
+D hdr_percentiles_print 0 0
+E
+D h 1 0
+D stream 1 0
+U FILE 1 0
+D ticks_per_half_distance 1 0
+U int32_t 1 0
+D value_scale 1 0
+D format 1 0
+U format_type 1 0
+X
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int64_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+U int32_t 0 0
+D hdr_calculate_bucket_config 0 0
+E
+D lowest_discernible_value 1 0
+U int64_t 1 0
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D cfg 1 0
+X
+D hdr_init_preallocated 0 0
+E
+D h 1 0
+D cfg 1 0
+X
+D hdr_size_of_equivalent_value_range 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_next_non_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_median_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_reset_internal_counters 0 0
+E
+D h 1 0
+X
+D counts_index_for 0 0
+E
+U int32_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+X
+D hdr_encode_compressed 0 0
+E
+D h 1 0
+D compressed_histogram 1 0
+U uint8_t 1 0
+D compressed_len 1 0
+U size_t 1 0
+X
+D hdr_decode_compressed 0 0
+E
+D buffer 1 0
+U uint8_t 1 0
+D length 1 0
+U size_t 1 0
+D histogram 1 0
+X
+D hdr_base64_decode_block 0 0
+E
+D input 1 0
+D output 1 0
+U uint8_t 1 0
+X
+D hdr_base64_encode_block 0 0
+E
+D input 1 0
+U uint8_t 1 0
+D output 1 0
+X
+D normalize_index 0 0
+E
+U int32_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+E
+D normalized_index 2 0
+U int32_t 2 0
+D adjustment 2 0
+U int32_t 2 0
+U h 2 0
+E
+U index 3 0
+X
+U normalized_index 2 0
+U index 2 0
+U h 2 0
+U normalized_index 2 0
+E
+U adjustment 3 0
+U h 3 0
+X
+U normalized_index 2 0
+U h 2 0
+E
+U adjustment 3 0
+U h 3 0
+X
+U normalized_index 2 0
+U adjustment 2 0
+X
+X
+D counts_get_direct 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+E
+U h 2 0
+U index 2 0
+X
+X
+D counts_get_normalised 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+E
+U counts_get_direct 2 0
+U h 2 0
+U normalize_index 2 0
+U h 2 0
+U index 2 0
+X
+X
+D counts_inc_normalised 0 0
+E
+D h 1 0
+D index 1 0
+U int32_t 1 0
+D value 1 0
+U int64_t 1 0
+E
+D normalised_index 2 0
+U int32_t 2 0
+U normalize_index 2 0
+U h 2 0
+U index 2 0
+U h 2 0
+U normalised_index 2 0
+U value 2 0
+U h 2 0
+U value 2 0
+X
+X
+D counts_inc_normalised_atomic 0 0
+E
+D h 1 0
+D index 1 0
+U int32_t 1 0
+D value 1 0
+U int64_t 1 0
+E
+D normalised_index 2 0
+U int32_t 2 0
+U normalize_index 2 0
+U h 2 0
+U index 2 0
+U h 2 0
+U normalised_index 2 0
+U value 2 0
+U h 2 0
+U value 2 0
+X
+X
+D update_min_max 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U h 2 0
+U value 2 0
+U h 2 0
+U value 2 0
+U value 2 0
+U h 2 0
+U h 2 0
+U value 2 0
+U h 2 0
+U value 2 0
+U h 2 0
+X
+X
+D update_min_max_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+D current_min_value 2 0
+U int64_t 2 0
+D current_max_value 2 0
+U int64_t 2 0
+E
+U current_min_value 3 0
+U h 3 0
+U value 3 0
+U current_min_value 3 0
+U value 3 0
+E
+X
+X
+U h 2 0
+U current_min_value 2 0
+U value 2 0
+E
+U current_max_value 3 0
+U h 3 0
+U value 3 0
+U current_max_value 3 0
+E
+X
+X
+U h 2 0
+U current_max_value 2 0
+U value 2 0
+X
+X
+D power 0 0
+E
+U int64_t 1 0
+D base 1 0
+U int64_t 1 0
+D exp 1 0
+U int64_t 1 0
+E
+D result 2 0
+U int64_t 2 0
+U exp 2 0
+E
+U result 3 0
+U base 3 0
+U exp 3 0
+X
+U result 2 0
+X
+X
+D count_leading_zeros_64 0 0
+E
+U int32_t 1 0
+D value 1 0
+U int64_t 1 0
+E
+U __builtin_clzll 2 0
+U value 2 0
+X
+X
+D get_bucket_index 0 0
+E
+U int32_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+D pow2ceiling 2 0
+U int32_t 2 0
+U count_leading_zeros_64 2 0
+U value 2 0
+U h 2 0
+U pow2ceiling 2 0
+U h 2 0
+U h 2 0
+X
+X
+D get_sub_bucket_index 0 0
+E
+U int32_t 1 0
+D value 1 0
+U int64_t 1 0
+D bucket_index 1 0
+U int32_t 1 0
+D unit_magnitude 1 0
+U int32_t 1 0
+E
+U int32_t 2 0
+U value 2 0
+U bucket_index 2 0
+U unit_magnitude 2 0
+X
+X
+D counts_index 0 0
+E
+U int32_t 1 0
+D h 1 0
+D bucket_index 1 0
+U int32_t 1 0
+D sub_bucket_index 1 0
+U int32_t 1 0
+E
+D bucket_base_index 2 0
+U int32_t 2 0
+U bucket_index 2 0
+U h 2 0
+D offset_in_bucket 2 0
+U int32_t 2 0
+U sub_bucket_index 2 0
+U h 2 0
+U bucket_base_index 2 0
+U offset_in_bucket 2 0
+X
+X
+D value_from_index 0 0
+E
+U int64_t 1 0
+D bucket_index 1 0
+U int32_t 1 0
+D sub_bucket_index 1 0
+U int32_t 1 0
+D unit_magnitude 1 0
+U int32_t 1 0
+E
+U int64_t 2 0
+U sub_bucket_index 2 0
+U bucket_index 2 0
+U unit_magnitude 2 0
+X
+X
+D counts_index_for 0 0
+E
+U int32_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+D bucket_index 2 0
+U int32_t 2 0
+U get_bucket_index 2 0
+U h 2 0
+U value 2 0
+D sub_bucket_index 2 0
+U int32_t 2 0
+U get_sub_bucket_index 2 0
+U value 2 0
+U bucket_index 2 0
+U h 2 0
+U counts_index 2 0
+U h 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+X
+X
+D hdr_value_at_index 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+E
+D bucket_index 2 0
+U int32_t 2 0
+U index 2 0
+U h 2 0
+D sub_bucket_index 2 0
+U int32_t 2 0
+U index 2 0
+U h 2 0
+U h 2 0
+U bucket_index 2 0
+E
+U sub_bucket_index 3 0
+U h 3 0
+U bucket_index 3 0
+X
+U value_from_index 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+U h 2 0
+X
+X
+D hdr_size_of_equivalent_value_range 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+D bucket_index 2 0
+U int32_t 2 0
+U get_bucket_index 2 0
+U h 2 0
+U value 2 0
+D sub_bucket_index 2 0
+U int32_t 2 0
+U get_sub_bucket_index 2 0
+U value 2 0
+U bucket_index 2 0
+U h 2 0
+D adjusted_bucket 2 0
+U int32_t 2 0
+U sub_bucket_index 2 0
+U h 2 0
+U bucket_index 2 0
+U bucket_index 2 0
+U h 2 0
+U adjusted_bucket 2 0
+X
+X
+D size_of_equivalent_value_range_given_bucket_indices 0 0
+E
+U int64_t 1 0
+D h 1 0
+D bucket_index 1 0
+U int32_t 1 0
+D sub_bucket_index 1 0
+U int32_t 1 0
+E
+D adjusted_bucket 2 0
+U int32_t 2 0
+U sub_bucket_index 2 0
+U h 2 0
+U bucket_index 2 0
+U bucket_index 2 0
+U h 2 0
+U adjusted_bucket 2 0
+X
+X
+D lowest_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+D bucket_index 2 0
+U int32_t 2 0
+U get_bucket_index 2 0
+U h 2 0
+U value 2 0
+D sub_bucket_index 2 0
+U int32_t 2 0
+U get_sub_bucket_index 2 0
+U value 2 0
+U bucket_index 2 0
+U h 2 0
+U value_from_index 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+U h 2 0
+X
+X
+D lowest_equivalent_value_given_bucket_indices 0 0
+E
+U int64_t 1 0
+D h 1 0
+D bucket_index 1 0
+U int32_t 1 0
+D sub_bucket_index 1 0
+U int32_t 1 0
+E
+U value_from_index 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+U h 2 0
+X
+X
+D hdr_next_non_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U lowest_equivalent_value 2 0
+U h 2 0
+U value 2 0
+U hdr_size_of_equivalent_value_range 2 0
+U h 2 0
+U value 2 0
+X
+X
+D highest_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U hdr_next_non_equivalent_value 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_median_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U lowest_equivalent_value 2 0
+U h 2 0
+U value 2 0
+U hdr_size_of_equivalent_value_range 2 0
+U h 2 0
+U value 2 0
+X
+X
+D non_zero_min 0 0
+E
+U int64_t 1 0
+D h 1 0
+E
+U h 2 0
+E
+X
+U lowest_equivalent_value 2 0
+U h 2 0
+U h 2 0
+X
+X
+D hdr_reset_internal_counters 0 0
+E
+D h 1 0
+E
+D min_non_zero_index 2 0
+D max_index 2 0
+D observed_total_count 2 0
+U int64_t 2 0
+D i 2 0
+E
+U i 3 0
+U i 3 0
+U h 3 0
+U i 3 0
+E
+D count_at_index 4 0
+U int64_t 4 0
+U count_at_index 4 0
+U counts_get_direct 4 0
+U h 4 0
+U i 4 0
+E
+U observed_total_count 5 0
+U count_at_index 5 0
+U max_index 5 0
+U i 5 0
+U min_non_zero_index 5 0
+U i 5 0
+E
+U min_non_zero_index 6 0
+U i 6 0
+X
+X
+X
+X
+U max_index 2 0
+E
+U h 3 0
+X
+E
+D max_value 3 0
+U int64_t 3 0
+U hdr_value_at_index 3 0
+U h 3 0
+U max_index 3 0
+U h 3 0
+U highest_equivalent_value 3 0
+U h 3 0
+U max_value 3 0
+X
+U min_non_zero_index 2 0
+E
+U h 3 0
+X
+E
+U h 3 0
+U hdr_value_at_index 3 0
+U h 3 0
+U min_non_zero_index 3 0
+X
+U h 2 0
+U observed_total_count 2 0
+X
+X
+D buckets_needed_to_cover_value 0 0
+E
+U int32_t 1 0
+D value 1 0
+U int64_t 1 0
+D sub_bucket_count 1 0
+U int32_t 1 0
+D unit_magnitude 1 0
+U int32_t 1 0
+E
+D smallest_untrackable_value 2 0
+U int64_t 2 0
+U int64_t 2 0
+U sub_bucket_count 2 0
+U unit_magnitude 2 0
+D buckets_needed 2 0
+U int32_t 2 0
+U smallest_untrackable_value 2 0
+U value 2 0
+E
+U smallest_untrackable_value 3 0
+E
+U buckets_needed 4 0
+X
+U smallest_untrackable_value 3 0
+U buckets_needed 3 0
+X
+U buckets_needed 2 0
+X
+X
+D hdr_calculate_bucket_config 0 0
+E
+D lowest_discernible_value 1 0
+U int64_t 1 0
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D cfg 1 0
+E
+D sub_bucket_count_magnitude 2 0
+U int32_t 2 0
+D largest_value_with_single_unit_resolution 2 0
+U int64_t 2 0
+U lowest_discernible_value 2 0
+U significant_figures 2 0
+U significant_figures 2 0
+U lowest_discernible_value 2 0
+U highest_trackable_value 2 0
+E
+X
+U cfg 2 0
+U lowest_discernible_value 2 0
+U cfg 2 0
+U significant_figures 2 0
+U cfg 2 0
+U highest_trackable_value 2 0
+U largest_value_with_single_unit_resolution 2 0
+U power 2 0
+U significant_figures 2 0
+U sub_bucket_count_magnitude 2 0
+U int32_t 2 0
+U ceil 2 0
+U log 2 0
+U largest_value_with_single_unit_resolution 2 0
+U log 2 0
+U cfg 2 0
+U sub_bucket_count_magnitude 2 0
+U sub_bucket_count_magnitude 2 0
+D unit_magnitude 2 0
+U log 2 0
+U lowest_discernible_value 2 0
+U log 2 0
+U unit_magnitude 2 0
+E
+X
+U cfg 2 0
+U int32_t 2 0
+U unit_magnitude 2 0
+U cfg 2 0
+U int32_t 2 0
+U pow 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+U int64_t 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+E
+X
+U cfg 2 0
+U buckets_needed_to_cover_value 2 0
+U highest_trackable_value 2 0
+U cfg 2 0
+U int32_t 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+U cfg 2 0
+X
+X
+D hdr_init_preallocated 0 0
+E
+D h 1 0
+D cfg 1 0
+E
+U h 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U int32_t 2 0
+U cfg 2 0
+U h 2 0
+U int32_t 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U h 2 0
+U h 2 0
+U h 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+U cfg 2 0
+U h 2 0
+X
+X
+D hdr_init 0 0
+E
+D lowest_discernible_value 1 0
+U int64_t 1 0
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D result 1 0
+E
+D counts 2 0
+U int64_t 2 0
+D cfg 2 0
+D histogram 2 0
+D r 2 0
+U hdr_calculate_bucket_config 2 0
+U lowest_discernible_value 2 0
+U highest_trackable_value 2 0
+U significant_figures 2 0
+U cfg 2 0
+U r 2 0
+E
+U r 3 0
+X
+U counts 2 0
+U int64_t 2 0
+U hdr_calloc 2 0
+U size_t 2 0
+U cfg 2 0
+U int64_t 2 0
+U counts 2 0
+E
+X
+U histogram 2 0
+U hdr_calloc 2 0
+U histogram 2 0
+E
+U hdr_free 3 0
+U counts 3 0
+X
+U histogram 2 0
+U counts 2 0
+U hdr_init_preallocated 2 0
+U histogram 2 0
+U cfg 2 0
+U result 2 0
+U histogram 2 0
+X
+X
+D hdr_close 0 0
+E
+D h 1 0
+E
+U h 2 0
+E
+U hdr_free 3 0
+U h 3 0
+U hdr_free 3 0
+U h 3 0
+X
+X
+X
+D hdr_alloc 0 0
+E
+D highest_trackable_value 1 0
+U int64_t 1 0
+D significant_figures 1 0
+D result 1 0
+E
+U hdr_init 2 0
+U highest_trackable_value 2 0
+U significant_figures 2 0
+U result 2 0
+X
+X
+D hdr_reset 0 0
+E
+D h 1 0
+E
+U h 2 0
+U h 2 0
+U h 2 0
+U memset 2 0
+U h 2 0
+U int64_t 2 0
+U h 2 0
+X
+X
+D hdr_get_memory_size 0 0
+E
+U size_t 1 0
+D h 1 0
+E
+U h 2 0
+U int64_t 2 0
+X
+X
+D hdr_record_value 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U hdr_record_values 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_record_value_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U hdr_record_values_atomic 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_record_values 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+E
+D counts_index 2 0
+U int32_t 2 0
+U value 2 0
+E
+X
+U counts_index 2 0
+U counts_index_for 2 0
+U h 2 0
+U value 2 0
+U counts_index 2 0
+U h 2 0
+U counts_index 2 0
+E
+X
+U counts_inc_normalised 2 0
+U h 2 0
+U counts_index 2 0
+U count 2 0
+U update_min_max 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_record_values_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+E
+D counts_index 2 0
+U int32_t 2 0
+U value 2 0
+E
+X
+U counts_index 2 0
+U counts_index_for 2 0
+U h 2 0
+U value 2 0
+U counts_index 2 0
+U h 2 0
+U counts_index 2 0
+E
+X
+U counts_inc_normalised_atomic 2 0
+U h 2 0
+U counts_index 2 0
+U count 2 0
+U update_min_max_atomic 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_record_corrected_value 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+E
+U hdr_record_corrected_values 2 0
+U h 2 0
+U value 2 0
+U expected_interval 2 0
+X
+X
+D hdr_record_corrected_value_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+E
+U hdr_record_corrected_values_atomic 2 0
+U h 2 0
+U value 2 0
+U expected_interval 2 0
+X
+X
+D hdr_record_corrected_values 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+E
+D missing_value 2 0
+U int64_t 2 0
+U hdr_record_values 2 0
+U h 2 0
+U value 2 0
+U count 2 0
+E
+X
+U expected_interval 2 0
+U value 2 0
+U expected_interval 2 0
+E
+X
+U missing_value 2 0
+U value 2 0
+U expected_interval 2 0
+E
+U missing_value 3 0
+U expected_interval 3 0
+U missing_value 3 0
+U expected_interval 3 0
+E
+U hdr_record_values 4 0
+U h 4 0
+U missing_value 4 0
+U count 4 0
+E
+X
+X
+X
+X
+X
+D hdr_record_corrected_values_atomic 0 0
+E
+D h 1 0
+D value 1 0
+U int64_t 1 0
+D count 1 0
+U int64_t 1 0
+D expected_interval 1 0
+U int64_t 1 0
+E
+D missing_value 2 0
+U int64_t 2 0
+U hdr_record_values_atomic 2 0
+U h 2 0
+U value 2 0
+U count 2 0
+E
+X
+U expected_interval 2 0
+U value 2 0
+U expected_interval 2 0
+E
+X
+U missing_value 2 0
+U value 2 0
+U expected_interval 2 0
+E
+U missing_value 3 0
+U expected_interval 3 0
+U missing_value 3 0
+U expected_interval 3 0
+E
+U hdr_record_values_atomic 4 0
+U h 4 0
+U missing_value 4 0
+U count 4 0
+E
+X
+X
+X
+X
+X
+D hdr_add 0 0
+E
+U int64_t 1 0
+D h 1 0
+D from 1 0
+E
+D iter 2 0
+D dropped 2 0
+U int64_t 2 0
+U hdr_iter_recorded_init 2 0
+U iter 2 0
+U from 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+E
+D value 3 0
+U int64_t 3 0
+U iter 3 0
+D count 3 0
+U int64_t 3 0
+U iter 3 0
+U hdr_record_values 3 0
+U h 3 0
+U value 3 0
+U count 3 0
+E
+U dropped 4 0
+U count 4 0
+X
+X
+U dropped 2 0
+X
+X
+D hdr_add_while_correcting_for_coordinated_omission 0 0
+E
+U int64_t 1 0
+D h 1 0
+D from 1 0
+D expected_interval 1 0
+U int64_t 1 0
+E
+D iter 2 0
+D dropped 2 0
+U int64_t 2 0
+U hdr_iter_recorded_init 2 0
+U iter 2 0
+U from 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+E
+D value 3 0
+U int64_t 3 0
+U iter 3 0
+D count 3 0
+U int64_t 3 0
+U iter 3 0
+U hdr_record_corrected_values 3 0
+U h 3 0
+U value 3 0
+U count 3 0
+U expected_interval 3 0
+E
+U dropped 4 0
+U count 4 0
+X
+X
+U dropped 2 0
+X
+X
+D hdr_max 0 0
+E
+U int64_t 1 0
+D h 1 0
+E
+U h 2 0
+E
+X
+U highest_equivalent_value 2 0
+U h 2 0
+U h 2 0
+X
+X
+D hdr_min 0 0
+E
+U int64_t 1 0
+D h 1 0
+E
+U hdr_count_at_index 2 0
+U h 2 0
+E
+X
+U non_zero_min 2 0
+U h 2 0
+X
+X
+D get_value_from_idx_up_to_count 0 0
+E
+U int64_t 1 0
+D h 1 0
+D count_at_percentile 1 0
+U int64_t 1 0
+E
+D count_to_idx 2 0
+U int64_t 2 0
+U count_at_percentile 2 0
+U count_at_percentile 2 0
+U count_at_percentile 2 0
+E
+D idx 3 0
+U int32_t 3 0
+U idx 3 0
+U h 3 0
+U idx 3 0
+E
+U count_to_idx 4 0
+U h 4 0
+U idx 4 0
+U count_to_idx 4 0
+U count_at_percentile 4 0
+E
+U hdr_value_at_index 5 0
+U h 5 0
+U idx 5 0
+X
+X
+X
+X
+X
+D hdr_value_at_percentile 0 0
+E
+U int64_t 1 0
+D h 1 0
+D percentile 1 0
+E
+D requested_percentile 2 0
+U percentile 2 0
+U percentile 2 0
+D count_at_percentile 2 0
+U int64_t 2 0
+U int64_t 2 0
+U requested_percentile 2 0
+U h 2 0
+D value_from_idx 2 0
+U int64_t 2 0
+U get_value_from_idx_up_to_count 2 0
+U h 2 0
+U count_at_percentile 2 0
+U percentile 2 0
+E
+U lowest_equivalent_value 3 0
+U h 3 0
+U value_from_idx 3 0
+X
+U highest_equivalent_value 2 0
+U h 2 0
+U value_from_idx 2 0
+X
+X
+D hdr_value_at_percentiles 0 0
+E
+D h 1 0
+D percentiles 1 0
+D values 1 0
+U int64_t 1 0
+D length 1 0
+U size_t 1 0
+E
+U percentiles 2 0
+U values 2 0
+E
+X
+D iter 2 0
+D total_count 2 0
+U int64_t 2 0
+U h 2 0
+E
+D i 3 0
+U size_t 3 0
+U i 3 0
+U length 3 0
+U i 3 0
+E
+D requested_percentile 4 0
+U percentiles 4 0
+U i 4 0
+U percentiles 4 0
+U i 4 0
+D count_at_percentile 4 0
+U int64_t 4 0
+U int64_t 4 0
+U requested_percentile 4 0
+U total_count 4 0
+U values 4 0
+U i 4 0
+U count_at_percentile 4 0
+U count_at_percentile 4 0
+X
+X
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+D total 2 0
+U int64_t 2 0
+D at_pos 2 0
+U size_t 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+U at_pos 2 0
+U length 2 0
+E
+U total 3 0
+U iter 3 0
+U at_pos 3 0
+U length 3 0
+U total 3 0
+U values 3 0
+U at_pos 3 0
+E
+U values 4 0
+U at_pos 4 0
+U highest_equivalent_value 4 0
+U h 4 0
+U iter 4 0
+U at_pos 4 0
+X
+X
+X
+X
+D hdr_mean 0 0
+E
+D h 1 0
+E
+D iter 2 0
+D total 2 0
+U int64_t 2 0
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+E
+U iter 3 0
+E
+U total 4 0
+U iter 4 0
+U hdr_median_equivalent_value 4 0
+U h 4 0
+U iter 4 0
+X
+X
+U total 2 0
+U h 2 0
+X
+X
+D hdr_stddev 0 0
+E
+D h 1 0
+E
+D mean 2 0
+U hdr_mean 2 0
+U h 2 0
+D geometric_dev_total 2 0
+D iter 2 0
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+E
+U iter 3 0
+E
+D dev 4 0
+U hdr_median_equivalent_value 4 0
+U h 4 0
+U iter 4 0
+U mean 4 0
+U geometric_dev_total 4 0
+U dev 4 0
+U dev 4 0
+U iter 4 0
+X
+X
+U sqrt 2 0
+U geometric_dev_total 2 0
+U h 2 0
+X
+X
+D hdr_values_are_equivalent 0 0
+E
+D h 1 0
+D a 1 0
+U int64_t 1 0
+D b 1 0
+U int64_t 1 0
+E
+U lowest_equivalent_value 2 0
+U h 2 0
+U a 2 0
+U lowest_equivalent_value 2 0
+U h 2 0
+U b 2 0
+X
+X
+D hdr_lowest_equivalent_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U lowest_equivalent_value 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_count_at_value 0 0
+E
+U int64_t 1 0
+D h 1 0
+D value 1 0
+U int64_t 1 0
+E
+U counts_get_normalised 2 0
+U h 2 0
+U counts_index_for 2 0
+U h 2 0
+U value 2 0
+X
+X
+D hdr_count_at_index 0 0
+E
+U int64_t 1 0
+D h 1 0
+D index 1 0
+U int32_t 1 0
+E
+U counts_get_normalised 2 0
+U h 2 0
+U index 2 0
+X
+X
+D has_buckets 0 0
+E
+D iter 1 0
+E
+U iter 2 0
+U iter 2 0
+X
+X
+D has_next 0 0
+E
+D iter 1 0
+E
+U iter 2 0
+U iter 2 0
+X
+X
+D move_next 0 0
+E
+D iter 1 0
+E
+U iter 2 0
+U has_buckets 2 0
+U iter 2 0
+E
+X
+U iter 2 0
+U counts_get_normalised 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+D value 2 0
+U int64_t 2 0
+U hdr_value_at_index 2 0
+U iter 2 0
+U iter 2 0
+D bucket_index 2 0
+U int32_t 2 0
+U get_bucket_index 2 0
+U iter 2 0
+U value 2 0
+D sub_bucket_index 2 0
+U int32_t 2 0
+U get_sub_bucket_index 2 0
+U value 2 0
+U bucket_index 2 0
+U iter 2 0
+D leq 2 0
+U int64_t 2 0
+U lowest_equivalent_value_given_bucket_indices 2 0
+U iter 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+D size_of_equivalent_value_range 2 0
+U int64_t 2 0
+U size_of_equivalent_value_range_given_bucket_indices 2 0
+U iter 2 0
+U bucket_index 2 0
+U sub_bucket_index 2 0
+U iter 2 0
+U leq 2 0
+U iter 2 0
+U value 2 0
+U iter 2 0
+U leq 2 0
+U size_of_equivalent_value_range 2 0
+U iter 2 0
+U leq 2 0
+U size_of_equivalent_value_range 2 0
+X
+X
+D peek_next_value_from_index 0 0
+E
+U int64_t 1 0
+D iter 1 0
+E
+U hdr_value_at_index 2 0
+U iter 2 0
+U iter 2 0
+X
+X
+D next_value_greater_than_reporting_level_upper_bound 0 0
+E
+D iter 1 0
+D reporting_level_upper_bound 1 0
+U int64_t 1 0
+E
+U iter 2 0
+U iter 2 0
+E
+X
+U peek_next_value_from_index 2 0
+U iter 2 0
+U reporting_level_upper_bound 2 0
+X
+X
+D basic_iter_next 0 0
+E
+D iter 1 0
+E
+U has_next 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+E
+X
+U move_next 2 0
+U iter 2 0
+X
+X
+D update_iterated_values 0 0
+E
+D iter 1 0
+D new_value_iterated_to 1 0
+U int64_t 1 0
+E
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U new_value_iterated_to 2 0
+X
+X
+D all_values_iter_next 0 0
+E
+D iter 1 0
+E
+D result 2 0
+U move_next 2 0
+U iter 2 0
+U result 2 0
+E
+U update_iterated_values 3 0
+U iter 3 0
+U iter 3 0
+X
+U result 2 0
+X
+X
+D hdr_iter_init 0 0
+E
+D iter 1 0
+D h 1 0
+E
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U all_values_iter_next 2 0
+X
+X
+D hdr_iter_next 0 0
+E
+D iter 1 0
+E
+U iter 2 0
+U iter 2 0
+X
+X
+D percentile_iter_next 0 0
+E
+D iter 1 0
+E
+D temp 2 0
+U int64_t 2 0
+D half_distance 2 0
+U int64_t 2 0
+D percentile_reporting_ticks 2 0
+U int64_t 2 0
+D percentiles 2 0
+U iter 2 0
+U has_next 2 0
+U iter 2 0
+E
+U percentiles 3 0
+E
+X
+U percentiles 3 0
+U percentiles 3 0
+X
+U iter 2 0
+U basic_iter_next 2 0
+U iter 2 0
+E
+X
+E
+D current_percentile 3 0
+U iter 3 0
+U iter 3 0
+U iter 3 0
+U percentiles 3 0
+U current_percentile 3 0
+E
+U update_iterated_values 4 0
+U iter 4 0
+U highest_equivalent_value 4 0
+U iter 4 0
+U iter 4 0
+U percentiles 4 0
+U percentiles 4 0
+U temp 4 0
+U int64_t 4 0
+U log 4 0
+U percentiles 4 0
+U log 4 0
+U half_distance 4 0
+U int64_t 4 0
+U pow 4 0
+U temp 4 0
+U percentile_reporting_ticks 4 0
+U percentiles 4 0
+U half_distance 4 0
+U percentiles 4 0
+U percentile_reporting_ticks 4 0
+X
+X
+U basic_iter_next 2 0
+U iter 2 0
+X
+X
+D hdr_iter_percentile_init 0 0
+E
+D iter 1 0
+D h 1 0
+D ticks_per_half_distance 1 0
+U int32_t 1 0
+E
+U iter 2 0
+U h 2 0
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U ticks_per_half_distance 2 0
+U iter 2 0
+U iter 2 0
+U iter 2 0
+U percentile_iter_next 2 0
+X
+X
+D format_line_string 0 0
+E
+D str 1 0
+D len 1 0
+U size_t 1 0
+D significant_figures 1 0
+D format 1 0
+U format_type 1 0
+E
+D format_str 2 0
+U format 2 0
+E
+U CSV 3 0
+U snprintf 3 0
+U str 3 0
+U len 3 0
+U format_str 3 0
+U significant_figures 3 0
+U CLASSIC 3 0
+U snprintf 3 0
+U str 3 0
+U len 3 0
+U format_str 3 0
+U significant_figures 3 0
+U snprintf 3 0
+U str 3 0
+U len 3 0
+U format_str 3 0
+U significant_figures 3 0
+X
+X
+X
+D recorded_iter_next 0 0
+E
+D iter 1 0
+E
+U basic_iter_next 2 0
+U iter 2 0
+E
+U iter 3 0
+E
+U update_iterated_values 4 0
+U iter 4 0
+U iter 4 0
+U iter 4 0
+U iter 4 0
+X
+X
+X
+X
+D hdr_iter_recorded_init 0 0
+E
+D iter 1 0
+D h 1 0
+E
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U recorded_iter_next 2 0
+X
+X
+D iter_linear_next 0 0
+E
+D iter 1 0
+E
+D linear 2 0
+U iter 2 0
+U linear 2 0
+U has_next 2 0
+U iter 2 0
+U next_value_greater_than_reporting_level_upper_bound 2 0
+U iter 2 0
+U linear 2 0
+E
+E
+U iter 4 0
+U linear 4 0
+E
+U update_iterated_values 5 0
+U iter 5 0
+U linear 5 0
+U linear 5 0
+U linear 5 0
+U linear 5 0
+U lowest_equivalent_value 5 0
+U iter 5 0
+U linear 5 0
+X
+U move_next 4 0
+U iter 4 0
+E
+X
+U linear 4 0
+U iter 4 0
+X
+X
+X
+X
+D hdr_iter_linear_init 0 0
+E
+D iter 1 0
+D h 1 0
+D value_units_per_bucket 1 0
+U int64_t 1 0
+E
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U value_units_per_bucket 2 0
+U iter 2 0
+U value_units_per_bucket 2 0
+U iter 2 0
+U lowest_equivalent_value 2 0
+U h 2 0
+U value_units_per_bucket 2 0
+U iter 2 0
+U iter_linear_next 2 0
+X
+X
+D hdr_iter_linear_set_value_units_per_bucket 0 0
+E
+D iter 1 0
+D value_units_per_bucket 1 0
+U int64_t 1 0
+E
+U iter 2 0
+U value_units_per_bucket 2 0
+X
+X
+D log_iter_next 0 0
+E
+D iter 1 0
+E
+D logarithmic 2 0
+U iter 2 0
+U logarithmic 2 0
+U has_next 2 0
+U iter 2 0
+U next_value_greater_than_reporting_level_upper_bound 2 0
+U iter 2 0
+U logarithmic 2 0
+E
+E
+U iter 4 0
+U logarithmic 4 0
+E
+U update_iterated_values 5 0
+U iter 5 0
+U logarithmic 5 0
+U logarithmic 5 0
+U int64_t 5 0
+U logarithmic 5 0
+U logarithmic 5 0
+U lowest_equivalent_value 5 0
+U iter 5 0
+U logarithmic 5 0
+X
+U move_next 4 0
+U iter 4 0
+E
+X
+U logarithmic 4 0
+U iter 4 0
+X
+X
+X
+X
+D hdr_iter_log_init 0 0
+E
+D iter 1 0
+D h 1 0
+D value_units_first_bucket 1 0
+U int64_t 1 0
+D log_base 1 0
+E
+U hdr_iter_init 2 0
+U iter 2 0
+U h 2 0
+U iter 2 0
+U iter 2 0
+U log_base 2 0
+U iter 2 0
+U value_units_first_bucket 2 0
+U iter 2 0
+U lowest_equivalent_value 2 0
+U h 2 0
+U value_units_first_bucket 2 0
+U iter 2 0
+U log_iter_next 2 0
+X
+X
+D format_head_string 0 0
+E
+D format 1 0
+U format_type 1 0
+E
+U format 2 0
+E
+U CSV 3 0
+U CLASSIC 3 0
+X
+X
+X
+D CLASSIC_FOOTER 0 0
+D hdr_percentiles_print 0 0
+E
+D h 1 0
+D stream 1 0
+U FILE 1 0
+D ticks_per_half_distance 1 0
+U int32_t 1 0
+D value_scale 1 0
+D format 1 0
+U format_type 1 0
+E
+D line_format 2 0
+D head_format 2 0
+D rc 2 0
+D iter 2 0
+D percentiles 2 0
+U format_line_string 2 0
+U line_format 2 0
+U h 2 0
+U format 2 0
+U head_format 2 0
+U format_head_string 2 0
+U format 2 0
+U hdr_iter_percentile_init 2 0
+U iter 2 0
+U h 2 0
+U ticks_per_half_distance 2 0
+U fprintf 2 0
+U stream 2 0
+U head_format 2 0
+E
+U rc 3 0
+X
+U percentiles 2 0
+U iter 2 0
+U hdr_iter_next 2 0
+U iter 2 0
+E
+D value 3 0
+U iter 3 0
+U value_scale 3 0
+D percentile 3 0
+U percentiles 3 0
+D total_count 3 0
+U int64_t 3 0
+U iter 3 0
+D inverted_percentile 3 0
+U percentile 3 0
+U fprintf 3 0
+U stream 3 0
+U line_format 3 0
+U value 3 0
+U percentile 3 0
+U total_count 3 0
+U inverted_percentile 3 0
+E
+U rc 4 0
+X
+X
+U CLASSIC 2 0
+U format 2 0
+E
+D mean 3 0
+U hdr_mean 3 0
+U h 3 0
+U value_scale 3 0
+D stddev 3 0
+U hdr_stddev 3 0
+U h 3 0
+U value_scale 3 0
+D max 3 0
+U hdr_max 3 0
+U h 3 0
+U value_scale 3 0
+U fprintf 3 0
+U stream 3 0
+U CLASSIC_FOOTER 3 0
+U mean 3 0
+U stddev 3 0
+U max 3 0
+U h 3 0
+U h 3 0
+U h 3 0
+E
+U rc 4 0
+X
+X
+U rc 2 0
+X
+X

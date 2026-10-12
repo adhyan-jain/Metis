@@ -1,0 +1,110 @@
+{
+ "hello_world_mps2": {
+  "symtab_entries": 157,
+  "unique_eligible_starts": 157,
+  "exidx_section_bytes": 16,
+  "exidx_entries": 2,
+  "exidx_entries_hex": [
+   [
+    "0x0",
+    "0x1"
+   ],
+   [
+    "0x3098",
+    "0x1"
+   ]
+  ],
+  "covered": 0,
+  "coverage_pct": 0.0,
+  "exidx_entries_without_symbol": 2,
+  "eligible_missing_from_exidx": 157,
+  "no_symtab_image_exidx_bytes": 16,
+  "metis_b1_address_bytes": 183,
+  "b1_addr_stream": 153,
+  "b1_addr_directory": 30,
+  "b1_payload": 1733,
+  "b1_whole_image": 17576,
+  "exidx_if_all_functions_8B": 1256
+ },
+ "shell_module_mps2": {
+  "symtab_entries": 556,
+  "unique_eligible_starts": 556,
+  "exidx_section_bytes": 16,
+  "exidx_entries": 2,
+  "exidx_entries_hex": [
+   [
+    "0x0",
+    "0x1"
+   ],
+   [
+    "0xe6e0",
+    "0x1"
+   ]
+  ],
+  "covered": 0,
+  "coverage_pct": 0.0,
+  "exidx_entries_without_symbol": 2,
+  "eligible_missing_from_exidx": 556,
+  "no_symtab_image_exidx_bytes": 16,
+  "metis_b1_address_bytes": 707,
+  "b1_addr_stream": 567,
+  "b1_addr_directory": 140,
+  "b1_payload": 5826,
+  "b1_whole_image": 80664,
+  "exidx_if_all_functions_8B": 4448
+ },
+ "echo_server_mps2": {
+  "symtab_entries": 1380,
+  "unique_eligible_starts": 1380,
+  "exidx_section_bytes": 16,
+  "exidx_entries": 2,
+  "exidx_entries_hex": [
+   [
+    "0x0",
+    "0x1"
+   ],
+   [
+    "0x30466",
+    "0x1"
+   ]
+  ],
+  "covered": 0,
+  "coverage_pct": 0.0,
+  "exidx_entries_without_symbol": 2,
+  "eligible_missing_from_exidx": 1380,
+  "no_symtab_image_exidx_bytes": 16,
+  "metis_b1_address_bytes": 1921,
+  "b1_addr_stream": 1486,
+  "b1_addr_directory": 435,
+  "b1_payload": 14433,
+  "b1_whole_image": 269808,
+  "exidx_if_all_functions_8B": 11040
+ },
+ "hello_world_nrf52840": {
+  "symtab_entries": 225,
+  "unique_eligible_starts": 225,
+  "exidx_section_bytes": 16,
+  "exidx_entries": 2,
+  "exidx_entries_hex": [
+   [
+    "0x0",
+    "0x1"
+   ],
+   [
+    "0x53b8",
+    "0x1"
+   ]
+  ],
+  "covered": 0,
+  "coverage_pct": 0.0,
+  "exidx_entries_without_symbol": 2,
+  "eligible_missing_from_exidx": 225,
+  "no_symtab_image_exidx_bytes": 16,
+  "metis_b1_address_bytes": 275,
+  "b1_addr_stream": 230,
+  "b1_addr_directory": 45,
+  "b1_payload": 2422,
+  "b1_whole_image": 27084,
+  "exidx_if_all_functions_8B": 1800
+ }
+}

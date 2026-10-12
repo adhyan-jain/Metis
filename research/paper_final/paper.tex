@@ -1,0 +1,78 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs,graphicx,amsmath,hyperref,microtype}
+\usepackage[table]{xcolor}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\title{\textbf{Anatomy of Runtime Symbolization Cost in Zephyr Firmware:\\
+A Pre-Registered Decomposition and Its Negative Outcome}}
+\author{Author list not assigned (see Section~\ref{sec:disc})}
+\date{Technical report --- unpublished, not peer reviewed}
+\begin{document}
+\twocolumn[
+\maketitle
+\begin{abstract}
+\noindent Zephyr's \texttt{CONFIG\_SYMTAB} embeds a table of function addresses and name pointers so that fault handlers can print symbol names. Compact encodings of such tables (relative offsets, delta blocks, dictionary or front-coded names) are known from Linux \texttt{kallsyms} and from string compressors such as FSST. We ask a decomposition question: of the flash saved by a compact symbol table over the best existing scheme, how much comes from the \emph{address index} representation and how much from \emph{name coding}, once baselines receive the same compact address index? We froze a protocol with gates (G1--G5) and termination rules (T1--T3), with SHA-256 hashes, before measuring. We relinked ten existing Zephyr sample applications (six Cortex-M3, four RV32; 137--2{,}337 symbols; GCC 14.3) to a fixed point under 14 symbol-table schemes, and validated decoders against an oracle on the host and in QEMU. Compact schemes save 1.7--3.1\% of the flash image (408~B--8.4~KB) over the best existing scheme; about 71\% of that is attributable to the address index (pooled, exploratory metric). After equalizing the address index, the front-coded dictionary adds 0.4--0.8\% for $N\ge 710$ and none at $N=137$. \textbf{The pre-registered gates were not met}: the 70\%-share gate (G1) and the FSST-within-1\% gate (G3) failed, one baseline failed to reach a fixed point on one workload (T3), and the effect sizes sit at the thresholds. We therefore report a negative, observational result and make no claim of a successful contribution. Measurements are flash sizes only; no timing or energy claims are made.
+\end{abstract}
+\vspace{1em}
+]
+
+\section{Introduction}
+Firmware images that can print symbolized backtraces must carry a symbol table. Zephyr's stock table stores, per function, a 32-bit offset and a name pointer, searched by binary search~\cite{zephyrsymtab}. Linux reduced its analogous table using relative offsets~\cite{biesheuvel2016kallsyms} and has seen proposals for delta-compressed tables~\cite{levin2026lineinfo}; FSST~\cite{boncz2020fsst} is a general short-string compressor with random access. Partitioned Elias--Fano~\cite{ottaviano2014pef} is related prior work on compressed monotone sequences (not used in our experiments).
+
+A compact table changes two things at once: how \emph{addresses} are indexed and how \emph{names} are stored. Reporting only the total saving conflates them, and comparing against a baseline lacking the compact address index overstates the value of name coding. This report isolates the two effects with controls, under a protocol frozen before measurement.
+
+\section{Method}
+\paragraph{Schemes.} 14 arms per workload: existing (KALL256, KALL16, CAND\_DIRECT, CAND\_CP16), address-hardened controls (B1/B2 delta blocks $\times$ pair-token or kallsyms-token names), raw 32-bit address controls, the front-coded dictionary (\texttt{B1\_B16\_FC16}, \texttt{B2\_B16\_FC16}), a reference FSST arm (\texttt{B1\_B16\_FSST}), the stock Zephyr table, and no table.
+\paragraph{Fixed-point relinking.} The table contents depend on addresses, which depend on table size. For each arm we encode the manifest of ELF$_{k-1}$, relink with the build's own link command, re-extract the manifest, and stop when equal (max.\ 8 iterations).
+\paragraph{Metrics.} Image size $=$ flat binary (\texttt{objcopy --gap-fill 0xFF}). With $E$ the best existing arm, $H$ the best hardened control, $P$ the proposed arm: $S_\mathrm{tot}=E-P$, $S_\mathrm{addr}=E-H$, share $=S_\mathrm{addr}/S_\mathrm{tot}$, residual $g=(H-P)/H$.
+\paragraph{Gates.} G1: share $\ge70\%$ on $\ge75\%$ of workloads. G2: $g\le1\%$ on $\ge75\%$. G3: FSST within 1\% of $P$ for $N>1000$. G4: zero decoder mismatches. G5: valid baseline and link checks. Terminate if T1 ($g>1\%$ on half the workloads), T2 (share $<50\%$) or T3 (a required arm fails to reach a fixed point).
+\paragraph{Validation.} Every configuration's decoder was checked against an oracle on host-compiled C; 8 configurations were also run on target in QEMU (Cortex-M3 \texttt{mps2-an385}, RV32 \texttt{virt}) via a self-test hashing every lookup result.
+\paragraph{Workloads.} Selected by a deterministic rule from a feasibility sweep (59 ARM samples built, $N$ up to 2{,}337) \emph{before} any size result was seen; the RV32 sweep was truncated at 20 samples for time. Frozen protocol: \texttt{GAP\_FILL\_PROTOCOL.md}.
+
+\section{Preliminary Measurement Blockers}
+\textbf{A.} A historical baseline reported a 21.5~MB final heap, another 1.65~MB, on the same trace. Replay shows two different classes share one name, and one harness additionally keeps a 20.2~MB unique-name set inside the measured scope. Neither is a defensible baseline, so all earlier memory comparisons are excluded here.
+\textbf{B.} Earlier ``stock'' images were only 264~B above no-table images because the harness never linked the generated table, only a 16-byte stub. The new harness reads the linked table back from the ELF and requires entry-by-entry equality (10/10 workloads).
+
+\section{Results}
+Table~\ref{tab:main} gives per-workload sizes under the exploratory metric (sum of allocated PROGBITS section sizes). The frozen flat-binary metric quantizes RV32 images in exact 4096-B steps, which distorts small differences there; we kept the frozen metric as primary and added the exploratory metric, labelled as such.
+
+\begin{table*}[t]\centering\small\setlength{\tabcolsep}{4pt}
+\input{results/analysis_exploratory/per_workload_table.tex}
+\caption{Bytes of flash image per scheme class (exploratory metric). $E$: best existing; $H$: best hardened control; $P$: front-coded dictionary. $g$: residual name-coding gain. \texttt{net\_ptp} omitted (non-converged baseline).}\label{tab:main}
+\end{table*}
+
+\paragraph{Total saving.} 1.7--3.1\% of the image over the best existing scheme.
+\paragraph{Address share.} Pooled 71.2\% (median 70.2\%); five of nine usable shares lie within $\pm1$ point of 70\%, so the 75\%-of-workloads rule is neither confidently met nor refuted.
+\paragraph{Residual name coding.} 0.43--0.83\% for $N\ge710$, $-0.64\%$ at $N=137$.
+\paragraph{FSST.} 0.5--1.2\% larger than $P$ for $N>1000$ and $+7.2\%$ at $N=137$.
+\paragraph{Decoders.} Zero mismatches on every converged arm; 8/8 QEMU self-tests passed (lookup correctness only).
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lll}\toprule
+Gate & Frozen metric & Exploratory\\\midrule
+G1 share (need 8/10) & 5 --- fail & 6 --- fail\\
+G2 residual (need 8/10) & 7 --- fail & 9 --- pass\\
+G3 FSST & 4/6 --- fail & 5/6 --- fail\\
+G4 mismatches & fail$^\ast$ & fail$^\ast$\\
+G5 validity & fail & fail\\
+T1 & not triggered & not triggered\\
+T2 & not triggered & not triggered\\
+T3 & \textbf{triggered} & \textbf{triggered}\\\bottomrule
+\end{tabular}
+\caption{Gate outcomes. $^\ast$All mismatches arise from the non-converged KALL16 arm on \texttt{net\_ptp}; zero on converged arms.}\label{tab:gates}
+\end{table}
+
+\section{Discussion and Limitations}\label{sec:disc}
+The pre-registered gates were not met (Table~\ref{tab:gates}), so the direction is stopped. KALL16 on \texttt{net\_ptp} oscillated between 242{,}152 and 242{,}160~B; the cause was not investigated, and 139 of 140 fixed points converged in 2--3 iterations. On RV32 the stock lookup function (96~B) remains linked in every candidate arm, failing the frozen stub check; it cancels in $E/H/P$ comparisons. Even excluding \texttt{net\_ptp}, G1 and G3 fail, and the effect sizes lie at the thresholds; adjusting them post hoc is forbidden by the protocol. The mechanisms (relative offsets, block deltas, FSST) have close prior art, and the remaining finding is an engineering decomposition of 1--3\% of an image.
+
+\emph{Limitations:} no sample reached $\approx$3{,}000 symbols (max 2{,}337); one compiler family in the gate set; two architectures; flash only, no timing, energy or RAM-buffer claims; all checks by the project's own tooling, not independently verified. The ``Cromie'' patch mentioned in an earlier audit could not be located and is not cited.
+
+\emph{Disclosure and authorship:} repository patent notes document public-disclosure risk; whether filing or release is intended is unresolved. Author agreement is not recorded, so no author list is given.
+
+\section{Reproducibility}
+All scripts, frozen protocol, hashes (\texttt{FREEZE\_MANIFEST.txt}), raw per-workload results, stripped ELFs, link maps and generated C are under \texttt{research/paper\_final/}; see \texttt{ARTIFACT\_MAP.md} and \texttt{CLAIMS\_LEDGER.md}. Requires Zephyr SDK 1.0.1, Zephyr @403a7d79, FSST @e638d4cf.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

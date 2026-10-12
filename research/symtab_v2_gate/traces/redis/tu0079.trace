@@ -1,0 +1,7620 @@
+D size_t 0 1
+D __gnuc_va_list 0 1
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D cookie_read_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_write_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_seek_function_t 0 1
+D __cookie 0 1
+D __pos 0 1
+U __off64_t 0 1
+D __w 0 1
+D cookie_close_function_t 0 1
+D __cookie 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D cookie_io_functions_t 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D off_t 0 1
+U __off_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D fpos_t 0 1
+U __fpos_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D renameat 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tmpnam_r 0 1
+E
+D __s 1 1
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fflush_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D fopencookie 0 1
+E
+U FILE 1 1
+D __magic_cookie 1 1
+D __modes 1 1
+D __io_funcs 1 1
+U cookie_io_functions_t 1 1
+X
+D fmemopen 0 1
+E
+U FILE 1 1
+D __s 1 1
+D __len 1 1
+U size_t 1 1
+D __modes 1 1
+X
+D open_memstream 0 1
+E
+U FILE 1 1
+D __bufloc 1 1
+D __sizeloc 1 1
+U size_t 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D setbuffer 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D setlinebuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vasprintf 0 1
+E
+D __ptr 1 1
+D __f 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D __asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D vdprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D dprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fgetc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D fputc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D getw 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D putw 0 1
+E
+D __w 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D __getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getline 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fread_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D clearerr_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fileno_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+U size_t 0 0
+D quicklistNode 0 0
+U size_t 0 0
+U size_t 0 0
+D quicklistLZF 0 0
+U size_t 0 0
+U quicklistNode 0 0
+D quicklistBookmark 0 0
+U quicklistNode 0 0
+U quicklistNode 0 0
+U quicklistNode 0 0
+U size_t 0 0
+U quicklistBookmark 0 0
+D quicklist 0 0
+U quicklistNode 0 0
+U quicklistNode 0 0
+U size_t 0 0
+U quicklistBookmark 0 0
+U quicklist 0 0
+U quicklistNode 0 0
+D quicklistIter 0 0
+U quicklist 0 0
+U quicklistNode 0 0
+U quicklist 0 0
+U quicklistNode 0 0
+U size_t 0 0
+D quicklistEntry 0 0
+U quicklist 0 0
+U quicklistNode 0 0
+U size_t 0 0
+D quicklistCreate 0 0
+U quicklist 0 0
+D quicklistNew 0 0
+E
+U quicklist 1 0
+D fill 1 0
+D compress 1 0
+X
+D quicklistSetCompressDepth 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D compress 1 0
+X
+D quicklistSetFill 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D fill 1 0
+X
+D quicklistSetOptions 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D fill 1 0
+D compress 1 0
+X
+D quicklistRelease 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+X
+D quicklistPushHead 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistPushTail 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistPush 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+D where 1 0
+X
+D quicklistAppendListpack 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D zl 1 0
+X
+D quicklistAppendPlainNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistInsertAfter 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistInsertBefore 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistDelEntry 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+X
+D quicklistReplaceEntry 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistReplaceAtIndex 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D index 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistDelRange 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D start 1 0
+D count 1 0
+X
+D quicklistInitIterator 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D direction 1 0
+X
+D quicklistInitIteratorAtIdx 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D direction 1 0
+D idx 1 0
+X
+D quicklistInitIteratorEntryAtIdx 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D index 1 0
+D entry 1 0
+U quicklistEntry 1 0
+X
+D quicklistNext 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+X
+D quicklistSetDirection 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D direction 1 0
+X
+D quicklistResetIterator 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+X
+D quicklistDup 0 0
+E
+U quicklist 1 0
+D orig 1 0
+U quicklist 1 0
+X
+D quicklistRotate 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+X
+D quicklistPopCustom 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D where 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+D sval 1 0
+D saver 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+X
+D quicklistPop 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D where 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+D slong 1 0
+X
+D quicklistCount 0 0
+E
+D ql 1 0
+U quicklist 1 0
+X
+D quicklistAllocSize 0 0
+E
+U size_t 1 0
+D ql 1 0
+U quicklist 1 0
+X
+D quicklistCompare 0 0
+E
+D entry 1 0
+U quicklistEntry 1 0
+D p2 1 0
+D p2_len 1 0
+U size_t 1 0
+D cached_longval 1 0
+D cached_valid 1 0
+X
+D quicklistGetLzf 0 0
+E
+U size_t 1 0
+D node 1 0
+U quicklistNode 1 0
+D data 1 0
+X
+D quicklistNodeLimit 0 0
+E
+D fill 1 0
+D size 1 0
+U size_t 1 0
+D count 1 0
+X
+D quicklistNodeExceedsLimit 0 0
+E
+D fill 1 0
+D new_sz 1 0
+U size_t 1 0
+D new_count 1 0
+X
+D quicklistRepr 0 0
+E
+D ql 1 0
+D full 1 0
+X
+D quicklistBookmarkCreate 0 0
+E
+D ql_ref 1 0
+U quicklist 1 0
+D name 1 0
+D node 1 0
+U quicklistNode 1 0
+X
+D quicklistBookmarkDelete 0 0
+E
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+X
+D quicklistBookmarkFind 0 0
+E
+U quicklistNode 1 0
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+X
+D quicklistBookmarksClear 0 0
+E
+D ql 1 0
+U quicklist 1 0
+X
+D quicklistSetPackedThreshold 0 0
+E
+D sz 1 0
+U size_t 1 0
+X
+D ptrdiff_t 0 1
+D wchar_t 0 1
+D max_align_t 0 1
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D memalign 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D pvalloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+D mallinfo 0 1
+D mallinfo2 0 1
+D mallopt 0 1
+E
+D __param 1 1
+D __val 1 1
+X
+D malloc_trim 0 1
+E
+D __pad 1 1
+U size_t 1 1
+X
+D malloc_usable_size 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+X
+D malloc_stats 0 1
+D malloc_info 0 1
+E
+D __options 1 1
+D __fp 1 1
+U FILE 1 1
+X
+D clock_t 0 1
+U __clock_t 0 1
+D time_t 0 1
+U __time_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D clock 0 1
+U clock_t 0 1
+D time 0 1
+E
+U time_t 1 1
+D __timer 1 1
+U time_t 1 1
+X
+D difftime 0 1
+E
+D __time1 1 1
+U time_t 1 1
+D __time0 1 1
+U time_t 1 1
+X
+D mktime 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D strftime 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+X
+D strftime_l 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D gmtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D localtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D gmtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D localtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D asctime 0 1
+E
+D __tp 1 1
+X
+D ctime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D asctime_r 0 1
+E
+D __tp 1 1
+D __buf 1 1
+X
+D ctime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __buf 1 1
+X
+D __tzname 0 1
+D __daylight 0 1
+D __timezone 0 1
+D tzname 0 1
+D tzset 0 1
+D daylight 0 1
+D timezone 0 1
+D timegm 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D timelocal 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D dysize 0 1
+E
+D __year 1 1
+X
+D nanosleep 0 1
+E
+D __requested_time 1 1
+D __remaining 1 1
+X
+D clock_getres 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __res 1 1
+X
+D clock_gettime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_settime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_nanosleep 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __flags 1 1
+D __req 1 1
+D __rem 1 1
+X
+D clock_getcpuclockid 0 1
+E
+D __pid 1 1
+U pid_t 1 1
+D __clock_id 1 1
+U clockid_t 1 1
+X
+D timer_create 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __evp 1 1
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_delete 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_settime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __flags 1 1
+D __value 1 1
+D __ovalue 1 1
+X
+D timer_gettime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __value 1 1
+X
+D timer_getoverrun 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timespec_get 0 1
+E
+D __ts 1 1
+D __base 1 1
+X
+D zmalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D zcalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D zcalloc_num 0 0
+E
+D num 1 0
+U size_t 1 0
+D size 1 0
+U size_t 1 0
+X
+D zrealloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D ztrymalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D ztrycalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D ztryrealloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D zfree 0 0
+E
+D ptr 1 0
+X
+D zfree_usable 0 0
+E
+D ptr 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zfree_with_size 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D zmalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zcalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zrealloc_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+D old_usable 1 0
+U size_t 1 0
+X
+D ztrymalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D ztrycalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D ztryrealloc_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+D old_usable 1 0
+U size_t 1 0
+X
+D zstrdup 0 0
+E
+D s 1 0
+X
+D zstrdup_usable 0 0
+E
+D s 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zmalloc_used_memory 0 0
+U size_t 0 0
+D zmalloc_reserve_thread_slots 0 0
+E
+D n 1 0
+X
+D zmalloc_register_reserved_slot 0 0
+D zmalloc_get_peak_memory 0 0
+U size_t 0 0
+D zmalloc_get_peak_memory_time 0 0
+U time_t 0 0
+D zmalloc_set_oom_handler 0 0
+E
+D oom_handler 1 0
+U size_t 1 0
+X
+D zmalloc_get_rss 0 0
+U size_t 0 0
+D zmalloc_get_allocator_info 0 0
+E
+D refresh_stats 1 0
+D allocated 1 0
+U size_t 1 0
+D active 1 0
+U size_t 1 0
+D resident 1 0
+U size_t 1 0
+D retained 1 0
+U size_t 1 0
+D muzzy 1 0
+U size_t 1 0
+D frag_smallbins_bytes 1 0
+U size_t 1 0
+X
+D zmalloc_get_allocator_info_by_arena 0 0
+E
+D arena 1 0
+D refresh_stats 1 0
+D allocated 1 0
+U size_t 1 0
+D active 1 0
+U size_t 1 0
+D resident 1 0
+U size_t 1 0
+D frag_smallbins_bytes 1 0
+U size_t 1 0
+X
+D set_jemalloc_bg_thread 0 0
+E
+D enable 1 0
+X
+D jemalloc_purge 0 0
+D zmalloc_get_private_dirty 0 0
+E
+U size_t 1 0
+D pid 1 0
+X
+D zmalloc_get_smap_bytes_by_field 0 0
+E
+U size_t 1 0
+D field 1 0
+D pid 1 0
+X
+D zmalloc_get_memory_size 0 0
+U size_t 0 0
+D zlibc_free 0 0
+E
+D ptr 1 0
+X
+D zmadvise_dontneed 0 0
+E
+D ptr 1 0
+X
+D extend_to_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D get_proc_stat_ll 0 0
+E
+D i 1 0
+D res 1 0
+X
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D sig_atomic_t 0 1
+U __sig_atomic_t 0 1
+D __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D siginfo_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D SI_ASYNCNL 0 1
+D SI_DETHREAD 0 1
+D SI_TKILL 0 1
+D SI_SIGIO 0 1
+D SI_ASYNCIO 0 1
+D SI_MESGQ 0 1
+D SI_TIMER 0 1
+D SI_QUEUE 0 1
+D SI_USER 0 1
+D SI_KERNEL 0 1
+D ILL_ILLOPC 0 1
+D ILL_ILLOPN 0 1
+D ILL_ILLADR 0 1
+D ILL_ILLTRP 0 1
+D ILL_PRVOPC 0 1
+D ILL_PRVREG 0 1
+D ILL_COPROC 0 1
+D ILL_BADSTK 0 1
+D ILL_BADIADDR 0 1
+D FPE_INTDIV 0 1
+D FPE_INTOVF 0 1
+D FPE_FLTDIV 0 1
+D FPE_FLTOVF 0 1
+D FPE_FLTUND 0 1
+D FPE_FLTRES 0 1
+D FPE_FLTINV 0 1
+D FPE_FLTSUB 0 1
+D FPE_FLTUNK 0 1
+D FPE_CONDTRAP 0 1
+D SEGV_MAPERR 0 1
+D SEGV_ACCERR 0 1
+D SEGV_BNDERR 0 1
+D SEGV_PKUERR 0 1
+D SEGV_ACCADI 0 1
+D SEGV_ADIDERR 0 1
+D SEGV_ADIPERR 0 1
+D SEGV_MTEAERR 0 1
+D SEGV_MTESERR 0 1
+D SEGV_CPERR 0 1
+D BUS_ADRALN 0 1
+D BUS_ADRERR 0 1
+D BUS_OBJERR 0 1
+D BUS_MCEERR_AR 0 1
+D BUS_MCEERR_AO 0 1
+D CLD_EXITED 0 1
+D CLD_KILLED 0 1
+D CLD_DUMPED 0 1
+D CLD_TRAPPED 0 1
+D CLD_STOPPED 0 1
+D CLD_CONTINUED 0 1
+D POLL_IN 0 1
+D POLL_OUT 0 1
+D POLL_MSG 0 1
+D POLL_ERR 0 1
+D POLL_PRI 0 1
+D POLL_HUP 0 1
+D sigval_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+D sigevent_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+D SIGEV_SIGNAL 0 1
+D SIGEV_NONE 0 1
+D SIGEV_THREAD 0 1
+D SIGEV_THREAD_ID 0 1
+D __sighandler_t 0 1
+D __sysv_signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D kill 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D killpg 0 1
+E
+D __pgrp 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D raise 0 1
+E
+D __sig 1 1
+X
+D ssignal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D gsignal 0 1
+E
+D __sig 1 1
+X
+D psignal 0 1
+E
+D __sig 1 1
+D __s 1 1
+X
+D psiginfo 0 1
+E
+D __pinfo 1 1
+U siginfo_t 1 1
+D __s 1 1
+X
+D sigblock 0 1
+E
+D __mask 1 1
+X
+D sigsetmask 0 1
+E
+D __mask 1 1
+X
+D siggetmask 0 1
+D sig_t 0 1
+U __sighandler_t 0 1
+D sigemptyset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigfillset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaddset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigdelset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigismember 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sigset_t 0 1
+D sigprocmask 0 1
+E
+D __how 1 1
+D __set 1 1
+U sigset_t 1 1
+D __oset 1 1
+U sigset_t 1 1
+X
+D sigsuspend 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaction 0 1
+E
+D __sig 1 1
+D __act 1 1
+D __oact 1 1
+X
+D sigpending 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __sig 1 1
+X
+D sigwaitinfo 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+X
+D sigtimedwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+D __timeout 1 1
+X
+D sigqueue 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+D __val 1 1
+X
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+D sigreturn 0 1
+E
+D __scp 1 1
+X
+U size_t 0 1
+D stack_t 0 1
+U size_t 0 1
+D greg_t 0 1
+D gregset_t 0 1
+U greg_t 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D fpregset_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+D mcontext_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D ucontext_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D siginterrupt 0 1
+E
+D __sig 1 1
+D __interrupt 1 1
+X
+D SS_ONSTACK 0 1
+D SS_DISABLE 0 1
+D sigaltstack 0 1
+E
+D __ss 1 1
+U stack_t 1 1
+D __oss 1 1
+U stack_t 1 1
+X
+D sigstack 0 1
+E
+D __ss 1 1
+D __oss 1 1
+X
+D pthread_sigmask 0 1
+E
+D __how 1 1
+D __newmask 1 1
+U __sigset_t 1 1
+D __oldmask 1 1
+U __sigset_t 1 1
+X
+D pthread_kill 0 1
+E
+D __threadid 1 1
+U pthread_t 1 1
+D __signo 1 1
+X
+D __libc_current_sigrtmin 0 1
+D __libc_current_sigrtmax 0 1
+U __off_t 0 1
+U __off_t 0 1
+U __pid_t 0 1
+U __dev_t 0 1
+U __ino_t 0 1
+U __nlink_t 0 1
+U __mode_t 0 1
+U __uid_t 0 1
+U __gid_t 0 1
+U __dev_t 0 1
+U __off_t 0 1
+U __blksize_t 0 1
+U __blkcnt_t 0 1
+U __syscall_slong_t 0 1
+D fcntl 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+X
+D open 0 1
+E
+D __file 1 1
+D __oflag 1 1
+X
+D openat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __oflag 1 1
+X
+D creat 0 1
+E
+D __file 1 1
+D __mode 1 1
+U mode_t 1 1
+X
+D lockf 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+D __len 1 1
+U off_t 1 1
+X
+D posix_fadvise 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off_t 1 1
+D __len 1 1
+U off_t 1 1
+D __advise 1 1
+X
+D posix_fallocate 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off_t 1 1
+D __len 1 1
+U off_t 1 1
+X
+D spt_init 0 0
+E
+D argc 1 0
+D argv 1 0
+X
+D setproctitle 0 0
+E
+D fmt 1 0
+X
+D setcpuaffinity 0 0
+E
+D cpulist 1 0
+X
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtouq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+D random_r 0 1
+E
+D __buf 1 1
+D __result 1 1
+U int32_t 1 1
+X
+D srandom_r 0 1
+E
+D __seed 1 1
+D __buf 1 1
+X
+D initstate_r 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+D __buf 1 1
+X
+D setstate_r 0 1
+E
+D __statebuf 1 1
+D __buf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D drand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D erand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D lrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D nrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D mrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D jrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D srand48_r 0 1
+E
+D __seedval 1 1
+D __buffer 1 1
+X
+D seed48_r 0 1
+E
+D __seed16v 1 1
+D __buffer 1 1
+X
+D lcong48_r 0 1
+E
+D __param 1 1
+D __buffer 1 1
+X
+D arc4random 0 1
+U __uint32_t 0 1
+D arc4random_buf 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D arc4random_uniform 0 1
+E
+U __uint32_t 1 1
+D __upper_bound 1 1
+U __uint32_t 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D alloca 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D on_exit 0 1
+E
+D __func 1 1
+D __status 1 1
+D __arg 1 1
+D __arg 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D clearenv 0 1
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D mkstemps 0 1
+E
+D __template 1 1
+D __suffixlen 1 1
+X
+D mkdtemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D qecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qfcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qgcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D ecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D fcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qfcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D rpmatch 0 1
+E
+D __response 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D getloadavg 0 1
+E
+D __loadavg 1 1
+D __nelem 1 1
+X
+U uint32_t 0 0
+D listpackEntry 0 0
+U uint32_t 0 0
+D lpNew 0 0
+E
+D capacity 1 0
+U size_t 1 0
+X
+D lpNewWithEntries 0 0
+E
+D entries 1 0
+U listpackEntry 1 0
+D len 1 0
+X
+D lpFree 0 0
+E
+D lp 1 0
+X
+D lpShrinkToFit 0 0
+E
+D lp 1 0
+X
+D lpInsertString 0 0
+E
+D lp 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+D p 1 0
+D where 1 0
+D newp 1 0
+X
+D lpInsertInteger 0 0
+E
+D lp 1 0
+D lval 1 0
+D p 1 0
+D where 1 0
+D newp 1 0
+X
+D lpPrepend 0 0
+E
+D lp 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+X
+D lpPrependInteger 0 0
+E
+D lp 1 0
+D lval 1 0
+X
+D lpAppend 0 0
+E
+D lp 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+X
+D lpAppendInteger 0 0
+E
+D lp 1 0
+D lval 1 0
+X
+D lpReplace 0 0
+E
+D lp 1 0
+D p 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+X
+D lpReplaceInteger 0 0
+E
+D lp 1 0
+D p 1 0
+D lval 1 0
+X
+D lpDelete 0 0
+E
+D lp 1 0
+D p 1 0
+D newp 1 0
+X
+D lpDeleteRangeWithEntry 0 0
+E
+D lp 1 0
+D p 1 0
+D num 1 0
+X
+D lpDeleteRange 0 0
+E
+D lp 1 0
+D index 1 0
+D num 1 0
+X
+D lpBatchAppend 0 0
+E
+D lp 1 0
+D entries 1 0
+U listpackEntry 1 0
+D len 1 0
+X
+D lpBatchInsert 0 0
+E
+D lp 1 0
+D p 1 0
+D where 1 0
+D entries 1 0
+U listpackEntry 1 0
+D len 1 0
+D newp 1 0
+X
+D lpBatchDelete 0 0
+E
+D lp 1 0
+D ps 1 0
+D count 1 0
+X
+D lpMerge 0 0
+E
+D first 1 0
+D second 1 0
+X
+D lpDup 0 0
+E
+D lp 1 0
+X
+D lpLength 0 0
+E
+D lp 1 0
+X
+D lpGet 0 0
+E
+D p 1 0
+D count 1 0
+U int64_t 1 0
+D intbuf 1 0
+X
+D lpGetValue 0 0
+E
+D p 1 0
+D slen 1 0
+D lval 1 0
+X
+D lpGetIntegerValue 0 0
+E
+D p 1 0
+D lval 1 0
+X
+D lpFind 0 0
+E
+D lp 1 0
+D p 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+D skip 1 0
+X
+D lpCmp 0 0
+D lp 0 0
+D p 0 0
+D user 0 0
+D s 0 0
+D slen 0 0
+D lpFindCb 0 0
+E
+D lp 1 0
+D p 1 0
+D user 1 0
+D cmp 1 0
+U lpCmp 1 0
+D skip 1 0
+X
+D lpFirst 0 0
+E
+D lp 1 0
+X
+D lpLast 0 0
+E
+D lp 1 0
+X
+D lpNext 0 0
+E
+D lp 1 0
+D p 1 0
+X
+D lpNextWithBytes 0 0
+E
+D lp 1 0
+D p 1 0
+D lpbytes 1 0
+U size_t 1 0
+X
+D lpNextN 0 0
+E
+D lp 1 0
+D p 1 0
+D n 1 0
+X
+D lpPrev 0 0
+E
+D lp 1 0
+D p 1 0
+X
+D lpPrevN 0 0
+E
+D lp 1 0
+D p 1 0
+D n 1 0
+X
+D lpBytes 0 0
+E
+U size_t 1 0
+D lp 1 0
+X
+D lpEntrySizeInteger 0 0
+E
+U size_t 1 0
+D lval 1 0
+X
+D lpEstimateBytesRepeatedInteger 0 0
+E
+U size_t 1 0
+D lval 1 0
+D rep 1 0
+X
+D lpSeek 0 0
+E
+D lp 1 0
+D index 1 0
+X
+D listpackValidateEntryCB 0 0
+D p 0 0
+D head_count 0 0
+D userdata 0 0
+D lpValidateIntegrity 0 0
+E
+D lp 1 0
+D size 1 0
+U size_t 1 0
+D deep 1 0
+D entry_cb 1 0
+U listpackValidateEntryCB 1 0
+D cb_userdata 1 0
+X
+D lpValidateFirst 0 0
+E
+D lp 1 0
+X
+D lpValidateNext 0 0
+E
+D lp 1 0
+D pp 1 0
+D lpbytes 1 0
+U size_t 1 0
+X
+D lpCompare 0 0
+E
+D p 1 0
+D s 1 0
+D slen 1 0
+U uint32_t 1 0
+D cached_longval 1 0
+D cached_valid 1 0
+X
+D lpRandomPair 0 0
+E
+D lp 1 0
+D total_count 1 0
+D key 1 0
+U listpackEntry 1 0
+D val 1 0
+U listpackEntry 1 0
+D tuple_len 1 0
+X
+D lpRandomPairs 0 0
+E
+D lp 1 0
+D count 1 0
+D keys 1 0
+U listpackEntry 1 0
+D vals 1 0
+U listpackEntry 1 0
+D tuple_len 1 0
+X
+D lpRandomPairsUnique 0 0
+E
+D lp 1 0
+D count 1 0
+D keys 1 0
+U listpackEntry 1 0
+D vals 1 0
+U listpackEntry 1 0
+D tuple_len 1 0
+X
+D lpRandomEntries 0 0
+E
+D lp 1 0
+D count 1 0
+D entries 1 0
+U listpackEntry 1 0
+X
+D lpNextRandom 0 0
+E
+D lp 1 0
+D p 1 0
+D index 1 0
+D remaining 1 0
+D tuple_len 1 0
+X
+D lpSafeToAdd 0 0
+E
+D lp 1 0
+D add 1 0
+U size_t 1 0
+X
+D lpRepr 0 0
+E
+D lp 1 0
+X
+D SDS_NOINIT 0 0
+D va_list 0 1
+D sds 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+U uint16_t 0 0
+U uint16_t 0 0
+U uint32_t 0 0
+U uint32_t 0 0
+U uint64_t 0 0
+U uint64_t 0 0
+D sdsType 0 0
+E
+D s 1 0
+U sds 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+X
+X
+D sdsGetAuxBit 0 0
+E
+D s 1 0
+U sds 1 0
+D bit 1 0
+E
+U sdsType 2 0
+U s 2 0
+D flags 2 0
+U s 2 0
+U flags 2 0
+U bit 2 0
+X
+X
+D sdsSetAuxBit 0 0
+E
+D s 1 0
+U sds 1 0
+D bit 1 0
+D value 1 0
+E
+U sdsType 2 0
+U s 2 0
+D flags 2 0
+U s 2 0
+U value 2 0
+E
+U flags 3 0
+U bit 3 0
+X
+E
+U flags 3 0
+U bit 3 0
+X
+U s 2 0
+U flags 2 0
+X
+X
+D sdslen 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdsavail 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+X
+X
+X
+D sdssetlen 0 0
+E
+D s 1 0
+U sds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+D fp 4 0
+U s 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+X
+X
+X
+D sdsinclen 0 0
+E
+D s 1 0
+U sds 1 0
+D inc 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+D fp 4 0
+U s 4 0
+D newlen 4 0
+U s 4 0
+U inc 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+X
+X
+X
+D sdsAllocSize 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdsalloc 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdssetalloc 0 0
+E
+D s 1 0
+U sds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+X
+X
+X
+D sdsHdrSize 0 0
+E
+D type 1 0
+E
+U type 2 0
+E
+X
+X
+X
+D sdsnewlen 0 0
+E
+U sds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdstrynewlen 0 0
+E
+U sds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdsnew 0 0
+E
+U sds 1 0
+D init 1 0
+X
+D sdsnewplacement 0 0
+E
+U sds 1 0
+D buf 1 0
+D bufsize 1 0
+U size_t 1 0
+D type 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdsempty 0 0
+U sds 0 0
+D sdsdup 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+X
+D sdsfree 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsfreegeneric 0 0
+E
+D s 1 0
+X
+D sdsgrowzero 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscatlen 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscat 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+X
+D sdscatsds 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+U sds 1 0
+X
+D sdscpylen 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscpy 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+X
+D sdscatvprintf 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+D ap 1 0
+U va_list 1 0
+X
+D sdscatprintf 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+X
+D sdscatfmt 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+X
+D sdstrim 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D cset 1 0
+X
+D sdssubstr 0 0
+E
+D s 1 0
+U sds 1 0
+D start 1 0
+U size_t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdsrange 0 0
+E
+D s 1 0
+U sds 1 0
+D start 1 0
+U ssize_t 1 0
+D end 1 0
+U ssize_t 1 0
+X
+D sdsupdatelen 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsclear 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdscmp 0 0
+E
+D s1 1 0
+U sds 1 0
+D s2 1 0
+U sds 1 0
+X
+D sdscmplen 0 0
+E
+D s1 1 0
+U sds 1 0
+D s2 1 0
+U sds 1 0
+X
+D sdssplitlen 0 0
+E
+U sds 1 0
+D s 1 0
+D len 1 0
+U ssize_t 1 0
+D sep 1 0
+D seplen 1 0
+D count 1 0
+X
+D sdsfreesplitres 0 0
+E
+D tokens 1 0
+U sds 1 0
+D count 1 0
+X
+D sdstolower 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdstoupper 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsfromlonglong 0 0
+E
+U sds 1 0
+D value 1 0
+X
+D sdscatrepr 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D p 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdssplitargs 0 0
+E
+U sds 1 0
+D line 1 0
+D argc 1 0
+X
+D sdsmapchars 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+X
+D sdsjoin 0 0
+E
+U sds 1 0
+D argv 1 0
+D argc 1 0
+D sep 1 0
+X
+D sdsjoinsds 0 0
+E
+U sds 1 0
+D argv 1 0
+U sds 1 0
+D argc 1 0
+D sep 1 0
+D seplen 1 0
+U size_t 1 0
+X
+D sdsneedsrepr 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdstemplate_callback_t 0 0
+U sds 0 0
+D variable 0 0
+U sds 0 0
+D arg 0 0
+D sdstemplate 0 0
+E
+U sds 1 0
+D template 1 0
+D cb_func 1 0
+U sdstemplate_callback_t 1 0
+D cb_arg 1 0
+X
+D sdsReqType 0 0
+E
+D string_size 1 0
+U size_t 1 0
+X
+D sdsMakeRoomFor 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D addlen 1 0
+U size_t 1 0
+X
+D sdsMakeRoomForNonGreedy 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D addlen 1 0
+U size_t 1 0
+X
+D sdsIncrLen 0 0
+E
+D s 1 0
+U sds 1 0
+D incr 1 0
+U ssize_t 1 0
+X
+D sdsRemoveFreeSpace 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D would_regrow 1 0
+X
+D sdsResize 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D size 1 0
+U size_t 1 0
+D would_regrow 1 0
+X
+D sdsAllocPtr 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsReqSize 0 0
+E
+U size_t 1 0
+D len 1 0
+U size_t 1 0
+D type 1 0
+E
+U len 2 0
+U sdsHdrSize 2 0
+U type 2 0
+X
+X
+D sds_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D sds_realloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D sds_free 0 0
+E
+D ptr 1 0
+X
+D LD_STR_AUTO 0 0
+D LD_STR_HUMAN 0 0
+D LD_STR_HEX 0 0
+D ld2string_mode 0 0
+D LD_STR_AUTO 0 0
+D LD_STR_HUMAN 0 0
+D LD_STR_HEX 0 0
+D prefixmatch 0 0
+E
+D pattern 1 0
+D patternLen 1 0
+D prefixStr 1 0
+D prefixStrLen 1 0
+D nocase 1 0
+X
+D stringmatchlen 0 0
+E
+D p 1 0
+D plen 1 0
+D s 1 0
+D slen 1 0
+D nocase 1 0
+X
+D stringmatch 0 0
+E
+D p 1 0
+D s 1 0
+D nocase 1 0
+X
+D stringmatchlen_fuzz_test 0 0
+D memtoull 0 0
+E
+D p 1 0
+D err 1 0
+X
+D mempbrk 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D chars 1 0
+D charslen 1 0
+U size_t 1 0
+X
+D memmapchars 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+X
+D digits10 0 0
+E
+U uint32_t 1 0
+D v 1 0
+U uint64_t 1 0
+X
+D sdigits10 0 0
+E
+U uint32_t 1 0
+D v 1 0
+U int64_t 1 0
+X
+D ll2string 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D ull2string 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ll 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ull 0 0
+E
+D s 1 0
+D value 1 0
+X
+D string2l 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ul_base16_async_signal_safe 0 0
+E
+D src 1 0
+D slen 1 0
+U size_t 1 0
+D result_output 1 0
+X
+D string2ld 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D dp 1 0
+X
+D string2d 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D dp 1 0
+X
+D trimDoubleString 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+X
+D d2string 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D fixedpoint_d2string 0 0
+E
+D dst 1 0
+D dstlen 1 0
+U size_t 1 0
+D dvalue 1 0
+D fractional_digits 1 0
+X
+D ld2string 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+D mode 1 0
+U ld2string_mode 1 0
+X
+D double2ll 0 0
+E
+D d 1 0
+D out 1 0
+X
+D yesnotoi 0 0
+E
+D s 1 0
+X
+D getAbsolutePath 0 0
+E
+U sds 1 0
+D filename 1 0
+X
+D getTimeZone 0 0
+D pathIsBaseName 0 0
+E
+D path 1 0
+X
+D getFileExtension 0 0
+E
+D path 1 0
+X
+D getFileBaseName 0 0
+E
+D path 1 0
+X
+D getFilePath 0 0
+E
+U sds 1 0
+D path 1 0
+X
+D dirCreateIfMissing 0 0
+E
+D dname 1 0
+X
+D dirExists 0 0
+E
+D dname 1 0
+X
+D dirIsEmpty 0 0
+E
+D dname 1 0
+X
+D dirRemove 0 0
+E
+D dname 1 0
+X
+D fileExist 0 0
+E
+D filename 1 0
+X
+D makePath 0 0
+E
+U sds 1 0
+D path 1 0
+D filename 1 0
+X
+D copyFile 0 0
+E
+D source 1 0
+D destination 1 0
+X
+D fsyncFileDir 0 0
+E
+D filename 1 0
+X
+D reclaimFilePageCache 0 0
+E
+D fd 1 0
+D offset 1 0
+U size_t 1 0
+D length 1 0
+U size_t 1 0
+X
+D fgets_async_signal_safe 0 0
+E
+D dest 1 0
+D buff_size 1 0
+D fd 1 0
+X
+D vsnprintf_async_signal_safe 0 0
+E
+D to 1 0
+D size 1 0
+U size_t 1 0
+D format 1 0
+D ap 1 0
+U va_list 1 0
+X
+D snprintf_async_signal_safe 0 0
+E
+D to 1 0
+D n 1 0
+U size_t 1 0
+D fmt 1 0
+X
+D redis_strlcpy 0 0
+E
+U size_t 1 0
+D dst 1 0
+D src 1 0
+D dsize 1 0
+U size_t 1 0
+X
+D redis_strlcat 0 0
+E
+U size_t 1 0
+D dst 1 0
+D src 1 0
+D dsize 1 0
+U size_t 1 0
+X
+D log2ceil 0 0
+E
+D x 1 0
+U size_t 1 0
+E
+U __builtin_clzll 2 0
+U x 2 0
+X
+X
+D nearestNextPowerOf2 0 0
+E
+D count 1 0
+E
+U count 2 0
+U __builtin_clz 2 0
+U count 2 0
+X
+X
+D lzf_compress 0 0
+E
+U size_t 1 0
+D in_data 1 0
+D in_len 1 0
+U size_t 1 0
+D out_data 1 0
+D out_len 1 0
+U size_t 1 0
+X
+D lzf_decompress 0 0
+E
+U size_t 1 0
+D in_data 1 0
+D in_len 1 0
+U size_t 1 0
+D out_data 1 0
+D out_len 1 0
+U size_t 1 0
+X
+D _serverAssert 0 0
+E
+D estr 1 0
+D file 1 0
+D line 1 0
+X
+D _serverPanic 0 0
+E
+D file 1 0
+D line 1 0
+D msg 1 0
+X
+D optimization_level 0 0
+U size_t 0 0
+D packed_threshold 0 0
+U size_t 0 0
+D quicklistSetPackedThreshold 0 0
+E
+D sz 1 0
+U size_t 1 0
+E
+U sz 2 0
+E
+X
+U packed_threshold 2 0
+U sz 2 0
+X
+X
+D _quicklistBookmarkFindByName 0 0
+E
+U quicklistBookmark 1 0
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+X
+D _quicklistBookmarkFindByNode 0 0
+E
+U quicklistBookmark 1 0
+D ql 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+X
+D _quicklistBookmarkDelete 0 0
+E
+D ql 1 0
+U quicklist 1 0
+D bm 1 0
+U quicklistBookmark 1 0
+X
+D _quicklistSplitNode 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+D offset 1 0
+D after 1 0
+X
+D _quicklistMergeNodes 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D center 1 0
+U quicklistNode 1 0
+X
+D quicklistCreate 0 0
+E
+U quicklist 1 0
+E
+D quicklist 2 0
+D quicklist_sz 2 0
+U size_t 2 0
+U quicklist 2 0
+U zmalloc_usable 2 0
+U quicklist 2 0
+U quicklist_sz 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist_sz 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+X
+X
+D quicklistSetCompressDepth 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D compress 1 0
+E
+U compress 2 0
+E
+U compress 3 0
+X
+U compress 2 0
+E
+U compress 3 0
+X
+U quicklist 2 0
+U compress 2 0
+X
+X
+D quicklistSetFill 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D fill 1 0
+E
+U fill 2 0
+E
+U fill 3 0
+X
+U fill 2 0
+E
+U fill 3 0
+X
+U quicklist 2 0
+U fill 2 0
+X
+X
+D quicklistSetOptions 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D fill 1 0
+D compress 1 0
+E
+U quicklistSetFill 2 0
+U quicklist 2 0
+U fill 2 0
+U quicklistSetCompressDepth 2 0
+U quicklist 2 0
+U compress 2 0
+X
+X
+D quicklistNew 0 0
+E
+U quicklist 1 0
+D fill 1 0
+D compress 1 0
+E
+D quicklist 2 0
+U quicklist 2 0
+U quicklistCreate 2 0
+U quicklistSetOptions 2 0
+U quicklist 2 0
+U fill 2 0
+U compress 2 0
+U quicklist 2 0
+X
+X
+D quicklistCreateNode 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+E
+D node_usable 2 0
+U size_t 2 0
+D node 2 0
+U quicklistNode 2 0
+U node 2 0
+U zmalloc_usable 2 0
+U node 2 0
+U node_usable 2 0
+U quicklist 2 0
+U node_usable 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+X
+X
+D quicklistCount 0 0
+E
+D ql 1 0
+U quicklist 1 0
+E
+U ql 2 0
+X
+X
+D quicklistAllocSize 0 0
+E
+U size_t 1 0
+D ql 1 0
+U quicklist 1 0
+E
+U ql 2 0
+X
+X
+D quicklistRelease 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+E
+D len 2 0
+D current 2 0
+U quicklistNode 2 0
+D next 2 0
+U quicklistNode 2 0
+D usable 2 0
+U size_t 2 0
+U current 2 0
+U quicklist 2 0
+U len 2 0
+U quicklist 2 0
+U len 2 0
+E
+U next 3 0
+U current 3 0
+U current 3 0
+E
+U current 4 0
+E
+D lzf 5 0
+U quicklistLZF 5 0
+U quicklistLZF 5 0
+U current 5 0
+U quicklist 5 0
+U lzf 5 0
+U lzf 5 0
+X
+E
+U quicklist 5 0
+U current 5 0
+X
+U zfree 4 0
+U current 4 0
+X
+U zfree_usable 3 0
+U current 3 0
+U usable 3 0
+U quicklist 3 0
+U usable 3 0
+U current 3 0
+U next 3 0
+X
+U quicklistBookmarksClear 2 0
+U quicklist 2 0
+U zfree 2 0
+U quicklist 2 0
+X
+X
+D __quicklistCompressNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+U node 2 0
+U __builtin_expect 2 0
+U node 2 0
+U node 2 0
+U _serverAssert 2 0
+U abort 2 0
+U node 2 0
+U node 2 0
+D lzf 2 0
+U quicklistLZF 2 0
+U zmalloc 2 0
+U lzf 2 0
+U node 2 0
+U lzf 2 0
+U lzf_compress 2 0
+U node 2 0
+U node 2 0
+U lzf 2 0
+U node 2 0
+U lzf 2 0
+U node 2 0
+E
+U zfree 3 0
+U lzf 3 0
+X
+U lzf 2 0
+U zrealloc 2 0
+U lzf 2 0
+U lzf 2 0
+U lzf 2 0
+U zfree 2 0
+U node 2 0
+U node 2 0
+U lzf 2 0
+U node 2 0
+E
+U quicklist 3 0
+U lzf 3 0
+U lzf 3 0
+U quicklist 3 0
+U node 3 0
+X
+X
+X
+D __quicklistDecompressNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+U node 2 0
+D decompressed 2 0
+U zmalloc 2 0
+U node 2 0
+D lzf 2 0
+U quicklistLZF 2 0
+U quicklistLZF 2 0
+U node 2 0
+U lzf_decompress 2 0
+U lzf 2 0
+U lzf 2 0
+U decompressed 2 0
+U node 2 0
+E
+U zfree 3 0
+U decompressed 3 0
+X
+D oldsize 2 0
+U size_t 2 0
+U lzf 2 0
+U lzf 2 0
+U zfree 2 0
+U lzf 2 0
+E
+U quicklist 3 0
+U node 3 0
+U quicklist 3 0
+U oldsize 3 0
+X
+U node 2 0
+U decompressed 2 0
+U node 2 0
+X
+X
+D quicklistGetLzf 0 0
+E
+U size_t 1 0
+D node 1 0
+U quicklistNode 1 0
+D data 1 0
+E
+D lzf 2 0
+U quicklistLZF 2 0
+U quicklistLZF 2 0
+U node 2 0
+U data 2 0
+U lzf 2 0
+U lzf 2 0
+X
+X
+D __quicklistCompress 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+U quicklist 2 0
+U __builtin_expect 2 0
+U quicklist 2 0
+U quicklist 2 0
+U _serverAssert 2 0
+U abort 2 0
+U quicklist 2 0
+U quicklist 2 0
+U quicklist 2 0
+D forward 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+D reverse 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+D depth 2 0
+D in_depth 2 0
+U depth 2 0
+U quicklist 2 0
+E
+E
+U forward 4 0
+U forward 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U forward 5 0
+X
+X
+E
+U reverse 4 0
+U reverse 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U reverse 5 0
+X
+X
+U forward 3 0
+U node 3 0
+U reverse 3 0
+U node 3 0
+U in_depth 3 0
+U forward 3 0
+U reverse 3 0
+U forward 3 0
+U reverse 3 0
+U forward 3 0
+U forward 3 0
+U reverse 3 0
+U reverse 3 0
+X
+U in_depth 2 0
+E
+U node 3 0
+U node 3 0
+E
+U __quicklistCompressNode 4 0
+U quicklist 4 0
+U node 4 0
+X
+X
+E
+U forward 3 0
+U forward 3 0
+E
+U __quicklistCompressNode 4 0
+U quicklist 4 0
+U forward 4 0
+X
+X
+E
+U reverse 3 0
+U reverse 3 0
+E
+U __quicklistCompressNode 4 0
+U quicklist 4 0
+U reverse 4 0
+X
+X
+X
+X
+D __quicklistInsertNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D old_node 1 0
+U quicklistNode 1 0
+D new_node 1 0
+U quicklistNode 1 0
+D after 1 0
+E
+U after 2 0
+E
+U new_node 3 0
+U old_node 3 0
+U old_node 3 0
+E
+U new_node 4 0
+U old_node 4 0
+U old_node 4 0
+U old_node 4 0
+U new_node 4 0
+U old_node 4 0
+U new_node 4 0
+X
+U quicklist 3 0
+U old_node 3 0
+U quicklist 3 0
+U new_node 3 0
+X
+E
+U new_node 3 0
+U old_node 3 0
+U old_node 3 0
+E
+U new_node 4 0
+U old_node 4 0
+U old_node 4 0
+U old_node 4 0
+U new_node 4 0
+U old_node 4 0
+U new_node 4 0
+X
+U quicklist 3 0
+U old_node 3 0
+U quicklist 3 0
+U new_node 3 0
+X
+U quicklist 2 0
+E
+U quicklist 3 0
+U quicklist 3 0
+U new_node 3 0
+X
+U quicklist 2 0
+U old_node 2 0
+E
+U old_node 3 0
+E
+U old_node 4 0
+U old_node 4 0
+E
+U __quicklistCompressNode 5 0
+U quicklist 5 0
+U old_node 5 0
+X
+X
+U __quicklistCompress 3 0
+U quicklist 3 0
+U old_node 3 0
+X
+E
+U new_node 3 0
+E
+U new_node 4 0
+U new_node 4 0
+E
+U __quicklistCompressNode 5 0
+U quicklist 5 0
+U new_node 5 0
+X
+X
+U __quicklistCompress 3 0
+U quicklist 3 0
+U new_node 3 0
+X
+X
+X
+D _quicklistInsertNodeBefore 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D old_node 1 0
+U quicklistNode 1 0
+D new_node 1 0
+U quicklistNode 1 0
+E
+U __quicklistInsertNode 2 0
+U quicklist 2 0
+U old_node 2 0
+U new_node 2 0
+X
+X
+D _quicklistInsertNodeAfter 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D old_node 1 0
+U quicklistNode 1 0
+D new_node 1 0
+U quicklistNode 1 0
+E
+U __quicklistInsertNode 2 0
+U quicklist 2 0
+U old_node 2 0
+U new_node 2 0
+X
+X
+D quicklistNodeNegFillLimit 0 0
+E
+U size_t 1 0
+D fill 1 0
+E
+U __builtin_expect 2 0
+U fill 2 0
+U _serverAssert 2 0
+U abort 2 0
+D offset 2 0
+U size_t 2 0
+U fill 2 0
+D max_level 2 0
+U size_t 2 0
+U optimization_level 2 0
+U optimization_level 2 0
+U offset 2 0
+U max_level 2 0
+U offset 2 0
+U max_level 2 0
+U optimization_level 2 0
+U offset 2 0
+X
+X
+D quicklistNodeLimit 0 0
+E
+D fill 1 0
+D size 1 0
+U size_t 1 0
+D count 1 0
+E
+U size 2 0
+U count 2 0
+U fill 2 0
+E
+U count 3 0
+U fill 3 0
+U fill 3 0
+X
+E
+U size 3 0
+U quicklistNodeNegFillLimit 3 0
+U fill 3 0
+X
+X
+X
+D quicklistNodeExceedsLimit 0 0
+E
+D fill 1 0
+D new_sz 1 0
+U size_t 1 0
+D new_count 1 0
+E
+D sz_limit 2 0
+U size_t 2 0
+D count_limit 2 0
+U quicklistNodeLimit 2 0
+U fill 2 0
+U sz_limit 2 0
+U count_limit 2 0
+U __builtin_expect 2 0
+U sz_limit 2 0
+E
+U new_sz 3 0
+U sz_limit 3 0
+X
+U count_limit 2 0
+E
+U new_sz 3 0
+U new_count 3 0
+U count_limit 3 0
+X
+U abort 2 0
+X
+X
+D isLargeElement 0 0
+E
+D sz 1 0
+U size_t 1 0
+D fill 1 0
+E
+U __builtin_expect 2 0
+U packed_threshold 2 0
+U sz 2 0
+U packed_threshold 2 0
+U fill 2 0
+U sz 2 0
+U sz 2 0
+U quicklistNodeNegFillLimit 2 0
+U fill 2 0
+X
+X
+D _quicklistNodeAllowInsert 0 0
+E
+D node 1 0
+U quicklistNode 1 0
+D fill 1 0
+D sz 1 0
+U size_t 1 0
+E
+U __builtin_expect 2 0
+U node 2 0
+U __builtin_expect 2 0
+U node 2 0
+U isLargeElement 2 0
+U sz 2 0
+U fill 2 0
+D new_sz 2 0
+U size_t 2 0
+U node 2 0
+U sz 2 0
+U __builtin_expect 2 0
+U quicklistNodeExceedsLimit 2 0
+U fill 2 0
+U new_sz 2 0
+U node 2 0
+X
+X
+D _quicklistNodeAllowMerge 0 0
+E
+D a 1 0
+U quicklistNode 1 0
+D b 1 0
+U quicklistNode 1 0
+D fill 1 0
+E
+U a 2 0
+U b 2 0
+U __builtin_expect 2 0
+U a 2 0
+U b 2 0
+D merge_sz 2 0
+U a 2 0
+U b 2 0
+U __builtin_expect 2 0
+U quicklistNodeExceedsLimit 2 0
+U fill 2 0
+U merge_sz 2 0
+U a 2 0
+U b 2 0
+X
+X
+D __quicklistCreateNode 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D container 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+E
+D new_node 2 0
+U quicklistNode 2 0
+U quicklistCreateNode 2 0
+U quicklist 2 0
+U new_node 2 0
+U container 2 0
+U container 2 0
+E
+U new_node 3 0
+U zmalloc 3 0
+U sz 3 0
+U memcpy 3 0
+U new_node 3 0
+U value 3 0
+U sz 3 0
+U new_node 3 0
+U sz 3 0
+X
+E
+U new_node 3 0
+U lpPrepend 3 0
+U lpNew 3 0
+U value 3 0
+U sz 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+X
+U quicklist 2 0
+U new_node 2 0
+U new_node 2 0
+U new_node 2 0
+X
+X
+D __quicklistInsertPlainNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D old_node 1 0
+U quicklistNode 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+D after 1 0
+E
+D new_node 2 0
+U quicklistNode 2 0
+U __quicklistCreateNode 2 0
+U quicklist 2 0
+U value 2 0
+U sz 2 0
+U __quicklistInsertNode 2 0
+U quicklist 2 0
+U old_node 2 0
+U new_node 2 0
+U after 2 0
+U quicklist 2 0
+X
+X
+D quicklistPushHead 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+E
+D orig_head 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+U __builtin_expect 2 0
+U isLargeElement 2 0
+U sz 2 0
+U quicklist 2 0
+E
+U __quicklistInsertPlainNode 3 0
+U quicklist 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+X
+U __builtin_expect 2 0
+U _quicklistNodeAllowInsert 2 0
+U quicklist 2 0
+U quicklist 2 0
+U sz 2 0
+E
+D oldsize 3 0
+U size_t 3 0
+U quicklist 3 0
+U quicklist 3 0
+U lpPrepend 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+E
+U quicklist 4 0
+U lpBytes 4 0
+U quicklist 4 0
+X
+E
+U quicklist 4 0
+U quicklist 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+X
+E
+D node 3 0
+U quicklistNode 3 0
+U quicklistCreateNode 3 0
+U quicklist 3 0
+U node 3 0
+U lpPrepend 3 0
+U lpNew 3 0
+U value 3 0
+U sz 3 0
+E
+U node 4 0
+U lpBytes 4 0
+U node 4 0
+X
+E
+U quicklist 4 0
+U node 4 0
+U quicklist 4 0
+X
+U _quicklistInsertNodeBefore 3 0
+U quicklist 3 0
+U quicklist 3 0
+U node 3 0
+X
+U quicklist 2 0
+U quicklist 2 0
+U orig_head 2 0
+U quicklist 2 0
+X
+X
+D quicklistPushTail 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+E
+D orig_tail 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+U __builtin_expect 2 0
+U isLargeElement 2 0
+U sz 2 0
+U quicklist 2 0
+E
+U __quicklistInsertPlainNode 3 0
+U quicklist 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+X
+U __builtin_expect 2 0
+U _quicklistNodeAllowInsert 2 0
+U quicklist 2 0
+U quicklist 2 0
+U sz 2 0
+E
+D oldsize 3 0
+U size_t 3 0
+U quicklist 3 0
+U quicklist 3 0
+U lpAppend 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+E
+U quicklist 4 0
+U lpBytes 4 0
+U quicklist 4 0
+X
+E
+U quicklist 4 0
+U quicklist 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+X
+E
+D node 3 0
+U quicklistNode 3 0
+U quicklistCreateNode 3 0
+U quicklist 3 0
+U node 3 0
+U lpAppend 3 0
+U lpNew 3 0
+U value 3 0
+U sz 3 0
+E
+U node 4 0
+U lpBytes 4 0
+U node 4 0
+X
+E
+U quicklist 4 0
+U node 4 0
+U quicklist 4 0
+X
+U _quicklistInsertNodeAfter 3 0
+U quicklist 3 0
+U quicklist 3 0
+U node 3 0
+X
+U quicklist 2 0
+U quicklist 2 0
+U orig_tail 2 0
+U quicklist 2 0
+X
+X
+D quicklistAppendListpack 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D zl 1 0
+E
+D node 2 0
+U quicklistNode 2 0
+U quicklistCreateNode 2 0
+U quicklist 2 0
+U node 2 0
+U zl 2 0
+U node 2 0
+U lpLength 2 0
+U node 2 0
+U node 2 0
+U lpBytes 2 0
+U zl 2 0
+U quicklist 2 0
+U node 2 0
+U _quicklistInsertNodeAfter 2 0
+U quicklist 2 0
+U quicklist 2 0
+U node 2 0
+U quicklist 2 0
+U node 2 0
+X
+X
+D quicklistAppendPlainNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+E
+D node 2 0
+U quicklistNode 2 0
+U quicklistCreateNode 2 0
+U quicklist 2 0
+U node 2 0
+U data 2 0
+U node 2 0
+U node 2 0
+U sz 2 0
+U node 2 0
+U quicklist 2 0
+U sz 2 0
+U _quicklistInsertNodeAfter 2 0
+U quicklist 2 0
+U quicklist 2 0
+U node 2 0
+U quicklist 2 0
+U node 2 0
+X
+X
+D __quicklistDelNode 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+D bm 2 0
+U quicklistBookmark 2 0
+U _quicklistBookmarkFindByNode 2 0
+U quicklist 2 0
+U node 2 0
+U bm 2 0
+E
+U bm 3 0
+U node 3 0
+U bm 3 0
+U _quicklistBookmarkDelete 3 0
+U quicklist 3 0
+U bm 3 0
+X
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U node 2 0
+U quicklist 2 0
+E
+U quicklist 3 0
+U node 3 0
+X
+U node 2 0
+U quicklist 2 0
+E
+U quicklist 3 0
+U node 3 0
+X
+U quicklist 2 0
+U quicklist 2 0
+U node 2 0
+U __quicklistCompress 2 0
+U quicklist 2 0
+U node 2 0
+E
+D lzf 3 0
+U quicklistLZF 3 0
+U quicklistLZF 3 0
+U node 3 0
+D lzf_sz 3 0
+U size_t 3 0
+U lzf 3 0
+U lzf 3 0
+U quicklist 3 0
+U lzf_sz 3 0
+X
+E
+U quicklist 3 0
+U node 3 0
+X
+U zfree 2 0
+U node 2 0
+D usable 2 0
+U size_t 2 0
+U zfree_usable 2 0
+U node 2 0
+U usable 2 0
+U quicklist 2 0
+U usable 2 0
+X
+X
+D quicklistDelIndex 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+D p 1 0
+E
+D gone 2 0
+U __builtin_expect 2 0
+U node 2 0
+E
+U __quicklistDelNode 3 0
+U quicklist 3 0
+U node 3 0
+X
+D oldsize 2 0
+U size_t 2 0
+U node 2 0
+U node 2 0
+U lpDelete 2 0
+U node 2 0
+U p 2 0
+U p 2 0
+E
+U node 3 0
+U lpBytes 3 0
+U node 3 0
+X
+E
+U quicklist 3 0
+U node 3 0
+U quicklist 3 0
+U oldsize 3 0
+X
+U node 2 0
+U node 2 0
+E
+U gone 3 0
+U __quicklistDelNode 3 0
+U quicklist 3 0
+U node 3 0
+X
+U quicklist 2 0
+U gone 2 0
+X
+X
+D quicklistDelEntry 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+E
+D prev 2 0
+U quicklistNode 2 0
+U entry 2 0
+D next 2 0
+U quicklistNode 2 0
+U entry 2 0
+D deleted_node 2 0
+U quicklistDelIndex 2 0
+U quicklist 2 0
+U entry 2 0
+U entry 2 0
+U entry 2 0
+U iter 2 0
+U deleted_node 2 0
+E
+U iter 3 0
+E
+U iter 4 0
+U next 4 0
+U iter 4 0
+X
+U iter 3 0
+E
+U iter 4 0
+U prev 4 0
+U iter 4 0
+X
+X
+X
+X
+D quicklistReplaceEntry 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+E
+D quicklist 2 0
+U quicklist 2 0
+U iter 2 0
+D node 2 0
+U quicklistNode 2 0
+U entry 2 0
+D newentry 2 0
+U __builtin_expect 2 0
+U entry 2 0
+U isLargeElement 2 0
+U sz 2 0
+U quicklist 2 0
+U newentry 2 0
+U lpReplace 2 0
+U entry 2 0
+U entry 2 0
+U data 2 0
+U sz 2 0
+E
+U entry 3 0
+U newentry 3 0
+D oldsize 3 0
+U size_t 3 0
+U entry 3 0
+E
+U entry 4 0
+U lpBytes 4 0
+U entry 4 0
+X
+E
+U quicklist 4 0
+U entry 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+E
+U entry 4 0
+E
+U entry 5 0
+U entry 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U entry 6 0
+X
+X
+U __quicklistCompress 4 0
+U quicklist 4 0
+U entry 4 0
+X
+X
+U entry 2 0
+E
+U isLargeElement 3 0
+U sz 3 0
+U quicklist 3 0
+E
+U zfree 4 0
+U entry 4 0
+U entry 4 0
+U zmalloc 4 0
+U sz 4 0
+D oldsize 4 0
+U size_t 4 0
+U entry 4 0
+E
+U quicklist 5 0
+U sz 5 0
+U quicklist 5 0
+U oldsize 5 0
+X
+U entry 4 0
+U sz 4 0
+U memcpy 4 0
+U entry 4 0
+U data 4 0
+U sz 4 0
+E
+U entry 5 0
+E
+U entry 6 0
+U entry 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U entry 7 0
+X
+X
+U __quicklistCompress 5 0
+U quicklist 5 0
+U entry 5 0
+X
+X
+E
+U quicklistInsertAfter 4 0
+U iter 4 0
+U entry 4 0
+U data 4 0
+U sz 4 0
+U __quicklistDelNode 4 0
+U quicklist 4 0
+U entry 4 0
+X
+X
+E
+D split_node 3 0
+U quicklistNode 3 0
+D new_node 3 0
+U quicklistNode 3 0
+U node 3 0
+U entry 3 0
+U node 3 0
+U entry 3 0
+U split_node 3 0
+U _quicklistSplitNode 3 0
+U quicklist 3 0
+U node 3 0
+U entry 3 0
+U new_node 3 0
+U __quicklistCreateNode 3 0
+U quicklist 3 0
+U isLargeElement 3 0
+U sz 3 0
+U quicklist 3 0
+U data 3 0
+U sz 3 0
+U __quicklistInsertNode 3 0
+U quicklist 3 0
+U node 3 0
+U new_node 3 0
+U split_node 3 0
+U __quicklistInsertNode 3 0
+U quicklist 3 0
+U new_node 3 0
+U split_node 3 0
+U quicklist 3 0
+U entry 3 0
+E
+U __quicklistDelNode 4 0
+U quicklist 4 0
+U entry 4 0
+X
+E
+D p 4 0
+U lpSeek 4 0
+U entry 4 0
+U quicklistDelIndex 4 0
+U quicklist 4 0
+U entry 4 0
+U p 4 0
+U entry 4 0
+U new_node 4 0
+U _quicklistMergeNodes 4 0
+U quicklist 4 0
+U new_node 4 0
+E
+U new_node 5 0
+E
+U new_node 6 0
+U new_node 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U new_node 7 0
+X
+X
+U __quicklistCompress 5 0
+U quicklist 5 0
+U new_node 5 0
+X
+E
+U new_node 5 0
+E
+U new_node 6 0
+U new_node 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U new_node 7 0
+X
+X
+U __quicklistCompress 5 0
+U quicklist 5 0
+U new_node 5 0
+X
+U new_node 4 0
+E
+U new_node 5 0
+E
+U new_node 6 0
+U new_node 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U new_node 7 0
+X
+X
+U __quicklistCompress 5 0
+U quicklist 5 0
+U new_node 5 0
+X
+X
+X
+E
+U iter 3 0
+U iter 3 0
+X
+X
+X
+D quicklistReplaceAtIndex 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D index 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+E
+D entry 2 0
+U quicklistEntry 2 0
+D iter 2 0
+U quicklistIter 2 0
+U __builtin_expect 2 0
+U quicklistInitIteratorEntryAtIdx 2 0
+U iter 2 0
+U quicklist 2 0
+U index 2 0
+U entry 2 0
+E
+U quicklistReplaceEntry 3 0
+U iter 3 0
+U entry 3 0
+U data 3 0
+U sz 3 0
+U quicklistResetIterator 3 0
+U iter 3 0
+X
+E
+X
+X
+X
+D _quicklistListpackMerge 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D a 1 0
+U quicklistNode 1 0
+D b 1 0
+U quicklistNode 1 0
+E
+E
+U a 3 0
+U a 3 0
+E
+U __quicklistDecompressNode 4 0
+U quicklist 4 0
+U a 4 0
+X
+X
+E
+U b 3 0
+U b 3 0
+E
+U __quicklistDecompressNode 4 0
+U quicklist 4 0
+U b 4 0
+X
+X
+U lpMerge 2 0
+U a 2 0
+U b 2 0
+E
+D keep 3 0
+U quicklistNode 3 0
+D nokeep 3 0
+U quicklistNode 3 0
+U a 3 0
+E
+U nokeep 4 0
+U a 4 0
+U keep 4 0
+U b 4 0
+X
+U b 3 0
+E
+U nokeep 4 0
+U b 4 0
+U keep 4 0
+U a 4 0
+X
+U keep 3 0
+U lpLength 3 0
+U keep 3 0
+D oldsize 3 0
+U size_t 3 0
+U keep 3 0
+E
+U keep 4 0
+U lpBytes 4 0
+U keep 4 0
+X
+E
+U quicklist 4 0
+U keep 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U keep 3 0
+U nokeep 3 0
+U __quicklistDelNode 3 0
+U quicklist 3 0
+U nokeep 3 0
+E
+U keep 4 0
+E
+U keep 5 0
+U keep 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U keep 6 0
+X
+X
+U __quicklistCompress 4 0
+U quicklist 4 0
+U keep 4 0
+X
+U keep 3 0
+X
+E
+X
+X
+X
+D _quicklistMergeNodes 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D center 1 0
+U quicklistNode 1 0
+E
+D fill 2 0
+U quicklist 2 0
+D prev 2 0
+U quicklistNode 2 0
+D prev_prev 2 0
+U quicklistNode 2 0
+D next 2 0
+U quicklistNode 2 0
+D next_next 2 0
+U quicklistNode 2 0
+D target 2 0
+U quicklistNode 2 0
+U prev 2 0
+U prev_prev 2 0
+U next 2 0
+U next_next 2 0
+U target 2 0
+U center 2 0
+E
+U prev 3 0
+U center 3 0
+U center 3 0
+U prev_prev 3 0
+U center 3 0
+X
+U center 2 0
+E
+U next 3 0
+U center 3 0
+U center 3 0
+U next_next 3 0
+U center 3 0
+X
+U _quicklistNodeAllowMerge 2 0
+U prev 2 0
+U prev_prev 2 0
+U fill 2 0
+E
+U _quicklistListpackMerge 3 0
+U quicklist 3 0
+U prev_prev 3 0
+U prev 3 0
+U prev_prev 3 0
+U prev 3 0
+X
+U _quicklistNodeAllowMerge 2 0
+U next 2 0
+U next_next 2 0
+U fill 2 0
+E
+U _quicklistListpackMerge 3 0
+U quicklist 3 0
+U next 3 0
+U next_next 3 0
+U next 3 0
+U next_next 3 0
+X
+U _quicklistNodeAllowMerge 2 0
+U center 2 0
+U center 2 0
+U fill 2 0
+E
+U target 3 0
+U _quicklistListpackMerge 3 0
+U quicklist 3 0
+U center 3 0
+U center 3 0
+U center 3 0
+X
+E
+U target 3 0
+U center 3 0
+X
+U _quicklistNodeAllowMerge 2 0
+U target 2 0
+U target 2 0
+U fill 2 0
+E
+U target 3 0
+U _quicklistListpackMerge 3 0
+U quicklist 3 0
+U target 3 0
+U target 3 0
+X
+U target 2 0
+X
+X
+D _quicklistSplitNode 0 0
+E
+U quicklistNode 1 0
+D quicklist 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+D offset 1 0
+D after 1 0
+E
+D zl_sz 2 0
+U size_t 2 0
+U node 2 0
+D new_node 2 0
+U quicklistNode 2 0
+U quicklistCreateNode 2 0
+U quicklist 2 0
+U new_node 2 0
+U zmalloc 2 0
+U zl_sz 2 0
+U memcpy 2 0
+U new_node 2 0
+U node 2 0
+U zl_sz 2 0
+U offset 2 0
+U offset 2 0
+U node 2 0
+U offset 2 0
+D orig_start 2 0
+U after 2 0
+U offset 2 0
+D orig_extent 2 0
+U after 2 0
+U offset 2 0
+D new_start 2 0
+U after 2 0
+U offset 2 0
+D new_extent 2 0
+U after 2 0
+U offset 2 0
+D oldsize 2 0
+U size_t 2 0
+U node 2 0
+U node 2 0
+U lpDeleteRange 2 0
+U node 2 0
+U orig_start 2 0
+U orig_extent 2 0
+U node 2 0
+U lpLength 2 0
+U node 2 0
+E
+U node 3 0
+U lpBytes 3 0
+U node 3 0
+X
+E
+U quicklist 3 0
+U node 3 0
+U quicklist 3 0
+U oldsize 3 0
+X
+U new_node 2 0
+U lpDeleteRange 2 0
+U new_node 2 0
+U new_start 2 0
+U new_extent 2 0
+U new_node 2 0
+U lpLength 2 0
+U new_node 2 0
+E
+U new_node 3 0
+U lpBytes 3 0
+U new_node 3 0
+X
+E
+U quicklist 3 0
+U new_node 3 0
+U quicklist 3 0
+X
+U new_node 2 0
+X
+X
+D _quicklistInsert 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+D after 1 0
+E
+D quicklist 2 0
+U quicklist 2 0
+U iter 2 0
+D full 2 0
+D at_tail 2 0
+D at_head 2 0
+D avail_next 2 0
+D avail_prev 2 0
+D fill 2 0
+U quicklist 2 0
+D node 2 0
+U quicklistNode 2 0
+U entry 2 0
+D new_node 2 0
+U quicklistNode 2 0
+U node 2 0
+E
+U __builtin_expect 3 0
+U isLargeElement 3 0
+U sz 3 0
+U quicklist 3 0
+E
+U __quicklistInsertPlainNode 4 0
+U quicklist 4 0
+U quicklist 4 0
+U value 4 0
+U sz 4 0
+U after 4 0
+X
+U new_node 3 0
+U quicklistCreateNode 3 0
+U quicklist 3 0
+U new_node 3 0
+U lpPrepend 3 0
+U lpNew 3 0
+U value 3 0
+U sz 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+E
+U quicklist 4 0
+U new_node 4 0
+U quicklist 4 0
+X
+U __quicklistInsertNode 3 0
+U quicklist 3 0
+U new_node 3 0
+U after 3 0
+U new_node 3 0
+U quicklist 3 0
+X
+U _quicklistNodeAllowInsert 2 0
+U node 2 0
+U fill 2 0
+U sz 2 0
+E
+U full 3 0
+X
+U after 2 0
+U entry 2 0
+U node 2 0
+U entry 2 0
+E
+U at_tail 3 0
+U _quicklistNodeAllowInsert 3 0
+U node 3 0
+U fill 3 0
+U sz 3 0
+E
+U avail_next 4 0
+X
+X
+U after 2 0
+U entry 2 0
+U entry 2 0
+U node 2 0
+E
+U at_head 3 0
+U _quicklistNodeAllowInsert 3 0
+U node 3 0
+U fill 3 0
+U sz 3 0
+E
+U avail_prev 4 0
+X
+X
+U __builtin_expect 2 0
+U isLargeElement 2 0
+U sz 2 0
+U quicklist 2 0
+E
+U node 3 0
+U at_tail 3 0
+U after 3 0
+U at_head 3 0
+U after 3 0
+E
+U __quicklistInsertPlainNode 4 0
+U quicklist 4 0
+U node 4 0
+U value 4 0
+U sz 4 0
+U after 4 0
+X
+E
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistDecompressNode 6 0
+U quicklist 6 0
+U node 6 0
+U node 6 0
+X
+X
+U new_node 4 0
+U _quicklistSplitNode 4 0
+U quicklist 4 0
+U node 4 0
+U entry 4 0
+U after 4 0
+D entry_node 4 0
+U quicklistNode 4 0
+U __quicklistCreateNode 4 0
+U quicklist 4 0
+U value 4 0
+U sz 4 0
+U __quicklistInsertNode 4 0
+U quicklist 4 0
+U node 4 0
+U entry_node 4 0
+U after 4 0
+U __quicklistInsertNode 4 0
+U quicklist 4 0
+U entry_node 4 0
+U new_node 4 0
+U after 4 0
+U quicklist 4 0
+X
+X
+U full 2 0
+U after 2 0
+E
+E
+U node 4 0
+U node 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U node 5 0
+U node 5 0
+X
+X
+U node 3 0
+U lpInsertString 3 0
+U node 3 0
+U value 3 0
+U sz 3 0
+U entry 3 0
+D oldsize 3 0
+U size_t 3 0
+U node 3 0
+E
+U node 4 0
+U lpBytes 4 0
+U node 4 0
+X
+E
+U quicklist 4 0
+U node 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U node 3 0
+E
+U node 4 0
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U node 6 0
+X
+X
+X
+X
+U full 2 0
+U after 2 0
+E
+E
+U node 4 0
+U node 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U node 5 0
+U node 5 0
+X
+X
+U node 3 0
+U lpInsertString 3 0
+U node 3 0
+U value 3 0
+U sz 3 0
+U entry 3 0
+D oldsize 3 0
+U size_t 3 0
+U node 3 0
+E
+U node 4 0
+U lpBytes 4 0
+U node 4 0
+X
+E
+U quicklist 4 0
+U node 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U node 3 0
+E
+U node 4 0
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U node 6 0
+X
+X
+X
+X
+U full 2 0
+U at_tail 2 0
+U avail_next 2 0
+U after 2 0
+E
+U new_node 3 0
+U node 3 0
+E
+U new_node 4 0
+U new_node 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U new_node 5 0
+U new_node 5 0
+X
+X
+U new_node 3 0
+U lpPrepend 3 0
+U new_node 3 0
+U value 3 0
+U sz 3 0
+D oldsize 3 0
+U size_t 3 0
+U new_node 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+E
+U quicklist 4 0
+U new_node 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U new_node 3 0
+E
+U new_node 4 0
+E
+U new_node 5 0
+U new_node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U new_node 6 0
+X
+X
+X
+E
+U node 4 0
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U node 6 0
+X
+X
+X
+X
+U full 2 0
+U at_head 2 0
+U avail_prev 2 0
+U after 2 0
+E
+U new_node 3 0
+U node 3 0
+E
+U new_node 4 0
+U new_node 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U new_node 5 0
+U new_node 5 0
+X
+X
+U new_node 3 0
+U lpAppend 3 0
+U new_node 3 0
+U value 3 0
+U sz 3 0
+D oldsize 3 0
+U size_t 3 0
+U new_node 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+E
+U quicklist 4 0
+U new_node 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U new_node 3 0
+E
+U new_node 4 0
+E
+U new_node 5 0
+U new_node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U new_node 6 0
+X
+X
+X
+E
+U node 4 0
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistCompressNode 6 0
+U quicklist 6 0
+U node 6 0
+X
+X
+X
+X
+U full 2 0
+U at_tail 2 0
+U avail_next 2 0
+U after 2 0
+U at_head 2 0
+U avail_prev 2 0
+U after 2 0
+E
+U new_node 3 0
+U quicklistCreateNode 3 0
+U quicklist 3 0
+U new_node 3 0
+U lpPrepend 3 0
+U lpNew 3 0
+U value 3 0
+U sz 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+E
+U quicklist 4 0
+U new_node 4 0
+U quicklist 4 0
+X
+U new_node 3 0
+U __quicklistInsertNode 3 0
+U quicklist 3 0
+U node 3 0
+U new_node 3 0
+U after 3 0
+X
+U full 2 0
+E
+E
+U node 4 0
+U node 4 0
+E
+U __quicklistDecompressNode 5 0
+U quicklist 5 0
+U node 5 0
+U node 5 0
+X
+X
+U new_node 3 0
+U _quicklistSplitNode 3 0
+U quicklist 3 0
+U node 3 0
+U entry 3 0
+U after 3 0
+U after 3 0
+U new_node 3 0
+U lpPrepend 3 0
+U new_node 3 0
+U value 3 0
+U sz 3 0
+U new_node 3 0
+U lpAppend 3 0
+U new_node 3 0
+U value 3 0
+U sz 3 0
+D oldsize 3 0
+U size_t 3 0
+U new_node 3 0
+E
+U new_node 4 0
+U lpBytes 4 0
+U new_node 4 0
+X
+E
+U quicklist 4 0
+U new_node 4 0
+U quicklist 4 0
+U oldsize 4 0
+X
+U new_node 3 0
+U __quicklistInsertNode 3 0
+U quicklist 3 0
+U node 3 0
+U new_node 3 0
+U after 3 0
+U _quicklistMergeNodes 3 0
+U quicklist 3 0
+U node 3 0
+X
+U quicklist 2 0
+E
+U iter 3 0
+U iter 3 0
+X
+X
+X
+D quicklistInsertBefore 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+E
+U _quicklistInsert 2 0
+U iter 2 0
+U entry 2 0
+U value 2 0
+U sz 2 0
+X
+X
+D quicklistInsertAfter 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+E
+U _quicklistInsert 2 0
+U iter 2 0
+U entry 2 0
+U value 2 0
+U sz 2 0
+X
+X
+D quicklistDelRange 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D start 1 0
+D count 1 0
+E
+U count 2 0
+D extent 2 0
+U count 2 0
+U start 2 0
+U extent 2 0
+U quicklist 2 0
+U start 2 0
+E
+U extent 3 0
+U quicklist 3 0
+U start 3 0
+X
+U start 2 0
+U extent 2 0
+U start 2 0
+E
+U extent 3 0
+U start 3 0
+X
+D iter 2 0
+U quicklistIter 2 0
+U quicklistInitIteratorAtIdx 2 0
+U iter 2 0
+U quicklist 2 0
+U start 2 0
+D node 2 0
+U quicklistNode 2 0
+U iter 2 0
+D offset 2 0
+U iter 2 0
+U quicklistResetIterator 2 0
+U iter 2 0
+U extent 2 0
+E
+D next 3 0
+U quicklistNode 3 0
+U node 3 0
+D del 3 0
+D delete_entire_node 3 0
+U offset 3 0
+U extent 3 0
+U node 3 0
+E
+U delete_entire_node 4 0
+U del 4 0
+U node 4 0
+X
+U offset 3 0
+U extent 3 0
+U offset 3 0
+U node 3 0
+E
+U del 4 0
+U node 4 0
+U offset 4 0
+X
+U offset 3 0
+E
+U del 4 0
+U offset 4 0
+U del 4 0
+U extent 4 0
+U del 4 0
+U extent 4 0
+X
+E
+U del 4 0
+U extent 4 0
+X
+U delete_entire_node 3 0
+U node 3 0
+E
+U __quicklistDelNode 4 0
+U quicklist 4 0
+U node 4 0
+X
+E
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistDecompressNode 6 0
+U quicklist 6 0
+U node 6 0
+U node 6 0
+X
+X
+U node 4 0
+U lpDeleteRange 4 0
+U node 4 0
+U offset 4 0
+U del 4 0
+D oldsize 4 0
+U size_t 4 0
+U node 4 0
+E
+U node 5 0
+U lpBytes 5 0
+U node 5 0
+X
+E
+U quicklist 5 0
+U node 5 0
+U quicklist 5 0
+U oldsize 5 0
+X
+U node 4 0
+U del 4 0
+U quicklist 4 0
+U del 4 0
+E
+U node 5 0
+E
+U __quicklistDelNode 6 0
+U quicklist 6 0
+U node 6 0
+U node 6 0
+X
+X
+U node 4 0
+E
+U node 5 0
+E
+U node 6 0
+U node 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U node 7 0
+X
+X
+X
+X
+U extent 3 0
+U del 3 0
+U node 3 0
+U next 3 0
+U offset 3 0
+X
+X
+X
+D quicklistCompare 0 0
+E
+D entry 1 0
+U quicklistEntry 1 0
+D p2 1 0
+D p2_len 1 0
+U size_t 1 0
+D cached_longval 1 0
+D cached_valid 1 0
+E
+U entry 2 0
+E
+U entry 3 0
+U p2_len 3 0
+U memcmp 3 0
+U entry 3 0
+U p2 3 0
+U p2_len 3 0
+X
+E
+U cached_valid 3 0
+E
+U cached_valid 4 0
+E
+U string2ll 5 0
+U p2 5 0
+U p2_len 5 0
+U cached_longval 5 0
+E
+U cached_valid 6 0
+X
+E
+U cached_valid 6 0
+X
+X
+U cached_valid 4 0
+U entry 4 0
+U cached_longval 4 0
+X
+E
+D sval 4 0
+U string2ll 4 0
+U p2 4 0
+U p2_len 4 0
+U sval 4 0
+U entry 4 0
+U sval 4 0
+X
+X
+X
+X
+D quicklistInitIterator 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D direction 1 0
+E
+U direction 2 0
+E
+U iter 3 0
+U quicklist 3 0
+U iter 3 0
+X
+U direction 2 0
+E
+U iter 3 0
+U quicklist 3 0
+U iter 3 0
+X
+U iter 2 0
+U direction 2 0
+U iter 2 0
+U quicklist 2 0
+U iter 2 0
+X
+X
+D quicklistInitIteratorAtIdx 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D direction 1 0
+D idx 1 0
+E
+D n 2 0
+U quicklistNode 2 0
+D accum 2 0
+D index 2 0
+D forward 2 0
+U idx 2 0
+U quicklistInitIterator 2 0
+U iter 2 0
+U quicklist 2 0
+U direction 2 0
+U index 2 0
+U forward 2 0
+U idx 2 0
+U idx 2 0
+U index 2 0
+U quicklist 2 0
+E
+U iter 3 0
+X
+D seek_forward 2 0
+U forward 2 0
+D seek_index 2 0
+U index 2 0
+U index 2 0
+U quicklist 2 0
+E
+U seek_forward 3 0
+U forward 3 0
+U seek_index 3 0
+U quicklist 3 0
+U index 3 0
+X
+U n 2 0
+U seek_forward 2 0
+U quicklist 2 0
+U quicklist 2 0
+U __builtin_expect 2 0
+U n 2 0
+E
+U accum 3 0
+U n 3 0
+U seek_index 3 0
+E
+X
+E
+U accum 4 0
+U n 4 0
+U n 4 0
+U seek_forward 4 0
+U n 4 0
+U n 4 0
+X
+X
+U n 2 0
+E
+U iter 3 0
+X
+U seek_forward 2 0
+U forward 2 0
+U accum 2 0
+U quicklist 2 0
+U n 2 0
+U accum 2 0
+U iter 2 0
+U n 2 0
+U forward 2 0
+E
+U iter 3 0
+U index 3 0
+U accum 3 0
+X
+E
+U iter 3 0
+U index 3 0
+U accum 3 0
+X
+X
+X
+D quicklistResetIterator 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+E
+U iter 2 0
+E
+U iter 3 0
+E
+U iter 4 0
+U iter 4 0
+E
+U __quicklistCompressNode 5 0
+U iter 5 0
+U iter 5 0
+X
+X
+U __quicklistCompress 3 0
+U iter 3 0
+U iter 3 0
+X
+X
+X
+D quicklistNext 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D entry 1 0
+U quicklistEntry 1 0
+E
+E
+U entry 3 0
+U entry 3 0
+U entry 3 0
+U entry 3 0
+U entry 3 0
+U entry 3 0
+U entry 3 0
+X
+U entry 2 0
+U iter 2 0
+U entry 2 0
+U iter 2 0
+U iter 2 0
+E
+X
+D nextFn 2 0
+D offset_update 2 0
+D plain 2 0
+U iter 2 0
+U iter 2 0
+E
+E
+U iter 4 0
+U iter 4 0
+E
+U __quicklistDecompressNode 5 0
+U iter 5 0
+U iter 5 0
+U iter 5 0
+X
+X
+U __builtin_expect 3 0
+U plain 3 0
+U iter 3 0
+U iter 3 0
+U iter 3 0
+U lpSeek 3 0
+U iter 3 0
+U iter 3 0
+X
+U __builtin_expect 2 0
+U plain 2 0
+E
+U iter 3 0
+X
+E
+U iter 3 0
+E
+U nextFn 4 0
+U lpNext 4 0
+U offset_update 4 0
+X
+U iter 3 0
+E
+U nextFn 4 0
+U lpPrev 4 0
+U offset_update 4 0
+X
+U iter 3 0
+U nextFn 3 0
+U iter 3 0
+U iter 3 0
+U iter 3 0
+U offset_update 3 0
+X
+U entry 2 0
+U iter 2 0
+U entry 2 0
+U iter 2 0
+U iter 2 0
+E
+U __builtin_expect 3 0
+U plain 3 0
+E
+U entry 4 0
+U entry 4 0
+U entry 4 0
+U entry 4 0
+X
+D sz 3 0
+U entry 3 0
+U lpGetValue 3 0
+U entry 3 0
+U sz 3 0
+U entry 3 0
+U entry 3 0
+U sz 3 0
+X
+E
+E
+U iter 4 0
+E
+U iter 5 0
+U iter 5 0
+E
+U __quicklistCompressNode 6 0
+U iter 6 0
+U iter 6 0
+X
+X
+U __quicklistCompress 4 0
+U iter 4 0
+U iter 4 0
+X
+U iter 3 0
+E
+U iter 4 0
+U iter 4 0
+U iter 4 0
+X
+U iter 3 0
+E
+U iter 4 0
+U iter 4 0
+U iter 4 0
+X
+U iter 3 0
+U quicklistNext 3 0
+U iter 3 0
+U entry 3 0
+X
+X
+X
+D quicklistSetDirection 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D direction 1 0
+E
+U iter 2 0
+U direction 2 0
+X
+X
+D quicklistDup 0 0
+E
+U quicklist 1 0
+D orig 1 0
+U quicklist 1 0
+E
+D copy 2 0
+U quicklist 2 0
+U copy 2 0
+U quicklistNew 2 0
+U orig 2 0
+U orig 2 0
+E
+D current 3 0
+U quicklistNode 3 0
+U orig 3 0
+U current 3 0
+U current 3 0
+U current 3 0
+E
+D node 4 0
+U quicklistNode 4 0
+U quicklistCreateNode 4 0
+U copy 4 0
+U current 4 0
+E
+D lzf 5 0
+U quicklistLZF 5 0
+U quicklistLZF 5 0
+U current 5 0
+D lzf_sz 5 0
+U size_t 5 0
+U lzf 5 0
+U lzf 5 0
+U node 5 0
+U zmalloc 5 0
+U lzf_sz 5 0
+U memcpy 5 0
+U node 5 0
+U current 5 0
+U lzf_sz 5 0
+U copy 5 0
+U lzf_sz 5 0
+X
+U current 4 0
+E
+U node 5 0
+U zmalloc 5 0
+U current 5 0
+U memcpy 5 0
+U node 5 0
+U current 5 0
+U current 5 0
+U copy 5 0
+U current 5 0
+X
+U node 4 0
+U current 4 0
+U node 4 0
+U current 4 0
+U node 4 0
+U current 4 0
+U node 4 0
+U current 4 0
+U copy 4 0
+U node 4 0
+U _quicklistInsertNodeAfter 4 0
+U copy 4 0
+U copy 4 0
+U node 4 0
+X
+X
+U copy 2 0
+X
+X
+D quicklistInitIteratorEntryAtIdx 0 0
+E
+D iter 1 0
+U quicklistIter 1 0
+D quicklist 1 0
+U quicklist 1 0
+D idx 1 0
+D entry 1 0
+U quicklistEntry 1 0
+E
+U quicklistInitIteratorAtIdx 2 0
+U iter 2 0
+U quicklist 2 0
+U idx 2 0
+U __builtin_expect 2 0
+U quicklistNext 2 0
+U iter 2 0
+U entry 2 0
+U _serverAssert 2 0
+U abort 2 0
+X
+X
+D quicklistRotatePlain 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+E
+D new_head 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+D new_tail 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+U quicklist 2 0
+U new_head 2 0
+U new_tail 2 0
+U new_head 2 0
+U quicklist 2 0
+U new_head 2 0
+U quicklist 2 0
+U new_head 2 0
+U quicklist 2 0
+U new_tail 2 0
+X
+X
+D quicklistRotate 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+E
+U quicklist 2 0
+U __builtin_expect 2 0
+U quicklist 2 0
+E
+U quicklistRotatePlain 3 0
+U quicklist 3 0
+X
+D p 2 0
+U lpSeek 2 0
+U quicklist 2 0
+D value 2 0
+D tmp 2 0
+D longval 2 0
+D sz 2 0
+D longstr 2 0
+U tmp 2 0
+U lpGetValue 2 0
+U p 2 0
+U sz 2 0
+U longval 2 0
+U tmp 2 0
+E
+U sz 3 0
+U ll2string 3 0
+U longstr 3 0
+U longstr 3 0
+U longval 3 0
+U value 3 0
+U longstr 3 0
+X
+U quicklist 2 0
+E
+U value 3 0
+U zmalloc 3 0
+U sz 3 0
+U memcpy 3 0
+U value 3 0
+U tmp 3 0
+U sz 3 0
+X
+E
+U value 3 0
+U tmp 3 0
+X
+U quicklistPushHead 2 0
+U quicklist 2 0
+U value 2 0
+U sz 2 0
+U quicklist 2 0
+E
+U p 3 0
+U lpSeek 3 0
+U quicklist 3 0
+X
+U quicklistDelIndex 2 0
+U quicklist 2 0
+U quicklist 2 0
+U p 2 0
+U value 2 0
+U longstr 2 0
+U value 2 0
+U tmp 2 0
+U zfree 2 0
+U value 2 0
+X
+X
+D quicklistPopCustom 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D where 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+D sval 1 0
+D saver 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+E
+D p 2 0
+D vstr 2 0
+D vlen 2 0
+D vlong 2 0
+D pos 2 0
+U where 2 0
+U quicklist 2 0
+U data 2 0
+U data 2 0
+U sz 2 0
+U sz 2 0
+U sval 2 0
+U sval 2 0
+D node 2 0
+U quicklistNode 2 0
+U where 2 0
+U quicklist 2 0
+E
+U node 3 0
+U quicklist 3 0
+X
+U where 2 0
+U quicklist 2 0
+E
+U node 3 0
+U quicklist 3 0
+X
+E
+X
+U __builtin_expect 2 0
+U node 2 0
+U _serverAssert 2 0
+U abort 2 0
+U __builtin_expect 2 0
+U node 2 0
+E
+U data 3 0
+U data 3 0
+U saver 3 0
+U node 3 0
+U node 3 0
+U sz 3 0
+U sz 3 0
+U node 3 0
+U quicklistDelIndex 3 0
+U quicklist 3 0
+U node 3 0
+X
+U p 2 0
+U lpSeek 2 0
+U node 2 0
+U pos 2 0
+U vstr 2 0
+U lpGetValue 2 0
+U p 2 0
+U vlen 2 0
+U vlong 2 0
+U vstr 2 0
+E
+U data 3 0
+U data 3 0
+U saver 3 0
+U vstr 3 0
+U vlen 3 0
+U sz 3 0
+U sz 3 0
+U vlen 3 0
+X
+E
+U data 3 0
+U data 3 0
+U sval 3 0
+U sval 3 0
+U vlong 3 0
+X
+U quicklistDelIndex 2 0
+U quicklist 2 0
+U node 2 0
+U p 2 0
+X
+X
+D _quicklistSaver 0 0
+E
+D data 1 0
+D sz 1 0
+U size_t 1 0
+E
+D vstr 2 0
+U data 2 0
+E
+U vstr 3 0
+U zmalloc 3 0
+U sz 3 0
+U memcpy 3 0
+U vstr 3 0
+U data 3 0
+U sz 3 0
+U vstr 3 0
+X
+X
+X
+D quicklistPop 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D where 1 0
+D data 1 0
+D sz 1 0
+U size_t 1 0
+D slong 1 0
+E
+D vstr 2 0
+D vlen 2 0
+U size_t 2 0
+D vlong 2 0
+U quicklist 2 0
+D ret 2 0
+U quicklistPopCustom 2 0
+U quicklist 2 0
+U where 2 0
+U vstr 2 0
+U vlen 2 0
+U vlong 2 0
+U _quicklistSaver 2 0
+U data 2 0
+U data 2 0
+U vstr 2 0
+U slong 2 0
+U slong 2 0
+U vlong 2 0
+U sz 2 0
+U sz 2 0
+U vlen 2 0
+U ret 2 0
+X
+X
+D quicklistPush 0 0
+E
+D quicklist 1 0
+U quicklist 1 0
+D value 1 0
+D sz 1 0
+U size_t 1 0
+D where 1 0
+E
+U quicklist 2 0
+U __builtin_expect 2 0
+U quicklist 2 0
+U _serverAssert 2 0
+U abort 2 0
+U quicklist 2 0
+U __builtin_expect 2 0
+U quicklist 2 0
+U _serverAssert 2 0
+U abort 2 0
+U where 2 0
+E
+U quicklistPushHead 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+X
+U where 2 0
+E
+U quicklistPushTail 3 0
+U quicklist 3 0
+U value 3 0
+U sz 3 0
+X
+X
+X
+D quicklistRepr 0 0
+E
+D ql 1 0
+D full 1 0
+E
+D i 2 0
+D quicklist 2 0
+U quicklist 2 0
+U ql 2 0
+U printf 2 0
+U quicklist 2 0
+U printf 2 0
+U quicklist 2 0
+U printf 2 0
+U quicklist 2 0
+U printf 2 0
+U quicklist 2 0
+U printf 2 0
+U quicklist 2 0
+D node 2 0
+U quicklistNode 2 0
+U quicklist 2 0
+U node 2 0
+E
+U printf 3 0
+U i 3 0
+U printf 3 0
+U node 3 0
+U node 3 0
+U node 3 0
+U node 3 0
+U node 3 0
+U node 3 0
+U full 3 0
+E
+E
+U node 5 0
+U node 5 0
+E
+U __quicklistDecompressNode 6 0
+U quicklist 6 0
+U node 6 0
+X
+X
+U node 4 0
+E
+U printf 5 0
+U lpRepr 5 0
+U node 5 0
+U printf 5 0
+X
+U node 4 0
+E
+U printf 5 0
+U node 5 0
+X
+U printf 4 0
+E
+U node 5 0
+E
+U node 6 0
+U node 6 0
+E
+U __quicklistCompressNode 7 0
+U quicklist 7 0
+U node 7 0
+X
+X
+X
+X
+U node 3 0
+U node 3 0
+X
+X
+X
+D quicklistBookmarkCreate 0 0
+E
+D ql_ref 1 0
+U quicklist 1 0
+D name 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+D ql 2 0
+U quicklist 2 0
+U ql_ref 2 0
+U ql 2 0
+D bm 2 0
+U quicklistBookmark 2 0
+U _quicklistBookmarkFindByName 2 0
+U ql 2 0
+U name 2 0
+U bm 2 0
+E
+U bm 3 0
+U node 3 0
+X
+D new_size 2 0
+U size_t 2 0
+D old_size 2 0
+U size_t 2 0
+U ql 2 0
+U zrealloc_usable 2 0
+U ql 2 0
+U quicklist 2 0
+U ql 2 0
+U quicklistBookmark 2 0
+U new_size 2 0
+U old_size 2 0
+U ql_ref 2 0
+U ql 2 0
+U ql 2 0
+U ql 2 0
+U node 2 0
+D name_sz 2 0
+U size_t 2 0
+U ql 2 0
+U ql 2 0
+U zstrdup_usable 2 0
+U name 2 0
+U name_sz 2 0
+U ql 2 0
+E
+U ql 3 0
+U new_size 3 0
+U name_sz 3 0
+U ql 3 0
+U old_size 3 0
+X
+X
+X
+D quicklistBookmarkFind 0 0
+E
+U quicklistNode 1 0
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+E
+D bm 2 0
+U quicklistBookmark 2 0
+U _quicklistBookmarkFindByName 2 0
+U ql 2 0
+U name 2 0
+U bm 2 0
+U bm 2 0
+X
+X
+D quicklistBookmarkDelete 0 0
+E
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+E
+D bm 2 0
+U quicklistBookmark 2 0
+U _quicklistBookmarkFindByName 2 0
+U ql 2 0
+U name 2 0
+U bm 2 0
+U _quicklistBookmarkDelete 2 0
+U ql 2 0
+U bm 2 0
+X
+X
+D _quicklistBookmarkFindByName 0 0
+E
+U quicklistBookmark 1 0
+D ql 1 0
+U quicklist 1 0
+D name 1 0
+E
+D i 2 0
+E
+U i 3 0
+U i 3 0
+U ql 3 0
+U i 3 0
+E
+U strcmp 4 0
+U ql 4 0
+U i 4 0
+U name 4 0
+E
+U ql 5 0
+U i 5 0
+X
+X
+X
+X
+X
+D _quicklistBookmarkFindByNode 0 0
+E
+U quicklistBookmark 1 0
+D ql 1 0
+U quicklist 1 0
+D node 1 0
+U quicklistNode 1 0
+E
+D i 2 0
+E
+U i 3 0
+U i 3 0
+U ql 3 0
+U i 3 0
+E
+U ql 4 0
+U i 4 0
+U node 4 0
+E
+U ql 5 0
+U i 5 0
+X
+X
+X
+X
+X
+D _quicklistBookmarkDelete 0 0
+E
+D ql 1 0
+U quicklist 1 0
+D bm 1 0
+U quicklistBookmark 1 0
+E
+D index 2 0
+U bm 2 0
+U ql 2 0
+D name_sz 2 0
+U size_t 2 0
+U zfree_usable 2 0
+U bm 2 0
+U name_sz 2 0
+U ql 2 0
+U ql 2 0
+U name_sz 2 0
+U memmove 2 0
+U bm 2 0
+U bm 2 0
+U ql 2 0
+U index 2 0
+U bm 2 0
+X
+X
+D quicklistBookmarksClear 0 0
+E
+D ql 1 0
+U quicklist 1 0
+E
+D name_sz 2 0
+U size_t 2 0
+U ql 2 0
+E
+U zfree_usable 3 0
+U ql 3 0
+U ql 3 0
+U name_sz 3 0
+U ql 3 0
+U name_sz 3 0
+X
+X
+X

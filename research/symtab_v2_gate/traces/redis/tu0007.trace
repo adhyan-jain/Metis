@@ -1,0 +1,6918 @@
+D sprintf 0 0
+E
+D str 1 0
+D format 1 0
+X
+D strcpy 0 0
+E
+D dest 1 0
+D src 1 0
+X
+D strcat 0 0
+E
+D dest 1 0
+D src 1 0
+X
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino64_t 0 1
+D ino64_t 0 1
+U __ino64_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D off_t 0 1
+U __off64_t 0 1
+D off64_t 0 1
+U __off64_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D useconds_t 0 1
+U __useconds_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D size_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt64_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt64_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt64_t 0 1
+D blkcnt64_t 0 1
+U __blkcnt64_t 0 1
+D fsblkcnt64_t 0 1
+U __fsblkcnt64_t 0 1
+D fsfilcnt64_t 0 1
+U __fsfilcnt64_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+U size_t 0 1
+D socklen_t 0 1
+U __socklen_t 0 1
+D SOCK_STREAM 0 1
+D SOCK_DGRAM 0 1
+D SOCK_RAW 0 1
+D SOCK_RDM 0 1
+D SOCK_SEQPACKET 0 1
+D SOCK_DCCP 0 1
+D SOCK_PACKET 0 1
+D SOCK_CLOEXEC 0 1
+D SOCK_NONBLOCK 0 1
+D sa_family_t 0 1
+U sa_family_t 0 1
+U sa_family_t 0 1
+D MSG_OOB 0 1
+D MSG_PEEK 0 1
+D MSG_DONTROUTE 0 1
+D MSG_TRYHARD 0 1
+U MSG_DONTROUTE 0 1
+D MSG_CTRUNC 0 1
+D MSG_PROXY 0 1
+D MSG_TRUNC 0 1
+D MSG_DONTWAIT 0 1
+D MSG_EOR 0 1
+D MSG_WAITALL 0 1
+D MSG_FIN 0 1
+D MSG_SYN 0 1
+D MSG_CONFIRM 0 1
+D MSG_RST 0 1
+D MSG_ERRQUEUE 0 1
+D MSG_NOSIGNAL 0 1
+D MSG_MORE 0 1
+D MSG_WAITFORONE 0 1
+D MSG_BATCH 0 1
+D MSG_SOCK_DEVMEM 0 1
+D MSG_ZEROCOPY 0 1
+D MSG_FASTOPEN 0 1
+D MSG_CMSG_CLOEXEC 0 1
+U socklen_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+D __cmsg_nxthdr 0 1
+E
+D __mhdr 1 1
+D __cmsg 1 1
+X
+D SCM_RIGHTS 0 1
+D SCM_CREDENTIALS 0 1
+D SCM_SECURITY 0 1
+D SCM_PIDFD 0 1
+U pid_t 0 1
+U uid_t 0 1
+U gid_t 0 1
+D __kernel_fd_set 0 1
+D __kernel_sighandler_t 0 1
+D __kernel_key_t 0 1
+D __kernel_mqd_t 0 1
+D __kernel_old_uid_t 0 1
+D __kernel_old_gid_t 0 1
+D __kernel_old_dev_t 0 1
+D __kernel_long_t 0 1
+D __kernel_ulong_t 0 1
+D __kernel_ino_t 0 1
+U __kernel_ulong_t 0 1
+D __kernel_mode_t 0 1
+D __kernel_pid_t 0 1
+D __kernel_ipc_pid_t 0 1
+D __kernel_uid_t 0 1
+D __kernel_gid_t 0 1
+D __kernel_suseconds_t 0 1
+U __kernel_long_t 0 1
+D __kernel_daddr_t 0 1
+D __kernel_uid32_t 0 1
+D __kernel_gid32_t 0 1
+D __kernel_size_t 0 1
+U __kernel_ulong_t 0 1
+D __kernel_ssize_t 0 1
+U __kernel_long_t 0 1
+D __kernel_ptrdiff_t 0 1
+U __kernel_long_t 0 1
+D __kernel_fsid_t 0 1
+D __kernel_off_t 0 1
+U __kernel_long_t 0 1
+D __kernel_loff_t 0 1
+D __kernel_uoff_t 0 1
+D __kernel_old_time_t 0 1
+U __kernel_long_t 0 1
+D __kernel_time_t 0 1
+U __kernel_long_t 0 1
+D __kernel_time64_t 0 1
+D __kernel_clock_t 0 1
+U __kernel_long_t 0 1
+D __kernel_timer_t 0 1
+D __kernel_clockid_t 0 1
+D __kernel_caddr_t 0 1
+D __kernel_uid16_t 0 1
+D __kernel_gid16_t 0 1
+D SHUT_RD 0 1
+D SHUT_WR 0 1
+D SHUT_RDWR 0 1
+D __SOCKADDR_ARG 0 1
+D __CONST_SOCKADDR_ARG 0 1
+D socket 0 1
+E
+D __domain 1 1
+D __type 1 1
+D __protocol 1 1
+X
+D socketpair 0 1
+E
+D __domain 1 1
+D __type 1 1
+D __protocol 1 1
+D __fds 1 1
+X
+D bind 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __CONST_SOCKADDR_ARG 1 1
+D __len 1 1
+U socklen_t 1 1
+X
+D getsockname 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __SOCKADDR_ARG 1 1
+D __len 1 1
+U socklen_t 1 1
+X
+D connect 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __CONST_SOCKADDR_ARG 1 1
+D __len 1 1
+U socklen_t 1 1
+X
+D getpeername 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __SOCKADDR_ARG 1 1
+D __len 1 1
+U socklen_t 1 1
+X
+D send 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D recv 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D sendto 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __flags 1 1
+D __addr 1 1
+U __CONST_SOCKADDR_ARG 1 1
+D __addr_len 1 1
+U socklen_t 1 1
+X
+D recvfrom 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __flags 1 1
+D __addr 1 1
+U __SOCKADDR_ARG 1 1
+D __addr_len 1 1
+U socklen_t 1 1
+X
+D sendmsg 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __message 1 1
+D __flags 1 1
+X
+D sendmmsg 0 1
+E
+D __fd 1 1
+D __vmessages 1 1
+D __vlen 1 1
+D __flags 1 1
+X
+D recvmsg 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __message 1 1
+D __flags 1 1
+X
+D recvmmsg 0 1
+E
+D __fd 1 1
+D __vmessages 1 1
+D __vlen 1 1
+D __flags 1 1
+D __tmo 1 1
+X
+D getsockopt 0 1
+E
+D __fd 1 1
+D __level 1 1
+D __optname 1 1
+D __optval 1 1
+D __optlen 1 1
+U socklen_t 1 1
+X
+D setsockopt 0 1
+E
+D __fd 1 1
+D __level 1 1
+D __optname 1 1
+D __optval 1 1
+D __optlen 1 1
+U socklen_t 1 1
+X
+D listen 0 1
+E
+D __fd 1 1
+D __n 1 1
+X
+D accept 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __SOCKADDR_ARG 1 1
+D __addr_len 1 1
+U socklen_t 1 1
+X
+D accept4 0 1
+E
+D __fd 1 1
+D __addr 1 1
+U __SOCKADDR_ARG 1 1
+D __addr_len 1 1
+U socklen_t 1 1
+D __flags 1 1
+X
+D shutdown 0 1
+E
+D __fd 1 1
+D __how 1 1
+X
+D sockatmark 0 1
+E
+D __fd 1 1
+X
+D isfdtype 0 1
+E
+D __fd 1 1
+D __fdtype 1 1
+X
+U __dev_t 0 1
+U __ino_t 0 1
+U __nlink_t 0 1
+U __mode_t 0 1
+U __uid_t 0 1
+U __gid_t 0 1
+U __dev_t 0 1
+U __off_t 0 1
+U __blksize_t 0 1
+U __blkcnt_t 0 1
+U __syscall_slong_t 0 1
+U __dev_t 0 1
+U __ino64_t 0 1
+U __nlink_t 0 1
+U __mode_t 0 1
+U __uid_t 0 1
+U __gid_t 0 1
+U __dev_t 0 1
+U __off_t 0 1
+U __blksize_t 0 1
+U __blkcnt64_t 0 1
+U __syscall_slong_t 0 1
+D stat 0 1
+E
+D __file 1 1
+D __buf 1 1
+X
+D fstat 0 1
+E
+D __fd 1 1
+D __buf 1 1
+X
+D stat64 0 1
+E
+D __file 1 1
+D __buf 1 1
+X
+D fstat64 0 1
+E
+D __fd 1 1
+D __buf 1 1
+X
+D fstatat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __buf 1 1
+D __flag 1 1
+X
+D fstatat64 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __buf 1 1
+D __flag 1 1
+X
+D lstat 0 1
+E
+D __file 1 1
+D __buf 1 1
+X
+D lstat64 0 1
+E
+D __file 1 1
+D __buf 1 1
+X
+D chmod 0 1
+E
+D __file 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D lchmod 0 1
+E
+D __file 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D fchmod 0 1
+E
+D __fd 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D fchmodat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __mode 1 1
+U __mode_t 1 1
+D __flag 1 1
+X
+D umask 0 1
+E
+U __mode_t 1 1
+D __mask 1 1
+U __mode_t 1 1
+X
+D getumask 0 1
+U __mode_t 0 1
+D mkdir 0 1
+E
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D mkdirat 0 1
+E
+D __fd 1 1
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D mknod 0 1
+E
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+D __dev 1 1
+U __dev_t 1 1
+X
+D mknodat 0 1
+E
+D __fd 1 1
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+D __dev 1 1
+U __dev_t 1 1
+X
+D mkfifo 0 1
+E
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D mkfifoat 0 1
+E
+D __fd 1 1
+D __path 1 1
+D __mode 1 1
+U __mode_t 1 1
+X
+D utimensat 0 1
+E
+D __fd 1 1
+D __path 1 1
+D __times 1 1
+D __flags 1 1
+X
+D futimens 0 1
+E
+D __fd 1 1
+D __times 1 1
+X
+D __s8 0 1
+D __u8 0 1
+D __s16 0 1
+D __u16 0 1
+D __s32 0 1
+D __u32 0 1
+D __s64 0 1
+D __u64 0 1
+D __s128 0 1
+D __u128 0 1
+D __le16 0 1
+U __u16 0 1
+D __be16 0 1
+U __u16 0 1
+D __le32 0 1
+U __u32 0 1
+D __be32 0 1
+U __u32 0 1
+D __le64 0 1
+U __u64 0 1
+D __be64 0 1
+U __u64 0 1
+D __sum16 0 1
+U __u16 0 1
+D __wsum 0 1
+U __u32 0 1
+D __poll_t 0 1
+U __s64 0 1
+U __u32 0 1
+U __s32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u64 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u16 0 1
+U __u16 0 1
+U __u64 0 1
+U __u64 0 1
+U __u64 0 1
+U __u64 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u64 0 1
+U __u32 0 1
+U __u32 0 1
+U __u64 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u32 0 1
+U __u64 0 1
+D statx 0 1
+E
+D __dirfd 1 1
+D __path 1 1
+D __flags 1 1
+D __mask 1 1
+D __buf 1 1
+X
+U sa_family_t 0 1
+D ptrdiff_t 0 1
+D wchar_t 0 1
+D max_align_t 0 1
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D rawmemchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D memrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerrordesc_np 0 1
+E
+D __err 1 1
+X
+D strerrorname_np 0 1
+E
+D __err 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D sigabbrev_np 0 1
+E
+D __sig 1 1
+X
+D sigdescr_np 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strverscmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strfry 0 1
+E
+D __string 1 1
+X
+D memfrob 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D basename 0 1
+E
+D __filename 1 1
+X
+D gettimeofday 0 1
+E
+D __tv 1 1
+D __tz 1 1
+X
+D settimeofday 0 1
+E
+D __tv 1 1
+D __tz 1 1
+X
+D adjtime 0 1
+E
+D __delta 1 1
+D __olddelta 1 1
+X
+D ITIMER_REAL 0 1
+D ITIMER_VIRTUAL 0 1
+D ITIMER_PROF 0 1
+D __itimer_which_t 0 1
+D getitimer 0 1
+E
+D __which 1 1
+U __itimer_which_t 1 1
+D __value 1 1
+X
+D setitimer 0 1
+E
+D __which 1 1
+U __itimer_which_t 1 1
+D __new 1 1
+D __old 1 1
+X
+D utimes 0 1
+E
+D __file 1 1
+D __tvp 1 1
+X
+D lutimes 0 1
+E
+D __file 1 1
+D __tvp 1 1
+X
+D futimes 0 1
+E
+D __fd 1 1
+D __tvp 1 1
+X
+D futimesat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __tvp 1 1
+X
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D in_addr_t 0 1
+U uint32_t 0 1
+U in_addr_t 0 1
+D IPPROTO_IP 0 1
+D IPPROTO_ICMP 0 1
+D IPPROTO_IGMP 0 1
+D IPPROTO_IPIP 0 1
+D IPPROTO_TCP 0 1
+D IPPROTO_EGP 0 1
+D IPPROTO_PUP 0 1
+D IPPROTO_UDP 0 1
+D IPPROTO_IDP 0 1
+D IPPROTO_TP 0 1
+D IPPROTO_DCCP 0 1
+D IPPROTO_IPV6 0 1
+D IPPROTO_RSVP 0 1
+D IPPROTO_GRE 0 1
+D IPPROTO_ESP 0 1
+D IPPROTO_AH 0 1
+D IPPROTO_MTP 0 1
+D IPPROTO_BEETPH 0 1
+D IPPROTO_ENCAP 0 1
+D IPPROTO_PIM 0 1
+D IPPROTO_COMP 0 1
+D IPPROTO_L2TP 0 1
+D IPPROTO_SCTP 0 1
+D IPPROTO_UDPLITE 0 1
+D IPPROTO_MPLS 0 1
+D IPPROTO_ETHERNET 0 1
+D IPPROTO_AGGFRAG 0 1
+D IPPROTO_RAW 0 1
+D IPPROTO_SMC 0 1
+D IPPROTO_MPTCP 0 1
+D IPPROTO_MAX 0 1
+D IPPROTO_HOPOPTS 0 1
+D IPPROTO_ROUTING 0 1
+D IPPROTO_FRAGMENT 0 1
+D IPPROTO_ICMPV6 0 1
+D IPPROTO_NONE 0 1
+D IPPROTO_DSTOPTS 0 1
+D IPPROTO_MH 0 1
+D in_port_t 0 1
+U uint16_t 0 1
+D IPPORT_ECHO 0 1
+D IPPORT_DISCARD 0 1
+D IPPORT_SYSTAT 0 1
+D IPPORT_DAYTIME 0 1
+D IPPORT_NETSTAT 0 1
+D IPPORT_FTP 0 1
+D IPPORT_TELNET 0 1
+D IPPORT_SMTP 0 1
+D IPPORT_TIMESERVER 0 1
+D IPPORT_NAMESERVER 0 1
+D IPPORT_WHOIS 0 1
+D IPPORT_MTP 0 1
+D IPPORT_TFTP 0 1
+D IPPORT_RJE 0 1
+D IPPORT_FINGER 0 1
+D IPPORT_TTYLINK 0 1
+D IPPORT_SUPDUP 0 1
+D IPPORT_EXECSERVER 0 1
+D IPPORT_LOGINSERVER 0 1
+D IPPORT_CMDSERVER 0 1
+D IPPORT_EFSSERVER 0 1
+D IPPORT_BIFFUDP 0 1
+D IPPORT_WHOSERVER 0 1
+D IPPORT_ROUTESERVER 0 1
+D IPPORT_RESERVED 0 1
+D IPPORT_USERRESERVED 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint32_t 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint32_t 0 1
+D in6addr_any 0 1
+D in6addr_loopback 0 1
+U sa_family_t 0 1
+U in_port_t 0 1
+U in_port_t 0 1
+U sa_family_t 0 1
+U in_port_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+D ntohl 0 1
+E
+U uint32_t 1 1
+D __netlong 1 1
+U uint32_t 1 1
+X
+D ntohs 0 1
+E
+U uint16_t 1 1
+D __netshort 1 1
+U uint16_t 1 1
+X
+D htonl 0 1
+E
+U uint32_t 1 1
+D __hostlong 1 1
+U uint32_t 1 1
+X
+D htons 0 1
+E
+U uint16_t 1 1
+D __hostshort 1 1
+U uint16_t 1 1
+X
+D bindresvport 0 1
+E
+D __sockfd 1 1
+D __sock_in 1 1
+X
+D bindresvport6 0 1
+E
+D __sockfd 1 1
+D __sock_in 1 1
+X
+U uint32_t 0 1
+D inet6_option_space 0 1
+E
+D __nbytes 1 1
+X
+D inet6_option_init 0 1
+E
+D __bp 1 1
+D __cmsgp 1 1
+D __type 1 1
+X
+D inet6_option_append 0 1
+E
+D __cmsg 1 1
+D __typep 1 1
+U uint8_t 1 1
+D __multx 1 1
+D __plusy 1 1
+X
+D inet6_option_alloc 0 1
+E
+U uint8_t 1 1
+D __cmsg 1 1
+D __datalen 1 1
+D __multx 1 1
+D __plusy 1 1
+X
+D inet6_option_next 0 1
+E
+D __cmsg 1 1
+D __tptrp 1 1
+U uint8_t 1 1
+X
+D inet6_option_find 0 1
+E
+D __cmsg 1 1
+D __tptrp 1 1
+U uint8_t 1 1
+D __type 1 1
+X
+D inet6_opt_init 0 1
+E
+D __extbuf 1 1
+D __extlen 1 1
+U socklen_t 1 1
+X
+D inet6_opt_append 0 1
+E
+D __extbuf 1 1
+D __extlen 1 1
+U socklen_t 1 1
+D __offset 1 1
+D __type 1 1
+U uint8_t 1 1
+D __len 1 1
+U socklen_t 1 1
+D __align 1 1
+U uint8_t 1 1
+D __databufp 1 1
+X
+D inet6_opt_finish 0 1
+E
+D __extbuf 1 1
+D __extlen 1 1
+U socklen_t 1 1
+D __offset 1 1
+X
+D inet6_opt_set_val 0 1
+E
+D __databuf 1 1
+D __offset 1 1
+D __val 1 1
+D __vallen 1 1
+U socklen_t 1 1
+X
+D inet6_opt_next 0 1
+E
+D __extbuf 1 1
+D __extlen 1 1
+U socklen_t 1 1
+D __offset 1 1
+D __typep 1 1
+U uint8_t 1 1
+D __lenp 1 1
+U socklen_t 1 1
+D __databufp 1 1
+X
+D inet6_opt_find 0 1
+E
+D __extbuf 1 1
+D __extlen 1 1
+U socklen_t 1 1
+D __offset 1 1
+D __type 1 1
+U uint8_t 1 1
+D __lenp 1 1
+U socklen_t 1 1
+D __databufp 1 1
+X
+D inet6_opt_get_val 0 1
+E
+D __databuf 1 1
+D __offset 1 1
+D __val 1 1
+D __vallen 1 1
+U socklen_t 1 1
+X
+D inet6_rth_space 0 1
+E
+U socklen_t 1 1
+D __type 1 1
+D __segments 1 1
+X
+D inet6_rth_init 0 1
+E
+D __bp 1 1
+D __bp_len 1 1
+U socklen_t 1 1
+D __type 1 1
+D __segments 1 1
+X
+D inet6_rth_add 0 1
+E
+D __bp 1 1
+D __addr 1 1
+X
+D inet6_rth_reverse 0 1
+E
+D __in 1 1
+D __out 1 1
+X
+D inet6_rth_segments 0 1
+E
+D __bp 1 1
+X
+D inet6_rth_getaddr 0 1
+E
+D __bp 1 1
+D __index 1 1
+X
+D getipv4sourcefilter 0 1
+E
+D __s 1 1
+D __interface_addr 1 1
+D __group 1 1
+D __fmode 1 1
+U uint32_t 1 1
+D __numsrc 1 1
+U uint32_t 1 1
+D __slist 1 1
+X
+D setipv4sourcefilter 0 1
+E
+D __s 1 1
+D __interface_addr 1 1
+D __group 1 1
+D __fmode 1 1
+U uint32_t 1 1
+D __numsrc 1 1
+U uint32_t 1 1
+D __slist 1 1
+X
+D getsourcefilter 0 1
+E
+D __s 1 1
+D __interface_addr 1 1
+U uint32_t 1 1
+D __group 1 1
+D __grouplen 1 1
+U socklen_t 1 1
+D __fmode 1 1
+U uint32_t 1 1
+D __numsrc 1 1
+U uint32_t 1 1
+D __slist 1 1
+X
+D setsourcefilter 0 1
+E
+D __s 1 1
+D __interface_addr 1 1
+U uint32_t 1 1
+D __group 1 1
+D __grouplen 1 1
+U socklen_t 1 1
+D __fmode 1 1
+U uint32_t 1 1
+D __numsrc 1 1
+U uint32_t 1 1
+D __slist 1 1
+X
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D tcp_seq 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U tcp_seq 0 1
+U tcp_seq 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+D TCP_ESTABLISHED 0 1
+D TCP_SYN_SENT 0 1
+D TCP_SYN_RECV 0 1
+D TCP_FIN_WAIT1 0 1
+D TCP_FIN_WAIT2 0 1
+D TCP_TIME_WAIT 0 1
+D TCP_CLOSE 0 1
+D TCP_CLOSE_WAIT 0 1
+D TCP_LAST_ACK 0 1
+D TCP_LISTEN 0 1
+D TCP_CLOSING 0 1
+D TCP_CA_Open 0 1
+D TCP_CA_Disorder 0 1
+D TCP_CA_CWR 0 1
+D TCP_CA_Recovery 0 1
+D TCP_CA_Loss 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+D TCP_NLA_PAD 0 1
+D TCP_NLA_BUSY 0 1
+D TCP_NLA_RWND_LIMITED 0 1
+D TCP_NLA_SNDBUF_LIMITED 0 1
+D TCP_NLA_DATA_SEGS_OUT 0 1
+D TCP_NLA_TOTAL_RETRANS 0 1
+D TCP_NLA_PACING_RATE 0 1
+D TCP_NLA_DELIVERY_RATE 0 1
+D TCP_NLA_SND_CWND 0 1
+D TCP_NLA_REORDERING 0 1
+D TCP_NLA_MIN_RTT 0 1
+D TCP_NLA_RECUR_RETRANS 0 1
+D TCP_NLA_DELIVERY_RATE_APP_LMT 0 1
+D TCP_NLA_SNDQ_SIZE 0 1
+D TCP_NLA_CA_STATE 0 1
+D TCP_NLA_SND_SSTHRESH 0 1
+D TCP_NLA_DELIVERED 0 1
+D TCP_NLA_DELIVERED_CE 0 1
+D TCP_NLA_BYTES_SENT 0 1
+D TCP_NLA_BYTES_RETRANS 0 1
+D TCP_NLA_DSACK_DUPS 0 1
+D TCP_NLA_REORD_SEEN 0 1
+D TCP_NLA_SRTT 0 1
+D TCP_NLA_TIMEOUT_REHASH 0 1
+D TCP_NLA_BYTES_NOTSENT 0 1
+D TCP_NLA_EDT 0 1
+D TCP_NLA_TTL 0 1
+D TCP_NLA_REHASH 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint32_t 0 1
+U uint8_t 0 1
+U int8_t 0 1
+U int32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U int32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint32_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U int32_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+D TCP_NO_QUEUE 0 1
+D TCP_RECV_QUEUE 0 1
+D TCP_SEND_QUEUE 0 1
+D TCP_QUEUES_NR 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint8_t 0 1
+U uint16_t 0 1
+U uint16_t 0 1
+U uint8_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+U int32_t 0 1
+U uint64_t 0 1
+U int32_t 0 1
+U uint32_t 0 1
+U uint64_t 0 1
+U uint64_t 0 1
+U uint32_t 0 1
+U uint32_t 0 1
+D inet_addr 0 1
+E
+U in_addr_t 1 1
+D __cp 1 1
+X
+D inet_lnaof 0 1
+E
+U in_addr_t 1 1
+D __in 1 1
+X
+D inet_makeaddr 0 1
+E
+D __net 1 1
+U in_addr_t 1 1
+D __host 1 1
+U in_addr_t 1 1
+X
+D inet_netof 0 1
+E
+U in_addr_t 1 1
+D __in 1 1
+X
+D inet_network 0 1
+E
+U in_addr_t 1 1
+D __cp 1 1
+X
+D inet_ntoa 0 1
+E
+D __in 1 1
+X
+D inet_pton 0 1
+E
+D __af 1 1
+D __cp 1 1
+D __buf 1 1
+X
+D inet_ntop 0 1
+E
+D __af 1 1
+D __cp 1 1
+D __buf 1 1
+D __len 1 1
+U socklen_t 1 1
+X
+D inet_aton 0 1
+E
+D __cp 1 1
+D __inp 1 1
+X
+D inet_neta 0 1
+E
+D __net 1 1
+U in_addr_t 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D inet_net_ntop 0 1
+E
+D __af 1 1
+D __cp 1 1
+D __bits 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D inet_net_pton 0 1
+E
+D __af 1 1
+D __cp 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D inet_nsap_addr 0 1
+E
+D __cp 1 1
+D __buf 1 1
+D __len 1 1
+X
+D inet_nsap_ntoa 0 1
+E
+D __len 1 1
+D __cp 1 1
+D __buf 1 1
+X
+D access 0 1
+E
+D __name 1 1
+D __type 1 1
+X
+D euidaccess 0 1
+E
+D __name 1 1
+D __type 1 1
+X
+D eaccess 0 1
+E
+D __name 1 1
+D __type 1 1
+X
+D execveat 0 1
+E
+D __fd 1 1
+D __path 1 1
+D __argv 1 1
+D __envp 1 1
+D __flags 1 1
+X
+D faccessat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __type 1 1
+D __flag 1 1
+X
+D lseek 0 1
+E
+U __off64_t 1 1
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __whence 1 1
+X
+D lseek64 0 1
+E
+U __off64_t 1 1
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __whence 1 1
+X
+D close 0 1
+E
+D __fd 1 1
+X
+D closefrom 0 1
+E
+D __lowfd 1 1
+X
+D read 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+X
+D write 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+X
+D pread 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+D __offset 1 1
+U __off64_t 1 1
+X
+D pwrite 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+D __offset 1 1
+U __off64_t 1 1
+X
+D pread64 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+D __offset 1 1
+U __off64_t 1 1
+X
+D pwrite64 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __offset 1 1
+U __off64_t 1 1
+X
+D pipe 0 1
+E
+D __pipedes 1 1
+X
+D pipe2 0 1
+E
+D __pipedes 1 1
+D __flags 1 1
+X
+D alarm 0 1
+E
+D __seconds 1 1
+X
+D sleep 0 1
+E
+D __seconds 1 1
+X
+D ualarm 0 1
+E
+U __useconds_t 1 1
+D __value 1 1
+U __useconds_t 1 1
+D __interval 1 1
+U __useconds_t 1 1
+X
+D usleep 0 1
+E
+D __useconds 1 1
+U __useconds_t 1 1
+X
+D pause 0 1
+D chown 0 1
+E
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D fchown 0 1
+E
+D __fd 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D lchown 0 1
+E
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D fchownat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+D __flag 1 1
+X
+D chdir 0 1
+E
+D __path 1 1
+X
+D fchdir 0 1
+E
+D __fd 1 1
+X
+D getcwd 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D get_current_dir_name 0 1
+D getwd 0 1
+E
+D __buf 1 1
+X
+D dup 0 1
+E
+D __fd 1 1
+X
+D dup2 0 1
+E
+D __fd 1 1
+D __fd2 1 1
+X
+D dup3 0 1
+E
+D __fd 1 1
+D __fd2 1 1
+D __flags 1 1
+X
+D __environ 0 1
+D environ 0 1
+D execve 0 1
+E
+D __path 1 1
+D __argv 1 1
+D __envp 1 1
+X
+D fexecve 0 1
+E
+D __fd 1 1
+D __argv 1 1
+D __envp 1 1
+X
+D execv 0 1
+E
+D __path 1 1
+D __argv 1 1
+X
+D execle 0 1
+E
+D __path 1 1
+D __arg 1 1
+X
+D execl 0 1
+E
+D __path 1 1
+D __arg 1 1
+X
+D execvp 0 1
+E
+D __file 1 1
+D __argv 1 1
+X
+D execlp 0 1
+E
+D __file 1 1
+D __arg 1 1
+X
+D execvpe 0 1
+E
+D __file 1 1
+D __argv 1 1
+D __envp 1 1
+X
+D nice 0 1
+E
+D __inc 1 1
+X
+D _exit 0 1
+E
+D __status 1 1
+X
+D _PC_LINK_MAX 0 1
+D _PC_MAX_CANON 0 1
+D _PC_MAX_INPUT 0 1
+D _PC_NAME_MAX 0 1
+D _PC_PATH_MAX 0 1
+D _PC_PIPE_BUF 0 1
+D _PC_CHOWN_RESTRICTED 0 1
+D _PC_NO_TRUNC 0 1
+D _PC_VDISABLE 0 1
+D _PC_SYNC_IO 0 1
+D _PC_ASYNC_IO 0 1
+D _PC_PRIO_IO 0 1
+D _PC_SOCK_MAXBUF 0 1
+D _PC_FILESIZEBITS 0 1
+D _PC_REC_INCR_XFER_SIZE 0 1
+D _PC_REC_MAX_XFER_SIZE 0 1
+D _PC_REC_MIN_XFER_SIZE 0 1
+D _PC_REC_XFER_ALIGN 0 1
+D _PC_ALLOC_SIZE_MIN 0 1
+D _PC_SYMLINK_MAX 0 1
+D _PC_2_SYMLINKS 0 1
+D _SC_ARG_MAX 0 1
+D _SC_CHILD_MAX 0 1
+D _SC_CLK_TCK 0 1
+D _SC_NGROUPS_MAX 0 1
+D _SC_OPEN_MAX 0 1
+D _SC_STREAM_MAX 0 1
+D _SC_TZNAME_MAX 0 1
+D _SC_JOB_CONTROL 0 1
+D _SC_SAVED_IDS 0 1
+D _SC_REALTIME_SIGNALS 0 1
+D _SC_PRIORITY_SCHEDULING 0 1
+D _SC_TIMERS 0 1
+D _SC_ASYNCHRONOUS_IO 0 1
+D _SC_PRIORITIZED_IO 0 1
+D _SC_SYNCHRONIZED_IO 0 1
+D _SC_FSYNC 0 1
+D _SC_MAPPED_FILES 0 1
+D _SC_MEMLOCK 0 1
+D _SC_MEMLOCK_RANGE 0 1
+D _SC_MEMORY_PROTECTION 0 1
+D _SC_MESSAGE_PASSING 0 1
+D _SC_SEMAPHORES 0 1
+D _SC_SHARED_MEMORY_OBJECTS 0 1
+D _SC_AIO_LISTIO_MAX 0 1
+D _SC_AIO_MAX 0 1
+D _SC_AIO_PRIO_DELTA_MAX 0 1
+D _SC_DELAYTIMER_MAX 0 1
+D _SC_MQ_OPEN_MAX 0 1
+D _SC_MQ_PRIO_MAX 0 1
+D _SC_VERSION 0 1
+D _SC_PAGESIZE 0 1
+D _SC_RTSIG_MAX 0 1
+D _SC_SEM_NSEMS_MAX 0 1
+D _SC_SEM_VALUE_MAX 0 1
+D _SC_SIGQUEUE_MAX 0 1
+D _SC_TIMER_MAX 0 1
+D _SC_BC_BASE_MAX 0 1
+D _SC_BC_DIM_MAX 0 1
+D _SC_BC_SCALE_MAX 0 1
+D _SC_BC_STRING_MAX 0 1
+D _SC_COLL_WEIGHTS_MAX 0 1
+D _SC_EQUIV_CLASS_MAX 0 1
+D _SC_EXPR_NEST_MAX 0 1
+D _SC_LINE_MAX 0 1
+D _SC_RE_DUP_MAX 0 1
+D _SC_CHARCLASS_NAME_MAX 0 1
+D _SC_2_VERSION 0 1
+D _SC_2_C_BIND 0 1
+D _SC_2_C_DEV 0 1
+D _SC_2_FORT_DEV 0 1
+D _SC_2_FORT_RUN 0 1
+D _SC_2_SW_DEV 0 1
+D _SC_2_LOCALEDEF 0 1
+D _SC_PII 0 1
+D _SC_PII_XTI 0 1
+D _SC_PII_SOCKET 0 1
+D _SC_PII_INTERNET 0 1
+D _SC_PII_OSI 0 1
+D _SC_POLL 0 1
+D _SC_SELECT 0 1
+D _SC_UIO_MAXIOV 0 1
+D _SC_IOV_MAX 0 1
+U _SC_UIO_MAXIOV 0 1
+D _SC_PII_INTERNET_STREAM 0 1
+D _SC_PII_INTERNET_DGRAM 0 1
+D _SC_PII_OSI_COTS 0 1
+D _SC_PII_OSI_CLTS 0 1
+D _SC_PII_OSI_M 0 1
+D _SC_T_IOV_MAX 0 1
+D _SC_THREADS 0 1
+D _SC_THREAD_SAFE_FUNCTIONS 0 1
+D _SC_GETGR_R_SIZE_MAX 0 1
+D _SC_GETPW_R_SIZE_MAX 0 1
+D _SC_LOGIN_NAME_MAX 0 1
+D _SC_TTY_NAME_MAX 0 1
+D _SC_THREAD_DESTRUCTOR_ITERATIONS 0 1
+D _SC_THREAD_KEYS_MAX 0 1
+D _SC_THREAD_STACK_MIN 0 1
+D _SC_THREAD_THREADS_MAX 0 1
+D _SC_THREAD_ATTR_STACKADDR 0 1
+D _SC_THREAD_ATTR_STACKSIZE 0 1
+D _SC_THREAD_PRIORITY_SCHEDULING 0 1
+D _SC_THREAD_PRIO_INHERIT 0 1
+D _SC_THREAD_PRIO_PROTECT 0 1
+D _SC_THREAD_PROCESS_SHARED 0 1
+D _SC_NPROCESSORS_CONF 0 1
+D _SC_NPROCESSORS_ONLN 0 1
+D _SC_PHYS_PAGES 0 1
+D _SC_AVPHYS_PAGES 0 1
+D _SC_ATEXIT_MAX 0 1
+D _SC_PASS_MAX 0 1
+D _SC_XOPEN_VERSION 0 1
+D _SC_XOPEN_XCU_VERSION 0 1
+D _SC_XOPEN_UNIX 0 1
+D _SC_XOPEN_CRYPT 0 1
+D _SC_XOPEN_ENH_I18N 0 1
+D _SC_XOPEN_SHM 0 1
+D _SC_2_CHAR_TERM 0 1
+D _SC_2_C_VERSION 0 1
+D _SC_2_UPE 0 1
+D _SC_XOPEN_XPG2 0 1
+D _SC_XOPEN_XPG3 0 1
+D _SC_XOPEN_XPG4 0 1
+D _SC_CHAR_BIT 0 1
+D _SC_CHAR_MAX 0 1
+D _SC_CHAR_MIN 0 1
+D _SC_INT_MAX 0 1
+D _SC_INT_MIN 0 1
+D _SC_LONG_BIT 0 1
+D _SC_WORD_BIT 0 1
+D _SC_MB_LEN_MAX 0 1
+D _SC_NZERO 0 1
+D _SC_SSIZE_MAX 0 1
+D _SC_SCHAR_MAX 0 1
+D _SC_SCHAR_MIN 0 1
+D _SC_SHRT_MAX 0 1
+D _SC_SHRT_MIN 0 1
+D _SC_UCHAR_MAX 0 1
+D _SC_UINT_MAX 0 1
+D _SC_ULONG_MAX 0 1
+D _SC_USHRT_MAX 0 1
+D _SC_NL_ARGMAX 0 1
+D _SC_NL_LANGMAX 0 1
+D _SC_NL_MSGMAX 0 1
+D _SC_NL_NMAX 0 1
+D _SC_NL_SETMAX 0 1
+D _SC_NL_TEXTMAX 0 1
+D _SC_XBS5_ILP32_OFF32 0 1
+D _SC_XBS5_ILP32_OFFBIG 0 1
+D _SC_XBS5_LP64_OFF64 0 1
+D _SC_XBS5_LPBIG_OFFBIG 0 1
+D _SC_XOPEN_LEGACY 0 1
+D _SC_XOPEN_REALTIME 0 1
+D _SC_XOPEN_REALTIME_THREADS 0 1
+D _SC_ADVISORY_INFO 0 1
+D _SC_BARRIERS 0 1
+D _SC_BASE 0 1
+D _SC_C_LANG_SUPPORT 0 1
+D _SC_C_LANG_SUPPORT_R 0 1
+D _SC_CLOCK_SELECTION 0 1
+D _SC_CPUTIME 0 1
+D _SC_THREAD_CPUTIME 0 1
+D _SC_DEVICE_IO 0 1
+D _SC_DEVICE_SPECIFIC 0 1
+D _SC_DEVICE_SPECIFIC_R 0 1
+D _SC_FD_MGMT 0 1
+D _SC_FIFO 0 1
+D _SC_PIPE 0 1
+D _SC_FILE_ATTRIBUTES 0 1
+D _SC_FILE_LOCKING 0 1
+D _SC_FILE_SYSTEM 0 1
+D _SC_MONOTONIC_CLOCK 0 1
+D _SC_MULTI_PROCESS 0 1
+D _SC_SINGLE_PROCESS 0 1
+D _SC_NETWORKING 0 1
+D _SC_READER_WRITER_LOCKS 0 1
+D _SC_SPIN_LOCKS 0 1
+D _SC_REGEXP 0 1
+D _SC_REGEX_VERSION 0 1
+D _SC_SHELL 0 1
+D _SC_SIGNALS 0 1
+D _SC_SPAWN 0 1
+D _SC_SPORADIC_SERVER 0 1
+D _SC_THREAD_SPORADIC_SERVER 0 1
+D _SC_SYSTEM_DATABASE 0 1
+D _SC_SYSTEM_DATABASE_R 0 1
+D _SC_TIMEOUTS 0 1
+D _SC_TYPED_MEMORY_OBJECTS 0 1
+D _SC_USER_GROUPS 0 1
+D _SC_USER_GROUPS_R 0 1
+D _SC_2_PBS 0 1
+D _SC_2_PBS_ACCOUNTING 0 1
+D _SC_2_PBS_LOCATE 0 1
+D _SC_2_PBS_MESSAGE 0 1
+D _SC_2_PBS_TRACK 0 1
+D _SC_SYMLOOP_MAX 0 1
+D _SC_STREAMS 0 1
+D _SC_2_PBS_CHECKPOINT 0 1
+D _SC_V6_ILP32_OFF32 0 1
+D _SC_V6_ILP32_OFFBIG 0 1
+D _SC_V6_LP64_OFF64 0 1
+D _SC_V6_LPBIG_OFFBIG 0 1
+D _SC_HOST_NAME_MAX 0 1
+D _SC_TRACE 0 1
+D _SC_TRACE_EVENT_FILTER 0 1
+D _SC_TRACE_INHERIT 0 1
+D _SC_TRACE_LOG 0 1
+D _SC_LEVEL1_ICACHE_SIZE 0 1
+D _SC_LEVEL1_ICACHE_ASSOC 0 1
+D _SC_LEVEL1_ICACHE_LINESIZE 0 1
+D _SC_LEVEL1_DCACHE_SIZE 0 1
+D _SC_LEVEL1_DCACHE_ASSOC 0 1
+D _SC_LEVEL1_DCACHE_LINESIZE 0 1
+D _SC_LEVEL2_CACHE_SIZE 0 1
+D _SC_LEVEL2_CACHE_ASSOC 0 1
+D _SC_LEVEL2_CACHE_LINESIZE 0 1
+D _SC_LEVEL3_CACHE_SIZE 0 1
+D _SC_LEVEL3_CACHE_ASSOC 0 1
+D _SC_LEVEL3_CACHE_LINESIZE 0 1
+D _SC_LEVEL4_CACHE_SIZE 0 1
+D _SC_LEVEL4_CACHE_ASSOC 0 1
+D _SC_LEVEL4_CACHE_LINESIZE 0 1
+D _SC_IPV6 0 1
+U _SC_LEVEL1_ICACHE_SIZE 0 1
+D _SC_RAW_SOCKETS 0 1
+D _SC_V7_ILP32_OFF32 0 1
+D _SC_V7_ILP32_OFFBIG 0 1
+D _SC_V7_LP64_OFF64 0 1
+D _SC_V7_LPBIG_OFFBIG 0 1
+D _SC_SS_REPL_MAX 0 1
+D _SC_TRACE_EVENT_NAME_MAX 0 1
+D _SC_TRACE_NAME_MAX 0 1
+D _SC_TRACE_SYS_MAX 0 1
+D _SC_TRACE_USER_EVENT_MAX 0 1
+D _SC_XOPEN_STREAMS 0 1
+D _SC_THREAD_ROBUST_PRIO_INHERIT 0 1
+D _SC_THREAD_ROBUST_PRIO_PROTECT 0 1
+D _SC_MINSIGSTKSZ 0 1
+D _SC_SIGSTKSZ 0 1
+D _CS_PATH 0 1
+D _CS_V6_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_GNU_LIBC_VERSION 0 1
+D _CS_GNU_LIBPTHREAD_VERSION 0 1
+D _CS_V5_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_V7_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_LFS_CFLAGS 0 1
+D _CS_LFS_LDFLAGS 0 1
+D _CS_LFS_LIBS 0 1
+D _CS_LFS_LINTFLAGS 0 1
+D _CS_LFS64_CFLAGS 0 1
+D _CS_LFS64_LDFLAGS 0 1
+D _CS_LFS64_LIBS 0 1
+D _CS_LFS64_LINTFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_CFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_LDFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_LIBS 0 1
+D _CS_XBS5_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LIBS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_CFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_LDFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_LIBS 0 1
+D _CS_XBS5_LP64_OFF64_LINTFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LIBS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_CFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LDFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LIBS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LIBS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_CFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LDFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LIBS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LINTFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LIBS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_CFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LDFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LIBS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LIBS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_CFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LDFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LIBS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LINTFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LIBS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_V6_ENV 0 1
+D _CS_V7_ENV 0 1
+D pathconf 0 1
+E
+D __path 1 1
+D __name 1 1
+X
+D fpathconf 0 1
+E
+D __fd 1 1
+D __name 1 1
+X
+D sysconf 0 1
+E
+D __name 1 1
+X
+D confstr 0 1
+E
+U size_t 1 1
+D __name 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D getpid 0 1
+U __pid_t 0 1
+D getppid 0 1
+U __pid_t 0 1
+D getpgrp 0 1
+U __pid_t 0 1
+D __getpgid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D getpgid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D setpgid 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __pgid 1 1
+U __pid_t 1 1
+X
+D setpgrp 0 1
+D setsid 0 1
+U __pid_t 0 1
+D getsid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D getuid 0 1
+U __uid_t 0 1
+D geteuid 0 1
+U __uid_t 0 1
+D getgid 0 1
+U __gid_t 0 1
+D getegid 0 1
+U __gid_t 0 1
+D getgroups 0 1
+E
+D __size 1 1
+D __list 1 1
+U __gid_t 1 1
+X
+D group_member 0 1
+E
+D __gid 1 1
+U __gid_t 1 1
+X
+D setuid 0 1
+E
+D __uid 1 1
+U __uid_t 1 1
+X
+D setreuid 0 1
+E
+D __ruid 1 1
+U __uid_t 1 1
+D __euid 1 1
+U __uid_t 1 1
+X
+D seteuid 0 1
+E
+D __uid 1 1
+U __uid_t 1 1
+X
+D setgid 0 1
+E
+D __gid 1 1
+U __gid_t 1 1
+X
+D setregid 0 1
+E
+D __rgid 1 1
+U __gid_t 1 1
+D __egid 1 1
+U __gid_t 1 1
+X
+D setegid 0 1
+E
+D __gid 1 1
+U __gid_t 1 1
+X
+D getresuid 0 1
+E
+D __ruid 1 1
+U __uid_t 1 1
+D __euid 1 1
+U __uid_t 1 1
+D __suid 1 1
+U __uid_t 1 1
+X
+D getresgid 0 1
+E
+D __rgid 1 1
+U __gid_t 1 1
+D __egid 1 1
+U __gid_t 1 1
+D __sgid 1 1
+U __gid_t 1 1
+X
+D setresuid 0 1
+E
+D __ruid 1 1
+U __uid_t 1 1
+D __euid 1 1
+U __uid_t 1 1
+D __suid 1 1
+U __uid_t 1 1
+X
+D setresgid 0 1
+E
+D __rgid 1 1
+U __gid_t 1 1
+D __egid 1 1
+U __gid_t 1 1
+D __sgid 1 1
+U __gid_t 1 1
+X
+D fork 0 1
+U __pid_t 0 1
+D vfork 0 1
+U __pid_t 0 1
+D _Fork 0 1
+U __pid_t 0 1
+D ttyname 0 1
+E
+D __fd 1 1
+X
+D ttyname_r 0 1
+E
+D __fd 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D isatty 0 1
+E
+D __fd 1 1
+X
+D ttyslot 0 1
+D link 0 1
+E
+D __from 1 1
+D __to 1 1
+X
+D linkat 0 1
+E
+D __fromfd 1 1
+D __from 1 1
+D __tofd 1 1
+D __to 1 1
+D __flags 1 1
+X
+D symlink 0 1
+E
+D __from 1 1
+D __to 1 1
+X
+D readlink 0 1
+E
+U ssize_t 1 1
+D __path 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D symlinkat 0 1
+E
+D __from 1 1
+D __tofd 1 1
+D __to 1 1
+X
+D readlinkat 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __path 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D unlink 0 1
+E
+D __name 1 1
+X
+D unlinkat 0 1
+E
+D __fd 1 1
+D __name 1 1
+D __flag 1 1
+X
+D rmdir 0 1
+E
+D __path 1 1
+X
+D tcgetpgrp 0 1
+E
+U __pid_t 1 1
+D __fd 1 1
+X
+D tcsetpgrp 0 1
+E
+D __fd 1 1
+D __pgrp_id 1 1
+U __pid_t 1 1
+X
+D getlogin 0 1
+D getlogin_r 0 1
+E
+D __name 1 1
+D __name_len 1 1
+U size_t 1 1
+X
+D setlogin 0 1
+E
+D __name 1 1
+X
+D optarg 0 1
+D optind 0 1
+D opterr 0 1
+D optopt 0 1
+D getopt 0 1
+E
+D ___argc 1 1
+D ___argv 1 1
+D __shortopts 1 1
+X
+D gethostname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D sethostname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D sethostid 0 1
+E
+D __id 1 1
+X
+D getdomainname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D setdomainname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D vhangup 0 1
+D revoke 0 1
+E
+D __file 1 1
+X
+D profil 0 1
+E
+D __sample_buffer 1 1
+D __size 1 1
+U size_t 1 1
+D __offset 1 1
+U size_t 1 1
+D __scale 1 1
+X
+D acct 0 1
+E
+D __name 1 1
+X
+D getusershell 0 1
+D endusershell 0 1
+D setusershell 0 1
+D daemon 0 1
+E
+D __nochdir 1 1
+D __noclose 1 1
+X
+D chroot 0 1
+E
+D __path 1 1
+X
+D getpass 0 1
+E
+D __prompt 1 1
+X
+D fsync 0 1
+E
+D __fd 1 1
+X
+D syncfs 0 1
+E
+D __fd 1 1
+X
+D gethostid 0 1
+D sync 0 1
+D getpagesize 0 1
+D getdtablesize 0 1
+D truncate 0 1
+E
+D __file 1 1
+D __length 1 1
+U __off64_t 1 1
+X
+D truncate64 0 1
+E
+D __file 1 1
+D __length 1 1
+U __off64_t 1 1
+X
+D ftruncate 0 1
+E
+D __fd 1 1
+D __length 1 1
+U __off64_t 1 1
+X
+D ftruncate64 0 1
+E
+D __fd 1 1
+D __length 1 1
+U __off64_t 1 1
+X
+D brk 0 1
+E
+D __addr 1 1
+X
+D sbrk 0 1
+E
+D __delta 1 1
+U intptr_t 1 1
+X
+D syscall 0 1
+E
+D __sysno 1 1
+X
+D lockf 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+D __len 1 1
+U __off64_t 1 1
+X
+D lockf64 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+D __len 1 1
+U __off64_t 1 1
+X
+D copy_file_range 0 1
+E
+U ssize_t 1 1
+D __infd 1 1
+D __pinoff 1 1
+U __off64_t 1 1
+D __outfd 1 1
+D __poutoff 1 1
+U __off64_t 1 1
+D __length 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D fdatasync 0 1
+E
+D __fildes 1 1
+X
+D crypt 0 1
+E
+D __key 1 1
+D __salt 1 1
+X
+D swab 0 1
+E
+D __from 1 1
+D __to 1 1
+D __n 1 1
+U ssize_t 1 1
+X
+D getentropy 0 1
+E
+D __buffer 1 1
+D __length 1 1
+U size_t 1 1
+X
+D close_range 0 1
+E
+D __fd 1 1
+D __max_fd 1 1
+D __flags 1 1
+X
+D gettid 0 1
+U __pid_t 0 1
+U __off64_t 0 1
+U __off64_t 0 1
+U __pid_t 0 1
+U __off64_t 0 1
+U __off64_t 0 1
+U __pid_t 0 1
+D F_OWNER_TID 0 1
+D F_OWNER_PID 0 1
+D F_OWNER_PGRP 0 1
+D F_OWNER_GID 0 1
+U F_OWNER_PGRP 0 1
+U __pid_t 0 1
+D readahead 0 1
+E
+U __ssize_t 1 1
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __count 1 1
+U size_t 1 1
+X
+D sync_file_range 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __count 1 1
+U __off64_t 1 1
+D __flags 1 1
+X
+D vmsplice 0 1
+E
+U __ssize_t 1 1
+D __fdout 1 1
+D __iov 1 1
+D __count 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D splice 0 1
+E
+U __ssize_t 1 1
+D __fdin 1 1
+D __offin 1 1
+U __off64_t 1 1
+D __fdout 1 1
+D __offout 1 1
+U __off64_t 1 1
+D __len 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D tee 0 1
+E
+U __ssize_t 1 1
+D __fdin 1 1
+D __fdout 1 1
+D __len 1 1
+U size_t 1 1
+D __flags 1 1
+X
+D fallocate 0 1
+E
+D __fd 1 1
+D __mode 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __len 1 1
+U __off64_t 1 1
+X
+D fallocate64 0 1
+E
+D __fd 1 1
+D __mode 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __len 1 1
+U __off64_t 1 1
+X
+D name_to_handle_at 0 1
+E
+D __dfd 1 1
+D __name 1 1
+D __handle 1 1
+D __mnt_id 1 1
+D __flags 1 1
+X
+D open_by_handle_at 0 1
+E
+D __mountdirfd 1 1
+D __handle 1 1
+D __flags 1 1
+X
+U __u64 0 1
+U __u64 0 1
+U __u64 0 1
+D openat2 0 1
+E
+D __dfd 1 1
+D __filename 1 1
+D __how 1 1
+D __usize 1 1
+X
+D fcntl 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+X
+D fcntl64 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+X
+D open 0 1
+E
+D __file 1 1
+D __oflag 1 1
+X
+D open64 0 1
+E
+D __file 1 1
+D __oflag 1 1
+X
+D openat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __oflag 1 1
+X
+D openat64 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __oflag 1 1
+X
+D creat 0 1
+E
+D __file 1 1
+D __mode 1 1
+U mode_t 1 1
+X
+D creat64 0 1
+E
+D __file 1 1
+D __mode 1 1
+U mode_t 1 1
+X
+D posix_fadvise 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __len 1 1
+U __off64_t 1 1
+D __advise 1 1
+X
+D posix_fadvise64 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off64_t 1 1
+D __len 1 1
+U off64_t 1 1
+D __advise 1 1
+X
+D posix_fallocate 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U __off64_t 1 1
+D __len 1 1
+U __off64_t 1 1
+X
+D posix_fallocate64 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off64_t 1 1
+D __len 1 1
+U off64_t 1 1
+X
+D setrpcent 0 1
+E
+D __stayopen 1 1
+X
+D endrpcent 0 1
+D getrpcbyname 0 1
+E
+D __name 1 1
+X
+D getrpcbynumber 0 1
+E
+D __number 1 1
+X
+D getrpcent 0 1
+D getrpcbyname_r 0 1
+E
+D __name 1 1
+D __result_buf 1 1
+D __buffer 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getrpcbynumber_r 0 1
+E
+D __number 1 1
+D __result_buf 1 1
+D __buffer 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getrpcent_r 0 1
+E
+D __result_buf 1 1
+D __buffer 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+D sigevent_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U uint32_t 0 1
+D __h_errno_location 0 1
+D herror 0 1
+E
+D __str 1 1
+X
+D hstrerror 0 1
+E
+D __err_num 1 1
+X
+D sethostent 0 1
+E
+D __stay_open 1 1
+X
+D endhostent 0 1
+D gethostent 0 1
+D gethostbyaddr 0 1
+E
+D __addr 1 1
+D __len 1 1
+U __socklen_t 1 1
+D __type 1 1
+X
+D gethostbyname 0 1
+E
+D __name 1 1
+X
+D gethostbyname2 0 1
+E
+D __name 1 1
+D __af 1 1
+X
+D gethostent_r 0 1
+E
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D gethostbyaddr_r 0 1
+E
+D __addr 1 1
+D __len 1 1
+U __socklen_t 1 1
+D __type 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D gethostbyname_r 0 1
+E
+D __name 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D gethostbyname2_r 0 1
+E
+D __name 1 1
+D __af 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D setnetent 0 1
+E
+D __stay_open 1 1
+X
+D endnetent 0 1
+D getnetent 0 1
+D getnetbyaddr 0 1
+E
+D __net 1 1
+U uint32_t 1 1
+D __type 1 1
+X
+D getnetbyname 0 1
+E
+D __name 1 1
+X
+D getnetent_r 0 1
+E
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D getnetbyaddr_r 0 1
+E
+D __net 1 1
+U uint32_t 1 1
+D __type 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D getnetbyname_r 0 1
+E
+D __name 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+D __h_errnop 1 1
+X
+D setservent 0 1
+E
+D __stay_open 1 1
+X
+D endservent 0 1
+D getservent 0 1
+D getservbyname 0 1
+E
+D __name 1 1
+D __proto 1 1
+X
+D getservbyport 0 1
+E
+D __port 1 1
+D __proto 1 1
+X
+D getservent_r 0 1
+E
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getservbyname_r 0 1
+E
+D __name 1 1
+D __proto 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getservbyport_r 0 1
+E
+D __port 1 1
+D __proto 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D setprotoent 0 1
+E
+D __stay_open 1 1
+X
+D endprotoent 0 1
+D getprotoent 0 1
+D getprotobyname 0 1
+E
+D __name 1 1
+X
+D getprotobynumber 0 1
+E
+D __proto 1 1
+X
+D getprotoent_r 0 1
+E
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getprotobyname_r 0 1
+E
+D __name 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D getprotobynumber_r 0 1
+E
+D __proto 1 1
+D __result_buf 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+D __result 1 1
+X
+D setnetgrent 0 1
+E
+D __netgroup 1 1
+X
+D endnetgrent 0 1
+D getnetgrent 0 1
+E
+D __hostp 1 1
+D __userp 1 1
+D __domainp 1 1
+X
+D innetgr 0 1
+E
+D __netgroup 1 1
+D __host 1 1
+D __user 1 1
+D __domain 1 1
+X
+D getnetgrent_r 0 1
+E
+D __hostp 1 1
+D __userp 1 1
+D __domainp 1 1
+D __buffer 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D rcmd 0 1
+E
+D __ahost 1 1
+D __rport 1 1
+D __locuser 1 1
+D __remuser 1 1
+D __cmd 1 1
+D __fd2p 1 1
+X
+D rcmd_af 0 1
+E
+D __ahost 1 1
+D __rport 1 1
+D __locuser 1 1
+D __remuser 1 1
+D __cmd 1 1
+D __fd2p 1 1
+D __af 1 1
+U sa_family_t 1 1
+X
+D rexec 0 1
+E
+D __ahost 1 1
+D __rport 1 1
+D __name 1 1
+D __pass 1 1
+D __cmd 1 1
+D __fd2p 1 1
+X
+D rexec_af 0 1
+E
+D __ahost 1 1
+D __rport 1 1
+D __name 1 1
+D __pass 1 1
+D __cmd 1 1
+D __fd2p 1 1
+D __af 1 1
+U sa_family_t 1 1
+X
+D ruserok 0 1
+E
+D __rhost 1 1
+D __suser 1 1
+D __remuser 1 1
+D __locuser 1 1
+X
+D ruserok_af 0 1
+E
+D __rhost 1 1
+D __suser 1 1
+D __remuser 1 1
+D __locuser 1 1
+D __af 1 1
+U sa_family_t 1 1
+X
+D iruserok 0 1
+E
+D __raddr 1 1
+U uint32_t 1 1
+D __suser 1 1
+D __remuser 1 1
+D __locuser 1 1
+X
+D iruserok_af 0 1
+E
+D __raddr 1 1
+D __suser 1 1
+D __remuser 1 1
+D __locuser 1 1
+D __af 1 1
+U sa_family_t 1 1
+X
+D rresvport 0 1
+E
+D __alport 1 1
+X
+D rresvport_af 0 1
+E
+D __alport 1 1
+D __af 1 1
+U sa_family_t 1 1
+X
+U socklen_t 0 1
+D getaddrinfo 0 1
+E
+D __name 1 1
+D __service 1 1
+D __req 1 1
+D __pai 1 1
+X
+D freeaddrinfo 0 1
+E
+D __ai 1 1
+X
+D gai_strerror 0 1
+E
+D __ecode 1 1
+X
+D getnameinfo 0 1
+E
+D __sa 1 1
+D __salen 1 1
+U socklen_t 1 1
+D __host 1 1
+D __hostlen 1 1
+U socklen_t 1 1
+D __serv 1 1
+D __servlen 1 1
+U socklen_t 1 1
+D __flags 1 1
+X
+D getaddrinfo_a 0 1
+E
+D __mode 1 1
+D __list 1 1
+D __ent 1 1
+D __sig 1 1
+X
+D gai_suspend 0 1
+E
+D __list 1 1
+D __ent 1 1
+D __timeout 1 1
+X
+D gai_error 0 1
+E
+D __req 1 1
+X
+D gai_cancel 0 1
+E
+D __gaicbp 1 1
+X
+D __errno_location 0 1
+D program_invocation_name 0 1
+D program_invocation_short_name 0 1
+D error_t 0 1
+D __gnuc_va_list 0 1
+D va_list 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D cookie_read_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_write_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_seek_function_t 0 1
+D __cookie 0 1
+D __pos 0 1
+U __off64_t 0 1
+D __w 0 1
+D cookie_close_function_t 0 1
+D __cookie 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D cookie_io_functions_t 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D fpos_t 0 1
+U __fpos64_t 0 1
+D fpos64_t 0 1
+U __fpos64_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D renameat 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+X
+D renameat2 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+D __flags 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpfile64 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tmpnam_r 0 1
+E
+D __s 1 1
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fflush_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fcloseall 0 1
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fopen64 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen64 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D fopencookie 0 1
+E
+U FILE 1 1
+D __magic_cookie 1 1
+D __modes 1 1
+D __io_funcs 1 1
+U cookie_io_functions_t 1 1
+X
+D fmemopen 0 1
+E
+U FILE 1 1
+D __s 1 1
+D __len 1 1
+U size_t 1 1
+D __modes 1 1
+X
+D open_memstream 0 1
+E
+U FILE 1 1
+D __bufloc 1 1
+D __sizeloc 1 1
+U size_t 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D setbuffer 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D setlinebuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vasprintf 0 1
+E
+D __ptr 1 1
+D __f 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D __asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D vdprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D dprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fgetc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D fputc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D getw 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D putw 0 1
+E
+D __w 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets_unlocked 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D __getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getline 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fputs_unlocked 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off64_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off64_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fseeko64 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off64_t 1 1
+D __whence 1 1
+X
+D ftello64 0 1
+E
+U __off64_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos64 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos64_t 1 1
+X
+D fsetpos64 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos64_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D clearerr_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fileno_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D cuserid 0 1
+E
+D __s 1 1
+X
+D obstack_printf 0 1
+E
+D __obstack 1 1
+D __format 1 1
+X
+D obstack_vprintf 0 1
+E
+D __obstack 1 1
+D __format 1 1
+D __args 1 1
+U __gnuc_va_list 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D anetTcpNonBlockConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+X
+D anetTcpNonBlockBestEffortBindConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+D source_addr 1 0
+X
+D anetUnixNonBlockConnect 0 0
+E
+D err 1 0
+D path 1 0
+X
+D anetResolve 0 0
+E
+D err 1 0
+D host 1 0
+D ipbuf 1 0
+D ipbuf_len 1 0
+U size_t 1 0
+D flags 1 0
+X
+D anetTcpServer 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+X
+D anetTcp6Server 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+X
+D anetUnixServer 0 0
+E
+D err 1 0
+D path 1 0
+D perm 1 0
+U mode_t 1 0
+D backlog 1 0
+X
+D anetTcpAccept 0 0
+E
+D err 1 0
+D serversock 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+X
+D anetUnixAccept 0 0
+E
+D err 1 0
+D serversock 1 0
+X
+D anetNonBlock 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetBlock 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetCloexec 0 0
+E
+D fd 1 0
+X
+D anetEnableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetDisableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetSendTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+X
+D anetRecvTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+X
+D anetFdToString 0 0
+E
+D fd 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+D remote 1 0
+X
+D anetKeepAlive 0 0
+E
+D err 1 0
+D fd 1 0
+D interval 1 0
+X
+D anetFormatAddr 0 0
+E
+D fmt 1 0
+D fmt_len 1 0
+U size_t 1 0
+D ip 1 0
+D port 1 0
+X
+D anetPipe 0 0
+E
+D fds 1 0
+D read_flags 1 0
+D write_flags 1 0
+X
+D anetSetSockMarkId 0 0
+E
+D err 1 0
+D fd 1 0
+D id 1 0
+U uint32_t 1 0
+X
+D anetGetError 0 0
+E
+D fd 1 0
+X
+D anetIsFifo 0 0
+E
+D filepath 1 0
+X
+D anetAcceptFailureNeedsRetry 0 0
+E
+D err 1 0
+X
+D __sysconf 0 1
+E
+D __name 1 1
+X
+D sig_atomic_t 0 1
+U __sig_atomic_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D siginfo_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D SI_ASYNCNL 0 1
+D SI_DETHREAD 0 1
+D SI_TKILL 0 1
+D SI_SIGIO 0 1
+D SI_ASYNCIO 0 1
+D SI_MESGQ 0 1
+D SI_TIMER 0 1
+D SI_QUEUE 0 1
+D SI_USER 0 1
+D SI_KERNEL 0 1
+D ILL_ILLOPC 0 1
+D ILL_ILLOPN 0 1
+D ILL_ILLADR 0 1
+D ILL_ILLTRP 0 1
+D ILL_PRVOPC 0 1
+D ILL_PRVREG 0 1
+D ILL_COPROC 0 1
+D ILL_BADSTK 0 1
+D ILL_BADIADDR 0 1
+D FPE_INTDIV 0 1
+D FPE_INTOVF 0 1
+D FPE_FLTDIV 0 1
+D FPE_FLTOVF 0 1
+D FPE_FLTUND 0 1
+D FPE_FLTRES 0 1
+D FPE_FLTINV 0 1
+D FPE_FLTSUB 0 1
+D FPE_FLTUNK 0 1
+D FPE_CONDTRAP 0 1
+D SEGV_MAPERR 0 1
+D SEGV_ACCERR 0 1
+D SEGV_BNDERR 0 1
+D SEGV_PKUERR 0 1
+D SEGV_ACCADI 0 1
+D SEGV_ADIDERR 0 1
+D SEGV_ADIPERR 0 1
+D SEGV_MTEAERR 0 1
+D SEGV_MTESERR 0 1
+D SEGV_CPERR 0 1
+D BUS_ADRALN 0 1
+D BUS_ADRERR 0 1
+D BUS_OBJERR 0 1
+D BUS_MCEERR_AR 0 1
+D BUS_MCEERR_AO 0 1
+D TRAP_BRKPT 0 1
+D TRAP_TRACE 0 1
+D TRAP_BRANCH 0 1
+D TRAP_HWBKPT 0 1
+D TRAP_UNK 0 1
+D TRAP_PERF 0 1
+D CLD_EXITED 0 1
+D CLD_KILLED 0 1
+D CLD_DUMPED 0 1
+D CLD_TRAPPED 0 1
+D CLD_STOPPED 0 1
+D CLD_CONTINUED 0 1
+D POLL_IN 0 1
+D POLL_OUT 0 1
+D POLL_MSG 0 1
+D POLL_ERR 0 1
+D POLL_PRI 0 1
+D POLL_HUP 0 1
+D SYS_SECCOMP 0 1
+D SYS_USER_DISPATCH 0 1
+D sigval_t 0 1
+U __sigval_t 0 1
+D SIGEV_SIGNAL 0 1
+D SIGEV_NONE 0 1
+D SIGEV_THREAD 0 1
+D SIGEV_THREAD_ID 0 1
+D __sighandler_t 0 1
+D __sysv_signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D sysv_signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D kill 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D killpg 0 1
+E
+D __pgrp 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D raise 0 1
+E
+D __sig 1 1
+X
+D ssignal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D gsignal 0 1
+E
+D __sig 1 1
+X
+D psignal 0 1
+E
+D __sig 1 1
+D __s 1 1
+X
+D psiginfo 0 1
+E
+D __pinfo 1 1
+U siginfo_t 1 1
+D __s 1 1
+X
+D sigpause 0 1
+E
+D __sig 1 1
+X
+D sigblock 0 1
+E
+D __mask 1 1
+X
+D sigsetmask 0 1
+E
+D __mask 1 1
+X
+D siggetmask 0 1
+D sighandler_t 0 1
+U __sighandler_t 0 1
+D sig_t 0 1
+U __sighandler_t 0 1
+D sigemptyset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigfillset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaddset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigdelset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigismember 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigisemptyset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigandset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __left 1 1
+U sigset_t 1 1
+D __right 1 1
+U sigset_t 1 1
+X
+D sigorset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __left 1 1
+U sigset_t 1 1
+D __right 1 1
+U sigset_t 1 1
+X
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sigset_t 0 1
+D sigprocmask 0 1
+E
+D __how 1 1
+D __set 1 1
+U sigset_t 1 1
+D __oset 1 1
+U sigset_t 1 1
+X
+D sigsuspend 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaction 0 1
+E
+D __sig 1 1
+D __act 1 1
+D __oact 1 1
+X
+D sigpending 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __sig 1 1
+X
+D sigwaitinfo 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+X
+D sigtimedwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+D __timeout 1 1
+X
+D sigqueue 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+D __val 1 1
+X
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+D sigreturn 0 1
+E
+D __scp 1 1
+X
+U size_t 0 1
+D stack_t 0 1
+U size_t 0 1
+D greg_t 0 1
+D gregset_t 0 1
+U greg_t 0 1
+D REG_R8 0 1
+D REG_R9 0 1
+D REG_R10 0 1
+D REG_R11 0 1
+D REG_R12 0 1
+D REG_R13 0 1
+D REG_R14 0 1
+D REG_R15 0 1
+D REG_RDI 0 1
+D REG_RSI 0 1
+D REG_RBP 0 1
+D REG_RBX 0 1
+D REG_RDX 0 1
+D REG_RAX 0 1
+D REG_RCX 0 1
+D REG_RSP 0 1
+D REG_RIP 0 1
+D REG_EFL 0 1
+D REG_CSGSFS 0 1
+D REG_ERR 0 1
+D REG_TRAPNO 0 1
+D REG_OLDMASK 0 1
+D REG_CR2 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D fpregset_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+D mcontext_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D ucontext_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D siginterrupt 0 1
+E
+D __sig 1 1
+D __interrupt 1 1
+X
+D SS_ONSTACK 0 1
+D SS_DISABLE 0 1
+D sigaltstack 0 1
+E
+D __ss 1 1
+U stack_t 1 1
+D __oss 1 1
+U stack_t 1 1
+X
+D sigstack 0 1
+E
+D __ss 1 1
+D __oss 1 1
+X
+D sighold 0 1
+E
+D __sig 1 1
+X
+D sigrelse 0 1
+E
+D __sig 1 1
+X
+D sigignore 0 1
+E
+D __sig 1 1
+X
+D sigset 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __disp 1 1
+U __sighandler_t 1 1
+X
+D pthread_sigmask 0 1
+E
+D __how 1 1
+D __newmask 1 1
+U __sigset_t 1 1
+D __oldmask 1 1
+U __sigset_t 1 1
+X
+D pthread_kill 0 1
+E
+D __threadid 1 1
+U pthread_t 1 1
+D __signo 1 1
+X
+D pthread_sigqueue 0 1
+E
+D __threadid 1 1
+U pthread_t 1 1
+D __signo 1 1
+D __value 1 1
+X
+D __libc_current_sigrtmin 0 1
+D __libc_current_sigrtmax 0 1
+D tgkill 0 1
+E
+D __tgid 1 1
+U __pid_t 1 1
+D __tid 1 1
+U __pid_t 1 1
+D __signal 1 1
+X
+D spt_init 0 0
+E
+D argc 1 0
+D argv 1 0
+X
+D setproctitle 0 0
+E
+D fmt 1 0
+X
+D setcpuaffinity 0 0
+E
+D cpulist 1 0
+X
+D SDS_NOINIT 0 0
+D sds 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+U uint16_t 0 0
+U uint16_t 0 0
+U uint32_t 0 0
+U uint32_t 0 0
+U uint64_t 0 0
+U uint64_t 0 0
+D sdsType 0 0
+E
+D s 1 0
+U sds 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+X
+X
+D sdsGetAuxBit 0 0
+E
+D s 1 0
+U sds 1 0
+D bit 1 0
+E
+U sdsType 2 0
+U s 2 0
+D flags 2 0
+U s 2 0
+U flags 2 0
+U bit 2 0
+X
+X
+D sdsSetAuxBit 0 0
+E
+D s 1 0
+U sds 1 0
+D bit 1 0
+D value 1 0
+E
+U sdsType 2 0
+U s 2 0
+D flags 2 0
+U s 2 0
+U value 2 0
+E
+U flags 3 0
+U bit 3 0
+X
+E
+U flags 3 0
+U bit 3 0
+X
+U s 2 0
+U flags 2 0
+X
+X
+D sdslen 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdsavail 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+X
+X
+X
+D sdssetlen 0 0
+E
+D s 1 0
+U sds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+D fp 4 0
+U s 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+X
+X
+X
+D sdsinclen 0 0
+E
+D s 1 0
+U sds 1 0
+D inc 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+E
+D fp 4 0
+U s 4 0
+D newlen 4 0
+U s 4 0
+U inc 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+U s 3 0
+U inc 3 0
+X
+X
+X
+D sdsAllocSize 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdsalloc 0 0
+E
+U size_t 1 0
+D s 1 0
+U sds 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D sdssetalloc 0 0
+E
+D s 1 0
+U sds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+U sdsType 2 0
+U s 2 0
+E
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+U s 3 0
+U newlen 3 0
+X
+X
+X
+D sdsHdrSize 0 0
+E
+D type 1 0
+E
+U type 2 0
+E
+X
+X
+X
+D sdsnewlen 0 0
+E
+U sds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdstrynewlen 0 0
+E
+U sds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdsnew 0 0
+E
+U sds 1 0
+D init 1 0
+X
+D sdsnewplacement 0 0
+E
+U sds 1 0
+D buf 1 0
+D bufsize 1 0
+U size_t 1 0
+D type 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D sdsempty 0 0
+U sds 0 0
+D sdsdup 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+X
+D sdsfree 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsfreegeneric 0 0
+E
+D s 1 0
+X
+D sdsgrowzero 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscatlen 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscat 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+X
+D sdscatsds 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+U sds 1 0
+X
+D sdscpylen 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdscpy 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D t 1 0
+X
+D sdscatvprintf 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+D ap 1 0
+U va_list 1 0
+X
+D sdscatprintf 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+X
+D sdscatfmt 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D fmt 1 0
+X
+D sdstrim 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D cset 1 0
+X
+D sdssubstr 0 0
+E
+D s 1 0
+U sds 1 0
+D start 1 0
+U size_t 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdsrange 0 0
+E
+D s 1 0
+U sds 1 0
+D start 1 0
+U ssize_t 1 0
+D end 1 0
+U ssize_t 1 0
+X
+D sdsupdatelen 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsclear 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdscmp 0 0
+E
+D s1 1 0
+U sds 1 0
+D s2 1 0
+U sds 1 0
+X
+D sdscmplen 0 0
+E
+D s1 1 0
+U sds 1 0
+D s2 1 0
+U sds 1 0
+X
+D sdssplitlen 0 0
+E
+U sds 1 0
+D s 1 0
+D len 1 0
+U ssize_t 1 0
+D sep 1 0
+D seplen 1 0
+D count 1 0
+X
+D sdsfreesplitres 0 0
+E
+D tokens 1 0
+U sds 1 0
+D count 1 0
+X
+D sdstolower 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdstoupper 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsfromlonglong 0 0
+E
+U sds 1 0
+D value 1 0
+X
+D sdscatrepr 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D p 1 0
+D len 1 0
+U size_t 1 0
+X
+D sdssplitargs 0 0
+E
+U sds 1 0
+D line 1 0
+D argc 1 0
+X
+D sdsmapchars 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+X
+D sdsjoin 0 0
+E
+U sds 1 0
+D argv 1 0
+D argc 1 0
+D sep 1 0
+X
+D sdsjoinsds 0 0
+E
+U sds 1 0
+D argv 1 0
+U sds 1 0
+D argc 1 0
+D sep 1 0
+D seplen 1 0
+U size_t 1 0
+X
+D sdsneedsrepr 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdstemplate_callback_t 0 0
+U sds 0 0
+D variable 0 0
+U sds 0 0
+D arg 0 0
+D sdstemplate 0 0
+E
+U sds 1 0
+D template 1 0
+D cb_func 1 0
+U sdstemplate_callback_t 1 0
+D cb_arg 1 0
+X
+D sdsReqType 0 0
+E
+D string_size 1 0
+U size_t 1 0
+X
+D sdsMakeRoomFor 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D addlen 1 0
+U size_t 1 0
+X
+D sdsMakeRoomForNonGreedy 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D addlen 1 0
+U size_t 1 0
+X
+D sdsIncrLen 0 0
+E
+D s 1 0
+U sds 1 0
+D incr 1 0
+U ssize_t 1 0
+X
+D sdsRemoveFreeSpace 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D would_regrow 1 0
+X
+D sdsResize 0 0
+E
+U sds 1 0
+D s 1 0
+U sds 1 0
+D size 1 0
+U size_t 1 0
+D would_regrow 1 0
+X
+D sdsAllocPtr 0 0
+E
+D s 1 0
+U sds 1 0
+X
+D sdsReqSize 0 0
+E
+U size_t 1 0
+D len 1 0
+U size_t 1 0
+D type 1 0
+E
+U len 2 0
+U sdsHdrSize 2 0
+U type 2 0
+X
+X
+D sds_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D sds_realloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D sds_free 0 0
+E
+D ptr 1 0
+X
+D LD_STR_AUTO 0 0
+D LD_STR_HUMAN 0 0
+D LD_STR_HEX 0 0
+D ld2string_mode 0 0
+D LD_STR_AUTO 0 0
+D LD_STR_HUMAN 0 0
+D LD_STR_HEX 0 0
+D prefixmatch 0 0
+E
+D pattern 1 0
+D patternLen 1 0
+D prefixStr 1 0
+D prefixStrLen 1 0
+D nocase 1 0
+X
+D stringmatchlen 0 0
+E
+D p 1 0
+D plen 1 0
+D s 1 0
+D slen 1 0
+D nocase 1 0
+X
+D stringmatch 0 0
+E
+D p 1 0
+D s 1 0
+D nocase 1 0
+X
+D stringmatchlen_fuzz_test 0 0
+D memtoull 0 0
+E
+D p 1 0
+D err 1 0
+X
+D mempbrk 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D chars 1 0
+D charslen 1 0
+U size_t 1 0
+X
+D memmapchars 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+X
+D digits10 0 0
+E
+U uint32_t 1 0
+D v 1 0
+U uint64_t 1 0
+X
+D sdigits10 0 0
+E
+U uint32_t 1 0
+D v 1 0
+U int64_t 1 0
+X
+D ll2string 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D ull2string 0 0
+E
+D s 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ll 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ull 0 0
+E
+D s 1 0
+D value 1 0
+X
+D string2l 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D value 1 0
+X
+D string2ul_base16_async_signal_safe 0 0
+E
+D src 1 0
+D slen 1 0
+U size_t 1 0
+D result_output 1 0
+X
+D string2ld 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D dp 1 0
+X
+D string2d 0 0
+E
+D s 1 0
+D slen 1 0
+U size_t 1 0
+D dp 1 0
+X
+D trimDoubleString 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+X
+D d2string 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+X
+D fixedpoint_d2string 0 0
+E
+D dst 1 0
+D dstlen 1 0
+U size_t 1 0
+D dvalue 1 0
+D fractional_digits 1 0
+X
+D ld2string 0 0
+E
+D buf 1 0
+D len 1 0
+U size_t 1 0
+D value 1 0
+D mode 1 0
+U ld2string_mode 1 0
+X
+D double2ll 0 0
+E
+D d 1 0
+D out 1 0
+X
+D yesnotoi 0 0
+E
+D s 1 0
+X
+D getAbsolutePath 0 0
+E
+U sds 1 0
+D filename 1 0
+X
+D getTimeZone 0 0
+D pathIsBaseName 0 0
+E
+D path 1 0
+X
+D getFileExtension 0 0
+E
+D path 1 0
+X
+D getFileBaseName 0 0
+E
+D path 1 0
+X
+D getFilePath 0 0
+E
+U sds 1 0
+D path 1 0
+X
+D dirCreateIfMissing 0 0
+E
+D dname 1 0
+X
+D dirExists 0 0
+E
+D dname 1 0
+X
+D dirIsEmpty 0 0
+E
+D dname 1 0
+X
+D dirRemove 0 0
+E
+D dname 1 0
+X
+D fileExist 0 0
+E
+D filename 1 0
+X
+D makePath 0 0
+E
+U sds 1 0
+D path 1 0
+D filename 1 0
+X
+D copyFile 0 0
+E
+D source 1 0
+D destination 1 0
+X
+D fsyncFileDir 0 0
+E
+D filename 1 0
+X
+D reclaimFilePageCache 0 0
+E
+D fd 1 0
+D offset 1 0
+U size_t 1 0
+D length 1 0
+U size_t 1 0
+X
+D fgets_async_signal_safe 0 0
+E
+D dest 1 0
+D buff_size 1 0
+D fd 1 0
+X
+D vsnprintf_async_signal_safe 0 0
+E
+D to 1 0
+D size 1 0
+U size_t 1 0
+D format 1 0
+D ap 1 0
+U va_list 1 0
+X
+D snprintf_async_signal_safe 0 0
+E
+D to 1 0
+D n 1 0
+U size_t 1 0
+D fmt 1 0
+X
+D redis_strlcpy 0 0
+E
+U size_t 1 0
+D dst 1 0
+D src 1 0
+D dsize 1 0
+U size_t 1 0
+X
+D redis_strlcat 0 0
+E
+U size_t 1 0
+D dst 1 0
+D src 1 0
+D dsize 1 0
+U size_t 1 0
+X
+D log2ceil 0 0
+E
+D x 1 0
+U size_t 1 0
+E
+U __builtin_clzll 2 0
+U x 2 0
+X
+X
+D nearestNextPowerOf2 0 0
+E
+D count 1 0
+E
+U count 2 0
+U __builtin_clz 2 0
+U count 2 0
+X
+X
+D anetSetError 0 0
+E
+D err 1 0
+D fmt 1 0
+E
+D ap 2 0
+U va_list 2 0
+U err 2 0
+U __builtin_va_start 2 0
+U ap 2 0
+U fmt 2 0
+U vsnprintf 2 0
+U err 2 0
+U fmt 2 0
+U ap 2 0
+U __builtin_va_end 2 0
+U ap 2 0
+X
+X
+D anetGetError 0 0
+E
+D fd 1 0
+E
+D sockerr 2 0
+D errlen 2 0
+U socklen_t 2 0
+U sockerr 2 0
+U getsockopt 2 0
+U fd 2 0
+U sockerr 2 0
+U errlen 2 0
+U sockerr 2 0
+U __errno_location 2 0
+U sockerr 2 0
+X
+X
+D anetSetBlock 0 0
+E
+D err 1 0
+D fd 1 0
+D non_block 1 0
+E
+D flags 2 0
+U flags 2 0
+U fcntl 2 0
+U fd 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+U flags 2 0
+U non_block 2 0
+U non_block 2 0
+U flags 2 0
+U flags 2 0
+U fcntl 2 0
+U fd 2 0
+U flags 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetNonBlock 0 0
+E
+D err 1 0
+D fd 1 0
+E
+U anetSetBlock 2 0
+U err 2 0
+U fd 2 0
+X
+X
+D anetBlock 0 0
+E
+D err 1 0
+D fd 1 0
+E
+U anetSetBlock 2 0
+U err 2 0
+U fd 2 0
+X
+X
+D anetCloexec 0 0
+E
+D fd 1 0
+E
+D r 2 0
+D flags 2 0
+E
+U r 3 0
+U fcntl 3 0
+U fd 3 0
+X
+U r 2 0
+U __errno_location 2 0
+U r 2 0
+U r 2 0
+U r 2 0
+U flags 2 0
+U r 2 0
+E
+U r 3 0
+U fcntl 3 0
+U fd 3 0
+U flags 3 0
+X
+U r 2 0
+U __errno_location 2 0
+U r 2 0
+X
+X
+D anetKeepAlive 0 0
+E
+D err 1 0
+D fd 1 0
+D interval 1 0
+E
+D enabled 2 0
+U setsockopt 2 0
+U fd 2 0
+U enabled 2 0
+U enabled 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+D idle 2 0
+D intvl 2 0
+D cnt 2 0
+U idle 2 0
+U interval 2 0
+U setsockopt 2 0
+U fd 2 0
+U IPPROTO_TCP 2 0
+U idle 2 0
+U idle 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+U intvl 2 0
+U interval 2 0
+U intvl 2 0
+U intvl 2 0
+U setsockopt 2 0
+U fd 2 0
+U IPPROTO_TCP 2 0
+U intvl 2 0
+U intvl 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+U cnt 2 0
+U setsockopt 2 0
+U fd 2 0
+U IPPROTO_TCP 2 0
+U cnt 2 0
+U cnt 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetSetTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+D val 1 0
+E
+U setsockopt 2 0
+U fd 2 0
+U IPPROTO_TCP 2 0
+U val 2 0
+U val 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetEnableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+E
+U anetSetTcpNoDelay 2 0
+U err 2 0
+U fd 2 0
+X
+X
+D anetDisableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+E
+U anetSetTcpNoDelay 2 0
+U err 2 0
+U fd 2 0
+X
+X
+D anetSendTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+E
+D tv 2 0
+U tv 2 0
+U ms 2 0
+U tv 2 0
+U ms 2 0
+U setsockopt 2 0
+U fd 2 0
+U tv 2 0
+U tv 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetRecvTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+E
+D tv 2 0
+U tv 2 0
+U ms 2 0
+U tv 2 0
+U ms 2 0
+U setsockopt 2 0
+U fd 2 0
+U tv 2 0
+U tv 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetResolve 0 0
+E
+D err 1 0
+D host 1 0
+D ipbuf 1 0
+D ipbuf_len 1 0
+U size_t 1 0
+D flags 1 0
+E
+D hints 2 0
+D info 2 0
+D rv 2 0
+U memset 2 0
+U hints 2 0
+U hints 2 0
+U flags 2 0
+U hints 2 0
+U hints 2 0
+U flags 2 0
+U flags 2 0
+E
+U hints 3 0
+X
+U flags 2 0
+U flags 2 0
+E
+U hints 3 0
+X
+U hints 2 0
+U SOCK_STREAM 2 0
+U rv 2 0
+U getaddrinfo 2 0
+U host 2 0
+U hints 2 0
+U info 2 0
+U rv 2 0
+U hints 2 0
+E
+U hints 3 0
+U hints 3 0
+U rv 3 0
+U getaddrinfo 3 0
+U host 3 0
+U hints 3 0
+U info 3 0
+X
+U rv 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U gai_strerror 3 0
+U rv 3 0
+X
+U info 2 0
+E
+D sa 3 0
+U info 3 0
+U inet_ntop 3 0
+U sa 3 0
+U ipbuf 3 0
+U ipbuf_len 3 0
+X
+E
+D sa 3 0
+U info 3 0
+U inet_ntop 3 0
+U sa 3 0
+U ipbuf 3 0
+U ipbuf_len 3 0
+X
+U freeaddrinfo 2 0
+U info 2 0
+X
+X
+D anetSetReuseAddr 0 0
+E
+D err 1 0
+D fd 1 0
+E
+D yes 2 0
+U setsockopt 2 0
+U fd 2 0
+U yes 2 0
+U yes 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetCreateSocket 0 0
+E
+D err 1 0
+D domain 1 0
+E
+D s 2 0
+U s 2 0
+U socket 2 0
+U domain 2 0
+U SOCK_STREAM 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+U anetSetReuseAddr 2 0
+U err 2 0
+U s 2 0
+E
+U close 3 0
+U s 3 0
+X
+U s 2 0
+X
+X
+D anetTcpGenericConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+D source_addr 1 0
+D flags 1 0
+E
+D s 2 0
+D rv 2 0
+D portstr 2 0
+D hints 2 0
+D servinfo 2 0
+D bservinfo 2 0
+D p 2 0
+D b 2 0
+U snprintf 2 0
+U portstr 2 0
+U portstr 2 0
+U port 2 0
+U memset 2 0
+U hints 2 0
+U hints 2 0
+U hints 2 0
+U hints 2 0
+U SOCK_STREAM 2 0
+U rv 2 0
+U getaddrinfo 2 0
+U addr 2 0
+U portstr 2 0
+U hints 2 0
+U servinfo 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U gai_strerror 3 0
+U rv 3 0
+X
+E
+U p 3 0
+U servinfo 3 0
+U p 3 0
+U p 3 0
+U p 3 0
+E
+U s 4 0
+U socket 4 0
+U p 4 0
+U p 4 0
+U p 4 0
+U anetSetReuseAddr 4 0
+U err 4 0
+U s 4 0
+U flags 4 0
+U anetNonBlock 4 0
+U err 4 0
+U s 4 0
+U source_addr 4 0
+E
+D bound 5 0
+U rv 5 0
+U getaddrinfo 5 0
+U source_addr 5 0
+U hints 5 0
+U bservinfo 5 0
+E
+U anetSetError 6 0
+U err 6 0
+U gai_strerror 6 0
+U rv 6 0
+X
+E
+U b 6 0
+U bservinfo 6 0
+U b 6 0
+U b 6 0
+U b 6 0
+E
+U bind 7 0
+U s 7 0
+U __CONST_SOCKADDR_ARG 7 0
+U b 7 0
+U b 7 0
+E
+U bound 8 0
+X
+X
+X
+U freeaddrinfo 5 0
+U bservinfo 5 0
+U bound 5 0
+E
+U anetSetError 6 0
+U err 6 0
+U strerror 6 0
+U __errno_location 6 0
+X
+X
+U connect 4 0
+U s 4 0
+U __CONST_SOCKADDR_ARG 4 0
+U p 4 0
+U p 4 0
+E
+U __errno_location 5 0
+U flags 5 0
+U close 5 0
+U s 5 0
+U s 5 0
+X
+X
+X
+U p 2 0
+U anetSetError 2 0
+U err 2 0
+U strerror 2 0
+U __errno_location 2 0
+U s 2 0
+E
+U close 3 0
+U s 3 0
+U s 3 0
+X
+U freeaddrinfo 2 0
+U servinfo 2 0
+U s 2 0
+U source_addr 2 0
+U flags 2 0
+E
+U anetTcpGenericConnect 3 0
+U err 3 0
+U addr 3 0
+U port 3 0
+U flags 3 0
+X
+E
+U s 3 0
+X
+X
+X
+D anetTcpNonBlockConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+E
+U anetTcpGenericConnect 2 0
+U err 2 0
+U addr 2 0
+U port 2 0
+X
+X
+D anetTcpNonBlockBestEffortBindConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+D source_addr 1 0
+E
+U anetTcpGenericConnect 2 0
+U err 2 0
+U addr 2 0
+U port 2 0
+U source_addr 2 0
+X
+X
+D anetUnixGenericConnect 0 0
+E
+D err 1 0
+D path 1 0
+D flags 1 0
+E
+D s 2 0
+D sa 2 0
+U s 2 0
+U anetCreateSocket 2 0
+U err 2 0
+U sa 2 0
+U redis_strlcpy 2 0
+U sa 2 0
+U path 2 0
+U sa 2 0
+U flags 2 0
+E
+U anetNonBlock 3 0
+U err 3 0
+U s 3 0
+E
+U close 4 0
+U s 4 0
+X
+X
+U connect 2 0
+U s 2 0
+U __CONST_SOCKADDR_ARG 2 0
+U sa 2 0
+U sa 2 0
+E
+U __errno_location 3 0
+U flags 3 0
+U s 3 0
+D connect_errno 3 0
+U __errno_location 3 0
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+U close 3 0
+U s 3 0
+U __errno_location 3 0
+U connect_errno 3 0
+X
+U s 2 0
+X
+X
+D anetUnixNonBlockConnect 0 0
+E
+D err 1 0
+D path 1 0
+E
+U anetUnixGenericConnect 2 0
+U err 2 0
+U path 2 0
+X
+X
+D anetListen 0 0
+E
+D err 1 0
+D s 1 0
+D sa 1 0
+D len 1 0
+U socklen_t 1 0
+D backlog 1 0
+D perm 1 0
+U mode_t 1 0
+E
+U bind 2 0
+U s 2 0
+U __CONST_SOCKADDR_ARG 2 0
+U sa 2 0
+U len 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+U close 3 0
+U s 3 0
+X
+U sa 2 0
+U perm 2 0
+U chmod 2 0
+U sa 2 0
+U perm 2 0
+U listen 2 0
+U s 2 0
+U backlog 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+U close 3 0
+U s 3 0
+X
+X
+X
+D anetV6Only 0 0
+E
+D err 1 0
+D s 1 0
+E
+D yes 2 0
+U setsockopt 2 0
+U s 2 0
+U IPPROTO_IPV6 2 0
+U yes 2 0
+U yes 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D _anetTcpServer 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D af 1 0
+D backlog 1 0
+E
+D s 2 0
+D rv 2 0
+D _port 2 0
+D hints 2 0
+D servinfo 2 0
+D p 2 0
+U snprintf 2 0
+U _port 2 0
+U port 2 0
+U memset 2 0
+U hints 2 0
+U hints 2 0
+U hints 2 0
+U af 2 0
+U hints 2 0
+U SOCK_STREAM 2 0
+U hints 2 0
+U bindaddr 2 0
+U strcmp 2 0
+U bindaddr 2 0
+U bindaddr 2 0
+U af 2 0
+U bindaddr 2 0
+U strcmp 2 0
+U bindaddr 2 0
+U bindaddr 2 0
+U rv 2 0
+U getaddrinfo 2 0
+U bindaddr 2 0
+U _port 2 0
+U hints 2 0
+U servinfo 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U gai_strerror 3 0
+U rv 3 0
+X
+E
+U p 3 0
+U servinfo 3 0
+U p 3 0
+U p 3 0
+U p 3 0
+E
+U s 4 0
+U socket 4 0
+U p 4 0
+U p 4 0
+U p 4 0
+U af 4 0
+U anetV6Only 4 0
+U err 4 0
+U s 4 0
+U anetSetReuseAddr 4 0
+U err 4 0
+U s 4 0
+U anetListen 4 0
+U err 4 0
+U s 4 0
+U p 4 0
+U p 4 0
+U backlog 4 0
+U s 4 0
+X
+X
+U p 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U __errno_location 3 0
+X
+U s 2 0
+U close 2 0
+U s 2 0
+U s 2 0
+U freeaddrinfo 2 0
+U servinfo 2 0
+U s 2 0
+X
+X
+D anetTcpServer 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+E
+U _anetTcpServer 2 0
+U err 2 0
+U port 2 0
+U bindaddr 2 0
+U backlog 2 0
+X
+X
+D anetTcp6Server 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+E
+U _anetTcpServer 2 0
+U err 2 0
+U port 2 0
+U bindaddr 2 0
+U backlog 2 0
+X
+X
+D anetUnixServer 0 0
+E
+D err 1 0
+D path 1 0
+D perm 1 0
+U mode_t 1 0
+D backlog 1 0
+E
+D s 2 0
+D sa 2 0
+U strlen 2 0
+U path 2 0
+U sa 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strlen 3 0
+U path 3 0
+U sa 3 0
+X
+U s 2 0
+U anetCreateSocket 2 0
+U err 2 0
+U memset 2 0
+U sa 2 0
+U sa 2 0
+U sa 2 0
+U redis_strlcpy 2 0
+U sa 2 0
+U path 2 0
+U sa 2 0
+U anetListen 2 0
+U err 2 0
+U s 2 0
+U sa 2 0
+U sa 2 0
+U backlog 2 0
+U perm 2 0
+U s 2 0
+X
+X
+D anetGenericAccept 0 0
+E
+D err 1 0
+D s 1 0
+D sa 1 0
+D len 1 0
+U socklen_t 1 0
+E
+D fd 2 0
+E
+U fd 3 0
+U accept4 3 0
+U s 3 0
+U __SOCKADDR_ARG 3 0
+U sa 3 0
+U len 3 0
+U SOCK_NONBLOCK 3 0
+U SOCK_CLOEXEC 3 0
+X
+U fd 2 0
+U __errno_location 2 0
+U fd 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+U fd 2 0
+X
+X
+D anetTcpAccept 0 0
+E
+D err 1 0
+D serversock 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+E
+D fd 2 0
+D sa 2 0
+D salen 2 0
+U socklen_t 2 0
+U sa 2 0
+U fd 2 0
+U anetGenericAccept 2 0
+U err 2 0
+U serversock 2 0
+U sa 2 0
+U salen 2 0
+U sa 2 0
+E
+D s 3 0
+U sa 3 0
+U ip 3 0
+U inet_ntop 3 0
+U s 3 0
+U ip 3 0
+U ip_len 3 0
+U port 3 0
+U port 3 0
+U ntohs 3 0
+U s 3 0
+X
+E
+D s 3 0
+U sa 3 0
+U ip 3 0
+U inet_ntop 3 0
+U s 3 0
+U ip 3 0
+U ip_len 3 0
+U port 3 0
+U port 3 0
+U ntohs 3 0
+U s 3 0
+X
+U fd 2 0
+X
+X
+D anetUnixAccept 0 0
+E
+D err 1 0
+D s 1 0
+E
+D fd 2 0
+D sa 2 0
+D salen 2 0
+U socklen_t 2 0
+U sa 2 0
+U fd 2 0
+U anetGenericAccept 2 0
+U err 2 0
+U s 2 0
+U sa 2 0
+U salen 2 0
+U fd 2 0
+X
+X
+D anetFdToString 0 0
+E
+D fd 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+D remote 1 0
+E
+D sa 2 0
+D salen 2 0
+U socklen_t 2 0
+U sa 2 0
+U remote 2 0
+E
+U getpeername 3 0
+U fd 3 0
+U __SOCKADDR_ARG 3 0
+U sa 3 0
+U salen 3 0
+X
+E
+U getsockname 3 0
+U fd 3 0
+U __SOCKADDR_ARG 3 0
+U sa 3 0
+U salen 3 0
+X
+U sa 2 0
+E
+D s 3 0
+U sa 3 0
+U ip 3 0
+E
+U inet_ntop 4 0
+U s 4 0
+U ip 4 0
+U ip_len 4 0
+X
+U port 3 0
+U port 3 0
+U ntohs 3 0
+U s 3 0
+X
+U sa 2 0
+E
+D s 3 0
+U sa 3 0
+U ip 3 0
+E
+U inet_ntop 4 0
+U s 4 0
+U ip 4 0
+U ip_len 4 0
+X
+U port 3 0
+U port 3 0
+U ntohs 3 0
+U s 3 0
+X
+U sa 2 0
+E
+U ip 3 0
+E
+D res 4 0
+U snprintf 4 0
+U ip 4 0
+U ip_len 4 0
+U res 4 0
+U res 4 0
+U ip_len 4 0
+X
+U port 3 0
+U port 3 0
+X
+E
+X
+U ip 2 0
+E
+U ip_len 3 0
+E
+U ip 4 0
+U ip 4 0
+X
+U ip_len 3 0
+E
+U ip 4 0
+X
+X
+U port 2 0
+U port 2 0
+X
+X
+D anetPipe 0 0
+E
+D fds 1 0
+D read_flags 1 0
+D write_flags 1 0
+E
+D pipe_flags 2 0
+U pipe_flags 2 0
+U read_flags 2 0
+U write_flags 2 0
+U pipe2 2 0
+U fds 2 0
+U pipe_flags 2 0
+E
+U __errno_location 3 0
+U __errno_location 3 0
+U pipe_flags 3 0
+X
+E
+U read_flags 3 0
+U write_flags 3 0
+U read_flags 3 0
+U pipe_flags 3 0
+U write_flags 3 0
+U pipe_flags 3 0
+X
+U pipe_flags 2 0
+U pipe 2 0
+U fds 2 0
+U read_flags 2 0
+U fcntl 2 0
+U fds 2 0
+U write_flags 2 0
+U fcntl 2 0
+U fds 2 0
+U read_flags 2 0
+U read_flags 2 0
+U fcntl 2 0
+U fds 2 0
+U read_flags 2 0
+U write_flags 2 0
+U write_flags 2 0
+U fcntl 2 0
+U fds 2 0
+U write_flags 2 0
+U close 2 0
+U fds 2 0
+U close 2 0
+U fds 2 0
+X
+X
+D anetSetSockMarkId 0 0
+E
+D err 1 0
+D fd 1 0
+D id 1 0
+U uint32_t 1 0
+E
+U setsockopt 2 0
+U fd 2 0
+U id 2 0
+U id 2 0
+E
+U anetSetError 3 0
+U err 3 0
+U strerror 3 0
+U __errno_location 3 0
+X
+X
+X
+D anetIsFifo 0 0
+E
+D filepath 1 0
+E
+D sb 2 0
+U stat 2 0
+U filepath 2 0
+U sb 2 0
+U sb 2 0
+X
+X
+D anetAcceptFailureNeedsRetry 0 0
+E
+D err 1 0
+E
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+U err 2 0
+E
+X
+X
+X

@@ -1,0 +1,3008 @@
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D off_t 0 1
+U __off_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D size_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D sig_atomic_t 0 1
+U __sig_atomic_t 0 1
+D __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D siginfo_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __pid_t 0 1
+U __uid_t 0 1
+U __clock_t 0 1
+U __clock_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D SI_ASYNCNL 0 1
+D SI_DETHREAD 0 1
+D SI_TKILL 0 1
+D SI_SIGIO 0 1
+D SI_ASYNCIO 0 1
+D SI_MESGQ 0 1
+D SI_TIMER 0 1
+D SI_QUEUE 0 1
+D SI_USER 0 1
+D SI_KERNEL 0 1
+D ILL_ILLOPC 0 1
+D ILL_ILLOPN 0 1
+D ILL_ILLADR 0 1
+D ILL_ILLTRP 0 1
+D ILL_PRVOPC 0 1
+D ILL_PRVREG 0 1
+D ILL_COPROC 0 1
+D ILL_BADSTK 0 1
+D ILL_BADIADDR 0 1
+D FPE_INTDIV 0 1
+D FPE_INTOVF 0 1
+D FPE_FLTDIV 0 1
+D FPE_FLTOVF 0 1
+D FPE_FLTUND 0 1
+D FPE_FLTRES 0 1
+D FPE_FLTINV 0 1
+D FPE_FLTSUB 0 1
+D FPE_FLTUNK 0 1
+D FPE_CONDTRAP 0 1
+D SEGV_MAPERR 0 1
+D SEGV_ACCERR 0 1
+D SEGV_BNDERR 0 1
+D SEGV_PKUERR 0 1
+D SEGV_ACCADI 0 1
+D SEGV_ADIDERR 0 1
+D SEGV_ADIPERR 0 1
+D SEGV_MTEAERR 0 1
+D SEGV_MTESERR 0 1
+D SEGV_CPERR 0 1
+D BUS_ADRALN 0 1
+D BUS_ADRERR 0 1
+D BUS_OBJERR 0 1
+D BUS_MCEERR_AR 0 1
+D BUS_MCEERR_AO 0 1
+D CLD_EXITED 0 1
+D CLD_KILLED 0 1
+D CLD_DUMPED 0 1
+D CLD_TRAPPED 0 1
+D CLD_STOPPED 0 1
+D CLD_CONTINUED 0 1
+D POLL_IN 0 1
+D POLL_OUT 0 1
+D POLL_MSG 0 1
+D POLL_ERR 0 1
+D POLL_PRI 0 1
+D POLL_HUP 0 1
+D sigval_t 0 1
+U __sigval_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+D sigevent_t 0 1
+U __sigval_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __pid_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+U __sigval_t 0 1
+U pthread_attr_t 0 1
+D SIGEV_SIGNAL 0 1
+D SIGEV_NONE 0 1
+D SIGEV_THREAD 0 1
+D SIGEV_THREAD_ID 0 1
+D __sighandler_t 0 1
+D __sysv_signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D signal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D kill 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D killpg 0 1
+E
+D __pgrp 1 1
+U __pid_t 1 1
+D __sig 1 1
+X
+D raise 0 1
+E
+D __sig 1 1
+X
+D ssignal 0 1
+E
+U __sighandler_t 1 1
+D __sig 1 1
+D __handler 1 1
+U __sighandler_t 1 1
+X
+D gsignal 0 1
+E
+D __sig 1 1
+X
+D psignal 0 1
+E
+D __sig 1 1
+D __s 1 1
+X
+D psiginfo 0 1
+E
+D __pinfo 1 1
+U siginfo_t 1 1
+D __s 1 1
+X
+D sigblock 0 1
+E
+D __mask 1 1
+X
+D sigsetmask 0 1
+E
+D __mask 1 1
+X
+D siggetmask 0 1
+D sig_t 0 1
+U __sighandler_t 0 1
+D sigemptyset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigfillset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaddset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigdelset 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+D sigismember 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __signo 1 1
+X
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sighandler_t 0 1
+U siginfo_t 0 1
+U __sigset_t 0 1
+D sigprocmask 0 1
+E
+D __how 1 1
+D __set 1 1
+U sigset_t 1 1
+D __oset 1 1
+U sigset_t 1 1
+X
+D sigsuspend 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigaction 0 1
+E
+D __sig 1 1
+D __act 1 1
+D __oact 1 1
+X
+D sigpending 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+X
+D sigwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __sig 1 1
+X
+D sigwaitinfo 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+X
+D sigtimedwait 0 1
+E
+D __set 1 1
+U sigset_t 1 1
+D __info 1 1
+U siginfo_t 1 1
+D __timeout 1 1
+X
+D sigqueue 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __sig 1 1
+D __val 1 1
+X
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+D sigreturn 0 1
+E
+D __scp 1 1
+X
+U size_t 0 1
+D stack_t 0 1
+U size_t 0 1
+D greg_t 0 1
+D gregset_t 0 1
+U greg_t 0 1
+U __uint32_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint16_t 0 1
+U __uint64_t 0 1
+U __uint64_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+U __uint32_t 0 1
+D fpregset_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+D mcontext_t 0 1
+U gregset_t 0 1
+U fpregset_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D ucontext_t 0 1
+U stack_t 0 1
+U mcontext_t 0 1
+U sigset_t 0 1
+D siginterrupt 0 1
+E
+D __sig 1 1
+D __interrupt 1 1
+X
+D SS_ONSTACK 0 1
+D SS_DISABLE 0 1
+D sigaltstack 0 1
+E
+D __ss 1 1
+U stack_t 1 1
+D __oss 1 1
+U stack_t 1 1
+X
+D sigstack 0 1
+E
+D __ss 1 1
+D __oss 1 1
+X
+D pthread_sigmask 0 1
+E
+D __how 1 1
+D __newmask 1 1
+U __sigset_t 1 1
+D __oldmask 1 1
+U __sigset_t 1 1
+X
+D pthread_kill 0 1
+E
+D __threadid 1 1
+U pthread_t 1 1
+D __signo 1 1
+X
+D __libc_current_sigrtmin 0 1
+D __libc_current_sigrtmax 0 1
+U __off_t 0 1
+U __off_t 0 1
+U __pid_t 0 1
+U __dev_t 0 1
+U __ino_t 0 1
+U __nlink_t 0 1
+U __mode_t 0 1
+U __uid_t 0 1
+U __gid_t 0 1
+U __dev_t 0 1
+U __off_t 0 1
+U __blksize_t 0 1
+U __blkcnt_t 0 1
+U __syscall_slong_t 0 1
+D fcntl 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+X
+D open 0 1
+E
+D __file 1 1
+D __oflag 1 1
+X
+D openat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __oflag 1 1
+X
+D creat 0 1
+E
+D __file 1 1
+D __mode 1 1
+U mode_t 1 1
+X
+D lockf 0 1
+E
+D __fd 1 1
+D __cmd 1 1
+D __len 1 1
+U off_t 1 1
+X
+D posix_fadvise 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off_t 1 1
+D __len 1 1
+U off_t 1 1
+D __advise 1 1
+X
+D posix_fallocate 0 1
+E
+D __fd 1 1
+D __offset 1 1
+U off_t 1 1
+D __len 1 1
+U off_t 1 1
+X
+D spt_init 0 0
+E
+D argc 1 0
+D argv 1 0
+X
+D setproctitle 0 0
+E
+D fmt 1 0
+X
+D setcpuaffinity 0 0
+E
+D cpulist 1 0
+X
+D eventNotifier 0 0
+D createEventNotifier 0 0
+U eventNotifier 0 0
+D getReadEventFd 0 0
+E
+D en 1 0
+X
+D getWriteEventFd 0 0
+E
+D en 1 0
+X
+D triggerEventNotifier 0 0
+E
+D en 1 0
+X
+D handleEventNotifier 0 0
+E
+D en 1 0
+X
+D freeEventNotifier 0 0
+E
+D en 1 0
+X
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D useconds_t 0 1
+U __useconds_t 0 1
+D socklen_t 0 1
+U __socklen_t 0 1
+D access 0 1
+E
+D __name 1 1
+D __type 1 1
+X
+D faccessat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __type 1 1
+D __flag 1 1
+X
+D lseek 0 1
+E
+U __off_t 1 1
+D __fd 1 1
+D __offset 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D close 0 1
+E
+D __fd 1 1
+X
+D closefrom 0 1
+E
+D __lowfd 1 1
+X
+D read 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+X
+D write 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+X
+D pread 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __nbytes 1 1
+U size_t 1 1
+D __offset 1 1
+U __off_t 1 1
+X
+D pwrite 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __buf 1 1
+D __n 1 1
+U size_t 1 1
+D __offset 1 1
+U __off_t 1 1
+X
+D pipe 0 1
+E
+D __pipedes 1 1
+X
+D alarm 0 1
+E
+D __seconds 1 1
+X
+D sleep 0 1
+E
+D __seconds 1 1
+X
+D ualarm 0 1
+E
+U __useconds_t 1 1
+D __value 1 1
+U __useconds_t 1 1
+D __interval 1 1
+U __useconds_t 1 1
+X
+D usleep 0 1
+E
+D __useconds 1 1
+U __useconds_t 1 1
+X
+D pause 0 1
+D chown 0 1
+E
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D fchown 0 1
+E
+D __fd 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D lchown 0 1
+E
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+X
+D fchownat 0 1
+E
+D __fd 1 1
+D __file 1 1
+D __owner 1 1
+U __uid_t 1 1
+D __group 1 1
+U __gid_t 1 1
+D __flag 1 1
+X
+D chdir 0 1
+E
+D __path 1 1
+X
+D fchdir 0 1
+E
+D __fd 1 1
+X
+D getcwd 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D getwd 0 1
+E
+D __buf 1 1
+X
+D dup 0 1
+E
+D __fd 1 1
+X
+D dup2 0 1
+E
+D __fd 1 1
+D __fd2 1 1
+X
+D __environ 0 1
+D execve 0 1
+E
+D __path 1 1
+D __argv 1 1
+D __envp 1 1
+X
+D fexecve 0 1
+E
+D __fd 1 1
+D __argv 1 1
+D __envp 1 1
+X
+D execv 0 1
+E
+D __path 1 1
+D __argv 1 1
+X
+D execle 0 1
+E
+D __path 1 1
+D __arg 1 1
+X
+D execl 0 1
+E
+D __path 1 1
+D __arg 1 1
+X
+D execvp 0 1
+E
+D __file 1 1
+D __argv 1 1
+X
+D execlp 0 1
+E
+D __file 1 1
+D __arg 1 1
+X
+D nice 0 1
+E
+D __inc 1 1
+X
+D _exit 0 1
+E
+D __status 1 1
+X
+D _PC_LINK_MAX 0 1
+D _PC_MAX_CANON 0 1
+D _PC_MAX_INPUT 0 1
+D _PC_NAME_MAX 0 1
+D _PC_PATH_MAX 0 1
+D _PC_PIPE_BUF 0 1
+D _PC_CHOWN_RESTRICTED 0 1
+D _PC_NO_TRUNC 0 1
+D _PC_VDISABLE 0 1
+D _PC_SYNC_IO 0 1
+D _PC_ASYNC_IO 0 1
+D _PC_PRIO_IO 0 1
+D _PC_SOCK_MAXBUF 0 1
+D _PC_FILESIZEBITS 0 1
+D _PC_REC_INCR_XFER_SIZE 0 1
+D _PC_REC_MAX_XFER_SIZE 0 1
+D _PC_REC_MIN_XFER_SIZE 0 1
+D _PC_REC_XFER_ALIGN 0 1
+D _PC_ALLOC_SIZE_MIN 0 1
+D _PC_SYMLINK_MAX 0 1
+D _PC_2_SYMLINKS 0 1
+D _SC_ARG_MAX 0 1
+D _SC_CHILD_MAX 0 1
+D _SC_CLK_TCK 0 1
+D _SC_NGROUPS_MAX 0 1
+D _SC_OPEN_MAX 0 1
+D _SC_STREAM_MAX 0 1
+D _SC_TZNAME_MAX 0 1
+D _SC_JOB_CONTROL 0 1
+D _SC_SAVED_IDS 0 1
+D _SC_REALTIME_SIGNALS 0 1
+D _SC_PRIORITY_SCHEDULING 0 1
+D _SC_TIMERS 0 1
+D _SC_ASYNCHRONOUS_IO 0 1
+D _SC_PRIORITIZED_IO 0 1
+D _SC_SYNCHRONIZED_IO 0 1
+D _SC_FSYNC 0 1
+D _SC_MAPPED_FILES 0 1
+D _SC_MEMLOCK 0 1
+D _SC_MEMLOCK_RANGE 0 1
+D _SC_MEMORY_PROTECTION 0 1
+D _SC_MESSAGE_PASSING 0 1
+D _SC_SEMAPHORES 0 1
+D _SC_SHARED_MEMORY_OBJECTS 0 1
+D _SC_AIO_LISTIO_MAX 0 1
+D _SC_AIO_MAX 0 1
+D _SC_AIO_PRIO_DELTA_MAX 0 1
+D _SC_DELAYTIMER_MAX 0 1
+D _SC_MQ_OPEN_MAX 0 1
+D _SC_MQ_PRIO_MAX 0 1
+D _SC_VERSION 0 1
+D _SC_PAGESIZE 0 1
+D _SC_RTSIG_MAX 0 1
+D _SC_SEM_NSEMS_MAX 0 1
+D _SC_SEM_VALUE_MAX 0 1
+D _SC_SIGQUEUE_MAX 0 1
+D _SC_TIMER_MAX 0 1
+D _SC_BC_BASE_MAX 0 1
+D _SC_BC_DIM_MAX 0 1
+D _SC_BC_SCALE_MAX 0 1
+D _SC_BC_STRING_MAX 0 1
+D _SC_COLL_WEIGHTS_MAX 0 1
+D _SC_EQUIV_CLASS_MAX 0 1
+D _SC_EXPR_NEST_MAX 0 1
+D _SC_LINE_MAX 0 1
+D _SC_RE_DUP_MAX 0 1
+D _SC_CHARCLASS_NAME_MAX 0 1
+D _SC_2_VERSION 0 1
+D _SC_2_C_BIND 0 1
+D _SC_2_C_DEV 0 1
+D _SC_2_FORT_DEV 0 1
+D _SC_2_FORT_RUN 0 1
+D _SC_2_SW_DEV 0 1
+D _SC_2_LOCALEDEF 0 1
+D _SC_PII 0 1
+D _SC_PII_XTI 0 1
+D _SC_PII_SOCKET 0 1
+D _SC_PII_INTERNET 0 1
+D _SC_PII_OSI 0 1
+D _SC_POLL 0 1
+D _SC_SELECT 0 1
+D _SC_UIO_MAXIOV 0 1
+D _SC_IOV_MAX 0 1
+U _SC_UIO_MAXIOV 0 1
+D _SC_PII_INTERNET_STREAM 0 1
+D _SC_PII_INTERNET_DGRAM 0 1
+D _SC_PII_OSI_COTS 0 1
+D _SC_PII_OSI_CLTS 0 1
+D _SC_PII_OSI_M 0 1
+D _SC_T_IOV_MAX 0 1
+D _SC_THREADS 0 1
+D _SC_THREAD_SAFE_FUNCTIONS 0 1
+D _SC_GETGR_R_SIZE_MAX 0 1
+D _SC_GETPW_R_SIZE_MAX 0 1
+D _SC_LOGIN_NAME_MAX 0 1
+D _SC_TTY_NAME_MAX 0 1
+D _SC_THREAD_DESTRUCTOR_ITERATIONS 0 1
+D _SC_THREAD_KEYS_MAX 0 1
+D _SC_THREAD_STACK_MIN 0 1
+D _SC_THREAD_THREADS_MAX 0 1
+D _SC_THREAD_ATTR_STACKADDR 0 1
+D _SC_THREAD_ATTR_STACKSIZE 0 1
+D _SC_THREAD_PRIORITY_SCHEDULING 0 1
+D _SC_THREAD_PRIO_INHERIT 0 1
+D _SC_THREAD_PRIO_PROTECT 0 1
+D _SC_THREAD_PROCESS_SHARED 0 1
+D _SC_NPROCESSORS_CONF 0 1
+D _SC_NPROCESSORS_ONLN 0 1
+D _SC_PHYS_PAGES 0 1
+D _SC_AVPHYS_PAGES 0 1
+D _SC_ATEXIT_MAX 0 1
+D _SC_PASS_MAX 0 1
+D _SC_XOPEN_VERSION 0 1
+D _SC_XOPEN_XCU_VERSION 0 1
+D _SC_XOPEN_UNIX 0 1
+D _SC_XOPEN_CRYPT 0 1
+D _SC_XOPEN_ENH_I18N 0 1
+D _SC_XOPEN_SHM 0 1
+D _SC_2_CHAR_TERM 0 1
+D _SC_2_C_VERSION 0 1
+D _SC_2_UPE 0 1
+D _SC_XOPEN_XPG2 0 1
+D _SC_XOPEN_XPG3 0 1
+D _SC_XOPEN_XPG4 0 1
+D _SC_CHAR_BIT 0 1
+D _SC_CHAR_MAX 0 1
+D _SC_CHAR_MIN 0 1
+D _SC_INT_MAX 0 1
+D _SC_INT_MIN 0 1
+D _SC_LONG_BIT 0 1
+D _SC_WORD_BIT 0 1
+D _SC_MB_LEN_MAX 0 1
+D _SC_NZERO 0 1
+D _SC_SSIZE_MAX 0 1
+D _SC_SCHAR_MAX 0 1
+D _SC_SCHAR_MIN 0 1
+D _SC_SHRT_MAX 0 1
+D _SC_SHRT_MIN 0 1
+D _SC_UCHAR_MAX 0 1
+D _SC_UINT_MAX 0 1
+D _SC_ULONG_MAX 0 1
+D _SC_USHRT_MAX 0 1
+D _SC_NL_ARGMAX 0 1
+D _SC_NL_LANGMAX 0 1
+D _SC_NL_MSGMAX 0 1
+D _SC_NL_NMAX 0 1
+D _SC_NL_SETMAX 0 1
+D _SC_NL_TEXTMAX 0 1
+D _SC_XBS5_ILP32_OFF32 0 1
+D _SC_XBS5_ILP32_OFFBIG 0 1
+D _SC_XBS5_LP64_OFF64 0 1
+D _SC_XBS5_LPBIG_OFFBIG 0 1
+D _SC_XOPEN_LEGACY 0 1
+D _SC_XOPEN_REALTIME 0 1
+D _SC_XOPEN_REALTIME_THREADS 0 1
+D _SC_ADVISORY_INFO 0 1
+D _SC_BARRIERS 0 1
+D _SC_BASE 0 1
+D _SC_C_LANG_SUPPORT 0 1
+D _SC_C_LANG_SUPPORT_R 0 1
+D _SC_CLOCK_SELECTION 0 1
+D _SC_CPUTIME 0 1
+D _SC_THREAD_CPUTIME 0 1
+D _SC_DEVICE_IO 0 1
+D _SC_DEVICE_SPECIFIC 0 1
+D _SC_DEVICE_SPECIFIC_R 0 1
+D _SC_FD_MGMT 0 1
+D _SC_FIFO 0 1
+D _SC_PIPE 0 1
+D _SC_FILE_ATTRIBUTES 0 1
+D _SC_FILE_LOCKING 0 1
+D _SC_FILE_SYSTEM 0 1
+D _SC_MONOTONIC_CLOCK 0 1
+D _SC_MULTI_PROCESS 0 1
+D _SC_SINGLE_PROCESS 0 1
+D _SC_NETWORKING 0 1
+D _SC_READER_WRITER_LOCKS 0 1
+D _SC_SPIN_LOCKS 0 1
+D _SC_REGEXP 0 1
+D _SC_REGEX_VERSION 0 1
+D _SC_SHELL 0 1
+D _SC_SIGNALS 0 1
+D _SC_SPAWN 0 1
+D _SC_SPORADIC_SERVER 0 1
+D _SC_THREAD_SPORADIC_SERVER 0 1
+D _SC_SYSTEM_DATABASE 0 1
+D _SC_SYSTEM_DATABASE_R 0 1
+D _SC_TIMEOUTS 0 1
+D _SC_TYPED_MEMORY_OBJECTS 0 1
+D _SC_USER_GROUPS 0 1
+D _SC_USER_GROUPS_R 0 1
+D _SC_2_PBS 0 1
+D _SC_2_PBS_ACCOUNTING 0 1
+D _SC_2_PBS_LOCATE 0 1
+D _SC_2_PBS_MESSAGE 0 1
+D _SC_2_PBS_TRACK 0 1
+D _SC_SYMLOOP_MAX 0 1
+D _SC_STREAMS 0 1
+D _SC_2_PBS_CHECKPOINT 0 1
+D _SC_V6_ILP32_OFF32 0 1
+D _SC_V6_ILP32_OFFBIG 0 1
+D _SC_V6_LP64_OFF64 0 1
+D _SC_V6_LPBIG_OFFBIG 0 1
+D _SC_HOST_NAME_MAX 0 1
+D _SC_TRACE 0 1
+D _SC_TRACE_EVENT_FILTER 0 1
+D _SC_TRACE_INHERIT 0 1
+D _SC_TRACE_LOG 0 1
+D _SC_LEVEL1_ICACHE_SIZE 0 1
+D _SC_LEVEL1_ICACHE_ASSOC 0 1
+D _SC_LEVEL1_ICACHE_LINESIZE 0 1
+D _SC_LEVEL1_DCACHE_SIZE 0 1
+D _SC_LEVEL1_DCACHE_ASSOC 0 1
+D _SC_LEVEL1_DCACHE_LINESIZE 0 1
+D _SC_LEVEL2_CACHE_SIZE 0 1
+D _SC_LEVEL2_CACHE_ASSOC 0 1
+D _SC_LEVEL2_CACHE_LINESIZE 0 1
+D _SC_LEVEL3_CACHE_SIZE 0 1
+D _SC_LEVEL3_CACHE_ASSOC 0 1
+D _SC_LEVEL3_CACHE_LINESIZE 0 1
+D _SC_LEVEL4_CACHE_SIZE 0 1
+D _SC_LEVEL4_CACHE_ASSOC 0 1
+D _SC_LEVEL4_CACHE_LINESIZE 0 1
+D _SC_IPV6 0 1
+U _SC_LEVEL1_ICACHE_SIZE 0 1
+D _SC_RAW_SOCKETS 0 1
+D _SC_V7_ILP32_OFF32 0 1
+D _SC_V7_ILP32_OFFBIG 0 1
+D _SC_V7_LP64_OFF64 0 1
+D _SC_V7_LPBIG_OFFBIG 0 1
+D _SC_SS_REPL_MAX 0 1
+D _SC_TRACE_EVENT_NAME_MAX 0 1
+D _SC_TRACE_NAME_MAX 0 1
+D _SC_TRACE_SYS_MAX 0 1
+D _SC_TRACE_USER_EVENT_MAX 0 1
+D _SC_XOPEN_STREAMS 0 1
+D _SC_THREAD_ROBUST_PRIO_INHERIT 0 1
+D _SC_THREAD_ROBUST_PRIO_PROTECT 0 1
+D _SC_MINSIGSTKSZ 0 1
+D _SC_SIGSTKSZ 0 1
+D _CS_PATH 0 1
+D _CS_V6_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_GNU_LIBC_VERSION 0 1
+D _CS_GNU_LIBPTHREAD_VERSION 0 1
+D _CS_V5_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_V7_WIDTH_RESTRICTED_ENVS 0 1
+D _CS_LFS_CFLAGS 0 1
+D _CS_LFS_LDFLAGS 0 1
+D _CS_LFS_LIBS 0 1
+D _CS_LFS_LINTFLAGS 0 1
+D _CS_LFS64_CFLAGS 0 1
+D _CS_LFS64_LDFLAGS 0 1
+D _CS_LFS64_LIBS 0 1
+D _CS_LFS64_LINTFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_CFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_LDFLAGS 0 1
+D _CS_XBS5_ILP32_OFF32_LIBS 0 1
+D _CS_XBS5_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LIBS 0 1
+D _CS_XBS5_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_CFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_LDFLAGS 0 1
+D _CS_XBS5_LP64_OFF64_LIBS 0 1
+D _CS_XBS5_LP64_OFF64_LINTFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LIBS 0 1
+D _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_CFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LDFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LIBS 0 1
+D _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LIBS 0 1
+D _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_CFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LDFLAGS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LIBS 0 1
+D _CS_POSIX_V6_LP64_OFF64_LINTFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LIBS 0 1
+D _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_CFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LDFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LIBS 0 1
+D _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LIBS 0 1
+D _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_CFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LDFLAGS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LIBS 0 1
+D _CS_POSIX_V7_LP64_OFF64_LINTFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LIBS 0 1
+D _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS 0 1
+D _CS_V6_ENV 0 1
+D _CS_V7_ENV 0 1
+D pathconf 0 1
+E
+D __path 1 1
+D __name 1 1
+X
+D fpathconf 0 1
+E
+D __fd 1 1
+D __name 1 1
+X
+D sysconf 0 1
+E
+D __name 1 1
+X
+D confstr 0 1
+E
+U size_t 1 1
+D __name 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D getpid 0 1
+U __pid_t 0 1
+D getppid 0 1
+U __pid_t 0 1
+D getpgrp 0 1
+U __pid_t 0 1
+D __getpgid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D getpgid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D setpgid 0 1
+E
+D __pid 1 1
+U __pid_t 1 1
+D __pgid 1 1
+U __pid_t 1 1
+X
+D setpgrp 0 1
+D setsid 0 1
+U __pid_t 0 1
+D getsid 0 1
+E
+U __pid_t 1 1
+D __pid 1 1
+U __pid_t 1 1
+X
+D getuid 0 1
+U __uid_t 0 1
+D geteuid 0 1
+U __uid_t 0 1
+D getgid 0 1
+U __gid_t 0 1
+D getegid 0 1
+U __gid_t 0 1
+D getgroups 0 1
+E
+D __size 1 1
+D __list 1 1
+U __gid_t 1 1
+X
+D setuid 0 1
+E
+D __uid 1 1
+U __uid_t 1 1
+X
+D setreuid 0 1
+E
+D __ruid 1 1
+U __uid_t 1 1
+D __euid 1 1
+U __uid_t 1 1
+X
+D seteuid 0 1
+E
+D __uid 1 1
+U __uid_t 1 1
+X
+D setgid 0 1
+E
+D __gid 1 1
+U __gid_t 1 1
+X
+D setregid 0 1
+E
+D __rgid 1 1
+U __gid_t 1 1
+D __egid 1 1
+U __gid_t 1 1
+X
+D setegid 0 1
+E
+D __gid 1 1
+U __gid_t 1 1
+X
+D fork 0 1
+U __pid_t 0 1
+D vfork 0 1
+U __pid_t 0 1
+D ttyname 0 1
+E
+D __fd 1 1
+X
+D ttyname_r 0 1
+E
+D __fd 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D isatty 0 1
+E
+D __fd 1 1
+X
+D ttyslot 0 1
+D link 0 1
+E
+D __from 1 1
+D __to 1 1
+X
+D linkat 0 1
+E
+D __fromfd 1 1
+D __from 1 1
+D __tofd 1 1
+D __to 1 1
+D __flags 1 1
+X
+D symlink 0 1
+E
+D __from 1 1
+D __to 1 1
+X
+D readlink 0 1
+E
+U ssize_t 1 1
+D __path 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D symlinkat 0 1
+E
+D __from 1 1
+D __tofd 1 1
+D __to 1 1
+X
+D readlinkat 0 1
+E
+U ssize_t 1 1
+D __fd 1 1
+D __path 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D unlink 0 1
+E
+D __name 1 1
+X
+D unlinkat 0 1
+E
+D __fd 1 1
+D __name 1 1
+D __flag 1 1
+X
+D rmdir 0 1
+E
+D __path 1 1
+X
+D tcgetpgrp 0 1
+E
+U __pid_t 1 1
+D __fd 1 1
+X
+D tcsetpgrp 0 1
+E
+D __fd 1 1
+D __pgrp_id 1 1
+U __pid_t 1 1
+X
+D getlogin 0 1
+D getlogin_r 0 1
+E
+D __name 1 1
+D __name_len 1 1
+U size_t 1 1
+X
+D setlogin 0 1
+E
+D __name 1 1
+X
+D optarg 0 1
+D optind 0 1
+D opterr 0 1
+D optopt 0 1
+D getopt 0 1
+E
+D ___argc 1 1
+D ___argv 1 1
+D __shortopts 1 1
+X
+D gethostname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D sethostname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D sethostid 0 1
+E
+D __id 1 1
+X
+D getdomainname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D setdomainname 0 1
+E
+D __name 1 1
+D __len 1 1
+U size_t 1 1
+X
+D vhangup 0 1
+D revoke 0 1
+E
+D __file 1 1
+X
+D profil 0 1
+E
+D __sample_buffer 1 1
+D __size 1 1
+U size_t 1 1
+D __offset 1 1
+U size_t 1 1
+D __scale 1 1
+X
+D acct 0 1
+E
+D __name 1 1
+X
+D getusershell 0 1
+D endusershell 0 1
+D setusershell 0 1
+D daemon 0 1
+E
+D __nochdir 1 1
+D __noclose 1 1
+X
+D chroot 0 1
+E
+D __path 1 1
+X
+D getpass 0 1
+E
+D __prompt 1 1
+X
+D fsync 0 1
+E
+D __fd 1 1
+X
+D gethostid 0 1
+D sync 0 1
+D getpagesize 0 1
+D getdtablesize 0 1
+D truncate 0 1
+E
+D __file 1 1
+D __length 1 1
+U __off_t 1 1
+X
+D ftruncate 0 1
+E
+D __fd 1 1
+D __length 1 1
+U __off_t 1 1
+X
+D brk 0 1
+E
+D __addr 1 1
+X
+D sbrk 0 1
+E
+D __delta 1 1
+U intptr_t 1 1
+X
+D syscall 0 1
+E
+D __sysno 1 1
+X
+D fdatasync 0 1
+E
+D __fildes 1 1
+X
+D crypt 0 1
+E
+D __key 1 1
+D __salt 1 1
+X
+D getentropy 0 1
+E
+D __buffer 1 1
+D __length 1 1
+U size_t 1 1
+X
+D EFD_SEMAPHORE 0 1
+D EFD_CLOEXEC 0 1
+D EFD_NONBLOCK 0 1
+D eventfd_t 0 1
+U uint64_t 0 1
+D eventfd 0 1
+E
+D __count 1 1
+D __flags 1 1
+X
+D eventfd_read 0 1
+E
+D __fd 1 1
+D __value 1 1
+U eventfd_t 1 1
+X
+D eventfd_write 0 1
+E
+D __fd 1 1
+D __value 1 1
+U eventfd_t 1 1
+X
+D anetTcpNonBlockConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+X
+D anetTcpNonBlockBestEffortBindConnect 0 0
+E
+D err 1 0
+D addr 1 0
+D port 1 0
+D source_addr 1 0
+X
+D anetUnixNonBlockConnect 0 0
+E
+D err 1 0
+D path 1 0
+X
+D anetResolve 0 0
+E
+D err 1 0
+D host 1 0
+D ipbuf 1 0
+D ipbuf_len 1 0
+U size_t 1 0
+D flags 1 0
+X
+D anetTcpServer 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+X
+D anetTcp6Server 0 0
+E
+D err 1 0
+D port 1 0
+D bindaddr 1 0
+D backlog 1 0
+X
+D anetUnixServer 0 0
+E
+D err 1 0
+D path 1 0
+D perm 1 0
+U mode_t 1 0
+D backlog 1 0
+X
+D anetTcpAccept 0 0
+E
+D err 1 0
+D serversock 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+X
+D anetUnixAccept 0 0
+E
+D err 1 0
+D serversock 1 0
+X
+D anetNonBlock 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetBlock 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetCloexec 0 0
+E
+D fd 1 0
+X
+D anetEnableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetDisableTcpNoDelay 0 0
+E
+D err 1 0
+D fd 1 0
+X
+D anetSendTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+X
+D anetRecvTimeout 0 0
+E
+D err 1 0
+D fd 1 0
+D ms 1 0
+X
+D anetFdToString 0 0
+E
+D fd 1 0
+D ip 1 0
+D ip_len 1 0
+U size_t 1 0
+D port 1 0
+D remote 1 0
+X
+D anetKeepAlive 0 0
+E
+D err 1 0
+D fd 1 0
+D interval 1 0
+X
+D anetFormatAddr 0 0
+E
+D fmt 1 0
+D fmt_len 1 0
+U size_t 1 0
+D ip 1 0
+D port 1 0
+X
+D anetPipe 0 0
+E
+D fds 1 0
+D read_flags 1 0
+D write_flags 1 0
+X
+D anetSetSockMarkId 0 0
+E
+D err 1 0
+D fd 1 0
+D id 1 0
+U uint32_t 1 0
+X
+D anetGetError 0 0
+E
+D fd 1 0
+X
+D anetIsFifo 0 0
+E
+D filepath 1 0
+X
+D anetAcceptFailureNeedsRetry 0 0
+E
+D err 1 0
+X
+D ptrdiff_t 0 1
+D wchar_t 0 1
+D max_align_t 0 1
+D __gnuc_va_list 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D cookie_read_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_write_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_seek_function_t 0 1
+D __cookie 0 1
+D __pos 0 1
+U __off64_t 0 1
+D __w 0 1
+D cookie_close_function_t 0 1
+D __cookie 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D cookie_io_functions_t 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D fpos_t 0 1
+U __fpos_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D renameat 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tmpnam_r 0 1
+E
+D __s 1 1
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fflush_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D fopencookie 0 1
+E
+U FILE 1 1
+D __magic_cookie 1 1
+D __modes 1 1
+D __io_funcs 1 1
+U cookie_io_functions_t 1 1
+X
+D fmemopen 0 1
+E
+U FILE 1 1
+D __s 1 1
+D __len 1 1
+U size_t 1 1
+D __modes 1 1
+X
+D open_memstream 0 1
+E
+U FILE 1 1
+D __bufloc 1 1
+D __sizeloc 1 1
+U size_t 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D setbuffer 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D setlinebuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vasprintf 0 1
+E
+D __ptr 1 1
+D __f 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D __asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D vdprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D dprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fgetc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D fputc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D getw 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D putw 0 1
+E
+D __w 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D __getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getline 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fread_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D clearerr_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fileno_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D memalign 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D pvalloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+U size_t 0 1
+D mallinfo 0 1
+D mallinfo2 0 1
+D mallopt 0 1
+E
+D __param 1 1
+D __val 1 1
+X
+D malloc_trim 0 1
+E
+D __pad 1 1
+U size_t 1 1
+X
+D malloc_usable_size 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+X
+D malloc_stats 0 1
+D malloc_info 0 1
+E
+D __options 1 1
+D __fp 1 1
+U FILE 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D clock 0 1
+U clock_t 0 1
+D time 0 1
+E
+U time_t 1 1
+D __timer 1 1
+U time_t 1 1
+X
+D difftime 0 1
+E
+D __time1 1 1
+U time_t 1 1
+D __time0 1 1
+U time_t 1 1
+X
+D mktime 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D strftime 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+X
+D strftime_l 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D gmtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D localtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D gmtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D localtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D asctime 0 1
+E
+D __tp 1 1
+X
+D ctime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D asctime_r 0 1
+E
+D __tp 1 1
+D __buf 1 1
+X
+D ctime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __buf 1 1
+X
+D __tzname 0 1
+D __daylight 0 1
+D __timezone 0 1
+D tzname 0 1
+D tzset 0 1
+D daylight 0 1
+D timezone 0 1
+D timegm 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D timelocal 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D dysize 0 1
+E
+D __year 1 1
+X
+D nanosleep 0 1
+E
+D __requested_time 1 1
+D __remaining 1 1
+X
+D clock_getres 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __res 1 1
+X
+D clock_gettime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_settime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_nanosleep 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __flags 1 1
+D __req 1 1
+D __rem 1 1
+X
+D clock_getcpuclockid 0 1
+E
+D __pid 1 1
+U pid_t 1 1
+D __clock_id 1 1
+U clockid_t 1 1
+X
+D timer_create 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __evp 1 1
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_delete 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_settime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __flags 1 1
+D __value 1 1
+D __ovalue 1 1
+X
+D timer_gettime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __value 1 1
+X
+D timer_getoverrun 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timespec_get 0 1
+E
+D __ts 1 1
+D __base 1 1
+X
+D zmalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D zcalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D zcalloc_num 0 0
+E
+D num 1 0
+U size_t 1 0
+D size 1 0
+U size_t 1 0
+X
+D zrealloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D ztrymalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D ztrycalloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D ztryrealloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D zfree 0 0
+E
+D ptr 1 0
+X
+D zfree_usable 0 0
+E
+D ptr 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zfree_with_size 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D zmalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zcalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zrealloc_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+D old_usable 1 0
+U size_t 1 0
+X
+D ztrymalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D ztrycalloc_usable 0 0
+E
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+X
+D ztryrealloc_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+D usable 1 0
+U size_t 1 0
+D old_usable 1 0
+U size_t 1 0
+X
+D zstrdup 0 0
+E
+D s 1 0
+X
+D zstrdup_usable 0 0
+E
+D s 1 0
+D usable 1 0
+U size_t 1 0
+X
+D zmalloc_used_memory 0 0
+U size_t 0 0
+D zmalloc_reserve_thread_slots 0 0
+E
+D n 1 0
+X
+D zmalloc_register_reserved_slot 0 0
+D zmalloc_get_peak_memory 0 0
+U size_t 0 0
+D zmalloc_get_peak_memory_time 0 0
+U time_t 0 0
+D zmalloc_set_oom_handler 0 0
+E
+D oom_handler 1 0
+U size_t 1 0
+X
+D zmalloc_get_rss 0 0
+U size_t 0 0
+D zmalloc_get_allocator_info 0 0
+E
+D refresh_stats 1 0
+D allocated 1 0
+U size_t 1 0
+D active 1 0
+U size_t 1 0
+D resident 1 0
+U size_t 1 0
+D retained 1 0
+U size_t 1 0
+D muzzy 1 0
+U size_t 1 0
+D frag_smallbins_bytes 1 0
+U size_t 1 0
+X
+D zmalloc_get_allocator_info_by_arena 0 0
+E
+D arena 1 0
+D refresh_stats 1 0
+D allocated 1 0
+U size_t 1 0
+D active 1 0
+U size_t 1 0
+D resident 1 0
+U size_t 1 0
+D frag_smallbins_bytes 1 0
+U size_t 1 0
+X
+D set_jemalloc_bg_thread 0 0
+E
+D enable 1 0
+X
+D jemalloc_purge 0 0
+D zmalloc_get_private_dirty 0 0
+E
+U size_t 1 0
+D pid 1 0
+X
+D zmalloc_get_smap_bytes_by_field 0 0
+E
+U size_t 1 0
+D field 1 0
+D pid 1 0
+X
+D zmalloc_get_memory_size 0 0
+U size_t 0 0
+D zlibc_free 0 0
+E
+D ptr 1 0
+X
+D zmadvise_dontneed 0 0
+E
+D ptr 1 0
+X
+D extend_to_usable 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D get_proc_stat_ll 0 0
+E
+D i 1 0
+D res 1 0
+X
+D createEventNotifier 0 0
+E
+U eventNotifier 1 0
+E
+D en 2 0
+U eventNotifier 2 0
+U zmalloc 2 0
+U eventNotifier 2 0
+U en 2 0
+U en 2 0
+U eventfd 2 0
+U EFD_NONBLOCK 2 0
+U EFD_CLOEXEC 2 0
+E
+U en 3 0
+X
+U zfree 2 0
+U en 2 0
+X
+X
+D getReadEventFd 0 0
+E
+D en 1 0
+E
+U en 2 0
+X
+X
+D getWriteEventFd 0 0
+E
+D en 1 0
+E
+U en 2 0
+X
+X
+D triggerEventNotifier 0 0
+E
+D en 1 0
+E
+D u 2 0
+U uint64_t 2 0
+U write 2 0
+U en 2 0
+U u 2 0
+U uint64_t 2 0
+E
+X
+X
+X
+D handleEventNotifier 0 0
+E
+D en 1 0
+E
+D u 2 0
+U uint64_t 2 0
+U read 2 0
+U en 2 0
+U u 2 0
+U uint64_t 2 0
+E
+X
+X
+X
+D freeEventNotifier 0 0
+E
+D en 1 0
+E
+U close 2 0
+U en 2 0
+U zfree 2 0
+U en 2 0
+X
+X

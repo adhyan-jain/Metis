@@ -1,0 +1,274 @@
+{
+  "hello_world_mps2": [
+    {
+      "function_name": "main",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x41bb"
+      ]
+    }
+  ],
+  "shell_module_mps2": [
+    {
+      "function_name": "enable",
+      "length_with_nul": 7,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x135da"
+      ]
+    },
+    {
+      "function_name": "main",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x12719"
+      ]
+    },
+    {
+      "function_name": "init",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x12866"
+      ]
+    },
+    {
+      "function_name": "idle",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x11876"
+      ]
+    },
+    {
+      "function_name": "execute",
+      "length_with_nul": 8,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x130aa"
+      ]
+    },
+    {
+      "function_name": "sys_getopt",
+      "length_with_nul": 11,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x12cec"
+      ]
+    }
+  ],
+  "echo_server_mps2": [
+    {
+      "function_name": "conn_mgr_if_connect",
+      "length_with_nul": 20,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x377b5"
+      ]
+    },
+    {
+      "function_name": "init",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3b929"
+      ]
+    },
+    {
+      "function_name": "net_if_down",
+      "length_with_nul": 12,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3ed4e"
+      ]
+    },
+    {
+      "function_name": "close",
+      "length_with_nul": 6,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x39fdc"
+      ]
+    },
+    {
+      "function_name": "recv",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x38f90"
+      ]
+    },
+    {
+      "function_name": "main",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3b3fa"
+      ]
+    },
+    {
+      "function_name": "conn_mgr_if_disconnect",
+      "length_with_nul": 23,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x36a59"
+      ]
+    },
+    {
+      "function_name": "handle_data",
+      "length_with_nul": 12,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3b434"
+      ]
+    },
+    {
+      "function_name": "bind",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3b368"
+      ]
+    },
+    {
+      "function_name": "net_if_up",
+      "length_with_nul": 10,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x36a4f"
+      ]
+    },
+    {
+      "function_name": "quit",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3ec9b"
+      ]
+    },
+    {
+      "function_name": "sys_getopt",
+      "length_with_nul": 11,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3cad2"
+      ]
+    },
+    {
+      "function_name": "enable",
+      "length_with_nul": 7,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3f100"
+      ]
+    },
+    {
+      "function_name": "send",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x39fd7"
+      ]
+    },
+    {
+      "function_name": "idle",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x38576"
+      ]
+    },
+    {
+      "function_name": "process_udp",
+      "length_with_nul": 12,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x3b8f8"
+      ]
+    }
+  ],
+  "hello_world_nrf52840": [
+    {
+      "function_name": "main",
+      "length_with_nul": 5,
+      "occurrences": 1,
+      "sections": [
+        "rodata"
+      ],
+      "addresses": [
+        "0x6701"
+      ]
+    }
+  ]
+}

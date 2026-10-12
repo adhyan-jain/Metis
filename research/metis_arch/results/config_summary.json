@@ -1,0 +1,234 @@
+[
+ {
+  "tag": "A_B16_FC16",
+  "geomean_imp_pct": 2.031042108893688,
+  "min_imp_pct": 1.2308948780772373,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.2308948780772373
+ },
+ {
+  "tag": "A_B16_FC8",
+  "geomean_imp_pct": 1.7602335825633864,
+  "min_imp_pct": 1.026718002566795,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.026718002566795
+ },
+ {
+  "tag": "A_B16_KALL",
+  "geomean_imp_pct": -1.4003470767727344,
+  "min_imp_pct": -5.6462284958094395,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 0.7904561894761405
+ },
+ {
+  "tag": "A_B16_TOK",
+  "geomean_imp_pct": 1.6214993202662287,
+  "min_imp_pct": 0.5833625014584063,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.5833625014584063
+ },
+ {
+  "tag": "A_B8_FC16",
+  "geomean_imp_pct": 2.1696865317781144,
+  "min_imp_pct": 1.2775638781939096,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.2775638781939096
+ },
+ {
+  "tag": "A_B8_FC8",
+  "geomean_imp_pct": 1.8847322042269132,
+  "min_imp_pct": 1.0733870026834675,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.0733870026834675
+ },
+ {
+  "tag": "A_B8_KALL",
+  "geomean_imp_pct": -1.348050391854183,
+  "min_imp_pct": -5.513895015438906,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 0.7758721269396803
+ },
+ {
+  "tag": "A_B8_TOK",
+  "geomean_imp_pct": 1.6717705712996134,
+  "min_imp_pct": 0.5658616264146541,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.5658616264146541
+ },
+ {
+  "tag": "B1_B16_FC16",
+  "geomean_imp_pct": 2.6603141159519117,
+  "min_imp_pct": 1.6275813790689535,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.6275813790689535
+ },
+ {
+  "tag": "B1_B16_FC8",
+  "geomean_imp_pct": 2.3817516432506958,
+  "min_imp_pct": 1.4263213160658033,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.4263213160658033
+ },
+ {
+  "tag": "B1_B16_KALL",
+  "geomean_imp_pct": -0.6387136811135119,
+  "min_imp_pct": -4.499338332598147,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 1.207560378018901
+ },
+ {
+  "tag": "B1_B16_TOK",
+  "geomean_imp_pct": 2.324164689371533,
+  "min_imp_pct": 0.9917162524792906,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.9917162524792906
+ },
+ {
+  "tag": "B1_B8_FC16",
+  "geomean_imp_pct": 2.54762335721177,
+  "min_imp_pct": 1.5050752537626881,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.5050752537626881
+ },
+ {
+  "tag": "B1_B8_FC8",
+  "geomean_imp_pct": 2.2690714729570294,
+  "min_imp_pct": 1.303815190759538,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.303815190759538
+ },
+ {
+  "tag": "B1_B8_KALL",
+  "geomean_imp_pct": -0.8486307718605923,
+  "min_imp_pct": -4.719894133215703,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 1.020884377552211
+ },
+ {
+  "tag": "B1_B8_TOK",
+  "geomean_imp_pct": 2.1263819230589176,
+  "min_imp_pct": 0.8050402520126007,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.8050402520126007
+ },
+ {
+  "tag": "B2_B16_FC16",
+  "geomean_imp_pct": 2.5953679017449716,
+  "min_imp_pct": 1.677167191692918,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.677167191692918
+ },
+ {
+  "tag": "B2_B16_FC8",
+  "geomean_imp_pct": 2.325330762292066,
+  "min_imp_pct": 1.4759071286897678,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.4759071286897678
+ },
+ {
+  "tag": "B2_B16_KALL",
+  "geomean_imp_pct": -0.734516205919522,
+  "min_imp_pct": -4.719894133215703,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 1.2542293781355733
+ },
+ {
+  "tag": "B2_B16_TOK",
+  "geomean_imp_pct": 2.2453700788956032,
+  "min_imp_pct": 1.0383852525959631,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.0383852525959631
+ },
+ {
+  "tag": "B2_B8_FC16",
+  "geomean_imp_pct": 2.418388727387555,
+  "min_imp_pct": 1.5546610663866527,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.5546610663866527
+ },
+ {
+  "tag": "B2_B8_FC8",
+  "geomean_imp_pct": 2.16247466512296,
+  "min_imp_pct": 1.3534010033835024,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.3534010033835024
+ },
+ {
+  "tag": "B2_B8_KALL",
+  "geomean_imp_pct": -1.0138440315128117,
+  "min_imp_pct": -5.161005734450816,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 2,
+  "echo_imp_pct": 1.0675533776688835
+ },
+ {
+  "tag": "B2_B8_TOK",
+  "geomean_imp_pct": 1.9842507525367203,
+  "min_imp_pct": 0.8546260646365652,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.8546260646365652
+ },
+ {
+  "tag": "D_B16_FC16",
+  "geomean_imp_pct": 2.326671355794141,
+  "min_imp_pct": 1.5517442538793607,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.5517442538793607
+ },
+ {
+  "tag": "D_B16_FC8",
+  "geomean_imp_pct": 2.0440747610178445,
+  "min_imp_pct": 1.3475673783689184,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 1.3475673783689184
+ },
+ {
+  "tag": "D_B16_TOK",
+  "geomean_imp_pct": 2.0738460851475127,
+  "min_imp_pct": 0.9917162524792906,
+  "feat_ge5_workloads": 4,
+  "whole_image_wins": 4,
+  "echo_imp_pct": 0.9917162524792906
+ },
+ {
+  "tag": "RAW32_B16_KALL",
+  "geomean_imp_pct": -2.2972145486740425,
+  "min_imp_pct": -6.396118217909131,
+  "feat_ge5_workloads": 0,
+  "whole_image_wins": 0,
+  "echo_imp_pct": -0.04958581262396453
+ },
+ {
+  "tag": "RAW32_B16_TOK",
+  "geomean_imp_pct": 0.611022282917717,
+  "min_imp_pct": -0.277097188192743,
+  "feat_ge5_workloads": 2,
+  "whole_image_wins": 3,
+  "echo_imp_pct": -0.277097188192743
+ }
+]

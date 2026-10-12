@@ -1,0 +1,220 @@
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D memrev16 0 0
+E
+D p 1 0
+E
+D x 2 0
+U p 2 0
+D t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+X
+X
+D memrev32 0 0
+E
+D p 1 0
+E
+D x 2 0
+U p 2 0
+D t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+X
+X
+D memrev64 0 0
+E
+D p 1 0
+E
+D x 2 0
+U p 2 0
+D t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+U t 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U x 2 0
+U t 2 0
+X
+X
+D intrev16 0 0
+E
+U uint16_t 1 0
+D v 1 0
+U uint16_t 1 0
+E
+U memrev16 2 0
+U v 2 0
+U v 2 0
+X
+X
+D intrev32 0 0
+E
+U uint32_t 1 0
+D v 1 0
+U uint32_t 1 0
+E
+U memrev32 2 0
+U v 2 0
+U v 2 0
+X
+X
+D intrev64 0 0
+E
+U uint64_t 1 0
+D v 1 0
+U uint64_t 1 0
+E
+U memrev64 2 0
+U v 2 0
+U v 2 0
+X
+X

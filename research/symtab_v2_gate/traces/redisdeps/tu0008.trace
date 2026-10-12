@@ -1,0 +1,3429 @@
+D size_t 0 1
+D __gnuc_va_list 0 1
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D off_t 0 1
+U __off_t 0 1
+D fpos_t 0 1
+U __fpos_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D wchar_t 0 1
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D useconds_t 0 1
+U __useconds_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D posix_openpt 0 1
+E
+D __oflag 1 1
+X
+D grantpt 0 1
+E
+D __fd 1 1
+X
+D unlockpt 0 1
+E
+D __fd 1 1
+X
+D ptsname 0 1
+E
+D __fd 1 1
+X
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D _ISupper 0 1
+D _ISlower 0 1
+D _ISalpha 0 1
+D _ISdigit 0 1
+D _ISxdigit 0 1
+D _ISspace 0 1
+D _ISprint 0 1
+D _ISgraph 0 1
+D _ISblank 0 1
+D _IScntrl 0 1
+D _ISpunct 0 1
+D _ISalnum 0 1
+D __ctype_b_loc 0 1
+D __ctype_tolower_loc 0 1
+U __int32_t 0 1
+D __ctype_toupper_loc 0 1
+U __int32_t 0 1
+D isalnum 0 1
+E
+X
+D isalpha 0 1
+E
+X
+D iscntrl 0 1
+E
+X
+D isdigit 0 1
+E
+X
+D islower 0 1
+E
+X
+D isgraph 0 1
+E
+X
+D isprint 0 1
+E
+X
+D ispunct 0 1
+E
+X
+D isspace 0 1
+E
+X
+D isupper 0 1
+E
+X
+D isxdigit 0 1
+E
+X
+D tolower 0 1
+E
+D __c 1 1
+X
+D toupper 0 1
+E
+D __c 1 1
+X
+D isblank 0 1
+E
+X
+D isascii 0 1
+E
+D __c 1 1
+X
+D toascii 0 1
+E
+D __c 1 1
+X
+D _toupper 0 1
+E
+X
+D _tolower 0 1
+E
+X
+D __assert_fail 0 1
+E
+D __assertion 1 1
+D __file 1 1
+D __line 1 1
+D __function 1 1
+X
+D __assert_perror_fail 0 1
+E
+D __errnum 1 1
+D __file 1 1
+D __line 1 1
+D __function 1 1
+X
+D __assert 0 1
+E
+D __assertion 1 1
+D __file 1 1
+D __line 1 1
+X
+D va_list 0 1
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D hisds 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+U uint16_t 0 0
+U uint16_t 0 0
+U uint32_t 0 0
+U uint32_t 0 0
+U uint64_t 0 0
+U uint64_t 0 0
+D hi_sdslen 0 0
+E
+U size_t 1 0
+D s 1 0
+U hisds 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+U flags 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D hi_sdsavail 0 0
+E
+U size_t 1 0
+D s 1 0
+U hisds 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+E
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U sh 4 0
+X
+X
+X
+X
+D hi_sdssetlen 0 0
+E
+D s 1 0
+U hisds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+E
+D fp 4 0
+U s 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U uint8_t 3 0
+U newlen 3 0
+U s 3 0
+U uint16_t 3 0
+U newlen 3 0
+U s 3 0
+U uint32_t 3 0
+U newlen 3 0
+U s 3 0
+U uint64_t 3 0
+U newlen 3 0
+X
+X
+X
+D hi_sdsinclen 0 0
+E
+D s 1 0
+U hisds 1 0
+D inc 1 0
+U size_t 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+E
+D fp 4 0
+U s 4 0
+D newlen 4 0
+U flags 4 0
+U inc 4 0
+U fp 4 0
+U newlen 4 0
+X
+U s 3 0
+U uint8_t 3 0
+U inc 3 0
+U s 3 0
+U uint16_t 3 0
+U inc 3 0
+U s 3 0
+U uint32_t 3 0
+U inc 3 0
+U s 3 0
+U uint64_t 3 0
+U inc 3 0
+X
+X
+X
+D hi_sdsalloc 0 0
+E
+U size_t 1 0
+D s 1 0
+U hisds 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+U flags 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+U s 3 0
+X
+X
+X
+D hi_sdssetalloc 0 0
+E
+D s 1 0
+U hisds 1 0
+D newlen 1 0
+U size_t 1 0
+E
+D flags 2 0
+U s 2 0
+U flags 2 0
+E
+U s 3 0
+U uint8_t 3 0
+U newlen 3 0
+U s 3 0
+U uint16_t 3 0
+U newlen 3 0
+U s 3 0
+U uint32_t 3 0
+U newlen 3 0
+U s 3 0
+U uint64_t 3 0
+U newlen 3 0
+X
+X
+X
+D hi_sdsnewlen 0 0
+E
+U hisds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+X
+D hi_sdsnew 0 0
+E
+U hisds 1 0
+D init 1 0
+X
+D hi_sdsempty 0 0
+U hisds 0 0
+D hi_sdsdup 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsfree 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsgrowzero 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D len 1 0
+U size_t 1 0
+X
+D hi_sdscatlen 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D hi_sdscat 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+X
+D hi_sdscatsds 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+U hisds 1 0
+X
+D hi_sdscpylen 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+X
+D hi_sdscpy 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+X
+D hi_sdscatvprintf 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+D ap 1 0
+U va_list 1 0
+X
+D hi_sdscatprintf 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+X
+D hi_sdscatfmt 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+X
+D hi_sdstrim 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D cset 1 0
+X
+D hi_sdsrange 0 0
+E
+D s 1 0
+U hisds 1 0
+D start 1 0
+U ssize_t 1 0
+D end 1 0
+U ssize_t 1 0
+X
+D hi_sdsupdatelen 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsclear 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sdscmp 0 0
+E
+D s1 1 0
+U hisds 1 0
+D s2 1 0
+U hisds 1 0
+X
+D hi_sdssplitlen 0 0
+E
+U hisds 1 0
+D s 1 0
+D len 1 0
+D sep 1 0
+D seplen 1 0
+D count 1 0
+X
+D hi_sdsfreesplitres 0 0
+E
+D tokens 1 0
+U hisds 1 0
+D count 1 0
+X
+D hi_sdstolower 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sdstoupper 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsfromlonglong 0 0
+E
+U hisds 1 0
+D value 1 0
+X
+D hi_sdscatrepr 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D p 1 0
+D len 1 0
+U size_t 1 0
+X
+D hi_sdssplitargs 0 0
+E
+U hisds 1 0
+D line 1 0
+D argc 1 0
+X
+D hi_sdsmapchars 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+X
+D hi_sdsjoin 0 0
+E
+U hisds 1 0
+D argv 1 0
+D argc 1 0
+D sep 1 0
+X
+D hi_sdsjoinsds 0 0
+E
+U hisds 1 0
+D argv 1 0
+U hisds 1 0
+D argc 1 0
+D sep 1 0
+D seplen 1 0
+U size_t 1 0
+X
+D hi_sdsMakeRoomFor 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D addlen 1 0
+U size_t 1 0
+X
+D hi_sdsIncrLen 0 0
+E
+D s 1 0
+U hisds 1 0
+D incr 1 0
+X
+D hi_sdsRemoveFreeSpace 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsAllocSize 0 0
+E
+U size_t 1 0
+D s 1 0
+U hisds 1 0
+X
+D hi_sdsAllocPtr 0 0
+E
+D s 1 0
+U hisds 1 0
+X
+D hi_sds_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D hi_sds_realloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+X
+D hi_sds_free 0 0
+E
+D ptr 1 0
+X
+D ptrdiff_t 0 1
+D max_align_t 0 1
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+D hiredisAllocFuncs 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+D hiredisSetAllocators 0 0
+E
+U hiredisAllocFuncs 1 0
+D ha 1 0
+U hiredisAllocFuncs 1 0
+X
+D hiredisResetAllocators 0 0
+D hiredisAllocFns 0 0
+U hiredisAllocFuncs 0 0
+D hi_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+E
+U hiredisAllocFns 2 0
+U size 2 0
+X
+X
+D hi_calloc 0 0
+E
+D nmemb 1 0
+U size_t 1 0
+D size 1 0
+U size_t 1 0
+E
+U size 2 0
+U nmemb 2 0
+U hiredisAllocFns 2 0
+U nmemb 2 0
+U size 2 0
+X
+X
+D hi_realloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+E
+U hiredisAllocFns 2 0
+U ptr 2 0
+U size 2 0
+X
+X
+D hi_strdup 0 0
+E
+D str 1 0
+E
+U hiredisAllocFns 2 0
+U str 2 0
+X
+X
+D hi_free 0 0
+E
+D ptr 1 0
+E
+U hiredisAllocFns 2 0
+U ptr 2 0
+X
+X
+D hi_sdsHdrSize 0 0
+E
+D type 1 0
+E
+U type 2 0
+E
+X
+X
+X
+D hi_sdsReqType 0 0
+E
+D string_size 1 0
+U size_t 1 0
+E
+U string_size 2 0
+U string_size 2 0
+U string_size 2 0
+U string_size 2 0
+X
+X
+D hi_sdsnewlen 0 0
+E
+U hisds 1 0
+D init 1 0
+D initlen 1 0
+U size_t 1 0
+E
+D sh 2 0
+D s 2 0
+U hisds 2 0
+D type 2 0
+U hi_sdsReqType 2 0
+U initlen 2 0
+U type 2 0
+U initlen 2 0
+U type 2 0
+D hdrlen 2 0
+U hi_sdsHdrSize 2 0
+U type 2 0
+D fp 2 0
+U hdrlen 2 0
+U initlen 2 0
+U initlen 2 0
+U sh 2 0
+U hi_malloc 2 0
+U hdrlen 2 0
+U initlen 2 0
+U sh 2 0
+U init 2 0
+U memset 2 0
+U sh 2 0
+U hdrlen 2 0
+U initlen 2 0
+U s 2 0
+U sh 2 0
+U hdrlen 2 0
+U fp 2 0
+U s 2 0
+U type 2 0
+E
+E
+U fp 4 0
+U type 4 0
+U initlen 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U initlen 4 0
+U sh 4 0
+U initlen 4 0
+U fp 4 0
+U type 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U initlen 4 0
+U sh 4 0
+U initlen 4 0
+U fp 4 0
+U type 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U initlen 4 0
+U sh 4 0
+U initlen 4 0
+U fp 4 0
+U type 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U sh 4 0
+U initlen 4 0
+U sh 4 0
+U initlen 4 0
+U fp 4 0
+U type 4 0
+X
+X
+U initlen 2 0
+U init 2 0
+U memcpy 2 0
+U s 2 0
+U init 2 0
+U initlen 2 0
+U s 2 0
+U initlen 2 0
+U s 2 0
+X
+X
+D hi_sdsempty 0 0
+E
+U hisds 1 0
+E
+U hi_sdsnewlen 2 0
+X
+X
+D hi_sdsnew 0 0
+E
+U hisds 1 0
+D init 1 0
+E
+D initlen 2 0
+U size_t 2 0
+U init 2 0
+U strlen 2 0
+U init 2 0
+U hi_sdsnewlen 2 0
+U init 2 0
+U initlen 2 0
+X
+X
+D hi_sdsdup 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+E
+U hi_sdsnewlen 2 0
+U s 2 0
+U hi_sdslen 2 0
+U s 2 0
+X
+X
+D hi_sdsfree 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+U s 2 0
+U hi_free 2 0
+U s 2 0
+U hi_sdsHdrSize 2 0
+U s 2 0
+X
+X
+D hi_sdsupdatelen 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+D reallen 2 0
+U size_t 2 0
+U strlen 2 0
+U s 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U reallen 2 0
+X
+X
+D hi_sdsclear 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+U hi_sdssetlen 2 0
+U s 2 0
+U s 2 0
+X
+X
+D hi_sdsMakeRoomFor 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D addlen 1 0
+U size_t 1 0
+E
+D sh 2 0
+D newsh 2 0
+D avail 2 0
+U size_t 2 0
+U hi_sdsavail 2 0
+U s 2 0
+D len 2 0
+U size_t 2 0
+D newlen 2 0
+U size_t 2 0
+D reqlen 2 0
+U size_t 2 0
+D type 2 0
+D oldtype 2 0
+U s 2 0
+D hdrlen 2 0
+U avail 2 0
+U addlen 2 0
+U s 2 0
+U len 2 0
+U hi_sdslen 2 0
+U s 2 0
+U sh 2 0
+U s 2 0
+U hi_sdsHdrSize 2 0
+U oldtype 2 0
+U reqlen 2 0
+U newlen 2 0
+U len 2 0
+U addlen 2 0
+U newlen 2 0
+U len 2 0
+U newlen 2 0
+U newlen 2 0
+U newlen 2 0
+U type 2 0
+U hi_sdsReqType 2 0
+U newlen 2 0
+U type 2 0
+U type 2 0
+U hdrlen 2 0
+U hi_sdsHdrSize 2 0
+U type 2 0
+U hdrlen 2 0
+U newlen 2 0
+U reqlen 2 0
+U oldtype 2 0
+U type 2 0
+E
+U newsh 3 0
+U hi_realloc 3 0
+U sh 3 0
+U hdrlen 3 0
+U newlen 3 0
+U newsh 3 0
+U s 3 0
+U newsh 3 0
+U hdrlen 3 0
+X
+E
+U newsh 3 0
+U hi_malloc 3 0
+U hdrlen 3 0
+U newlen 3 0
+U newsh 3 0
+U memcpy 3 0
+U newsh 3 0
+U hdrlen 3 0
+U s 3 0
+U len 3 0
+U hi_free 3 0
+U sh 3 0
+U s 3 0
+U newsh 3 0
+U hdrlen 3 0
+U s 3 0
+U type 3 0
+U hi_sdssetlen 3 0
+U s 3 0
+U len 3 0
+X
+U hi_sdssetalloc 2 0
+U s 2 0
+U newlen 2 0
+U s 2 0
+X
+X
+D hi_sdsRemoveFreeSpace 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+E
+D sh 2 0
+D newsh 2 0
+D type 2 0
+D oldtype 2 0
+U s 2 0
+D hdrlen 2 0
+D len 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+U sh 2 0
+U s 2 0
+U hi_sdsHdrSize 2 0
+U oldtype 2 0
+U type 2 0
+U hi_sdsReqType 2 0
+U len 2 0
+U hdrlen 2 0
+U hi_sdsHdrSize 2 0
+U type 2 0
+U oldtype 2 0
+U type 2 0
+E
+U newsh 3 0
+U hi_realloc 3 0
+U sh 3 0
+U hdrlen 3 0
+U len 3 0
+U newsh 3 0
+U s 3 0
+U newsh 3 0
+U hdrlen 3 0
+X
+E
+U newsh 3 0
+U hi_malloc 3 0
+U hdrlen 3 0
+U len 3 0
+U newsh 3 0
+U memcpy 3 0
+U newsh 3 0
+U hdrlen 3 0
+U s 3 0
+U len 3 0
+U hi_free 3 0
+U sh 3 0
+U s 3 0
+U newsh 3 0
+U hdrlen 3 0
+U s 3 0
+U type 3 0
+U hi_sdssetlen 3 0
+U s 3 0
+U len 3 0
+X
+U hi_sdssetalloc 2 0
+U s 2 0
+U len 2 0
+U s 2 0
+X
+X
+D hi_sdsAllocSize 0 0
+E
+U size_t 1 0
+D s 1 0
+U hisds 1 0
+E
+D alloc 2 0
+U size_t 2 0
+U hi_sdsalloc 2 0
+U s 2 0
+U hi_sdsHdrSize 2 0
+U s 2 0
+U alloc 2 0
+X
+X
+D hi_sdsAllocPtr 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+U s 2 0
+U hi_sdsHdrSize 2 0
+U s 2 0
+X
+X
+D hi_sdsIncrLen 0 0
+E
+D s 1 0
+U hisds 1 0
+D incr 1 0
+E
+D flags 2 0
+U s 2 0
+D len 2 0
+U size_t 2 0
+U flags 2 0
+E
+E
+D fp 4 0
+U s 4 0
+D oldlen 4 0
+U flags 4 0
+U incr 4 0
+U oldlen 4 0
+U incr 4 0
+U incr 4 0
+U oldlen 4 0
+U incr 4 0
+E
+U incr 5 0
+U oldlen 5 0
+U incr 5 0
+U incr 5 0
+U oldlen 5 0
+U incr 5 0
+U __assert_fail 5 0
+X
+U fp 4 0
+U oldlen 4 0
+U incr 4 0
+U len 4 0
+U oldlen 4 0
+U incr 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U incr 4 0
+U sh 4 0
+U sh 4 0
+U incr 4 0
+U incr 4 0
+U sh 4 0
+U incr 4 0
+E
+U incr 5 0
+U sh 5 0
+U sh 5 0
+U incr 5 0
+U incr 5 0
+U sh 5 0
+U incr 5 0
+U __assert_fail 5 0
+X
+U len 4 0
+U sh 4 0
+U incr 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U incr 4 0
+U sh 4 0
+U sh 4 0
+U incr 4 0
+U incr 4 0
+U sh 4 0
+U incr 4 0
+E
+U incr 5 0
+U sh 5 0
+U sh 5 0
+U incr 5 0
+U incr 5 0
+U sh 5 0
+U incr 5 0
+U __assert_fail 5 0
+X
+U len 4 0
+U sh 4 0
+U incr 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U incr 4 0
+U sh 4 0
+U sh 4 0
+U incr 4 0
+U incr 4 0
+U sh 4 0
+U incr 4 0
+E
+U incr 5 0
+U sh 5 0
+U sh 5 0
+U incr 5 0
+U incr 5 0
+U sh 5 0
+U incr 5 0
+U __assert_fail 5 0
+X
+U len 4 0
+U sh 4 0
+U incr 4 0
+X
+E
+D sh 4 0
+U s 4 0
+U incr 4 0
+U sh 4 0
+U sh 4 0
+U uint64_t 4 0
+U incr 4 0
+U incr 4 0
+U sh 4 0
+U uint64_t 4 0
+U incr 4 0
+E
+U incr 5 0
+U sh 5 0
+U sh 5 0
+U uint64_t 5 0
+U incr 5 0
+U incr 5 0
+U sh 5 0
+U uint64_t 5 0
+U incr 5 0
+U __assert_fail 5 0
+X
+U len 4 0
+U sh 4 0
+U incr 4 0
+X
+U len 3 0
+X
+U s 2 0
+U len 2 0
+X
+X
+D hi_sdsgrowzero 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D len 1 0
+U size_t 1 0
+E
+D curlen 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+U len 2 0
+U curlen 2 0
+U s 2 0
+U s 2 0
+U hi_sdsMakeRoomFor 2 0
+U s 2 0
+U len 2 0
+U curlen 2 0
+U s 2 0
+U memset 2 0
+U s 2 0
+U curlen 2 0
+U len 2 0
+U curlen 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U len 2 0
+U s 2 0
+X
+X
+D hi_sdscatlen 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+E
+D curlen 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+U s 2 0
+U hi_sdsMakeRoomFor 2 0
+U s 2 0
+U len 2 0
+U s 2 0
+U memcpy 2 0
+U s 2 0
+U curlen 2 0
+U t 2 0
+U len 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U curlen 2 0
+U len 2 0
+U s 2 0
+U curlen 2 0
+U len 2 0
+U s 2 0
+X
+X
+D hi_sdscat 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+E
+U hi_sdscatlen 2 0
+U s 2 0
+U t 2 0
+U strlen 2 0
+U t 2 0
+X
+X
+D hi_sdscatsds 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+U hisds 1 0
+E
+U hi_sdscatlen 2 0
+U s 2 0
+U t 2 0
+U hi_sdslen 2 0
+U t 2 0
+X
+X
+D hi_sdscpylen 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+D len 1 0
+U size_t 1 0
+E
+U hi_sdsalloc 2 0
+U s 2 0
+U len 2 0
+E
+U s 3 0
+U hi_sdsMakeRoomFor 3 0
+U s 3 0
+U len 3 0
+U hi_sdslen 3 0
+U s 3 0
+U s 3 0
+X
+U memcpy 2 0
+U s 2 0
+U t 2 0
+U len 2 0
+U s 2 0
+U len 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U len 2 0
+U s 2 0
+X
+X
+D hi_sdscpy 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D t 1 0
+E
+U hi_sdscpylen 2 0
+U s 2 0
+U t 2 0
+U strlen 2 0
+U t 2 0
+X
+X
+D hi_sdsll2str 0 0
+E
+D s 1 0
+D value 1 0
+E
+D p 2 0
+D aux 2 0
+D v 2 0
+D l 2 0
+U size_t 2 0
+U v 2 0
+U value 2 0
+U value 2 0
+U value 2 0
+U p 2 0
+U s 2 0
+E
+U p 3 0
+U v 3 0
+U v 3 0
+X
+U v 2 0
+U value 2 0
+U p 2 0
+U l 2 0
+U p 2 0
+U s 2 0
+U p 2 0
+U p 2 0
+U s 2 0
+U p 2 0
+E
+U aux 3 0
+U s 3 0
+U s 3 0
+U p 3 0
+U p 3 0
+U aux 3 0
+U s 3 0
+U p 3 0
+X
+U l 2 0
+X
+X
+D hi_sdsull2str 0 0
+E
+D s 1 0
+D v 1 0
+E
+D p 2 0
+D aux 2 0
+D l 2 0
+U size_t 2 0
+U p 2 0
+U s 2 0
+E
+U p 3 0
+U v 3 0
+U v 3 0
+X
+U v 2 0
+U l 2 0
+U p 2 0
+U s 2 0
+U p 2 0
+U p 2 0
+U s 2 0
+U p 2 0
+E
+U aux 3 0
+U s 3 0
+U s 3 0
+U p 3 0
+U p 3 0
+U aux 3 0
+U s 3 0
+U p 3 0
+X
+U l 2 0
+X
+X
+D hi_sdsfromlonglong 0 0
+E
+U hisds 1 0
+D value 1 0
+E
+D buf 2 0
+D len 2 0
+U hi_sdsll2str 2 0
+U buf 2 0
+U value 2 0
+U hi_sdsnewlen 2 0
+U buf 2 0
+U len 2 0
+X
+X
+D hi_sdscatvprintf 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+D ap 1 0
+U va_list 1 0
+E
+D cpy 2 0
+U va_list 2 0
+D staticbuf 2 0
+D buf 2 0
+U staticbuf 2 0
+D t 2 0
+D buflen 2 0
+U size_t 2 0
+U strlen 2 0
+U fmt 2 0
+U buflen 2 0
+U staticbuf 2 0
+E
+U buf 3 0
+U hi_malloc 3 0
+U buflen 3 0
+U buf 3 0
+X
+E
+U buflen 3 0
+U staticbuf 3 0
+X
+E
+U buf 3 0
+U buflen 3 0
+U __builtin_va_copy 3 0
+U cpy 3 0
+U ap 3 0
+U vsnprintf 3 0
+U buf 3 0
+U buflen 3 0
+U fmt 3 0
+U cpy 3 0
+U __builtin_va_end 3 0
+U cpy 3 0
+U buf 3 0
+U buflen 3 0
+E
+U buf 4 0
+U staticbuf 4 0
+U hi_free 4 0
+U buf 4 0
+U buflen 4 0
+U buf 4 0
+U hi_malloc 4 0
+U buflen 4 0
+U buf 4 0
+X
+X
+U t 2 0
+U hi_sdscat 2 0
+U s 2 0
+U buf 2 0
+U buf 2 0
+U staticbuf 2 0
+U hi_free 2 0
+U buf 2 0
+U t 2 0
+X
+X
+D hi_sdscatprintf 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+E
+D ap 2 0
+U va_list 2 0
+D t 2 0
+U __builtin_va_start 2 0
+U ap 2 0
+U fmt 2 0
+U t 2 0
+U hi_sdscatvprintf 2 0
+U s 2 0
+U fmt 2 0
+U ap 2 0
+U __builtin_va_end 2 0
+U ap 2 0
+U t 2 0
+X
+X
+D hi_sdscatfmt 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D fmt 1 0
+E
+D f 2 0
+U fmt 2 0
+D i 2 0
+D ap 2 0
+U va_list 2 0
+U __builtin_va_start 2 0
+U ap 2 0
+U fmt 2 0
+U i 2 0
+U hi_sdslen 2 0
+U s 2 0
+U f 2 0
+E
+D next 3 0
+D str 3 0
+D l 3 0
+U size_t 3 0
+D num 3 0
+D unum 3 0
+U hi_sdsavail 3 0
+U s 3 0
+E
+U s 4 0
+U hi_sdsMakeRoomFor 4 0
+U s 4 0
+U s 4 0
+X
+U f 3 0
+E
+U next 4 0
+U f 4 0
+U f 4 0
+U next 4 0
+E
+U str 5 0
+U ap 5 0
+U l 5 0
+U next 5 0
+U strlen 5 0
+U str 5 0
+U hi_sdslen 5 0
+U str 5 0
+U hi_sdsavail 5 0
+U s 5 0
+U l 5 0
+E
+U s 6 0
+U hi_sdsMakeRoomFor 6 0
+U s 6 0
+U l 6 0
+U s 6 0
+X
+U memcpy 5 0
+U s 5 0
+U i 5 0
+U str 5 0
+U l 5 0
+U hi_sdsinclen 5 0
+U s 5 0
+U l 5 0
+U i 5 0
+U l 5 0
+U next 5 0
+U num 5 0
+U ap 5 0
+U num 5 0
+U ap 5 0
+E
+D buf 6 0
+U l 6 0
+U hi_sdsll2str 6 0
+U buf 6 0
+U num 6 0
+U hi_sdsavail 6 0
+U s 6 0
+U l 6 0
+E
+U s 7 0
+U hi_sdsMakeRoomFor 7 0
+U s 7 0
+U l 7 0
+U s 7 0
+X
+U memcpy 6 0
+U s 6 0
+U i 6 0
+U buf 6 0
+U l 6 0
+U hi_sdsinclen 6 0
+U s 6 0
+U l 6 0
+U i 6 0
+U l 6 0
+X
+U next 5 0
+U unum 5 0
+U ap 5 0
+U unum 5 0
+U ap 5 0
+E
+D buf 6 0
+U l 6 0
+U hi_sdsull2str 6 0
+U buf 6 0
+U unum 6 0
+U hi_sdsavail 6 0
+U s 6 0
+U l 6 0
+E
+U s 7 0
+U hi_sdsMakeRoomFor 7 0
+U s 7 0
+U l 7 0
+U s 7 0
+X
+U memcpy 6 0
+U s 6 0
+U i 6 0
+U buf 6 0
+U l 6 0
+U hi_sdsinclen 6 0
+U s 6 0
+U l 6 0
+U i 6 0
+U l 6 0
+X
+U s 5 0
+U i 5 0
+U next 5 0
+U hi_sdsinclen 5 0
+U s 5 0
+X
+U s 4 0
+U i 4 0
+U f 4 0
+U hi_sdsinclen 4 0
+U s 4 0
+X
+U f 3 0
+X
+U __builtin_va_end 2 0
+U ap 2 0
+U s 2 0
+U i 2 0
+U s 2 0
+U __builtin_va_end 2 0
+U ap 2 0
+X
+X
+D hi_sdstrim 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D cset 1 0
+E
+D start 2 0
+D end 2 0
+D sp 2 0
+D ep 2 0
+D len 2 0
+U size_t 2 0
+U sp 2 0
+U start 2 0
+U s 2 0
+U ep 2 0
+U end 2 0
+U s 2 0
+U hi_sdslen 2 0
+U s 2 0
+U sp 2 0
+U end 2 0
+U strchr 2 0
+U cset 2 0
+U sp 2 0
+U sp 2 0
+U ep 2 0
+U sp 2 0
+U strchr 2 0
+U cset 2 0
+U ep 2 0
+U ep 2 0
+U len 2 0
+U sp 2 0
+U ep 2 0
+U ep 2 0
+U sp 2 0
+U s 2 0
+U sp 2 0
+U memmove 2 0
+U s 2 0
+U sp 2 0
+U len 2 0
+U s 2 0
+U len 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U len 2 0
+U s 2 0
+X
+X
+D hi_sdsrange 0 0
+E
+D s 1 0
+U hisds 1 0
+D start 1 0
+U ssize_t 1 0
+D end 1 0
+U ssize_t 1 0
+E
+D newlen 2 0
+U size_t 2 0
+D len 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+U len 2 0
+U len 2 0
+U start 2 0
+E
+U start 3 0
+U len 3 0
+U start 3 0
+U start 3 0
+U start 3 0
+X
+U end 2 0
+E
+U end 3 0
+U len 3 0
+U end 3 0
+U end 3 0
+U end 3 0
+X
+U newlen 2 0
+U start 2 0
+U end 2 0
+U end 2 0
+U start 2 0
+U newlen 2 0
+E
+U start 3 0
+U ssize_t 3 0
+U len 3 0
+E
+U newlen 4 0
+X
+U end 3 0
+U ssize_t 3 0
+U len 3 0
+E
+U end 4 0
+U len 4 0
+U newlen 4 0
+U start 4 0
+U end 4 0
+U end 4 0
+U start 4 0
+X
+X
+E
+U start 3 0
+X
+U start 2 0
+U newlen 2 0
+U memmove 2 0
+U s 2 0
+U s 2 0
+U start 2 0
+U newlen 2 0
+U s 2 0
+U newlen 2 0
+U hi_sdssetlen 2 0
+U s 2 0
+U newlen 2 0
+X
+X
+D hi_sdstolower 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+D len 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+D j 2 0
+U size_t 2 0
+E
+U j 3 0
+U j 3 0
+U len 3 0
+U j 3 0
+U s 3 0
+U j 3 0
+U tolower 3 0
+U s 3 0
+U j 3 0
+X
+X
+X
+D hi_sdstoupper 0 0
+E
+D s 1 0
+U hisds 1 0
+E
+D len 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+D j 2 0
+U size_t 2 0
+E
+U j 3 0
+U j 3 0
+U len 3 0
+U j 3 0
+U s 3 0
+U j 3 0
+U toupper 3 0
+U s 3 0
+U j 3 0
+X
+X
+X
+D hi_sdscmp 0 0
+E
+D s1 1 0
+U hisds 1 0
+D s2 1 0
+U hisds 1 0
+E
+D l1 2 0
+U size_t 2 0
+D l2 2 0
+U size_t 2 0
+D minlen 2 0
+U size_t 2 0
+D cmp 2 0
+U l1 2 0
+U hi_sdslen 2 0
+U s1 2 0
+U l2 2 0
+U hi_sdslen 2 0
+U s2 2 0
+U minlen 2 0
+U l1 2 0
+U l2 2 0
+U l1 2 0
+U l2 2 0
+U cmp 2 0
+U memcmp 2 0
+U s1 2 0
+U s2 2 0
+U minlen 2 0
+U cmp 2 0
+U l1 2 0
+U l2 2 0
+U cmp 2 0
+X
+X
+D hi_sdssplitlen 0 0
+E
+U hisds 1 0
+D s 1 0
+D len 1 0
+D sep 1 0
+D seplen 1 0
+D count 1 0
+E
+D elements 2 0
+D slots 2 0
+D start 2 0
+D j 2 0
+D tokens 2 0
+U hisds 2 0
+U seplen 2 0
+U len 2 0
+U tokens 2 0
+U hi_malloc 2 0
+U hisds 2 0
+U slots 2 0
+U tokens 2 0
+U len 2 0
+E
+U count 3 0
+U tokens 3 0
+X
+E
+U j 3 0
+U j 3 0
+U len 3 0
+U seplen 3 0
+U j 3 0
+E
+U slots 4 0
+U elements 4 0
+E
+D newtokens 5 0
+U hisds 5 0
+U slots 5 0
+U newtokens 5 0
+U hi_realloc 5 0
+U tokens 5 0
+U hisds 5 0
+U slots 5 0
+U newtokens 5 0
+U tokens 5 0
+U newtokens 5 0
+X
+U seplen 4 0
+U s 4 0
+U j 4 0
+U sep 4 0
+U memcmp 4 0
+U s 4 0
+U j 4 0
+U sep 4 0
+U seplen 4 0
+E
+U tokens 5 0
+U elements 5 0
+U hi_sdsnewlen 5 0
+U s 5 0
+U start 5 0
+U j 5 0
+U start 5 0
+U tokens 5 0
+U elements 5 0
+U elements 5 0
+U start 5 0
+U j 5 0
+U seplen 5 0
+U j 5 0
+U j 5 0
+U seplen 5 0
+X
+X
+X
+U tokens 2 0
+U elements 2 0
+U hi_sdsnewlen 2 0
+U s 2 0
+U start 2 0
+U len 2 0
+U start 2 0
+U tokens 2 0
+U elements 2 0
+U elements 2 0
+U count 2 0
+U elements 2 0
+U tokens 2 0
+E
+D i 3 0
+E
+U i 4 0
+U i 4 0
+U elements 4 0
+U i 4 0
+U hi_sdsfree 4 0
+U tokens 4 0
+U i 4 0
+X
+U hi_free 3 0
+U tokens 3 0
+U count 3 0
+X
+X
+X
+D hi_sdsfreesplitres 0 0
+E
+D tokens 1 0
+U hisds 1 0
+D count 1 0
+E
+U tokens 2 0
+U count 2 0
+U hi_sdsfree 2 0
+U tokens 2 0
+U count 2 0
+U hi_free 2 0
+U tokens 2 0
+X
+X
+D hi_sdscatrepr 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D p 1 0
+D len 1 0
+U size_t 1 0
+E
+U s 2 0
+U hi_sdscatlen 2 0
+U s 2 0
+U len 2 0
+E
+U p 3 0
+E
+U s 4 0
+U hi_sdscatprintf 4 0
+U s 4 0
+U p 4 0
+U s 4 0
+U hi_sdscatlen 4 0
+U s 4 0
+U s 4 0
+U hi_sdscatlen 4 0
+U s 4 0
+U s 4 0
+U hi_sdscatlen 4 0
+U s 4 0
+U s 4 0
+U hi_sdscatlen 4 0
+U s 4 0
+U s 4 0
+U hi_sdscatlen 4 0
+U s 4 0
+U __ctype_b_loc 4 0
+U p 4 0
+U _ISprint 4 0
+U s 4 0
+U hi_sdscatprintf 4 0
+U s 4 0
+U p 4 0
+U s 4 0
+U hi_sdscatprintf 4 0
+U s 4 0
+U p 4 0
+X
+U p 3 0
+X
+U hi_sdscatlen 2 0
+U s 2 0
+X
+X
+D hi_hex_digit_to_int 0 0
+E
+D c 1 0
+E
+U c 2 0
+E
+X
+X
+X
+D hi_sdssplitargs 0 0
+E
+U hisds 1 0
+D line 1 0
+D argc 1 0
+E
+D p 2 0
+U line 2 0
+D current 2 0
+D vector 2 0
+U argc 2 0
+E
+U p 3 0
+U __ctype_b_loc 3 0
+U p 3 0
+U _ISspace 3 0
+U p 3 0
+U p 3 0
+E
+D inq 4 0
+D insq 4 0
+D done 4 0
+U current 4 0
+U current 4 0
+U hi_sdsempty 4 0
+U done 4 0
+E
+U inq 5 0
+E
+U p 6 0
+U p 6 0
+U __ctype_b_loc 6 0
+U p 6 0
+U _ISxdigit 6 0
+U __ctype_b_loc 6 0
+U p 6 0
+U _ISxdigit 6 0
+E
+D byte 7 0
+U byte 7 0
+U hi_hex_digit_to_int 7 0
+U p 7 0
+U hi_hex_digit_to_int 7 0
+U p 7 0
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+U byte 7 0
+U p 7 0
+X
+U p 6 0
+U p 6 0
+E
+D c 7 0
+U p 7 0
+U p 7 0
+E
+U c 8 0
+U c 8 0
+U c 8 0
+U c 8 0
+U c 8 0
+U c 8 0
+U p 8 0
+X
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+U c 7 0
+X
+U p 6 0
+E
+U p 7 0
+U __ctype_b_loc 7 0
+U p 7 0
+U _ISspace 7 0
+U done 7 0
+X
+U p 6 0
+E
+X
+E
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+U p 7 0
+X
+X
+U insq 5 0
+E
+U p 6 0
+U p 6 0
+E
+U p 7 0
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+X
+U p 6 0
+E
+U p 7 0
+U __ctype_b_loc 7 0
+U p 7 0
+U _ISspace 7 0
+U done 7 0
+X
+U p 6 0
+E
+X
+E
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+U p 7 0
+X
+X
+E
+U p 6 0
+E
+U done 7 0
+U inq 7 0
+U insq 7 0
+U current 7 0
+U hi_sdscatlen 7 0
+U current 7 0
+U p 7 0
+X
+X
+U p 5 0
+U p 5 0
+X
+E
+D new_vector 5 0
+U hi_realloc 5 0
+U vector 5 0
+U argc 5 0
+U new_vector 5 0
+E
+U hi_free 6 0
+U vector 6 0
+X
+U vector 5 0
+U new_vector 5 0
+U vector 5 0
+U argc 5 0
+U current 5 0
+U argc 5 0
+U current 5 0
+X
+X
+E
+U vector 4 0
+U vector 4 0
+U hi_malloc 4 0
+U vector 4 0
+X
+X
+U argc 2 0
+U hi_sdsfree 2 0
+U vector 2 0
+U argc 2 0
+U hi_free 2 0
+U vector 2 0
+U current 2 0
+U hi_sdsfree 2 0
+U current 2 0
+U argc 2 0
+X
+X
+D hi_sdsmapchars 0 0
+E
+U hisds 1 0
+D s 1 0
+U hisds 1 0
+D from 1 0
+D to 1 0
+D setlen 1 0
+U size_t 1 0
+E
+D j 2 0
+U size_t 2 0
+D i 2 0
+U size_t 2 0
+D l 2 0
+U size_t 2 0
+U hi_sdslen 2 0
+U s 2 0
+E
+U j 3 0
+U j 3 0
+U l 3 0
+U j 3 0
+E
+E
+U i 5 0
+U i 5 0
+U setlen 5 0
+U i 5 0
+E
+U s 6 0
+U j 6 0
+U from 6 0
+U i 6 0
+E
+U s 7 0
+U j 7 0
+U to 7 0
+U i 7 0
+X
+X
+X
+X
+X
+U s 2 0
+X
+X
+D hi_sdsjoin 0 0
+E
+U hisds 1 0
+D argv 1 0
+D argc 1 0
+D sep 1 0
+E
+D join 2 0
+U hisds 2 0
+U hi_sdsempty 2 0
+D j 2 0
+E
+U j 3 0
+U j 3 0
+U argc 3 0
+U j 3 0
+E
+U join 4 0
+U hi_sdscat 4 0
+U join 4 0
+U argv 4 0
+U j 4 0
+U j 4 0
+U argc 4 0
+U join 4 0
+U hi_sdscat 4 0
+U join 4 0
+U sep 4 0
+X
+X
+U join 2 0
+X
+X
+D hi_sdsjoinsds 0 0
+E
+U hisds 1 0
+D argv 1 0
+U hisds 1 0
+D argc 1 0
+D sep 1 0
+D seplen 1 0
+U size_t 1 0
+E
+D join 2 0
+U hisds 2 0
+U hi_sdsempty 2 0
+D j 2 0
+E
+U j 3 0
+U j 3 0
+U argc 3 0
+U j 3 0
+E
+U join 4 0
+U hi_sdscatsds 4 0
+U join 4 0
+U argv 4 0
+U j 4 0
+U j 4 0
+U argc 4 0
+U join 4 0
+U hi_sdscatlen 4 0
+U join 4 0
+U sep 4 0
+U seplen 4 0
+X
+X
+U join 2 0
+X
+X
+D hi_sds_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+E
+U hi_malloc 2 0
+U size 2 0
+X
+X
+D hi_sds_realloc 0 0
+E
+D ptr 1 0
+D size 1 0
+U size_t 1 0
+E
+U hi_realloc 2 0
+U ptr 2 0
+U size 2 0
+X
+X
+D hi_sds_free 0 0
+E
+D ptr 1 0
+E
+U hi_free 2 0
+U ptr 2 0
+X
+X

@@ -1,0 +1,142 @@
+[
+ {
+  "workload": "hello_world_mps2",
+  "best_existing_image": 18136,
+  "best_existing_feature": 2760,
+  "b16_best": {
+   "U": 158,
+   "N": 158,
+   "B": 16,
+   "budget": 128,
+   "id_mode": "u8",
+   "id_bits": 8,
+   "id_bytes": 158,
+   "pool_bytes": 1129,
+   "checkpoint_bytes": 20,
+   "dict_bytes": 256,
+   "addr_bytes": 632,
+   "payload": 2195
+  },
+  "global_best": {
+   "U": 158,
+   "N": 158,
+   "B": 32,
+   "budget": 128,
+   "id_mode": "u8",
+   "id_bits": 8,
+   "id_bytes": 158,
+   "pool_bytes": 1107,
+   "checkpoint_bytes": 10,
+   "dict_bytes": 256,
+   "addr_bytes": 632,
+   "payload": 2163
+  },
+  "feature_bytes_needed_for_5pct": 1853.1999999999998,
+  "gate_pass": false
+ },
+ {
+  "workload": "shell_module_mps2",
+  "best_existing_image": 82688,
+  "best_existing_feature": 8344,
+  "b16_best": {
+   "U": 546,
+   "N": 557,
+   "B": 16,
+   "budget": 128,
+   "id_mode": "bitpacked",
+   "id_bits": 10,
+   "id_bytes": 697,
+   "pool_bytes": 4131,
+   "checkpoint_bytes": 70,
+   "dict_bytes": 256,
+   "addr_bytes": 2228,
+   "payload": 7382
+  },
+  "global_best": {
+   "U": 546,
+   "N": 557,
+   "B": 32,
+   "budget": 128,
+   "id_mode": "bitpacked",
+   "id_bits": 10,
+   "id_bytes": 697,
+   "pool_bytes": 4038,
+   "checkpoint_bytes": 36,
+   "dict_bytes": 256,
+   "addr_bytes": 2228,
+   "payload": 7255
+  },
+  "feature_bytes_needed_for_5pct": 4209.599999999999,
+  "gate_pass": false
+ },
+ {
+  "workload": "echo_server_mps2",
+  "best_existing_image": 274216,
+  "best_existing_feature": 19376,
+  "b16_best": {
+   "U": 1367,
+   "N": 1381,
+   "B": 16,
+   "budget": 128,
+   "id_mode": "bitpacked",
+   "id_bits": 11,
+   "id_bytes": 1899,
+   "pool_bytes": 10211,
+   "checkpoint_bytes": 172,
+   "dict_bytes": 256,
+   "addr_bytes": 5524,
+   "payload": 18062
+  },
+  "global_best": {
+   "U": 1367,
+   "N": 1381,
+   "B": 32,
+   "budget": 128,
+   "id_mode": "bitpacked",
+   "id_bits": 11,
+   "id_bytes": 1899,
+   "pool_bytes": 9998,
+   "checkpoint_bytes": 86,
+   "dict_bytes": 256,
+   "addr_bytes": 5524,
+   "payload": 17763
+  },
+  "feature_bytes_needed_for_5pct": 5665.199999999999,
+  "gate_pass": false
+ },
+ {
+  "workload": "hello_world_nrf52840",
+  "best_existing_image": 28060,
+  "best_existing_feature": 3856,
+  "b16_best": {
+   "U": 223,
+   "N": 226,
+   "B": 16,
+   "budget": 128,
+   "id_mode": "u8",
+   "id_bits": 8,
+   "id_bytes": 226,
+   "pool_bytes": 1632,
+   "checkpoint_bytes": 28,
+   "dict_bytes": 256,
+   "addr_bytes": 904,
+   "payload": 3046
+  },
+  "global_best": {
+   "U": 223,
+   "N": 226,
+   "B": 32,
+   "budget": 128,
+   "id_mode": "u8",
+   "id_bits": 8,
+   "id_bytes": 226,
+   "pool_bytes": 1608,
+   "checkpoint_bytes": 14,
+   "dict_bytes": 256,
+   "addr_bytes": 904,
+   "payload": 3008
+  },
+  "feature_bytes_needed_for_5pct": 2453.0,
+  "gate_pass": false
+ }
+]

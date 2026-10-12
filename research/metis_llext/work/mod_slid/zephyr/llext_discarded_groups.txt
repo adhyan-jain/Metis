@@ -1,0 +1,20 @@
+This file lists all symbols that have been marked as LLEXT exports
+but will not be added to the export table because their symbol group
+has not been enabled. Refer to LLEXT Documentation for more details.
+
+====================================================================================================
+                                            Group DEVICE                                            
+====================================================================================================
+Symbol Name
+--------------------------------------------------------------------------------
+__device_dts_ord_12
+__device_dts_ord_28
+__device_dts_ord_29
+__device_dts_ord_30
+__device_dts_ord_31
+__device_dts_ord_36
+__device_dts_ord_41
+__device_dts_ord_42
+__device_dts_ord_43
+__device_dts_ord_8
+

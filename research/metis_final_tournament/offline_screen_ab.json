@@ -1,0 +1,454 @@
+{
+  "hello_world_mps2": {
+    "N": 157,
+    "B1_B16_TOK_payload": 1742,
+    "B1_B16_FC16_payload": 1733,
+    "BLPR": {
+      "B8": {
+        "payload": 1785,
+        "diff_vs_b1_tok": 43,
+        "diff_vs_b1_fc16": 52,
+        "breakdown": {
+          "address_index": 202,
+          "name_checkpoints": 40,
+          "rank_map": 59,
+          "dictionary": 256,
+          "name_pool": 1228,
+          "payload": 1785
+        },
+        "T": 128,
+        "rbits": 3
+      },
+      "B16": {
+        "payload": 1727,
+        "diff_vs_b1_tok": -15,
+        "diff_vs_b1_fc16": -6,
+        "breakdown": {
+          "address_index": 183,
+          "name_checkpoints": 20,
+          "rank_map": 79,
+          "dictionary": 256,
+          "name_pool": 1189,
+          "payload": 1727
+        },
+        "T": 128,
+        "rbits": 4
+      },
+      "B32": {
+        "payload": 1704,
+        "diff_vs_b1_tok": -38,
+        "diff_vs_b1_fc16": -29,
+        "breakdown": {
+          "address_index": 174,
+          "name_checkpoints": 10,
+          "rank_map": 99,
+          "dictionary": 256,
+          "name_pool": 1165,
+          "payload": 1704
+        },
+        "T": 128,
+        "rbits": 5
+      }
+    },
+    "ALOB": {
+      "B8": {
+        "payload": 1776,
+        "diff_vs_b1_tok": 34,
+        "diff_vs_b1_fc16": 43,
+        "breakdown": {
+          "address_index": 202,
+          "name_checkpoints": 40,
+          "rank_map": 14,
+          "mode_tags": 5,
+          "dictionary": 256,
+          "name_pool": 1259,
+          "payload": 1776
+        },
+        "T": 128,
+        "mode_counts": {
+          "2": 1,
+          "0": 15,
+          "1": 4
+        }
+      },
+      "B16": {
+        "payload": 1743,
+        "diff_vs_b1_tok": 1,
+        "diff_vs_b1_fc16": 10,
+        "breakdown": {
+          "address_index": 183,
+          "name_checkpoints": 20,
+          "rank_map": 7,
+          "mode_tags": 3,
+          "dictionary": 256,
+          "name_pool": 1274,
+          "payload": 1743
+        },
+        "T": 128,
+        "mode_counts": {
+          "0": 9,
+          "1": 1
+        }
+      },
+      "B32": {
+        "payload": 1725,
+        "diff_vs_b1_tok": -17,
+        "diff_vs_b1_fc16": -8,
+        "breakdown": {
+          "address_index": 174,
+          "name_checkpoints": 10,
+          "rank_map": 0,
+          "mode_tags": 2,
+          "dictionary": 256,
+          "name_pool": 1283,
+          "payload": 1725
+        },
+        "T": 128,
+        "mode_counts": {
+          "0": 5
+        }
+      }
+    }
+  },
+  "shell_module_mps2": {
+    "N": 556,
+    "B1_B16_TOK_payload": 6331,
+    "B1_B16_FC16_payload": 5826,
+    "BLPR": {
+      "B8": {
+        "payload": 6183,
+        "diff_vs_b1_tok": -148,
+        "diff_vs_b1_fc16": 357,
+        "breakdown": {
+          "address_index": 808,
+          "name_checkpoints": 140,
+          "rank_map": 209,
+          "dictionary": 256,
+          "name_pool": 4770,
+          "payload": 6183
+        },
+        "T": 128,
+        "rbits": 3
+      },
+      "B16": {
+        "payload": 5923,
+        "diff_vs_b1_tok": -408,
+        "diff_vs_b1_fc16": 97,
+        "breakdown": {
+          "address_index": 707,
+          "name_checkpoints": 70,
+          "rank_map": 278,
+          "dictionary": 256,
+          "name_pool": 4612,
+          "payload": 5923
+        },
+        "T": 128,
+        "rbits": 4
+      },
+      "B32": {
+        "payload": 5784,
+        "diff_vs_b1_tok": -547,
+        "diff_vs_b1_fc16": -42,
+        "breakdown": {
+          "address_index": 656,
+          "name_checkpoints": 36,
+          "rank_map": 348,
+          "dictionary": 256,
+          "name_pool": 4488,
+          "payload": 5784
+        },
+        "T": 128,
+        "rbits": 5
+      }
+    },
+    "ALOB": {
+      "B8": {
+        "payload": 6121,
+        "diff_vs_b1_tok": -210,
+        "diff_vs_b1_fc16": 295,
+        "breakdown": {
+          "address_index": 808,
+          "name_checkpoints": 140,
+          "rank_map": 114,
+          "mode_tags": 18,
+          "dictionary": 256,
+          "name_pool": 4785,
+          "payload": 6121
+        },
+        "T": 128,
+        "mode_counts": {
+          "2": 11,
+          "1": 27,
+          "0": 32
+        }
+      },
+      "B16": {
+        "payload": 5955,
+        "diff_vs_b1_tok": -376,
+        "diff_vs_b1_fc16": 129,
+        "breakdown": {
+          "address_index": 707,
+          "name_checkpoints": 70,
+          "rank_map": 168,
+          "mode_tags": 9,
+          "dictionary": 256,
+          "name_pool": 4745,
+          "payload": 5955
+        },
+        "T": 128,
+        "mode_counts": {
+          "2": 11,
+          "0": 14,
+          "1": 10
+        }
+      },
+      "B32": {
+        "payload": 5903,
+        "diff_vs_b1_tok": -428,
+        "diff_vs_b1_fc16": 77,
+        "breakdown": {
+          "address_index": 656,
+          "name_checkpoints": 36,
+          "rank_map": 240,
+          "mode_tags": 5,
+          "dictionary": 256,
+          "name_pool": 4710,
+          "payload": 5903
+        },
+        "T": 128,
+        "mode_counts": {
+          "2": 7,
+          "0": 6,
+          "1": 5
+        }
+      }
+    }
+  },
+  "echo_server_mps2": {
+    "N": 1380,
+    "B1_B16_TOK_payload": 16227,
+    "B1_B16_FC16_payload": 14433,
+    "BLPR": {
+      "B8": {
+        "payload": 15193,
+        "diff_vs_b1_tok": -1034,
+        "diff_vs_b1_fc16": 760,
+        "breakdown": {
+          "address_index": 2259,
+          "name_checkpoints": 346,
+          "rank_map": 518,
+          "dictionary": 256,
+          "name_pool": 11814,
+          "payload": 15193
+        },
+        "T": 128,
+        "rbits": 3
+      },
+      "B16": {
+        "payload": 14400,
+        "diff_vs_b1_tok": -1827,
+        "diff_vs_b1_fc16": -33,
+        "breakdown": {
+          "address_index": 1921,
+          "name_checkpoints": 174,
+          "rank_map": 690,
+          "dictionary": 256,
+          "name_pool": 11359,
+          "payload": 14400
+        },
+        "T": 128,
+        "rbits": 4
+      },
+      "B32": {
+        "payload": 14074,
+        "diff_vs_b1_tok": -2153,
+        "diff_vs_b1_fc16": -359,
+        "breakdown": {
+          "address_index": 1755,
+          "name_checkpoints": 88,
+          "rank_map": 863,
+          "dictionary": 256,
+          "name_pool": 11112,
+          "payload": 14074
+        },
+        "T": 128,
+        "rbits": 5
+      }
+    },
+    "ALOB": {
+      "B8": {
+        "payload": 15421,
+        "diff_vs_b1_tok": -806,
+        "diff_vs_b1_fc16": 988,
+        "breakdown": {
+          "address_index": 2259,
+          "name_checkpoints": 346,
+          "rank_map": 356,
+          "mode_tags": 44,
+          "dictionary": 256,
+          "name_pool": 12160,
+          "payload": 15421
+        },
+        "T": 128,
+        "mode_counts": {
+          "1": 85,
+          "0": 54,
+          "2": 34
+        }
+      },
+      "B16": {
+        "payload": 14822,
+        "diff_vs_b1_tok": -1405,
+        "diff_vs_b1_fc16": 389,
+        "breakdown": {
+          "address_index": 1921,
+          "name_checkpoints": 174,
+          "rank_map": 538,
+          "mode_tags": 22,
+          "dictionary": 256,
+          "name_pool": 11911,
+          "payload": 14822
+        },
+        "T": 128,
+        "mode_counts": {
+          "1": 40,
+          "0": 19,
+          "2": 28
+        }
+      },
+      "B32": {
+        "payload": 14612,
+        "diff_vs_b1_tok": -1615,
+        "diff_vs_b1_fc16": 179,
+        "breakdown": {
+          "address_index": 1755,
+          "name_checkpoints": 88,
+          "rank_map": 763,
+          "mode_tags": 11,
+          "dictionary": 256,
+          "name_pool": 11739,
+          "payload": 14612
+        },
+        "T": 128,
+        "mode_counts": {
+          "1": 19,
+          "0": 5,
+          "2": 20
+        }
+      }
+    }
+  },
+  "hello_world_nrf52840": {
+    "N": 225,
+    "B1_B16_TOK_payload": 2484,
+    "B1_B16_FC16_payload": 2422,
+    "BLPR": {
+      "B8": {
+        "payload": 2550,
+        "diff_vs_b1_tok": 66,
+        "diff_vs_b1_fc16": 128,
+        "breakdown": {
+          "address_index": 302,
+          "name_checkpoints": 58,
+          "rank_map": 85,
+          "dictionary": 256,
+          "name_pool": 1849,
+          "payload": 2550
+        },
+        "T": 128,
+        "rbits": 3
+      },
+      "B16": {
+        "payload": 2474,
+        "diff_vs_b1_tok": -10,
+        "diff_vs_b1_fc16": 52,
+        "breakdown": {
+          "address_index": 275,
+          "name_checkpoints": 30,
+          "rank_map": 113,
+          "dictionary": 256,
+          "name_pool": 1800,
+          "payload": 2474
+        },
+        "T": 128,
+        "rbits": 4
+      },
+      "B32": {
+        "payload": 2439,
+        "diff_vs_b1_tok": -45,
+        "diff_vs_b1_fc16": 17,
+        "breakdown": {
+          "address_index": 262,
+          "name_checkpoints": 16,
+          "rank_map": 141,
+          "dictionary": 256,
+          "name_pool": 1764,
+          "payload": 2439
+        },
+        "T": 128,
+        "rbits": 5
+      }
+    },
+    "ALOB": {
+      "B8": {
+        "payload": 2518,
+        "diff_vs_b1_tok": 34,
+        "diff_vs_b1_fc16": 96,
+        "breakdown": {
+          "address_index": 302,
+          "name_checkpoints": 58,
+          "rank_map": 21,
+          "mode_tags": 8,
+          "dictionary": 256,
+          "name_pool": 1873,
+          "payload": 2518
+        },
+        "T": 128,
+        "mode_counts": {
+          "2": 4,
+          "0": 22,
+          "1": 3
+        }
+      },
+      "B16": {
+        "payload": 2469,
+        "diff_vs_b1_tok": -15,
+        "diff_vs_b1_fc16": 47,
+        "breakdown": {
+          "address_index": 275,
+          "name_checkpoints": 30,
+          "rank_map": 32,
+          "mode_tags": 4,
+          "dictionary": 256,
+          "name_pool": 1872,
+          "payload": 2469
+        },
+        "T": 128,
+        "mode_counts": {
+          "0": 11,
+          "2": 3,
+          "1": 1
+        }
+      },
+      "B32": {
+        "payload": 2445,
+        "diff_vs_b1_tok": -39,
+        "diff_vs_b1_fc16": 23,
+        "breakdown": {
+          "address_index": 262,
+          "name_checkpoints": 16,
+          "rank_map": 40,
+          "mode_tags": 2,
+          "dictionary": 256,
+          "name_pool": 1869,
+          "payload": 2445
+        },
+        "T": 128,
+        "mode_counts": {
+          "0": 6,
+          "2": 2
+        }
+      }
+    }
+  }
+}

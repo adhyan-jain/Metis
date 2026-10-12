@@ -1,0 +1,2 @@
+# Load Zephyr board defconfig descriptions.
+osource "/home/adhyan/Desktop/Compiler/corpora/zephyr/boards/arm/mps2/Kconfig.defconfig"

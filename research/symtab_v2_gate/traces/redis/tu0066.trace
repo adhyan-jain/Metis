@@ -1,0 +1,580 @@
+D size_t 0 1
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D u8 0 0
+D LZF_HSLOT 0 0
+U u8 0 0
+D LZF_STATE 0 0
+U LZF_HSLOT 0 0
+D u16 0 0
+D __errno_location 0 1
+D lzf_decompress 0 0
+E
+U size_t 1 0
+D in_data 1 0
+D in_len 1 0
+U size_t 1 0
+D out_data 1 0
+D out_len 1 0
+U size_t 1 0
+E
+D ip 2 0
+U u8 2 0
+U u8 2 0
+U in_data 2 0
+D op 2 0
+U u8 2 0
+U u8 2 0
+U out_data 2 0
+D in_end 2 0
+U u8 2 0
+U ip 2 0
+U in_len 2 0
+D out_end 2 0
+U u8 2 0
+U op 2 0
+U out_len 2 0
+U ip 2 0
+U in_end 2 0
+E
+D ctrl 3 0
+U ctrl 3 0
+U ip 3 0
+U ctrl 3 0
+E
+U ctrl 4 0
+U op 4 0
+U ctrl 4 0
+U out_end 4 0
+E
+U __errno_location 5 0
+X
+U ip 4 0
+U ctrl 4 0
+U in_end 4 0
+E
+U __errno_location 5 0
+X
+U ctrl 4 0
+E
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+U op 5 0
+U ip 5 0
+X
+X
+E
+D len 4 0
+U ctrl 4 0
+D ref 4 0
+U u8 4 0
+U op 4 0
+U ctrl 4 0
+U ip 4 0
+U in_end 4 0
+E
+U __errno_location 5 0
+X
+U len 4 0
+E
+U len 5 0
+U ip 5 0
+U ip 5 0
+U in_end 5 0
+E
+U __errno_location 6 0
+X
+X
+U ref 4 0
+U ip 4 0
+U op 4 0
+U len 4 0
+U out_end 4 0
+E
+U __errno_location 5 0
+X
+U ref 4 0
+U u8 4 0
+U out_data 4 0
+E
+U __errno_location 5 0
+X
+U len 4 0
+E
+U len 5 0
+U op 5 0
+U ref 5 0
+U len 5 0
+E
+U memcpy 6 0
+U op 6 0
+U ref 6 0
+U len 6 0
+U op 6 0
+U len 6 0
+X
+E
+U op 6 0
+U ref 6 0
+U len 6 0
+X
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+U op 5 0
+U ref 5 0
+X
+X
+X
+U op 2 0
+U u8 2 0
+U out_data 2 0
+X
+X

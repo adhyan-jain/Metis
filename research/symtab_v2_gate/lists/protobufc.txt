@@ -1,0 +1,1 @@
+/home/adhyan/Desktop/Compiler/corpora/protobuf-c/protobuf-c/protobuf-c.c|-x c -std=gnu11 -resource-dir /usr/lib/clang/22 -w -ferror-limit=0 -I/home/adhyan/Desktop/Compiler/corpora/protobuf-c -I/home/adhyan/Desktop/Compiler/corpora/protobuf-c/protobuf-c

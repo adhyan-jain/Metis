@@ -1,0 +1,7 @@
+corpus,tus,mean_distinct_names,mean_name_bytes,ideal_frontcoding_saving_bytes,saving_pct_of_name_bytes,saving_pct_of_ScopedId_peak,saving_pct_of_Conv_peak
+lua,34,941,8216,3927,47.8,5.7,5.0
+cjson,3,1040,9276,4832,52.1,5.4,5.6
+protobufc,1,721,7770,3777,48.6,6.9,6.7
+freertos,9,717,8656,3646,42.1,7.2,6.0
+redisdeps,12,1474,20162,11671,57.9,9.4,8.3
+redis,119,4549,60747,30756,50.6,9.0,7.4

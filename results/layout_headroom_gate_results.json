@@ -1,0 +1,254 @@
+[
+  {
+    "workload": "hello_world_mps2",
+    "symbols": 157,
+    "stock_image_bytes": 19792,
+    "cand_b1_bytes": 17576,
+    "tok_addr_bytes": 1526,
+    "tok_lex_bytes": 1393,
+    "tok_saved_bytes": 133,
+    "tok_pct_reduction": 8.715596330275229,
+    "tok_pct_of_stock": 0.671988682295877,
+    "tok_pct_of_b1": 0.7567137005006828,
+    "pure_addr_bytes": 2490,
+    "pure_lex_bytes": 2158,
+    "pure_saved_bytes": 332,
+    "pure_pct_reduction": 13.333333333333334,
+    "pure_pct_of_stock": 1.677445432497979,
+    "placeable": 0,
+    "total_syms": 157,
+    "pct_placeable": 0.0,
+    "non_placeable_sample": [
+      [
+        "__aeabi_memclr8",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr4",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr",
+        "section=text"
+      ],
+      [
+        "__aeabi_uldivmod",
+        "section=text"
+      ],
+      [
+        "__aeabi_ldivmod",
+        "section=text"
+      ],
+      [
+        "z_cbvprintf_impl",
+        "section=text"
+      ],
+      [
+        "encode_uint",
+        "section=text"
+      ],
+      [
+        "z_SysNmiOnReset",
+        "section=text"
+      ],
+      [
+        "z_arm_fault",
+        "section=text"
+      ],
+      [
+        "z_arm_hard_fault",
+        "section=text"
+      ]
+    ],
+    "non_placeable_count": 157
+  },
+  {
+    "workload": "shell_module_mps2",
+    "symbols": 556,
+    "stock_image_bytes": 89112,
+    "cand_b1_bytes": 80664,
+    "tok_addr_bytes": 5148,
+    "tok_lex_bytes": 4488,
+    "tok_saved_bytes": 660,
+    "tok_pct_reduction": 12.82051282051282,
+    "tok_pct_of_stock": 0.7406409911123081,
+    "tok_pct_of_b1": 0.818208866408807,
+    "pure_addr_bytes": 8555,
+    "pure_lex_bytes": 6871,
+    "pure_saved_bytes": 1684,
+    "pure_pct_reduction": 19.684395090590296,
+    "pure_pct_of_stock": 1.8897567106562527,
+    "placeable": 0,
+    "total_syms": 556,
+    "pct_placeable": 0.0,
+    "non_placeable_sample": [
+      [
+        "strcmp",
+        "section=text"
+      ],
+      [
+        "strcpy",
+        "section=text"
+      ],
+      [
+        "strlen",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr8",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr4",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr",
+        "section=text"
+      ],
+      [
+        "__aeabi_uldivmod",
+        "section=text"
+      ],
+      [
+        "__aeabi_ldivmod",
+        "section=text"
+      ],
+      [
+        "cmd_demo_hexdump",
+        "section=text"
+      ],
+      [
+        "cmd_demo_params",
+        "section=text"
+      ]
+    ],
+    "non_placeable_count": 556
+  },
+  {
+    "workload": "echo_server_mps2",
+    "symbols": 1380,
+    "stock_image_bytes": 291936,
+    "cand_b1_bytes": 269808,
+    "tok_addr_bytes": 12530,
+    "tok_lex_bytes": 10656,
+    "tok_saved_bytes": 1874,
+    "tok_pct_reduction": 14.956105347166801,
+    "tok_pct_of_stock": 0.6419215170448318,
+    "tok_pct_of_b1": 0.694567989088537,
+    "pure_addr_bytes": 20309,
+    "pure_lex_bytes": 16133,
+    "pure_saved_bytes": 4176,
+    "pure_pct_reduction": 20.562312275345906,
+    "pure_pct_of_stock": 1.4304505097007563,
+    "placeable": 0,
+    "total_syms": 1380,
+    "pct_placeable": 0.0,
+    "non_placeable_sample": [
+      [
+        "strcmp",
+        "section=text"
+      ],
+      [
+        "strcpy",
+        "section=text"
+      ],
+      [
+        "strlen",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr8",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr4",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr",
+        "section=text"
+      ],
+      [
+        "__aeabi_uldivmod",
+        "section=text"
+      ],
+      [
+        "__aeabi_ldivmod",
+        "section=text"
+      ],
+      [
+        "process_udp4",
+        "section=text"
+      ],
+      [
+        "print_stats",
+        "section=text, duplicate_static_count=2"
+      ]
+    ],
+    "non_placeable_count": 1380
+  },
+  {
+    "workload": "hello_world_nrf52840",
+    "symbols": 225,
+    "stock_image_bytes": 30200,
+    "cand_b1_bytes": 27084,
+    "tok_addr_bytes": 2172,
+    "tok_lex_bytes": 1928,
+    "tok_saved_bytes": 244,
+    "tok_pct_reduction": 11.233885819521179,
+    "tok_pct_of_stock": 0.8079470198675496,
+    "tok_pct_of_b1": 0.9009009009009009,
+    "pure_addr_bytes": 3606,
+    "pure_lex_bytes": 3033,
+    "pure_saved_bytes": 573,
+    "pure_pct_reduction": 15.89018302828619,
+    "pure_pct_of_stock": 1.8973509933774835,
+    "placeable": 0,
+    "total_syms": 225,
+    "pct_placeable": 0.0,
+    "non_placeable_sample": [
+      [
+        "__aeabi_memclr8",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr4",
+        "section=text"
+      ],
+      [
+        "__aeabi_memclr",
+        "section=text"
+      ],
+      [
+        "__aeabi_uldivmod",
+        "section=text"
+      ],
+      [
+        "__aeabi_ldivmod",
+        "section=text"
+      ],
+      [
+        "process_event",
+        "section=text"
+      ],
+      [
+        "onoff_cancel",
+        "section=text"
+      ],
+      [
+        "z_SysNmiOnReset",
+        "section=text"
+      ],
+      [
+        "z_arm_fault",
+        "section=text"
+      ],
+      [
+        "z_arm_hard_fault",
+        "section=text"
+      ]
+    ],
+    "non_placeable_count": 225
+  }
+]

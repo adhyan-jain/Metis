@@ -1,0 +1,5 @@
+workload,whole_image_bytes,total_functions,matched_functions,match_pct,raw_duplicate_bytes,unique_matched_bytes,mech_a_net_bytes,mech_a_pct_image,mech_a_pass,mech_b_net_bytes,mech_b_pct_image,mech_b_pass,abs_upper_bound_bytes,abs_upper_bound_pct,abs_bound_pass
+hello_world_mps2,17568,157,1,0.64,5,5,-51.6,-0.294,False,-51.6,-0.294,False,5,0.028,False
+shell_module_mps2,80624,556,6,1.08,41,41,-75.6,-0.094,False,-75.6,-0.094,False,41,0.051,False
+echo_server_mps2,269448,1380,16,1.16,148,148,-128.2,-0.048,False,-128.2,-0.048,False,148,0.055,False
+hello_world_nrf52840,27120,225,1,0.44,5,5,-60.2,-0.222,False,-60.2,-0.222,False,5,0.018,False

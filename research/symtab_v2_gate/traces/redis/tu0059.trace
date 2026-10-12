@@ -1,0 +1,351 @@
+D size_t 0 1
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D time_t 0 1
+U __time_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D clock 0 1
+U clock_t 0 1
+D time 0 1
+E
+U time_t 1 1
+D __timer 1 1
+U time_t 1 1
+X
+D difftime 0 1
+E
+D __time1 1 1
+U time_t 1 1
+D __time0 1 1
+U time_t 1 1
+X
+D mktime 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D strftime 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+X
+D strftime_l 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __maxsize 1 1
+U size_t 1 1
+D __format 1 1
+D __tp 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D gmtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D localtime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D gmtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D localtime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __tp 1 1
+X
+D asctime 0 1
+E
+D __tp 1 1
+X
+D ctime 0 1
+E
+D __timer 1 1
+U time_t 1 1
+X
+D asctime_r 0 1
+E
+D __tp 1 1
+D __buf 1 1
+X
+D ctime_r 0 1
+E
+D __timer 1 1
+U time_t 1 1
+D __buf 1 1
+X
+D __tzname 0 1
+D __daylight 0 1
+D __timezone 0 1
+D tzname 0 1
+D tzset 0 1
+D daylight 0 1
+D timezone 0 1
+D timegm 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D timelocal 0 1
+E
+U time_t 1 1
+D __tp 1 1
+X
+D dysize 0 1
+E
+D __year 1 1
+X
+D nanosleep 0 1
+E
+D __requested_time 1 1
+D __remaining 1 1
+X
+D clock_getres 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __res 1 1
+X
+D clock_gettime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_settime 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __tp 1 1
+X
+D clock_nanosleep 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __flags 1 1
+D __req 1 1
+D __rem 1 1
+X
+D clock_getcpuclockid 0 1
+E
+D __pid 1 1
+U pid_t 1 1
+D __clock_id 1 1
+U clockid_t 1 1
+X
+D timer_create 0 1
+E
+D __clock_id 1 1
+U clockid_t 1 1
+D __evp 1 1
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_delete 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timer_settime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __flags 1 1
+D __value 1 1
+D __ovalue 1 1
+X
+D timer_gettime 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+D __value 1 1
+X
+D timer_getoverrun 0 1
+E
+D __timerid 1 1
+U timer_t 1 1
+X
+D timespec_get 0 1
+E
+D __ts 1 1
+D __base 1 1
+X
+D is_leap_year 0 0
+E
+D year 1 0
+U time_t 1 0
+E
+U year 2 0
+U year 2 0
+U year 2 0
+X
+X
+D nolocks_localtime 0 0
+E
+D tmp 1 0
+D t 1 0
+U time_t 1 0
+D tz 1 0
+U time_t 1 0
+D dst 1 0
+E
+D secs_min 2 0
+U time_t 2 0
+D secs_hour 2 0
+U time_t 2 0
+D secs_day 2 0
+U time_t 2 0
+U t 2 0
+U tz 2 0
+U t 2 0
+U dst 2 0
+D days 2 0
+U time_t 2 0
+U t 2 0
+U secs_day 2 0
+D seconds 2 0
+U time_t 2 0
+U t 2 0
+U secs_day 2 0
+U tmp 2 0
+U dst 2 0
+U tmp 2 0
+U seconds 2 0
+U secs_hour 2 0
+U tmp 2 0
+U seconds 2 0
+U secs_hour 2 0
+U secs_min 2 0
+U tmp 2 0
+U seconds 2 0
+U secs_hour 2 0
+U secs_min 2 0
+U tmp 2 0
+U days 2 0
+U tmp 2 0
+E
+D days_this_year 3 0
+U time_t 3 0
+U is_leap_year 3 0
+U tmp 3 0
+U days_this_year 3 0
+U days 3 0
+U days 3 0
+U days_this_year 3 0
+U tmp 3 0
+X
+U tmp 2 0
+U days 2 0
+D mdays 2 0
+U mdays 2 0
+U is_leap_year 2 0
+U tmp 2 0
+U tmp 2 0
+U days 2 0
+U mdays 2 0
+U tmp 2 0
+E
+U days 3 0
+U mdays 3 0
+U tmp 3 0
+U tmp 3 0
+X
+U tmp 2 0
+U days 2 0
+U tmp 2 0
+X
+X

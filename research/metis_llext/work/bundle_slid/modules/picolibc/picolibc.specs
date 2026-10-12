@@ -1,0 +1,26 @@
+%rename link	picolibc_link
+%rename cpp	picolibc_cpp
+%rename cc1	picolibc_cc1
+%rename cc1plus	picolibc_cc1plus
+
+*cpp:
+-isystem /home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc/ %{-printf=*: -D_PICOLIBC_PRINTF='%*'} %{-scanf=*: -D_PICOLIBC_SCANF='%*'} %(picolibc_cpp)
+
+*cc1:
+  %(picolibc_cc1) 
+
+*cc1plus:
+-isystem /home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc/   %(picolibc_cc1plus)  
+
+*link:
+%{DPICOLIBC_FLOAT_PRINTF_SCANF:--defsym=vfprintf=__f_vfprintf} %{DPICOLIBC_FLOAT_PRINTF_SCANF:--defsym=vfscanf=__f_vfscanf} %{DPICOLIBC_DOUBLE_PRINTF_SCANF:--defsym=vfprintf=__d_vfprintf} %{DPICOLIBC_DOUBLE_PRINTF_SCANF:--defsym=vfscanf=__d_vfscanf} %{DPICOLIBC_INTEGER_PRINTF_SCANF:--defsym=vfprintf=__i_vfprintf} %{DPICOLIBC_INTEGER_PRINTF_SCANF:--defsym=vfscanf=__i_vfscanff} %{DPICOLIBC_MINIMAL_PRINTF_SCANF:--defsym=vfprintf=__m_vfprintf} %{DPICOLIBC_MINIMAL_PRINTF_SCANF:--defsym=vfscanf=__i_vfscanff} -L/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc %{-printf=*:--defsym=/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibcvfprintf=/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc__%*_vfprintf} %{-scanf=*:--defsym=/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibcvfscanf=/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc__%*_vfscanf} %{!T:-T} %(picolibc_link) --gc-sections 
+
+*lib:
+--start-group %(libgcc)  -lc %{-oslib=*:-l%*} --end-group
+
+*endfile:
+
+
+*startfile:
+/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/modules/picolibc/crt0.o 
+

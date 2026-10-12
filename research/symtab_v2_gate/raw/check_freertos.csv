@@ -1,0 +1,16 @@
+mode,workload,impl,rep,metric,value
+check,freertos,Conventional,0,mismatches,0
+check,freertos,Interned,0,mismatches,0
+check,freertos,AbslFlat,0,mismatches,0
+check,freertos,ScopedId,0,mismatches,0
+check,freertos,V2,0,mismatches,0
+check,freertos,V2_noFingerprint,0,mismatches,0
+check,freertos,V2_noReclaim,0,mismatches,0
+check,freertos,V2_fixedInterned,0,mismatches,0
+check,freertos,V2_noCompress,0,mismatches,0
+check,freertos,V2_compressFirst,0,mismatches,0
+check,freertos,V2abl_identity,0,mismatches,0
+check,freertos,V2_noSlotRecycle,0,mismatches,0
+check,freertos,V2_noSeenMap_diag,0,mismatches,0
+check,freertos,V2_noSeenMap_noCompress_diag,0,mismatches,0
+check,freertos,V2_noSeenMap_fixedInterned_diag,0,mismatches,0

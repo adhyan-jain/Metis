@@ -1,0 +1,31 @@
+best fixed V2 variant on selection set: V2
+
+[selection] ['lua', 'cjson'] TUs=37 mean peak KiB:
+  V2 default                                           162.0
+  selection-chosen fixed (V2)                          162.0
+  oracle over V2 variants (upper bound)                162.0
+  Conventional                                          76.9
+  AbslFlat                                              80.7
+  ScopedId                                              68.6
+  oracle-over-V2 picks: {'V2': 37}
+  V2 default regret vs V2-oracle: 0.0% ; best-V2-oracle / best baseline = 2.36x
+
+[validation] ['protobufc', 'freertos', 'redisdeps'] TUs=22 mean peak KiB:
+  V2 default                                           213.9
+  selection-chosen fixed (V2)                          213.9
+  oracle over V2 variants (upper bound)                213.9
+  Conventional                                         101.7
+  AbslFlat                                              92.0
+  ScopedId                                              88.6
+  oracle-over-V2 picks: {'V2': 22}
+  V2 default regret vs V2-oracle: 0.0% ; best-V2-oracle / best baseline = 2.41x
+
+[heldout_test] ['redis'] TUs=119 mean peak KiB:
+  V2 default                                           909.9
+  selection-chosen fixed (V2)                          909.9
+  oracle over V2 variants (upper bound)                909.9
+  Conventional                                         407.7
+  AbslFlat                                             385.7
+  ScopedId                                             333.6
+  oracle-over-V2 picks: {'V2': 119}
+  V2 default regret vs V2-oracle: 0.0% ; best-V2-oracle / best baseline = 2.73x

@@ -1,0 +1,67 @@
+[
+  {
+    "bundle": "W1 sample/modules: 1 ext",
+    "N": 202,
+    "F": 0,
+    "D": 1699,
+    "slid_base": 1616,
+    "ext_bind": 83,
+    "cand_c_base_table": 1212,
+    "loader_delta": 60,
+    "saving_bytes": 344,
+    "saving_pct_D": 20.25,
+    "deliverable_saving_pct": 0.652
+  },
+  {
+    "bundle": "W5 test base + 1 ext (hello_world)",
+    "N": 233,
+    "F": 13,
+    "D": 2192,
+    "slid_base": 1864,
+    "ext_bind": 328,
+    "cand_c_base_table": 1452,
+    "loader_delta": 60,
+    "saving_bytes": 352,
+    "saving_pct_D": 16.06,
+    "deliverable_saving_pct": 0.245
+  },
+  {
+    "bundle": "W2 test base + 3 ext",
+    "N": 233,
+    "F": 13,
+    "D": 2802,
+    "slid_base": 1864,
+    "ext_bind": 938,
+    "cand_c_base_table": 1452,
+    "loader_delta": 60,
+    "saving_bytes": 352,
+    "saving_pct_D": 12.56,
+    "deliverable_saving_pct": 0.237
+  },
+  {
+    "bundle": "W3 test base + 6 ext",
+    "N": 233,
+    "F": 13,
+    "D": 4074,
+    "slid_base": 1864,
+    "ext_bind": 2210,
+    "cand_c_base_table": 1452,
+    "loader_delta": 60,
+    "saving_bytes": 352,
+    "saving_pct_D": 8.64,
+    "deliverable_saving_pct": 0.223
+  },
+  {
+    "bundle": "W4 test base + all 12 ext",
+    "N": 233,
+    "F": 13,
+    "D": 6791,
+    "slid_base": 1864,
+    "ext_bind": 4927,
+    "cand_c_base_table": 1452,
+    "loader_delta": 60,
+    "saving_bytes": 352,
+    "saving_pct_D": 5.18,
+    "deliverable_saving_pct": 0.188
+  }
+]

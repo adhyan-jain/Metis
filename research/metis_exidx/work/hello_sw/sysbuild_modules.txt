@@ -1,0 +1,1 @@
+"mcuboot":"/home/adhyan/Desktop/Compiler/corpora/bootloader/mcuboot":"/home/adhyan/Desktop/Compiler/corpora/bootloader/mcuboot/boot/zephyr/sysbuild"

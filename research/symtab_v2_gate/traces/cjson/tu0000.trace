@@ -1,0 +1,8316 @@
+D size_t 0 1
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __gnuc_va_list 0 1
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D __mbstate_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+D __fpos_t 0 1
+U __off_t 0 1
+U __mbstate_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __fpos64_t 0 1
+U __off64_t 0 1
+U __mbstate_t 0 1
+D __FILE 0 1
+D FILE 0 1
+D _IO_lock_t 0 1
+U __off_t 0 1
+U _IO_lock_t 0 1
+U __off64_t 0 1
+U __uint64_t 0 1
+D cookie_read_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_write_function_t 0 1
+U __ssize_t 0 1
+D __cookie 0 1
+D __buf 0 1
+D __nbytes 0 1
+U size_t 0 1
+D cookie_seek_function_t 0 1
+D __cookie 0 1
+D __pos 0 1
+U __off64_t 0 1
+D __w 0 1
+D cookie_close_function_t 0 1
+D __cookie 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D cookie_io_functions_t 0 1
+U cookie_read_function_t 0 1
+U cookie_write_function_t 0 1
+U cookie_seek_function_t 0 1
+U cookie_close_function_t 0 1
+D va_list 0 1
+U __gnuc_va_list 0 1
+D off_t 0 1
+U __off_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D fpos_t 0 1
+U __fpos_t 0 1
+D stdin 0 1
+U FILE 0 1
+D stdout 0 1
+U FILE 0 1
+D stderr 0 1
+U FILE 0 1
+D remove 0 1
+E
+D __filename 1 1
+X
+D rename 0 1
+E
+D __old 1 1
+D __new 1 1
+X
+D renameat 0 1
+E
+D __oldfd 1 1
+D __old 1 1
+D __newfd 1 1
+D __new 1 1
+X
+D fclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D tmpfile 0 1
+U FILE 0 1
+D tmpnam 0 1
+E
+X
+D tmpnam_r 0 1
+E
+D __s 1 1
+X
+D tempnam 0 1
+E
+D __dir 1 1
+D __pfx 1 1
+X
+D fflush 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fflush_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+X
+D freopen 0 1
+E
+U FILE 1 1
+D __filename 1 1
+D __modes 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fdopen 0 1
+E
+U FILE 1 1
+D __fd 1 1
+D __modes 1 1
+X
+D fopencookie 0 1
+E
+U FILE 1 1
+D __magic_cookie 1 1
+D __modes 1 1
+D __io_funcs 1 1
+U cookie_io_functions_t 1 1
+X
+D fmemopen 0 1
+E
+U FILE 1 1
+D __s 1 1
+D __len 1 1
+U size_t 1 1
+D __modes 1 1
+X
+D open_memstream 0 1
+E
+U FILE 1 1
+D __bufloc 1 1
+D __sizeloc 1 1
+U size_t 1 1
+X
+D setbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+X
+D setvbuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __modes 1 1
+D __n 1 1
+U size_t 1 1
+X
+D setbuffer 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D setlinebuf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fprintf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D printf 0 1
+E
+D __format 1 1
+X
+D sprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfprintf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vprintf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsprintf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D snprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+X
+D vsnprintf 0 1
+E
+D __s 1 1
+D __maxlen 1 1
+U size_t 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vasprintf 0 1
+E
+D __ptr 1 1
+D __f 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D __asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D asprintf 0 1
+E
+D __ptr 1 1
+D __fmt 1 1
+X
+D vdprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D dprintf 0 1
+E
+D __fd 1 1
+D __fmt 1 1
+X
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D fscanf 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __format 1 1
+X
+D scanf 0 1
+E
+D __format 1 1
+X
+D sscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vfscanf 0 1
+E
+D __s 1 1
+U FILE 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vscanf 0 1
+E
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D vsscanf 0 1
+E
+D __s 1 1
+D __format 1 1
+D __arg 1 1
+U __gnuc_va_list 1 1
+X
+D fgetc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getc 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar 0 1
+D getc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D getchar_unlocked 0 1
+D fgetc_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fputc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar 0 1
+E
+D __c 1 1
+X
+D fputc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putc_unlocked 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D putchar_unlocked 0 1
+E
+D __c 1 1
+X
+D getw 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D putw 0 1
+E
+D __w 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgets 0 1
+E
+D __s 1 1
+D __n 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D __getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getdelim 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __delimiter 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D getline 0 1
+E
+U __ssize_t 1 1
+D __lineptr 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fputs 0 1
+E
+D __s 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D puts 0 1
+E
+D __s 1 1
+X
+D ungetc 0 1
+E
+D __c 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fread 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __s 1 1
+U FILE 1 1
+X
+D fread_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fwrite_unlocked 0 1
+E
+U size_t 1 1
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+D __n 1 1
+U size_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fseek 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+D __whence 1 1
+X
+D ftell 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D rewind 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fseeko 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __off 1 1
+U __off_t 1 1
+D __whence 1 1
+X
+D ftello 0 1
+E
+U __off_t 1 1
+D __stream 1 1
+U FILE 1 1
+X
+D fgetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D fsetpos 0 1
+E
+D __stream 1 1
+U FILE 1 1
+D __pos 1 1
+U fpos_t 1 1
+X
+D clearerr 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D clearerr_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D feof_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ferror_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D perror 0 1
+E
+D __s 1 1
+X
+D fileno 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D fileno_unlocked 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D pclose 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D popen 0 1
+E
+U FILE 1 1
+D __command 1 1
+D __modes 1 1
+X
+D ctermid 0 1
+E
+D __s 1 1
+X
+D flockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D ftrylockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D funlockfile 0 1
+E
+D __stream 1 1
+U FILE 1 1
+X
+D __uflow 0 1
+E
+U FILE 1 1
+X
+D __overflow 0 1
+E
+U FILE 1 1
+X
+D float_t 0 1
+D double_t 0 1
+D __fpclassify 0 1
+E
+D __value 1 1
+X
+D __signbit 0 1
+E
+D __value 1 1
+X
+D __isinf 0 1
+E
+D __value 1 1
+X
+D __finite 0 1
+E
+D __value 1 1
+X
+D __isnan 0 1
+E
+D __value 1 1
+X
+D __iseqsig 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignaling 0 1
+E
+D __value 1 1
+X
+D acos 0 1
+E
+D __x 1 1
+X
+D __acos 0 1
+E
+D __x 1 1
+X
+D asin 0 1
+E
+D __x 1 1
+X
+D __asin 0 1
+E
+D __x 1 1
+X
+D atan 0 1
+E
+D __x 1 1
+X
+D __atan 0 1
+E
+D __x 1 1
+X
+D atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cos 0 1
+E
+D __x 1 1
+X
+D __cos 0 1
+E
+D __x 1 1
+X
+D sin 0 1
+E
+D __x 1 1
+X
+D __sin 0 1
+E
+D __x 1 1
+X
+D tan 0 1
+E
+D __x 1 1
+X
+D __tan 0 1
+E
+D __x 1 1
+X
+D cosh 0 1
+E
+D __x 1 1
+X
+D __cosh 0 1
+E
+D __x 1 1
+X
+D sinh 0 1
+E
+D __x 1 1
+X
+D __sinh 0 1
+E
+D __x 1 1
+X
+D tanh 0 1
+E
+D __x 1 1
+X
+D __tanh 0 1
+E
+D __x 1 1
+X
+D acosh 0 1
+E
+D __x 1 1
+X
+D __acosh 0 1
+E
+D __x 1 1
+X
+D asinh 0 1
+E
+D __x 1 1
+X
+D __asinh 0 1
+E
+D __x 1 1
+X
+D atanh 0 1
+E
+D __x 1 1
+X
+D __atanh 0 1
+E
+D __x 1 1
+X
+D exp 0 1
+E
+D __x 1 1
+X
+D __exp 0 1
+E
+D __x 1 1
+X
+D frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexp 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D log 0 1
+E
+D __x 1 1
+X
+D __log 0 1
+E
+D __x 1 1
+X
+D log10 0 1
+E
+D __x 1 1
+X
+D __log10 0 1
+E
+D __x 1 1
+X
+D modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modf 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1 0 1
+E
+D __x 1 1
+X
+D __expm1 0 1
+E
+D __x 1 1
+X
+D log1p 0 1
+E
+D __x 1 1
+X
+D __log1p 0 1
+E
+D __x 1 1
+X
+D logb 0 1
+E
+D __x 1 1
+X
+D __logb 0 1
+E
+D __x 1 1
+X
+D exp2 0 1
+E
+D __x 1 1
+X
+D __exp2 0 1
+E
+D __x 1 1
+X
+D log2 0 1
+E
+D __x 1 1
+X
+D __log2 0 1
+E
+D __x 1 1
+X
+D pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __pow 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrt 0 1
+E
+D __x 1 1
+X
+D __sqrt 0 1
+E
+D __x 1 1
+X
+D hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypot 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrt 0 1
+E
+D __x 1 1
+X
+D __cbrt 0 1
+E
+D __x 1 1
+X
+D ceil 0 1
+E
+D __x 1 1
+X
+D fabs 0 1
+E
+D __x 1 1
+X
+D floor 0 1
+E
+D __x 1 1
+X
+D fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmod 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinf 0 1
+E
+D __value 1 1
+X
+D finite 0 1
+E
+D __value 1 1
+X
+D drem 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __drem 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significand 0 1
+E
+D __x 1 1
+X
+D __significand 0 1
+E
+D __x 1 1
+X
+D copysign 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nan 0 1
+E
+D __tagb 1 1
+X
+D __nan 0 1
+E
+D __tagb 1 1
+X
+D isnan 0 1
+E
+D __value 1 1
+X
+D j0 0 1
+E
+X
+D __j0 0 1
+E
+X
+D j1 0 1
+E
+X
+D __j1 0 1
+E
+X
+D jn 0 1
+E
+X
+D __jn 0 1
+E
+X
+D y0 0 1
+E
+X
+D __y0 0 1
+E
+X
+D y1 0 1
+E
+X
+D __y1 0 1
+E
+X
+D yn 0 1
+E
+X
+D __yn 0 1
+E
+X
+D erf 0 1
+E
+X
+D __erf 0 1
+E
+X
+D erfc 0 1
+E
+X
+D __erfc 0 1
+E
+X
+D lgamma 0 1
+E
+X
+D __lgamma 0 1
+E
+X
+D tgamma 0 1
+E
+X
+D __tgamma 0 1
+E
+X
+D gamma 0 1
+E
+X
+D __gamma 0 1
+E
+X
+D lgamma_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgamma_r 0 1
+E
+D __signgamp 1 1
+X
+D rint 0 1
+E
+D __x 1 1
+X
+D __rint 0 1
+E
+D __x 1 1
+X
+D nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafter 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttoward 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainder 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbn 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogb 0 1
+E
+D __x 1 1
+X
+D __ilogb 0 1
+E
+D __x 1 1
+X
+D scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbln 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyint 0 1
+E
+D __x 1 1
+X
+D __nearbyint 0 1
+E
+D __x 1 1
+X
+D round 0 1
+E
+D __x 1 1
+X
+D trunc 0 1
+E
+D __x 1 1
+X
+D remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquo 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrint 0 1
+E
+D __x 1 1
+X
+D __lrint 0 1
+E
+D __x 1 1
+X
+D llrint 0 1
+E
+D __x 1 1
+X
+D __llrint 0 1
+E
+D __x 1 1
+X
+D lround 0 1
+E
+D __x 1 1
+X
+D __lround 0 1
+E
+D __x 1 1
+X
+D llround 0 1
+E
+D __x 1 1
+X
+D __llround 0 1
+E
+D __x 1 1
+X
+D fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdim 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmax 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmin 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fma 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalb 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyf 0 1
+E
+D __value 1 1
+X
+D __signbitf 0 1
+E
+D __value 1 1
+X
+D __isinff 0 1
+E
+D __value 1 1
+X
+D __finitef 0 1
+E
+D __value 1 1
+X
+D __isnanf 0 1
+E
+D __value 1 1
+X
+D __iseqsigf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingf 0 1
+E
+D __value 1 1
+X
+D acosf 0 1
+E
+D __x 1 1
+X
+D __acosf 0 1
+E
+D __x 1 1
+X
+D asinf 0 1
+E
+D __x 1 1
+X
+D __asinf 0 1
+E
+D __x 1 1
+X
+D atanf 0 1
+E
+D __x 1 1
+X
+D __atanf 0 1
+E
+D __x 1 1
+X
+D atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2f 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosf 0 1
+E
+D __x 1 1
+X
+D __cosf 0 1
+E
+D __x 1 1
+X
+D sinf 0 1
+E
+D __x 1 1
+X
+D __sinf 0 1
+E
+D __x 1 1
+X
+D tanf 0 1
+E
+D __x 1 1
+X
+D __tanf 0 1
+E
+D __x 1 1
+X
+D coshf 0 1
+E
+D __x 1 1
+X
+D __coshf 0 1
+E
+D __x 1 1
+X
+D sinhf 0 1
+E
+D __x 1 1
+X
+D __sinhf 0 1
+E
+D __x 1 1
+X
+D tanhf 0 1
+E
+D __x 1 1
+X
+D __tanhf 0 1
+E
+D __x 1 1
+X
+D acoshf 0 1
+E
+D __x 1 1
+X
+D __acoshf 0 1
+E
+D __x 1 1
+X
+D asinhf 0 1
+E
+D __x 1 1
+X
+D __asinhf 0 1
+E
+D __x 1 1
+X
+D atanhf 0 1
+E
+D __x 1 1
+X
+D __atanhf 0 1
+E
+D __x 1 1
+X
+D expf 0 1
+E
+D __x 1 1
+X
+D __expf 0 1
+E
+D __x 1 1
+X
+D frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpf 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logf 0 1
+E
+D __x 1 1
+X
+D __logf 0 1
+E
+D __x 1 1
+X
+D log10f 0 1
+E
+D __x 1 1
+X
+D __log10f 0 1
+E
+D __x 1 1
+X
+D modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modff 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1f 0 1
+E
+D __x 1 1
+X
+D __expm1f 0 1
+E
+D __x 1 1
+X
+D log1pf 0 1
+E
+D __x 1 1
+X
+D __log1pf 0 1
+E
+D __x 1 1
+X
+D logbf 0 1
+E
+D __x 1 1
+X
+D __logbf 0 1
+E
+D __x 1 1
+X
+D exp2f 0 1
+E
+D __x 1 1
+X
+D __exp2f 0 1
+E
+D __x 1 1
+X
+D log2f 0 1
+E
+D __x 1 1
+X
+D __log2f 0 1
+E
+D __x 1 1
+X
+D powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtf 0 1
+E
+D __x 1 1
+X
+D __sqrtf 0 1
+E
+D __x 1 1
+X
+D hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtf 0 1
+E
+D __x 1 1
+X
+D __cbrtf 0 1
+E
+D __x 1 1
+X
+D ceilf 0 1
+E
+D __x 1 1
+X
+D fabsf 0 1
+E
+D __x 1 1
+X
+D floorf 0 1
+E
+D __x 1 1
+X
+D fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinff 0 1
+E
+D __value 1 1
+X
+D finitef 0 1
+E
+D __value 1 1
+X
+D dremf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __dremf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significandf 0 1
+E
+D __x 1 1
+X
+D __significandf 0 1
+E
+D __x 1 1
+X
+D copysignf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanf 0 1
+E
+D __tagb 1 1
+X
+D __nanf 0 1
+E
+D __tagb 1 1
+X
+D isnanf 0 1
+E
+D __value 1 1
+X
+D j0f 0 1
+E
+X
+D __j0f 0 1
+E
+X
+D j1f 0 1
+E
+X
+D __j1f 0 1
+E
+X
+D jnf 0 1
+E
+X
+D __jnf 0 1
+E
+X
+D y0f 0 1
+E
+X
+D __y0f 0 1
+E
+X
+D y1f 0 1
+E
+X
+D __y1f 0 1
+E
+X
+D ynf 0 1
+E
+X
+D __ynf 0 1
+E
+X
+D erff 0 1
+E
+X
+D __erff 0 1
+E
+X
+D erfcf 0 1
+E
+X
+D __erfcf 0 1
+E
+X
+D lgammaf 0 1
+E
+X
+D __lgammaf 0 1
+E
+X
+D tgammaf 0 1
+E
+X
+D __tgammaf 0 1
+E
+X
+D gammaf 0 1
+E
+X
+D __gammaf 0 1
+E
+X
+D lgammaf_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgammaf_r 0 1
+E
+D __signgamp 1 1
+X
+D rintf 0 1
+E
+D __x 1 1
+X
+D __rintf 0 1
+E
+D __x 1 1
+X
+D nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbf 0 1
+E
+D __x 1 1
+X
+D __ilogbf 0 1
+E
+D __x 1 1
+X
+D scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintf 0 1
+E
+D __x 1 1
+X
+D __nearbyintf 0 1
+E
+D __x 1 1
+X
+D roundf 0 1
+E
+D __x 1 1
+X
+D truncf 0 1
+E
+D __x 1 1
+X
+D remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquof 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintf 0 1
+E
+D __x 1 1
+X
+D __lrintf 0 1
+E
+D __x 1 1
+X
+D llrintf 0 1
+E
+D __x 1 1
+X
+D __llrintf 0 1
+E
+D __x 1 1
+X
+D lroundf 0 1
+E
+D __x 1 1
+X
+D __lroundf 0 1
+E
+D __x 1 1
+X
+D llroundf 0 1
+E
+D __x 1 1
+X
+D __llroundf 0 1
+E
+D __x 1 1
+X
+D fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdimf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminf 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmaf 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalbf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbf 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyl 0 1
+E
+D __value 1 1
+X
+D __signbitl 0 1
+E
+D __value 1 1
+X
+D __isinfl 0 1
+E
+D __value 1 1
+X
+D __finitel 0 1
+E
+D __value 1 1
+X
+D __isnanl 0 1
+E
+D __value 1 1
+X
+D __iseqsigl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __issignalingl 0 1
+E
+D __value 1 1
+X
+D acosl 0 1
+E
+D __x 1 1
+X
+D __acosl 0 1
+E
+D __x 1 1
+X
+D asinl 0 1
+E
+D __x 1 1
+X
+D __asinl 0 1
+E
+D __x 1 1
+X
+D atanl 0 1
+E
+D __x 1 1
+X
+D __atanl 0 1
+E
+D __x 1 1
+X
+D atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D __atan2l 0 1
+E
+D __y 1 1
+D __x 1 1
+X
+D cosl 0 1
+E
+D __x 1 1
+X
+D __cosl 0 1
+E
+D __x 1 1
+X
+D sinl 0 1
+E
+D __x 1 1
+X
+D __sinl 0 1
+E
+D __x 1 1
+X
+D tanl 0 1
+E
+D __x 1 1
+X
+D __tanl 0 1
+E
+D __x 1 1
+X
+D coshl 0 1
+E
+D __x 1 1
+X
+D __coshl 0 1
+E
+D __x 1 1
+X
+D sinhl 0 1
+E
+D __x 1 1
+X
+D __sinhl 0 1
+E
+D __x 1 1
+X
+D tanhl 0 1
+E
+D __x 1 1
+X
+D __tanhl 0 1
+E
+D __x 1 1
+X
+D acoshl 0 1
+E
+D __x 1 1
+X
+D __acoshl 0 1
+E
+D __x 1 1
+X
+D asinhl 0 1
+E
+D __x 1 1
+X
+D __asinhl 0 1
+E
+D __x 1 1
+X
+D atanhl 0 1
+E
+D __x 1 1
+X
+D __atanhl 0 1
+E
+D __x 1 1
+X
+D expl 0 1
+E
+D __x 1 1
+X
+D __expl 0 1
+E
+D __x 1 1
+X
+D frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __frexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D __ldexpl 0 1
+E
+D __x 1 1
+D __exponent 1 1
+X
+D logl 0 1
+E
+D __x 1 1
+X
+D __logl 0 1
+E
+D __x 1 1
+X
+D log10l 0 1
+E
+D __x 1 1
+X
+D __log10l 0 1
+E
+D __x 1 1
+X
+D modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D __modfl 0 1
+E
+D __x 1 1
+D __iptr 1 1
+X
+D expm1l 0 1
+E
+D __x 1 1
+X
+D __expm1l 0 1
+E
+D __x 1 1
+X
+D log1pl 0 1
+E
+D __x 1 1
+X
+D __log1pl 0 1
+E
+D __x 1 1
+X
+D logbl 0 1
+E
+D __x 1 1
+X
+D __logbl 0 1
+E
+D __x 1 1
+X
+D exp2l 0 1
+E
+D __x 1 1
+X
+D __exp2l 0 1
+E
+D __x 1 1
+X
+D log2l 0 1
+E
+D __x 1 1
+X
+D __log2l 0 1
+E
+D __x 1 1
+X
+D powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __powl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D sqrtl 0 1
+E
+D __x 1 1
+X
+D __sqrtl 0 1
+E
+D __x 1 1
+X
+D hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __hypotl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D cbrtl 0 1
+E
+D __x 1 1
+X
+D __cbrtl 0 1
+E
+D __x 1 1
+X
+D ceill 0 1
+E
+D __x 1 1
+X
+D fabsl 0 1
+E
+D __x 1 1
+X
+D floorl 0 1
+E
+D __x 1 1
+X
+D fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fmodl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D isinfl 0 1
+E
+D __value 1 1
+X
+D finitel 0 1
+E
+D __value 1 1
+X
+D dreml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __dreml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D significandl 0 1
+E
+D __x 1 1
+X
+D __significandl 0 1
+E
+D __x 1 1
+X
+D copysignl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nanl 0 1
+E
+D __tagb 1 1
+X
+D __nanl 0 1
+E
+D __tagb 1 1
+X
+D isnanl 0 1
+E
+D __value 1 1
+X
+D j0l 0 1
+E
+X
+D __j0l 0 1
+E
+X
+D j1l 0 1
+E
+X
+D __j1l 0 1
+E
+X
+D jnl 0 1
+E
+X
+D __jnl 0 1
+E
+X
+D y0l 0 1
+E
+X
+D __y0l 0 1
+E
+X
+D y1l 0 1
+E
+X
+D __y1l 0 1
+E
+X
+D ynl 0 1
+E
+X
+D __ynl 0 1
+E
+X
+D erfl 0 1
+E
+X
+D __erfl 0 1
+E
+X
+D erfcl 0 1
+E
+X
+D __erfcl 0 1
+E
+X
+D lgammal 0 1
+E
+X
+D __lgammal 0 1
+E
+X
+D tgammal 0 1
+E
+X
+D __tgammal 0 1
+E
+X
+D gammal 0 1
+E
+X
+D __gammal 0 1
+E
+X
+D lgammal_r 0 1
+E
+D __signgamp 1 1
+X
+D __lgammal_r 0 1
+E
+D __signgamp 1 1
+X
+D rintl 0 1
+E
+D __x 1 1
+X
+D __rintl 0 1
+E
+D __x 1 1
+X
+D nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nextafterl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __nexttowardl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __remainderl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D ilogbl 0 1
+E
+D __x 1 1
+X
+D __ilogbl 0 1
+E
+D __x 1 1
+X
+D scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalblnl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D nearbyintl 0 1
+E
+D __x 1 1
+X
+D __nearbyintl 0 1
+E
+D __x 1 1
+X
+D roundl 0 1
+E
+D __x 1 1
+X
+D truncl 0 1
+E
+D __x 1 1
+X
+D remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D __remquol 0 1
+E
+D __x 1 1
+D __y 1 1
+D __quo 1 1
+X
+D lrintl 0 1
+E
+D __x 1 1
+X
+D __lrintl 0 1
+E
+D __x 1 1
+X
+D llrintl 0 1
+E
+D __x 1 1
+X
+D __llrintl 0 1
+E
+D __x 1 1
+X
+D lroundl 0 1
+E
+D __x 1 1
+X
+D __lroundl 0 1
+E
+D __x 1 1
+X
+D llroundl 0 1
+E
+D __x 1 1
+X
+D __llroundl 0 1
+E
+D __x 1 1
+X
+D fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D __fdiml 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmaxl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fminl 0 1
+E
+D __x 1 1
+D __y 1 1
+X
+D fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D __fmal 0 1
+E
+D __x 1 1
+D __y 1 1
+D __z 1 1
+X
+D scalbl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __scalbl 0 1
+E
+D __x 1 1
+D __n 1 1
+X
+D __fpclassifyf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __signbitf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isinff128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __finitef128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __isnanf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D __iseqsigf128 0 1
+E
+D __x 1 1
+U _Float128 1 1
+D __y 1 1
+U _Float128 1 1
+X
+D __issignalingf128 0 1
+E
+D __value 1 1
+U _Float128 1 1
+X
+D signgam 0 1
+D FP_NAN 0 1
+D FP_INFINITE 0 1
+D FP_ZERO 0 1
+D FP_SUBNORMAL 0 1
+D FP_NORMAL 0 1
+D wchar_t 0 1
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtouq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+D random_r 0 1
+E
+D __buf 1 1
+D __result 1 1
+U int32_t 1 1
+X
+D srandom_r 0 1
+E
+D __seed 1 1
+D __buf 1 1
+X
+D initstate_r 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+D __buf 1 1
+X
+D setstate_r 0 1
+E
+D __statebuf 1 1
+D __buf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D drand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D erand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D lrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D nrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D mrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D jrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D srand48_r 0 1
+E
+D __seedval 1 1
+D __buffer 1 1
+X
+D seed48_r 0 1
+E
+D __seed16v 1 1
+D __buffer 1 1
+X
+D lcong48_r 0 1
+E
+D __param 1 1
+D __buffer 1 1
+X
+D arc4random 0 1
+U __uint32_t 0 1
+D arc4random_buf 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D arc4random_uniform 0 1
+E
+U __uint32_t 1 1
+D __upper_bound 1 1
+U __uint32_t 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D alloca 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D on_exit 0 1
+E
+D __func 1 1
+D __status 1 1
+D __arg 1 1
+D __arg 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D clearenv 0 1
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D mkstemps 0 1
+E
+D __template 1 1
+D __suffixlen 1 1
+X
+D mkdtemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D qecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qfcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qgcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D ecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D fcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qfcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D rpmatch 0 1
+E
+D __response 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D getloadavg 0 1
+E
+D __loadavg 1 1
+D __nelem 1 1
+X
+D _ISupper 0 1
+D _ISlower 0 1
+D _ISalpha 0 1
+D _ISdigit 0 1
+D _ISxdigit 0 1
+D _ISspace 0 1
+D _ISprint 0 1
+D _ISgraph 0 1
+D _ISblank 0 1
+D _IScntrl 0 1
+D _ISpunct 0 1
+D _ISalnum 0 1
+D __ctype_b_loc 0 1
+D __ctype_tolower_loc 0 1
+U __int32_t 0 1
+D __ctype_toupper_loc 0 1
+U __int32_t 0 1
+D isalnum 0 1
+E
+X
+D isalpha 0 1
+E
+X
+D iscntrl 0 1
+E
+X
+D isdigit 0 1
+E
+X
+D islower 0 1
+E
+X
+D isgraph 0 1
+E
+X
+D isprint 0 1
+E
+X
+D ispunct 0 1
+E
+X
+D isspace 0 1
+E
+X
+D isupper 0 1
+E
+X
+D isxdigit 0 1
+E
+X
+D tolower 0 1
+E
+D __c 1 1
+X
+D toupper 0 1
+E
+D __c 1 1
+X
+D isblank 0 1
+E
+X
+D isascii 0 1
+E
+D __c 1 1
+X
+D toascii 0 1
+E
+D __c 1 1
+X
+D _toupper 0 1
+E
+X
+D _tolower 0 1
+E
+X
+D isalnum_l 0 1
+E
+U locale_t 1 1
+X
+D isalpha_l 0 1
+E
+U locale_t 1 1
+X
+D iscntrl_l 0 1
+E
+U locale_t 1 1
+X
+D isdigit_l 0 1
+E
+U locale_t 1 1
+X
+D islower_l 0 1
+E
+U locale_t 1 1
+X
+D isgraph_l 0 1
+E
+U locale_t 1 1
+X
+D isprint_l 0 1
+E
+U locale_t 1 1
+X
+D ispunct_l 0 1
+E
+U locale_t 1 1
+X
+D isspace_l 0 1
+E
+U locale_t 1 1
+X
+D isupper_l 0 1
+E
+U locale_t 1 1
+X
+D isxdigit_l 0 1
+E
+U locale_t 1 1
+X
+D isblank_l 0 1
+E
+U locale_t 1 1
+X
+D __tolower_l 0 1
+E
+D __c 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D tolower_l 0 1
+E
+D __c 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D __toupper_l 0 1
+E
+D __c 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D toupper_l 0 1
+E
+D __c 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D ptrdiff_t 0 1
+D max_align_t 0 1
+D cJSON 0 0
+D sz 0 0
+U size_t 0 0
+D ptr 0 0
+D cJSON_Hooks 0 0
+D sz 0 0
+U size_t 0 0
+D ptr 0 0
+D cJSON_bool 0 0
+D cJSON_Version 0 0
+D cJSON_InitHooks 0 0
+E
+D hooks 1 0
+U cJSON_Hooks 1 0
+X
+D cJSON_Parse 0 0
+E
+U cJSON 1 0
+D value 1 0
+X
+D cJSON_ParseWithLength 0 0
+E
+U cJSON 1 0
+D value 1 0
+D buffer_length 1 0
+U size_t 1 0
+X
+D cJSON_ParseWithOpts 0 0
+E
+U cJSON 1 0
+D value 1 0
+D return_parse_end 1 0
+D require_null_terminated 1 0
+U cJSON_bool 1 0
+X
+D cJSON_ParseWithLengthOpts 0 0
+E
+U cJSON 1 0
+D value 1 0
+D buffer_length 1 0
+U size_t 1 0
+D return_parse_end 1 0
+D require_null_terminated 1 0
+U cJSON_bool 1 0
+X
+D cJSON_Print 0 0
+E
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_PrintUnformatted 0 0
+E
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_PrintBuffered 0 0
+E
+D item 1 0
+U cJSON 1 0
+D prebuffer 1 0
+D fmt 1 0
+U cJSON_bool 1 0
+X
+D cJSON_PrintPreallocated 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D buffer 1 0
+D length 1 0
+D format 1 0
+U cJSON_bool 1 0
+X
+D cJSON_Delete 0 0
+E
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_GetArraySize 0 0
+E
+D array 1 0
+U cJSON 1 0
+X
+D cJSON_GetArrayItem 0 0
+E
+U cJSON 1 0
+D array 1 0
+U cJSON 1 0
+D index 1 0
+X
+D cJSON_GetObjectItem 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_GetObjectItemCaseSensitive 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_HasObjectItem 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_GetErrorPtr 0 0
+D cJSON_GetStringValue 0 0
+E
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_GetNumberValue 0 0
+E
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsInvalid 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsFalse 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsTrue 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsBool 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsNull 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsNumber 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsString 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsArray 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsObject 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_IsRaw 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_CreateNull 0 0
+U cJSON 0 0
+D cJSON_CreateTrue 0 0
+U cJSON 0 0
+D cJSON_CreateFalse 0 0
+U cJSON 0 0
+D cJSON_CreateBool 0 0
+E
+U cJSON 1 0
+D boolean 1 0
+U cJSON_bool 1 0
+X
+D cJSON_CreateNumber 0 0
+E
+U cJSON 1 0
+D num 1 0
+X
+D cJSON_CreateString 0 0
+E
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_CreateRaw 0 0
+E
+U cJSON 1 0
+D raw 1 0
+X
+D cJSON_CreateArray 0 0
+U cJSON 0 0
+D cJSON_CreateObject 0 0
+U cJSON 0 0
+D cJSON_CreateStringReference 0 0
+E
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_CreateObjectReference 0 0
+E
+U cJSON 1 0
+D child 1 0
+U cJSON 1 0
+X
+D cJSON_CreateArrayReference 0 0
+E
+U cJSON 1 0
+D child 1 0
+U cJSON 1 0
+X
+D cJSON_CreateIntArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+X
+D cJSON_CreateFloatArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+X
+D cJSON_CreateDoubleArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+X
+D cJSON_CreateStringArray 0 0
+E
+U cJSON 1 0
+D strings 1 0
+D count 1 0
+X
+D cJSON_AddItemToArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_AddItemToObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_AddItemToObjectCS 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_AddItemReferenceToArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_AddItemReferenceToObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_DetachItemViaPointer 0 0
+E
+U cJSON 1 0
+D parent 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+X
+D cJSON_DetachItemFromArray 0 0
+E
+U cJSON 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+X
+D cJSON_DeleteItemFromArray 0 0
+E
+D array 1 0
+U cJSON 1 0
+D which 1 0
+X
+D cJSON_DetachItemFromObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_DetachItemFromObjectCaseSensitive 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_DeleteItemFromObject 0 0
+E
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_DeleteItemFromObjectCaseSensitive 0 0
+E
+D object 1 0
+U cJSON 1 0
+D string 1 0
+X
+D cJSON_InsertItemInArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+D newitem 1 0
+U cJSON 1 0
+X
+D cJSON_ReplaceItemViaPointer 0 0
+E
+U cJSON_bool 1 0
+D parent 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D replacement 1 0
+U cJSON 1 0
+X
+D cJSON_ReplaceItemInArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+D newitem 1 0
+U cJSON 1 0
+X
+D cJSON_ReplaceItemInObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D newitem 1 0
+U cJSON 1 0
+X
+D cJSON_ReplaceItemInObjectCaseSensitive 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D newitem 1 0
+U cJSON 1 0
+X
+D cJSON_Duplicate 0 0
+E
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D recurse 1 0
+U cJSON_bool 1 0
+X
+D cJSON_Compare 0 0
+E
+U cJSON_bool 1 0
+D a 1 0
+U cJSON 1 0
+D b 1 0
+U cJSON 1 0
+D case_sensitive 1 0
+U cJSON_bool 1 0
+X
+D cJSON_Minify 0 0
+E
+D json 1 0
+X
+D cJSON_AddNullToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+X
+D cJSON_AddTrueToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+X
+D cJSON_AddFalseToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+X
+D cJSON_AddBoolToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D boolean 1 0
+U cJSON_bool 1 0
+X
+D cJSON_AddNumberToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D number 1 0
+X
+D cJSON_AddStringToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D string 1 0
+X
+D cJSON_AddRawToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D raw 1 0
+X
+D cJSON_AddObjectToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+X
+D cJSON_AddArrayToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+X
+D cJSON_SetNumberHelper 0 0
+E
+D object 1 0
+U cJSON 1 0
+D number 1 0
+X
+D cJSON_SetValuestring 0 0
+E
+D object 1 0
+U cJSON 1 0
+D valuestring 1 0
+X
+D cJSON_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+X
+D cJSON_free 0 0
+E
+D object 1 0
+X
+U size_t 0 0
+D error 0 0
+U size_t 0 0
+D global_error 0 0
+U error 0 0
+D cJSON_GetErrorPtr 0 0
+E
+E
+U global_error 2 0
+U global_error 2 0
+X
+X
+D cJSON_GetStringValue 0 0
+E
+D item 1 0
+U cJSON 1 0
+E
+U cJSON_IsString 2 0
+U item 2 0
+E
+X
+U item 2 0
+X
+X
+D cJSON_GetNumberValue 0 0
+E
+D item 1 0
+U cJSON 1 0
+E
+U cJSON_IsNumber 2 0
+U item 2 0
+E
+U __builtin_nanf 3 0
+X
+U item 2 0
+X
+X
+D cJSON_Version 0 0
+E
+E
+D version 2 0
+U sprintf 2 0
+U version 2 0
+U version 2 0
+X
+X
+D case_insensitive_strcmp 0 0
+E
+D string1 1 0
+D string2 1 0
+E
+U string1 2 0
+U string2 2 0
+E
+X
+U string1 2 0
+U string2 2 0
+E
+X
+E
+U tolower 3 0
+U string1 3 0
+U tolower 3 0
+U string2 3 0
+U string1 3 0
+U string2 3 0
+E
+U string1 4 0
+E
+X
+X
+X
+U tolower 2 0
+U string1 2 0
+U tolower 2 0
+U string2 2 0
+X
+X
+D size 0 0
+U size_t 0 0
+D pointer 0 0
+D pointer 0 0
+D size 0 0
+U size_t 0 0
+D internal_hooks 0 0
+D size 0 0
+U size_t 0 0
+D pointer 0 0
+D pointer 0 0
+D size 0 0
+U size_t 0 0
+D global_hooks 0 0
+U internal_hooks 0 0
+U malloc 0 0
+U free 0 0
+U realloc 0 0
+D cJSON_strdup 0 0
+E
+D string 1 0
+D hooks 1 0
+U internal_hooks 1 0
+E
+D length 2 0
+U size_t 2 0
+D copy 2 0
+U string 2 0
+E
+X
+U length 2 0
+U strlen 2 0
+U string 2 0
+U copy 2 0
+U hooks 2 0
+U length 2 0
+U copy 2 0
+E
+X
+U memcpy 2 0
+U copy 2 0
+U string 2 0
+U length 2 0
+U copy 2 0
+X
+X
+D cJSON_InitHooks 0 0
+E
+D hooks 1 0
+U cJSON_Hooks 1 0
+E
+U hooks 2 0
+E
+U global_hooks 3 0
+U malloc 3 0
+U global_hooks 3 0
+U free 3 0
+U global_hooks 3 0
+U realloc 3 0
+X
+U global_hooks 2 0
+U malloc 2 0
+U hooks 2 0
+E
+U global_hooks 3 0
+U hooks 3 0
+X
+U global_hooks 2 0
+U free 2 0
+U hooks 2 0
+E
+U global_hooks 3 0
+U hooks 3 0
+X
+U global_hooks 2 0
+U global_hooks 2 0
+U malloc 2 0
+U global_hooks 2 0
+U free 2 0
+E
+U global_hooks 3 0
+U realloc 3 0
+X
+X
+X
+D cJSON_New_Item 0 0
+E
+U cJSON 1 0
+D hooks 1 0
+U internal_hooks 1 0
+E
+D node 2 0
+U cJSON 2 0
+U cJSON 2 0
+U hooks 2 0
+U cJSON 2 0
+U node 2 0
+E
+U memset 3 0
+U node 3 0
+U cJSON 3 0
+X
+U node 2 0
+X
+X
+D cJSON_Delete 0 0
+E
+D item 1 0
+U cJSON 1 0
+E
+D next 2 0
+U cJSON 2 0
+U item 2 0
+E
+U next 3 0
+U item 3 0
+U item 3 0
+U item 3 0
+E
+U cJSON_Delete 4 0
+U item 4 0
+X
+U item 3 0
+U item 3 0
+E
+U global_hooks 4 0
+U item 4 0
+U item 4 0
+X
+U item 3 0
+U item 3 0
+E
+U global_hooks 4 0
+U item 4 0
+U item 4 0
+X
+U global_hooks 3 0
+U item 3 0
+U item 3 0
+U next 3 0
+X
+X
+X
+D get_decimal_point 0 0
+E
+E
+X
+X
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U internal_hooks 0 0
+D parse_buffer 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U internal_hooks 0 0
+D parse_number 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+E
+D number 2 0
+D after_end 2 0
+D number_c_string 2 0
+D decimal_point 2 0
+U get_decimal_point 2 0
+D i 2 0
+U size_t 2 0
+D number_string_length 2 0
+U size_t 2 0
+D has_decimal_point 2 0
+U cJSON_bool 2 0
+U cJSON_bool 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+E
+U i 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U i 3 0
+U input_buffer 3 0
+U i 3 0
+E
+U input_buffer 4 0
+U input_buffer 4 0
+U i 4 0
+E
+U number_string_length 5 0
+U number_string_length 5 0
+U has_decimal_point 5 0
+U cJSON_bool 5 0
+X
+X
+X
+U number_c_string 2 0
+U input_buffer 2 0
+U number_string_length 2 0
+U number_c_string 2 0
+E
+U cJSON_bool 3 0
+X
+U memcpy 2 0
+U number_c_string 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U number_string_length 2 0
+U number_c_string 2 0
+U number_string_length 2 0
+U has_decimal_point 2 0
+E
+E
+U i 4 0
+U i 4 0
+U number_string_length 4 0
+U i 4 0
+E
+U number_c_string 5 0
+U i 5 0
+E
+U number_c_string 6 0
+U i 6 0
+U decimal_point 6 0
+X
+X
+X
+X
+U number 2 0
+U strtod 2 0
+U number_c_string 2 0
+U after_end 2 0
+U number_c_string 2 0
+U after_end 2 0
+E
+U input_buffer 3 0
+U number_c_string 3 0
+U cJSON_bool 3 0
+X
+U item 2 0
+U number 2 0
+U number 2 0
+E
+U item 3 0
+X
+U number 2 0
+E
+U item 3 0
+X
+E
+U item 3 0
+U number 3 0
+X
+U item 2 0
+U input_buffer 2 0
+U size_t 2 0
+U after_end 2 0
+U number_c_string 2 0
+U input_buffer 2 0
+U number_c_string 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_SetNumberHelper 0 0
+E
+D object 1 0
+U cJSON 1 0
+D number 1 0
+E
+U object 2 0
+E
+U __builtin_nanf 3 0
+X
+U number 2 0
+E
+U object 3 0
+X
+U number 2 0
+E
+U object 3 0
+X
+E
+U object 3 0
+U number 3 0
+X
+U object 2 0
+U number 2 0
+X
+X
+D cJSON_SetValuestring 0 0
+E
+D object 1 0
+U cJSON 1 0
+D valuestring 1 0
+E
+D copy 2 0
+D v1_len 2 0
+U size_t 2 0
+D v2_len 2 0
+U size_t 2 0
+U object 2 0
+U object 2 0
+U object 2 0
+E
+X
+U object 2 0
+U valuestring 2 0
+E
+X
+U v1_len 2 0
+U strlen 2 0
+U valuestring 2 0
+U v2_len 2 0
+U strlen 2 0
+U object 2 0
+U v1_len 2 0
+U v2_len 2 0
+E
+U valuestring 3 0
+U v1_len 3 0
+U object 3 0
+U object 3 0
+U v2_len 3 0
+U valuestring 3 0
+E
+X
+U strcpy 3 0
+U object 3 0
+U valuestring 3 0
+U object 3 0
+X
+U copy 2 0
+U cJSON_strdup 2 0
+U valuestring 2 0
+U global_hooks 2 0
+U copy 2 0
+E
+X
+U object 2 0
+E
+U cJSON_free 3 0
+U object 3 0
+X
+U object 2 0
+U copy 2 0
+U copy 2 0
+X
+X
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U cJSON_bool 0 0
+U cJSON_bool 0 0
+U internal_hooks 0 0
+D printbuffer 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U cJSON_bool 0 0
+U cJSON_bool 0 0
+U internal_hooks 0 0
+D ensure 0 0
+E
+D p 1 0
+U printbuffer 1 0
+D needed 1 0
+U size_t 1 0
+E
+D newbuffer 2 0
+D newsize 2 0
+U size_t 2 0
+U p 2 0
+U p 2 0
+E
+X
+U p 2 0
+U p 2 0
+U p 2 0
+E
+X
+U needed 2 0
+E
+X
+U needed 2 0
+U p 2 0
+U needed 2 0
+U p 2 0
+E
+U p 3 0
+U p 3 0
+X
+U p 2 0
+E
+X
+U needed 2 0
+E
+U needed 3 0
+E
+U newsize 4 0
+X
+E
+X
+X
+E
+U newsize 3 0
+U needed 3 0
+X
+U p 2 0
+E
+U newbuffer 3 0
+U p 3 0
+U p 3 0
+U newsize 3 0
+U newbuffer 3 0
+E
+U p 4 0
+U p 4 0
+U p 4 0
+U p 4 0
+X
+X
+E
+U newbuffer 3 0
+U p 3 0
+U newsize 3 0
+U newbuffer 3 0
+E
+U p 4 0
+U p 4 0
+U p 4 0
+U p 4 0
+X
+U memcpy 3 0
+U newbuffer 3 0
+U p 3 0
+U p 3 0
+U p 3 0
+U p 3 0
+X
+U p 2 0
+U newsize 2 0
+U p 2 0
+U newbuffer 2 0
+U newbuffer 2 0
+U p 2 0
+X
+X
+D update_offset 0 0
+E
+D buffer 1 0
+U printbuffer 1 0
+E
+D buffer_pointer 2 0
+U buffer 2 0
+U buffer 2 0
+E
+X
+U buffer_pointer 2 0
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+U strlen 2 0
+U buffer_pointer 2 0
+X
+X
+D compare_double 0 0
+E
+U cJSON_bool 1 0
+D a 1 0
+D b 1 0
+E
+D maxVal 2 0
+U fabs 2 0
+U a 2 0
+U fabs 2 0
+U b 2 0
+U fabs 2 0
+U a 2 0
+U fabs 2 0
+U b 2 0
+U fabs 2 0
+U a 2 0
+U b 2 0
+U maxVal 2 0
+X
+X
+D print_number 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+E
+D output_pointer 2 0
+D d 2 0
+U item 2 0
+D length 2 0
+D i 2 0
+U size_t 2 0
+D number_buffer 2 0
+D decimal_point 2 0
+U get_decimal_point 2 0
+D test 2 0
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U __builtin_isnan 2 0
+U d 2 0
+U __builtin_isinf_sign 2 0
+U d 2 0
+E
+U length 3 0
+U sprintf 3 0
+U number_buffer 3 0
+X
+U d 2 0
+U item 2 0
+E
+U length 3 0
+U sprintf 3 0
+U number_buffer 3 0
+U item 3 0
+X
+E
+U length 3 0
+U sprintf 3 0
+U number_buffer 3 0
+U d 3 0
+U sscanf 3 0
+U number_buffer 3 0
+U test 3 0
+U compare_double 3 0
+U test 3 0
+U d 3 0
+E
+U length 4 0
+U sprintf 4 0
+U number_buffer 4 0
+U d 4 0
+X
+X
+U length 2 0
+U length 2 0
+U number_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_pointer 2 0
+U ensure 2 0
+U output_buffer 2 0
+U size_t 2 0
+U length 2 0
+U output_pointer 2 0
+E
+U cJSON_bool 3 0
+X
+E
+U i 3 0
+U i 3 0
+U size_t 3 0
+U length 3 0
+U i 3 0
+E
+U number_buffer 4 0
+U i 4 0
+U decimal_point 4 0
+E
+U output_pointer 5 0
+U i 5 0
+X
+U output_pointer 4 0
+U i 4 0
+U number_buffer 4 0
+U i 4 0
+X
+X
+U output_pointer 2 0
+U i 2 0
+U output_buffer 2 0
+U size_t 2 0
+U length 2 0
+U cJSON_bool 2 0
+X
+X
+D parse_hex4 0 0
+E
+D input 1 0
+E
+D h 2 0
+D i 2 0
+U size_t 2 0
+E
+U i 3 0
+U i 3 0
+U i 3 0
+E
+U input 4 0
+U i 4 0
+U input 4 0
+U i 4 0
+E
+U h 5 0
+U input 5 0
+U i 5 0
+X
+U input 4 0
+U i 4 0
+U input 4 0
+U i 4 0
+E
+U h 5 0
+U input 5 0
+U i 5 0
+X
+U input 4 0
+U i 4 0
+U input 4 0
+U i 4 0
+E
+U h 5 0
+U input 5 0
+U i 5 0
+X
+E
+X
+U i 4 0
+E
+U h 5 0
+U h 5 0
+X
+X
+X
+U h 2 0
+X
+X
+D utf16_literal_to_utf8 0 0
+E
+D input_pointer 1 0
+D input_end 1 0
+D output_pointer 1 0
+E
+D codepoint 2 0
+D first_code 2 0
+D first_sequence 2 0
+U input_pointer 2 0
+D utf8_length 2 0
+D utf8_position 2 0
+D sequence_length 2 0
+D first_byte_mark 2 0
+U input_end 2 0
+U first_sequence 2 0
+E
+X
+U first_code 2 0
+U parse_hex4 2 0
+U first_sequence 2 0
+U first_code 2 0
+U first_code 2 0
+E
+X
+U first_code 2 0
+U first_code 2 0
+E
+D second_sequence 3 0
+U first_sequence 3 0
+D second_code 3 0
+U sequence_length 3 0
+U input_end 3 0
+U second_sequence 3 0
+E
+X
+U second_sequence 3 0
+U second_sequence 3 0
+E
+X
+U second_code 3 0
+U parse_hex4 3 0
+U second_sequence 3 0
+U second_code 3 0
+U second_code 3 0
+E
+X
+U codepoint 3 0
+U first_code 3 0
+U second_code 3 0
+X
+E
+U sequence_length 3 0
+U codepoint 3 0
+U first_code 3 0
+X
+U codepoint 2 0
+E
+U utf8_length 3 0
+X
+U codepoint 2 0
+E
+U utf8_length 3 0
+U first_byte_mark 3 0
+X
+U codepoint 2 0
+E
+U utf8_length 3 0
+U first_byte_mark 3 0
+X
+U codepoint 2 0
+E
+U utf8_length 3 0
+U first_byte_mark 3 0
+X
+E
+X
+E
+U utf8_position 3 0
+U utf8_length 3 0
+U utf8_position 3 0
+U utf8_position 3 0
+E
+U output_pointer 4 0
+U utf8_position 4 0
+U codepoint 4 0
+U codepoint 4 0
+X
+X
+U utf8_length 2 0
+E
+U output_pointer 3 0
+U codepoint 3 0
+U first_byte_mark 3 0
+X
+E
+U output_pointer 3 0
+U codepoint 3 0
+X
+U output_pointer 2 0
+U utf8_length 2 0
+U sequence_length 2 0
+X
+X
+D parse_string 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+E
+D input_pointer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+D input_end 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+D output_pointer 2 0
+D output 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+E
+D allocation_length 3 0
+U size_t 3 0
+D skipped_bytes 3 0
+U size_t 3 0
+U size_t 3 0
+U input_end 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U input_end 3 0
+E
+U input_end 4 0
+E
+U size_t 5 0
+U input_end 5 0
+U input_buffer 5 0
+U input_buffer 5 0
+E
+X
+U skipped_bytes 5 0
+U input_end 5 0
+X
+U input_end 4 0
+X
+U size_t 3 0
+U input_end 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U input_end 3 0
+E
+X
+U allocation_length 3 0
+U size_t 3 0
+U input_end 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U skipped_bytes 3 0
+U output 3 0
+U input_buffer 3 0
+U allocation_length 3 0
+U output 3 0
+E
+X
+X
+U output_pointer 2 0
+U output 2 0
+U input_pointer 2 0
+U input_end 2 0
+E
+U input_pointer 3 0
+E
+U output_pointer 4 0
+U input_pointer 4 0
+X
+E
+D sequence_length 4 0
+U input_end 4 0
+U input_pointer 4 0
+E
+X
+U input_pointer 4 0
+E
+U output_pointer 5 0
+U output_pointer 5 0
+U output_pointer 5 0
+U output_pointer 5 0
+U output_pointer 5 0
+U output_pointer 5 0
+U input_pointer 5 0
+U sequence_length 5 0
+U utf16_literal_to_utf8 5 0
+U input_pointer 5 0
+U input_end 5 0
+U output_pointer 5 0
+U sequence_length 5 0
+E
+X
+X
+U input_pointer 4 0
+U sequence_length 4 0
+X
+X
+U output_pointer 2 0
+U item 2 0
+U item 2 0
+U output 2 0
+U input_buffer 2 0
+U size_t 2 0
+U input_end 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U cJSON_bool 2 0
+U output 2 0
+E
+U input_buffer 3 0
+U output 3 0
+U output 3 0
+X
+U input_pointer 2 0
+E
+U input_buffer 3 0
+U size_t 3 0
+U input_pointer 3 0
+U input_buffer 3 0
+X
+U cJSON_bool 2 0
+X
+X
+D print_string_ptr 0 0
+E
+U cJSON_bool 1 0
+D input 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+E
+D input_pointer 2 0
+D output 2 0
+D output_pointer 2 0
+D output_length 2 0
+U size_t 2 0
+D escape_characters 2 0
+U size_t 2 0
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U input 2 0
+E
+U output 3 0
+U ensure 3 0
+U output_buffer 3 0
+U output 3 0
+E
+U cJSON_bool 4 0
+X
+U strcpy 3 0
+U output 3 0
+U cJSON_bool 3 0
+X
+E
+U input_pointer 3 0
+U input 3 0
+U input_pointer 3 0
+U input_pointer 3 0
+E
+U input_pointer 4 0
+E
+U escape_characters 5 0
+U input_pointer 5 0
+E
+U escape_characters 6 0
+X
+X
+X
+X
+U output_length 2 0
+U size_t 2 0
+U input_pointer 2 0
+U input 2 0
+U escape_characters 2 0
+U output 2 0
+U ensure 2 0
+U output_buffer 2 0
+U output_length 2 0
+U output 2 0
+E
+U cJSON_bool 3 0
+X
+U escape_characters 2 0
+E
+U output 3 0
+U memcpy 3 0
+U output 3 0
+U input 3 0
+U output_length 3 0
+U output 3 0
+U output_length 3 0
+U output 3 0
+U output_length 3 0
+U cJSON_bool 3 0
+X
+U output 2 0
+U output_pointer 2 0
+U output 2 0
+E
+U input_pointer 3 0
+U input 3 0
+U input_pointer 3 0
+U input_pointer 3 0
+U output_pointer 3 0
+E
+U input_pointer 4 0
+U input_pointer 4 0
+U input_pointer 4 0
+E
+U output_pointer 5 0
+U input_pointer 5 0
+X
+E
+U output_pointer 5 0
+U input_pointer 5 0
+E
+U output_pointer 6 0
+U output_pointer 6 0
+U output_pointer 6 0
+U output_pointer 6 0
+U output_pointer 6 0
+U output_pointer 6 0
+U output_pointer 6 0
+U sprintf 6 0
+U output_pointer 6 0
+U input_pointer 6 0
+U output_pointer 6 0
+X
+X
+X
+X
+U output 2 0
+U output_length 2 0
+U output 2 0
+U output_length 2 0
+U cJSON_bool 2 0
+X
+X
+D print_string 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D p 1 0
+U printbuffer 1 0
+E
+U print_string_ptr 2 0
+U item 2 0
+U p 2 0
+X
+X
+D parse_value 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+X
+D print_value 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+X
+D parse_array 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+X
+D print_array 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+X
+D parse_object 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+X
+D print_object 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+X
+D buffer_skip_whitespace 0 0
+E
+U parse_buffer 1 0
+D buffer 1 0
+U parse_buffer 1 0
+E
+U buffer 2 0
+U buffer 2 0
+E
+X
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+E
+U buffer 3 0
+X
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+E
+U buffer 3 0
+X
+U buffer 2 0
+U buffer 2 0
+E
+U buffer 3 0
+X
+U buffer 2 0
+X
+X
+D skip_utf8_bom 0 0
+E
+U parse_buffer 1 0
+D buffer 1 0
+U parse_buffer 1 0
+E
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+E
+X
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+U strncmp 2 0
+U buffer 2 0
+U buffer 2 0
+E
+U buffer 3 0
+X
+U buffer 2 0
+X
+X
+D cJSON_ParseWithOpts 0 0
+E
+U cJSON 1 0
+D value 1 0
+D return_parse_end 1 0
+D require_null_terminated 1 0
+U cJSON_bool 1 0
+E
+D buffer_length 2 0
+U size_t 2 0
+U value 2 0
+E
+X
+U buffer_length 2 0
+U strlen 2 0
+U value 2 0
+U cJSON_ParseWithLengthOpts 2 0
+U value 2 0
+U buffer_length 2 0
+U return_parse_end 2 0
+U require_null_terminated 2 0
+X
+X
+D cJSON_ParseWithLengthOpts 0 0
+E
+U cJSON 1 0
+D value 1 0
+D buffer_length 1 0
+U size_t 1 0
+D return_parse_end 1 0
+D require_null_terminated 1 0
+U cJSON_bool 1 0
+E
+D buffer 2 0
+U parse_buffer 2 0
+D item 2 0
+U cJSON 2 0
+U global_error 2 0
+U global_error 2 0
+U value 2 0
+U buffer_length 2 0
+E
+X
+U buffer 2 0
+U value 2 0
+U buffer 2 0
+U buffer_length 2 0
+U buffer 2 0
+U buffer 2 0
+U global_hooks 2 0
+U item 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+X
+U parse_value 2 0
+U item 2 0
+U buffer_skip_whitespace 2 0
+U skip_utf8_bom 2 0
+U buffer 2 0
+E
+X
+U require_null_terminated 2 0
+E
+U buffer_skip_whitespace 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+E
+X
+X
+U return_parse_end 2 0
+E
+U return_parse_end 3 0
+U buffer 3 0
+U buffer 3 0
+X
+U item 2 0
+U item 2 0
+E
+U cJSON_Delete 3 0
+U item 3 0
+X
+U value 2 0
+E
+D local_error 3 0
+U error 3 0
+U local_error 3 0
+U value 3 0
+U local_error 3 0
+U buffer 3 0
+U buffer 3 0
+E
+U local_error 4 0
+U buffer 4 0
+X
+U buffer 3 0
+E
+U local_error 4 0
+U buffer 4 0
+X
+U return_parse_end 3 0
+E
+U return_parse_end 4 0
+U local_error 4 0
+U local_error 4 0
+X
+U global_error 3 0
+U local_error 3 0
+X
+X
+X
+D cJSON_Parse 0 0
+E
+U cJSON 1 0
+D value 1 0
+E
+U cJSON_ParseWithOpts 2 0
+U value 2 0
+X
+X
+D cJSON_ParseWithLength 0 0
+E
+U cJSON 1 0
+D value 1 0
+D buffer_length 1 0
+U size_t 1 0
+E
+U cJSON_ParseWithLengthOpts 2 0
+U value 2 0
+U buffer_length 2 0
+X
+X
+D print 0 0
+E
+D item 1 0
+U cJSON 1 0
+D format 1 0
+U cJSON_bool 1 0
+D hooks 1 0
+U internal_hooks 1 0
+E
+D default_buffer_size 2 0
+U size_t 2 0
+D buffer 2 0
+U printbuffer 2 0
+D printed 2 0
+U memset 2 0
+U buffer 2 0
+U buffer 2 0
+U buffer 2 0
+U hooks 2 0
+U default_buffer_size 2 0
+U buffer 2 0
+U default_buffer_size 2 0
+U buffer 2 0
+U format 2 0
+U buffer 2 0
+U hooks 2 0
+U buffer 2 0
+E
+X
+U print_value 2 0
+U item 2 0
+U buffer 2 0
+E
+X
+U update_offset 2 0
+U buffer 2 0
+U hooks 2 0
+E
+U printed 3 0
+U hooks 3 0
+U buffer 3 0
+U buffer 3 0
+U printed 3 0
+E
+X
+U buffer 3 0
+X
+E
+U printed 3 0
+U hooks 3 0
+U buffer 3 0
+U printed 3 0
+E
+X
+U memcpy 3 0
+U printed 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+U buffer 3 0
+U printed 3 0
+U buffer 3 0
+U hooks 3 0
+U buffer 3 0
+U buffer 3 0
+X
+U printed 2 0
+U buffer 2 0
+E
+U hooks 3 0
+U buffer 3 0
+U buffer 3 0
+X
+U printed 2 0
+E
+U hooks 3 0
+U printed 3 0
+U printed 3 0
+X
+X
+X
+D cJSON_Print 0 0
+E
+D item 1 0
+U cJSON 1 0
+E
+U print 2 0
+U item 2 0
+U cJSON_bool 2 0
+U global_hooks 2 0
+X
+X
+D cJSON_PrintUnformatted 0 0
+E
+D item 1 0
+U cJSON 1 0
+E
+U print 2 0
+U item 2 0
+U cJSON_bool 2 0
+U global_hooks 2 0
+X
+X
+D cJSON_PrintBuffered 0 0
+E
+D item 1 0
+U cJSON 1 0
+D prebuffer 1 0
+D fmt 1 0
+U cJSON_bool 1 0
+E
+D p 2 0
+U printbuffer 2 0
+U prebuffer 2 0
+E
+X
+U p 2 0
+U global_hooks 2 0
+U size_t 2 0
+U prebuffer 2 0
+U p 2 0
+E
+X
+U p 2 0
+U size_t 2 0
+U prebuffer 2 0
+U p 2 0
+U p 2 0
+U cJSON_bool 2 0
+U p 2 0
+U fmt 2 0
+U p 2 0
+U global_hooks 2 0
+U print_value 2 0
+U item 2 0
+U p 2 0
+E
+U global_hooks 3 0
+U p 3 0
+U p 3 0
+X
+U p 2 0
+X
+X
+D cJSON_PrintPreallocated 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D buffer 1 0
+D length 1 0
+D format 1 0
+U cJSON_bool 1 0
+E
+D p 2 0
+U printbuffer 2 0
+U length 2 0
+U buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U p 2 0
+U buffer 2 0
+U p 2 0
+U size_t 2 0
+U length 2 0
+U p 2 0
+U p 2 0
+U cJSON_bool 2 0
+U p 2 0
+U format 2 0
+U p 2 0
+U global_hooks 2 0
+U print_value 2 0
+U item 2 0
+U p 2 0
+X
+X
+D parse_value 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+E
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U strncmp 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U item 3 0
+U input_buffer 3 0
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U strncmp 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U item 3 0
+U input_buffer 3 0
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U strncmp 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U item 3 0
+U item 3 0
+U input_buffer 3 0
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U parse_string 3 0
+U item 3 0
+U input_buffer 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U parse_number 3 0
+U item 3 0
+U input_buffer 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U parse_array 3 0
+U item 3 0
+U input_buffer 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U parse_object 3 0
+U item 3 0
+U input_buffer 3 0
+X
+U cJSON_bool 2 0
+X
+X
+D print_value 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+E
+D output 2 0
+U item 2 0
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+E
+U output 3 0
+U ensure 3 0
+U output_buffer 3 0
+U output 3 0
+E
+U cJSON_bool 4 0
+X
+U strcpy 3 0
+U output 3 0
+U cJSON_bool 3 0
+U output 3 0
+U ensure 3 0
+U output_buffer 3 0
+U output 3 0
+E
+U cJSON_bool 4 0
+X
+U strcpy 3 0
+U output 3 0
+U cJSON_bool 3 0
+U output 3 0
+U ensure 3 0
+U output_buffer 3 0
+U output 3 0
+E
+U cJSON_bool 4 0
+X
+U strcpy 3 0
+U output 3 0
+U cJSON_bool 3 0
+U print_number 3 0
+U item 3 0
+U output_buffer 3 0
+E
+D raw_length 4 0
+U size_t 4 0
+U item 4 0
+E
+U cJSON_bool 5 0
+X
+U raw_length 4 0
+U strlen 4 0
+U item 4 0
+U output 4 0
+U ensure 4 0
+U output_buffer 4 0
+U raw_length 4 0
+U output 4 0
+E
+U cJSON_bool 5 0
+X
+U memcpy 4 0
+U output 4 0
+U item 4 0
+U raw_length 4 0
+U cJSON_bool 4 0
+X
+U print_string 3 0
+U item 3 0
+U output_buffer 3 0
+U print_array 3 0
+U item 3 0
+U output_buffer 3 0
+U print_object 3 0
+U item 3 0
+U output_buffer 3 0
+U cJSON_bool 3 0
+X
+X
+X
+D parse_array 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+E
+D head 2 0
+U cJSON 2 0
+D current_item 2 0
+U cJSON 2 0
+U input_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U buffer_skip_whitespace 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U input_buffer 3 0
+X
+U input_buffer 2 0
+E
+D new_item 3 0
+U cJSON 3 0
+U cJSON_New_Item 3 0
+U input_buffer 3 0
+U new_item 3 0
+E
+X
+U head 3 0
+E
+U current_item 4 0
+U head 4 0
+U new_item 4 0
+X
+E
+U current_item 4 0
+U new_item 4 0
+U new_item 4 0
+U current_item 4 0
+U current_item 4 0
+U new_item 4 0
+X
+U input_buffer 3 0
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+U parse_value 3 0
+U current_item 3 0
+U input_buffer 3 0
+E
+X
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U head 2 0
+E
+U head 3 0
+U current_item 3 0
+X
+U item 2 0
+U item 2 0
+U head 2 0
+U input_buffer 2 0
+U cJSON_bool 2 0
+U head 2 0
+E
+U cJSON_Delete 3 0
+U head 3 0
+X
+U cJSON_bool 2 0
+X
+X
+D print_array 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+E
+D output_pointer 2 0
+D length 2 0
+U size_t 2 0
+D current_element 2 0
+U cJSON 2 0
+U item 2 0
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_pointer 2 0
+U ensure 2 0
+U output_buffer 2 0
+U output_pointer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_pointer 2 0
+U output_buffer 2 0
+U output_buffer 2 0
+U current_element 2 0
+E
+U print_value 3 0
+U current_element 3 0
+U output_buffer 3 0
+E
+U cJSON_bool 4 0
+X
+U update_offset 3 0
+U output_buffer 3 0
+U current_element 3 0
+E
+U length 4 0
+U size_t 4 0
+U output_buffer 4 0
+U output_pointer 4 0
+U ensure 4 0
+U output_buffer 4 0
+U length 4 0
+U output_pointer 4 0
+E
+U cJSON_bool 5 0
+X
+U output_pointer 4 0
+U output_buffer 4 0
+E
+U output_pointer 5 0
+X
+U output_pointer 4 0
+U output_buffer 4 0
+U length 4 0
+X
+U current_element 3 0
+U current_element 3 0
+X
+U output_pointer 2 0
+U ensure 2 0
+U output_buffer 2 0
+U output_pointer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_pointer 2 0
+U output_pointer 2 0
+U output_buffer 2 0
+U cJSON_bool 2 0
+X
+X
+D parse_object 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D input_buffer 1 0
+U parse_buffer 1 0
+E
+D head 2 0
+U cJSON 2 0
+D current_item 2 0
+U cJSON 2 0
+U input_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U buffer_skip_whitespace 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+U input_buffer 3 0
+X
+U input_buffer 2 0
+E
+D new_item 3 0
+U cJSON 3 0
+U cJSON_New_Item 3 0
+U input_buffer 3 0
+U new_item 3 0
+E
+X
+U head 3 0
+E
+U current_item 4 0
+U head 4 0
+U new_item 4 0
+X
+E
+U current_item 4 0
+U new_item 4 0
+U new_item 4 0
+U current_item 4 0
+U current_item 4 0
+U new_item 4 0
+X
+U input_buffer 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+E
+X
+U input_buffer 3 0
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+U parse_string 3 0
+U current_item 3 0
+U input_buffer 3 0
+E
+X
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+U current_item 3 0
+U current_item 3 0
+U current_item 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+U input_buffer 3 0
+E
+X
+U input_buffer 3 0
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+U parse_value 3 0
+U current_item 3 0
+U input_buffer 3 0
+E
+X
+U buffer_skip_whitespace 3 0
+U input_buffer 3 0
+X
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+U input_buffer 2 0
+E
+X
+U input_buffer 2 0
+U head 2 0
+E
+U head 3 0
+U current_item 3 0
+X
+U item 2 0
+U item 2 0
+U head 2 0
+U input_buffer 2 0
+U cJSON_bool 2 0
+U head 2 0
+E
+U cJSON_Delete 3 0
+U head 3 0
+X
+U cJSON_bool 2 0
+X
+X
+D print_object 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+D output_buffer 1 0
+U printbuffer 1 0
+E
+D output_pointer 2 0
+D length 2 0
+U size_t 2 0
+D current_item 2 0
+U cJSON 2 0
+U item 2 0
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_buffer 2 0
+E
+U cJSON_bool 3 0
+X
+U length 2 0
+U size_t 2 0
+U output_buffer 2 0
+U output_pointer 2 0
+U ensure 2 0
+U output_buffer 2 0
+U length 2 0
+U output_pointer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_pointer 2 0
+U output_buffer 2 0
+U output_buffer 2 0
+E
+U output_pointer 3 0
+X
+U output_buffer 2 0
+U length 2 0
+U current_item 2 0
+E
+U output_buffer 3 0
+E
+D i 4 0
+U size_t 4 0
+U output_pointer 4 0
+U ensure 4 0
+U output_buffer 4 0
+U output_buffer 4 0
+U output_pointer 4 0
+E
+U cJSON_bool 5 0
+X
+E
+U i 5 0
+U i 5 0
+U output_buffer 5 0
+U i 5 0
+E
+U output_pointer 6 0
+X
+X
+U output_buffer 4 0
+U output_buffer 4 0
+X
+U print_string_ptr 3 0
+U current_item 3 0
+U output_buffer 3 0
+E
+U cJSON_bool 4 0
+X
+U update_offset 3 0
+U output_buffer 3 0
+U length 3 0
+U size_t 3 0
+U output_buffer 3 0
+U output_pointer 3 0
+U ensure 3 0
+U output_buffer 3 0
+U length 3 0
+U output_pointer 3 0
+E
+U cJSON_bool 4 0
+X
+U output_pointer 3 0
+U output_buffer 3 0
+E
+U output_pointer 4 0
+X
+U output_buffer 3 0
+U length 3 0
+U print_value 3 0
+U current_item 3 0
+U output_buffer 3 0
+E
+U cJSON_bool 4 0
+X
+U update_offset 3 0
+U output_buffer 3 0
+U length 3 0
+U size_t 3 0
+U output_buffer 3 0
+U size_t 3 0
+U current_item 3 0
+U output_pointer 3 0
+U ensure 3 0
+U output_buffer 3 0
+U length 3 0
+U output_pointer 3 0
+E
+U cJSON_bool 4 0
+X
+U current_item 3 0
+E
+U output_pointer 4 0
+X
+U output_buffer 3 0
+E
+U output_pointer 4 0
+X
+U output_pointer 3 0
+U output_buffer 3 0
+U length 3 0
+U current_item 3 0
+U current_item 3 0
+X
+U output_pointer 2 0
+U ensure 2 0
+U output_buffer 2 0
+U output_buffer 2 0
+U output_buffer 2 0
+U output_pointer 2 0
+E
+U cJSON_bool 3 0
+X
+U output_buffer 2 0
+E
+D i 3 0
+U size_t 3 0
+E
+U i 4 0
+U i 4 0
+U output_buffer 4 0
+U i 4 0
+E
+U output_pointer 5 0
+X
+X
+X
+U output_pointer 2 0
+U output_pointer 2 0
+U output_buffer 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_GetArraySize 0 0
+E
+D array 1 0
+U cJSON 1 0
+E
+D child 2 0
+U cJSON 2 0
+D size 2 0
+U size_t 2 0
+U array 2 0
+E
+X
+U child 2 0
+U array 2 0
+U child 2 0
+E
+U size 3 0
+U child 3 0
+U child 3 0
+X
+U size 2 0
+X
+X
+D get_array_item 0 0
+E
+U cJSON 1 0
+D array 1 0
+U cJSON 1 0
+D index 1 0
+U size_t 1 0
+E
+D current_child 2 0
+U cJSON 2 0
+U array 2 0
+E
+X
+U current_child 2 0
+U array 2 0
+U current_child 2 0
+U index 2 0
+E
+U index 3 0
+U current_child 3 0
+U current_child 3 0
+X
+U current_child 2 0
+X
+X
+D cJSON_GetArrayItem 0 0
+E
+U cJSON 1 0
+D array 1 0
+U cJSON 1 0
+D index 1 0
+E
+U index 2 0
+E
+X
+U get_array_item 2 0
+U array 2 0
+U size_t 2 0
+U index 2 0
+X
+X
+D get_object_item 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D case_sensitive 1 0
+U cJSON_bool 1 0
+E
+D current_element 2 0
+U cJSON 2 0
+U object 2 0
+U name 2 0
+E
+X
+U current_element 2 0
+U object 2 0
+U case_sensitive 2 0
+E
+U current_element 3 0
+U current_element 3 0
+U strcmp 3 0
+U name 3 0
+U current_element 3 0
+E
+U current_element 4 0
+U current_element 4 0
+X
+X
+E
+U current_element 3 0
+U case_insensitive_strcmp 3 0
+U name 3 0
+U current_element 3 0
+E
+U current_element 4 0
+U current_element 4 0
+X
+X
+U current_element 2 0
+U current_element 2 0
+E
+X
+U current_element 2 0
+X
+X
+D cJSON_GetObjectItem 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+U get_object_item 2 0
+U object 2 0
+U string 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_GetObjectItemCaseSensitive 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+U get_object_item 2 0
+U object 2 0
+U string 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_HasObjectItem 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+U cJSON_GetObjectItem 2 0
+U object 2 0
+U string 2 0
+X
+X
+D suffix_object 0 0
+E
+D prev 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+E
+U prev 2 0
+U item 2 0
+U item 2 0
+U prev 2 0
+X
+X
+D create_reference 0 0
+E
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D hooks 1 0
+U internal_hooks 1 0
+E
+D reference 2 0
+U cJSON 2 0
+U item 2 0
+E
+X
+U reference 2 0
+U cJSON_New_Item 2 0
+U hooks 2 0
+U reference 2 0
+E
+X
+U memcpy 2 0
+U reference 2 0
+U item 2 0
+U cJSON 2 0
+U reference 2 0
+U reference 2 0
+U reference 2 0
+U reference 2 0
+U reference 2 0
+X
+X
+D add_item_to_array 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+E
+D child 2 0
+U cJSON 2 0
+U item 2 0
+U array 2 0
+U array 2 0
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U child 2 0
+U array 2 0
+U child 2 0
+E
+U array 3 0
+U item 3 0
+U item 3 0
+U item 3 0
+U item 3 0
+X
+E
+U child 3 0
+E
+U suffix_object 4 0
+U child 4 0
+U item 4 0
+U array 4 0
+U item 4 0
+X
+X
+U cJSON_bool 2 0
+X
+X
+D cJSON_AddItemToArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+E
+U add_item_to_array 2 0
+U array 2 0
+U item 2 0
+X
+X
+D cast_away_const 0 0
+E
+D string 1 0
+E
+U string 2 0
+X
+X
+D add_item_to_object 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+D hooks 1 0
+U internal_hooks 1 0
+D constant_key 1 0
+U cJSON_bool 1 0
+E
+D new_key 2 0
+D new_type 2 0
+U object 2 0
+U string 2 0
+U item 2 0
+U object 2 0
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U constant_key 2 0
+E
+U new_key 3 0
+U cast_away_const 3 0
+U string 3 0
+U new_type 3 0
+U item 3 0
+X
+E
+U new_key 3 0
+U cJSON_strdup 3 0
+U string 3 0
+U hooks 3 0
+U new_key 3 0
+E
+U cJSON_bool 4 0
+X
+U new_type 3 0
+U item 3 0
+X
+U item 2 0
+U item 2 0
+E
+U hooks 3 0
+U item 3 0
+X
+U item 2 0
+U new_key 2 0
+U item 2 0
+U new_type 2 0
+U add_item_to_array 2 0
+U object 2 0
+U item 2 0
+X
+X
+D cJSON_AddItemToObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+E
+U add_item_to_object 2 0
+U object 2 0
+U string 2 0
+U item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_AddItemToObjectCS 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+E
+U add_item_to_object 2 0
+U object 2 0
+U string 2 0
+U item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_AddItemReferenceToArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+E
+U array 2 0
+E
+U cJSON_bool 3 0
+X
+U add_item_to_array 2 0
+U array 2 0
+U create_reference 2 0
+U item 2 0
+U global_hooks 2 0
+X
+X
+D cJSON_AddItemReferenceToObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D item 1 0
+U cJSON 1 0
+E
+U object 2 0
+U string 2 0
+E
+U cJSON_bool 3 0
+X
+U add_item_to_object 2 0
+U object 2 0
+U string 2 0
+U create_reference 2 0
+U item 2 0
+U global_hooks 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_AddNullToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+E
+D null 2 0
+U cJSON 2 0
+U cJSON_CreateNull 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U null 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U null 3 0
+X
+U cJSON_Delete 2 0
+U null 2 0
+X
+X
+D cJSON_AddTrueToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+E
+D true_item 2 0
+U cJSON 2 0
+U cJSON_CreateTrue 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U true_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U true_item 3 0
+X
+U cJSON_Delete 2 0
+U true_item 2 0
+X
+X
+D cJSON_AddFalseToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+E
+D false_item 2 0
+U cJSON 2 0
+U cJSON_CreateFalse 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U false_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U false_item 3 0
+X
+U cJSON_Delete 2 0
+U false_item 2 0
+X
+X
+D cJSON_AddBoolToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D boolean 1 0
+U cJSON_bool 1 0
+E
+D bool_item 2 0
+U cJSON 2 0
+U cJSON_CreateBool 2 0
+U boolean 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U bool_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U bool_item 3 0
+X
+U cJSON_Delete 2 0
+U bool_item 2 0
+X
+X
+D cJSON_AddNumberToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D number 1 0
+E
+D number_item 2 0
+U cJSON 2 0
+U cJSON_CreateNumber 2 0
+U number 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U number_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U number_item 3 0
+X
+U cJSON_Delete 2 0
+U number_item 2 0
+X
+X
+D cJSON_AddStringToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D string 1 0
+E
+D string_item 2 0
+U cJSON 2 0
+U cJSON_CreateString 2 0
+U string 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U string_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U string_item 3 0
+X
+U cJSON_Delete 2 0
+U string_item 2 0
+X
+X
+D cJSON_AddRawToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+D raw 1 0
+E
+D raw_item 2 0
+U cJSON 2 0
+U cJSON_CreateRaw 2 0
+U raw 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U raw_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U raw_item 3 0
+X
+U cJSON_Delete 2 0
+U raw_item 2 0
+X
+X
+D cJSON_AddObjectToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+E
+D object_item 2 0
+U cJSON 2 0
+U cJSON_CreateObject 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U object_item 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U object_item 3 0
+X
+U cJSON_Delete 2 0
+U object_item 2 0
+X
+X
+D cJSON_AddArrayToObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D name 1 0
+E
+D array 2 0
+U cJSON 2 0
+U cJSON_CreateArray 2 0
+U add_item_to_object 2 0
+U object 2 0
+U name 2 0
+U array 2 0
+U global_hooks 2 0
+U cJSON_bool 2 0
+E
+U array 3 0
+X
+U cJSON_Delete 2 0
+U array 2 0
+X
+X
+D cJSON_DetachItemViaPointer 0 0
+E
+U cJSON 1 0
+D parent 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+E
+U parent 2 0
+U item 2 0
+U item 2 0
+U parent 2 0
+U item 2 0
+E
+X
+U item 2 0
+U parent 2 0
+E
+U item 3 0
+U item 3 0
+X
+U item 2 0
+E
+U item 3 0
+U item 3 0
+X
+U item 2 0
+U parent 2 0
+E
+U parent 3 0
+U item 3 0
+X
+U item 2 0
+E
+U parent 3 0
+U item 3 0
+X
+U item 2 0
+U item 2 0
+U item 2 0
+X
+X
+D cJSON_DetachItemFromArray 0 0
+E
+U cJSON 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+E
+U which 2 0
+E
+X
+U cJSON_DetachItemViaPointer 2 0
+U array 2 0
+U get_array_item 2 0
+U array 2 0
+U size_t 2 0
+U which 2 0
+X
+X
+D cJSON_DeleteItemFromArray 0 0
+E
+D array 1 0
+U cJSON 1 0
+D which 1 0
+E
+U cJSON_Delete 2 0
+U cJSON_DetachItemFromArray 2 0
+U array 2 0
+U which 2 0
+X
+X
+D cJSON_DetachItemFromObject 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+D to_detach 2 0
+U cJSON 2 0
+U cJSON_GetObjectItem 2 0
+U object 2 0
+U string 2 0
+U cJSON_DetachItemViaPointer 2 0
+U object 2 0
+U to_detach 2 0
+X
+X
+D cJSON_DetachItemFromObjectCaseSensitive 0 0
+E
+U cJSON 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+D to_detach 2 0
+U cJSON 2 0
+U cJSON_GetObjectItemCaseSensitive 2 0
+U object 2 0
+U string 2 0
+U cJSON_DetachItemViaPointer 2 0
+U object 2 0
+U to_detach 2 0
+X
+X
+D cJSON_DeleteItemFromObject 0 0
+E
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+U cJSON_Delete 2 0
+U cJSON_DetachItemFromObject 2 0
+U object 2 0
+U string 2 0
+X
+X
+D cJSON_DeleteItemFromObjectCaseSensitive 0 0
+E
+D object 1 0
+U cJSON 1 0
+D string 1 0
+E
+U cJSON_Delete 2 0
+U cJSON_DetachItemFromObjectCaseSensitive 2 0
+U object 2 0
+U string 2 0
+X
+X
+D cJSON_InsertItemInArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+D newitem 1 0
+U cJSON 1 0
+E
+D after_inserted 2 0
+U cJSON 2 0
+U which 2 0
+U newitem 2 0
+E
+U cJSON_bool 3 0
+X
+U after_inserted 2 0
+U get_array_item 2 0
+U array 2 0
+U size_t 2 0
+U which 2 0
+U after_inserted 2 0
+E
+U add_item_to_array 3 0
+U array 3 0
+U newitem 3 0
+X
+U after_inserted 2 0
+U array 2 0
+U after_inserted 2 0
+E
+U cJSON_bool 3 0
+X
+U newitem 2 0
+U after_inserted 2 0
+U newitem 2 0
+U after_inserted 2 0
+U after_inserted 2 0
+U newitem 2 0
+U after_inserted 2 0
+U array 2 0
+E
+U array 3 0
+U newitem 3 0
+X
+E
+U newitem 3 0
+U newitem 3 0
+X
+U cJSON_bool 2 0
+X
+X
+D cJSON_ReplaceItemViaPointer 0 0
+E
+U cJSON_bool 1 0
+D parent 1 0
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D replacement 1 0
+U cJSON 1 0
+E
+U parent 2 0
+U parent 2 0
+U replacement 2 0
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U replacement 2 0
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U replacement 2 0
+U item 2 0
+U replacement 2 0
+U item 2 0
+U replacement 2 0
+E
+U replacement 3 0
+U replacement 3 0
+X
+U parent 2 0
+U item 2 0
+E
+U parent 3 0
+U parent 3 0
+E
+U replacement 4 0
+U replacement 4 0
+X
+U parent 3 0
+U replacement 3 0
+X
+E
+U replacement 3 0
+E
+U replacement 4 0
+U replacement 4 0
+X
+U replacement 3 0
+E
+U parent 4 0
+U replacement 4 0
+X
+X
+U item 2 0
+U item 2 0
+U cJSON_Delete 2 0
+U item 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_ReplaceItemInArray 0 0
+E
+U cJSON_bool 1 0
+D array 1 0
+U cJSON 1 0
+D which 1 0
+D newitem 1 0
+U cJSON 1 0
+E
+U which 2 0
+E
+U cJSON_bool 3 0
+X
+U cJSON_ReplaceItemViaPointer 2 0
+U array 2 0
+U get_array_item 2 0
+U array 2 0
+U size_t 2 0
+U which 2 0
+U newitem 2 0
+X
+X
+D replace_item_in_object 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D replacement 1 0
+U cJSON 1 0
+D case_sensitive 1 0
+U cJSON_bool 1 0
+E
+U replacement 2 0
+U string 2 0
+E
+U cJSON_bool 3 0
+X
+U replacement 2 0
+U replacement 2 0
+E
+U cJSON_free 3 0
+U replacement 3 0
+X
+U replacement 2 0
+U cJSON_strdup 2 0
+U string 2 0
+U global_hooks 2 0
+U replacement 2 0
+E
+U cJSON_bool 3 0
+X
+U replacement 2 0
+U cJSON_ReplaceItemViaPointer 2 0
+U object 2 0
+U get_object_item 2 0
+U object 2 0
+U string 2 0
+U case_sensitive 2 0
+U replacement 2 0
+X
+X
+D cJSON_ReplaceItemInObject 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D newitem 1 0
+U cJSON 1 0
+E
+U replace_item_in_object 2 0
+U object 2 0
+U string 2 0
+U newitem 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_ReplaceItemInObjectCaseSensitive 0 0
+E
+U cJSON_bool 1 0
+D object 1 0
+U cJSON 1 0
+D string 1 0
+D newitem 1 0
+U cJSON 1 0
+E
+U replace_item_in_object 2 0
+U object 2 0
+U string 2 0
+U newitem 2 0
+U cJSON_bool 2 0
+X
+X
+D cJSON_CreateNull 0 0
+E
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateTrue 0 0
+E
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateFalse 0 0
+E
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateBool 0 0
+E
+U cJSON 1 0
+D boolean 1 0
+U cJSON_bool 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U boolean 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateNumber 0 0
+E
+U cJSON 1 0
+D num 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U num 3 0
+U num 3 0
+E
+U item 4 0
+X
+U num 3 0
+E
+U item 4 0
+X
+E
+U item 4 0
+U num 4 0
+X
+X
+U item 2 0
+X
+X
+D cJSON_CreateString 0 0
+E
+U cJSON 1 0
+D string 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U cJSON_strdup 3 0
+U string 3 0
+U global_hooks 3 0
+U item 3 0
+E
+U cJSON_Delete 4 0
+U item 4 0
+X
+X
+U item 2 0
+X
+X
+D cJSON_CreateStringReference 0 0
+E
+U cJSON 1 0
+D string 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U cast_away_const 3 0
+U string 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateObjectReference 0 0
+E
+U cJSON 1 0
+D child 1 0
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U cJSON 3 0
+U cast_away_const 3 0
+U child 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateArrayReference 0 0
+E
+U cJSON 1 0
+D child 1 0
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U cJSON 3 0
+U cast_away_const 3 0
+U child 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateRaw 0 0
+E
+U cJSON 1 0
+D raw 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+U item 3 0
+U cJSON_strdup 3 0
+U raw 3 0
+U global_hooks 3 0
+U item 3 0
+E
+U cJSON_Delete 4 0
+U item 4 0
+X
+X
+U item 2 0
+X
+X
+D cJSON_CreateArray 0 0
+E
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateObject 0 0
+E
+U cJSON 1 0
+E
+D item 2 0
+U cJSON 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U item 2 0
+E
+U item 3 0
+X
+U item 2 0
+X
+X
+D cJSON_CreateIntArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+E
+D i 2 0
+U size_t 2 0
+D n 2 0
+U cJSON 2 0
+D p 2 0
+U cJSON 2 0
+D a 2 0
+U cJSON 2 0
+U count 2 0
+U numbers 2 0
+E
+X
+U a 2 0
+U cJSON_CreateArray 2 0
+E
+U i 3 0
+U a 3 0
+U i 3 0
+U size_t 3 0
+U count 3 0
+U i 3 0
+E
+U n 4 0
+U cJSON_CreateNumber 4 0
+U numbers 4 0
+U i 4 0
+U n 4 0
+E
+U cJSON_Delete 5 0
+U a 5 0
+X
+U i 4 0
+E
+U a 5 0
+U n 5 0
+X
+E
+U suffix_object 5 0
+U p 5 0
+U n 5 0
+X
+U p 4 0
+U n 4 0
+X
+X
+U a 2 0
+U a 2 0
+E
+U a 3 0
+U n 3 0
+X
+U a 2 0
+X
+X
+D cJSON_CreateFloatArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+E
+D i 2 0
+U size_t 2 0
+D n 2 0
+U cJSON 2 0
+D p 2 0
+U cJSON 2 0
+D a 2 0
+U cJSON 2 0
+U count 2 0
+U numbers 2 0
+E
+X
+U a 2 0
+U cJSON_CreateArray 2 0
+E
+U i 3 0
+U a 3 0
+U i 3 0
+U size_t 3 0
+U count 3 0
+U i 3 0
+E
+U n 4 0
+U cJSON_CreateNumber 4 0
+U numbers 4 0
+U i 4 0
+U n 4 0
+E
+U cJSON_Delete 5 0
+U a 5 0
+X
+U i 4 0
+E
+U a 5 0
+U n 5 0
+X
+E
+U suffix_object 5 0
+U p 5 0
+U n 5 0
+X
+U p 4 0
+U n 4 0
+X
+X
+U a 2 0
+U a 2 0
+E
+U a 3 0
+U n 3 0
+X
+U a 2 0
+X
+X
+D cJSON_CreateDoubleArray 0 0
+E
+U cJSON 1 0
+D numbers 1 0
+D count 1 0
+E
+D i 2 0
+U size_t 2 0
+D n 2 0
+U cJSON 2 0
+D p 2 0
+U cJSON 2 0
+D a 2 0
+U cJSON 2 0
+U count 2 0
+U numbers 2 0
+E
+X
+U a 2 0
+U cJSON_CreateArray 2 0
+E
+U i 3 0
+U a 3 0
+U i 3 0
+U size_t 3 0
+U count 3 0
+U i 3 0
+E
+U n 4 0
+U cJSON_CreateNumber 4 0
+U numbers 4 0
+U i 4 0
+U n 4 0
+E
+U cJSON_Delete 5 0
+U a 5 0
+X
+U i 4 0
+E
+U a 5 0
+U n 5 0
+X
+E
+U suffix_object 5 0
+U p 5 0
+U n 5 0
+X
+U p 4 0
+U n 4 0
+X
+X
+U a 2 0
+U a 2 0
+E
+U a 3 0
+U n 3 0
+X
+U a 2 0
+X
+X
+D cJSON_CreateStringArray 0 0
+E
+U cJSON 1 0
+D strings 1 0
+D count 1 0
+E
+D i 2 0
+U size_t 2 0
+D n 2 0
+U cJSON 2 0
+D p 2 0
+U cJSON 2 0
+D a 2 0
+U cJSON 2 0
+U count 2 0
+U strings 2 0
+E
+X
+U a 2 0
+U cJSON_CreateArray 2 0
+E
+U i 3 0
+U a 3 0
+U i 3 0
+U size_t 3 0
+U count 3 0
+U i 3 0
+E
+U n 4 0
+U cJSON_CreateString 4 0
+U strings 4 0
+U i 4 0
+U n 4 0
+E
+U cJSON_Delete 5 0
+U a 5 0
+X
+U i 4 0
+E
+U a 5 0
+U n 5 0
+X
+E
+U suffix_object 5 0
+U p 5 0
+U n 5 0
+X
+U p 4 0
+U n 4 0
+X
+X
+U a 2 0
+U a 2 0
+E
+U a 3 0
+U n 3 0
+X
+U a 2 0
+X
+X
+D cJSON_Duplicate_rec 0 0
+E
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D depth 1 0
+U size_t 1 0
+D recurse 1 0
+U cJSON_bool 1 0
+X
+D cJSON_Duplicate 0 0
+E
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D recurse 1 0
+U cJSON_bool 1 0
+E
+U cJSON_Duplicate_rec 2 0
+U item 2 0
+U recurse 2 0
+X
+X
+D cJSON_Duplicate_rec 0 0
+E
+U cJSON 1 0
+D item 1 0
+U cJSON 1 0
+D depth 1 0
+U size_t 1 0
+D recurse 1 0
+U cJSON_bool 1 0
+E
+D newitem 2 0
+U cJSON 2 0
+D child 2 0
+U cJSON 2 0
+D next 2 0
+U cJSON 2 0
+D newchild 2 0
+U cJSON 2 0
+U item 2 0
+E
+X
+U newitem 2 0
+U cJSON_New_Item 2 0
+U global_hooks 2 0
+U newitem 2 0
+E
+X
+U newitem 2 0
+U item 2 0
+U newitem 2 0
+U item 2 0
+U newitem 2 0
+U item 2 0
+U item 2 0
+E
+U newitem 3 0
+U cJSON_strdup 3 0
+U item 3 0
+U global_hooks 3 0
+U newitem 3 0
+E
+X
+X
+U item 2 0
+E
+U newitem 3 0
+U item 3 0
+U item 3 0
+U cJSON_strdup 3 0
+U item 3 0
+U global_hooks 3 0
+U newitem 3 0
+E
+X
+X
+U recurse 2 0
+E
+U newitem 3 0
+X
+U child 2 0
+U item 2 0
+U child 2 0
+E
+U depth 3 0
+E
+X
+U newchild 3 0
+U cJSON_Duplicate_rec 3 0
+U child 3 0
+U depth 3 0
+U cJSON_bool 3 0
+U newchild 3 0
+E
+X
+U next 3 0
+E
+U next 4 0
+U newchild 4 0
+U newchild 4 0
+U next 4 0
+U next 4 0
+U newchild 4 0
+X
+E
+U newitem 4 0
+U newchild 4 0
+U next 4 0
+U newchild 4 0
+X
+U child 3 0
+U child 3 0
+X
+U newitem 2 0
+U newitem 2 0
+E
+U newitem 3 0
+U newchild 3 0
+X
+U newitem 2 0
+U newitem 2 0
+E
+U cJSON_Delete 3 0
+U newitem 3 0
+X
+X
+X
+D skip_oneline_comment 0 0
+E
+D input 1 0
+E
+U input 2 0
+E
+U input 3 0
+U input 3 0
+E
+U input 4 0
+E
+U input 5 0
+X
+X
+X
+X
+X
+D skip_multiline_comment 0 0
+E
+D input 1 0
+E
+U input 2 0
+E
+U input 3 0
+U input 3 0
+E
+U input 4 0
+U input 4 0
+E
+U input 5 0
+X
+X
+X
+X
+X
+D minify_string 0 0
+E
+D input 1 0
+D output 1 0
+E
+U output 2 0
+U input 2 0
+U input 2 0
+U output 2 0
+E
+U input 3 0
+U input 3 0
+U output 3 0
+E
+U output 4 0
+U input 4 0
+U input 4 0
+E
+U output 5 0
+U input 5 0
+U output 5 0
+X
+U input 4 0
+U input 4 0
+E
+U output 5 0
+U input 5 0
+U input 5 0
+U output 5 0
+X
+X
+X
+X
+X
+D cJSON_Minify 0 0
+E
+D json 1 0
+E
+D into 2 0
+U json 2 0
+U json 2 0
+E
+X
+U json 2 0
+E
+U json 3 0
+E
+U json 4 0
+U json 4 0
+E
+U skip_oneline_comment 5 0
+U json 5 0
+X
+U json 4 0
+E
+U skip_multiline_comment 5 0
+U json 5 0
+X
+E
+U json 5 0
+X
+U minify_string 4 0
+U json 4 0
+U into 4 0
+U into 4 0
+U json 4 0
+U json 4 0
+U into 4 0
+X
+X
+U into 2 0
+X
+X
+D cJSON_IsInvalid 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsFalse 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsTrue 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsBool 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsNull 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsNumber 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsString 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsArray 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsObject 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_IsRaw 0 0
+E
+U cJSON_bool 1 0
+D item 1 0
+U cJSON 1 0
+E
+U item 2 0
+E
+U cJSON_bool 3 0
+X
+U item 2 0
+X
+X
+D cJSON_Compare 0 0
+E
+U cJSON_bool 1 0
+D a 1 0
+U cJSON 1 0
+D b 1 0
+U cJSON 1 0
+D case_sensitive 1 0
+U cJSON_bool 1 0
+E
+U a 2 0
+U b 2 0
+U a 2 0
+U b 2 0
+E
+U cJSON_bool 3 0
+X
+U a 2 0
+E
+U cJSON_bool 3 0
+X
+U a 2 0
+U b 2 0
+E
+U cJSON_bool 3 0
+X
+U a 2 0
+E
+U cJSON_bool 3 0
+U compare_double 3 0
+U a 3 0
+U b 3 0
+E
+U cJSON_bool 4 0
+X
+U cJSON_bool 3 0
+U a 3 0
+U b 3 0
+E
+U cJSON_bool 4 0
+X
+U strcmp 3 0
+U a 3 0
+U b 3 0
+E
+U cJSON_bool 4 0
+X
+U cJSON_bool 3 0
+E
+D a_element 4 0
+U cJSON 4 0
+U a 4 0
+D b_element 4 0
+U cJSON 4 0
+U b 4 0
+E
+U a_element 5 0
+U b_element 5 0
+E
+U cJSON_Compare 6 0
+U a_element 6 0
+U b_element 6 0
+U case_sensitive 6 0
+E
+U cJSON_bool 7 0
+X
+U a_element 6 0
+U a_element 6 0
+U b_element 6 0
+U b_element 6 0
+X
+X
+U a_element 4 0
+U b_element 4 0
+E
+U cJSON_bool 5 0
+X
+U cJSON_bool 4 0
+X
+E
+D a_element 4 0
+U cJSON 4 0
+D b_element 4 0
+U cJSON 4 0
+E
+U a_element 5 0
+U a 5 0
+U a 5 0
+U a_element 5 0
+U a_element 5 0
+U a_element 5 0
+E
+U b_element 6 0
+U get_object_item 6 0
+U b 6 0
+U a_element 6 0
+U case_sensitive 6 0
+U b_element 6 0
+E
+U cJSON_bool 7 0
+X
+U cJSON_Compare 6 0
+U a_element 6 0
+U b_element 6 0
+U case_sensitive 6 0
+E
+U cJSON_bool 7 0
+X
+X
+X
+E
+U b_element 5 0
+U b 5 0
+U b 5 0
+U b_element 5 0
+U b_element 5 0
+U b_element 5 0
+E
+U a_element 6 0
+U get_object_item 6 0
+U a 6 0
+U b_element 6 0
+U case_sensitive 6 0
+U a_element 6 0
+E
+U cJSON_bool 7 0
+X
+U cJSON_Compare 6 0
+U b_element 6 0
+U a_element 6 0
+U case_sensitive 6 0
+E
+U cJSON_bool 7 0
+X
+X
+X
+U cJSON_bool 4 0
+X
+U cJSON_bool 3 0
+X
+X
+X
+D cJSON_malloc 0 0
+E
+D size 1 0
+U size_t 1 0
+E
+U global_hooks 2 0
+U size 2 0
+X
+X
+D cJSON_free 0 0
+E
+D object 1 0
+E
+U global_hooks 2 0
+U object 2 0
+U object 2 0
+X
+X

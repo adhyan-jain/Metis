@@ -1,0 +1,16 @@
+workload,tu,file,impl,events,decls,uses,peak_heap,final_heap
+protobufc,0,traces/protobufc/tu0000.trace,Conventional,7077,1451,3750,56248,53008
+protobufc,0,traces/protobufc/tu0000.trace,Interned,7077,1451,3750,129288,127968
+protobufc,0,traces/protobufc/tu0000.trace,AbslFlat,7077,1451,3750,66192,46376
+protobufc,0,traces/protobufc/tu0000.trace,ScopedId,7077,1451,3750,54632,50528
+protobufc,0,traces/protobufc/tu0000.trace,V2,7077,1451,3750,150616,128008
+protobufc,0,traces/protobufc/tu0000.trace,V2_noFingerprint,7077,1451,3750,150616,128008
+protobufc,0,traces/protobufc/tu0000.trace,V2_noReclaim,7077,1451,3750,220672,191568
+protobufc,0,traces/protobufc/tu0000.trace,V2_fixedInterned,7077,1451,3750,198856,181544
+protobufc,0,traces/protobufc/tu0000.trace,V2_noCompress,7077,1451,3750,158552,134200
+protobufc,0,traces/protobufc/tu0000.trace,V2_compressFirst,7077,1451,3750,195792,174200
+protobufc,0,traces/protobufc/tu0000.trace,V2abl_identity,7077,1451,3750,150632,128024
+protobufc,0,traces/protobufc/tu0000.trace,V2_noSlotRecycle,7077,1451,3750,204192,173024
+protobufc,0,traces/protobufc/tu0000.trace,V2_noSeenMap_diag,7077,1451,3750,113568,91816
+protobufc,0,traces/protobufc/tu0000.trace,V2_noSeenMap_noCompress_diag,7077,1451,3750,121584,98072
+protobufc,0,traces/protobufc/tu0000.trace,V2_noSeenMap_fixedInterned_diag,7077,1451,3750,161440,145192

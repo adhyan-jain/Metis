@@ -1,0 +1,15 @@
+tu,file,decl,use,enter,max_depth,sys_events,errors
+0,/home/adhyan/Desktop/Compiler/corpora/redis/deps/fpconv/fpconv_dtoa.c,400,461,114,5,371,0
+1,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hdr_histogram/hdr_histogram.c,2422,1487,966,6,2294,1
+2,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/alloc.c,452,149,107,2,530,0
+3,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/async.c,1561,1864,607,6,963,0
+4,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/dict.c,502,439,143,5,432,0
+5,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/hiredis.c,1423,1791,561,8,919,0
+6,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/net.c,1931,1265,536,8,1868,0
+7,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/read.c,2287,1171,808,7,2288,0
+8,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/sds.c,1057,1530,421,8,866,0
+9,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/sockcompat.c,1565,534,253,2,2099,0
+10,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/ssl.c,19245,11978,5542,6,29919,0
+11,/home/adhyan/Desktop/Compiler/corpora/redis/deps/hiredis/test.c,3191,4283,1341,5,3025,0
+12,/home/adhyan/Desktop/Compiler/corpora/redis/deps/linenoise/example.c,1018,388,287,4,1300,1
+13,/home/adhyan/Desktop/Compiler/corpora/redis/deps/linenoise/linenoise.c,2032,1819,643,7,2200,0

@@ -1,0 +1,549 @@
+{
+ "base_sample": {
+  "elf": "/home/adhyan/Desktop/Compiler/research/metis_llext/work/mod_slid/zephyr/zephyr.elf",
+  "exports": 202,
+  "table_bytes": 1616,
+  "names_strtab_not_in_flash": 4691,
+  "image_bin": 51644,
+  "loader_syms": {
+   "llext_find_sym": 4,
+   "llext_bsearch_sym": 134
+  }
+ },
+ "base_bundle": {
+  "elf": "/home/adhyan/Desktop/Compiler/research/metis_llext/work/bundle_slid/zephyr/zephyr.elf",
+  "exports": 233,
+  "table_bytes": 1864,
+  "names_strtab_not_in_flash": 5347,
+  "image_bin": 141112,
+  "loader_syms": {
+   "llext_find_sym": 4,
+   "llext_bsearch_sym": 134
+  }
+ },
+ "ext_details": {
+  "sample_hello": {
+   "file_bytes": 1128,
+   "imports": 1,
+   "import_names": [
+    "printk"
+   ],
+   "import_name_bytes": 7,
+   "import_symtab_bytes": 16,
+   "import_reloc_entries": 1,
+   "import_reloc_bytes": 8,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 12,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 5
+  },
+  "hello_world": {
+   "file_bytes": 2632,
+   "imports": 6,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 93,
+   "import_symtab_bytes": 96,
+   "import_reloc_entries": 11,
+   "import_reloc_bytes": 88,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 11,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 34
+  },
+  "logging": {
+   "file_bytes": 2196,
+   "imports": 3,
+   "import_names": [
+    "z_log_minimal_printk",
+    "z_timeout_expires",
+    "z_timeout_remaining"
+   ],
+   "import_name_bytes": 59,
+   "import_symtab_bytes": 48,
+   "import_reloc_entries": 6,
+   "import_reloc_bytes": 48,
+   "exports_global_syms": 2,
+   "export_name_bytes_strtab": 33,
+   "export_symtab_bytes": 32,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 17
+  },
+  "syscalls": {
+   "file_bytes": 2760,
+   "imports": 7,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_impl_ext_syscall_ok",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 115,
+   "import_symtab_bytes": 112,
+   "import_reloc_entries": 11,
+   "import_reloc_bytes": 88,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 11,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 33
+  },
+  "object": {
+   "file_bytes": 4264,
+   "imports": 7,
+   "import_names": [
+    "printk",
+    "strcmp",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 100,
+   "import_symtab_bytes": 112,
+   "import_reloc_entries": 13,
+   "import_reloc_bytes": 104,
+   "exports_global_syms": 4,
+   "export_name_bytes_strtab": 32,
+   "export_symtab_bytes": 64,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 96
+  },
+  "relative_jump": {
+   "file_bytes": 3732,
+   "imports": 6,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 93,
+   "import_symtab_bytes": 96,
+   "import_reloc_entries": 16,
+   "import_reloc_bytes": 128,
+   "exports_global_syms": 6,
+   "export_name_bytes_strtab": 116,
+   "export_symtab_bytes": 96,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 62
+  },
+  "inspect": {
+   "file_bytes": 1360,
+   "imports": 0,
+   "import_names": [],
+   "import_name_bytes": 0,
+   "import_symtab_bytes": 0,
+   "import_reloc_entries": 0,
+   "import_reloc_bytes": 0,
+   "exports_global_syms": 5,
+   "export_name_bytes_strtab": 83,
+   "export_symtab_bytes": 80,
+   "exported_sym_entries": 5,
+   "exported_sym_bytes": 40,
+   "exported_sym_reloc_bytes": 80,
+   "all_reloc_entries": 10
+  },
+  "threads_kernel_objects": {
+   "file_bytes": 6224,
+   "imports": 17,
+   "import_names": [
+    "__device_dts_ord_41",
+    "my_sem",
+    "my_thread",
+    "my_thread_stack",
+    "printk",
+    "vprintk",
+    "z_impl_device_get_binding",
+    "z_impl_device_is_ready",
+    "z_impl_k_sem_give",
+    "z_impl_k_sem_take",
+    "z_impl_k_thread_create",
+    "z_impl_k_thread_join",
+    "z_impl_k_wakeup",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 291,
+   "import_symtab_bytes": 272,
+   "import_reloc_entries": 36,
+   "import_reloc_bytes": 288,
+   "exports_global_syms": 2,
+   "export_name_bytes_strtab": 23,
+   "export_symtab_bytes": 32,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 136
+  },
+  "export_dependent": {
+   "file_bytes": 2644,
+   "imports": 7,
+   "import_names": [
+    "printk",
+    "test_dependency",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 109,
+   "import_symtab_bytes": 112,
+   "import_reloc_entries": 10,
+   "import_reloc_bytes": 80,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 11,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 31
+  },
+  "export_dependency": {
+   "file_bytes": 864,
+   "imports": 0,
+   "import_names": [],
+   "import_name_bytes": 0,
+   "import_symtab_bytes": 0,
+   "import_reloc_entries": 0,
+   "import_reloc_bytes": 0,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 16,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 2
+  },
+  "align": {
+   "file_bytes": 13528,
+   "imports": 6,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 93,
+   "import_symtab_bytes": 96,
+   "import_reloc_entries": 9,
+   "import_reloc_bytes": 72,
+   "exports_global_syms": 15,
+   "export_name_bytes_strtab": 190,
+   "export_symtab_bytes": 240,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 353
+  },
+  "movwmovt": {
+   "file_bytes": 3024,
+   "imports": 6,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 93,
+   "import_symtab_bytes": 96,
+   "import_reloc_entries": 11,
+   "import_reloc_bytes": 88,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 11,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 1,
+   "exported_sym_bytes": 8,
+   "exported_sym_reloc_bytes": 16,
+   "all_reloc_entries": 46
+  },
+  "init_fini": {
+   "file_bytes": 3392,
+   "imports": 6,
+   "import_names": [
+    "printk",
+    "vprintk",
+    "z_timeout_expires",
+    "z_timeout_remaining",
+    "ztest_relative_filename",
+    "ztest_test_fail"
+   ],
+   "import_name_bytes": 93,
+   "import_symtab_bytes": 96,
+   "import_reloc_entries": 9,
+   "import_reloc_bytes": 72,
+   "exports_global_syms": 1,
+   "export_name_bytes_strtab": 11,
+   "export_symtab_bytes": 16,
+   "exported_sym_entries": 2,
+   "exported_sym_bytes": 16,
+   "exported_sym_reloc_bytes": 32,
+   "all_reloc_entries": 46
+  }
+ },
+ "models": [
+  {
+   "label": "W1 sample/modules: 1 ext (toy) on sample base",
+   "n_exports_base": 202,
+   "n_ext": 1,
+   "slid_base_bytes": 1616,
+   "ext_binding_bytes": 83,
+   "ext_parts": {
+    "import_names": 7,
+    "import_symtab": 16,
+    "import_relocs": 8,
+    "exports": 52
+   },
+   "denominator_D": 1699,
+   "ext_file_bytes": 1128,
+   "base_image_bin": 51644,
+   "variants": {
+    "V2_dense_fp_in_id": {
+     "total": 895,
+     "saving_bytes": 804,
+     "saving_pct_of_D": 47.32,
+     "saving_pct_of_deliverable": 1.524,
+     "note": "+4B base const; loader: bsearch removed, index lookup added (assumed net 0)"
+    },
+    "V1_dense_fp_note": {
+     "total": 975,
+     "saving_bytes": 724,
+     "saving_pct_of_D": 42.61,
+     "saving_pct_of_deliverable": 1.372,
+     "note": "per-ext note section (~76B incl. section header)"
+    },
+    "S_slid_strip_import_names": {
+     "total": 1692,
+     "saving_bytes": 7,
+     "saving_pct_of_D": 0.41,
+     "saving_pct_of_deliverable": 0.013,
+     "note": "no ABI change; control"
+    },
+    "M_slid_compatible_MPH_analytic": {
+     "total": 1166,
+     "saving_bytes": 533,
+     "saving_pct_of_D": 31.37,
+     "saving_pct_of_deliverable": 1.01,
+     "note": "analytic, no ABI change, extensions unchanged"
+    }
+   }
+  },
+  {
+   "label": "W2 test base + 3 ext",
+   "n_exports_base": 233,
+   "n_ext": 3,
+   "slid_base_bytes": 1864,
+   "ext_binding_bytes": 938,
+   "ext_parts": {
+    "import_names": 267,
+    "import_symtab": 256,
+    "import_relocs": 224,
+    "exports": 191
+   },
+   "denominator_D": 2802,
+   "ext_file_bytes": 7588,
+   "base_image_bin": 141112,
+   "variants": {
+    "V2_dense_fp_in_id": {
+     "total": 1874,
+     "saving_bytes": 928,
+     "saving_pct_of_D": 33.12,
+     "saving_pct_of_deliverable": 0.624,
+     "note": "+4B base const; loader: bsearch removed, index lookup added (assumed net 0)"
+    },
+    "V1_dense_fp_note": {
+     "total": 2106,
+     "saving_bytes": 696,
+     "saving_pct_of_D": 24.84,
+     "saving_pct_of_deliverable": 0.468,
+     "note": "per-ext note section (~76B incl. section header)"
+    },
+    "S_slid_strip_import_names": {
+     "total": 2535,
+     "saving_bytes": 267,
+     "saving_pct_of_D": 9.53,
+     "saving_pct_of_deliverable": 0.18,
+     "note": "no ABI change; control"
+    },
+    "M_slid_compatible_MPH_analytic": {
+     "total": 2186,
+     "saving_bytes": 616,
+     "saving_pct_of_D": 21.98,
+     "saving_pct_of_deliverable": 0.414,
+     "note": "analytic, no ABI change, extensions unchanged"
+    }
+   }
+  },
+  {
+   "label": "W3 test base + 6 ext",
+   "n_exports_base": 233,
+   "n_ext": 6,
+   "slid_base_bytes": 1864,
+   "ext_binding_bytes": 2210,
+   "ext_parts": {
+    "import_names": 460,
+    "import_symtab": 464,
+    "import_relocs": 456,
+    "exports": 830
+   },
+   "denominator_D": 4074,
+   "ext_file_bytes": 16944,
+   "base_image_bin": 141112,
+   "variants": {
+    "V2_dense_fp_in_id": {
+     "total": 3146,
+     "saving_bytes": 928,
+     "saving_pct_of_D": 22.78,
+     "saving_pct_of_deliverable": 0.587,
+     "note": "+4B base const; loader: bsearch removed, index lookup added (assumed net 0)"
+    },
+    "V1_dense_fp_note": {
+     "total": 3606,
+     "saving_bytes": 468,
+     "saving_pct_of_D": 11.49,
+     "saving_pct_of_deliverable": 0.296,
+     "note": "per-ext note section (~76B incl. section header)"
+    },
+    "S_slid_strip_import_names": {
+     "total": 3614,
+     "saving_bytes": 460,
+     "saving_pct_of_D": 11.29,
+     "saving_pct_of_deliverable": 0.291,
+     "note": "no ABI change; control"
+    },
+    "M_slid_compatible_MPH_analytic": {
+     "total": 3458,
+     "saving_bytes": 616,
+     "saving_pct_of_D": 15.12,
+     "saving_pct_of_deliverable": 0.39,
+     "note": "analytic, no ABI change, extensions unchanged"
+    }
+   }
+  },
+  {
+   "label": "W4 test base + all 12 ext",
+   "n_exports_base": 233,
+   "n_ext": 12,
+   "slid_base_bytes": 1864,
+   "ext_binding_bytes": 4927,
+   "ext_parts": {
+    "import_names": 1139,
+    "import_symtab": 1136,
+    "import_relocs": 1056,
+    "exports": 1596
+   },
+   "denominator_D": 6791,
+   "ext_file_bytes": 46620,
+   "base_image_bin": 141112,
+   "variants": {
+    "V2_dense_fp_in_id": {
+     "total": 5863,
+     "saving_bytes": 928,
+     "saving_pct_of_D": 13.67,
+     "saving_pct_of_deliverable": 0.494,
+     "note": "+4B base const; loader: bsearch removed, index lookup added (assumed net 0)"
+    },
+    "V1_dense_fp_note": {
+     "total": 6779,
+     "saving_bytes": 12,
+     "saving_pct_of_D": 0.18,
+     "saving_pct_of_deliverable": 0.006,
+     "note": "per-ext note section (~76B incl. section header)"
+    },
+    "S_slid_strip_import_names": {
+     "total": 5652,
+     "saving_bytes": 1139,
+     "saving_pct_of_D": 16.77,
+     "saving_pct_of_deliverable": 0.607,
+     "note": "no ABI change; control"
+    },
+    "M_slid_compatible_MPH_analytic": {
+     "total": 6175,
+     "saving_bytes": 616,
+     "saving_pct_of_D": 9.07,
+     "saving_pct_of_deliverable": 0.328,
+     "note": "analytic, no ABI change, extensions unchanged"
+    }
+   }
+  },
+  {
+   "label": "W5 test base + 1 ext (hello_world)",
+   "n_exports_base": 233,
+   "n_ext": 1,
+   "slid_base_bytes": 1864,
+   "ext_binding_bytes": 328,
+   "ext_parts": {
+    "import_names": 93,
+    "import_symtab": 96,
+    "import_relocs": 88,
+    "exports": 51
+   },
+   "denominator_D": 2192,
+   "ext_file_bytes": 2632,
+   "base_image_bin": 141112,
+   "variants": {
+    "V2_dense_fp_in_id": {
+     "total": 1264,
+     "saving_bytes": 928,
+     "saving_pct_of_D": 42.34,
+     "saving_pct_of_deliverable": 0.646,
+     "note": "+4B base const; loader: bsearch removed, index lookup added (assumed net 0)"
+    },
+    "V1_dense_fp_note": {
+     "total": 1344,
+     "saving_bytes": 848,
+     "saving_pct_of_D": 38.69,
+     "saving_pct_of_deliverable": 0.59,
+     "note": "per-ext note section (~76B incl. section header)"
+    },
+    "S_slid_strip_import_names": {
+     "total": 2099,
+     "saving_bytes": 93,
+     "saving_pct_of_D": 4.24,
+     "saving_pct_of_deliverable": 0.065,
+     "note": "no ABI change; control"
+    },
+    "M_slid_compatible_MPH_analytic": {
+     "total": 1576,
+     "saving_bytes": 616,
+     "saving_pct_of_D": 28.1,
+     "saving_pct_of_deliverable": 0.429,
+     "note": "analytic, no ABI change, extensions unchanged"
+    }
+   }
+  }
+ ]
+}

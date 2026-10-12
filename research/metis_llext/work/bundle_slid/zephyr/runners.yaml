@@ -1,0 +1,22 @@
+# Available runners configured by board.cmake.
+runners:
+- qemu
+
+# Default flash runner if --runner is not given.
+flash-runner: qemu
+
+# Default debug runner if --runner is not given.
+debug-runner: qemu
+
+# Common runner configuration values.
+config:
+  board_dir: /home/adhyan/Desktop/Compiler/corpora/zephyr/boards/arm/mps2
+  # Build outputs:
+  elf_file: zephyr.elf
+  bin_file: zephyr.bin
+
+# Runner specific arguments
+args:
+  qemu:
+    []
+

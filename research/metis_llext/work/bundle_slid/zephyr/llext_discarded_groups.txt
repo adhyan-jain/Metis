@@ -1,0 +1,5 @@
+This file lists all symbols that have been marked as LLEXT exports
+but will not be added to the export table because their symbol group
+has not been enabled. Refer to LLEXT Documentation for more details.
+
+<No discarded symbols found in image>

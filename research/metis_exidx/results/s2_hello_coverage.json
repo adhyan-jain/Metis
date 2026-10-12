@@ -1,0 +1,26 @@
+{
+ "S1_stock_hello": {
+  "eligible_funcs": 152,
+  "exidx_bytes": 16,
+  "extab_bytes": 0,
+  "exidx_entries_excl_sentinel": 1,
+  "cantunwind": 1,
+  "covered": 0,
+  "coverage_pct": 0.0,
+  "exidx_without_symbol": 1,
+  "eligible_missing": 152,
+  "bin": null
+ },
+ "S2_stackwalk_hello": {
+  "eligible_funcs": 176,
+  "exidx_bytes": 832,
+  "extab_bytes": 24,
+  "exidx_entries_excl_sentinel": 103,
+  "cantunwind": 3,
+  "covered": 100,
+  "coverage_pct": 56.82,
+  "exidx_without_symbol": 3,
+  "eligible_missing": 76,
+  "bin": null
+ }
+}

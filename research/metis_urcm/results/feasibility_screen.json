@@ -1,0 +1,310 @@
+{
+ "hello_world_mps2": {
+  "n_sym": 157,
+  "line_ranges": 2211,
+  "line_events_with_gaps": 2233,
+  "gaps": 22,
+  "files": 80,
+  "extract_stats": {
+   "raw_rows": 9008,
+   "dropped_outside": 5613,
+   "dup_addr": 366,
+   "merged_same": 393,
+   "sequences": 425
+  },
+  "func_starts_on_line_event": 152,
+  "sym_bytes": 1733,
+  "sym_breakdown": {
+   "address_index": 183,
+   "addr_directory": 30,
+   "addr_stream": 153,
+   "name_checkpoints": 20,
+   "dictionary": 256,
+   "name_pool": 1117,
+   "ids": 157,
+   "payload": 1733
+  },
+  "line": {
+   "events": 2233,
+   "blocks": 140,
+   "stream": 6080,
+   "directory": 980,
+   "base_w": 2,
+   "sw": 2,
+   "fw": 1
+  },
+  "line_B": {
+   "8": {
+    "events": 2233,
+    "blocks": 280,
+    "stream": 5671,
+    "directory": 1960,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "16": {
+    "events": 2233,
+    "blocks": 140,
+    "stream": 6080,
+    "directory": 980,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "32": {
+    "events": 2233,
+    "blocks": 70,
+    "stream": 6288,
+    "directory": 490,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   }
+  },
+  "path_pool": [
+   1055,
+   128,
+   789,
+   128
+  ],
+  "line_total": 8115,
+  "separate_total": 9848,
+  "optimistic_save": 439,
+  "optimistic_save_pct_of_metadata": 4.46,
+  "line_entropy_floor_total": 4723,
+  "optimistic_save_pct_vs_entropy_floor": 6.8,
+  "dwarf_debug_line_bytes": null
+ },
+ "shell_module_mps2": {
+  "n_sym": 556,
+  "line_ranges": 9822,
+  "line_events_with_gaps": 9912,
+  "gaps": 90,
+  "files": 186,
+  "extract_stats": {
+   "raw_rows": 19161,
+   "dropped_outside": 5156,
+   "dup_addr": 816,
+   "merged_same": 2520,
+   "sequences": 847
+  },
+  "func_starts_on_line_event": 552,
+  "sym_bytes": 5826,
+  "sym_breakdown": {
+   "address_index": 707,
+   "addr_directory": 140,
+   "addr_stream": 567,
+   "name_checkpoints": 70,
+   "dictionary": 256,
+   "name_pool": 4098,
+   "ids": 695,
+   "payload": 5826
+  },
+  "line": {
+   "events": 9912,
+   "blocks": 620,
+   "stream": 26941,
+   "directory": 4340,
+   "base_w": 2,
+   "sw": 2,
+   "fw": 1
+  },
+  "line_B": {
+   "8": {
+    "events": 9912,
+    "blocks": 1239,
+    "stream": 25161,
+    "directory": 8673,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "16": {
+    "events": 9912,
+    "blocks": 620,
+    "stream": 26941,
+    "directory": 4340,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "32": {
+    "events": 9912,
+    "blocks": 310,
+    "stream": 27856,
+    "directory": 2170,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   }
+  },
+  "path_pool": [
+   1986,
+   128,
+   1706,
+   128
+  ],
+  "line_total": 33267,
+  "separate_total": 39093,
+  "optimistic_save": 963,
+  "optimistic_save_pct_of_metadata": 2.46,
+  "line_entropy_floor_total": 19004,
+  "optimistic_save_pct_vs_entropy_floor": 3.88,
+  "dwarf_debug_line_bytes": null
+ },
+ "echo_server_mps2": {
+  "n_sym": 1380,
+  "line_ranges": 30758,
+  "line_events_with_gaps": 30963,
+  "gaps": 205,
+  "files": 311,
+  "extract_stats": {
+   "raw_rows": 57078,
+   "dropped_outside": 14009,
+   "dup_addr": 2318,
+   "merged_same": 7705,
+   "sequences": 2288
+  },
+  "func_starts_on_line_event": 1376,
+  "sym_bytes": 14433,
+  "sym_breakdown": {
+   "address_index": 1921,
+   "addr_directory": 435,
+   "addr_stream": 1486,
+   "name_checkpoints": 172,
+   "dictionary": 256,
+   "name_pool": 10186,
+   "ids": 1898,
+   "payload": 14433
+  },
+  "line": {
+   "events": 30963,
+   "blocks": 1936,
+   "stream": 88851,
+   "directory": 19360,
+   "base_w": 3,
+   "sw": 3,
+   "fw": 2
+  },
+  "line_B": {
+   "8": {
+    "events": 30963,
+    "blocks": 3871,
+    "stream": 82903,
+    "directory": 38710,
+    "base_w": 3,
+    "sw": 3,
+    "fw": 2
+   },
+   "16": {
+    "events": 30963,
+    "blocks": 1936,
+    "stream": 88851,
+    "directory": 19360,
+    "base_w": 3,
+    "sw": 3,
+    "fw": 2
+   },
+   "32": {
+    "events": 30963,
+    "blocks": 968,
+    "stream": 91800,
+    "directory": 9680,
+    "base_w": 3,
+    "sw": 3,
+    "fw": 2
+   }
+  },
+  "path_pool": [
+   3006,
+   128,
+   2710,
+   128
+  ],
+  "line_total": 111217,
+  "separate_total": 125650,
+  "optimistic_save": 2177,
+  "optimistic_save_pct_of_metadata": 1.73,
+  "line_entropy_floor_total": 60417,
+  "optimistic_save_pct_vs_entropy_floor": 2.91,
+  "dwarf_debug_line_bytes": null
+ },
+ "hello_world_nrf52840": {
+  "n_sym": 225,
+  "line_ranges": 3896,
+  "line_events_with_gaps": 3926,
+  "gaps": 30,
+  "files": 121,
+  "extract_stats": {
+   "raw_rows": 11359,
+   "dropped_outside": 5788,
+   "dup_addr": 507,
+   "merged_same": 642,
+   "sequences": 526
+  },
+  "func_starts_on_line_event": 220,
+  "sym_bytes": 2422,
+  "sym_breakdown": {
+   "address_index": 275,
+   "addr_directory": 45,
+   "addr_stream": 230,
+   "name_checkpoints": 28,
+   "dictionary": 256,
+   "name_pool": 1638,
+   "ids": 225,
+   "payload": 2422
+  },
+  "line": {
+   "events": 3926,
+   "blocks": 246,
+   "stream": 11134,
+   "directory": 1722,
+   "base_w": 2,
+   "sw": 2,
+   "fw": 1
+  },
+  "line_B": {
+   "8": {
+    "events": 3926,
+    "blocks": 491,
+    "stream": 10383,
+    "directory": 3437,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "16": {
+    "events": 3926,
+    "blocks": 246,
+    "stream": 11134,
+    "directory": 1722,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   },
+   "32": {
+    "events": 3926,
+    "blocks": 123,
+    "stream": 11494,
+    "directory": 861,
+    "base_w": 2,
+    "sw": 2,
+    "fw": 1
+   }
+  },
+  "path_pool": [
+   1510,
+   128,
+   1238,
+   128
+  ],
+  "line_total": 14366,
+  "separate_total": 16788,
+  "optimistic_save": 531,
+  "optimistic_save_pct_of_metadata": 3.16,
+  "line_entropy_floor_total": 8567,
+  "optimistic_save_pct_vs_entropy_floor": 4.83,
+  "dwarf_debug_line_bytes": null
+ }
+}

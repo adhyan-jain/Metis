@@ -1,0 +1,6256 @@
+D size_t 0 1
+D wchar_t 0 1
+D __cfloat128 0 1
+D _Float128 0 1
+D _Float32 0 1
+D _Float64 0 1
+D _Float32x 0 1
+D _Float64x 0 1
+D div_t 0 1
+D ldiv_t 0 1
+D lldiv_t 0 1
+D __ctype_get_mb_cur_max 0 1
+U size_t 0 1
+D atof 0 1
+E
+D __nptr 1 1
+X
+D atoi 0 1
+E
+D __nptr 1 1
+X
+D atol 0 1
+E
+D __nptr 1 1
+X
+D atoll 0 1
+E
+D __nptr 1 1
+X
+D strtod 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtof 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtold 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+X
+D strtol 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoul 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtouq 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoll 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D strtoull 0 1
+E
+D __nptr 1 1
+D __endptr 1 1
+D __base 1 1
+X
+D l64a 0 1
+E
+D __n 1 1
+X
+D a64l 0 1
+E
+D __s 1 1
+X
+D __u_char 0 1
+D __u_short 0 1
+D __u_int 0 1
+D __u_long 0 1
+D __int8_t 0 1
+D __uint8_t 0 1
+D __int16_t 0 1
+D __uint16_t 0 1
+D __int32_t 0 1
+D __uint32_t 0 1
+D __int64_t 0 1
+D __uint64_t 0 1
+D __int_least8_t 0 1
+U __int8_t 0 1
+D __uint_least8_t 0 1
+U __uint8_t 0 1
+D __int_least16_t 0 1
+U __int16_t 0 1
+D __uint_least16_t 0 1
+U __uint16_t 0 1
+D __int_least32_t 0 1
+U __int32_t 0 1
+D __uint_least32_t 0 1
+U __uint32_t 0 1
+D __int_least64_t 0 1
+U __int64_t 0 1
+D __uint_least64_t 0 1
+U __uint64_t 0 1
+D __quad_t 0 1
+D __u_quad_t 0 1
+D __intmax_t 0 1
+D __uintmax_t 0 1
+D __dev_t 0 1
+D __uid_t 0 1
+D __gid_t 0 1
+D __ino_t 0 1
+D __ino64_t 0 1
+D __mode_t 0 1
+D __nlink_t 0 1
+D __off_t 0 1
+D __off64_t 0 1
+D __pid_t 0 1
+D __fsid_t 0 1
+D __clock_t 0 1
+D __rlim_t 0 1
+D __rlim64_t 0 1
+D __id_t 0 1
+D __time_t 0 1
+D __useconds_t 0 1
+D __suseconds_t 0 1
+D __suseconds64_t 0 1
+D __daddr_t 0 1
+D __key_t 0 1
+D __clockid_t 0 1
+D __timer_t 0 1
+D __blksize_t 0 1
+D __blkcnt_t 0 1
+D __blkcnt64_t 0 1
+D __fsblkcnt_t 0 1
+D __fsblkcnt64_t 0 1
+D __fsfilcnt_t 0 1
+D __fsfilcnt64_t 0 1
+D __fsword_t 0 1
+D __ssize_t 0 1
+D __syscall_slong_t 0 1
+D __syscall_ulong_t 0 1
+D __loff_t 0 1
+U __off64_t 0 1
+D __caddr_t 0 1
+D __intptr_t 0 1
+D __socklen_t 0 1
+D __sig_atomic_t 0 1
+D u_char 0 1
+U __u_char 0 1
+D u_short 0 1
+U __u_short 0 1
+D u_int 0 1
+U __u_int 0 1
+D u_long 0 1
+U __u_long 0 1
+D quad_t 0 1
+U __quad_t 0 1
+D u_quad_t 0 1
+U __u_quad_t 0 1
+D fsid_t 0 1
+U __fsid_t 0 1
+D loff_t 0 1
+U __loff_t 0 1
+D ino_t 0 1
+U __ino_t 0 1
+D dev_t 0 1
+U __dev_t 0 1
+D gid_t 0 1
+U __gid_t 0 1
+D mode_t 0 1
+U __mode_t 0 1
+D nlink_t 0 1
+U __nlink_t 0 1
+D uid_t 0 1
+U __uid_t 0 1
+D off_t 0 1
+U __off_t 0 1
+D pid_t 0 1
+U __pid_t 0 1
+D id_t 0 1
+U __id_t 0 1
+D ssize_t 0 1
+U __ssize_t 0 1
+D daddr_t 0 1
+U __daddr_t 0 1
+D caddr_t 0 1
+U __caddr_t 0 1
+D key_t 0 1
+U __key_t 0 1
+D clock_t 0 1
+U __clock_t 0 1
+D clockid_t 0 1
+U __clockid_t 0 1
+D time_t 0 1
+U __time_t 0 1
+D timer_t 0 1
+U __timer_t 0 1
+D ulong 0 1
+D ushort 0 1
+D uint 0 1
+D int8_t 0 1
+U __int8_t 0 1
+D int16_t 0 1
+U __int16_t 0 1
+D int32_t 0 1
+U __int32_t 0 1
+D int64_t 0 1
+U __int64_t 0 1
+D u_int8_t 0 1
+U __uint8_t 0 1
+D u_int16_t 0 1
+U __uint16_t 0 1
+D u_int32_t 0 1
+U __uint32_t 0 1
+D u_int64_t 0 1
+U __uint64_t 0 1
+D register_t 0 1
+D __bswap_16 0 1
+E
+U __uint16_t 1 1
+D __bsx 1 1
+U __uint16_t 1 1
+E
+U __uint16_t 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_32 0 1
+E
+U __uint32_t 1 1
+D __bsx 1 1
+U __uint32_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __bswap_64 0 1
+E
+U __uint64_t 1 1
+D __bsx 1 1
+U __uint64_t 1 1
+E
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+U __bsx 2 1
+X
+X
+D __uint16_identity 0 1
+E
+U __uint16_t 1 1
+D __x 1 1
+U __uint16_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint32_identity 0 1
+E
+U __uint32_t 1 1
+D __x 1 1
+U __uint32_t 1 1
+E
+U __x 2 1
+X
+X
+D __uint64_identity 0 1
+E
+U __uint64_t 1 1
+D __x 1 1
+U __uint64_t 1 1
+E
+U __x 2 1
+X
+X
+D __sigset_t 0 1
+D sigset_t 0 1
+U __sigset_t 0 1
+U __time_t 0 1
+U __suseconds_t 0 1
+U __time_t 0 1
+U __syscall_slong_t 0 1
+D suseconds_t 0 1
+U __suseconds_t 0 1
+D __fd_mask 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_set 0 1
+U __fd_mask 0 1
+U __fd_mask 0 1
+D fd_mask 0 1
+U __fd_mask 0 1
+D select 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+X
+D pselect 0 1
+E
+D __nfds 1 1
+D __readfds 1 1
+U fd_set 1 1
+D __writefds 1 1
+U fd_set 1 1
+D __exceptfds 1 1
+U fd_set 1 1
+D __timeout 1 1
+D __sigmask 1 1
+U __sigset_t 1 1
+X
+D blksize_t 0 1
+U __blksize_t 0 1
+D blkcnt_t 0 1
+U __blkcnt_t 0 1
+D fsblkcnt_t 0 1
+U __fsblkcnt_t 0 1
+D fsfilcnt_t 0 1
+U __fsfilcnt_t 0 1
+D __atomic_wide_counter 0 1
+D __pthread_list_t 0 1
+D __pthread_slist_t 0 1
+U __pthread_list_t 0 1
+U __atomic_wide_counter 0 1
+U __atomic_wide_counter 0 1
+D __tss_t 0 1
+D __thrd_t 0 1
+D __once_flag 0 1
+D pthread_t 0 1
+D pthread_mutexattr_t 0 1
+D pthread_condattr_t 0 1
+D pthread_key_t 0 1
+D pthread_once_t 0 1
+D pthread_attr_t 0 1
+D pthread_mutex_t 0 1
+D pthread_cond_t 0 1
+D pthread_rwlock_t 0 1
+D pthread_rwlockattr_t 0 1
+D pthread_spinlock_t 0 1
+D pthread_barrier_t 0 1
+D pthread_barrierattr_t 0 1
+D random 0 1
+D srandom 0 1
+E
+D __seed 1 1
+X
+D initstate 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+X
+D setstate 0 1
+E
+D __statebuf 1 1
+X
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+U int32_t 0 1
+D random_r 0 1
+E
+D __buf 1 1
+D __result 1 1
+U int32_t 1 1
+X
+D srandom_r 0 1
+E
+D __seed 1 1
+D __buf 1 1
+X
+D initstate_r 0 1
+E
+D __seed 1 1
+D __statebuf 1 1
+D __statelen 1 1
+U size_t 1 1
+D __buf 1 1
+X
+D setstate_r 0 1
+E
+D __statebuf 1 1
+D __buf 1 1
+X
+D rand 0 1
+D srand 0 1
+E
+D __seed 1 1
+X
+D rand_r 0 1
+E
+D __seed 1 1
+X
+D drand48 0 1
+D erand48 0 1
+E
+D __xsubi 1 1
+X
+D lrand48 0 1
+D nrand48 0 1
+E
+D __xsubi 1 1
+X
+D mrand48 0 1
+D jrand48 0 1
+E
+D __xsubi 1 1
+X
+D srand48 0 1
+E
+D __seedval 1 1
+X
+D seed48 0 1
+E
+D __seed16v 1 1
+X
+D lcong48 0 1
+E
+D __param 1 1
+X
+D drand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D erand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D lrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D nrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D mrand48_r 0 1
+E
+D __buffer 1 1
+D __result 1 1
+X
+D jrand48_r 0 1
+E
+D __xsubi 1 1
+D __buffer 1 1
+D __result 1 1
+X
+D srand48_r 0 1
+E
+D __seedval 1 1
+D __buffer 1 1
+X
+D seed48_r 0 1
+E
+D __seed16v 1 1
+D __buffer 1 1
+X
+D lcong48_r 0 1
+E
+D __param 1 1
+D __buffer 1 1
+X
+D arc4random 0 1
+U __uint32_t 0 1
+D arc4random_buf 0 1
+E
+D __buf 1 1
+D __size 1 1
+U size_t 1 1
+X
+D arc4random_uniform 0 1
+E
+U __uint32_t 1 1
+D __upper_bound 1 1
+U __uint32_t 1 1
+X
+D malloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D calloc 0 1
+E
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D realloc 0 1
+E
+D __ptr 1 1
+D __size 1 1
+U size_t 1 1
+X
+D free 0 1
+E
+D __ptr 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D reallocarray 0 1
+E
+D __ptr 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D alloca 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D valloc 0 1
+E
+D __size 1 1
+U size_t 1 1
+X
+D posix_memalign 0 1
+E
+D __memptr 1 1
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D aligned_alloc 0 1
+E
+D __alignment 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+X
+D abort 0 1
+D atexit 0 1
+E
+D __func 1 1
+X
+D at_quick_exit 0 1
+E
+D __func 1 1
+X
+D on_exit 0 1
+E
+D __func 1 1
+D __status 1 1
+D __arg 1 1
+D __arg 1 1
+X
+D exit 0 1
+E
+D __status 1 1
+X
+D quick_exit 0 1
+E
+D __status 1 1
+X
+D _Exit 0 1
+E
+D __status 1 1
+X
+D getenv 0 1
+E
+D __name 1 1
+X
+D putenv 0 1
+E
+D __string 1 1
+X
+D setenv 0 1
+E
+D __name 1 1
+D __value 1 1
+D __replace 1 1
+X
+D unsetenv 0 1
+E
+D __name 1 1
+X
+D clearenv 0 1
+D mktemp 0 1
+E
+D __template 1 1
+X
+D mkstemp 0 1
+E
+D __template 1 1
+X
+D mkstemps 0 1
+E
+D __template 1 1
+D __suffixlen 1 1
+X
+D mkdtemp 0 1
+E
+D __template 1 1
+X
+D system 0 1
+E
+D __command 1 1
+X
+D realpath 0 1
+E
+D __name 1 1
+D __resolved 1 1
+X
+D __compar_fn_t 0 1
+D bsearch 0 1
+E
+D __key 1 1
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D qsort 0 1
+E
+D __base 1 1
+D __nmemb 1 1
+U size_t 1 1
+D __size 1 1
+U size_t 1 1
+D __compar 1 1
+U __compar_fn_t 1 1
+X
+D abs 0 1
+E
+D __x 1 1
+X
+D labs 0 1
+E
+D __x 1 1
+X
+D llabs 0 1
+E
+D __x 1 1
+X
+D div 0 1
+E
+U div_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ldiv 0 1
+E
+U ldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D lldiv 0 1
+E
+U lldiv_t 1 1
+D __numer 1 1
+D __denom 1 1
+X
+D ecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D fcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D gcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D qecvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qfcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+X
+D qgcvt 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __buf 1 1
+X
+D ecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D fcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qecvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D qfcvt_r 0 1
+E
+D __value 1 1
+D __ndigit 1 1
+D __decpt 1 1
+D __sign 1 1
+D __buf 1 1
+D __len 1 1
+U size_t 1 1
+X
+D mblen 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mbtowc 0 1
+E
+D __pwc 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wctomb 0 1
+E
+D __s 1 1
+D __wchar 1 1
+U wchar_t 1 1
+X
+D mbstowcs 0 1
+E
+U size_t 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D wcstombs 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __pwcs 1 1
+U wchar_t 1 1
+D __n 1 1
+U size_t 1 1
+X
+D rpmatch 0 1
+E
+D __response 1 1
+X
+D getsubopt 0 1
+E
+D __optionp 1 1
+D __tokens 1 1
+D __valuep 1 1
+X
+D getloadavg 0 1
+E
+D __loadavg 1 1
+D __nelem 1 1
+X
+D memcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memmove 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memccpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memset_explicit 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __memcmpeq 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D memchr 0 1
+E
+D __s 1 1
+D __c 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcat 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D strncat 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcoll 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strxfrm 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D __locale_t 0 1
+D locale_t 0 1
+U __locale_t 0 1
+D strcoll_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strxfrm_l 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D strdup 0 1
+E
+D __s 1 1
+X
+D strndup 0 1
+E
+D __string 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strrchr 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strchrnul 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D strcspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __reject 1 1
+X
+D strspn 0 1
+E
+U size_t 1 1
+D __s 1 1
+D __accept 1 1
+X
+D strpbrk 0 1
+E
+D __s 1 1
+D __accept 1 1
+X
+D strstr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D strtok 0 1
+E
+D __s 1 1
+D __delim 1 1
+X
+D __strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strtok_r 0 1
+E
+D __s 1 1
+D __delim 1 1
+D __save_ptr 1 1
+X
+D strcasestr 0 1
+E
+D __haystack 1 1
+D __needle 1 1
+X
+D memmem 0 1
+E
+D __haystack 1 1
+D __haystacklen 1 1
+U size_t 1 1
+D __needle 1 1
+D __needlelen 1 1
+U size_t 1 1
+X
+D __mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D mempcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlen 0 1
+E
+U size_t 1 1
+D __s 1 1
+X
+D strnlen 0 1
+E
+U size_t 1 1
+D __string 1 1
+D __maxlen 1 1
+U size_t 1 1
+X
+D strerror 0 1
+E
+D __errnum 1 1
+X
+D strerror_r 0 1
+E
+D __errnum 1 1
+D __buf 1 1
+D __buflen 1 1
+U size_t 1 1
+X
+D strerror_l 0 1
+E
+D __errnum 1 1
+D __l 1 1
+U locale_t 1 1
+X
+D bcmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bcopy 0 1
+E
+D __src 1 1
+D __dest 1 1
+D __n 1 1
+U size_t 1 1
+X
+D bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D index 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D rindex 0 1
+E
+D __s 1 1
+D __c 1 1
+X
+D ffs 0 1
+E
+D __i 1 1
+X
+D ffsl 0 1
+E
+D __l 1 1
+X
+D ffsll 0 1
+E
+D __ll 1 1
+X
+D strcasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+X
+D strncasecmp 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strcasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D strncasecmp_l 0 1
+E
+D __s1 1 1
+D __s2 1 1
+D __n 1 1
+U size_t 1 1
+D __loc 1 1
+U locale_t 1 1
+X
+D explicit_bzero 0 1
+E
+D __s 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strsep 0 1
+E
+D __stringp 1 1
+D __delim 1 1
+X
+D strsignal 0 1
+E
+D __sig 1 1
+X
+D __stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D stpcpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+X
+D __stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D stpncpy 0 1
+E
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcpy 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D strlcat 0 1
+E
+U size_t 1 1
+D __dest 1 1
+D __src 1 1
+D __n 1 1
+U size_t 1 1
+X
+D ptrdiff_t 0 1
+D max_align_t 0 1
+D uint8_t 0 1
+U __uint8_t 0 1
+D uint16_t 0 1
+U __uint16_t 0 1
+D uint32_t 0 1
+U __uint32_t 0 1
+D uint64_t 0 1
+U __uint64_t 0 1
+D int_least8_t 0 1
+U __int_least8_t 0 1
+D int_least16_t 0 1
+U __int_least16_t 0 1
+D int_least32_t 0 1
+U __int_least32_t 0 1
+D int_least64_t 0 1
+U __int_least64_t 0 1
+D uint_least8_t 0 1
+U __uint_least8_t 0 1
+D uint_least16_t 0 1
+U __uint_least16_t 0 1
+D uint_least32_t 0 1
+U __uint_least32_t 0 1
+D uint_least64_t 0 1
+U __uint_least64_t 0 1
+D int_fast8_t 0 1
+D int_fast16_t 0 1
+D int_fast32_t 0 1
+D int_fast64_t 0 1
+D uint_fast8_t 0 1
+D uint_fast16_t 0 1
+D uint_fast32_t 0 1
+D uint_fast64_t 0 1
+D intptr_t 0 1
+D uintptr_t 0 1
+D intmax_t 0 1
+U __intmax_t 0 1
+D uintmax_t 0 1
+U __uintmax_t 0 1
+D TaskFunction_t 0 0
+D arg 0 0
+D StackType_t 0 0
+D BaseType_t 0 0
+D UBaseType_t 0 0
+D TickType_t 0 0
+D vPortYield 0 0
+D vPortDisableInterrupts 0 0
+D vPortEnableInterrupts 0 0
+D xPortSetInterruptMask 0 0
+U UBaseType_t 0 0
+D vPortClearInterruptMask 0 0
+E
+D xMask 1 0
+U UBaseType_t 1 0
+X
+D vPortEnterCritical 0 0
+D vPortExitCritical 0 0
+D vPortThreadDying 0 0
+E
+D pxTaskToDelete 1 0
+D pxPendYield 1 0
+U BaseType_t 1 0
+X
+D vPortCancelThread 0 0
+E
+D pxTaskToDelete 1 0
+X
+D ulPortGetRunTime 0 0
+U uint32_t 0 0
+D pxPortInitialiseStack 0 0
+E
+U StackType_t 1 0
+D pxTopOfStack 1 0
+U StackType_t 1 0
+D pxEndOfStack 1 0
+U StackType_t 1 0
+D pxCode 1 0
+U TaskFunction_t 1 0
+D pvParameters 1 0
+X
+U uint8_t 0 0
+U size_t 0 0
+D HeapRegion_t 0 0
+U uint8_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+D HeapStats_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+U size_t 0 0
+D vPortDefineHeapRegions 0 0
+E
+D pxHeapRegions 1 0
+U HeapRegion_t 1 0
+X
+D vPortGetHeapStats 0 0
+E
+D pxHeapStats 1 0
+U HeapStats_t 1 0
+X
+D pvPortMalloc 0 0
+E
+D xWantedSize 1 0
+U size_t 1 0
+X
+D pvPortCalloc 0 0
+E
+D xNum 1 0
+U size_t 1 0
+D xSize 1 0
+U size_t 1 0
+X
+D vPortFree 0 0
+E
+D pv 1 0
+X
+D vPortInitialiseBlocks 0 0
+D xPortGetFreeHeapSize 0 0
+U size_t 0 0
+D xPortGetMinimumEverFreeHeapSize 0 0
+U size_t 0 0
+D xPortResetHeapMinimumEverFreeHeapSize 0 0
+D vPortHeapResetState 0 0
+D xPortStartScheduler 0 0
+U BaseType_t 0 0
+D vPortEndScheduler 0 0
+U TickType_t 0 0
+D StaticListItem_t 0 0
+U TickType_t 0 0
+D StaticMiniListItem_t 0 0
+U UBaseType_t 0 0
+U StaticMiniListItem_t 0 0
+D StaticList_t 0 0
+U UBaseType_t 0 0
+U StaticMiniListItem_t 0 0
+U StaticListItem_t 0 0
+U UBaseType_t 0 0
+U uint8_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+D StaticTask_t 0 0
+U StaticListItem_t 0 0
+U UBaseType_t 0 0
+U uint8_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U StaticList_t 0 0
+U UBaseType_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+D StaticQueue_t 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U StaticList_t 0 0
+U UBaseType_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+D StaticSemaphore_t 0 0
+U StaticQueue_t 0 0
+U TickType_t 0 0
+U StaticList_t 0 0
+U uint8_t 0 0
+D StaticEventGroup_t 0 0
+U TickType_t 0 0
+U StaticList_t 0 0
+U uint8_t 0 0
+U StaticListItem_t 0 0
+U TickType_t 0 0
+U TaskFunction_t 0 0
+U uint8_t 0 0
+D StaticTimer_t 0 0
+U StaticListItem_t 0 0
+U TickType_t 0 0
+U TaskFunction_t 0 0
+U uint8_t 0 0
+U size_t 0 0
+U uint8_t 0 0
+U UBaseType_t 0 0
+D StaticStreamBuffer_t 0 0
+U size_t 0 0
+U uint8_t 0 0
+U UBaseType_t 0 0
+D StaticMessageBuffer_t 0 0
+U StaticStreamBuffer_t 0 0
+U TickType_t 0 0
+D ListItem_t 0 0
+U TickType_t 0 0
+D MiniListItem_t 0 0
+U UBaseType_t 0 0
+U ListItem_t 0 0
+U MiniListItem_t 0 0
+D List_t 0 0
+U UBaseType_t 0 0
+U ListItem_t 0 0
+U MiniListItem_t 0 0
+D vListInitialise 0 0
+E
+D pxList 1 0
+U List_t 1 0
+X
+D vListInitialiseItem 0 0
+E
+D pxItem 1 0
+U ListItem_t 1 0
+X
+D vListInsert 0 0
+E
+D pxList 1 0
+U List_t 1 0
+D pxNewListItem 1 0
+U ListItem_t 1 0
+X
+D vListInsertEnd 0 0
+E
+D pxList 1 0
+U List_t 1 0
+D pxNewListItem 1 0
+U ListItem_t 1 0
+X
+D uxListRemove 0 0
+E
+U UBaseType_t 1 0
+D pxItemToRemove 1 0
+U ListItem_t 1 0
+X
+D TaskHandle_t 0 0
+D ConstTaskHandle_t 0 0
+D TaskHookFunction_t 0 0
+U BaseType_t 0 0
+D arg 0 0
+D eRunning 0 0
+D eReady 0 0
+D eBlocked 0 0
+D eSuspended 0 0
+D eDeleted 0 0
+D eInvalid 0 0
+D eTaskState 0 0
+D eRunning 0 0
+D eReady 0 0
+D eBlocked 0 0
+D eSuspended 0 0
+D eDeleted 0 0
+D eInvalid 0 0
+D eNoAction 0 0
+D eSetBits 0 0
+D eIncrement 0 0
+D eSetValueWithOverwrite 0 0
+D eSetValueWithoutOverwrite 0 0
+D eNotifyAction 0 0
+D eNoAction 0 0
+D eSetBits 0 0
+D eIncrement 0 0
+D eSetValueWithOverwrite 0 0
+D eSetValueWithoutOverwrite 0 0
+U BaseType_t 0 0
+U TickType_t 0 0
+D TimeOut_t 0 0
+U BaseType_t 0 0
+U TickType_t 0 0
+U uint32_t 0 0
+U uint32_t 0 0
+D MemoryRegion_t 0 0
+U uint32_t 0 0
+U uint32_t 0 0
+U TaskFunction_t 0 0
+U size_t 0 0
+U UBaseType_t 0 0
+U StackType_t 0 0
+U MemoryRegion_t 0 0
+D TaskParameters_t 0 0
+U TaskFunction_t 0 0
+U size_t 0 0
+U UBaseType_t 0 0
+U StackType_t 0 0
+U MemoryRegion_t 0 0
+U TaskHandle_t 0 0
+U UBaseType_t 0 0
+U eTaskState 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U StackType_t 0 0
+U size_t 0 0
+D TaskStatus_t 0 0
+U TaskHandle_t 0 0
+U UBaseType_t 0 0
+U eTaskState 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U StackType_t 0 0
+U size_t 0 0
+D TaskStatusCallbackFunction_t 0 0
+D xTask 0 0
+U TaskHandle_t 0 0
+D eState 0 0
+U eTaskState 0 0
+D pvCallbackContext 0 0
+D eAbortSleep 0 0
+D eStandardSleep 0 0
+D eNoTasksWaitingTimeout 0 0
+D eSleepModeStatus 0 0
+D eAbortSleep 0 0
+D eStandardSleep 0 0
+D eNoTasksWaitingTimeout 0 0
+D xTaskCreate 0 0
+E
+U BaseType_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+X
+D xTaskCreateStatic 0 0
+E
+U TaskHandle_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D puxStackBuffer 1 0
+U StackType_t 1 0
+D pxTaskBuffer 1 0
+U StaticTask_t 1 0
+X
+D vTaskDelete 0 0
+E
+D xTaskToDelete 1 0
+U TaskHandle_t 1 0
+X
+D vTaskDelay 0 0
+E
+D xTicksToDelay 1 0
+U TickType_t 1 0
+X
+D xTaskPeriodicDelay 0 0
+E
+U TickType_t 1 0
+D pxPreviousWakeTime 1 0
+U TickType_t 1 0
+D xTimeIncrement 1 0
+U TickType_t 1 0
+X
+D xTaskDelayUntil 0 0
+E
+U BaseType_t 1 0
+D pxPreviousWakeTime 1 0
+U TickType_t 1 0
+D xTimeIncrement 1 0
+U TickType_t 1 0
+X
+D uxTaskPriorityGet 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+X
+D uxTaskPriorityGetFromISR 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+X
+D uxTaskBasePriorityGet 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+X
+D uxTaskBasePriorityGetFromISR 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+X
+D vTaskPrioritySet 0 0
+E
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxNewPriority 1 0
+U UBaseType_t 1 0
+X
+D vTaskSuspend 0 0
+E
+D xTaskToSuspend 1 0
+U TaskHandle_t 1 0
+X
+D vTaskResume 0 0
+E
+D xTaskToResume 1 0
+U TaskHandle_t 1 0
+X
+D xTaskResumeFromISR 0 0
+E
+U BaseType_t 1 0
+D xTaskToResume 1 0
+U TaskHandle_t 1 0
+X
+D vTaskStartScheduler 0 0
+D vTaskEndScheduler 0 0
+D vTaskSuspendAll 0 0
+D xTaskResumeAll 0 0
+U BaseType_t 0 0
+D xTaskGetTickCount 0 0
+U TickType_t 0 0
+D xTaskGetTickCountFromISR 0 0
+U TickType_t 0 0
+D uxTaskGetNumberOfTasks 0 0
+U UBaseType_t 0 0
+D pcTaskGetName 0 0
+E
+D xTaskToQuery 1 0
+U TaskHandle_t 1 0
+X
+D xTaskGetStaticBuffers 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D ppuxStackBuffer 1 0
+U StackType_t 1 0
+D ppxTaskBuffer 1 0
+U StaticTask_t 1 0
+X
+D vApplicationStackOverflowHook 0 0
+E
+D xTask 1 0
+U TaskHandle_t 1 0
+D pcTaskName 1 0
+X
+D vApplicationGetIdleTaskMemory 0 0
+E
+D ppxIdleTaskTCBBuffer 1 0
+U StaticTask_t 1 0
+D ppxIdleTaskStackBuffer 1 0
+U StackType_t 1 0
+D puxIdleTaskStackSize 1 0
+U size_t 1 0
+X
+D xTaskGenericNotify 0 0
+E
+U BaseType_t 1 0
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D ulValue 1 0
+U uint32_t 1 0
+D eAction 1 0
+U eNotifyAction 1 0
+D pulPreviousNotificationValue 1 0
+U uint32_t 1 0
+X
+D xTaskGenericNotifyFromISR 0 0
+E
+U BaseType_t 1 0
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D ulValue 1 0
+U uint32_t 1 0
+D eAction 1 0
+U eNotifyAction 1 0
+D pulPreviousNotificationValue 1 0
+U uint32_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+X
+D xTaskGenericNotifyWait 0 0
+E
+U BaseType_t 1 0
+D uxIndexToWaitOn 1 0
+U UBaseType_t 1 0
+D ulBitsToClearOnEntry 1 0
+U uint32_t 1 0
+D ulBitsToClearOnExit 1 0
+U uint32_t 1 0
+D pulNotificationValue 1 0
+U uint32_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D vTaskGenericNotifyGiveFromISR 0 0
+E
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+X
+D ulTaskGenericNotifyTake 0 0
+E
+U uint32_t 1 0
+D uxIndexToWaitOn 1 0
+U UBaseType_t 1 0
+D xClearCountOnExit 1 0
+U BaseType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D xTaskGenericNotifyStateClear 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxIndexToClear 1 0
+U UBaseType_t 1 0
+X
+D ulTaskGenericNotifyValueClear 0 0
+E
+U uint32_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxIndexToClear 1 0
+U UBaseType_t 1 0
+D ulBitsToClear 1 0
+U uint32_t 1 0
+X
+D vTaskSetTimeOutState 0 0
+E
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+X
+D xTaskCheckForTimeOut 0 0
+E
+U BaseType_t 1 0
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+D pxTicksToWait 1 0
+U TickType_t 1 0
+X
+D xTaskCatchUpTicks 0 0
+E
+U BaseType_t 1 0
+D xTicksToCatchUp 1 0
+U TickType_t 1 0
+X
+D vTaskResetState 0 0
+D xTaskIncrementTick 0 0
+U BaseType_t 0 0
+D vTaskPlaceOnEventList 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D vTaskPlaceOnUnorderedEventList 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xItemValue 1 0
+U TickType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D vTaskPlaceOnEventListRestricted 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+D xWaitIndefinitely 1 0
+U BaseType_t 1 0
+X
+D xTaskRemoveFromEventList 0 0
+E
+U BaseType_t 1 0
+D pxEventList 1 0
+U List_t 1 0
+X
+D vTaskRemoveFromUnorderedEventList 0 0
+E
+D pxEventListItem 1 0
+U ListItem_t 1 0
+D xItemValue 1 0
+U TickType_t 1 0
+X
+D vTaskSwitchContext 0 0
+D uxTaskResetEventItemValue 0 0
+U TickType_t 0 0
+D xTaskGetCurrentTaskHandle 0 0
+U TaskHandle_t 0 0
+D xTaskGetCurrentTaskHandleForCore 0 0
+E
+U TaskHandle_t 1 0
+D xCoreID 1 0
+U BaseType_t 1 0
+X
+D vTaskMissedYield 0 0
+D xTaskGetSchedulerState 0 0
+U BaseType_t 0 0
+D xTaskPriorityInherit 0 0
+E
+U BaseType_t 1 0
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+X
+D xTaskPriorityDisinherit 0 0
+E
+U BaseType_t 1 0
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+X
+D vTaskPriorityDisinheritAfterTimeout 0 0
+E
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+D uxHighestPriorityWaitingTask 1 0
+U UBaseType_t 1 0
+X
+D pvTaskIncrementMutexHeldCount 0 0
+U TaskHandle_t 0 0
+D vTaskInternalSetTimeOutState 0 0
+E
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+X
+D TimerHandle_t 0 0
+D TimerCallbackFunction_t 0 0
+D xTimer 0 0
+U TimerHandle_t 0 0
+D PendedFunction_t 0 0
+D arg1 0 0
+D arg2 0 0
+U uint32_t 0 0
+D xTimerCreate 0 0
+E
+U TimerHandle_t 1 0
+D pcTimerName 1 0
+D xTimerPeriodInTicks 1 0
+U TickType_t 1 0
+D xAutoReload 1 0
+U BaseType_t 1 0
+D pvTimerID 1 0
+D pxCallbackFunction 1 0
+U TimerCallbackFunction_t 1 0
+X
+D xTimerCreateStatic 0 0
+E
+U TimerHandle_t 1 0
+D pcTimerName 1 0
+D xTimerPeriodInTicks 1 0
+U TickType_t 1 0
+D xAutoReload 1 0
+U BaseType_t 1 0
+D pvTimerID 1 0
+D pxCallbackFunction 1 0
+U TimerCallbackFunction_t 1 0
+D pxTimerBuffer 1 0
+U StaticTimer_t 1 0
+X
+D pvTimerGetTimerID 0 0
+E
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D vTimerSetTimerID 0 0
+E
+D xTimer 1 0
+U TimerHandle_t 1 0
+D pvNewID 1 0
+X
+D xTimerIsTimerActive 0 0
+E
+U BaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D xTimerGetTimerDaemonTaskHandle 0 0
+U TaskHandle_t 0 0
+D pcTimerGetName 0 0
+E
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D vTimerSetReloadMode 0 0
+E
+D xTimer 1 0
+U TimerHandle_t 1 0
+D xAutoReload 1 0
+U BaseType_t 1 0
+X
+D xTimerGetReloadMode 0 0
+E
+U BaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D uxTimerGetReloadMode 0 0
+E
+U UBaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D xTimerGetPeriod 0 0
+E
+U TickType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D xTimerGetExpiryTime 0 0
+E
+U TickType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+X
+D xTimerGetStaticBuffer 0 0
+E
+U BaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+D ppxTimerBuffer 1 0
+U StaticTimer_t 1 0
+X
+D xTimerCreateTimerTask 0 0
+U BaseType_t 0 0
+D xTimerGenericCommandFromTask 0 0
+E
+U BaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+D xCommandID 1 0
+U BaseType_t 1 0
+D xOptionalValue 1 0
+U TickType_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D xTimerGenericCommandFromISR 0 0
+E
+U BaseType_t 1 0
+D xTimer 1 0
+U TimerHandle_t 1 0
+D xCommandID 1 0
+U BaseType_t 1 0
+D xOptionalValue 1 0
+U TickType_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+X
+D vApplicationGetTimerTaskMemory 0 0
+E
+D ppxTimerTaskTCBBuffer 1 0
+U StaticTask_t 1 0
+D ppxTimerTaskStackBuffer 1 0
+U StackType_t 1 0
+D puxTimerTaskStackSize 1 0
+U size_t 1 0
+X
+D vTimerResetState 0 0
+U StackType_t 0 0
+U ListItem_t 0 0
+U ListItem_t 0 0
+U UBaseType_t 0 0
+U StackType_t 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+D tskTCB 0 0
+U StackType_t 0 0
+U ListItem_t 0 0
+U ListItem_t 0 0
+U UBaseType_t 0 0
+U StackType_t 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+U uint32_t 0 0
+U uint8_t 0 0
+U uint8_t 0 0
+D TCB_t 0 0
+U tskTCB 0 0
+D pxCurrentTCB 0 0
+U TCB_t 0 0
+D pxReadyTasksLists 0 0
+U List_t 0 0
+D xDelayedTaskList1 0 0
+U List_t 0 0
+D xDelayedTaskList2 0 0
+U List_t 0 0
+D pxDelayedTaskList 0 0
+U List_t 0 0
+D pxOverflowDelayedTaskList 0 0
+U List_t 0 0
+D xPendingReadyList 0 0
+U List_t 0 0
+D xTasksWaitingTermination 0 0
+U List_t 0 0
+D uxDeletedTasksWaitingCleanUp 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+D xSuspendedTaskList 0 0
+U List_t 0 0
+D uxCurrentNumberOfTasks 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+D xTickCount 0 0
+U TickType_t 0 0
+U TickType_t 0 0
+D uxTopReadyPriority 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+D xSchedulerRunning 0 0
+U BaseType_t 0 0
+U BaseType_t 0 0
+D xPendedTicks 0 0
+U TickType_t 0 0
+U TickType_t 0 0
+D xYieldPendings 0 0
+U BaseType_t 0 0
+U BaseType_t 0 0
+D xNumOfOverflows 0 0
+U BaseType_t 0 0
+U BaseType_t 0 0
+D uxTaskNumber 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+D xNextTaskUnblockTime 0 0
+U TickType_t 0 0
+U TickType_t 0 0
+D xIdleTaskHandles 0 0
+U TaskHandle_t 0 0
+D uxTopUsedPriority 0 0
+U UBaseType_t 0 0
+D uxSchedulerSuspended 0 0
+U UBaseType_t 0 0
+U UBaseType_t 0 0
+D prvCreateIdleTasks 0 0
+U BaseType_t 0 0
+D prvTaskIsTaskSuspended 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+X
+D prvInitialiseTaskLists 0 0
+D prvIdleTask 0 0
+E
+D pvParameters 1 0
+X
+D prvDeleteTCB 0 0
+E
+D pxTCB 1 0
+U TCB_t 1 0
+X
+D prvCheckTasksWaitingTermination 0 0
+D prvAddCurrentTaskToDelayedList 0 0
+E
+D xTicksToWait 1 0
+U TickType_t 1 0
+D xCanBlockIndefinitely 1 0
+U BaseType_t 1 0
+X
+D prvResetNextTaskUnblockTime 0 0
+D prvInitialiseNewTask 0 0
+E
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+D pxNewTCB 1 0
+U TCB_t 1 0
+D xRegions 1 0
+U MemoryRegion_t 1 0
+X
+D prvAddNewTaskToReadyList 0 0
+E
+D pxNewTCB 1 0
+U TCB_t 1 0
+X
+D prvCreateStaticTask 0 0
+E
+U TCB_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D puxStackBuffer 1 0
+U StackType_t 1 0
+D pxTaskBuffer 1 0
+U StaticTask_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+X
+D prvCreateTask 0 0
+E
+U TCB_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+X
+D prvCreateStaticTask 0 0
+E
+U TCB_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D puxStackBuffer 1 0
+U StackType_t 1 0
+D pxTaskBuffer 1 0
+U StaticTask_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+E
+D pxNewTCB 2 0
+U TCB_t 2 0
+U puxStackBuffer 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTaskBuffer 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+E
+D xSize 3 0
+U size_t 3 0
+U StaticTask_t 3 0
+U xSize 3 0
+U TCB_t 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U xSize 3 0
+X
+U pxTaskBuffer 2 0
+U puxStackBuffer 2 0
+E
+U pxNewTCB 3 0
+U TCB_t 3 0
+U pxTaskBuffer 3 0
+U memset 3 0
+U pxNewTCB 3 0
+U TCB_t 3 0
+U pxNewTCB 3 0
+U StackType_t 3 0
+U puxStackBuffer 3 0
+E
+U pxNewTCB 4 0
+U uint8_t 4 0
+X
+U prvInitialiseNewTask 3 0
+U pxTaskCode 3 0
+U pcName 3 0
+U uxStackDepth 3 0
+U pvParameters 3 0
+U uxPriority 3 0
+U pxCreatedTask 3 0
+U pxNewTCB 3 0
+X
+E
+U pxNewTCB 3 0
+X
+U pxNewTCB 2 0
+X
+X
+D xTaskCreateStatic 0 0
+E
+U TaskHandle_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D puxStackBuffer 1 0
+U StackType_t 1 0
+D pxTaskBuffer 1 0
+U StaticTask_t 1 0
+E
+D xReturn 2 0
+U TaskHandle_t 2 0
+D pxNewTCB 2 0
+U TCB_t 2 0
+U pxNewTCB 2 0
+U prvCreateStaticTask 2 0
+U pxTaskCode 2 0
+U pcName 2 0
+U uxStackDepth 2 0
+U pvParameters 2 0
+U uxPriority 2 0
+U puxStackBuffer 2 0
+U pxTaskBuffer 2 0
+U xReturn 2 0
+U pxNewTCB 2 0
+E
+U prvAddNewTaskToReadyList 3 0
+U pxNewTCB 3 0
+X
+E
+X
+U xReturn 2 0
+X
+X
+D prvCreateTask 0 0
+E
+U TCB_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+E
+D pxNewTCB 2 0
+U TCB_t 2 0
+E
+D pxStack 3 0
+U StackType_t 3 0
+U pxStack 3 0
+U StackType_t 3 0
+U pvPortMalloc 3 0
+U size_t 3 0
+U uxStackDepth 3 0
+U StackType_t 3 0
+U pxStack 3 0
+E
+U pxNewTCB 4 0
+U TCB_t 4 0
+U pvPortMalloc 4 0
+U TCB_t 4 0
+U pxNewTCB 4 0
+E
+U memset 5 0
+U pxNewTCB 5 0
+U TCB_t 5 0
+U pxNewTCB 5 0
+U pxStack 5 0
+X
+E
+U vPortFree 5 0
+U pxStack 5 0
+X
+X
+E
+U pxNewTCB 4 0
+X
+X
+U pxNewTCB 2 0
+E
+E
+U pxNewTCB 4 0
+U uint8_t 4 0
+X
+U prvInitialiseNewTask 3 0
+U pxTaskCode 3 0
+U pcName 3 0
+U uxStackDepth 3 0
+U pvParameters 3 0
+U uxPriority 3 0
+U pxCreatedTask 3 0
+U pxNewTCB 3 0
+X
+U pxNewTCB 2 0
+X
+X
+D xTaskCreate 0 0
+E
+U BaseType_t 1 0
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+E
+D pxNewTCB 2 0
+U TCB_t 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U pxNewTCB 2 0
+U prvCreateTask 2 0
+U pxTaskCode 2 0
+U pcName 2 0
+U uxStackDepth 2 0
+U pvParameters 2 0
+U uxPriority 2 0
+U pxCreatedTask 2 0
+U pxNewTCB 2 0
+E
+U prvAddNewTaskToReadyList 3 0
+U pxNewTCB 3 0
+U xReturn 3 0
+U BaseType_t 3 0
+X
+E
+U xReturn 3 0
+X
+U xReturn 2 0
+X
+X
+D prvInitialiseNewTask 0 0
+E
+D pxTaskCode 1 0
+U TaskFunction_t 1 0
+D pcName 1 0
+D uxStackDepth 1 0
+U size_t 1 0
+D pvParameters 1 0
+D uxPriority 1 0
+U UBaseType_t 1 0
+D pxCreatedTask 1 0
+U TaskHandle_t 1 0
+D pxNewTCB 1 0
+U TCB_t 1 0
+D xRegions 1 0
+U MemoryRegion_t 1 0
+E
+D pxTopOfStack 2 0
+U StackType_t 2 0
+D x 2 0
+U UBaseType_t 2 0
+E
+U memset 3 0
+U pxNewTCB 3 0
+U size_t 3 0
+U uxStackDepth 3 0
+U StackType_t 3 0
+X
+E
+U pxTopOfStack 3 0
+U pxNewTCB 3 0
+U uxStackDepth 3 0
+U size_t 3 0
+U pxTopOfStack 3 0
+U StackType_t 3 0
+U intptr_t 3 0
+U pxTopOfStack 3 0
+U intptr_t 3 0
+U intptr_t 3 0
+U pxTopOfStack 3 0
+U intptr_t 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+X
+U pcName 2 0
+E
+E
+U x 4 0
+U UBaseType_t 4 0
+U x 4 0
+U UBaseType_t 4 0
+U x 4 0
+E
+U pxNewTCB 5 0
+U x 5 0
+U pcName 5 0
+U x 5 0
+U pcName 5 0
+U x 5 0
+E
+X
+E
+X
+X
+X
+U pxNewTCB 3 0
+X
+E
+X
+U uxPriority 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxPriority 2 0
+U UBaseType_t 2 0
+E
+U uxPriority 3 0
+U UBaseType_t 3 0
+U UBaseType_t 3 0
+X
+E
+X
+U pxNewTCB 2 0
+U uxPriority 2 0
+E
+U pxNewTCB 3 0
+U uxPriority 3 0
+X
+U vListInitialiseItem 2 0
+U pxNewTCB 2 0
+U vListInitialiseItem 2 0
+U pxNewTCB 2 0
+U pxNewTCB 2 0
+U pxNewTCB 2 0
+U pxNewTCB 2 0
+U TickType_t 2 0
+U TickType_t 2 0
+U uxPriority 2 0
+U pxNewTCB 2 0
+U pxNewTCB 2 0
+E
+U xRegions 3 0
+X
+E
+E
+E
+U pxNewTCB 5 0
+U pxPortInitialiseStack 5 0
+U pxTopOfStack 5 0
+U pxNewTCB 5 0
+U pxTaskCode 5 0
+U pvParameters 5 0
+X
+X
+E
+U intptr_t 4 0
+U pxTopOfStack 4 0
+U pxNewTCB 4 0
+U intptr_t 4 0
+U uxStackDepth 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+X
+X
+U pxCreatedTask 2 0
+E
+U pxCreatedTask 3 0
+U TaskHandle_t 3 0
+U pxNewTCB 3 0
+X
+E
+X
+X
+X
+D prvAddNewTaskToReadyList 0 0
+E
+D pxNewTCB 1 0
+U TCB_t 1 0
+E
+U vPortEnterCritical 2 0
+E
+U uxCurrentNumberOfTasks 3 0
+U UBaseType_t 3 0
+U uxCurrentNumberOfTasks 3 0
+U pxCurrentTCB 3 0
+E
+U pxCurrentTCB 4 0
+U pxNewTCB 4 0
+U uxCurrentNumberOfTasks 4 0
+U UBaseType_t 4 0
+E
+U prvInitialiseTaskLists 5 0
+X
+E
+X
+X
+E
+U xSchedulerRunning 4 0
+U BaseType_t 4 0
+E
+U pxCurrentTCB 5 0
+U pxNewTCB 5 0
+E
+U pxCurrentTCB 6 0
+U pxNewTCB 6 0
+X
+E
+X
+X
+E
+X
+X
+U uxTaskNumber 3 0
+E
+E
+U pxNewTCB 5 0
+U uxTopReadyPriority 5 0
+E
+U uxTopReadyPriority 6 0
+U pxNewTCB 6 0
+X
+X
+E
+D pxIndex 5 0
+U ListItem_t 5 0
+U pxReadyTasksLists 5 0
+U pxNewTCB 5 0
+U pxNewTCB 5 0
+U pxIndex 5 0
+U pxNewTCB 5 0
+U pxIndex 5 0
+U pxIndex 5 0
+U pxNewTCB 5 0
+U pxIndex 5 0
+U pxNewTCB 5 0
+U pxNewTCB 5 0
+U pxReadyTasksLists 5 0
+U pxNewTCB 5 0
+U pxReadyTasksLists 5 0
+U pxNewTCB 5 0
+U UBaseType_t 5 0
+U pxReadyTasksLists 5 0
+U pxNewTCB 5 0
+X
+X
+U pxNewTCB 3 0
+X
+U vPortExitCritical 2 0
+U xSchedulerRunning 2 0
+U BaseType_t 2 0
+E
+E
+U pxCurrentTCB 4 0
+U pxNewTCB 4 0
+E
+U vPortYield 5 0
+X
+E
+X
+X
+X
+E
+X
+X
+X
+D vTaskDelete 0 0
+E
+D xTaskToDelete 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D xDeleteTCBInIdleTask 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D xTaskIsRunningOrYielding 2 0
+U BaseType_t 2 0
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U xTaskToDelete 3 0
+U pxCurrentTCB 3 0
+U xTaskToDelete 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxListRemove 3 0
+U pxTCB 3 0
+U UBaseType_t 3 0
+E
+X
+E
+X
+U pxTCB 3 0
+E
+U uxListRemove 4 0
+U pxTCB 4 0
+X
+E
+X
+U uxTaskNumber 3 0
+U xTaskIsRunningOrYielding 3 0
+U pxTCB 3 0
+U pxCurrentTCB 3 0
+U BaseType_t 3 0
+U BaseType_t 3 0
+U xSchedulerRunning 3 0
+U BaseType_t 3 0
+U xTaskIsRunningOrYielding 3 0
+U BaseType_t 3 0
+E
+U vListInsertEnd 4 0
+U xTasksWaitingTermination 4 0
+U pxTCB 4 0
+U uxDeletedTasksWaitingCleanUp 4 0
+U xDeleteTCBInIdleTask 4 0
+U BaseType_t 4 0
+U vPortThreadDying 4 0
+U pxTCB 4 0
+U xYieldPendings 4 0
+X
+E
+U uxCurrentNumberOfTasks 4 0
+U prvResetNextTaskUnblockTime 4 0
+X
+X
+U vPortExitCritical 2 0
+U xDeleteTCBInIdleTask 2 0
+U BaseType_t 2 0
+E
+U prvDeleteTCB 3 0
+U pxTCB 3 0
+X
+E
+U xSchedulerRunning 3 0
+U BaseType_t 3 0
+E
+U pxTCB 4 0
+U pxCurrentTCB 4 0
+E
+U uxSchedulerSuspended 5 0
+E
+U vPortDisableInterrupts 6 0
+E
+X
+X
+U vPortYield 5 0
+X
+E
+X
+X
+X
+X
+X
+D xTaskPeriodicDelay 0 0
+E
+U TickType_t 1 0
+D pxPreviousWakeTime 1 0
+U TickType_t 1 0
+D xTimeIncrement 1 0
+U TickType_t 1 0
+E
+D xIncrements 2 0
+U TickType_t 2 0
+D xTicksIncrements 2 0
+U TickType_t 2 0
+D xTicksToWait 2 0
+U TickType_t 2 0
+U pxPreviousWakeTime 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U xTimeIncrement 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vTaskSuspendAll 2 0
+E
+D xTicksElapsed 3 0
+U TickType_t 3 0
+U xTickCount 3 0
+U pxPreviousWakeTime 3 0
+U uxSchedulerSuspended 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U xIncrements 3 0
+U xTicksElapsed 3 0
+U xTimeIncrement 3 0
+U xTicksIncrements 3 0
+U xIncrements 3 0
+U xTimeIncrement 3 0
+U pxPreviousWakeTime 3 0
+U xTicksIncrements 3 0
+U xTicksToWait 3 0
+U xTimeIncrement 3 0
+U xTicksElapsed 3 0
+U xTicksIncrements 3 0
+U prvAddCurrentTaskToDelayedList 3 0
+U xTicksToWait 3 0
+U BaseType_t 3 0
+X
+U xTaskResumeAll 2 0
+U BaseType_t 2 0
+E
+U vPortYield 3 0
+X
+E
+X
+U xIncrements 2 0
+X
+X
+D xTaskDelayUntil 0 0
+E
+U BaseType_t 1 0
+D pxPreviousWakeTime 1 0
+U TickType_t 1 0
+D xTimeIncrement 1 0
+U TickType_t 1 0
+E
+D xTimeToWake 2 0
+U TickType_t 2 0
+D xAlreadyYielded 2 0
+U BaseType_t 2 0
+D xShouldDelay 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U pxPreviousWakeTime 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U xTimeIncrement 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vTaskSuspendAll 2 0
+E
+D xConstTickCount 3 0
+U TickType_t 3 0
+U xTickCount 3 0
+U uxSchedulerSuspended 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U xTimeToWake 3 0
+U pxPreviousWakeTime 3 0
+U xTimeIncrement 3 0
+U xConstTickCount 3 0
+U pxPreviousWakeTime 3 0
+E
+U xTimeToWake 4 0
+U pxPreviousWakeTime 4 0
+U xTimeToWake 4 0
+U xConstTickCount 4 0
+E
+U xShouldDelay 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+E
+U xTimeToWake 4 0
+U pxPreviousWakeTime 4 0
+U xTimeToWake 4 0
+U xConstTickCount 4 0
+E
+U xShouldDelay 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+U pxPreviousWakeTime 3 0
+U xTimeToWake 3 0
+U xShouldDelay 3 0
+U BaseType_t 3 0
+E
+U prvAddCurrentTaskToDelayedList 4 0
+U xTimeToWake 4 0
+U xConstTickCount 4 0
+U BaseType_t 4 0
+X
+E
+X
+X
+U xAlreadyYielded 2 0
+U xTaskResumeAll 2 0
+U xAlreadyYielded 2 0
+U BaseType_t 2 0
+E
+U vPortYield 3 0
+X
+E
+X
+U xShouldDelay 2 0
+X
+X
+D vTaskDelay 0 0
+E
+D xTicksToDelay 1 0
+U TickType_t 1 0
+E
+D xAlreadyYielded 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U xTicksToDelay 2 0
+U TickType_t 2 0
+E
+U vTaskSuspendAll 3 0
+E
+U uxSchedulerSuspended 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+U prvAddCurrentTaskToDelayedList 4 0
+U xTicksToDelay 4 0
+U BaseType_t 4 0
+X
+U xAlreadyYielded 3 0
+U xTaskResumeAll 3 0
+X
+E
+X
+U xAlreadyYielded 2 0
+U BaseType_t 2 0
+E
+U vPortYield 3 0
+X
+E
+X
+X
+X
+D uxTaskPriorityGet 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D uxReturn 2 0
+U UBaseType_t 2 0
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U xTask 3 0
+U pxCurrentTCB 3 0
+U xTask 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxReturn 3 0
+U pxTCB 3 0
+X
+U vPortExitCritical 2 0
+U uxReturn 2 0
+X
+X
+D uxTaskPriorityGetFromISR 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D uxReturn 2 0
+U UBaseType_t 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xPortSetInterruptMask 2 0
+E
+U pxTCB 3 0
+U xTask 3 0
+U pxCurrentTCB 3 0
+U xTask 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxReturn 3 0
+U pxTCB 3 0
+X
+U vPortClearInterruptMask 2 0
+U uxSavedInterruptStatus 2 0
+U uxReturn 2 0
+X
+X
+D uxTaskBasePriorityGet 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D uxReturn 2 0
+U UBaseType_t 2 0
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U xTask 3 0
+U pxCurrentTCB 3 0
+U xTask 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxReturn 3 0
+U pxTCB 3 0
+X
+U vPortExitCritical 2 0
+U uxReturn 2 0
+X
+X
+D uxTaskBasePriorityGetFromISR 0 0
+E
+U UBaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D uxReturn 2 0
+U UBaseType_t 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xPortSetInterruptMask 2 0
+E
+U pxTCB 3 0
+U xTask 3 0
+U pxCurrentTCB 3 0
+U xTask 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxReturn 3 0
+U pxTCB 3 0
+X
+U vPortClearInterruptMask 2 0
+U uxSavedInterruptStatus 2 0
+U uxReturn 2 0
+X
+X
+D vTaskPrioritySet 0 0
+E
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxNewPriority 1 0
+U UBaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D uxCurrentBasePriority 2 0
+U UBaseType_t 2 0
+D uxPriorityUsedOnEntry 2 0
+U UBaseType_t 2 0
+D xYieldRequired 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U uxNewPriority 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxNewPriority 2 0
+U UBaseType_t 2 0
+E
+U uxNewPriority 3 0
+U UBaseType_t 3 0
+U UBaseType_t 3 0
+X
+E
+X
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U xTask 3 0
+U pxCurrentTCB 3 0
+U xTask 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+E
+U uxCurrentBasePriority 4 0
+U pxTCB 4 0
+X
+U uxCurrentBasePriority 3 0
+U uxNewPriority 3 0
+E
+U uxNewPriority 4 0
+U uxCurrentBasePriority 4 0
+E
+E
+U pxTCB 6 0
+U pxCurrentTCB 6 0
+E
+U uxNewPriority 7 0
+U pxCurrentTCB 7 0
+E
+U xYieldRequired 8 0
+U BaseType_t 8 0
+X
+E
+X
+X
+E
+X
+X
+X
+U pxTCB 4 0
+U pxCurrentTCB 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+E
+E
+U xYieldRequired 6 0
+U BaseType_t 6 0
+X
+X
+E
+X
+U uxPriorityUsedOnEntry 4 0
+U pxTCB 4 0
+E
+U pxTCB 5 0
+U pxTCB 5 0
+U uxNewPriority 5 0
+U pxTCB 5 0
+E
+U pxTCB 6 0
+U uxNewPriority 6 0
+X
+E
+X
+U pxTCB 5 0
+U uxNewPriority 5 0
+X
+U pxTCB 4 0
+U uint32_t 4 0
+U TickType_t 4 0
+E
+U pxTCB 5 0
+U TickType_t 5 0
+U TickType_t 5 0
+U uxNewPriority 5 0
+X
+E
+X
+U pxTCB 4 0
+U pxReadyTasksLists 4 0
+U uxPriorityUsedOnEntry 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+E
+U uxListRemove 5 0
+U pxTCB 5 0
+U UBaseType_t 5 0
+E
+X
+E
+X
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+X
+E
+E
+X
+X
+U xYieldRequired 4 0
+U BaseType_t 4 0
+E
+E
+U pxTCB 6 0
+U vPortYield 6 0
+X
+X
+E
+E
+X
+X
+U uxPriorityUsedOnEntry 4 0
+X
+X
+U vPortExitCritical 2 0
+X
+X
+D vTaskSuspend 0 0
+E
+D xTaskToSuspend 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U xTaskToSuspend 3 0
+U pxCurrentTCB 3 0
+U xTaskToSuspend 3 0
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U uxListRemove 3 0
+U pxTCB 3 0
+U UBaseType_t 3 0
+E
+X
+E
+X
+U pxTCB 3 0
+E
+U uxListRemove 4 0
+U pxTCB 4 0
+X
+E
+X
+U vListInsertEnd 3 0
+U xSuspendedTaskList 3 0
+U pxTCB 3 0
+E
+D x 4 0
+U BaseType_t 4 0
+E
+U x 5 0
+U BaseType_t 5 0
+U x 5 0
+U BaseType_t 5 0
+U x 5 0
+E
+U pxTCB 6 0
+U x 6 0
+U uint8_t 6 0
+E
+U pxTCB 7 0
+U x 7 0
+U uint8_t 7 0
+X
+X
+X
+X
+X
+U vPortExitCritical 2 0
+E
+D uxCurrentListLength 3 0
+U UBaseType_t 3 0
+U xSchedulerRunning 3 0
+U BaseType_t 3 0
+E
+U vPortEnterCritical 4 0
+E
+U prvResetNextTaskUnblockTime 5 0
+X
+U vPortExitCritical 4 0
+X
+E
+X
+U pxTCB 3 0
+U pxCurrentTCB 3 0
+E
+U xSchedulerRunning 4 0
+U BaseType_t 4 0
+E
+U uxSchedulerSuspended 5 0
+E
+U vPortDisableInterrupts 6 0
+E
+X
+X
+U vPortYield 5 0
+X
+E
+U uxCurrentListLength 5 0
+U xSuspendedTaskList 5 0
+U uxCurrentListLength 5 0
+U uxCurrentNumberOfTasks 5 0
+E
+U pxCurrentTCB 6 0
+X
+E
+U vTaskSwitchContext 6 0
+X
+X
+X
+E
+X
+X
+X
+X
+D prvTaskIsTaskSuspended 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D pxTCB 2 0
+U TCB_t 2 0
+U xTask 2 0
+U xTask 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xSuspendedTaskList 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+E
+U pxTCB 3 0
+U xPendingReadyList 3 0
+U BaseType_t 3 0
+U BaseType_t 3 0
+U BaseType_t 3 0
+E
+U pxTCB 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+E
+E
+D x 6 0
+U BaseType_t 6 0
+U xReturn 6 0
+U BaseType_t 6 0
+E
+U x 7 0
+U BaseType_t 7 0
+U x 7 0
+U BaseType_t 7 0
+U x 7 0
+E
+U pxTCB 8 0
+U x 8 0
+U uint8_t 8 0
+E
+U xReturn 9 0
+U BaseType_t 9 0
+X
+X
+X
+X
+X
+E
+X
+X
+E
+X
+X
+E
+X
+U xReturn 2 0
+X
+X
+D vTaskResume 0 0
+E
+D xTaskToResume 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U xTaskToResume 2 0
+U xTaskToResume 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U pxCurrentTCB 2 0
+U pxTCB 2 0
+E
+U vPortEnterCritical 3 0
+E
+U prvTaskIsTaskSuspended 4 0
+U pxTCB 4 0
+U BaseType_t 4 0
+E
+U uxListRemove 5 0
+U pxTCB 5 0
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+E
+U pxCurrentTCB 6 0
+U pxTCB 6 0
+E
+U vPortYield 7 0
+X
+E
+X
+X
+X
+E
+X
+X
+U vPortExitCritical 3 0
+X
+E
+X
+X
+X
+D xTaskResumeFromISR 0 0
+E
+U BaseType_t 1 0
+D xTaskToResume 1 0
+U TaskHandle_t 1 0
+E
+D xYieldRequired 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D pxTCB 2 0
+U TCB_t 2 0
+U xTaskToResume 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xTaskToResume 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxSavedInterruptStatus 2 0
+U xPortSetInterruptMask 2 0
+E
+U prvTaskIsTaskSuspended 3 0
+U pxTCB 3 0
+U BaseType_t 3 0
+E
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+E
+E
+U pxTCB 6 0
+U pxCurrentTCB 6 0
+E
+U xYieldRequired 7 0
+U BaseType_t 7 0
+U xYieldPendings 7 0
+U BaseType_t 7 0
+X
+E
+X
+X
+U uxListRemove 5 0
+U pxTCB 5 0
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+X
+E
+U vListInsertEnd 5 0
+U xPendingReadyList 5 0
+U pxTCB 5 0
+X
+X
+E
+X
+X
+U vPortClearInterruptMask 2 0
+U uxSavedInterruptStatus 2 0
+U xYieldRequired 2 0
+X
+X
+D prvCreateIdleTasks 0 0
+E
+U BaseType_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D xCoreID 2 0
+U BaseType_t 2 0
+D cIdleName 2 0
+D pxIdleTaskFunction 2 0
+U TaskFunction_t 2 0
+D xIdleTaskNameIndex 2 0
+U UBaseType_t 2 0
+E
+U xIdleTaskNameIndex 3 0
+U xIdleTaskNameIndex 3 0
+U xIdleTaskNameIndex 3 0
+E
+U cIdleName 4 0
+U xIdleTaskNameIndex 4 0
+U xIdleTaskNameIndex 4 0
+U cIdleName 4 0
+U xIdleTaskNameIndex 4 0
+E
+X
+E
+X
+X
+X
+U cIdleName 2 0
+U xIdleTaskNameIndex 2 0
+E
+U xCoreID 3 0
+U BaseType_t 3 0
+U xCoreID 3 0
+U BaseType_t 3 0
+U xCoreID 3 0
+E
+E
+U pxIdleTaskFunction 5 0
+U prvIdleTask 5 0
+X
+E
+D pxIdleTaskTCBBuffer 5 0
+U StaticTask_t 5 0
+D pxIdleTaskStackBuffer 5 0
+U StackType_t 5 0
+D uxIdleTaskStackSize 5 0
+U size_t 5 0
+E
+U vApplicationGetIdleTaskMemory 6 0
+U pxIdleTaskTCBBuffer 6 0
+U pxIdleTaskStackBuffer 6 0
+U uxIdleTaskStackSize 6 0
+X
+U xIdleTaskHandles 5 0
+U xCoreID 5 0
+U xTaskCreateStatic 5 0
+U pxIdleTaskFunction 5 0
+U cIdleName 5 0
+U uxIdleTaskStackSize 5 0
+U UBaseType_t 5 0
+U pxIdleTaskStackBuffer 5 0
+U pxIdleTaskTCBBuffer 5 0
+U xIdleTaskHandles 5 0
+U xCoreID 5 0
+E
+U xReturn 6 0
+U BaseType_t 6 0
+X
+E
+U xReturn 6 0
+U BaseType_t 6 0
+X
+X
+U xReturn 4 0
+U BaseType_t 4 0
+E
+X
+E
+E
+X
+X
+X
+X
+U xReturn 2 0
+X
+X
+D vTaskStartScheduler 0 0
+E
+E
+D xReturn 2 0
+U BaseType_t 2 0
+U xReturn 2 0
+U prvCreateIdleTasks 2 0
+E
+U xReturn 3 0
+U BaseType_t 3 0
+E
+U xReturn 4 0
+U xTimerCreateTimerTask 4 0
+X
+E
+X
+X
+U xReturn 2 0
+U BaseType_t 2 0
+E
+U vPortDisableInterrupts 3 0
+U xNextTaskUnblockTime 3 0
+U TickType_t 3 0
+U xSchedulerRunning 3 0
+U BaseType_t 3 0
+U xTickCount 3 0
+U TickType_t 3 0
+U xPortStartScheduler 3 0
+X
+E
+U xReturn 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+X
+U xIdleTaskHandles 2 0
+U uxTopUsedPriority 2 0
+X
+X
+D vTaskEndScheduler 0 0
+E
+E
+E
+D xCoreID 3 0
+U BaseType_t 3 0
+E
+U vTaskDelete 4 0
+U xTimerGetTimerDaemonTaskHandle 4 0
+X
+E
+U xCoreID 4 0
+U xCoreID 4 0
+U BaseType_t 4 0
+U xCoreID 4 0
+E
+U vTaskDelete 5 0
+U xIdleTaskHandles 5 0
+U xCoreID 5 0
+X
+X
+U prvCheckTasksWaitingTermination 3 0
+X
+U vPortDisableInterrupts 2 0
+U xSchedulerRunning 2 0
+U BaseType_t 2 0
+U vPortEndScheduler 2 0
+X
+X
+D vTaskSuspendAll 0 0
+E
+E
+E
+U uxSchedulerSuspended 3 0
+U UBaseType_t 3 0
+U uxSchedulerSuspended 3 0
+X
+X
+X
+D xTaskResumeAll 0 0
+E
+U BaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D xAlreadyYielded 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+E
+U vPortEnterCritical 3 0
+E
+D xCoreID 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U uxSchedulerSuspended 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+U uxSchedulerSuspended 4 0
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+E
+U uxCurrentNumberOfTasks 5 0
+U UBaseType_t 5 0
+E
+U xPendingReadyList 6 0
+U UBaseType_t 6 0
+U BaseType_t 6 0
+U BaseType_t 6 0
+U BaseType_t 6 0
+E
+U pxTCB 7 0
+U xPendingReadyList 7 0
+E
+D pxList 8 0
+U List_t 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxList 8 0
+U pxTCB 8 0
+E
+U pxList 9 0
+U pxTCB 9 0
+X
+U pxTCB 8 0
+U pxList 8 0
+U UBaseType_t 8 0
+U pxList 8 0
+X
+E
+D pxList 8 0
+U List_t 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxList 8 0
+U pxTCB 8 0
+E
+U pxList 9 0
+U pxTCB 9 0
+X
+U pxTCB 8 0
+U pxList 8 0
+U UBaseType_t 8 0
+U pxList 8 0
+X
+E
+E
+U pxTCB 9 0
+U uxTopReadyPriority 9 0
+E
+U uxTopReadyPriority 10 0
+U pxTCB 10 0
+X
+X
+E
+D pxIndex 9 0
+U ListItem_t 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U UBaseType_t 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+X
+X
+E
+U pxTCB 8 0
+U pxCurrentTCB 8 0
+E
+U xYieldPendings 9 0
+U xCoreID 9 0
+U BaseType_t 9 0
+X
+E
+X
+X
+X
+U pxTCB 6 0
+E
+U prvResetNextTaskUnblockTime 7 0
+X
+E
+D xPendedCounts 7 0
+U TickType_t 7 0
+U xPendedTicks 7 0
+U xPendedCounts 7 0
+U TickType_t 7 0
+E
+E
+U xTaskIncrementTick 9 0
+U BaseType_t 9 0
+E
+U xYieldPendings 10 0
+U xCoreID 10 0
+U BaseType_t 10 0
+X
+E
+X
+U xPendedCounts 9 0
+X
+U xPendedCounts 8 0
+U TickType_t 8 0
+U xPendedTicks 8 0
+X
+E
+X
+X
+U xYieldPendings 6 0
+U xCoreID 6 0
+U BaseType_t 6 0
+E
+E
+U xAlreadyYielded 8 0
+U BaseType_t 8 0
+X
+E
+E
+U pxCurrentTCB 9 0
+U vPortYield 9 0
+X
+X
+X
+E
+X
+X
+X
+E
+X
+X
+U vPortExitCritical 3 0
+X
+U xAlreadyYielded 2 0
+X
+X
+D xTaskGetTickCount 0 0
+E
+U TickType_t 1 0
+E
+D xTicks 2 0
+U TickType_t 2 0
+E
+U xTicks 3 0
+U xTickCount 3 0
+X
+U xTicks 2 0
+X
+X
+D xTaskGetTickCountFromISR 0 0
+E
+U TickType_t 1 0
+E
+D xReturn 2 0
+U TickType_t 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U uxSavedInterruptStatus 2 0
+E
+U xReturn 3 0
+U xTickCount 3 0
+X
+U uxSavedInterruptStatus 2 0
+U xReturn 2 0
+X
+X
+D uxTaskGetNumberOfTasks 0 0
+E
+U UBaseType_t 1 0
+E
+U uxCurrentNumberOfTasks 2 0
+X
+X
+D pcTaskGetName 0 0
+E
+D xTaskToQuery 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U pxTCB 2 0
+U xTaskToQuery 2 0
+U pxCurrentTCB 2 0
+U xTaskToQuery 2 0
+U pxTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+X
+X
+D xTaskGetStaticBuffers 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D ppuxStackBuffer 1 0
+U StackType_t 1 0
+D ppxTaskBuffer 1 0
+U StaticTask_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+D pxTCB 2 0
+U TCB_t 2 0
+U ppuxStackBuffer 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U ppxTaskBuffer 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTask 2 0
+U pxCurrentTCB 2 0
+U xTask 2 0
+U pxTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+E
+U pxTCB 3 0
+U uint8_t 3 0
+E
+U ppuxStackBuffer 4 0
+U pxTCB 4 0
+U ppxTaskBuffer 4 0
+U StaticTask_t 4 0
+U pxTCB 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+U pxTCB 3 0
+U uint8_t 3 0
+E
+U ppuxStackBuffer 4 0
+U pxTCB 4 0
+U ppxTaskBuffer 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+E
+U xReturn 4 0
+U BaseType_t 4 0
+X
+X
+U xReturn 2 0
+X
+X
+D xTaskCatchUpTicks 0 0
+E
+U BaseType_t 1 0
+D xTicksToCatchUp 1 0
+U TickType_t 1 0
+E
+D xYieldOccurred 2 0
+U BaseType_t 2 0
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vTaskSuspendAll 2 0
+U vPortEnterCritical 2 0
+E
+U xPendedTicks 3 0
+U xTicksToCatchUp 3 0
+X
+U vPortExitCritical 2 0
+U xYieldOccurred 2 0
+U xTaskResumeAll 2 0
+U xYieldOccurred 2 0
+X
+X
+D xTaskIncrementTick 0 0
+E
+U BaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D xItemValue 2 0
+U TickType_t 2 0
+D xSwitchRequired 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+D xConstTickCount 3 0
+U TickType_t 3 0
+U xTickCount 3 0
+U TickType_t 3 0
+U xTickCount 3 0
+U xConstTickCount 3 0
+U xConstTickCount 3 0
+U TickType_t 3 0
+E
+E
+D pxTemp 5 0
+U List_t 5 0
+U pxDelayedTaskList 5 0
+U UBaseType_t 5 0
+U BaseType_t 5 0
+U BaseType_t 5 0
+E
+U vPortDisableInterrupts 6 0
+E
+X
+X
+U pxTemp 5 0
+U pxDelayedTaskList 5 0
+U pxDelayedTaskList 5 0
+U pxOverflowDelayedTaskList 5 0
+U pxOverflowDelayedTaskList 5 0
+U pxTemp 5 0
+U xNumOfOverflows 5 0
+U BaseType_t 5 0
+U xNumOfOverflows 5 0
+U prvResetNextTaskUnblockTime 5 0
+X
+X
+E
+X
+U xConstTickCount 3 0
+U xNextTaskUnblockTime 3 0
+E
+E
+E
+U pxDelayedTaskList 6 0
+U UBaseType_t 6 0
+U BaseType_t 6 0
+U BaseType_t 6 0
+U BaseType_t 6 0
+E
+U xNextTaskUnblockTime 7 0
+U TickType_t 7 0
+X
+E
+U pxTCB 7 0
+U pxDelayedTaskList 7 0
+U xItemValue 7 0
+U pxTCB 7 0
+U xConstTickCount 7 0
+U xItemValue 7 0
+E
+U xNextTaskUnblockTime 8 0
+U xItemValue 8 0
+X
+E
+X
+E
+D pxList 8 0
+U List_t 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxList 8 0
+U pxTCB 8 0
+E
+U pxList 9 0
+U pxTCB 9 0
+X
+U pxTCB 8 0
+U pxList 8 0
+U UBaseType_t 8 0
+U pxList 8 0
+X
+U pxTCB 7 0
+E
+E
+D pxList 9 0
+U List_t 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxList 9 0
+U pxTCB 9 0
+E
+U pxList 10 0
+U pxTCB 10 0
+X
+U pxTCB 9 0
+U pxList 9 0
+U UBaseType_t 9 0
+U pxList 9 0
+X
+X
+E
+X
+E
+E
+U pxTCB 9 0
+U uxTopReadyPriority 9 0
+E
+U uxTopReadyPriority 10 0
+U pxTCB 10 0
+X
+X
+E
+D pxIndex 9 0
+U ListItem_t 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxIndex 9 0
+U pxTCB 9 0
+U pxTCB 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+U UBaseType_t 9 0
+U pxReadyTasksLists 9 0
+U pxTCB 9 0
+X
+X
+E
+E
+U pxTCB 9 0
+U pxCurrentTCB 9 0
+E
+U xSwitchRequired 10 0
+U BaseType_t 10 0
+X
+E
+X
+X
+X
+X
+X
+X
+X
+E
+E
+U xYieldPendings 5 0
+U BaseType_t 5 0
+E
+U xSwitchRequired 6 0
+U BaseType_t 6 0
+X
+E
+X
+X
+X
+X
+E
+U xPendedTicks 3 0
+X
+U xSwitchRequired 2 0
+X
+X
+D vTaskSwitchContext 0 0
+E
+E
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+U xYieldPendings 3 0
+U BaseType_t 3 0
+X
+E
+U xYieldPendings 3 0
+U BaseType_t 3 0
+E
+D pulStack 4 0
+U uint32_t 4 0
+U uint32_t 4 0
+U pxCurrentTCB 4 0
+D ulCheckValue 4 0
+U uint32_t 4 0
+U uint32_t 4 0
+U pxCurrentTCB 4 0
+U pxCurrentTCB 4 0
+U pulStack 4 0
+U ulCheckValue 4 0
+U pulStack 4 0
+U ulCheckValue 4 0
+U pulStack 4 0
+U ulCheckValue 4 0
+U pulStack 4 0
+U ulCheckValue 4 0
+E
+D pcOverflowTaskName 5 0
+U pxCurrentTCB 5 0
+U vApplicationStackOverflowHook 5 0
+U TaskHandle_t 5 0
+U pxCurrentTCB 5 0
+U pcOverflowTaskName 5 0
+X
+X
+E
+D uxTopPriority 4 0
+U UBaseType_t 4 0
+U uxTopReadyPriority 4 0
+U pxReadyTasksLists 4 0
+U uxTopPriority 4 0
+U UBaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+E
+U uxTopPriority 5 0
+E
+U vPortDisableInterrupts 6 0
+E
+X
+X
+U uxTopPriority 5 0
+X
+E
+D pxConstList 5 0
+U List_t 5 0
+U pxReadyTasksLists 5 0
+U uxTopPriority 5 0
+U pxConstList 5 0
+U pxConstList 5 0
+U pxConstList 5 0
+U pxConstList 5 0
+E
+U pxConstList 6 0
+U pxConstList 6 0
+X
+U pxCurrentTCB 5 0
+U pxConstList 5 0
+X
+U uxTopReadyPriority 4 0
+U uxTopPriority 4 0
+X
+U pxCurrentTCB 3 0
+X
+X
+X
+D vTaskPlaceOnEventList 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+E
+U pxEventList 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vListInsert 2 0
+U pxEventList 2 0
+U pxCurrentTCB 2 0
+U prvAddCurrentTaskToDelayedList 2 0
+U xTicksToWait 2 0
+U BaseType_t 2 0
+X
+X
+D vTaskPlaceOnUnorderedEventList 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xItemValue 1 0
+U TickType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+E
+U pxEventList 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxCurrentTCB 2 0
+U xItemValue 2 0
+U uint32_t 2 0
+E
+D pxIndex 3 0
+U ListItem_t 3 0
+U pxEventList 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxCurrentTCB 3 0
+U pxEventList 3 0
+U pxEventList 3 0
+U UBaseType_t 3 0
+U pxEventList 3 0
+X
+U prvAddCurrentTaskToDelayedList 2 0
+U xTicksToWait 2 0
+U BaseType_t 2 0
+X
+X
+D vTaskPlaceOnEventListRestricted 0 0
+E
+D pxEventList 1 0
+U List_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+D xWaitIndefinitely 1 0
+U BaseType_t 1 0
+E
+U pxEventList 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+E
+D pxIndex 3 0
+U ListItem_t 3 0
+U pxEventList 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxIndex 3 0
+U pxCurrentTCB 3 0
+U pxCurrentTCB 3 0
+U pxEventList 3 0
+U pxEventList 3 0
+U UBaseType_t 3 0
+U pxEventList 3 0
+X
+U xWaitIndefinitely 2 0
+U BaseType_t 2 0
+E
+U xTicksToWait 3 0
+U TickType_t 3 0
+X
+U prvAddCurrentTaskToDelayedList 2 0
+U xTicksToWait 2 0
+U xWaitIndefinitely 2 0
+X
+X
+D xTaskRemoveFromEventList 0 0
+E
+U BaseType_t 1 0
+D pxEventList 1 0
+U List_t 1 0
+E
+D pxUnblockedTCB 2 0
+U TCB_t 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U pxUnblockedTCB 2 0
+U pxEventList 2 0
+U pxUnblockedTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+E
+D pxList 3 0
+U List_t 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxList 3 0
+U pxUnblockedTCB 3 0
+E
+U pxList 4 0
+U pxUnblockedTCB 4 0
+X
+U pxUnblockedTCB 3 0
+U pxList 3 0
+U UBaseType_t 3 0
+U pxList 3 0
+X
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+E
+D pxList 4 0
+U List_t 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxList 4 0
+U pxUnblockedTCB 4 0
+E
+U pxList 5 0
+U pxUnblockedTCB 5 0
+X
+U pxUnblockedTCB 4 0
+U pxList 4 0
+U UBaseType_t 4 0
+U pxList 4 0
+X
+E
+E
+U pxUnblockedTCB 5 0
+U uxTopReadyPriority 5 0
+E
+U uxTopReadyPriority 6 0
+U pxUnblockedTCB 6 0
+X
+X
+E
+D pxIndex 5 0
+U ListItem_t 5 0
+U pxReadyTasksLists 5 0
+U pxUnblockedTCB 5 0
+U pxUnblockedTCB 5 0
+U pxIndex 5 0
+U pxUnblockedTCB 5 0
+U pxIndex 5 0
+U pxIndex 5 0
+U pxUnblockedTCB 5 0
+U pxIndex 5 0
+U pxUnblockedTCB 5 0
+U pxUnblockedTCB 5 0
+U pxReadyTasksLists 5 0
+U pxUnblockedTCB 5 0
+U pxReadyTasksLists 5 0
+U pxUnblockedTCB 5 0
+U UBaseType_t 5 0
+U pxReadyTasksLists 5 0
+U pxUnblockedTCB 5 0
+X
+X
+X
+E
+E
+D pxIndex 4 0
+U ListItem_t 4 0
+U xPendingReadyList 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U xPendingReadyList 4 0
+U xPendingReadyList 4 0
+U UBaseType_t 4 0
+U xPendingReadyList 4 0
+X
+X
+E
+U pxUnblockedTCB 3 0
+U pxCurrentTCB 3 0
+E
+U xReturn 4 0
+U BaseType_t 4 0
+U xYieldPendings 4 0
+U BaseType_t 4 0
+X
+E
+U xReturn 4 0
+U BaseType_t 4 0
+X
+X
+U xReturn 2 0
+X
+X
+D vTaskRemoveFromUnorderedEventList 0 0
+E
+D pxEventListItem 1 0
+U ListItem_t 1 0
+D xItemValue 1 0
+U TickType_t 1 0
+E
+D pxUnblockedTCB 2 0
+U TCB_t 2 0
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxEventListItem 2 0
+U xItemValue 2 0
+U uint32_t 2 0
+U pxUnblockedTCB 2 0
+U pxEventListItem 2 0
+U pxUnblockedTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+E
+D pxList 3 0
+U List_t 3 0
+U pxEventListItem 3 0
+U pxEventListItem 3 0
+U pxEventListItem 3 0
+U pxEventListItem 3 0
+U pxEventListItem 3 0
+U pxList 3 0
+U pxEventListItem 3 0
+E
+U pxList 4 0
+U pxEventListItem 4 0
+X
+U pxEventListItem 3 0
+U pxList 3 0
+U UBaseType_t 3 0
+U pxList 3 0
+X
+E
+D pxList 3 0
+U List_t 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxUnblockedTCB 3 0
+U pxList 3 0
+U pxUnblockedTCB 3 0
+E
+U pxList 4 0
+U pxUnblockedTCB 4 0
+X
+U pxUnblockedTCB 3 0
+U pxList 3 0
+U UBaseType_t 3 0
+U pxList 3 0
+X
+E
+E
+U pxUnblockedTCB 4 0
+U uxTopReadyPriority 4 0
+E
+U uxTopReadyPriority 5 0
+U pxUnblockedTCB 5 0
+X
+X
+E
+D pxIndex 4 0
+U ListItem_t 4 0
+U pxReadyTasksLists 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxIndex 4 0
+U pxUnblockedTCB 4 0
+U pxUnblockedTCB 4 0
+U pxReadyTasksLists 4 0
+U pxUnblockedTCB 4 0
+U pxReadyTasksLists 4 0
+U pxUnblockedTCB 4 0
+U UBaseType_t 4 0
+U pxReadyTasksLists 4 0
+U pxUnblockedTCB 4 0
+X
+X
+E
+U pxUnblockedTCB 3 0
+U pxCurrentTCB 3 0
+E
+U xYieldPendings 4 0
+U BaseType_t 4 0
+X
+X
+X
+X
+D vTaskSetTimeOutState 0 0
+E
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+E
+U pxTimeOut 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+U pxTimeOut 3 0
+U xNumOfOverflows 3 0
+U pxTimeOut 3 0
+U xTickCount 3 0
+X
+U vPortExitCritical 2 0
+X
+X
+D vTaskInternalSetTimeOutState 0 0
+E
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+E
+U pxTimeOut 2 0
+U xNumOfOverflows 2 0
+U pxTimeOut 2 0
+U xTickCount 2 0
+X
+X
+D xTaskCheckForTimeOut 0 0
+E
+U BaseType_t 1 0
+D pxTimeOut 1 0
+U TimeOut_t 1 0
+D pxTicksToWait 1 0
+U TickType_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+U pxTimeOut 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTicksToWait 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+D xConstTickCount 3 0
+U TickType_t 3 0
+U xTickCount 3 0
+D xElapsedTime 3 0
+U TickType_t 3 0
+U xConstTickCount 3 0
+U pxTimeOut 3 0
+U pxTicksToWait 3 0
+U TickType_t 3 0
+E
+U xReturn 4 0
+U BaseType_t 4 0
+X
+U xNumOfOverflows 3 0
+U pxTimeOut 3 0
+U xConstTickCount 3 0
+U pxTimeOut 3 0
+E
+U xReturn 4 0
+U BaseType_t 4 0
+U pxTicksToWait 4 0
+U TickType_t 4 0
+X
+U xElapsedTime 3 0
+U pxTicksToWait 3 0
+E
+U pxTicksToWait 4 0
+U xElapsedTime 4 0
+U vTaskInternalSetTimeOutState 4 0
+U pxTimeOut 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+E
+U pxTicksToWait 4 0
+U TickType_t 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+X
+U vPortExitCritical 2 0
+U xReturn 2 0
+X
+X
+D vTaskMissedYield 0 0
+E
+E
+U xYieldPendings 2 0
+U BaseType_t 2 0
+X
+X
+D prvIdleTask 0 0
+E
+D pvParameters 1 0
+E
+U pvParameters 2 0
+E
+E
+U prvCheckTasksWaitingTermination 4 0
+E
+U pxReadyTasksLists 5 0
+U UBaseType_t 5 0
+U UBaseType_t 5 0
+E
+U vPortYield 6 0
+X
+E
+X
+X
+X
+X
+X
+X
+D prvInitialiseTaskLists 0 0
+E
+E
+D uxPriority 2 0
+U UBaseType_t 2 0
+E
+U uxPriority 3 0
+U UBaseType_t 3 0
+U uxPriority 3 0
+U UBaseType_t 3 0
+U uxPriority 3 0
+E
+U vListInitialise 4 0
+U pxReadyTasksLists 4 0
+U uxPriority 4 0
+X
+X
+U vListInitialise 2 0
+U xDelayedTaskList1 2 0
+U vListInitialise 2 0
+U xDelayedTaskList2 2 0
+U vListInitialise 2 0
+U xPendingReadyList 2 0
+E
+U vListInitialise 3 0
+U xTasksWaitingTermination 3 0
+X
+E
+U vListInitialise 3 0
+U xSuspendedTaskList 3 0
+X
+U pxDelayedTaskList 2 0
+U xDelayedTaskList1 2 0
+U pxOverflowDelayedTaskList 2 0
+U xDelayedTaskList2 2 0
+X
+X
+D prvCheckTasksWaitingTermination 0 0
+E
+E
+E
+D pxTCB 3 0
+U TCB_t 3 0
+U uxDeletedTasksWaitingCleanUp 3 0
+U UBaseType_t 3 0
+E
+E
+U vPortEnterCritical 5 0
+E
+E
+U pxTCB 7 0
+U xTasksWaitingTermination 7 0
+U uxListRemove 7 0
+U pxTCB 7 0
+U uxCurrentNumberOfTasks 7 0
+U uxDeletedTasksWaitingCleanUp 7 0
+X
+X
+U vPortExitCritical 5 0
+U prvDeleteTCB 5 0
+U pxTCB 5 0
+X
+X
+X
+X
+X
+D prvDeleteTCB 0 0
+E
+D pxTCB 1 0
+U TCB_t 1 0
+E
+U vPortCancelThread 2 0
+U pxTCB 2 0
+E
+U pxTCB 3 0
+U uint8_t 3 0
+E
+U vPortFree 4 0
+U pxTCB 4 0
+U vPortFree 4 0
+U pxTCB 4 0
+X
+U pxTCB 3 0
+U uint8_t 3 0
+E
+U vPortFree 4 0
+U pxTCB 4 0
+X
+E
+U pxTCB 4 0
+U uint8_t 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+X
+X
+X
+X
+D prvResetNextTaskUnblockTime 0 0
+E
+E
+U pxDelayedTaskList 2 0
+U UBaseType_t 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+E
+U xNextTaskUnblockTime 3 0
+U TickType_t 3 0
+X
+E
+U xNextTaskUnblockTime 3 0
+U pxDelayedTaskList 3 0
+X
+X
+X
+D xTaskGetCurrentTaskHandle 0 0
+E
+U TaskHandle_t 1 0
+E
+D xReturn 2 0
+U TaskHandle_t 2 0
+U xReturn 2 0
+U pxCurrentTCB 2 0
+U xReturn 2 0
+X
+X
+D xTaskGetCurrentTaskHandleForCore 0 0
+E
+U TaskHandle_t 1 0
+D xCoreID 1 0
+U BaseType_t 1 0
+E
+D xReturn 2 0
+U TaskHandle_t 2 0
+U BaseType_t 2 0
+U xCoreID 2 0
+U xCoreID 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+E
+U xReturn 3 0
+U pxCurrentTCB 3 0
+X
+U xReturn 2 0
+X
+X
+D xTaskGetSchedulerState 0 0
+E
+U BaseType_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+U xSchedulerRunning 2 0
+U BaseType_t 2 0
+E
+U xReturn 3 0
+U BaseType_t 3 0
+X
+E
+E
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+E
+U xReturn 5 0
+U BaseType_t 5 0
+X
+E
+U xReturn 5 0
+U BaseType_t 5 0
+X
+X
+X
+U xReturn 2 0
+X
+X
+D xTaskPriorityInherit 0 0
+E
+U BaseType_t 1 0
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+E
+D pxMutexHolderTCB 2 0
+U TCB_t 2 0
+U pxMutexHolder 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U pxMutexHolder 2 0
+E
+U pxMutexHolderTCB 3 0
+U pxCurrentTCB 3 0
+E
+U pxMutexHolderTCB 4 0
+U uint32_t 4 0
+U TickType_t 4 0
+E
+U pxMutexHolderTCB 5 0
+U TickType_t 5 0
+U TickType_t 5 0
+U pxCurrentTCB 5 0
+X
+E
+X
+U pxMutexHolderTCB 4 0
+U pxReadyTasksLists 4 0
+U pxMutexHolderTCB 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+U BaseType_t 4 0
+E
+U uxListRemove 5 0
+U pxMutexHolderTCB 5 0
+U UBaseType_t 5 0
+E
+X
+E
+X
+U pxMutexHolderTCB 5 0
+U pxCurrentTCB 5 0
+E
+E
+U pxMutexHolderTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxMutexHolderTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxMutexHolderTCB 7 0
+U pxMutexHolderTCB 7 0
+U pxIndex 7 0
+U pxMutexHolderTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxMutexHolderTCB 7 0
+U pxIndex 7 0
+U pxMutexHolderTCB 7 0
+U pxMutexHolderTCB 7 0
+U pxReadyTasksLists 7 0
+U pxMutexHolderTCB 7 0
+U pxReadyTasksLists 7 0
+U pxMutexHolderTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxMutexHolderTCB 7 0
+X
+X
+X
+E
+U pxMutexHolderTCB 5 0
+U pxCurrentTCB 5 0
+X
+U xReturn 4 0
+U BaseType_t 4 0
+X
+E
+U pxMutexHolderTCB 4 0
+U pxCurrentTCB 4 0
+E
+U xReturn 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+X
+E
+X
+U xReturn 2 0
+X
+X
+D xTaskPriorityDisinherit 0 0
+E
+U BaseType_t 1 0
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U pxMutexHolder 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U pxMutexHolder 2 0
+E
+U pxTCB 3 0
+U pxCurrentTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U pxTCB 3 0
+U pxTCB 3 0
+U pxTCB 3 0
+E
+U pxTCB 4 0
+U UBaseType_t 4 0
+E
+U uxListRemove 5 0
+U pxTCB 5 0
+U UBaseType_t 5 0
+E
+X
+E
+X
+U pxTCB 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U TickType_t 5 0
+U TickType_t 5 0
+U pxTCB 5 0
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+U xReturn 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+E
+X
+X
+E
+X
+U xReturn 2 0
+X
+X
+D vTaskPriorityDisinheritAfterTimeout 0 0
+E
+D pxMutexHolder 1 0
+U TaskHandle_t 1 0
+D uxHighestPriorityWaitingTask 1 0
+U UBaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U pxMutexHolder 2 0
+D uxPriorityUsedOnEntry 2 0
+U UBaseType_t 2 0
+D uxPriorityToUse 2 0
+U UBaseType_t 2 0
+D uxOnlyOneMutexHeld 2 0
+U UBaseType_t 2 0
+U UBaseType_t 2 0
+U pxMutexHolder 2 0
+E
+U pxTCB 3 0
+E
+U vPortDisableInterrupts 4 0
+E
+X
+X
+U pxTCB 3 0
+U uxHighestPriorityWaitingTask 3 0
+E
+U uxPriorityToUse 4 0
+U uxHighestPriorityWaitingTask 4 0
+X
+E
+U uxPriorityToUse 4 0
+U pxTCB 4 0
+X
+U pxTCB 3 0
+U uxPriorityToUse 3 0
+E
+U pxTCB 4 0
+U uxOnlyOneMutexHeld 4 0
+E
+U pxTCB 5 0
+U pxCurrentTCB 5 0
+E
+U vPortDisableInterrupts 6 0
+E
+X
+X
+U uxPriorityUsedOnEntry 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U uxPriorityToUse 5 0
+U pxTCB 5 0
+U uint32_t 5 0
+U TickType_t 5 0
+E
+U pxTCB 6 0
+U TickType_t 6 0
+U TickType_t 6 0
+U uxPriorityToUse 6 0
+X
+E
+X
+U pxTCB 5 0
+U pxReadyTasksLists 5 0
+U uxPriorityUsedOnEntry 5 0
+U BaseType_t 5 0
+U BaseType_t 5 0
+U BaseType_t 5 0
+E
+U uxListRemove 6 0
+U pxTCB 6 0
+U UBaseType_t 6 0
+E
+X
+E
+X
+E
+E
+U pxTCB 8 0
+U uxTopReadyPriority 8 0
+E
+U uxTopReadyPriority 9 0
+U pxTCB 9 0
+X
+X
+E
+D pxIndex 8 0
+U ListItem_t 8 0
+U pxReadyTasksLists 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxIndex 8 0
+U pxTCB 8 0
+U pxIndex 8 0
+U pxIndex 8 0
+U pxTCB 8 0
+U pxIndex 8 0
+U pxTCB 8 0
+U pxTCB 8 0
+U pxReadyTasksLists 8 0
+U pxTCB 8 0
+U pxReadyTasksLists 8 0
+U pxTCB 8 0
+U UBaseType_t 8 0
+U pxReadyTasksLists 8 0
+U pxTCB 8 0
+X
+X
+X
+E
+X
+X
+E
+X
+X
+E
+X
+X
+E
+X
+X
+X
+D uxTaskResetEventItemValue 0 0
+E
+U TickType_t 1 0
+E
+D uxReturn 2 0
+U TickType_t 2 0
+U uxReturn 2 0
+U pxCurrentTCB 2 0
+U pxCurrentTCB 2 0
+U TickType_t 2 0
+U TickType_t 2 0
+U pxCurrentTCB 2 0
+U uxReturn 2 0
+X
+X
+D pvTaskIncrementMutexHeldCount 0 0
+E
+U TaskHandle_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+U pxTCB 2 0
+U pxCurrentTCB 2 0
+U pxTCB 2 0
+E
+U pxTCB 3 0
+X
+U pxTCB 2 0
+X
+X
+D ulTaskGenericNotifyTake 0 0
+E
+U uint32_t 1 0
+D uxIndexToWaitOn 1 0
+U UBaseType_t 1 0
+D xClearCountOnExit 1 0
+U BaseType_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+E
+D ulReturn 2 0
+U uint32_t 2 0
+D xAlreadyYielded 2 0
+U BaseType_t 2 0
+D xShouldBlock 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U uxIndexToWaitOn 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxCurrentTCB 2 0
+U uxIndexToWaitOn 2 0
+U xTicksToWait 2 0
+U TickType_t 2 0
+E
+U vTaskSuspendAll 3 0
+E
+U vPortEnterCritical 4 0
+E
+U pxCurrentTCB 5 0
+U uxIndexToWaitOn 5 0
+E
+U pxCurrentTCB 6 0
+U uxIndexToWaitOn 6 0
+U uint8_t 6 0
+U xShouldBlock 6 0
+U BaseType_t 6 0
+X
+E
+X
+X
+U vPortExitCritical 4 0
+U xShouldBlock 4 0
+U BaseType_t 4 0
+E
+U prvAddCurrentTaskToDelayedList 5 0
+U xTicksToWait 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+U xAlreadyYielded 3 0
+U xTaskResumeAll 3 0
+U xShouldBlock 3 0
+U BaseType_t 3 0
+U xAlreadyYielded 3 0
+U BaseType_t 3 0
+E
+U vPortYield 4 0
+X
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+U ulReturn 3 0
+U pxCurrentTCB 3 0
+U uxIndexToWaitOn 3 0
+U ulReturn 3 0
+E
+U xClearCountOnExit 4 0
+U BaseType_t 4 0
+E
+U pxCurrentTCB 5 0
+U uxIndexToWaitOn 5 0
+U uint32_t 5 0
+X
+E
+U pxCurrentTCB 5 0
+U uxIndexToWaitOn 5 0
+U ulReturn 5 0
+U uint32_t 5 0
+X
+X
+E
+X
+U pxCurrentTCB 3 0
+U uxIndexToWaitOn 3 0
+U uint8_t 3 0
+X
+U vPortExitCritical 2 0
+U ulReturn 2 0
+X
+X
+D xTaskGenericNotifyWait 0 0
+E
+U BaseType_t 1 0
+D uxIndexToWaitOn 1 0
+U UBaseType_t 1 0
+D ulBitsToClearOnEntry 1 0
+U uint32_t 1 0
+D ulBitsToClearOnExit 1 0
+U uint32_t 1 0
+D pulNotificationValue 1 0
+U uint32_t 1 0
+D xTicksToWait 1 0
+U TickType_t 1 0
+E
+D xReturn 2 0
+U BaseType_t 2 0
+D xAlreadyYielded 2 0
+U BaseType_t 2 0
+D xShouldBlock 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+U uxIndexToWaitOn 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxCurrentTCB 2 0
+U uxIndexToWaitOn 2 0
+U uint8_t 2 0
+U xTicksToWait 2 0
+U TickType_t 2 0
+E
+U vTaskSuspendAll 3 0
+E
+U vPortEnterCritical 4 0
+E
+U pxCurrentTCB 5 0
+U uxIndexToWaitOn 5 0
+U uint8_t 5 0
+E
+U pxCurrentTCB 6 0
+U uxIndexToWaitOn 6 0
+U ulBitsToClearOnEntry 6 0
+U pxCurrentTCB 6 0
+U uxIndexToWaitOn 6 0
+U uint8_t 6 0
+U xShouldBlock 6 0
+U BaseType_t 6 0
+X
+E
+X
+X
+U vPortExitCritical 4 0
+U xShouldBlock 4 0
+U BaseType_t 4 0
+E
+U prvAddCurrentTaskToDelayedList 5 0
+U xTicksToWait 5 0
+U BaseType_t 5 0
+X
+E
+X
+X
+U xAlreadyYielded 3 0
+U xTaskResumeAll 3 0
+U xShouldBlock 3 0
+U BaseType_t 3 0
+U xAlreadyYielded 3 0
+U BaseType_t 3 0
+E
+U vPortYield 4 0
+X
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+U pulNotificationValue 3 0
+E
+U pulNotificationValue 4 0
+U pxCurrentTCB 4 0
+U uxIndexToWaitOn 4 0
+X
+U pxCurrentTCB 3 0
+U uxIndexToWaitOn 3 0
+U uint8_t 3 0
+E
+U xReturn 4 0
+U BaseType_t 4 0
+X
+E
+U pxCurrentTCB 4 0
+U uxIndexToWaitOn 4 0
+U ulBitsToClearOnExit 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+U pxCurrentTCB 3 0
+U uxIndexToWaitOn 3 0
+U uint8_t 3 0
+X
+U vPortExitCritical 2 0
+U xReturn 2 0
+X
+X
+D xTaskGenericNotify 0 0
+E
+U BaseType_t 1 0
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D ulValue 1 0
+U uint32_t 1 0
+D eAction 1 0
+U eNotifyAction 1 0
+D pulPreviousNotificationValue 1 0
+U uint32_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D ucOriginalNotifyState 2 0
+U uint8_t 2 0
+U uxIndexToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U xTaskToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTaskToNotify 2 0
+U vPortEnterCritical 2 0
+E
+U pulPreviousNotificationValue 3 0
+E
+U pulPreviousNotificationValue 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+X
+U ucOriginalNotifyState 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U uint8_t 3 0
+U eAction 3 0
+E
+U eSetBits 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U ulValue 4 0
+U eIncrement 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U eSetValueWithOverwrite 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U ulValue 4 0
+U eSetValueWithoutOverwrite 4 0
+U ucOriginalNotifyState 4 0
+U uint8_t 4 0
+E
+U pxTCB 5 0
+U uxIndexToNotify 5 0
+U ulValue 5 0
+X
+E
+U xReturn 5 0
+U BaseType_t 5 0
+X
+U eNoAction 4 0
+U xTickCount 4 0
+U TickType_t 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+X
+U ucOriginalNotifyState 3 0
+U uint8_t 3 0
+E
+E
+D pxList 5 0
+U List_t 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U pxTCB 5 0
+U pxList 5 0
+U pxTCB 5 0
+E
+U pxList 6 0
+U pxTCB 6 0
+X
+U pxTCB 5 0
+U pxList 5 0
+U UBaseType_t 5 0
+U pxList 5 0
+X
+E
+E
+U pxTCB 6 0
+U uxTopReadyPriority 6 0
+E
+U uxTopReadyPriority 7 0
+U pxTCB 7 0
+X
+X
+E
+D pxIndex 6 0
+U ListItem_t 6 0
+U pxReadyTasksLists 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxReadyTasksLists 6 0
+U pxTCB 6 0
+U pxReadyTasksLists 6 0
+U pxTCB 6 0
+U UBaseType_t 6 0
+U pxReadyTasksLists 6 0
+U pxTCB 6 0
+X
+X
+U pxTCB 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+E
+U pxCurrentTCB 5 0
+U pxTCB 5 0
+E
+U vPortYield 6 0
+X
+E
+X
+X
+X
+E
+X
+X
+U vPortExitCritical 2 0
+U xReturn 2 0
+X
+X
+D xTaskGenericNotifyFromISR 0 0
+E
+U BaseType_t 1 0
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D ulValue 1 0
+U uint32_t 1 0
+D eAction 1 0
+U eNotifyAction 1 0
+D pulPreviousNotificationValue 1 0
+U uint32_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D ucOriginalNotifyState 2 0
+U uint8_t 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U BaseType_t 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xTaskToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxIndexToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTaskToNotify 2 0
+U uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xPortSetInterruptMask 2 0
+E
+U pulPreviousNotificationValue 3 0
+E
+U pulPreviousNotificationValue 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+X
+U ucOriginalNotifyState 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U uint8_t 3 0
+U eAction 3 0
+E
+U eSetBits 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U ulValue 4 0
+U eIncrement 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U eSetValueWithOverwrite 4 0
+U pxTCB 4 0
+U uxIndexToNotify 4 0
+U ulValue 4 0
+U eSetValueWithoutOverwrite 4 0
+U ucOriginalNotifyState 4 0
+U uint8_t 4 0
+E
+U pxTCB 5 0
+U uxIndexToNotify 5 0
+U ulValue 5 0
+X
+E
+U xReturn 5 0
+U BaseType_t 5 0
+X
+U eNoAction 4 0
+U xTickCount 4 0
+U TickType_t 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+X
+U ucOriginalNotifyState 3 0
+U uint8_t 3 0
+E
+U pxTCB 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+E
+E
+D pxList 6 0
+U List_t 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxList 6 0
+U pxTCB 6 0
+E
+U pxList 7 0
+U pxTCB 7 0
+X
+U pxTCB 6 0
+U pxList 6 0
+U UBaseType_t 6 0
+U pxList 6 0
+X
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+X
+E
+E
+D pxIndex 6 0
+U ListItem_t 6 0
+U xPendingReadyList 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U xPendingReadyList 6 0
+U xPendingReadyList 6 0
+U UBaseType_t 6 0
+U xPendingReadyList 6 0
+X
+X
+E
+U pxTCB 5 0
+U pxCurrentTCB 5 0
+E
+U pxHigherPriorityTaskWoken 6 0
+E
+U pxHigherPriorityTaskWoken 7 0
+U BaseType_t 7 0
+X
+U xYieldPendings 6 0
+U BaseType_t 6 0
+X
+E
+X
+X
+X
+X
+U vPortClearInterruptMask 2 0
+U uxSavedInterruptStatus 2 0
+U xReturn 2 0
+X
+X
+D vTaskGenericNotifyGiveFromISR 0 0
+E
+D xTaskToNotify 1 0
+U TaskHandle_t 1 0
+D uxIndexToNotify 1 0
+U UBaseType_t 1 0
+D pxHigherPriorityTaskWoken 1 0
+U BaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D ucOriginalNotifyState 2 0
+U uint8_t 2 0
+D uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xTaskToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U uxIndexToNotify 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTaskToNotify 2 0
+U uxSavedInterruptStatus 2 0
+U UBaseType_t 2 0
+U xPortSetInterruptMask 2 0
+E
+U ucOriginalNotifyState 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U uint8_t 3 0
+U pxTCB 3 0
+U uxIndexToNotify 3 0
+U ucOriginalNotifyState 3 0
+U uint8_t 3 0
+E
+U pxTCB 4 0
+E
+U vPortDisableInterrupts 5 0
+E
+X
+X
+U uxSchedulerSuspended 4 0
+U UBaseType_t 4 0
+E
+E
+D pxList 6 0
+U List_t 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U pxList 6 0
+U pxTCB 6 0
+E
+U pxList 7 0
+U pxTCB 7 0
+X
+U pxTCB 6 0
+U pxList 6 0
+U UBaseType_t 6 0
+U pxList 6 0
+X
+E
+E
+U pxTCB 7 0
+U uxTopReadyPriority 7 0
+E
+U uxTopReadyPriority 8 0
+U pxTCB 8 0
+X
+X
+E
+D pxIndex 7 0
+U ListItem_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxIndex 7 0
+U pxTCB 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+U UBaseType_t 7 0
+U pxReadyTasksLists 7 0
+U pxTCB 7 0
+X
+X
+X
+E
+E
+D pxIndex 6 0
+U ListItem_t 6 0
+U xPendingReadyList 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxIndex 6 0
+U pxTCB 6 0
+U pxTCB 6 0
+U xPendingReadyList 6 0
+U xPendingReadyList 6 0
+U UBaseType_t 6 0
+U xPendingReadyList 6 0
+X
+X
+E
+U pxTCB 5 0
+U pxCurrentTCB 5 0
+E
+U pxHigherPriorityTaskWoken 6 0
+E
+U pxHigherPriorityTaskWoken 7 0
+U BaseType_t 7 0
+X
+U xYieldPendings 6 0
+U BaseType_t 6 0
+X
+E
+X
+X
+X
+X
+U vPortClearInterruptMask 2 0
+U uxSavedInterruptStatus 2 0
+X
+X
+D xTaskGenericNotifyStateClear 0 0
+E
+U BaseType_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxIndexToClear 1 0
+U UBaseType_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D xReturn 2 0
+U BaseType_t 2 0
+U uxIndexToClear 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTask 2 0
+U pxCurrentTCB 2 0
+U xTask 2 0
+U pxTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+U pxTCB 3 0
+U uxIndexToClear 3 0
+U uint8_t 3 0
+E
+U pxTCB 4 0
+U uxIndexToClear 4 0
+U uint8_t 4 0
+U xReturn 4 0
+U BaseType_t 4 0
+X
+E
+U xReturn 4 0
+U BaseType_t 4 0
+X
+X
+U vPortExitCritical 2 0
+U xReturn 2 0
+X
+X
+D ulTaskGenericNotifyValueClear 0 0
+E
+U uint32_t 1 0
+D xTask 1 0
+U TaskHandle_t 1 0
+D uxIndexToClear 1 0
+U UBaseType_t 1 0
+D ulBitsToClear 1 0
+U uint32_t 1 0
+E
+D pxTCB 2 0
+U TCB_t 2 0
+D ulReturn 2 0
+U uint32_t 2 0
+U uxIndexToClear 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U pxTCB 2 0
+U xTask 2 0
+U pxCurrentTCB 2 0
+U xTask 2 0
+U pxTCB 2 0
+E
+U vPortDisableInterrupts 3 0
+E
+X
+X
+U vPortEnterCritical 2 0
+E
+U ulReturn 3 0
+U pxTCB 3 0
+U uxIndexToClear 3 0
+U pxTCB 3 0
+U uxIndexToClear 3 0
+U ulBitsToClear 3 0
+X
+U vPortExitCritical 2 0
+U ulReturn 2 0
+X
+X
+D prvAddCurrentTaskToDelayedList 0 0
+E
+D xTicksToWait 1 0
+U TickType_t 1 0
+D xCanBlockIndefinitely 1 0
+U BaseType_t 1 0
+E
+D xTimeToWake 2 0
+U TickType_t 2 0
+D xConstTickCount 2 0
+U TickType_t 2 0
+U xTickCount 2 0
+D pxDelayedList 2 0
+U List_t 2 0
+U pxDelayedTaskList 2 0
+D pxOverflowDelayedList 2 0
+U List_t 2 0
+U pxOverflowDelayedTaskList 2 0
+U uxListRemove 2 0
+U pxCurrentTCB 2 0
+U UBaseType_t 2 0
+E
+X
+E
+X
+E
+U xTicksToWait 3 0
+U TickType_t 3 0
+U xCanBlockIndefinitely 3 0
+U BaseType_t 3 0
+E
+E
+D pxIndex 5 0
+U ListItem_t 5 0
+U xSuspendedTaskList 5 0
+U pxCurrentTCB 5 0
+U pxIndex 5 0
+U pxCurrentTCB 5 0
+U pxIndex 5 0
+U pxIndex 5 0
+U pxCurrentTCB 5 0
+U pxIndex 5 0
+U pxCurrentTCB 5 0
+U pxCurrentTCB 5 0
+U xSuspendedTaskList 5 0
+U xSuspendedTaskList 5 0
+U UBaseType_t 5 0
+U xSuspendedTaskList 5 0
+X
+X
+E
+U xTimeToWake 4 0
+U xConstTickCount 4 0
+U xTicksToWait 4 0
+U pxCurrentTCB 4 0
+U xTimeToWake 4 0
+U xTimeToWake 4 0
+U xConstTickCount 4 0
+E
+U vListInsert 5 0
+U pxOverflowDelayedList 5 0
+U pxCurrentTCB 5 0
+X
+E
+U vListInsert 5 0
+U pxDelayedList 5 0
+U pxCurrentTCB 5 0
+U xTimeToWake 5 0
+U xNextTaskUnblockTime 5 0
+E
+U xNextTaskUnblockTime 6 0
+U xTimeToWake 6 0
+X
+E
+X
+X
+X
+X
+X
+X
+D vApplicationGetIdleTaskMemory 0 0
+E
+D ppxIdleTaskTCBBuffer 1 0
+U StaticTask_t 1 0
+D ppxIdleTaskStackBuffer 1 0
+U StackType_t 1 0
+D puxIdleTaskStackSize 1 0
+U size_t 1 0
+E
+D xIdleTaskTCB 2 0
+U StaticTask_t 2 0
+D uxIdleTaskStack 2 0
+U StackType_t 2 0
+U ppxIdleTaskTCBBuffer 2 0
+U xIdleTaskTCB 2 0
+U ppxIdleTaskStackBuffer 2 0
+U uxIdleTaskStack 2 0
+U puxIdleTaskStackSize 2 0
+X
+X
+D vApplicationGetTimerTaskMemory 0 0
+E
+D ppxTimerTaskTCBBuffer 1 0
+U StaticTask_t 1 0
+D ppxTimerTaskStackBuffer 1 0
+U StackType_t 1 0
+D puxTimerTaskStackSize 1 0
+U size_t 1 0
+E
+D xTimerTaskTCB 2 0
+U StaticTask_t 2 0
+D uxTimerTaskStack 2 0
+U StackType_t 2 0
+U ppxTimerTaskTCBBuffer 2 0
+U xTimerTaskTCB 2 0
+U ppxTimerTaskStackBuffer 2 0
+U uxTimerTaskStack 2 0
+U puxTimerTaskStackSize 2 0
+X
+X
+D vTaskResetState 0 0
+E
+E
+D xCoreID 2 0
+U BaseType_t 2 0
+E
+U pxCurrentTCB 3 0
+X
+E
+U uxDeletedTasksWaitingCleanUp 3 0
+U UBaseType_t 3 0
+X
+U uxCurrentNumberOfTasks 2 0
+U UBaseType_t 2 0
+U xTickCount 2 0
+U TickType_t 2 0
+U uxTopReadyPriority 2 0
+U UBaseType_t 2 0
+U xSchedulerRunning 2 0
+U BaseType_t 2 0
+U xPendedTicks 2 0
+U TickType_t 2 0
+E
+U xCoreID 3 0
+U xCoreID 3 0
+U xCoreID 3 0
+E
+U xYieldPendings 4 0
+U xCoreID 4 0
+U BaseType_t 4 0
+X
+X
+U xNumOfOverflows 2 0
+U BaseType_t 2 0
+U uxTaskNumber 2 0
+U UBaseType_t 2 0
+U xNextTaskUnblockTime 2 0
+U TickType_t 2 0
+U uxSchedulerSuspended 2 0
+U UBaseType_t 2 0
+X
+X

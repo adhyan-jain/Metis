@@ -1,0 +1,55 @@
+cmake:
+  application:
+    configuration-dir: '/home/adhyan/Desktop/Compiler/corpora/zephyr/samples/hello_world'
+    source-dir: '/home/adhyan/Desktop/Compiler/corpora/zephyr/samples/hello_world'
+  board:
+    name: 'mps2'
+    path:
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/boards/arm/mps2'
+    qualifiers: 'an385'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/bindings'
+    files:
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/boards/arm/mps2/mps2_an385.dts'
+    include-dirs:
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/ambiq/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/atmel/include'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/bouffalolab/include'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/bouffalolab/include/zephyr'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/gigadevice/include'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/infineon/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/microchip/include'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/microchip/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/nuvoton/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/stm32/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/modules/hal/ti/dts'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/include'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/include/zephyr'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/common'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/vendor'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/rx'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/x86'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/xtensa'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/sparc'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/riscv'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/posix'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/arm64'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/arm'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts/arc'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/dts'
+  kconfig:
+    files:
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/boards/arm/mps2/mps2_an385_defconfig'
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/samples/hello_world/prj.conf'
+     - '/home/adhyan/Desktop/Compiler/research/metis_exidx/work/hello_sw/zephyr/misc/generated/extra_kconfig_options.conf'
+    user-files:
+     - '/home/adhyan/Desktop/Compiler/corpora/zephyr/samples/hello_world/prj.conf'
+  toolchain:
+    name: 'cross-compile'
+    path: ''
+  zephyr:
+    version: '4.4.99'
+    zephyr-base: '/home/adhyan/Desktop/Compiler/corpora/zephyr'
+version: '0.1.0'
