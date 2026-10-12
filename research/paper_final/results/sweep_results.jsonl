@@ -1,0 +1,125 @@
+{"sample": "samples/net/cellular_modem", "board": "mps2/an385", "tag": "net__cellular_modem@mps2_an385", "rc": 1, "seconds": 26.1, "ok": false}
+{"sample": "samples/hello_world", "board": "mps2/an385", "tag": "hello_world@mps2_an385", "rc": 0, "seconds": 61.2, "N": 172, "bin": 18052, "ok": true}
+{"sample": "samples/net/cloud/aws_iot_mqtt", "board": "mps2/an385", "tag": "net__cloud__aws_iot_mqtt@mps2_an385", "rc": 1, "seconds": 50.7, "ok": false}
+{"sample": "samples/net/capture", "board": "mps2/an385", "tag": "net__capture@mps2_an385", "rc": 0, "seconds": 78.8, "N": 1384, "bin": 232672, "ok": true}
+{"sample": "samples/net/cloud/mqtt_azure", "board": "mps2/an385", "tag": "net__cloud__mqtt_azure@mps2_an385", "rc": 0, "seconds": 105.3, "N": 2110, "bin": 342340, "ok": true}
+{"sample": "samples/net/dhcpv4_client", "board": "mps2/an385", "tag": "net__dhcpv4_client@mps2_an385", "rc": 0, "seconds": 89.1, "N": 1248, "bin": 193472, "ok": true}
+{"sample": "samples/net/cloud/tagoio_http_post", "board": "mps2/an385", "tag": "net__cloud__tagoio_http_post@mps2_an385", "rc": 0, "seconds": 98.7, "N": 1474, "bin": 249564, "ok": true}
+{"sample": "samples/net/dns_resolve", "board": "mps2/an385", "tag": "net__dns_resolve@mps2_an385", "rc": 0, "seconds": 114.2, "N": 1409, "bin": 230216, "ok": true}
+{"sample": "samples/net/dhcpv6_pd", "board": "mps2/an385", "tag": "net__dhcpv6_pd@mps2_an385", "rc": 0, "seconds": 116.0, "N": 1232, "bin": 197528, "ok": true}
+{"sample": "samples/net/ethernet/bridge", "board": "mps2/an385", "tag": "net__ethernet__bridge@mps2_an385", "rc": 0, "seconds": 111.4, "N": 1456, "bin": 245660, "ok": true}
+{"sample": "samples/net/ethernet/lldp", "board": "mps2/an385", "tag": "net__ethernet__lldp@mps2_an385", "rc": 0, "seconds": 107.8, "N": 1422, "bin": 241912, "ok": true}
+{"sample": "samples/net/ethernet/gptp", "board": "mps2/an385", "tag": "net__ethernet__gptp@mps2_an385", "rc": 0, "seconds": 111.9, "N": 1470, "bin": 266404, "ok": true}
+{"sample": "samples/net/ethernet/dsa", "board": "mps2/an385", "tag": "net__ethernet__dsa@mps2_an385", "rc": 0, "seconds": 115.1, "N": 1539, "bin": 257180, "ok": true}
+{"sample": "samples/net/ethernet/vlan", "board": "mps2/an385", "tag": "net__ethernet__vlan@mps2_an385", "rc": 0, "seconds": 111.1, "N": 1409, "bin": 235248, "ok": true}
+{"sample": "samples/net/ftp_client", "board": "mps2/an385", "tag": "net__ftp_client@mps2_an385", "rc": 0, "seconds": 108.9, "N": 1533, "bin": 256488, "ok": true}
+{"sample": "samples/net/ethernet/tsn-switch", "board": "mps2/an385", "tag": "net__ethernet__tsn-switch@mps2_an385", "rc": 0, "seconds": 112.7, "N": 1563, "bin": 285920, "ok": true}
+{"sample": "samples/net/latmon", "board": "mps2/an385", "tag": "net__latmon@mps2_an385", "rc": 1, "seconds": 91.0, "ok": false}
+{"sample": "samples/net/ipv4_autoconf", "board": "mps2/an385", "tag": "net__ipv4_autoconf@mps2_an385", "rc": 0, "seconds": 96.4, "N": 1054, "bin": 159116, "ok": true}
+{"sample": "samples/net/lwm2m_client", "board": "mps2/an385", "tag": "net__lwm2m_client@mps2_an385", "rc": 0, "seconds": 97.0, "N": 1579, "bin": 238848, "ok": true}
+{"sample": "samples/net/mcp/mcp_server_hello_world", "board": "mps2/an385", "tag": "net__mcp__mcp_server_hello_world@mps2_an385", "rc": 0, "seconds": 100.5, "N": 1247, "bin": 205732, "ok": true}
+{"sample": "samples/net/midi2", "board": "mps2/an385", "tag": "net__midi2@mps2_an385", "rc": 0, "seconds": 101.5, "N": 972, "bin": 138364, "ok": true}
+{"sample": "samples/net/mdns_responder", "board": "mps2/an385", "tag": "net__mdns_responder@mps2_an385", "rc": 0, "seconds": 108.7, "N": 1539, "bin": 255072, "ok": true}
+{"sample": "samples/net/mqtt_sn_publisher", "board": "mps2/an385", "tag": "net__mqtt_sn_publisher@mps2_an385", "rc": 0, "seconds": 107.1, "N": 979, "bin": 140152, "ok": true}
+{"sample": "samples/net/ocpp", "board": "mps2/an385", "tag": "net__ocpp@mps2_an385", "rc": 0, "seconds": 101.6, "N": 1234, "bin": 188364, "ok": true}
+{"sample": "samples/net/mqtt_publisher", "board": "mps2/an385", "tag": "net__mqtt_publisher@mps2_an385", "rc": 0, "seconds": 116.6, "N": 1302, "bin": 198480, "ok": true}
+{"sample": "samples/net/openthread/border_router", "board": "mps2/an385", "tag": "net__openthread__border_router@mps2_an385", "rc": 1, "seconds": 33.4, "ok": false}
+{"sample": "samples/net/openthread/coprocessor", "board": "mps2/an385", "tag": "net__openthread__coprocessor@mps2_an385", "rc": 1, "seconds": 153.8, "ok": false}
+{"sample": "samples/net/openthread/coap", "board": "mps2/an385", "tag": "net__openthread__coap@mps2_an385", "rc": 1, "seconds": 157.3, "ok": false}
+{"sample": "samples/net/openthread/shell", "board": "mps2/an385", "tag": "net__openthread__shell@mps2_an385", "rc": 1, "seconds": 171.7, "ok": false}
+{"sample": "samples/net/pkt_filter", "board": "mps2/an385", "tag": "net__pkt_filter@mps2_an385", "rc": 0, "seconds": 108.9, "N": 1384, "bin": 232888, "ok": true}
+{"sample": "samples/net/prometheus", "board": "mps2/an385", "tag": "net__prometheus@mps2_an385", "rc": 0, "seconds": 115.3, "N": 2337, "bin": 419752, "ok": true}
+{"sample": "samples/net/promiscuous_mode", "board": "mps2/an385", "tag": "net__promiscuous_mode@mps2_an385", "rc": 0, "seconds": 106.8, "N": 1349, "bin": 226016, "ok": true}
+{"sample": "samples/net/qos/ethernet", "board": "mps2/an385", "tag": "net__qos__ethernet@mps2_an385", "rc": 1, "seconds": 46.6, "ok": false}
+{"sample": "samples/net/ptp", "board": "mps2/an385", "tag": "net__ptp@mps2_an385", "rc": 0, "seconds": 84.1, "N": 1567, "bin": 259840, "ok": true}
+{"sample": "samples/net/rtp", "board": "mps2/an385", "tag": "net__rtp@mps2_an385", "rc": 1, "seconds": 92.8, "ok": false}
+{"sample": "samples/net/quic/echo_client", "board": "mps2/an385", "tag": "net__quic__echo_client@mps2_an385", "rc": 0, "seconds": 165.3, "N": 2143, "bin": 410272, "ok": true}
+{"sample": "samples/net/quic/echo_service", "board": "mps2/an385", "tag": "net__quic__echo_service@mps2_an385", "rc": 0, "seconds": 160.5, "N": 2107, "bin": 391844, "ok": true}
+{"sample": "samples/net/sockets/can", "board": "mps2/an385", "tag": "net__sockets__can@mps2_an385", "rc": 1, "seconds": 51.5, "ok": false}
+{"sample": "samples/net/secure_mqtt_sensor_actuator", "board": "mps2/an385", "tag": "net__secure_mqtt_sensor_actuator@mps2_an385", "rc": 0, "seconds": 99.9, "N": 1769, "bin": 264024, "ok": true}
+{"sample": "samples/net/sockets/big_http_download", "board": "mps2/an385", "tag": "net__sockets__big_http_download@mps2_an385", "rc": 0, "seconds": 80.9, "N": 1176, "bin": 169824, "ok": true}
+{"sample": "samples/net/sockets/coap_client_tcp", "board": "mps2/an385", "tag": "net__sockets__coap_client_tcp@mps2_an385", "rc": 0, "seconds": 88.5, "N": 1071, "bin": 156448, "ok": true}
+{"sample": "samples/net/sockets/coap_client", "board": "mps2/an385", "tag": "net__sockets__coap_client@mps2_an385", "rc": 0, "seconds": 103.7, "N": 1378, "bin": 217640, "ok": true}
+{"sample": "samples/net/sockets/coap_download", "board": "mps2/an385", "tag": "net__sockets__coap_download@mps2_an385", "rc": 1, "seconds": 85.5, "ok": false}
+{"sample": "samples/net/sockets/coap_upload", "board": "mps2/an385", "tag": "net__sockets__coap_upload@mps2_an385", "rc": 0, "seconds": 99.6, "N": 990, "bin": 138764, "ok": true}
+{"sample": "samples/net/sockets/dumb_http_server", "board": "mps2/an385", "tag": "net__sockets__dumb_http_server@mps2_an385", "rc": 0, "seconds": 95.0, "N": 791, "bin": 105744, "ok": true}
+{"sample": "samples/net/sockets/coap_server", "board": "mps2/an385", "tag": "net__sockets__coap_server@mps2_an385", "rc": 0, "seconds": 105.9, "N": 1337, "bin": 214956, "ok": true}
+{"sample": "samples/net/sockets/echo", "board": "mps2/an385", "tag": "net__sockets__echo@mps2_an385", "rc": 0, "seconds": 83.6, "N": 876, "bin": 116320, "ok": true}
+{"sample": "samples/net/sockets/echo_async", "board": "mps2/an385", "tag": "net__sockets__echo_async@mps2_an385", "rc": 0, "seconds": 90.5, "N": 973, "bin": 136736, "ok": true}
+{"sample": "samples/net/sockets/dumb_http_server_mt", "board": "mps2/an385", "tag": "net__sockets__dumb_http_server_mt@mps2_an385", "rc": 0, "seconds": 98.9, "N": 1494, "bin": 248092, "ok": true}
+{"sample": "samples/net/sockets/echo_async_select", "board": "mps2/an385", "tag": "net__sockets__echo_async_select@mps2_an385", "rc": 0, "seconds": 94.7, "N": 890, "bin": 117396, "ok": true}
+{"sample": "samples/net/sockets/echo_server", "board": "mps2/an385", "tag": "net__sockets__echo_server@mps2_an385", "rc": 0, "seconds": 96.2, "N": 1516, "bin": 257508, "ok": true}
+{"sample": "samples/net/sockets/echo_client", "board": "mps2/an385", "tag": "net__sockets__echo_client@mps2_an385", "rc": 0, "seconds": 102.9, "N": 1545, "bin": 255648, "ok": true}
+{"sample": "samples/net/sockets/echo_service", "board": "mps2/an385", "tag": "net__sockets__echo_service@mps2_an385", "rc": 0, "seconds": 108.3, "N": 1379, "bin": 215856, "ok": true}
+{"sample": "samples/net/sockets/http_get", "board": "mps2/an385", "tag": "net__sockets__http_get@mps2_an385", "rc": 0, "seconds": 97.1, "N": 1061, "bin": 153720, "ok": true}
+{"sample": "samples/net/sockets/http_client", "board": "mps2/an385", "tag": "net__sockets__http_client@mps2_an385", "rc": 0, "seconds": 100.5, "N": 1611, "bin": 282224, "ok": true}
+{"sample": "samples/net/sockets/packet", "board": "mps2/an385", "tag": "net__sockets__packet@mps2_an385", "rc": 0, "seconds": 101.3, "N": 1024, "bin": 151668, "ok": true}
+{"sample": "samples/net/sockets/http_server", "board": "mps2/an385", "tag": "net__sockets__http_server@mps2_an385", "rc": 0, "seconds": 123.2, "N": 1826, "bin": 339588, "ok": true}
+{"sample": "samples/net/sockets/net_mgmt", "board": "mps2/an385", "tag": "net__sockets__net_mgmt@mps2_an385", "rc": 127, "seconds": 149.6, "ok": false}
+{"sample": "samples/net/sockets/socketpair", "board": "mps2/an385", "tag": "net__sockets__socketpair@mps2_an385", "rc": 0, "seconds": 66.7, "N": 710, "bin": 92000, "ok": true}
+{"sample": "samples/net/sockets/sntp_client", "board": "mps2/an385", "tag": "net__sockets__sntp_client@mps2_an385", "rc": 0, "seconds": 98.6, "N": 1378, "bin": 218256, "ok": true}
+{"sample": "samples/net/sockets/tcp", "board": "mps2/an385", "tag": "net__sockets__tcp@mps2_an385", "rc": 0, "seconds": 91.3, "N": 847, "bin": 112992, "ok": true}
+{"sample": "samples/net/sockets/txtime", "board": "mps2/an385", "tag": "net__sockets__txtime@mps2_an385", "rc": 1, "seconds": 92.4, "ok": false}
+{"sample": "samples/net/sockets/websocket_client", "board": "mps2/an385", "tag": "net__sockets__websocket_client@mps2_an385", "rc": 0, "seconds": 102.4, "N": 1686, "bin": 299968, "ok": true}
+{"sample": "samples/net/ssh", "board": "mps2/an385", "tag": "net__ssh@mps2_an385", "rc": 0, "seconds": 127.0, "N": 2199, "bin": 388804, "ok": true}
+{"sample": "samples/net/stats", "board": "mps2/an385", "tag": "net__stats@mps2_an385", "rc": 0, "seconds": 104.0, "N": 1321, "bin": 221764, "ok": true}
+{"sample": "samples/net/syslog_net", "board": "mps2/an385", "tag": "net__syslog_net@mps2_an385", "rc": 0, "seconds": 95.9, "N": 1318, "bin": 207912, "ok": true}
+{"sample": "samples/net/tftp_client", "board": "mps2/an385", "tag": "net__tftp_client@mps2_an385", "rc": 1, "seconds": 77.3, "ok": false}
+{"sample": "samples/net/telnet", "board": "mps2/an385", "tag": "net__telnet@mps2_an385", "rc": 0, "seconds": 103.0, "N": 1450, "bin": 235676, "ok": true}
+{"sample": "samples/net/virtual", "board": "mps2/an385", "tag": "net__virtual@mps2_an385", "rc": 0, "seconds": 89.9, "N": 1353, "bin": 226728, "ok": true}
+{"sample": "samples/net/wifi/apsta_mode", "board": "mps2/an385", "tag": "net__wifi__apsta_mode@mps2_an385", "rc": 1, "seconds": 57.9, "ok": false}
+{"sample": "samples/net/wifi/ble_provisioning", "board": "mps2/an385", "tag": "net__wifi__ble_provisioning@mps2_an385", "rc": 1, "seconds": 70.7, "ok": false}
+{"sample": "samples/net/wpan_serial", "board": "mps2/an385", "tag": "net__wpan_serial@mps2_an385", "rc": 1, "seconds": 19.0, "ok": false}
+{"sample": "samples/net/wifi/shell", "board": "mps2/an385", "tag": "net__wifi__shell@mps2_an385", "rc": 0, "seconds": 75.4, "N": 1285, "bin": 236892, "ok": true}
+{"sample": "samples/subsys/shell/shell_module", "board": "mps2/an385", "tag": "subsys__shell__shell_module@mps2_an385", "rc": 0, "seconds": 77.1, "N": 620, "bin": 80740, "ok": true}
+{"sample": "samples/net/wireguard", "board": "mps2/an385", "tag": "net__wireguard@mps2_an385", "rc": 0, "seconds": 131.7, "N": 1851, "bin": 313208, "ok": true}
+{"sample": "samples/subsys/usb/cdc_acm", "board": "mps2/an385", "tag": "subsys__usb__cdc_acm@mps2_an385", "rc": 1, "seconds": 18.3, "ok": false}
+{"sample": "samples/subsys/usb/cdc_acm_bridge", "board": "mps2/an385", "tag": "subsys__usb__cdc_acm_bridge@mps2_an385", "rc": 1, "seconds": 21.2, "ok": false}
+{"sample": "samples/net/zperf", "board": "mps2/an385", "tag": "net__zperf@mps2_an385", "rc": 0, "seconds": 132.8, "N": 1278, "bin": 301792, "ok": true}
+{"sample": "samples/subsys/usb/console", "board": "mps2/an385", "tag": "subsys__usb__console@mps2_an385", "rc": 1, "seconds": 8.6, "ok": false}
+{"sample": "samples/subsys/shell/shell_module/remote", "board": "mps2/an385", "tag": "subsys__shell__shell_module__remote@mps2_an385", "rc": 1, "seconds": 67.1, "ok": false}
+{"sample": "samples/subsys/usb/dfu", "board": "mps2/an385", "tag": "subsys__usb__dfu@mps2_an385", "rc": 1, "seconds": 45.6, "ok": false}
+{"sample": "samples/subsys/usb/hid-keyboard", "board": "mps2/an385", "tag": "subsys__usb__hid-keyboard@mps2_an385", "rc": 1, "seconds": 42.7, "ok": false}
+{"sample": "samples/subsys/usb/hid-mouse", "board": "mps2/an385", "tag": "subsys__usb__hid-mouse@mps2_an385", "rc": 1, "seconds": 45.7, "ok": false}
+{"sample": "samples/subsys/usb/legacy/audio_headphones_microphone", "board": "mps2/an385", "tag": "subsys__usb__legacy__audio_headphones_microphone@mps2_an385", "rc": 1, "seconds": 10.5, "ok": false}
+{"sample": "samples/subsys/usb/i2c_tiny_usb", "board": "mps2/an385", "tag": "subsys__usb__i2c_tiny_usb@mps2_an385", "rc": 1, "seconds": 40.0, "ok": false}
+{"sample": "samples/subsys/usb/legacy/audio_headset", "board": "mps2/an385", "tag": "subsys__usb__legacy__audio_headset@mps2_an385", "rc": 1, "seconds": 16.8, "ok": false}
+{"sample": "samples/subsys/usb/host_uvc", "board": "mps2/an385", "tag": "subsys__usb__host_uvc@mps2_an385", "rc": 1, "seconds": 52.8, "ok": false}
+{"sample": "samples/subsys/usb/legacy/cdc_acm", "board": "mps2/an385", "tag": "subsys__usb__legacy__cdc_acm@mps2_an385", "rc": 1, "seconds": 9.9, "ok": false}
+{"sample": "samples/subsys/usb/legacy/console", "board": "mps2/an385", "tag": "subsys__usb__legacy__console@mps2_an385", "rc": 1, "seconds": 9.8, "ok": false}
+{"sample": "samples/subsys/usb/legacy/hci_usb", "board": "mps2/an385", "tag": "subsys__usb__legacy__hci_usb@mps2_an385", "rc": 1, "seconds": 50.8, "ok": false}
+{"sample": "samples/subsys/usb/legacy/dfu", "board": "mps2/an385", "tag": "subsys__usb__legacy__dfu@mps2_an385", "rc": 1, "seconds": 51.6, "ok": false}
+{"sample": "samples/subsys/usb/legacy/hid-mouse", "board": "mps2/an385", "tag": "subsys__usb__legacy__hid-mouse@mps2_an385", "rc": 1, "seconds": 49.1, "ok": false}
+{"sample": "samples/subsys/usb/legacy/webusb", "board": "mps2/an385", "tag": "subsys__usb__legacy__webusb@mps2_an385", "rc": 1, "seconds": 61.8, "ok": false}
+{"sample": "samples/subsys/usb/legacy/mass", "board": "mps2/an385", "tag": "subsys__usb__legacy__mass@mps2_an385", "rc": 1, "seconds": 62.9, "ok": false}
+{"sample": "samples/subsys/usb/legacy/netusb", "board": "mps2/an385", "tag": "subsys__usb__legacy__netusb@mps2_an385", "rc": 1, "seconds": 77.4, "ok": false}
+{"sample": "samples/subsys/usb/shell", "board": "mps2/an385", "tag": "subsys__usb__shell@mps2_an385", "rc": 1, "seconds": 10.8, "ok": false}
+{"sample": "samples/subsys/usb/mass", "board": "mps2/an385", "tag": "subsys__usb__mass@mps2_an385", "rc": 1, "seconds": 54.0, "ok": false}
+{"sample": "samples/subsys/usb/midi", "board": "mps2/an385", "tag": "subsys__usb__midi@mps2_an385", "rc": 1, "seconds": 53.9, "ok": false}
+{"sample": "samples/subsys/usb/testusb", "board": "mps2/an385", "tag": "subsys__usb__testusb@mps2_an385", "rc": 1, "seconds": 54.9, "ok": false}
+{"sample": "samples/subsys/usb/uac2_explicit_feedback", "board": "mps2/an385", "tag": "subsys__usb__uac2_explicit_feedback@mps2_an385", "rc": 1, "seconds": 43.9, "ok": false}
+{"sample": "samples/subsys/usb/uac2_implicit_feedback", "board": "mps2/an385", "tag": "subsys__usb__uac2_implicit_feedback@mps2_an385", "rc": 1, "seconds": 43.9, "ok": false}
+{"sample": "samples/subsys/usb/uvc", "board": "mps2/an385", "tag": "subsys__usb__uvc@mps2_an385", "rc": 1, "seconds": 37.9, "ok": false}
+{"sample": "samples/subsys/usb/webusb", "board": "mps2/an385", "tag": "subsys__usb__webusb@mps2_an385", "rc": 1, "seconds": 38.4, "ok": false}
+{"sample": "samples/hello_world", "board": "qemu_riscv32", "tag": "hello_world@qemu_riscv32", "rc": 0, "seconds": 57.7, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/hello_world@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/hello_world", "board": "qemu_riscv32", "tag": "hello_world@qemu_riscv32", "rc": 0, "seconds": 27.9, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/hello_world@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/capture", "board": "qemu_riscv32", "tag": "net__capture@qemu_riscv32", "rc": 0, "seconds": 77.8, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__capture@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/cloud/mqtt_azure", "board": "qemu_riscv32", "tag": "net__cloud__mqtt_azure@qemu_riscv32", "rc": 0, "seconds": 78.3, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__cloud__mqtt_azure@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/cloud/tagoio_http_post", "board": "qemu_riscv32", "tag": "net__cloud__tagoio_http_post@qemu_riscv32", "rc": 0, "seconds": 103.5, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__cloud__tagoio_http_post@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/dhcpv4_client", "board": "qemu_riscv32", "tag": "net__dhcpv4_client@qemu_riscv32", "rc": 0, "seconds": 95.0, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__dhcpv4_client@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/dhcpv6_pd", "board": "qemu_riscv32", "tag": "net__dhcpv6_pd@qemu_riscv32", "rc": 0, "seconds": 96.9, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__dhcpv6_pd@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/dns_resolve", "board": "qemu_riscv32", "tag": "net__dns_resolve@qemu_riscv32", "rc": 0, "seconds": 107.2, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__dns_resolve@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/bridge", "board": "qemu_riscv32", "tag": "net__ethernet__bridge@qemu_riscv32", "rc": 0, "seconds": 109.0, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__bridge@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/dsa", "board": "qemu_riscv32", "tag": "net__ethernet__dsa@qemu_riscv32", "rc": 0, "seconds": 107.5, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__dsa@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/gptp", "board": "qemu_riscv32", "tag": "net__ethernet__gptp@qemu_riscv32", "rc": 0, "seconds": 117.9, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__gptp@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/tsn-switch", "board": "qemu_riscv32", "tag": "net__ethernet__tsn-switch@qemu_riscv32", "rc": 0, "seconds": 115.7, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__tsn-switch@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/lldp", "board": "qemu_riscv32", "tag": "net__ethernet__lldp@qemu_riscv32", "rc": 0, "seconds": 117.6, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__lldp@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ipv4_autoconf", "board": "qemu_riscv32", "tag": "net__ipv4_autoconf@qemu_riscv32", "rc": 0, "seconds": 87.1, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ipv4_autoconf@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ethernet/vlan", "board": "qemu_riscv32", "tag": "net__ethernet__vlan@qemu_riscv32", "rc": 0, "seconds": 129.0, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ethernet__vlan@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/ftp_client", "board": "qemu_riscv32", "tag": "net__ftp_client@qemu_riscv32", "rc": 0, "seconds": 91.6, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__ftp_client@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/mcp/mcp_server_hello_world", "board": "qemu_riscv32", "tag": "net__mcp__mcp_server_hello_world@qemu_riscv32", "rc": 1, "seconds": 45.4, "ok": false}
+{"sample": "samples/net/lwm2m_client", "board": "qemu_riscv32", "tag": "net__lwm2m_client@qemu_riscv32", "rc": 0, "seconds": 85.8, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__lwm2m_client@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/mdns_responder", "board": "qemu_riscv32", "tag": "net__mdns_responder@qemu_riscv32", "rc": 0, "seconds": 87.3, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__mdns_responder@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/midi2", "board": "qemu_riscv32", "tag": "net__midi2@qemu_riscv32", "rc": 0, "seconds": 105.7, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__midi2@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/mqtt_publisher", "board": "qemu_riscv32", "tag": "net__mqtt_publisher@qemu_riscv32", "rc": 0, "seconds": 78.3, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__mqtt_publisher@qemu_riscv32/zephyr/zephyr.bin'"}
+{"sample": "samples/net/mqtt_sn_publisher", "board": "qemu_riscv32", "tag": "net__mqtt_sn_publisher@qemu_riscv32", "rc": 0, "seconds": 78.8, "ok": false, "err": "[Errno 2] No such file or directory: '/home/adhyan/Desktop/Compiler/research/paper_final/work/sweep/net__mqtt_sn_publisher@qemu_riscv32/zephyr/zephyr.bin'"}

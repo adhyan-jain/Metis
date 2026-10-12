@@ -1,0 +1,15 @@
+\begin{tabular}{llrrrrrrrr}
+\toprule
+workload & arch & $N$ & $E$ & $H$ & $P$ & $S_\mathrm{tot}$ & $S_\mathrm{addr}$ & share & $g$ (\%) \\
+\midrule
+hello\_world\_rv32 & RV32 & 137 & 24394 & 23834 & 23986 & 408 & 560 & 137\% & -0.64 \\
+net\_cloud\_mqtt\_azure\_rv32 & RV32 & 2148 & 388818 & 383460 & 381100 & 7718 & 5358 & 69\% & 0.62 \\
+net\_ethernet\_bridge\_rv32 & RV32 & 1445 & 281698 & 278182 & 276978 & 4720 & 3516 & 74\% & 0.43 \\
+net\_ethernet\_lldp\_mps2 & M3 & 1422 & 225848 & 222332 & 220868 & 4980 & 3516 & 71\% & 0.66 \\
+net\_midi2\_rv32 & RV32 & 985 & 168980 & 166568 & 165434 & 3546 & 2412 & 68\% & 0.68 \\
+net\_prometheus\_mps2 & M3 & 2337 & 390776 & 384848 & 382336 & 8440 & 5928 & 70\% & 0.65 \\
+net\_sockets\_http\_get\_mps2 & M3 & 1061 & 141116 & 138472 & 137348 & 3768 & 2644 & 70\% & 0.81 \\
+net\_sockets\_socketpair\_mps2 & M3 & 710 & 83912 & 82028 & 81344 & 2568 & 1884 & 73\% & 0.83 \\
+net\_stats\_mps2 & M3 & 1321 & 206932 & 203700 & 202308 & 4624 & 3232 & 70\% & 0.68 \\
+\bottomrule
+\end{tabular}

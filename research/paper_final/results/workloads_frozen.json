@@ -1,0 +1,85 @@
+{
+ "rule": "Deterministic workload selection (frozen rule, see GAP_FILL_PROTOCOL.md section 3). Inputs: feasibility sweep only\n(build success + symbol count N). No size/encoding result is used.\nARM  (mps2/an385, Cortex-M3):  pilot samples excluded; 6 samples at N-rank quantiles k/5, k=0..5 of the successfully built set.\nRV32 (qemu_riscv32):           hello_world + 3 samples at N-rank quantiles {0,1/2,1} of the RISC-V-built set after excluding\n                               pilot samples, hello_world and the six ARM picks (so >= 9 distinct non-pilot samples overall).",
+ "workloads": [
+  {
+   "id": "net_sockets_socketpair_mps2",
+   "sample": "samples/net/sockets/socketpair",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 710
+  },
+  {
+   "id": "net_sockets_http_get_mps2",
+   "sample": "samples/net/sockets/http_get",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 1061
+  },
+  {
+   "id": "net_stats_mps2",
+   "sample": "samples/net/stats",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 1321
+  },
+  {
+   "id": "net_ethernet_lldp_mps2",
+   "sample": "samples/net/ethernet/lldp",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 1422
+  },
+  {
+   "id": "net_ptp_mps2",
+   "sample": "samples/net/ptp",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 1567
+  },
+  {
+   "id": "net_prometheus_mps2",
+   "sample": "samples/net/prometheus",
+   "board": "mps2/an385",
+   "toolchain": "gcc",
+   "arch": "cortex-m3",
+   "N_sweep": 2337
+  },
+  {
+   "id": "hello_world_rv32",
+   "sample": "samples/hello_world",
+   "board": "qemu_riscv32",
+   "toolchain": "gcc",
+   "arch": "rv32imac",
+   "N_sweep": 137
+  },
+  {
+   "id": "net_midi2_rv32",
+   "sample": "samples/net/midi2",
+   "board": "qemu_riscv32",
+   "toolchain": "gcc",
+   "arch": "rv32imac",
+   "N_sweep": 985
+  },
+  {
+   "id": "net_ethernet_bridge_rv32",
+   "sample": "samples/net/ethernet/bridge",
+   "board": "qemu_riscv32",
+   "toolchain": "gcc",
+   "arch": "rv32imac",
+   "N_sweep": 1445
+  },
+  {
+   "id": "net_cloud_mqtt_azure_rv32",
+   "sample": "samples/net/cloud/mqtt_azure",
+   "board": "qemu_riscv32",
+   "toolchain": "gcc",
+   "arch": "rv32imac",
+   "N_sweep": 2148
+  }
+ ]
+}

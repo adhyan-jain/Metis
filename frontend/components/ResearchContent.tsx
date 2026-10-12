@@ -29,6 +29,28 @@ const SECTIONS = [
   },
 ];
 
+// Zephyr runtime-symbolization gap-fill (research/paper_final). Numbers are copied from
+// research/paper_final/results/analysis_exploratory/per_workload.csv (image = allocated flash sections, GCC 14.3;
+// the frozen flat-binary metric is 4 KiB-quantised on RISC-V). "saved" = best compact scheme vs best existing scheme.
+const ZEPHYR_STUDY = {
+  status: "Pre-registered gates NOT met — no paper was written",
+  summary:
+    "Ten existing Zephyr sample workloads (6 on Cortex-M3, 4 on RISC-V RV32; 137–2,337 symbols) were relinked to a fixed point with 14 symbol-table schemes (nine workloads usable; one baseline oscillated on net_ptp instead of converging). Compact address indexing explains about 71% (pooled; 68–75% for N ≥ 985) of the 1.7–3.1% whole-image saving of the best compact scheme over the best existing scheme. After equalising the address index, the proposed name coding adds 0.4–0.8% of the image for N ≥ 710 and nothing at N = 137. The 70%-share gate and the FSST-within-1% gate failed. No sample reached 3,000 symbols. Sizes only: no latency, energy or runtime-performance claim.",
+  rows: [
+    { w: "hello_world (RV32)", n: 137, saved: "408 B (1.67%)", share: ">100% (names cost more)", resid: "-0.64%" },
+    { w: "net_sockets_socketpair (M3)", n: 710, saved: "2,568 B (3.06%)", share: "73%", resid: "0.83%" },
+    { w: "net_midi2 (RV32)", n: 985, saved: "3,546 B (2.10%)", share: "68%", resid: "0.68%" },
+    { w: "net_sockets_http_get (M3)", n: 1061, saved: "3,768 B (2.67%)", share: "70%", resid: "0.81%" },
+    { w: "net_stats (M3)", n: 1321, saved: "4,624 B (2.23%)", share: "70%", resid: "0.68%" },
+    { w: "net_ethernet_lldp (M3)", n: 1422, saved: "4,980 B (2.21%)", share: "71%", resid: "0.66%" },
+    { w: "net_ethernet_bridge (RV32)", n: 1445, saved: "4,720 B (1.68%)", share: "75%", resid: "0.43%" },
+    { w: "net_cloud_mqtt_azure (RV32)", n: 2148, saved: "7,718 B (1.98%)", share: "69%", resid: "0.62%" },
+    { w: "net_prometheus (M3)", n: 2337, saved: "8,440 B (2.16%)", share: "70%", resid: "0.65%" },
+  ],
+  caveat:
+    "Earlier METIS-X / SymTabV3 memory figures elsewhere on this site depend on harness and baseline choice (a 20.2 MB unique-symbol set inside the measured scope, and two different classes both named EmbeddedConventional); see research/paper_audit and research/paper_final/EXPERIMENT_LOG.md. Local, unpublished research — not peer reviewed.",
+};
+
 const RESEARCH_QA = [
   {
     q: "Does METIS claim universal memory superiority across all compiler workloads?",
@@ -80,6 +102,40 @@ export function ResearchContent() {
             <p className="text-xs text-slate-600 leading-relaxed">{s.body}</p>
           </div>
         ))}
+      </div>
+
+      {/* Zephyr runtime symbolization gap-fill */}
+      <div className="panel p-6 rounded-2xl border border-slate-200 space-y-3">
+        <h3 className="font-mono text-sm font-bold text-slate-900 uppercase tracking-wider">
+          Zephyr Runtime Symbolization &mdash; Gap-Fill Outcome
+        </h3>
+        <p className="text-xs font-bold text-rose-700">{ZEPHYR_STUDY.status}</p>
+        <p className="text-xs text-slate-600 leading-relaxed">{ZEPHYR_STUDY.summary}</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs text-left">
+            <thead>
+              <tr className="text-slate-500 border-b border-slate-200">
+                <th className="py-1 pr-3">Workload</th>
+                <th className="py-1 pr-3">N</th>
+                <th className="py-1 pr-3">Saved vs best existing</th>
+                <th className="py-1 pr-3">Address-index share</th>
+                <th className="py-1">Residual name coding</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ZEPHYR_STUDY.rows.map((r) => (
+                <tr key={r.w} className="border-b border-slate-100 text-slate-700">
+                  <td className="py-1 pr-3 font-mono">{r.w}</td>
+                  <td className="py-1 pr-3">{r.n}</td>
+                  <td className="py-1 pr-3">{r.saved}</td>
+                  <td className="py-1 pr-3">{r.share}</td>
+                  <td className="py-1">{r.resid}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[11px] text-slate-500 leading-relaxed">{ZEPHYR_STUDY.caveat}</p>
       </div>
 
       {/* Research Q&A */}

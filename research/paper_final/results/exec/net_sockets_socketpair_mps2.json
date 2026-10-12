@@ -1,0 +1,41 @@
+{
+ "workload": "net_sockets_socketpair_mps2",
+ "results": [
+  {
+   "arm": "B1_B16_FC16",
+   "iterations": 2,
+   "selftest_line": "SELFTEST arm=B1_B16_FC16 n=2142 hash=c741d749 expect=c741d749 PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-arm -cpu cortex-m3 -machine mps2-an385 -nographic -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_FC16/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_FC16/v2.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_FC16 n=2142 hash=c741d749 expect=c741d749 PASS\nsetting-up\nAlpha: socketpair: 4 <=> 3\nBravo: socketpair: 6 <=> 5\nCharlie: socketpair: 8 <=> 7\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\ntearing-down\nSUCCESS\n"
+  },
+  {
+   "arm": "B1_B16_FSST",
+   "iterations": 2,
+   "selftest_line": "SELFTEST arm=B1_B16_FSST n=2142 hash=492f9e7d expect=492f9e7d PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-arm -cpu cortex-m3 -machine mps2-an385 -nographic -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_FSST/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_FSST/v2.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_FSST n=2142 hash=492f9e7d expect=492f9e7d PASS\nsetting-up\nAlpha: socketpair: 4 <=> 3\nBravo: socketpair: 6 <=> 5\nCharlie: socketpair: 8 <=> 7\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\ntearing-down\nSUCCESS\n"
+  },
+  {
+   "arm": "B1_B16_TOK",
+   "iterations": 2,
+   "selftest_line": "SELFTEST arm=B1_B16_TOK n=2142 hash=86382d7b expect=86382d7b PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-arm -cpu cortex-m3 -machine mps2-an385 -nographic -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_TOK/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/B1_B16_TOK/v2.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_TOK n=2142 hash=86382d7b expect=86382d7b PASS\nsetting-up\nAlpha: socketpair: 4 <=> 3\nBravo: socketpair: 6 <=> 5\nCharlie: socketpair: 8 <=> 7\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\ntearing-down\nSUCCESS\n"
+  },
+  {
+   "arm": "KALL256",
+   "iterations": 2,
+   "selftest_line": "SELFTEST arm=KALL256 n=2145 hash=24464aa1 expect=24464aa1 PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-arm -cpu cortex-m3 -machine mps2-an385 -nographic -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/KALL256/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/net_sockets_socketpair_mps2/KALL256/v2.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=KALL256 n=2145 hash=24464aa1 expect=24464aa1 PASS\nsetting-up\nAlpha: socketpair: 4 <=> 3\nBravo: socketpair: 6 <=> 5\nCharlie: socketpair: 8 <=> 7\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\nmain: read 'Alpha' on fd 4\nmain: read 'Bravo' on fd 6\nmain: read 'Charlie' on fd 8\ntearing-down\nSUCCESS\n"
+  }
+ ]
+}

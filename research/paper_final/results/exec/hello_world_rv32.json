@@ -1,0 +1,41 @@
+{
+ "workload": "hello_world_rv32",
+ "results": [
+  {
+   "arm": "B1_B16_FC16",
+   "iterations": 3,
+   "selftest_line": "SELFTEST arm=B1_B16_FC16 n=423 hash=16d71371 expect=16d71371 PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-riscv32 -machine virt -bios none -nographic -m 256 -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_FC16/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_FC16/v3.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_FC16 n=423 hash=16d71371 expect=16d71371 PASS\nHello World! qemu_riscv32/qemu_virt_riscv32\n"
+  },
+  {
+   "arm": "B1_B16_FSST",
+   "iterations": 3,
+   "selftest_line": "SELFTEST arm=B1_B16_FSST n=423 hash=ed88d1e7 expect=ed88d1e7 PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-riscv32 -machine virt -bios none -nographic -m 256 -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_FSST/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_FSST/v3.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_FSST n=423 hash=ed88d1e7 expect=ed88d1e7 PASS\nHello World! qemu_riscv32/qemu_virt_riscv32\n"
+  },
+  {
+   "arm": "B1_B16_TOK",
+   "iterations": 3,
+   "selftest_line": "SELFTEST arm=B1_B16_TOK n=423 hash=794babfb expect=794babfb PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-riscv32 -machine virt -bios none -nographic -m 256 -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_TOK/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/B1_B16_TOK/v3.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=B1_B16_TOK n=423 hash=794babfb expect=794babfb PASS\nHello World! qemu_riscv32/qemu_virt_riscv32\n"
+  },
+  {
+   "arm": "KALL256",
+   "iterations": 2,
+   "selftest_line": "SELFTEST arm=KALL256 n=426 hash=9226a701 expect=9226a701 PASS",
+   "passed": true,
+   "boot_banner": "*** Booting Zephyr OS build 403a7d79adbc ***",
+   "qemu_cmd": "qemu-system-riscv32 -machine virt -bios none -nographic -m 256 -monitor none -serial file:/home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/KALL256/qemu.log -kernel /home/adhyan/Desktop/Compiler/research/paper_final/work/exec/hello_world_rv32/KALL256/v2.elf",
+   "console_tail": "*** Booting Zephyr OS build 403a7d79adbc ***\nSELFTEST arm=KALL256 n=426 hash=9226a701 expect=9226a701 PASS\nHello World! qemu_riscv32/qemu_virt_riscv32\n"
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+diff --git i/cmake/linker/ld/ld_script.cmake w/cmake/linker/ld/ld_script.cmake
+index 2a6a08238..54b59dca7 100644
+--- i/cmake/linker/ld/ld_script.cmake
++++ w/cmake/linker/ld/ld_script.cmake
+@@ -214,7 +214,7 @@ function(section_to_string)
+   set(TEMP "${TEMP} :")
+   set(secalign "")
+ 
+-  if(align_in)
++  if(align_in AND NOT DEFINED ZEPHYR_LLD AND FALSE)
+     set(secalign " ALIGN_WITH_INPUT")
+   endif()
+ 
+diff --git i/cmake/modules/snippets.cmake w/cmake/modules/snippets.cmake
+index e0fa27317..ea344e57e 100644
+--- i/cmake/modules/snippets.cmake
++++ w/cmake/modules/snippets.cmake
+@@ -114,7 +114,11 @@ function(zephyr_process_snippets)
+   # newlines.
+   list(TRANSFORM SNIPPET_NAMES PREPEND "COMMAND;${CMAKE_COMMAND};-E;echo;"
+     OUTPUT_VARIABLE snippets_target_cmd)
+-  add_custom_target(snippets ${snippets_target_cmd} USES_TERMINAL)
++  if(snippets_target_cmd)
++    add_custom_target(snippets ${snippets_target_cmd} USES_TERMINAL)
++  else()
++    add_custom_target(snippets COMMAND ${CMAKE_COMMAND} -E echo "No snippets defined")
++  endif()
+ 
+   # If snippets were requested, print messages for each one.
+   if(SNIPPET_AS_LIST)
+diff --git i/include/zephyr/linker/linker-tool-gcc.h w/include/zephyr/linker/linker-tool-gcc.h
+index 93f3b9ab1..eb9351b4a 100644
+--- i/include/zephyr/linker/linker-tool-gcc.h
++++ w/include/zephyr/linker/linker-tool-gcc.h
+@@ -202,7 +202,7 @@
+  * @param align Alignment directives, such as SUBALIGN(). ALIGN() itself is
+  *              not allowed. May be blank.
+  */
+-#if defined(CONFIG_XIP)
++#if defined(CONFIG_XIP) && 0
+ #define SECTION_DATA_PROLOGUE(name, options, align) \
+ 	name options : ALIGN_WITH_INPUT
+ #else
+diff --git i/include/zephyr/linker/linker-tool.h w/include/zephyr/linker/linker-tool.h
+index 1cf8e3b64..35ea9ebfe 100644
+--- i/include/zephyr/linker/linker-tool.h
++++ w/include/zephyr/linker/linker-tool.h
+@@ -18,6 +18,9 @@
+ #if defined(_LINKER)
+ #if defined(__GCC_LINKER_CMD__)
+ #include <zephyr/linker/linker-tool-gcc.h>
++#if defined(__clang__)
++#include <zephyr/linker/linker-tool-lld.h>
++#endif
+ #elif defined(__MWDT_LINKER_CMD__)
+ #include <zephyr/linker/linker-tool-mwdt.h>
+ #elif defined(__LLD_LINKER_CMD__)
+diff --git i/modules/mbedtls/create_psa_files.py w/modules/mbedtls/create_psa_files.py
+old mode 100755
+new mode 100644

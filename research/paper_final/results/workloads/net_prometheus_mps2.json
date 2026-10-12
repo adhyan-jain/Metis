@@ -1,0 +1,4419 @@
+{
+ "workload": {
+  "id": "net_prometheus_mps2",
+  "sample": "samples/net/prometheus",
+  "board": "mps2/an385",
+  "toolchain": "gcc",
+  "arch": "cortex-m3",
+  "N_sweep": 2337,
+  "_stock_elf": "/home/adhyan/Desktop/Compiler/research/paper_final/work/builds/net_prometheus_mps2/stock/zephyr/zephyr.elf"
+ },
+ "N_vanilla": 2337,
+ "nosym_bin": 356924,
+ "vanilla_stock_bin": 419752,
+ "arms": {
+  "STOCK": {
+   "arm": "STOCK",
+   "family": "stock",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2340,
+     "manifest_equal_to_input": false,
+     "bin": 419952,
+     "seconds": 3.5
+    },
+    {
+     "it": 2,
+     "n": 2340,
+     "manifest_equal_to_input": true,
+     "bin": 420040,
+     "seconds": 4.1
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2340,
+   "bin": 420040,
+   "feature_cost": 63116,
+   "c_sha256": "e610cabbf15f7abbca17312c44cff01670bb7b9291336a5bc8f6ef5cf13015b3",
+   "elf_sha256": "6bf4c8442adcc5c59587b761da48b518a01f7349953df990280f0dda3c594a1d",
+   "facts": {
+    "alloc_progbits_bytes": 420036,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 286928,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287120
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287128
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287344
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287664
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287920
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287924
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 287928
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 287976
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288124
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288172
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288204
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288264
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288312
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288324
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288860
+     },
+     "symtab": {
+      "size": 18740,
+      "nobits": false,
+      "addr": 288876
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 307616
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 307664
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 307712
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 308932
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 308952
+     },
+     "rodata": {
+      "size": 105784,
+      "nobits": false,
+      "addr": 308952
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 419948
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 419964
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 420036
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288876,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 120,
+      "addr": 215989,
+      "type": "FUNC"
+     },
+     "symtab_find_symbol_name": {
+      "size": 80,
+      "addr": 26013,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 18728,
+      "addr": 288888,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216109,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 0,
+     "ro": 64975,
+     "data": 0,
+     "bss": 0
+    },
+    {
+     "text": 124,
+     "ro": 0,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 65099,
+   "stock_table": {
+    "entries": 2341,
+    "entry_bytes": 18728,
+    "matches_manifest": true
+   },
+   "check_baseline_present": true,
+   "manifest_n": 2340,
+   "seconds": 88.1
+  },
+  "KALL256": {
+   "arm": "KALL256",
+   "family": "existing",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2340,
+     "manifest_equal_to_input": false,
+     "bin": 390728,
+     "seconds": 6.8
+    },
+    {
+     "it": 2,
+     "n": 2340,
+     "manifest_equal_to_input": true,
+     "bin": 390784,
+     "seconds": 6.3
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2340,
+   "bin": 390784,
+   "feature_cost": 33860,
+   "c_sha256": "5f448212ed474017b966dc7ff8d1e0dd1bc5cb2945daebe5dbe5c7237c591bdc",
+   "elf_sha256": "e240dfccac7befc823a8ba51335be326e44c73f80a9d4d6a2ca8489b0f67c17e",
+   "facts": {
+    "alloc_progbits_bytes": 390776,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 286944,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287136
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287144
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287360
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287680
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287936
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287940
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 287944
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 287992
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288140
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288188
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288220
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288280
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288328
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288340
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288876
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288892
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288908
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288956
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289004
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290224
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290244
+     },
+     "rodata": {
+      "size": 95232,
+      "nobits": false,
+      "addr": 290248
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 390692
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 390708
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 390780
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288892,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 4,
+      "addr": 216121,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288904,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216125,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 220,
+     "ro": 33628,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 33848,
+   "check_stub_only": true,
+   "payload": null,
+   "meta": {
+    "prefix": "kallsyms_m256"
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15314,
+     "contract": "untruncated-only"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15314,
+     "contract": "untruncated-only"
+    }
+   },
+   "py_ref_mismatches": null,
+   "manifest_n": 2340,
+   "seconds": 27.4
+  },
+  "KALL16": {
+   "arm": "KALL16",
+   "family": "existing",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2340,
+     "manifest_equal_to_input": false,
+     "bin": 391284,
+     "seconds": 6.4
+    },
+    {
+     "it": 2,
+     "n": 2340,
+     "manifest_equal_to_input": true,
+     "bin": 391340,
+     "seconds": 7.1
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2340,
+   "bin": 391340,
+   "feature_cost": 34416,
+   "c_sha256": "b136c63e7a883d3e72502e297a56e0a8c58057e4816b3fa94a9dd91263b28dbf",
+   "elf_sha256": "b133f8d052bebb4641f0dba75af65fce86ceef3ea185c4729b65d672e22ecea7",
+   "facts": {
+    "alloc_progbits_bytes": 391328,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 286948,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287140
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287148
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287364
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287684
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287940
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287944
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 287952
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288000
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288148
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288196
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288228
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288288
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288336
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288348
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288884
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288900
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288916
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288964
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289012
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290232
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290252
+     },
+     "rodata": {
+      "size": 95780,
+      "nobits": false,
+      "addr": 290256
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 391248
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 391264
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 391336
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288900,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 4,
+      "addr": 216125,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288912,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216129,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 224,
+     "ro": 34175,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 34399,
+   "check_stub_only": true,
+   "payload": null,
+   "meta": {
+    "prefix": "kallsyms_m16"
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15313,
+     "contract": "untruncated-only"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15313,
+     "contract": "untruncated-only"
+    }
+   },
+   "py_ref_mismatches": null,
+   "manifest_n": 2340,
+   "seconds": 37.3
+  },
+  "CAND_DIRECT": {
+   "arm": "CAND_DIRECT",
+   "family": "existing",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2340,
+     "manifest_equal_to_input": false,
+     "bin": 398292,
+     "seconds": 23.9
+    },
+    {
+     "it": 2,
+     "n": 2340,
+     "manifest_equal_to_input": true,
+     "bin": 398356,
+     "seconds": 22.5
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2340,
+   "bin": 398356,
+   "feature_cost": 41432,
+   "c_sha256": "4ac9bd31e8a93f9d7bd8aba9473365307be236b51508dcf8bf3001487d8a63e3",
+   "elf_sha256": "0cce54bffb74a8147a30176801d26db2bb5fdf259eef820b58d1d1960f002815",
+   "facts": {
+    "alloc_progbits_bytes": 398344,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 286988,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287180
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287188
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287404
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287724
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287980
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287984
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 287992
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288040
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288188
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288236
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288268
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288328
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288376
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288388
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288924
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288940
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288956
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289004
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289052
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290272
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290292
+     },
+     "rodata": {
+      "size": 102756,
+      "nobits": false,
+      "addr": 290296
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 398264
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 398280
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 398352
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288940,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 4,
+      "addr": 216165,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288952,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216169,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 264,
+     "ro": 41149,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 41413,
+   "check_stub_only": true,
+   "payload": null,
+   "meta": {
+    "prefix": "cand_direct",
+    "budget": 128
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "untruncated-only"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "untruncated-only"
+    }
+   },
+   "py_ref_mismatches": null,
+   "manifest_n": 2340,
+   "seconds": 62.6
+  },
+  "CAND_CP16": {
+   "arm": "CAND_CP16",
+   "family": "existing",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2340,
+     "manifest_equal_to_input": false,
+     "bin": 393928,
+     "seconds": 23.9
+    },
+    {
+     "it": 2,
+     "n": 2340,
+     "manifest_equal_to_input": true,
+     "bin": 393984,
+     "seconds": 22.3
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2340,
+   "bin": 393984,
+   "feature_cost": 37060,
+   "c_sha256": "c716a7ccef9939bd998aa3ddfb666814e653b85aeca196132ddec9a369aee120",
+   "elf_sha256": "442cba4a2bbb66fa91d676612c3ac0cfffbd38d8379fc4150e70d2e0c1595299",
+   "facts": {
+    "alloc_progbits_bytes": 393976,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287008,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287200
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287208
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287424
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287744
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288000
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288004
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288008
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288056
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288204
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288252
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288284
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288344
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288392
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288404
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288940
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288956
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288972
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289020
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289068
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290288
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290308
+     },
+     "rodata": {
+      "size": 98368,
+      "nobits": false,
+      "addr": 290312
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 393892
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 393908
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 393980
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288956,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 4,
+      "addr": 216185,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288968,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216189,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 284,
+     "ro": 36761,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 37045,
+   "check_stub_only": true,
+   "payload": null,
+   "meta": {
+    "prefix": "cand_cp16",
+    "budget": 128
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15330,
+     "contract": "untruncated-only"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15330,
+     "contract": "untruncated-only"
+    }
+   },
+   "py_ref_mismatches": null,
+   "manifest_n": 2340,
+   "seconds": 62.8
+  },
+  "B1_B16_TOK": {
+   "arm": "B1_B16_TOK",
+   "family": "hardened",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 387068,
+     "seconds": 10.1
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 387100,
+     "seconds": 12.3
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2339,
+   "bin": 387100,
+   "feature_cost": 30176,
+   "c_sha256": "a03ee8ec689644f6e59dafe632cfcfa4fac81fb19a38d30fe5712e4ff94c42ad",
+   "elf_sha256": "01b88b0e6eca0a21c4bc6d47a3bed453e0c7a187214cab0f56ad8de95318f7d2",
+   "facts": {
+    "alloc_progbits_bytes": 387088,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287204,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287396
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287404
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287620
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287940
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288196
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288200
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288208
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288256
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288404
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288452
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288484
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288544
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288592
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288604
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289140
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289156
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289172
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289220
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289268
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290488
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290508
+     },
+     "rodata": {
+      "size": 91284,
+      "nobits": false,
+      "addr": 290512
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 387008
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 387024
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 387096
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289156,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 476,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289168,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216385,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 480,
+     "ro": 29679,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 30159,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 3175,
+    "addr_directory": 735,
+    "addr_stream": 2440,
+    "name_checkpoints": 294,
+    "dictionary": 256,
+    "name_pool": 25954,
+    "ids": 0,
+    "payload": 29679
+   },
+   "meta": {
+    "tokens": 128,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 31,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 46.6
+  },
+  "B1_B16_KALL": {
+   "arm": "B1_B16_KALL",
+   "family": "hardened",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 385016,
+     "seconds": 6.9
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 385052,
+     "seconds": 6.1
+    },
+    {
+     "it": 3,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 385052,
+     "seconds": 6.4
+    }
+   ],
+   "converged": true,
+   "iterations": 3,
+   "n_final": 2339,
+   "bin": 385052,
+   "feature_cost": 28128,
+   "c_sha256": "59de7e08d7a08c07e373ee67db079a5cca5af4638e35f715f199a5bdadc0e96e",
+   "elf_sha256": "52e137b91588253c274ac77f3f8965e324ea05fc78b5ae43e114ba259149e406",
+   "facts": {
+    "alloc_progbits_bytes": 385040,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287188,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287380
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287388
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287604
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287924
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288180
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288184
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288192
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288240
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288388
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288436
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288468
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288528
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288576
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288588
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289124
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289140
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289156
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289204
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289252
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290472
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290492
+     },
+     "rodata": {
+      "size": 89252,
+      "nobits": false,
+      "addr": 290496
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 384960
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 384976
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 385048
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289140,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 460,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289152,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216369,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 464,
+     "ro": 27646,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 28110,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 3175,
+    "addr_directory": 735,
+    "addr_stream": 2440,
+    "name_checkpoints": 294,
+    "dictionary": 1521,
+    "name_pool": 22656,
+    "ids": 0,
+    "payload": 27646
+   },
+   "meta": {
+    "tokens": 256,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 31,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 39.1
+  },
+  "B2_B16_TOK": {
+   "arm": "B2_B16_TOK",
+   "family": "hardened",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 386892,
+     "seconds": 9.7
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 386912,
+     "seconds": 5.9
+    },
+    {
+     "it": 3,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 386912,
+     "seconds": 5.2
+    }
+   ],
+   "converged": true,
+   "iterations": 3,
+   "n_final": 2339,
+   "bin": 386912,
+   "feature_cost": 29988,
+   "c_sha256": "4e014fddfc274dd2f4d5b951ac1a9509336bfa26308cb396c511fe078681f2de",
+   "elf_sha256": "12fce672d3e031a2d7bd509dfe4c56ad1020718a2afe3287de713b51f632146b",
+   "facts": {
+    "alloc_progbits_bytes": 386900,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287268,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287460
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287468
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287684
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 288004
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288260
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288264
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288272
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288320
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288468
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288516
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288548
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288608
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288656
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288668
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289204
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289220
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289236
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289284
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289332
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290552
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290572
+     },
+     "rodata": {
+      "size": 91032,
+      "nobits": false,
+      "addr": 290576
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 386820
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 386836
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 386908
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289220,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 540,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289232,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216449,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 544,
+     "ro": 29426,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 29970,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 2922,
+    "addr_directory": 735,
+    "addr_stream": 2187,
+    "name_checkpoints": 294,
+    "dictionary": 256,
+    "name_pool": 25954,
+    "ids": 0,
+    "payload": 29426
+   },
+   "meta": {
+    "tokens": 128,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 23,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 35.7
+  },
+  "B2_B16_KALL": {
+   "arm": "B2_B16_KALL",
+   "family": "hardened",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 384844,
+     "seconds": 6.2
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 384856,
+     "seconds": 5.9
+    },
+    {
+     "it": 3,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 384856,
+     "seconds": 6.2
+    }
+   ],
+   "converged": true,
+   "iterations": 3,
+   "n_final": 2339,
+   "bin": 384856,
+   "feature_cost": 27932,
+   "c_sha256": "db849bfb1eb02126c7826211a35a5427039fec86b221574d9a48f5d77360a16c",
+   "elf_sha256": "73366652a2596d6d248f0b14d2a98d4c65632106467bec4b0af422b825829ce1",
+   "facts": {
+    "alloc_progbits_bytes": 384848,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287248,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287440
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287448
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287664
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287984
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288240
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288244
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288248
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288296
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288444
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288492
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288524
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288584
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288632
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288644
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289180
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289196
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289212
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289260
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289308
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290528
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290548
+     },
+     "rodata": {
+      "size": 89000,
+      "nobits": false,
+      "addr": 290552
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 384764
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 384780
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 384852
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289196,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 520,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289208,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216429,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 524,
+     "ro": 27393,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 27917,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 2922,
+    "addr_directory": 735,
+    "addr_stream": 2187,
+    "name_checkpoints": 294,
+    "dictionary": 1521,
+    "name_pool": 22656,
+    "ids": 0,
+    "payload": 27393
+   },
+   "meta": {
+    "tokens": 256,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15329,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15329,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 23,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 33.7
+  },
+  "RAW32_B16_TOK": {
+   "arm": "RAW32_B16_TOK",
+   "family": "control",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 393056,
+     "seconds": 5.1
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 393092,
+     "seconds": 4.9
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2339,
+   "bin": 393092,
+   "feature_cost": 36168,
+   "c_sha256": "4320763b2cfc8c8b7868e031c87e54212617528561cf98ad2ce5c26068f6e84d",
+   "elf_sha256": "492f26b8a2270d8656cf7cfe6fce38fa73e6503910b623dd84fdd7c6f228785f",
+   "facts": {
+    "alloc_progbits_bytes": 393080,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287012,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287204
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287212
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287428
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287748
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288004
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288008
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288016
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288064
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288212
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288260
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288292
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288352
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288400
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288412
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288948
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288964
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288980
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289028
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289076
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290296
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290316
+     },
+     "rodata": {
+      "size": 97468,
+      "nobits": false,
+      "addr": 290320
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 393000
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 393016
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 393088
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288964,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 284,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288976,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216193,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 288,
+     "ro": 35864,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 36152,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 9360,
+    "addr_directory": 0,
+    "addr_stream": 0,
+    "name_checkpoints": 294,
+    "dictionary": 256,
+    "name_pool": 25954,
+    "ids": 0,
+    "payload": 35864
+   },
+   "meta": {
+    "tokens": 128,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15331,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15331,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 12,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 24.9
+  },
+  "RAW32_B16_KALL": {
+   "arm": "RAW32_B16_KALL",
+   "family": "control",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 391008,
+     "seconds": 6.9
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 391044,
+     "seconds": 5.9
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2339,
+   "bin": 391044,
+   "feature_cost": 34120,
+   "c_sha256": "4cdf7b7f954400e8117507a46659906472b2f8d46b81c5e0c44e9f4414a43991",
+   "elf_sha256": "1a3d3a06885c14acdefe3e0833c718e106a892737f0382ccce1f072b239b538a",
+   "facts": {
+    "alloc_progbits_bytes": 391036,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287000,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287192
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287200
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287416
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287736
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287992
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 287996
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288000
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288048
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288196
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288244
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288276
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288336
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288384
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288396
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288932
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 288948
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288964
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289012
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289060
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290280
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290300
+     },
+     "rodata": {
+      "size": 95436,
+      "nobits": false,
+      "addr": 290304
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 390952
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 390968
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 391040
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 288948,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 272,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 288960,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216181,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 276,
+     "ro": 33831,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 34107,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 9360,
+    "addr_directory": 0,
+    "addr_stream": 0,
+    "name_checkpoints": 294,
+    "dictionary": 1521,
+    "name_pool": 22656,
+    "ids": 0,
+    "payload": 33831
+   },
+   "meta": {
+    "tokens": 256,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15325,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 12,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 27.5
+  },
+  "B1_B16_FC16": {
+   "arm": "B1_B16_FC16",
+   "family": "proposed",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 382276,
+     "seconds": 5.8
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 382344,
+     "seconds": 5.9
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2339,
+   "bin": 382344,
+   "feature_cost": 25420,
+   "c_sha256": "0acaa4c7fc79391140ff9911284151e81ae507c0065893ce52a2bb0f39bc21a0",
+   "elf_sha256": "561d0de3cf9c80560322028346452b31de74942b14bbcfa16d330ce2fc5dd458",
+   "facts": {
+    "alloc_progbits_bytes": 382336,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287240,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287432
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287440
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287656
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287976
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288232
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288236
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288240
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288288
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288436
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288484
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288516
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288576
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288624
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288636
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289172
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289188
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289204
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289252
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289300
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290520
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290540
+     },
+     "rodata": {
+      "size": 86496,
+      "nobits": false,
+      "addr": 290544
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 382252
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 382268
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 382340
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289188,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 512,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289200,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216421,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 516,
+     "ro": 24890,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 25406,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 3175,
+    "addr_directory": 735,
+    "addr_stream": 2440,
+    "name_checkpoints": 282,
+    "dictionary": 256,
+    "name_pool": 17668,
+    "ids": 3509,
+    "payload": 24890
+   },
+   "meta": {
+    "tokens": 128,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15320,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15320,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 31,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 27.4
+  },
+  "B2_B16_FC16": {
+   "arm": "B2_B16_FC16",
+   "family": "proposed",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 382100,
+     "seconds": 4.2
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 382156,
+     "seconds": 4.7
+    },
+    {
+     "it": 3,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 382156,
+     "seconds": 4.4
+    }
+   ],
+   "converged": true,
+   "iterations": 3,
+   "n_final": 2339,
+   "bin": 382156,
+   "feature_cost": 25232,
+   "c_sha256": "38e8f2ecc12f778854e97a8be3ffbaa9bfd30f5dda86c51db0ddeed0f337fb8d",
+   "elf_sha256": "84b2c89c1026591b409a43e8f529df8e11525f8aa9b319c8ef27341036f59d83",
+   "facts": {
+    "alloc_progbits_bytes": 382148,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287304,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287496
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287504
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287720
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 288040
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288296
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288300
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288304
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288352
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288500
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288548
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288580
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288640
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288688
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288700
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289236
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289252
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289268
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289316
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289364
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290584
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290604
+     },
+     "rodata": {
+      "size": 86244,
+      "nobits": false,
+      "addr": 290608
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 382064
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 382080
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 382152
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289252,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 576,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289264,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216485,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 580,
+     "ro": 24637,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 25217,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 2922,
+    "addr_directory": 735,
+    "addr_stream": 2187,
+    "name_checkpoints": 282,
+    "dictionary": 256,
+    "name_pool": 17668,
+    "ids": 3509,
+    "payload": 24637
+   },
+   "meta": {
+    "tokens": 128,
+    "blocks": 147
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15344,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15344,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": 0,
+   "worst_work": {
+    "asteps": 23,
+    "nrec": 15
+   },
+   "manifest_n": 2339,
+   "seconds": 30.1
+  },
+  "B1_B16_FSST": {
+   "arm": "B1_B16_FSST",
+   "family": "fsst",
+   "hist": [
+    {
+     "it": 1,
+     "n": 2339,
+     "manifest_equal_to_input": false,
+     "bin": 385116,
+     "seconds": 2.3
+    },
+    {
+     "it": 2,
+     "n": 2339,
+     "manifest_equal_to_input": true,
+     "bin": 384892,
+     "seconds": 1.5
+    }
+   ],
+   "converged": true,
+   "iterations": 2,
+   "n_final": 2339,
+   "bin": 384892,
+   "feature_cost": 27968,
+   "c_sha256": "fa4319bf9849382f6181280967c2e7d1692c3667f8584beb246512c31fefe7be",
+   "elf_sha256": "046962c2718d8e79e8643b1c1a02f76a797fdbcab863198f6ecf3e46e60f9b8a",
+   "facts": {
+    "alloc_progbits_bytes": 384880,
+    "sections": {
+     "rom_start": {
+      "size": 192,
+      "nobits": false,
+      "addr": 0
+     },
+     "text": {
+      "size": 287228,
+      "nobits": false,
+      "addr": 192
+     },
+     ".ARM.exidx": {
+      "size": 8,
+      "nobits": false,
+      "addr": 287420
+     },
+     "initlevel": {
+      "size": 216,
+      "nobits": false,
+      "addr": 287428
+     },
+     "device_area": {
+      "size": 320,
+      "nobits": false,
+      "addr": 287644
+     },
+     "sw_isr_table": {
+      "size": 256,
+      "nobits": false,
+      "addr": 287964
+     },
+     "k_kernel_init_pre_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288220
+     },
+     "k_kernel_init_post_entry_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 288224
+     },
+     "_static_thread_data_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288232
+     },
+     "device_api_area": {
+      "size": 148,
+      "nobits": false,
+      "addr": 288280
+     },
+     "net_l3_register_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288428
+     },
+     "net_socket_register_area": {
+      "size": 32,
+      "nobits": false,
+      "addr": 288476
+     },
+     "http_service_desc_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 288508
+     },
+     "net_mgmt_event_static_handler_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 288568
+     },
+     "net_socket_service_desc_area": {
+      "size": 12,
+      "nobits": false,
+      "addr": 288616
+     },
+     "log_const_area": {
+      "size": 536,
+      "nobits": false,
+      "addr": 288628
+     },
+     "log_backend_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289164
+     },
+     "symtab": {
+      "size": 16,
+      "nobits": false,
+      "addr": 289180
+     },
+     "shell_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289196
+     },
+     "shell_root_cmds_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 289244
+     },
+     "shell_subcmds_area": {
+      "size": 1220,
+      "nobits": false,
+      "addr": 289292
+     },
+     "shell_dynamic_subcmds_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 290512
+     },
+     "tbss": {
+      "size": 8,
+      "nobits": true,
+      "addr": 290532
+     },
+     "rodata": {
+      "size": 89052,
+      "nobits": false,
+      "addr": 290536
+     },
+     "datas": {
+      "size": 3650,
+      "nobits": false,
+      "addr": 536870912
+     },
+     "device_states": {
+      "size": 22,
+      "nobits": false,
+      "addr": 536874562
+     },
+     "log_mpsc_pbuf_area": {
+      "size": 68,
+      "nobits": false,
+      "addr": 536874584
+     },
+     "log_msg_ptr_area": {
+      "size": 4,
+      "nobits": false,
+      "addr": 536874652
+     },
+     "log_dynamic_area": {
+      "size": 268,
+      "nobits": false,
+      "addr": 536874656
+     },
+     "k_mem_slab_area": {
+      "size": 128,
+      "nobits": false,
+      "addr": 536874924
+     },
+     "k_heap_area": {
+      "size": 48,
+      "nobits": false,
+      "addr": 536875052
+     },
+     "k_mutex_area": {
+      "size": 340,
+      "nobits": false,
+      "addr": 536875100
+     },
+     "k_msgq_area": {
+      "size": 104,
+      "nobits": false,
+      "addr": 536875440
+     },
+     "k_sem_area": {
+      "size": 216,
+      "nobits": false,
+      "addr": 536875544
+     },
+     "k_condvar_area": {
+      "size": 8,
+      "nobits": false,
+      "addr": 536875760
+     },
+     "net_buf_pool_area": {
+      "size": 240,
+      "nobits": false,
+      "addr": 536875768
+     },
+     "net_l2_area": {
+      "size": 20,
+      "nobits": false,
+      "addr": 536876008
+     },
+     "prometheus_counter_area": {
+      "size": 56,
+      "nobits": false,
+      "addr": 536876032
+     },
+     "prometheus_collector_area": {
+      "size": 40,
+      "nobits": false,
+      "addr": 536876088
+     },
+     "http_resource_desc_test_http_service_area": {
+      "size": 16,
+      "nobits": false,
+      "addr": 384800
+     },
+     "http_content_type_area": {
+      "size": 72,
+      "nobits": false,
+      "addr": 384816
+     },
+     ".last_section": {
+      "size": 4,
+      "nobits": false,
+      "addr": 384888
+     },
+     "bss": {
+      "size": 104708,
+      "nobits": true,
+      "addr": 536876128
+     },
+     "noinit": {
+      "size": 94768,
+      "nobits": true,
+      "addr": 536980840
+     }
+    },
+    "symbols": {
+     "z_symtab": {
+      "size": 12,
+      "addr": 289180,
+      "type": "OBJECT"
+     },
+     "lookup_symbol": {
+      "size": 500,
+      "addr": 1425,
+      "type": "FUNC"
+     },
+     "z_symtab_entries": {
+      "size": 4,
+      "addr": 289192,
+      "type": "OBJECT"
+     },
+     "zephyr_fault_symbol_logger": {
+      "size": 4,
+      "addr": 216409,
+      "type": "FUNC"
+     }
+    }
+   },
+   "obj": [
+    {
+     "text": 504,
+     "ro": 27446,
+     "data": 0,
+     "bss": 0
+    }
+   ],
+   "mechanism_obj_bytes": 27950,
+   "check_stub_only": true,
+   "payload": {
+    "address_index": 3175,
+    "addr_directory": 735,
+    "addr_stream": 2440,
+    "name_checkpoints": 294,
+    "dictionary": 1032,
+    "name_pool": 22945,
+    "ids": 0,
+    "payload": 27446
+   },
+   "meta": {
+    "fsst_symbols": 255,
+    "fsst_table_bytes": 1032,
+    "alt": {
+     "ref_layout": 2296,
+     "offset16": 1542
+    }
+   },
+   "host_check": {
+    "256": {
+     "mismatches": 0,
+     "queries": 15329,
+     "contract": "full"
+    },
+    "12": {
+     "mismatches": 0,
+     "queries": 15329,
+     "contract": "full"
+    }
+   },
+   "py_ref_mismatches": null,
+   "manifest_n": 2339,
+   "seconds": 12.7
+  }
+ },
+ "started": "2026-10-12 00:58:35",
+ "tool_versions": {
+  "cc": "arm-zephyr-eabi-gcc (Zephyr SDK 1.0.1) 14.3.0",
+  "python": "3.14.7"
+ },
+ "finished": "2026-10-12 01:07:51"
+}

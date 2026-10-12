@@ -1,0 +1,3 @@
+e638d4cf8c26129d73c242a4127b42b975de5b63
+repo https://github.com/cwida/fsst.git; license MIT; built g++ 16.2.1 -O2 -std=c++17 without AVX512
+build: g++ 16.2.1 -O2 -std=c++17 libfsst.cpp fsst_avx512.cpp (AVX512 path compiled out/not used; scalar encoder)

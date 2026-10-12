@@ -1,0 +1,8 @@
+events=2605813 enter=189053 exit=189041 declare=703727 use=1523992
+uniqueSet alone: n=228739 heap=20207240
+HIST_EC bare       final=21534528 peak=31352472 uniq=0 scopes_open_at_end=12 max_depth=21
+HIST_EC +uniqueSet final=41742440 peak=51203560 uniq=228739 scopes_open_at_end=12 max_depth=21
+CAP_EC  bare       final=1651544 peak=4229024 uniq=0 scopes_open_at_end=12 max_depth=21
+CAP_EC  +uniqueSet final=21918320 peak=22364008 uniq=228739 scopes_open_at_end=12 max_depth=21
+METIS_X bare       final=4729136 peak=7664008 uniq=0 scopes_open_at_end=12 max_depth=21
+METIS_X +uniqueSet final=24952328 peak=25067048 uniq=228739 scopes_open_at_end=12 max_depth=21
